@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Selbstmanagement Lern-App</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#f0f1f5;--nav:#1a2332;--card:#ffffff;--text:#1a2332;--text2:#64748b;--accent:#3b82f6;--green:#059669;--red:#dc2626;--border:#e2e8f0;--card-shadow:0 1px 3px rgba(0,0,0,0.08);--input-bg:#f8fafc;--hover:#f1f5f9}
+.dark{--bg:#0f172a;--nav:#0b1120;--card:#1e293b;--text:#e2e8f0;--text2:#94a3b8;--accent:#60a5fa;--green:#34d399;--red:#f87171;--border:#334155;--card-shadow:0 1px 3px rgba(0,0,0,0.3);--input-bg:#0f172a;--hover:#334155}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;transition:background .3s,color .3s}
+input,select,button,textarea{font-family:'Inter',sans-serif}
+.nav{background:linear-gradient(165deg, #0a0c10 0%, #141820 40%, #1a2332 70%, #0d1018 100%);padding:12px 20px;position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 12px rgba(0,0,0,.15);flex-wrap:wrap;gap:8px}
+.nav-title{color:#fff;font-size:1.25rem;font-weight:700}
+.nav-sub{color:#94a3b8;font-size:.8rem;margin-top:2px}
+.nav-right{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.nav-btn,.btn-back{background:rgba(255,255,255,.1);border:none;color:#fff;padding:8px 12px;border-radius:8px;cursor:pointer;font-size:.85rem;display:flex;align-items:center;gap:6px;transition:background .2s}
+.nav-btn:hover,.btn-back:hover{background:rgba(255,255,255,.2)}
+.container{max-width:900px;margin:0 auto;padding:24px 16px 80px}
+.chapter-card{background:var(--card);border-radius:16px;box-shadow:var(--card-shadow);margin-bottom:16px;overflow:hidden;border:1px solid var(--border);transition:background .3s,border .3s}
+.chapter-header{padding:20px 24px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;user-select:none}
+.chapter-header:hover{background:var(--hover)}
+.ch-info{flex:1}
+.ch-num{font-size:.75rem;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
+.ch-title{font-size:1.1rem;font-weight:700;margin-bottom:8px}
+.ch-meta{font-size:.8rem;color:var(--text2)}
+.progress-bar{height:4px;background:var(--border);border-radius:2px;margin-top:10px;overflow:hidden;max-width:300px}
+.progress-fill{height:100%;background:var(--accent);border-radius:2px;transition:width .5s ease}
+.ch-arrow{font-size:1.2rem;color:var(--text2);transition:transform .3s;margin-left:16px}
+.ch-arrow.open{transform:rotate(180deg)}
+.exercise-list{padding:0 16px 16px}
+.ex-card{background:var(--card);border:1px solid var(--border);border-radius:12px;margin-bottom:12px;overflow:hidden;transition:background .3s,border .3s;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.ex-header{padding:16px 20px;cursor:pointer;display:flex;align-items:center;justify-content:space-between}
+.ex-header:hover{background:var(--hover)}
+.ex-num{background:var(--accent);color:#fff;width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;flex-shrink:0;margin-right:14px}
+.ex-num.done{background:var(--green)}
+.ex-title-wrap{flex:1}
+.ex-title{font-weight:600;font-size:.95rem}
+.ex-type{font-size:.75rem;color:var(--text2);margin-top:2px}
+.ex-body{padding:0 20px 20px}
+.ex-instruction{font-size:.85rem;color:var(--text2);margin-bottom:16px;line-height:1.5;font-style:italic}
+.blank-text{font-size:.9rem;line-height:2.2;margin-bottom:12px}
+.blank-input{border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-size:.85rem;width:140px;background:var(--input-bg);color:var(--text);outline:none;transition:border .2s}
+.blank-input:focus{border-color:var(--accent)}
+.blank-input.correct{border-color:var(--green);background:rgba(5,150,105,.08)}
+.blank-input.wrong{border-color:var(--red);background:rgba(220,38,38,.08)}
+.tf-row{padding:12px 0;border-bottom:1px solid var(--border);display:flex;flex-direction:column;gap:8px}
+.tf-row:last-child{border-bottom:none}
+.tf-statement{font-size:.9rem;line-height:1.5}
+.tf-buttons{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.tf-btn{padding:6px 16px;border-radius:6px;border:1px solid var(--border);background:var(--input-bg);color:var(--text);cursor:pointer;font-size:.85rem;font-weight:500;transition:all .2s}
+.tf-btn:hover{border-color:var(--accent)}
+.tf-btn.selected{background:var(--accent);color:#fff;border-color:var(--accent)}
+.tf-btn.correct-sel{background:var(--green);color:#fff;border-color:var(--green)}
+.tf-btn.wrong-sel{background:var(--red);color:#fff;border-color:var(--red)}
+.tf-btn.correct-unsel{border-color:var(--green);color:var(--green)}
+.feedback{font-size:.8rem;margin-top:4px;padding:6px 10px;border-radius:6px;line-height:1.4}
+.feedback.ok{background:rgba(5,150,105,.1);color:var(--green)}
+.feedback.nok{background:rgba(220,38,38,.1);color:var(--red)}
+.match-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border);flex-wrap:wrap}
+.match-row:last-child{border-bottom:none}
+.match-label{flex:1;font-size:.9rem;min-width:200px}
+.match-select{border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:.85rem;background:var(--input-bg);color:var(--text);min-width:200px;cursor:pointer}
+.match-select.correct{border-color:var(--green);background:rgba(5,150,105,.08)}
+.match-select.wrong{border-color:var(--red);background:rgba(220,38,38,.08)}
+.calc-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border);flex-wrap:wrap}
+.calc-row:last-child{border-bottom:none}
+.calc-label{font-size:.9rem;min-width:120px}
+.calc-val{font-size:.9rem;font-weight:500;min-width:80px}
+.calc-input{border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:.85rem;width:120px;background:var(--input-bg);color:var(--text);text-align:right}
+.calc-input.correct{border-color:var(--green);background:rgba(5,150,105,.08)}
+.calc-input.wrong{border-color:var(--red);background:rgba(220,38,38,.08)}
+.check-table{width:100%;border-collapse:collapse;font-size:.85rem}
+.check-table th{padding:8px 6px;text-align:center;background:var(--hover);font-weight:600;font-size:.8rem;border:1px solid var(--border)}
+.check-table td{padding:8px 6px;border:1px solid var(--border);text-align:center}
+.check-table td:first-child{text-align:left;min-width:200px}
+.check-table input[type=radio],.check-table input[type=checkbox]{cursor:pointer;width:16px;height:16px;accent-color:var(--accent)}
+.check-table tr.correct-row{background:rgba(5,150,105,.06)}
+.check-table tr.wrong-row{background:rgba(220,38,38,.06)}
+.btn-row{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
+.btn{padding:10px 20px;border-radius:9px;border:none;font-size:.9rem;font-weight:600;cursor:pointer;transition:all .12s ease;display:flex;align-items:center;gap:6px}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:#2563eb}
+.btn-secondary{background:var(--input-bg);color:var(--text);border:1px solid var(--border)}
+.btn-secondary:hover{background:var(--hover)}
+.btn-reset{background:var(--red);color:#fff}
+.btn-reset:hover{opacity:.9}
+.solution-box{background:rgba(5,150,105,.06);border:1px solid var(--green);border-radius:8px;padding:16px;margin-top:12px;font-size:.85rem;line-height:1.6}
+.solution-box strong{color:var(--green)}
+.text-input{border:1px solid var(--border);border-radius:6px;padding:8px 12px;font-size:.85rem;width:100%;background:var(--input-bg);color:var(--text);margin-top:4px}
+.text-input.correct{border-color:var(--green);background:rgba(5,150,105,.08)}
+.text-input.wrong{border-color:var(--red);background:rgba(220,38,38,.08)}
+.text-q{margin-bottom:16px}
+.text-q p{font-size:.9rem;line-height:1.5;margin-bottom:6px}
+.score-badge{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:12px;font-size:.8rem;font-weight:600}
+.score-badge.good{background:rgba(5,150,105,.1);color:var(--green)}
+.score-badge.bad{background:rgba(220,38,38,.1);color:var(--red)}
+.timer-display{color:#fff;font-size:.9rem;font-weight:500;font-variant-numeric:tabular-nums}
+.footer{text-align:center;padding:24px;font-size:.8rem;color:var(--text2)}
+/* ---- Mode Tabs (3-Modi) ---- */
+.mode-tabs{display:flex;gap:6px;padding:12px 16px;background:var(--card);border-bottom:1px solid var(--border)}
+.mode-tab{padding:10px 20px;border-radius:999px;border:2px solid var(--border);background:var(--input-bg);color:var(--text2);font-size:.85rem;font-weight:600;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:6px}
+.mode-tab:hover{border-color:var(--accent);color:var(--text)}
+.mode-tab.active-learn{border-color:#8b5cf6;background:rgba(139,92,246,.1);color:#8b5cf6}
+.mode-tab.active-ueben{border-color:var(--accent);background:rgba(59,130,246,.1);color:var(--accent)}
+.mode-tab.active-pruefung{border-color:#f59e0b;background:rgba(245,158,11,.1);color:#f59e0b}
+.mode-tab-icon{font-size:1rem}
+/* ---- Exam Mode Styles ---- */
+.exam-container{padding:16px 20px 24px}
+.exam-header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:20px;padding:16px 20px;background:var(--card);border:1px solid var(--border);border-radius:14px;box-shadow:var(--card-shadow)}
+.exam-timer{font-size:1.4rem;font-weight:800;font-variant-numeric:tabular-nums;color:var(--text);display:flex;align-items:center;gap:8px}
+.exam-timer-icon{font-size:1.2rem}
+.exam-timer.warning{color:var(--red);animation:timerPulse 1s infinite}
+@keyframes timerPulse{0%,100%{opacity:1}50%{opacity:.6}}
+.exam-progress-text{font-size:.85rem;color:var(--text2);font-weight:500}
+.exam-submit-btn{padding:12px 28px;border-radius:10px;border:none;font-size:.95rem;font-weight:700;cursor:pointer;background:#f59e0b;color:#fff;transition:all .15s;display:flex;align-items:center;gap:8px}
+.exam-submit-btn:hover{opacity:.9}
+.exam-submit-btn:active{transform:scale(.97)}
+.exam-ex-card{background:var(--card);border:1px solid var(--border);border-radius:12px;margin-bottom:16px;padding:20px;box-shadow:var(--card-shadow)}
+.exam-ex-num{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:#f59e0b;color:#fff;font-weight:700;font-size:.85rem;margin-right:12px;flex-shrink:0}
+.exam-ex-title{font-weight:700;font-size:.95rem;display:flex;align-items:center;margin-bottom:12px}
+/* ---- Score Screen ---- */
+.score-screen{padding:24px 20px;text-align:center}
+.score-circle{width:160px;height:160px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto 24px;border:6px solid;font-weight:800}
+.score-circle.pass{border-color:var(--green);background:rgba(5,150,105,.06);color:var(--green)}
+.score-circle.fail{border-color:var(--red);background:rgba(220,38,38,.06);color:var(--red)}
+.score-pct{font-size:2.4rem;line-height:1}
+.score-label{font-size:.85rem;font-weight:600;margin-top:4px}
+.score-status{font-size:1.3rem;font-weight:800;margin-bottom:8px}
+.score-status.pass{color:var(--green)}
+.score-status.fail{color:var(--red)}
+.score-detail{font-size:.95rem;color:var(--text2);margin-bottom:24px}
+.score-best{font-size:.82rem;color:var(--text2);margin-bottom:20px;padding:10px 16px;background:var(--input-bg);border-radius:10px;display:inline-block}
+.score-results{text-align:left;margin:0 auto;max-width:600px}
+.score-result-row{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--border);font-size:.88rem}
+.score-result-row:last-child{border-bottom:none}
+.score-result-icon{font-size:1.1rem;flex-shrink:0}
+.score-result-title{flex:1;color:var(--text)}
+.score-actions{display:flex;gap:12px;justify-content:center;margin-top:24px;flex-wrap:wrap}
+.score-actions .btn{min-width:140px;justify-content:center}
+/* ---- Learn placeholder ---- */
+.learn-placeholder{padding:40px 24px;text-align:center;color:var(--text2)}
+.learn-placeholder-icon{font-size:2.5rem;margin-bottom:12px}
+.learn-placeholder-text{font-size:.95rem;font-weight:500;margin-bottom:16px}
+.learn-objectives{text-align:left;max-width:500px;margin:0 auto}
+.learn-objectives li{padding:8px 14px;font-size:.88rem;line-height:1.5;color:var(--text);background:rgba(139,92,246,.04);border-left:3px solid #8b5cf6;margin-bottom:6px;border-radius:0 8px 8px 0}
+/* ---- Chapter best score badge ---- */
+.ch-exam-badge{display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:8px;font-size:.72rem;font-weight:600;margin-left:8px}
+.ch-exam-badge.pass{background:rgba(5,150,105,.1);color:var(--green)}
+.ch-exam-badge.fail{background:rgba(220,38,38,.1);color:var(--red)}
+.mc-option{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--border);border-radius:8px;margin-bottom:8px;cursor:pointer;transition:all .15s;font-size:.9rem}
+.mc-option:hover{border-color:var(--accent);background:var(--hover)}
+.mc-option.selected{border-color:var(--accent);background:rgba(59,130,246,.08)}
+.mc-option.correct-sel{border-color:var(--green);background:rgba(5,150,105,.08)}
+.mc-option.wrong-sel{border-color:var(--red);background:rgba(220,38,38,.08)}
+.mc-option.correct-unsel{border-color:var(--green)}
+.mc-radio{width:18px;height:18px;border-radius:50%;border:2px solid var(--border);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .15s}
+.mc-option.selected .mc-radio{border-color:var(--accent);background:var(--accent)}
+.mc-option.selected .mc-radio::after{content:'';width:8px;height:8px;border-radius:50%;background:#fff}
+.sub-q{margin-top:16px;padding-top:12px;border-top:1px solid var(--border)}
+.sub-q label{font-size:.85rem;font-weight:500;display:block;margin-bottom:4px}
+@keyframes slideUp{from{transform:translateY(100%);opacity:0}to{transform:translateY(0);opacity:1}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.panel-overlay{position:fixed;bottom:16px;z-index:900;background:var(--card);border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,.2);border:1px solid var(--border);display:flex;flex-direction:column;animation:fadeUp .2s ease}
+.panel-header{padding:12px 16px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.panel-header b{color:var(--text);font-size:.9rem}
+.panel-close{background:var(--hover);border:none;width:28px;height:28px;border-radius:7px;font-size:13px;cursor:pointer;color:var(--text2);display:flex;align-items:center;justify-content:center}
+.panel-close:hover{background:var(--border)}
+.calc-panel{right:16px;width:300px;max-height:480px}
+.calc-display{padding:12px 16px;text-align:right;font-size:1.6rem;font-weight:800;color:var(--text);font-variant-numeric:tabular-nums;border-bottom:1px solid var(--border);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.calc-prev{padding:4px 16px;text-align:right;font-size:.75rem;color:var(--text2);font-variant-numeric:tabular-nums;height:22px}
+.calc-history{padding:6px 12px;max-height:50px;overflow-y:auto;border-bottom:1px solid var(--border)}
+.calc-history-item{font-size:.7rem;color:var(--text2);font-variant-numeric:tabular-nums;line-height:1.4}
+.calc-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:6px;padding:8px 12px 14px}
+.calc-btn{border:none;border-radius:10px;font-size:1.1rem;font-weight:600;height:46px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-variant-numeric:tabular-nums;transition:all .12s}
+.calc-btn:active{transform:scale(.95)}
+.calc-btn-num{background:var(--card);color:var(--text);border:1px solid var(--border)}
+.calc-btn-num:hover{background:var(--hover)}
+.calc-btn-op{background:rgba(26,35,50,.06);color:var(--nav);font-weight:700}
+.dark .calc-btn-op{background:rgba(255,255,255,.08);color:var(--text)}
+.calc-btn-op:hover{background:rgba(26,35,50,.12)}
+.calc-btn-eq{background:var(--nav);color:#fff;font-weight:700}
+.dark .calc-btn-eq{background:var(--accent);color:#fff}
+.calc-btn-eq:hover{opacity:.9}
+.calc-btn-fn{background:rgba(59,130,246,.08);color:var(--accent);font-weight:700}
+.calc-btn-fn:hover{background:rgba(59,130,246,.15)}
+.calc-btn-span2{grid-column:span 2}
+.notes-panel{left:50%;transform:translateX(-50%);width:380px;max-height:420px}
+.notes-body{flex:1;padding:8px 12px 12px}
+.notes-body textarea{width:100%;height:100%;min-height:260px;padding:10px 12px;border-radius:10px;border:1px solid var(--border);background:var(--input-bg);color:var(--text);font-size:.85rem;line-height:1.6;font-family:'Inter',sans-serif;resize:none;box-sizing:border-box;outline:none}
+.notes-body textarea:focus{border-color:var(--accent)}
+.notes-meta{font-size:.7rem;color:var(--text2)}
+.glossary-panel{left:16px;width:320px;max-height:420px}
+.glossary-search{padding:6px 12px 0}
+.glossary-search input{width:100%;padding:7px 10px;border-radius:7px;border:1px solid var(--border);background:var(--input-bg);color:var(--text);font-size:.8rem;box-sizing:border-box;outline:none}
+.glossary-search input:focus{border-color:var(--accent)}
+.glossary-list{padding:6px 12px 12px;flex:1;overflow-y:auto}
+.glossary-item{padding:6px 8px;margin-bottom:4px;border-radius:6px;background:var(--input-bg);border-left:3px solid var(--nav)}
+.dark .glossary-item{border-left-color:var(--accent)}
+.glossary-item-title{color:var(--nav);font-weight:700;font-size:.75rem}
+.dark .glossary-item-title{color:var(--accent)}
+.glossary-item-desc{color:var(--text2);font-size:.7rem;line-height:1.4}
+.tool-bar{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto}
+.tool-btn{padding:6px 12px;border-radius:8px;border:1.5px solid rgba(255,255,255,.2);background:rgba(255,255,255,.07);color:#fff;font-size:.75rem;font-weight:600;cursor:pointer;transition:all .15s;white-space:nowrap}
+.tool-btn:hover{background:rgba(255,255,255,.15)}
+.tool-btn.active{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.4)}
+.tip-box{background:rgba(59,130,246,.06);border:1px solid rgba(59,130,246,.2);border-radius:8px;padding:12px 16px;margin-bottom:16px}
+.tip-toggle{font-size:.85rem;font-weight:600;color:var(--accent);cursor:pointer;display:flex;align-items:center;gap:6px}
+.tip-content{margin-top:8px;font-size:.82rem;color:var(--text2);line-height:1.6}
+.tip-content li{margin-bottom:4px}
+.reveal-box{background:rgba(5,150,105,.04);border:1px solid rgba(5,150,105,.2);border-radius:8px;padding:12px 16px;margin-top:12px}
+.reveal-toggle{font-size:.85rem;font-weight:600;color:var(--green);cursor:pointer;display:flex;align-items:center;gap:6px}
+.reveal-content{margin-top:8px;font-size:.82rem;color:var(--text);line-height:1.6}
+.reveal-step{padding:8px 0;border-bottom:1px solid var(--border)}
+.reveal-step:last-child{border-bottom:none}
+/* ---- Learning Mode Styles ---- */
+.chapter-tabs{display:flex;gap:0;margin-bottom:0;border-bottom:2px solid var(--border);background:var(--card);padding:0 16px}
+.chapter-tab{padding:14px 24px;font-size:.9rem;font-weight:600;cursor:pointer;border:none;background:none;color:var(--text2);position:relative;transition:color .2s;display:flex;align-items:center;gap:8px}
+.chapter-tab:hover{color:var(--text)}
+.chapter-tab.active{color:var(--accent)}
+.chapter-tab.active::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:2px;background:var(--accent);border-radius:2px 2px 0 0}
+.chapter-tab-icon{font-size:1.1rem}
+.learn-container{padding:16px 20px 24px}
+.learn-section{background:var(--card);border:1px solid var(--border);border-radius:14px;margin-bottom:20px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.04);transition:background .3s,border .3s}
+.learn-section-header{padding:18px 22px 14px;display:flex;align-items:center;gap:12px}
+.learn-section-icon{font-size:1.3rem;flex-shrink:0}
+.learn-section-title{font-size:1.05rem;font-weight:700;color:var(--text)}
+.learn-section-body{padding:0 22px 20px}
+.learn-intro{border-top:3px solid var(--accent)}
+.learn-intro .learn-intro-text{font-size:.88rem;color:var(--text2);line-height:1.6;margin-bottom:12px}
+.learn-intro .learn-intro-list{list-style:none;padding:0}
+.learn-intro .learn-intro-list li{padding:8px 14px;font-size:.88rem;line-height:1.5;color:var(--text);background:rgba(59,130,246,.04);border-left:3px solid var(--accent);margin-bottom:6px;border-radius:0 8px 8px 0}
+.learn-concept{border-top:3px solid #8b5cf6}
+.learn-concept .learn-concept-text{font-size:.88rem;line-height:1.7;color:var(--text);margin-bottom:12px}
+.learn-highlight{background:linear-gradient(135deg,rgba(245,158,11,.08),rgba(245,158,11,.04));border:1px solid rgba(245,158,11,.25);border-radius:10px;padding:14px 18px;font-size:.88rem;line-height:1.6;color:var(--text);font-weight:500;position:relative}
+.learn-highlight::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:#f59e0b;border-radius:4px 0 0 4px}
+.learn-table-wrap{overflow-x:auto}
+.learn-table{width:100%;border-collapse:separate;border-spacing:0;font-size:.85rem;border-radius:10px;overflow:hidden;border:1px solid var(--border)}
+.learn-table thead th{background:var(--nav);color:#fff;padding:10px 14px;font-weight:600;font-size:.8rem;text-transform:uppercase;letter-spacing:.3px;text-align:left}
+.dark .learn-table thead th{background:rgba(59,130,246,.2);color:var(--accent)}
+.learn-table tbody td{padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text);vertical-align:top}
+.learn-table tbody tr:last-child td{border-bottom:none}
+.learn-table tbody tr:nth-child(even){background:var(--hover)}
+.learn-table .table-label{font-weight:600;color:var(--accent);min-width:160px}
+.learn-terms-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.learn-term-card{background:var(--input-bg);border:1px solid var(--border);border-radius:10px;padding:14px 16px;transition:all .15s}
+.learn-term-card:hover{border-color:var(--accent);box-shadow:0 2px 8px rgba(59,130,246,.1)}
+.learn-term-name{font-weight:700;font-size:.88rem;color:var(--nav);margin-bottom:4px}
+.dark .learn-term-name{color:var(--accent)}
+.learn-term-def{font-size:.82rem;color:var(--text2);line-height:1.5}
+.learn-merke{border-top:3px solid #f59e0b}
+.learn-merke .learn-merke-list{list-style:none;padding:0}
+.learn-merke .learn-merke-list li{padding:10px 14px;font-size:.88rem;line-height:1.5;color:var(--text);background:linear-gradient(135deg,rgba(245,158,11,.06),rgba(245,158,11,.02));border-left:3px solid #f59e0b;margin-bottom:8px;border-radius:0 8px 8px 0;font-weight:500}
+.learn-summary{border-top:3px solid var(--green)}
+.learn-summary .learn-summary-text{font-size:.88rem;line-height:1.7;color:var(--text)}
+.learn-summary .learn-summary-text p{margin-bottom:10px}
+.learn-summary .learn-summary-text strong{color:var(--green)}
+.learn-complete-bar{padding:20px 22px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.learn-complete-btn{padding:12px 28px;border-radius:10px;border:none;font-size:.9rem;font-weight:700;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:8px}
+.learn-complete-btn.ready{background:var(--green);color:#fff}
+.learn-complete-btn.ready:hover{opacity:.9}
+.learn-complete-btn.done{background:rgba(5,150,105,.1);color:var(--green);cursor:default}
+.learn-progress-text{font-size:.82rem;color:var(--text2)}
+@media(max-width:640px){
+  .panel-overlay{bottom:0;border-radius:16px 16px 0 0;left:0!important;right:0!important;width:100%!important;transform:none!important;animation:slideUp .2s ease}
+  .calc-panel{right:0;max-height:70vh}
+  .notes-panel{max-height:60vh}
+  .notes-body textarea{min-height:180px}
+  .glossary-panel{max-height:50vh}
+  .match-row{flex-direction:column;align-items:flex-start;gap:6px}
+  .calc-row{flex-direction:column;align-items:flex-start;gap:4px}
+  .nav{padding:12px 16px}
+  .nav-title{font-size:1.05rem}
+  .container{padding:16px 10px 60px}
+  .check-table{font-size:.75rem;display:block;overflow-x:auto}
+  .chapter-tabs{padding:0 12px}
+  .chapter-tab{padding:12px 16px;font-size:.82rem}
+  .learn-container{padding:12px 14px 20px}
+  .learn-section-body{padding:0 16px 16px}
+  .learn-section-header{padding:14px 16px 10px}
+  .learn-terms-grid{grid-template-columns:1fr}
+  .mode-tabs{padding:8px 10px;gap:4px}
+  .mode-tab{padding:8px 14px;font-size:.78rem}
+  .exam-header{padding:12px 14px;flex-direction:column;align-items:stretch;text-align:center}
+  .exam-timer{justify-content:center;font-size:1.2rem}
+  .exam-submit-btn{justify-content:center;width:100%}
+  .exam-ex-card{padding:14px}
+  .score-circle{width:130px;height:130px}
+  .score-pct{font-size:2rem}
+}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+var e = React.createElement;
+var useState = React.useState, useEffect = React.useEffect, useRef = React.useRef, useCallback = React.useCallback, useMemo = React.useMemo;
+
+// ---- Data ----
+var chapters = [
+  {id:1, teil:'A', title:'Information und Netzwerkarbeit', exercises:[1,2,3,4,5,6]},
+  {id:2, teil:'A', title:'Basiskompetenzen in der Kommunikation', exercises:[7,8,9,10,11]},
+  {id:3, teil:'A', title:'Kommunikationstechniken einsetzen', exercises:[12,13,14,15,16]},
+  {id:4, teil:'A', title:'Schriftliche Kommunikation', exercises:[17,18,19,20,21,22]},
+  {id:5, teil:'A', title:'Muendliche Kommunikation', exercises:[23,24,25,26,27,28,29]},
+  {id:6, teil:'A', title:'Interkulturelle Zusammenarbeit', exercises:[30,31,32,33]},
+  {id:7, teil:'A', title:'Praesentation', exercises:[34,35,36,37]},
+  {id:8, teil:'A', title:'Gruppendynamik und Gruppenrollen', exercises:[38,39,40,41,42]},
+  {id:9, teil:'A', title:'Moderation von Workshops und Sitzungen', exercises:[43,44,45,46,47,48]},
+  {id:10, teil:'B', title:'Methoden und Instrumente', exercises:[49,50,51,52]},
+  {id:11, teil:'B', title:'Zeitplanung', exercises:[53,54,55,56,57,58]},
+  {id:12, teil:'B', title:'Prioritaeten setzen', exercises:[59,60,61,62,63,64,65]},
+  {id:13, teil:'B', title:'Zeitplanung realisieren', exercises:[66,67,68,69,70,71,72,73]},
+  {id:14, teil:'B', title:'Eigene Kompetenzentwicklung', exercises:[74,75,76,77,78,79]},
+  {id:15, teil:'B', title:'Strukturierte Problemloesung', exercises:[80,81,82,83,84,85,86]}
+];
+
+var TOTAL_EX = 86;
+
+// ---- Helpers ----
+function normalize(s){return (s||'').trim().toLowerCase().replace(/[ae]/g,'ae').replace(/[oe]/g,'oe').replace(/[ue]/g,'ue').replace(/[\u00e4]/g,'ae').replace(/[\u00f6]/g,'oe').replace(/[\u00fc]/g,'ue').replace(/[\u00df]/g,'ss').replace(/[^a-z0-9 ]/g,'').replace(/\s+/g,' ')}
+function matchAnswer(input, answers){
+  var n = normalize(input);
+  if(!n) return false;
+  if(typeof answers === 'string') return n === normalize(answers);
+  return answers.some(function(a){return n === normalize(a)});
+}
+function matchKeywords(input, keywords){
+  var n = (input||'').toLowerCase();
+  var found = 0;
+  keywords.forEach(function(k){if(n.indexOf(k.toLowerCase())>=0) found++});
+  return found;
+}
+function loadProgress(){try{return JSON.parse(localStorage.getItem('lp-progress-selbstmanagement'))||{}}catch(x){return{}}}
+function saveProgress(p){localStorage.setItem('lp-progress-selbstmanagement', JSON.stringify(p))}
+function loadExamScores(){try{return JSON.parse(localStorage.getItem('lp-exam-selbstmanagement'))||{}}catch(x){return{}}}
+function saveExamScores(s){localStorage.setItem('lp-exam-selbstmanagement', JSON.stringify(s))}
+function shuffleArray(arr){var a=arr.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t}return a}
+function selectExamExercises(exIds,minPct,maxPct){
+  minPct=minPct||0.6;maxPct=maxPct||0.8;
+  var count=Math.max(2,Math.round(exIds.length*(minPct+Math.random()*(maxPct-minPct))));
+  return shuffleArray(exIds).slice(0,count);
+}
+function formatCountdown(secs){var m=Math.floor(secs/60);var s=secs%60;return String(m).padStart(2,'0')+':'+String(s).padStart(2,'0')}
+
+// ---- Glossary Data ----
+var GLOSSAR = [
+  {t:'Selbstmanagement',d:'Die F\u00e4higkeit, die eigene berufliche und pers\u00f6nliche Entwicklung unabh\u00e4ngig von \u00e4usseren Einfl\u00fcssen zu gestalten.'},
+  {t:'Zeitmanagement',d:'Systematische Planung und bewusste Kontrolle der Zeit, um die Effizienz und Produktivit\u00e4t zu steigern.'},
+  {t:'Priorit\u00e4ten',d:'Rangfolge von Aufgaben nach Wichtigkeit und Dringlichkeit, um die begrenzte Zeit optimal einzusetzen.'},
+  {t:'Eisenhower-Matrix',d:'Priorisierungsmethode mit vier Quadranten: wichtig/dringend, wichtig/nicht dringend, unwichtig/dringend, unwichtig/nicht dringend.'},
+  {t:'Pareto-Prinzip',d:'80/20-Regel: Mit 20% des Aufwands werden 80% der Ergebnisse erzielt.'},
+  {t:'ALPEN-Methode',d:'Tagesplanungsmethode: Aufgaben notieren, L\u00e4nge sch\u00e4tzen, Pufferzeiten, Entscheidungen treffen, Nachkontrolle.'},
+  {t:'Delegation',d:'\u00dcbertragung von Aufgaben und Verantwortung an Mitarbeitende, um sich auf F\u00fchrungsaufgaben zu konzentrieren.'},
+  {t:'Stressmanagement',d:'Techniken und Strategien zur Bew\u00e4ltigung und Pr\u00e4vention von zeitbedingtem Stress.'},
+  {t:'Work-Life-Balance',d:'Ausgewogenes Verh\u00e4ltnis zwischen beruflichen Anforderungen und privatem Wohlbefinden.'},
+  {t:'Resilienz',d:'Psychische Widerstandskraft, um mit Belastungen und R\u00fcckschl\u00e4gen konstruktiv umzugehen.'},
+  {t:'Motivation',d:'Innerer Antrieb, der das Handeln einer Person auf ein Ziel hin ausrichtet und aufrechterh\u00e4lt.'},
+  {t:'Selbstmotivation',d:'F\u00e4higkeit, sich selbst zu motivieren, ohne auf \u00e4ussere Anreize angewiesen zu sein.'},
+  {t:'Prokrastination',d:'Aufschieben von unangenehmen oder als schwierig empfundenen Aufgaben.'},
+  {t:'Zielvereinbarung',d:'Verbindliche Abmachung \u00fcber zu erreichende Ziele zwischen Vorgesetzten und Mitarbeitenden.'},
+  {t:'SMART-Ziele',d:'Zielformulierung: Spezifisch, Messbar, Attraktiv, Realistisch, Terminiert.'},
+  {t:'Kommunikation',d:'Austauschprozess zwischen Sender und Empf\u00e4nger, verbal und nonverbal.'},
+  {t:'Aktives Zuh\u00f6ren',d:'Kommunikationstechnik, bei der der Zuh\u00f6rer sich auf den Gespr\u00e4chspartner konzentriert und R\u00fcckmeldung gibt.'},
+  {t:'Feedback',d:'R\u00fcckmeldung \u00fcber Verhalten oder Leistung, um Verbesserungen zu erm\u00f6glichen.'},
+  {t:'Konfliktmanagement',d:'Methoden zur konstruktiven L\u00f6sung von Meinungsverschiedenheiten und Interessenkonflikten.'},
+  {t:'Verhandlungsf\u00fchrung',d:'Strukturiertes Vorgehen in Verhandlungen, z.B. nach dem Harvard-Konzept.'},
+  {t:'Pr\u00e4sentationstechnik',d:'Methoden zur wirkungsvollen Darstellung von Inhalten vor einem Publikum.'},
+  {t:'Moderation',d:'Neutrale Gespr\u00e4chsf\u00fchrung in Sitzungen und Workshops zur Zielerreichung.'},
+  {t:'Kreativit\u00e4tstechniken',d:'Methoden zur systematischen Ideenfindung, z.B. Brainstorming, Mind-Mapping.'},
+  {t:'Brainstorming',d:'Kreativit\u00e4tstechnik zur Sammlung von Ideen in der Gruppe ohne Bewertung.'},
+  {t:'Mind-Mapping',d:'Visualisierungstechnik zur Strukturierung von Gedanken um ein zentrales Thema.'},
+  {t:'Entscheidungsfindung',d:'Systematischer Prozess zur Auswahl der besten Handlungsalternative.'},
+  {t:'Probleml\u00f6sung',d:'Strukturierter Prozess zur Analyse und Beseitigung von Problemen in sechs Phasen.'},
+  {t:'Teamarbeit',d:'Zusammenarbeit in einer Gruppe zur Erreichung gemeinsamer Ziele.'},
+  {t:'F\u00fchrungsstile',d:'Verschiedene Ans\u00e4tze der Mitarbeiterf\u00fchrung, z.B. autorit\u00e4r, kooperativ, laissez-faire.'},
+  {t:'Emotionale Intelligenz',d:'F\u00e4higkeit, eigene und fremde Gef\u00fchle wahrzunehmen, zu verstehen und zu beeinflussen.'}
+];
+
+// ---- Calculator Panel ----
+function CalcPanel(props){
+  var onClose=props.onClose;
+  var s=useState('0'),disp=s[0],setDisp=s[1];
+  var s2=useState(null),prev=s2[0],setPrev=s2[1];
+  var s3=useState(null),op=s3[0],setOp=s3[1];
+  var s4=useState(true),fresh=s4[0],setFresh=s4[1];
+  var s5=useState([]),hist=s5[0],setHist=s5[1];
+  function num(n){if(fresh){setDisp(String(n));setFresh(false)}else{setDisp(disp==='0'?String(n):disp+n)}}
+  function dec(){if(fresh){setDisp('0.');setFresh(false)}else if(disp.indexOf('.')===-1)setDisp(disp+'.')}
+  function oper(o){var cur=parseFloat(disp);if(prev!==null&&op&&!fresh){var r=calc(prev,cur,op);setDisp(String(Math.round(r*1e8)/1e8));setPrev(r);setHist(function(h){return h.concat([prev+' '+op+' '+cur+' = '+Math.round(r*1e8)/1e8])})}else{setPrev(cur)}setOp(o);setFresh(true)}
+  function calc(a,b,o){if(o==='+')return a+b;if(o==='\u2212')return a-b;if(o==='\u00d7')return a*b;if(o==='\u00f7')return b!==0?a/b:0;return b}
+  function eq(){if(prev===null||!op)return;var cur=parseFloat(disp);var r=calc(prev,cur,op);setHist(function(h){return h.concat([prev+' '+op+' '+cur+' = '+Math.round(r*1e8)/1e8])});setDisp(String(Math.round(r*1e8)/1e8));setPrev(null);setOp(null);setFresh(true)}
+  function cl(){setDisp('0');setPrev(null);setOp(null);setFresh(true)}
+  function pct(){setDisp(String(Math.round(parseFloat(disp)/100*1e8)/1e8))}
+  function sign(){setDisp(String(parseFloat(disp)*-1))}
+  function b(label,action,cls){return e('button',{className:'calc-btn '+cls,onClick:action},label)}
+  return e('div',{className:'panel-overlay calc-panel'},
+    e('div',{className:'panel-header'},e('b',null,'\ud83e\uddc2 Taschenrechner'),e('button',{className:'panel-close',onClick:onClose},'\u2715')),
+    hist.length>0?e('div',{className:'calc-history'},hist.slice(-3).map(function(h,i){return e('div',{key:i,className:'calc-history-item'},h)})):null,
+    e('div',{className:'calc-display'},disp),
+    e('div',{className:'calc-prev'},prev!==null&&op?(prev+' '+op):''),
+    e('div',{className:'calc-grid'},
+      b('AC',cl,'calc-btn-fn'),b('\u00b1',sign,'calc-btn-op'),b('%',pct,'calc-btn-op'),b('\u00f7',function(){oper('\u00f7')},'calc-btn-op'),
+      b('7',function(){num('7')},'calc-btn-num'),b('8',function(){num('8')},'calc-btn-num'),b('9',function(){num('9')},'calc-btn-num'),b('\u00d7',function(){oper('\u00d7')},'calc-btn-op'),
+      b('4',function(){num('4')},'calc-btn-num'),b('5',function(){num('5')},'calc-btn-num'),b('6',function(){num('6')},'calc-btn-num'),b('\u2212',function(){oper('\u2212')},'calc-btn-op'),
+      b('1',function(){num('1')},'calc-btn-num'),b('2',function(){num('2')},'calc-btn-num'),b('3',function(){num('3')},'calc-btn-num'),b('+',function(){oper('+')},'calc-btn-op'),
+      b('0',function(){num('0')},'calc-btn-num calc-btn-span2'),b('.',dec,'calc-btn-num'),b('=',eq,'calc-btn-eq')
+    )
+  );
+}
+
+// ---- Notes Panel ----
+function NotesPanel(props){
+  return e('div',{className:'panel-overlay notes-panel'},
+    e('div',{className:'panel-header'},
+      e('b',null,'\ud83d\udcdd Notizen'),
+      e('div',{style:{display:'flex',gap:8,alignItems:'center'}},
+        e('span',{className:'notes-meta'},props.notes.length+' Zeichen'),
+        e('button',{className:'panel-close',onClick:props.onClose},'\u2715')
+      )
+    ),
+    e('div',{className:'notes-body'},
+      e('textarea',{value:props.notes,onChange:function(ev){props.setNotes(ev.target.value)},placeholder:'Notizen, Stichworte\u2026'})
+    )
+  );
+}
+
+// ---- Glossary Panel ----
+function GlossaryPanel(props){
+  var st=useState(''),search=st[0],setSearch=st[1];
+  var filtered=GLOSSAR.filter(function(g){return g.t.toLowerCase().indexOf(search.toLowerCase())>=0||g.d.toLowerCase().indexOf(search.toLowerCase())>=0});
+  return e('div',{className:'panel-overlay glossary-panel'},
+    e('div',{className:'panel-header'},e('b',null,'\ud83d\udcd6 Glossar'),e('button',{className:'panel-close',onClick:props.onClose},'\u2715')),
+    e('div',{className:'glossary-search'},e('input',{value:search,onChange:function(ev){setSearch(ev.target.value)},placeholder:'Suchen\u2026'})),
+    e('div',{className:'glossary-list'},filtered.map(function(g,i){return e('div',{key:i,className:'glossary-item'},
+      e('div',{className:'glossary-item-title'},g.t),
+      e('div',{className:'glossary-item-desc'},g.d)
+    )}))
+  );
+}
+
+// ---- Tips Component ----
+function Tips(props){
+  var st=useState(false),open=st[0],setOpen=st[1];
+  return e('div',{className:'tip-box'},
+    e('div',{className:'tip-toggle',onClick:function(){setOpen(!open)}},open?'\u25bc':'\u25b6',' Tipps'),
+    open?e('ul',{className:'tip-content'},props.tips.map(function(t,i){return e('li',{key:i},t)})):null
+  );
+}
+
+// ---- Reveal Component ----
+function Reveal(props){
+  var st=useState(false),open=st[0],setOpen=st[1];
+  return e('div',{className:'reveal-box'},
+    e('div',{className:'reveal-toggle',onClick:function(){setOpen(!open)}},open?'\u25bc':'\u25b6',' L\u00f6sungsweg anzeigen'),
+    open?e('div',{className:'reveal-content'},props.steps.map(function(s,i){return e('div',{key:i,className:'reveal-step'},e('strong',null,'Schritt '+(i+1)+': '),s)})):null
+  );
+}
+
+// ======================================================================
+// LEARNING DATA - Theory content for Chapter 1
+// ======================================================================
+var learningData = {};
+
+learningData[1] = {
+  title: 'Information und Netzwerkarbeit',
+  sections: [
+    {
+      type: 'intro',
+      title: 'Lernziele',
+      content: 'Nach der Bearbeitung dieses Kapitels k\u00f6nnen Sie \u2026',
+      items: [
+        'die Anforderungen an zweckm\u00e4ssige Informationsprozesse im Unternehmen beschreiben.',
+        'anhand von Beispielen beurteilen, ob die betreffenden Informationen \u00abrichtig\u00bb sind.',
+        'bestimmen, welches Informationsmedium sich f\u00fcr welche Botschaften eignet.',
+        'den Nutzen aufzeigen und Aspekte nennen, die beim Aufbau und bei der Pflege von Netzwerken beachtet werden sollten.',
+        'Kan\u00e4le und Quellen beschreiben, die \u00fcber Innovationen und Trends informieren.'
+      ]
+    },
+    {
+      type: 'concept',
+      title: 'Informationsprozess',
+      content: 'Im Alltag wird der Begriff \u00abInformationen\u00bb zun\u00e4chst mit den Informationsmedien verbunden. Aber auch die Sprache an sich, Schrift, Bild, Ton und Ger\u00fcche sind Informationen. In diesem Kapitel beschr\u00e4nken wir uns auf Informationen aus dem Arbeitsalltag. Informieren und Kommunizieren ist nicht dasselbe. Bei der Kommunikation gehen wir von einem Austauschprozess zwischen Sender und Empf\u00e4nger aus. Informieren ist ein einseitiges, zielgerichtetes Senden von Signalen (Ein-Weg-Kommunikation).',
+      highlight: 'Informieren = einseitiges Senden (Ein-Weg-Kommunikation). Kommunizieren = Austauschprozess zwischen Sender und Empf\u00e4nger (Zwei-Weg-Kommunikation).'
+    },
+    {
+      type: 'concept',
+      title: 'Information als F\u00fchrungsaufgabe',
+      content: 'Im F\u00fchrungsprozess gelten Informationen grunds\u00e4tzlich als Bringschuld, weil die F\u00fchrungsperson daf\u00fcr zu sorgen hat, dass die Mitarbeitenden alle notwendigen Informationen erhalten. Von selbstst\u00e4ndigen Mitarbeitenden darf erwartet werden, dass sie die notwendigen Informationen auch selbst holen (Holschuld). Information als F\u00fchrungsaufgabe umfasst: Muss-Informationen (notwendig f\u00fcr Aufgabenerf\u00fcllung), Soll-Informationen (erleichtern die Arbeit) und Nice-to-have-Informationen (erg\u00e4nzend).',
+      highlight: 'Im F\u00fchrungsprozess: Informationen = Bringschuld. Von selbstst\u00e4ndigen Mitarbeitenden: Holschuld. Unterscheidung: Muss-, Soll- und Nice-to-have-Informationen.'
+    },
+    {
+      type: 'table',
+      title: 'Informationsmedien und ihre Eignung',
+      headers: ['Medium', 'Eignung'],
+      rows: [
+        ['M\u00fcndlich (Gespr\u00e4ch, Telefon)', 'Pers\u00f6nlich, direkt, schnelle R\u00fcckmeldung, bei heiklen Themen'],
+        ['Schriftlich (E-Mail, Brief)', 'Verbindlich, dokumentiert, bei gr\u00f6sserer Reichweite'],
+        ['Interne Kommunikation', 'Innerhalb des Unternehmens: E-Mail, Intranet, interne Post'],
+        ['Externe Kommunikation', 'Nach aussen: Kunden, Lieferanten, \u00d6ffentlichkeit']
+      ]
+    },
+    {
+      type: 'concept',
+      title: 'Netzwerkarbeit und Innovationen',
+      content: 'F\u00fcr den Arbeitsalltag spielt die Netzwerkarbeit eine zunehmende Rolle. Netzwerkpflege bedeutet, Kontakte systematisch aufzubauen und zu pflegen. Marketingfachleute informieren sich kontinuierlich \u00fcber Innovationen und Trends. Quellen daf\u00fcr sind: Qualit\u00e4tsmanagement, Kundenbefragungen, Trendscouting und Fachmedien. Wichtige Begriffe: Innovation (neue Produkte, n\u00fctzlich f\u00fcr Marktteilnehmer), Megatrends (tiefgreifende Gesellschaftsver\u00e4nderungen), Trendsetter (Personen, die einen Trend verk\u00f6rpern), Invention (Produkt noch in der Konzeptphase), Leistungsinnovation (Neuerung, die sich am Markt durchsetzen kann).',
+      highlight: 'Wichtige Innovationsbegriffe: Innovation, Megatrend, Trendsetter, Invention, Leistungsinnovation.'
+    },
+    {
+      type: 'merke',
+      title: 'Merke dir!',
+      items: [
+        'Informieren (Ein-Weg) und Kommunizieren (Zwei-Wege) sind nicht dasselbe.',
+        'Im F\u00fchrungsprozess: Information ist Bringschuld der F\u00fchrungsperson.',
+        'Unterscheide Muss-, Soll- und Nice-to-have-Informationen.',
+        'Netzwerkpflege ist ein Erfolgsfaktor: systematischer Aufbau und Pflege von Kontakten.',
+        'Quellen f\u00fcr Innovationen: Qualit\u00e4tsmanagement, Kundenbefragungen, Trendscouting, Fachmedien.',
+        'Zu wenig Information ist genauso schlecht wie eine Informations\u00fcberschwemmung.',
+        'W\u00e4hle das richtige Medium: m\u00fcndlich bei Pers\u00f6nlichem/Heklem, schriftlich bei Verbindlichkeit.'
+      ]
+    },
+    {
+      type: 'summary',
+      title: 'Zusammenfassung',
+      content: [
+        '<strong>Information</strong> ist ein einseitiger, zielgerichteter Prozess (Ein-Weg-Kommunikation), im Gegensatz zur Kommunikation als Austauschprozess.',
+        'Im <strong>F\u00fchrungsprozess</strong> gelten Informationen als Bringschuld. Die F\u00fchrungsperson sorgt daf\u00fcr, dass alle notwendigen Informationen an die Mitarbeitenden gelangen.',
+        '<strong>Informationen</strong> werden in drei Kategorien unterteilt: Muss-Informationen, Soll-Informationen und Nice-to-have-Informationen.',
+        'Die <strong>Netzwerkarbeit</strong> spielt im Arbeitsalltag eine zunehmende Rolle. Kontakte m\u00fcssen systematisch aufgebaut und gepflegt werden.',
+        'Marketing-Fachleute informieren sich \u00fcber <strong>Innovationen und Trends</strong> aus verschiedenen Quellen: Qualit\u00e4tsmanagement, Kundenbefragungen, Trendscouting und Fachmedien.'
+      ]
+    },
+    {
+      type: 'keyterms',
+      title: 'Schl\u00fcsselbegriffe',
+      terms: [
+        {term: 'Information', def: 'Einseitiges, zielgerichtetes Senden von Signalen (Ein-Weg-Kommunikation).'},
+        {term: 'Kommunikation', def: 'Austauschprozess zwischen Sender und Empf\u00e4nger mit R\u00fcckmeldung.'},
+        {term: 'Bringschuld', def: 'F\u00fchrungsperson muss aktiv Informationen an Mitarbeitende weitergeben.'},
+        {term: 'Holschuld', def: 'Selbstst\u00e4ndige Mitarbeitende holen sich die n\u00f6tigen Informationen selbst.'},
+        {term: 'Innovation', def: 'Neue Produkte, die f\u00fcr die Marktteilnehmer n\u00fctzlich sind.'},
+        {term: 'Megatrend', def: 'Tiefgreifende und weitreichende Ver\u00e4nderungen in der Gesellschaft.'},
+        {term: 'Trendsetter', def: 'Innovative Personen, die ein Signal f\u00fcr einen Trend verk\u00f6rpern.'},
+        {term: 'Invention', def: 'Neues Produkt, das noch in der Konzeptphase steckt.'},
+        {term: 'Leistungsinnovation', def: 'Neuerung, die ein Angebot so attraktiv macht, dass es sich am Markt durchsetzen kann.'},
+        {term: 'Netzwerkpflege', def: 'Systematischer Aufbau und Pflege von beruflichen Kontakten.'}
+      ]
+    }
+  ]
+};
+
+// ======================================================================
+// EXERCISES DATA - ~86 exercises across 15 chapters
+// ======================================================================
+var exercises = {};
+
+// Chapter 1: Information und Netzwerkarbeit (6 exercises)
+exercises[1] = {type:'mc',title:'Gefahren zur\u00fcckhaltender Informationspolitik',q:'Zu wenig Informationen sind f\u00fcr ein Unternehmen genauso schlecht wie eine \u00dcberschwemmung mit Informationen. Was ist eine m\u00f6gliche Gefahr einer zur\u00fcckhaltenden Informationspolitik?',options:['Frustration der Mitarbeitenden','Zu hohe Druckkosten','Mehr Kreativit\u00e4t im Team','Weniger Sitzungen'],correct:0,explanation:'Wer nicht ausreichend informiert ist, f\u00fchlt sich weniger integriert. Zudem entstehen Informationsl\u00fccken, die zu Doppelspurigkeiten und Pattstellungen f\u00fchren.'};
+exercises[2] = {type:'check',title:'Quellen f\u00fcr Innovationen und Trends',q:'Welche der folgenden Quellen liefern Informationen \u00fcber Innovationen und Trends?',statements:[{s:'Qualit\u00e4tsmanagement',c:true},{s:'Kundenbefragungen',c:true},{s:'Bilanz des Unternehmens',c:true},{s:'Verbraucherorganisationen',c:true},{s:'Absatzstatistik der erfolgreichsten Produkte',c:false},{s:'Trendscouting',c:true},{s:'Fachmedien',c:true}]};
+exercises[3] = {type:'mc',title:'Holschuld oder Bringschuld',q:'Im F\u00fchrungsprozess gelten Informationen grunds\u00e4tzlich als:',options:['Holschuld','Bringschuld','Weder noch','Beides gleichermassen'],correct:1,explanation:'Die F\u00fchrungsperson hat daf\u00fcr zu sorgen, dass die Mitarbeitenden alle notwendigen Informationen erhalten (Bringschuld). Von selbstst\u00e4ndigen Mitarbeitenden darf eine Holschuld erwartet werden.'};
+exercises[4] = {type:'match',title:'M\u00fcndliche oder schriftliche Mitteilung',q:'W\u00e4hlen Sie f\u00fcr die folgenden Mitteilungen die m\u00fcndliche oder die schriftliche Form.',pairs:[{l:'Reklamation an einen langj\u00e4hrigen Lieferanten',r:'M\u00fcndlich'},{l:'Projektauftrag an einen Mitarbeiter',r:'M\u00fcndlich + schriftlich'},{l:'Absage an eine Mitarbeiterin f\u00fcr eine interne Stelle',r:'M\u00fcndlich'},{l:'Bitte um Stellungnahme zu einem kritischen Kundenfeedback',r:'Schriftlich'}],options:['M\u00fcndlich','Schriftlich','M\u00fcndlich + schriftlich']};
+exercises[5] = {type:'match',title:'Innovationsbegriffe zuordnen',q:'Ordnen Sie den folgenden Beschreibungen die richtigen Begriffe zu.',pairs:[{l:'Neue Produkte, die f\u00fcr die Marktteilnehmer n\u00fctzlich sind',r:'Innovation'},{l:'Tiefgreifende und weitreichende Ver\u00e4nderungen in der Gesellschaft',r:'Megatrend'},{l:'Innovative Personen, die ein Signal f\u00fcr einen Trend verk\u00f6rpern',r:'Trendsetter'},{l:'Neues Produkt, das noch in der Konzeptphase steckt',r:'Invention'},{l:'Neuerungen, die ein Angebot so attraktiv machen, dass es sich auf dem Markt durchsetzen kann',r:'Leistungsinnovation'}],options:['Innovation','Megatrend','Trendsetter','Invention','Leistungsinnovation']};
+exercises[6] = {type:'mc',title:'Interne vs. externe Kommunikation',q:'Was versteht man unter interner Kommunikation?',options:['Kommunikation innerhalb des Unternehmens, z.B. mittels E-Mail, interner Post oder Intranet','Kommunikation gegen aussen mit Kunden und Lieferanten','Austausch zwischen verschiedenen Branchen','Kommunikation \u00fcber Social Media'],correct:0,explanation:'Interne Kommunikation: Kommunikation innerhalb des Unternehmens. Externe Kommunikation: Kommunikation gegen aussen (mit Kunden, Lieferanten, \u00d6ffentlichkeit).'};
+
+// Chapter 2: Basiskompetenzen in der Kommunikation (5 exercises)
+exercises[7] = {type:'match',title:'Kommunikationsquadrat nach Schulz von Thun',q:'Ordnen Sie die vier Seiten des Kommunikationsquadrats den Beschreibungen zu.',pairs:[{l:'Sachverhalt, Fakten, Daten',r:'Sachinhalt'},{l:'Eigene Pers\u00f6nlichkeit, Einstellung, Haltung',r:'Selbstoffenbarung'},{l:'Beziehung zum Gegen\u00fcber',r:'Beziehung'},{l:'Ziel, Einflussnahme, Aufforderung',r:'Appell'}],options:['Sachinhalt','Selbstoffenbarung','Beziehung','Appell']};
+exercises[8] = {type:'tf',title:'Kommunikationsgrundsaetze nach Watzlawick',q:'Sind die folgenden Aussagen zu den f\u00fcnf Axiomen von Watzlawick richtig oder falsch?',statements:[{s:'Man kann nicht nicht kommunizieren.',c:true},{s:'Jede Kommunikation hat nur eine Sachebene.',c:false},{s:'Kommunikationsabl\u00e4ufe werden unterschiedlich strukturiert.',c:true},{s:'Kommunikation erfolgt nur digital.',c:false},{s:'Kommunikation verl\u00e4uft symmetrisch und/oder komplement\u00e4r.',c:true}]};
+exercises[9] = {type:'mc',title:'Nonverbale vs. verbale Kommunikation',q:'Weshalb werden nonverbale Signale als echter beurteilt als verbale \u00c4usserungen?',options:['Weil sie schneller sind','Weil die nonverbale Kommunikation weniger gut steuerbar ist und eher der inneren Einstellung entspricht','Weil sie lauter sind','Weil sie mehr Informationen enthalten'],correct:1,explanation:'Die verbale Kommunikation k\u00f6nnen wir direkt beeinflussen. Die nonverbale Kommunikation ist auf Dauer weniger gut steuerbar, sie geschieht automatisch und unreflektiert. Nonverbale Signale gelten deshalb als verl\u00e4sslicher.'};
+exercises[10] = {type:'mc',title:'Axiom von Watzlawick',q:'Welches Axiom von Paul Watzlawick wird hier angesprochen: \u00abIch kann akzeptieren, was du soeben gesagt hast. Wie du es aber gesagt hast, macht mich sehr betroffen!\u00bb',options:['Man kann nicht nicht kommunizieren','Jede Kommunikation hat eine Sach- und eine Beziehungsebene','Kommunikation erfolgt digital und analog','Kommunikation verl\u00e4uft symmetrisch oder komplement\u00e4r'],correct:1,explanation:'Das zweite Axiom: Jede Kommunikation hat eine Sach- und eine Beziehungsebene. Meist ist das Wie bzw. die Botschaft auf der Beziehungsebene ausschlaggebend.'};
+exercises[11] = {type:'text',title:'Fehlerquellen im Kommunikationsprozess',q:'Beschreiben Sie drei Beispiele zu m\u00f6glichen Fehlerquellen im Kommunikationsprozess.',keywords:['Sender','Empf\u00e4nger','codiert','decodiert','undeutlich','missverst\u00e4ndlich','St\u00f6rung','L\u00e4rm','Stress','Filter','Interpretation'],solution:'M\u00f6gliche Fehlerquellen: 1) Der Sender codiert seine Botschaft nicht so, dass der Empf\u00e4nger sie eindeutig decodieren kann. 2) Der Empf\u00e4nger decodiert die Mitteilung nicht im Sinne des Senders (Missverst\u00e4ndnisse). 3) \u00c4ussere Einflussfaktoren wie L\u00e4rm oder Stress beeinflussen die Sinneswahrnehmung.'};
+
+// Chapter 3: Kommunikationstechniken einsetzen (5 exercises)
+exercises[12] = {type:'text',title:'Aktives Zuh\u00f6ren vs. Spiegeln',q:'Beschreiben Sie den Unterschied zwischen \u00abaktivem Zuh\u00f6ren\u00bb und \u00abSpiegeln\u00bb anhand eines Beispiels.',keywords:['einf\u00fchlsam','Gef\u00fchlswelt','Weiterentwicklung','zur\u00fcckgespiegelt','zusammengefasst','Aussage'],solution:'Beim aktiven Zuh\u00f6ren handelt es sich um das einf\u00fchlsame Erfassen der Aussage inklusive der Gef\u00fchlswelt des Gegen\u00fcbers. Die Technik des Spiegelns ist eine Weiterentwicklung des aktiven Zuh\u00f6rens. Die erfasste Botschaft wird zusammengefasst und in eigenen Worten zur\u00fcckgespiegelt.'};
+exercises[13] = {type:'match',title:'Frageformen zuordnen',q:'Ordnen Sie folgende Fragen der zutreffenden Frageform zu.',pairs:[{l:'Wo warst du vor einer Stunde?',r:'Offene Frage'},{l:'Bist du nicht auch der Meinung, dass hier eine Entscheidung l\u00e4ngst f\u00e4llig w\u00e4re?',r:'Suggestivfrage'},{l:'K\u00f6nnen Sie mir bitte eine konkrete Situation schildern?',r:'Verhaltensorientierte Frage'},{l:'Wie gehen wir nun konkret vor?',r:'Konkretisierende Frage'},{l:'Was halten Sie vom neuen Budgetierungsprozess?',r:'Offene Frage'},{l:'Wollen Sie zuerst eine Pause machen oder m\u00f6chten Sie sofort mit der Pr\u00e4sentation beginnen?',r:'Alternativfrage'}],options:['Offene Frage','Suggestivfrage','Verhaltensorientierte Frage','Konkretisierende Frage','Alternativfrage']};
+exercises[14] = {type:'mc',title:'Ich-Botschaften',q:'Was ist der Hauptvorteil von Ich-Botschaften gegen\u00fcber Du-Botschaften in der Kommunikation?',options:['Sie sind k\u00fcrzer','Sie vermeiden Schuldzuweisungen und dr\u00fccken eigene Gef\u00fchle aus','Sie sind formeller','Sie sind leichter zu formulieren'],correct:1,explanation:'Ich-Botschaften beschreiben die eigene Wahrnehmung und Gef\u00fchle, ohne den Gegen\u00fcber anzugreifen. Du-Botschaften wirken oft als Vorwurf und f\u00fchren zu Abwehrreaktionen.'};
+exercises[15] = {type:'mc',title:'Todsunden der Kommunikation',q:'Welche der folgenden Verhaltensweisen geh\u00f6rt zu den \u00abTods\u00fcnden der Kommunikation\u00bb?',options:['Aktives Zuh\u00f6ren','Befehlen, Drohen, Warnen','Offene Fragen stellen','Zusammenfassen'],correct:1,explanation:'Befehlen, Drohen und Warnen z\u00e4hlen zu den Kommunikationssperren. Sie blockieren das Gespr\u00e4ch und f\u00fchren zu Widerstand beim Gegen\u00fcber.'};
+exercises[16] = {type:'tf',title:'Wirkung von Frageformen',q:'Sind die folgenden Aussagen zu Frageformen richtig oder falsch?',statements:[{s:'Offene Fragen f\u00f6rdern den Dialog und bringen ausf\u00fchrliche Antworten.',c:true},{s:'Geschlossene Fragen eignen sich besonders gut f\u00fcr den Gespr\u00e4chseinstieg.',c:false},{s:'Suggestivfragen beeinflussen die Antwort des Gegen\u00fcbers.',c:true},{s:'Alternativfragen geben dem Gegen\u00fcber eine Wahlm\u00f6glichkeit.',c:true}]};
+
+// Chapter 4: Schriftliche Kommunikation (6 exercises)
+exercises[17] = {type:'mc',title:'Schriftliche vs. m\u00fcndliche Kommunikation',q:'Was ist ein wesentlicher Vorteil der schriftlichen Kommunikation gegen\u00fcber der m\u00fcndlichen?',options:['Sie ist schneller','Sie ist verbindlicher und dauerhafter','Sie ist pers\u00f6nlicher','Sie erm\u00f6glicht sofortige R\u00fcckmeldung'],correct:1,explanation:'Schriftliche Kommunikation ist verbindlicher, dauerhafter, relevanter; sie erm\u00f6glicht eine durchdachte Formulierung und ist auch geeignet f\u00fcr einen gr\u00f6sseren Adressatenkreis.'};
+exercises[18] = {type:'check',title:'Verst\u00e4ndlichkeitsmodell nach Hamburg',q:'Welche Merkmale des Hamburger Verst\u00e4ndlichkeitsmodells f\u00f6rdern die Verst\u00e4ndlichkeit eines Textes?',statements:[{s:'Je k\u00fcrzer ein Text ist, desto verst\u00e4ndlicher ist er.',c:false},{s:'Je einfacher ein Text formuliert ist, desto verst\u00e4ndlicher ist er.',c:true},{s:'Je mehr anregende Zus\u00e4tze ein Text hat, desto verst\u00e4ndlicher ist er.',c:false},{s:'Je besser gegliedert ein Text ist, desto verst\u00e4ndlicher ist er.',c:true},{s:'Je pr\u00e4gnanter ein Text ist, desto verst\u00e4ndlicher ist er.',c:true}]};
+exercises[19] = {type:'mc',title:'Verbformen erkennen',q:'Welcher Satz verwendet eine aktive und direkte Formulierung?',options:['Die Teuerungszulage wird dem Personal in zwei Raten ausbezahlt.','Morgen ist der Abgabetermin f\u00fcr die Abrechnungen.','Nach dem Referat besichtigen wir die Fertigungsanlage.','Ich brauche Bedenkzeit, bevor ich diese Frage beantworten kann.'],correct:2,explanation:'Aktive Formulierungen verwenden das Aktiv statt des Passivs und sprechen den Leser direkt an.'};
+exercises[20] = {type:'match',title:'Kommunikationsziel erkennen',q:'Ordnen Sie die folgenden Texte ihrem haupts\u00e4chlichen Kommunikationsziel zu.',pairs:[{l:'Morgen ist der Abgabetermin f\u00fcr die Abrechnungen.',r:'Aufforderung'},{l:'Ihre Fragen beantworten wir gerne.',r:'Goodwill'},{l:'Wir erwarten, dass alle Mitarbeitenden die Feriengesuche bis Ende Monat einreichen.',r:'Aufforderung'},{l:'Leider kann ich Ihre Frage erst n\u00e4chste Woche beantworten.',r:'Information'},{l:'Die Umweltschutzorganisation \u00e4usserte schwere Bedenken gegen das Neubauprojekt.',r:'Information'}],options:['Information','Aufforderung','Goodwill']};
+exercises[21] = {type:'mc',title:'6 W-Fragen der Vollst\u00e4ndigkeit',q:'Mit welchen Fragen kann die Vollst\u00e4ndigkeit einer Information \u00fcberpr\u00fcft werden?',options:['Was, Wer, Warum, Wann, Wie, Wo (6 W-Fragen)','Nur Was und Wann','Nur Wer und Wo','Was, Wie viel, Wem'],correct:0,explanation:'Die 6 W-Fragen (Was? Wer? Wozu? Wann? Wie? Wo?) helfen, die Vollst\u00e4ndigkeit einer Information zu \u00fcberpr\u00fcfen.'};
+exercises[22] = {type:'mc',title:'Nachrichtentrichter',q:'Was versteht man unter dem \u00abNachrichtentrichter\u00bb?',options:['Ein Werkzeug zum Filtern von E-Mails','Die Regel, dass die wichtigsten Botschaften an den Anfang eines Textes geh\u00f6ren','Ein Modell f\u00fcr m\u00fcndliche Kommunikation','Eine Methode zur Ideenfindung'],correct:1,explanation:'Sofern kein Aufbau vorgegeben ist, sollen die wichtigsten Botschaften an den Anfang gestellt werden. So sieht es der sogenannte Nachrichtentrichter vor.'};
+
+// Chapter 5: Muendliche Kommunikation (7 exercises)
+exercises[23] = {type:'mc',title:'Sitzordnung im Gespr\u00e4ch',q:'Warum ist die Sitzordnung bei einem Gespr\u00e4ch wichtig?',options:['Sie beeinflusst die Kosten','Eine einengende Sitzordnung kann sich negativ auf den Gespr\u00e4chsverlauf auswirken','Sie hat keinen Einfluss','Sie bestimmt, wer zuerst spricht'],correct:1,explanation:'Die Sitzordnung beeinflusst den Gespr\u00e4chsverlauf. Alle Gespr\u00e4chspartner brauchen gen\u00fcgend Bewegungsraum und direkten Blickkontakt.'};
+exercises[24] = {type:'text',title:'Gespr\u00e4chsnachbearbeitung',q:'Nennen Sie mindestens drei Argumente f\u00fcr eine sorgf\u00e4ltige Gespr\u00e4chsnachbearbeitung.',keywords:['Konsequenzen','Erkenntnisse','Rolle','reflektieren','zusammenfassen','festhalten','Kontrolle','Massnahmen'],solution:'Die Gespr\u00e4chsnachbearbeitung hilft: sich das Gesagte nochmals vor Augen zu f\u00fchren, m\u00f6gliche Konsequenzen zu ziehen, Erkenntnisse zu gewinnen, die eigene Rolle zu reflektieren, die Gespr\u00e4chsergebnisse zusammenzufassen und schriftlich festzuhalten, die vereinbarten Schritte und Massnahmen einzuleiten und die Kontrolle der vereinbarten Massnahmen zu terminieren.'};
+exercises[25] = {type:'mc',title:'Verhandlungsergebnis nach Harvard',q:'Was ist ein zentrales Merkmal des Harvard-Konzepts bei Verhandlungen?',options:['Machtpositionen ausnutzen','Beide Verhandlungspartner als gleichwertige Partner betrachten (Win-Win)','Schnelle Kompromisse eingehen','Emotionen ignorieren'],correct:1,explanation:'Die Ber\u00fccksichtigung der Interessen setzt voraus, dass beide Verhandlungspartner als gleichwertige Partner betrachtet werden. Dies ist die Basis f\u00fcr Win-Win-L\u00f6sungen.'};
+exercises[26] = {type:'text',title:'Small Talk',q:'Was sind Ihrer Meinung nach die Vor- und Nachteile, wenn ein Gespr\u00e4ch mit einem einleitenden Small Talk aufgelockert wird?',keywords:['Eisbrecher','Atmosph\u00e4re','Vertrauen','entspannt','unangemessen','Klarheit','heikle'],solution:'Small Talk kann als Eisbrecher wertvoll sein, um eine positivere, entspanntere Atmosph\u00e4re zu schaffen. Besonders in Situationen, die Klarheit erfordern, oder in unangenehmen Gespr\u00e4chen ist Small Talk jedoch fehl am Platz.'};
+exercises[27] = {type:'mc',title:'Vorteile des Perspektivenwechsels',q:'Was ist ein Vorteil davon, sich in den Verhandlungspartner zu versetzen?',options:['Man kann den Partner besser manipulieren','Man kann die Argumente des Partners besser nachvollziehen und die eigene Verhandlung sachlicher f\u00fchren','Man spart Zeit','Man muss weniger vorbereiten'],correct:1,explanation:'Sich in den Verhandlungspartner zu versetzen bringt unter anderem: Der Partner wird besser fassbar, seine Argumente k\u00f6nnen besser nachvollzogen werden, mehr Sachlichkeit und Objektivit\u00e4t, m\u00f6gliche Gegenargumente k\u00f6nnen vorbereitet werden.'};
+exercises[28] = {type:'mc',title:'Interaktion und Rolle',q:'Was bedeutet Interaktion im Kontext der m\u00fcndlichen Kommunikation?',options:['Einseitige Informationsweitergabe','Gegenseitige Beeinflussung und Wechselwirkung im Gespr\u00e4ch','Schriftlicher Austausch','Passives Zuh\u00f6ren'],correct:1,explanation:'Interaktion bezeichnet die gegenseitige Beeinflussung und Wechselwirkung zwischen den Gespr\u00e4chspartnern.'};
+exercises[29] = {type:'mc',title:'F\u00fchrungsgespr\u00e4ch',q:'Was ist das Ziel eines F\u00fchrungsgespr\u00e4chs?',options:['M\u00f6glichst viele Informationen weitergeben','Den Mitarbeiter zur Verhaltens\u00e4nderung oder Zielerreichung zu f\u00fchren','Konflikte vermeiden','Leistungen bewerten'],correct:1,explanation:'Das F\u00fchrungsgespr\u00e4ch ist ein wichtiges Instrument, um Mitarbeitende zur Verhaltens\u00e4nderung oder Zielerreichung zu f\u00fchren.'};
+
+// Chapter 6: Interkulturelle Zusammenarbeit (4 exercises)
+exercises[30] = {type:'text',title:'Diversity und Religion',q:'Sie leiten ein Unternehmen und suchen drei Mitarbeitende in der Produktion. Was ist Ihr erster Gedanke, wenn Sie die Diversity-Dimension \u00abReligion\u00bb in Betracht ziehen?',keywords:['Religion','Toleranz','Respekt','Vielfalt','Essgewohnheiten','Feiertage'],solution:'Gibt es unter den m\u00f6glichen Kandidaten Personen, die aus religi\u00f6sen Gr\u00fcnden diese T\u00e4tigkeit nicht annehmen k\u00f6nnen? (z.B. in der Fleischverarbeitung). Religi\u00f6se Aspekte wie Kleidung, Speisegebote und Feiertage sind zu ber\u00fccksichtigen.'};
+exercises[31] = {type:'text',title:'Interkulturelle Kommunikation',q:'Warum ist es im Umgang mit fremdsprachigen Kunden wichtig, auf Verst\u00e4ndlichkeit zu achten?',keywords:['Missverst\u00e4ndnisse','Sprache','Probleme','Gesch\u00e4ftst\u00e4tigkeit','einfach','klar'],solution:'Verstehen die Kunden die deutsche Sprache nicht gut, k\u00f6nnen Missverst\u00e4ndnisse und Probleme entstehen, die die Gesch\u00e4ftst\u00e4tigkeit erschweren.'};
+exercises[32] = {type:'mc',title:'Was sind Stereotype?',q:'Was versteht man unter Stereotypen?',options:['Individuelle Pers\u00f6nlichkeitsmerkmale','Meist negative Vorurteile, die den Angeh\u00f6rigen einer Gruppe als Eigenschaft zugeschrieben werden','Kulturelle Rituale','Kommunikationsregeln'],correct:1,explanation:'Stereotype sind meist negative Vorurteile, die den Angeh\u00f6rigen einer Gruppe als Eigenschaft zugeschrieben werden (z.B. alle X sind faul und korrupt). Sie werden nicht \u00fcberpr\u00fcft.'};
+exercises[33] = {type:'text',title:'Diversity-Management als Erfolgsfaktor',q:'Formulieren Sie drei Argumente, warum Diversity-Management als Erfolgsfaktor angesehen wird.',keywords:['Vielfalt','Potenziale','Ideen','Betriebsklima','Fachkr\u00e4ftemangel','Botschafter','Kundengruppen'],solution:'Diversity-Management ist ein Erfolgsfaktor, weil: 1) Im respektvollen Umgang mit Personal k\u00f6nnen Potenziale leichter erschlossen werden. 2) Subtile Benachteiligungen sch\u00e4digen das Betriebsklima und f\u00f6rdern Fluktuation. 3) Bei allgemeinem Fachkr\u00e4ftemangel hilft Diversit\u00e4t, qualifizierte Mitarbeitende zu finden.'};
+
+// Chapter 7: Praesentation (4 exercises)
+exercises[34] = {type:'text',title:'Gute Pr\u00e4sentation',q:'Erkl\u00e4ren Sie in maximal drei S\u00e4tzen, was f\u00fcr Sie eine gute Pr\u00e4sentation ausmacht.',keywords:['Inhalt','Rhetorik','Zielpublikum','verst\u00e4ndlich','professionell','angepasst','Ausstrahlung'],solution:'In einer guten Pr\u00e4sentation vermitteln der Inhalt, die pr\u00e4sentierende Person und ihre Pr\u00e4sentationstechnik (Rhetorik) einen professionellen Eindruck. Die inhaltliche Aufbereitung ist an die Zielsetzung, an das Zielpublikum und an das Zeitbudget angepasst.'};
+exercises[35] = {type:'mc',title:'Zielgruppenanpassung',q:'Worauf hat der Produktionsleiter bei seiner Pr\u00e4sentation f\u00fcr neue Mitarbeitende zu wenig geachtet?',options:['Auf die technischen Details','Er hat vergessen, sich auf das Zielpublikum einzustellen und zu hinterfragen, welche Botschaft spannend und angepasst w\u00e4re','Auf die L\u00e4nge der Pr\u00e4sentation','Auf die Raumtemperatur'],correct:1,explanation:'Der Produktionsleiter ist sich nicht bewusst, dass neue Mitarbeitende weder \u00fcber Herstellungskenntnisse verf\u00fcgen noch sich f\u00fcr technische Details interessieren. Er vergass, sich auf das Zielpublikum einzustellen.'};
+exercises[36] = {type:'tf',title:'Pr\u00e4sentationsaufbau',q:'Sind die folgenden Aussagen zum Pr\u00e4sentationsaufbau richtig oder falsch?',statements:[{s:'Die Einleitung sollte ca. 10% der Zeit beanspruchen.',c:true},{s:'Im Hauptteil soll die Kernbotschaft am Schluss platziert werden.',c:false},{s:'Der Schluss sollte pr\u00e4gnant und eindr\u00fccklich abrunden.',c:true},{s:'Der Hauptteil sollte ca. 85% der Zeit beanspruchen.',c:true}]};
+exercises[37] = {type:'text',title:'Faden verloren',q:'Was unternehmen Sie am besten, wenn Sie mitten in Ihrer Pr\u00e4sentation den Faden verloren haben?',keywords:['zusammenfassen','Pause','atmen','ehrlich','Publikum'],solution:'1) Fassen Sie die bisherigen Aussagen nochmals kurz zusammen, um sich neu zu orientieren. 2) Entspannen Sie sich bewusst und atmen Sie ruhig und tief durch. 3) Teilen Sie dem Publikum ehrlich mit, dass Sie den Faden verloren haben. Nichts wirkt entwaffnender als Ehrlichkeit und Offenheit.'};
+
+// Chapter 8: Gruppendynamik und Gruppenrollen (5 exercises)
+exercises[38] = {type:'match',title:'Positionen nach Schindler',q:'Welche Positionen in der Rangstruktur nach Schindler werden nachfolgend beschrieben?',pairs:[{l:'Kennt die Interessen der Gruppe sehr genau.',r:'Beta'},{l:'Engagiert sich aktiv f\u00fcr die Gruppenleistung, will jedoch nicht im Mittelpunkt stehen.',r:'Gamma'},{l:'Stellt unbequeme Fragen und wird dadurch als Aussenseiter angesehen.',r:'Omega'},{l:'Argumentiert nicht, sondern agiert.',r:'Alpha'}],options:['Alpha','Beta','Gamma','Omega']};
+exercises[39] = {type:'match',title:'Phasen der Gruppendynamik',q:'Welcher Phase des gruppendynamischen Prozesses ordnen Sie die folgenden Ereignisse zu?',pairs:[{l:'Die Gruppenmitglieder besinnen sich auf die Vernunft und beginnen gemeinsam, f\u00fcr alle tragbare Ziele zu definieren.',r:'Norming'},{l:'Es kommt zu heftigen Streitereien zwischen einzelnen Gruppenmitgliedern.',r:'Storming'},{l:'Die Gruppe entfaltet ihre volle Leistungsf\u00e4higkeit.',r:'Performing'},{l:'Man be\u00e4ugt sich gegenseitig und weiss nicht recht, was man voneinander halten soll.',r:'Forming'}],options:['Forming','Storming','Norming','Performing']};
+exercises[40] = {type:'match',title:'Rollen nach Belbin',q:'Welcher Rolle nach Belbin lassen sich die folgenden Beschreibungen zuordnen?',pairs:[{l:'Als begnadeter Netzwerker ist Armin der \u00abAussenminister\u00bb des Teams.',r:'Wegbereiter / Weichensteller'},{l:'Barbaras Scharfsinn halten zu wenig ausgereifte Ideen nicht stand.',r:'Beobachter'},{l:'Christian liefert seine tadellose Arbeit immer p\u00fcnktlich ab.',r:'Perfektionist'}],options:['Wegbereiter / Weichensteller','Beobachter','Perfektionist','Koordinator','Macher']};
+exercises[41] = {type:'match',title:'Riemann-Thomann-Kreuz',q:'Ordnen Sie die Beschreibungen den Grundstrebungen des Riemann-Thomann-Kreuzes zu.',pairs:[{l:'Sucht Beziehung und emotionale Verbundenheit',r:'N\u00e4he'},{l:'Braucht Freiraum und Unabh\u00e4ngigkeit',r:'Distanz'},{l:'Liebt Abwechslung und Spontaneit\u00e4t',r:'Wechsel'},{l:'Sch\u00e4tzt Struktur, Ordnung und Planbarkeit',r:'Dauer'}],options:['N\u00e4he','Distanz','Wechsel','Dauer']};
+exercises[42] = {type:'mc',title:'Individualrollen im Team',q:'Was kann passieren, wenn sich Individualrollen in einem Team h\u00e4ufen?',options:['Das Team wird leistungsf\u00e4higer','Es kann ein Anzeichen f\u00fcr gr\u00f6ssere Probleme im Teamklima sein, die die Arbeitsf\u00e4higkeit beeintr\u00e4chtigen','Die Kreativit\u00e4t steigt','Nichts Besonderes'],correct:1,explanation:'Wenn sich die Individualrollen h\u00e4ufen, kann das ein Anzeichen f\u00fcr gr\u00f6ssere Probleme im Teamklima sein, die fr\u00fcher oder sp\u00e4ter die Arbeitsf\u00e4higkeit stark beeintr\u00e4chtigen.'};
+
+// Chapter 9: Moderation von Workshops und Sitzungen (6 exercises)
+exercises[43] = {type:'tf',title:'Sitzung einberufen?',q:'Begr\u00fcnden Sie stichwortartig, ob f\u00fcr die folgenden Anl\u00e4sse eine Teamsitzung einberufen werden sollte.',statements:[{s:'In den letzten Wochen ist die Fehlerquote im Team auff\u00e4llig stark gestiegen. \u2192 Ja, Anlass zur Sitzung.',c:true},{s:'Ideen f\u00fcr die Jubil\u00e4umsfeier des Unternehmens zusammentragen. \u2192 Ja, gemeinsame Ideensammlung.',c:true},{s:'Eine zus\u00e4tzliche Niederlassung ist in Bern er\u00f6ffnet worden. \u2192 Nein, hier w\u00e4re eine schriftliche Information effizienter.',c:false}]};
+exercises[44] = {type:'match',title:'Phasen des Moderationsprozesses',q:'Welcher Phase des Moderationsprozesses ordnen Sie die folgenden vier Aktivit\u00e4ten zu?',pairs:[{l:'Relevante Themen mittels Kartenabfrage zusammentragen.',r:'Sammeln'},{l:'Massnahmen terminieren und Verantwortlichkeiten zuordnen.',r:'Planen'},{l:'Erwartungen der Teilnehmenden kl\u00e4ren.',r:'Einsteigen'},{l:'Feedback der Teilnehmenden einholen.',r:'Aussteigen'}],options:['Sammeln','Planen','Einsteigen','Aussteigen']};
+exercises[45] = {type:'text',title:'Delegation der Moderation',q:'Nennen Sie zwei typische Situationen, in denen Sie als F\u00fchrungsperson die Teamsitzung nicht selbst leiten, sondern die Moderation besser an eine neutrale Person delegieren sollten.',keywords:['emotionsgeladen','Teil des Problems','betroffene','ergebnislos','hierarchisch','neutral','Drittperson'],solution:'Typische Gr\u00fcnde: 1) Das Thema ist so emotionsgeladen, dass eine Drittperson ausgleichend wirken kann. 2) Sie sind Teil des Problems. 3) Das Thema wurde bereits ergebnislos debattiert. 4) Ein offener Meinungsaustausch ist aus hierarchischen Gr\u00fcnden erschwert.'};
+exercises[46] = {type:'tf',title:'Aussagen zur Moderation',q:'Sind die Aussagen in der folgenden Tabelle richtig (R) oder falsch (F)?',statements:[{s:'Eindeutige Sitzungsziele erm\u00f6glichen zielgerichtete Diskussionen.',c:true},{s:'Eine Sitzung lohnt sich in jedem Fall. Sie f\u00f6rdert den Teamgeist.',c:false},{s:'Eine Sitzung sollte immer p\u00fcnktlich beginnen.',c:true},{s:'Eine neutrale Moderatorin kann die Sitzung nicht so kompetent leiten wie ein Team- oder Projektleiter.',c:false},{s:'F\u00fcr die Nachbearbeitung der Sitzung empfehlen sich Reflexionsfragen.',c:true}]};
+exercises[47] = {type:'mc',title:'Traktanden priorisieren',q:'Warum sollten die wichtigsten Traktanden zu Beginn einer Sitzung behandelt werden?',options:['Weil die Teilnehmenden dann noch konzentriert sind','Damit zum Schluss gen\u00fcgend Zeit f\u00fcr wichtige offene Punkte bleibt','Damit man verhindern kann, dass zum Schluss wichtige offene Punkte noch h\u00e4tten gekl\u00e4rt werden m\u00fcssen','Aus Tradition'],correct:2,explanation:'Wenn Sie die wichtigsten Traktanden zuerst behandeln, verhindern Sie, dass zum Schluss der Sitzung noch wichtige offene Punkte h\u00e4tten gekl\u00e4rt werden m\u00fcssen.'};
+exercises[48] = {type:'mc',title:'Verhaltensregeln durchsetzen',q:'Wie k\u00f6nnen Sie als Moderator daf\u00fcr sorgen, dass die Verhaltensregeln konsequent eingehalten werden?',options:['Regeln ignorieren','Legen Sie gemeinsam mit den Teilnehmenden die Verhaltensregeln zu Beginn fest und weisen Sie ausdr\u00fccklich darauf hin','Nur schriftlich mitteilen','Strafen androhen'],correct:1,explanation:'Legen Sie gemeinsam mit den Teilnehmenden die Verhaltensregeln schon zu Beginn der Sitzung fest und weisen Sie auf die Einhaltung ausdr\u00fccklich hin. Bei Verst\u00f6ssen konsequent ansprechen und n\u00f6tigenfalls sanktionieren.'};
+
+// Chapter 10: Methoden und Instrumente (4 exercises)
+exercises[49] = {type:'mc',title:'Tagesleistungskurve',q:'Was beschreibt die pers\u00f6nliche Tagesleistungskurve?',options:['Die Anzahl der erledigten Aufgaben pro Tag','Die Schwankung der Leistungsf\u00e4higkeit \u00fcber den Tag hinweg','Die Kosten pro Arbeitstag','Die Zufriedenheit am Arbeitsplatz'],correct:1,explanation:'Die menschliche Leistungsbereitschaft schwankt \u00fcber den Tag hinweg. Die pers\u00f6nliche Leistungskurve zeigt leistungsstarke und leistungsschwache Phasen.'};
+exercises[50] = {type:'mc',title:'Arbeitsgewohnheiten',q:'Warum ist es wichtig, die eigenen Arbeitsgewohnheiten zu analysieren?',options:['Um mehr Pausen machen zu k\u00f6nnen','Um Zeitfresser und ineffiziente Gewohnheiten zu erkennen und zu verbessern','Um den Vorgesetzten zu beeindrucken','Um weniger arbeiten zu m\u00fcssen'],correct:1,explanation:'Die Analyse der eigenen Arbeitsgewohnheiten hilft, Zeitfresser zu identifizieren und die pers\u00f6nliche Effizienz zu steigern.'};
+exercises[51] = {type:'mc',title:'Arbeitsplatzgestaltung',q:'Warum ist ein aufger\u00e4umter Arbeitsplatz f\u00fcr das Zeitmanagement relevant?',options:['Er sieht besser aus','Unordnung und mangelnde Arbeitsorganisation sind typische Zeitfallen','Er ist g\u00fcnstiger','Er hat keinen Einfluss auf das Zeitmanagement'],correct:1,explanation:'Unordnung und mangelnde Arbeitsorganisation z\u00e4hlen zu den typischen Zeitfallen, die eine realistische Zeitplanung verhindern.'};
+exercises[52] = {type:'tf',title:'T\u00e4tigkeitsanalyse',q:'Sind die folgenden Aussagen zur T\u00e4tigkeitsanalyse richtig oder falsch?',statements:[{s:'Die T\u00e4tigkeitsanalyse hilft, den tats\u00e4chlichen Zeitbedarf f\u00fcr Aufgaben zu ermitteln.',c:true},{s:'Die T\u00e4tigkeitsanalyse sollte nur einmal durchgef\u00fchrt werden.',c:false},{s:'Die T\u00e4tigkeitsanalyse kann Zeitfresser sichtbar machen.',c:true},{s:'Die T\u00e4tigkeitsanalyse ist nur f\u00fcr F\u00fchrungskr\u00e4fte relevant.',c:false}]};
+
+// Chapter 11: Zeitplanung (6 exercises)
+exercises[53] = {type:'match',title:'ALPEN-Methode',q:'Ordnen Sie die f\u00fcnf Elemente der ALPEN-Methode den richtigen Beschreibungen zu.',pairs:[{l:'Aufgaben (Aktivit\u00e4ten und Termine) notieren',r:'A'},{l:'L\u00e4nge (Zeitdauer) absch\u00e4tzen',r:'L'},{l:'Pufferzeiten reservieren',r:'P'},{l:'Entscheidungen treffen \u00fcber Priorit\u00e4ten',r:'E'},{l:'Nachkontrolle machen / Unerledigtes auf den n\u00e4chsten Tag \u00fcbertragen',r:'N'}],options:['A','L','P','E','N']};
+exercises[54] = {type:'mc',title:'Pers\u00f6nliche Tagesplanung',q:'Warum ist die pers\u00f6nliche Zeitplanung auf Tagesbasis besonders empfehlenswert?',options:['Weil sie am einfachsten ist','Weil der Tag der am besten \u00fcberschaubare Planungshorizont ist und die Tagesplanung schnell erledigt ist','Weil man so weniger arbeiten muss','Weil es gesetzlich vorgeschrieben ist'],correct:1,explanation:'Der Tag ist der am besten \u00fcberschaubare Planungshorizont. Die Tagesplanung haben Sie schnell erledigt: Sie brauchen gew\u00f6hnlich nicht mehr als rund 10 Minuten.'};
+exercises[55] = {type:'mc',title:'SMART-Ziele formulieren',q:'Welche Aussage beschreibt ein korrekt nach SMART formuliertes Ziel?',options:['\u00abMehr Zeit mit der Familie verbringen.\u00bb','\u00abIch verbessere ab sofort mein pers\u00f6nliches Zeitmanagement.\u00bb','\u00abAb dem 1.3.20xx f\u00fchre ich mein Zeitplanbuch vollst\u00e4ndig, d.h. inklusive Aktivit\u00e4tenliste und Priorit\u00e4tenbildung.\u00bb','\u00abIch werde besser.\u00bb'],correct:2,explanation:'Nur die dritte Aussage ist SMART: spezifisch (Zeitplanbuch), messbar (vollst\u00e4ndig inkl. Aktivit\u00e4tenliste), attraktiv, realistisch und terminiert (ab dem 1.3.20xx).'};
+exercises[56] = {type:'check',title:'Typische Zeitfallen',q:'Welche der folgenden sind typische Zeitfallen?',statements:[{s:'Vollgepackte Zeitpl\u00e4ne ohne Zeitreserven f\u00fcr Unvorhergesehenes',c:true},{s:'Unterbrechungen w\u00e4hrend der Aufgabenerledigung',c:true},{s:'Regelm\u00e4ssige Pausen machen',c:false},{s:'Multitasking',c:true},{s:'Aufschieben von unliebsamen Pendenzen',c:true},{s:'Operative Hektik',c:true},{s:'Nicht \u00abNein\u00bb sagen',c:true}]};
+exercises[57] = {type:'mc',title:'Zeitplanung schriftlich',q:'Ein Kollege wehrt sich gegen das schriftliche Zeitmanagement. Welches Argument spricht f\u00fcr die schriftliche Tagesplanung?',options:['Es macht mehr Spass','Mehr Verbindlichkeit: Wer schriftlich plant, macht einen Vertrag mit sich selbst','Es ist schneller als im Kopf planen','Es braucht weniger Energie'],correct:1,explanation:'Mehr Verbindlichkeit: Wenn Sie schriftlich planen, machen Sie gleichzeitig einen Vertrag mit sich selbst. Zudem: Mehr Denkkapazit\u00e4ten f\u00fcr Wichtiges und mehr Selbstmotivation.'};
+exercises[58] = {type:'mc',title:'Zeitplanungsinstrumente',q:'Welches sind die zwei Hauptkategorien von Zeitplanungsinstrumenten?',options:['Analoge und digitale','Manuelle (Terminkalender, Zeitplanbuch) und digitale (Software, Smartphone)','Private und gesch\u00e4ftliche','T\u00e4gliche und w\u00f6chentliche'],correct:1,explanation:'Manuelle Planungsinstrumente: Terminkalender und Zeitplanbuch. Digitale Planungsinstrumente: Software und Smartphone.'};
+
+// Chapter 12: Prioritaeten setzen (7 exercises)
+exercises[59] = {type:'mc',title:'Pareto-Prinzip',q:'Was besagt das Pareto-Prinzip im Zeitmanagement?',options:['100% der Aufgaben m\u00fcssen erledigt werden','In 20% der aufgewendeten Zeit werden 80% der Ergebnisse erreicht','Alle Aufgaben sind gleich wichtig','80% der Zeit wird verschwendet'],correct:1,explanation:'Das Pareto-Prinzip (80/20-Regel): In 20% der aufgewendeten Zeit werden 80% der Ergebnisse erreicht. Umgekehrt: In den \u00fcbrigen 80% der Zeit werden nur 20% der Ergebnisse erreicht.'};
+exercises[60] = {type:'mc',title:'ABC-Analyse',q:'Was ist die Funktion der ABC-Analyse bei der Priorit\u00e4tensetzung?',options:['Aufgaben alphabetisch sortieren','Aufgaben nach Wichtigkeit einteilen: A-Aufgaben (sehr wichtig), B-Aufgaben (weniger wichtig), C-Aufgaben (unwichtig)','Aufgaben nach Gr\u00f6sse ordnen','Aufgaben nach Kosten sortieren'],correct:1,explanation:'Die ABC-Analyse hilft bei der Entscheidung \u00fcber die Wichtigkeit von Aufgaben: A-Aufgaben sind sehr wichtig, B-Aufgaben weniger wichtig und C-Aufgaben unwichtig.'};
+exercises[61] = {type:'mc',title:'ABC-Analyse: Zeitverteilung',q:'Wie sieht die Verteilung zwischen A-, B- und C-Aufgaben gem\u00e4ss der ABC-Analyse aus?',options:['33% / 33% / 33%','15% A-Aufgaben / 20% B-Aufgaben / 65% C-Aufgaben','50% / 30% / 20%','Keine feste Verteilung'],correct:1,explanation:'Erfahrungsgem\u00e4ss: 15% aller Aufgaben sind A-Aufgaben (65% der Arbeitszeit), 20% sind B-Aufgaben (20% der Arbeitszeit), 65% sind C-Aufgaben (15% der Arbeitszeit).'};
+exercises[62] = {type:'mc',title:'Eisenhower-Prinzip',q:'Was passiert laut Eisenhower-Prinzip mit Aufgaben, die dringend aber wenig wichtig sind?',options:['Sofort selbst erledigen','Delegieren','In den Papierkorb','Terminieren und sp\u00e4ter erledigen'],correct:1,explanation:'Dringende/wenig wichtige Aufgaben: Wahrscheinlich sind Sie versucht, diese Aufgaben selbst zu erledigen, weil sie dringend sind. Sie k\u00f6nnen solche Aufgaben aber problemlos delegieren.'};
+exercises[63] = {type:'match',title:'Eisenhower-Matrix',q:'Ordnen Sie die Handlungsempfehlungen den Eisenhower-Quadranten zu.',pairs:[{l:'Wenig dringlich / wenig wichtig',r:'Papierkorb'},{l:'Dringend / wenig wichtig',r:'Delegieren'},{l:'Wenig dringlich / wichtig',r:'Terminieren'},{l:'Dringend / wichtig',r:'Sofort selbst erledigen'}],options:['Papierkorb','Delegieren','Terminieren','Sofort selbst erledigen']};
+exercises[64] = {type:'text',title:'Delegieren: Erwartungen',q:'Welche typischen Erwartungen von Mitarbeitenden an das Delegieren deuten die folgenden Aussagen an?\nA) \u00abMeine Chefin gibt mir das Gef\u00fchl, ich sei in der Lage, eine herausfordernde Aufgabe zu l\u00f6sen.\u00bb\nB) \u00abLeider erfahre ich es meist nicht, wenn ich etwas nicht so wie gew\u00fcnscht erledigt habe.\u00bb\nC) \u00abGrundsaetzlich finde ich es gut, dass mein Vorgesetzter klare Vorstellungen hat, was er von einer Aufgabe erwartet.\u00bb',keywords:['Zuversicht','motivierend','Feedback','Anerkennung','Handlungsspielraum','klar','Vorstellungen'],solution:'A) Seitens der Chefin echte Zuversicht zu sp\u00fcren, wirkt motivierend. B) Fehlende Anerkennung und Aufmerksamkeit wirken demotivierend. C) Zu wenig Handlungsspielraum f\u00fcr die Aufgabenerf\u00fcllung zu erhalten, wirkt demotivierend.'};
+exercises[65] = {type:'match',title:'Delegierbare Aufgaben',q:'Welche der folgenden Aufgaben sind grunds\u00e4tzlich delegierbar?',pairs:[{l:'Analyse eines Konkurrenzprodukts',r:'Delegierbar'},{l:'Dankesrede am Team-Weihnachtsessen',r:'Nicht delegierbar'},{l:'Mitarbeitergespr\u00e4ch zum Abbau des Feriensaldos',r:'Nicht delegierbar'},{l:'Ein-/Ausr\u00e4umen der Geschirrsp\u00fclmaschine im Pausenraum',r:'Delegierbar'}],options:['Delegierbar','Nicht delegierbar']};
+
+// Chapter 13: Zeitplanung realisieren (8 exercises)
+exercises[66] = {type:'mc',title:'Eustress vs. Distress',q:'Was ist der Unterschied zwischen Eustress und Distress?',options:['Es gibt keinen Unterschied','Eustress ist positiver Stress, der zu aussergewoehnlichen Leistungen befluegelt; Distress ist negativer Stress, der zu Belastung fuehrt','Eustress ist koerperlich, Distress psychisch','Eustress ist kurz, Distress lang'],correct:1,explanation:'Eustress ist positiver Stress, den Sie bei einer Arbeit in einem bestimmten Moment erleben; er befl\u00fcgelt zu aussergewoehnlichen Leistungen. Distress ist negativer Stress, der zu k\u00f6rperlichen Beschwerden oder psychischen Beeintr\u00e4chtigungen f\u00fchren kann.'};
+exercises[67] = {type:'match',title:'Stressoren erkennen',q:'Ordnen Sie die folgenden Beispiele den Stressor-Kategorien zu.',pairs:[{l:'Jonas kann schlecht Nein sagen. Dahinter steckt wom\u00f6glich die Angst vor Ablehnung.',r:'Sozialer Stressor'},{l:'St\u00e4ndige Rhythmuswechsel durch die Zeitverschiebungen bedeuten k\u00f6rperlichen Stress.',r:'Physikalischer Stressor'},{l:'Simon qu\u00e4lt die Angst vor einem Arbeitsplatzverlust und den damit verbundenen finanziellen Problemen.',r:'Psychischer Stressor'}],options:['Sozialer Stressor','Physikalischer Stressor','Psychischer Stressor']};
+exercises[68] = {type:'mc',title:'Stille Stunde',q:'Was spricht f\u00fcr eine \u00abstille Stunde\u00bb im Arbeitsalltag?',options:['Man kann l\u00e4nger schlafen','Die menschliche Leistungsbereitschaft schwankt \u00fcber den Tag; in leistungsstarken Phasen sollte man ungest\u00f6rt arbeiten k\u00f6nnen','Man muss keine E-Mails beantworten','Man kann fr\u00fcher nach Hause gehen'],correct:1,explanation:'Die menschliche Leistungsbereitschaft schwankt \u00fcber den Tag hinweg. Um m\u00f6glichst effizient zu arbeiten, empfiehlt es sich, w\u00e4hrend eines pers\u00f6nlichen Leistungshochs ungest\u00f6rt zu arbeiten.'};
+exercises[69] = {type:'text',title:'Effizienter kommunizieren',q:'Nennen Sie drei Beispiele f\u00fcr \u00abWas ich nicht weiss, macht mich nicht heiss!\u00bb im Kontext des Zeitmanagements.',keywords:['E-Mail','Informationsflut','unwichtig','Papierkorb','Prospekte','Zeitschriften','Informationsquellen','sorgf\u00e4ltig'],solution:'1) E-Mail-Flut: Unwichtige E-Mails sogleich in den Papierkorb. 2) Interne Mitteilungen \u00abzur Kenntnis\u00bb: sich genau \u00fcberlegen, was man wirklich braucht. 3) Prospekte, Zeitschriften: massgebliche Informationsquellen sorgf\u00e4ltig ausw\u00e4hlen und diese daf\u00fcr sorgf\u00e4ltig lesen.'};
+exercises[70] = {type:'mc',title:'Ablagesystem',q:'Warum ist ein gutes Ablagesystem f\u00fcr das Zeitmanagement wichtig?',options:['Es sieht ordentlich aus','Es verhindert Zeitverlust durch Suchen und sorgt f\u00fcr schnellen Zugriff auf Informationen','Es ist gesetzlich vorgeschrieben','Es hat keinen Einfluss'],correct:1,explanation:'Ein gutes Ablagesystem verhindert Zeitverlust durch Suchen und sorgt daf\u00fcr, dass Sie jederzeit schnell auf die ben\u00f6tigten Informationen zugreifen k\u00f6nnen.'};
+exercises[71] = {type:'mc',title:'Belastbarkeit verbessern',q:'Was geh\u00f6rt zu den Massnahmen zur Verbesserung der Belastbarkeit?',options:['Mehr arbeiten','Gesunde Ern\u00e4hrung, Bewegung, gen\u00fcgend Schlaf und Entspannung','Mehr Kaffee trinken','Mehr Sitzungen einberufen'],correct:1,explanation:'Zu den Massnahmen geh\u00f6ren: gesunde Ern\u00e4hrung, regelm\u00e4ssige Bewegung und K\u00f6rpertraining, gen\u00fcgend Schlaf, Entspannungstechniken und Pausen.'};
+exercises[72] = {type:'tf',title:'Zeitfallen erkennen',q:'Sind die folgenden Aussagen zu Zeitfallen richtig oder falsch?',statements:[{s:'Multitasking ist eine effiziente Arbeitsmethode.',c:false},{s:'Operative Hektik ist eine typische Zeitfalle.',c:true},{s:'Regelm\u00e4ssige Pausen sind Zeitverschwendung.',c:false},{s:'Nicht \u00abNein\u00bb sagen k\u00f6nnen ist eine Zeitfalle.',c:true}]};
+exercises[73] = {type:'mc',title:'Arbeitsplatzgestaltung und Stress',q:'Wie beeinflusst die Arbeitsplatzgestaltung das Stresserleben?',options:['\u00dcberhaupt nicht','Eine schlechte Arbeitsplatzgestaltung (L\u00e4rm, schlechte Beleuchtung, Unordnung) kann Stress verursachen','Nur bei F\u00fchrungskr\u00e4ften','Nur in Grossraumb\u00fcros'],correct:1,explanation:'Eine schlechte Arbeitsplatzgestaltung mit L\u00e4rm, schlechter Beleuchtung, unergonomischen M\u00f6beln und Unordnung kann zus\u00e4tzlichen Stress verursachen.'};
+
+// Chapter 14: Eigene Kompetenzentwicklung (6 exercises)
+exercises[74] = {type:'mc',title:'Kompetenzbegriff',q:'Der Begriff \u00abKompetenz\u00bb hat zwei Aspekte. Welche sind das?',options:['Wissen und Erfahrung','Kenntnisse/F\u00e4higkeiten/Fertigkeiten UND Rechte/Pflichten eines Funktionstr\u00e4gers','Theorie und Praxis','Hard Skills und Soft Skills'],correct:1,explanation:'Kompetenz umfasst: 1) Alle Kenntnisse, F\u00e4higkeiten und Fertigkeiten, die einer Person zur Verf\u00fcgung stehen, sowie die Bereitschaft, sie einzusetzen. 2) Die Rechte und Pflichten eines Funktionstr\u00e4gers in einer Organisation.'};
+exercises[75] = {type:'mc',title:'Employability',q:'Wie lautet der Fachbegriff f\u00fcr die F\u00e4higkeit, eine passende Stelle zu finden?',options:['Kompetenz','Employability (Besch\u00e4ftigungsf\u00e4higkeit oder Arbeitsmarktf\u00e4higkeit)','Qualifikation','Karriereplanung'],correct:1,explanation:'Diese F\u00e4higkeit wird Employability bzw. Besch\u00e4ftigungs- oder Arbeitsmarktf\u00e4higkeit genannt. Sie ist wichtig, weil sich die Arbeitsnachfrage rasch \u00e4ndern kann.'};
+exercises[76] = {type:'match',title:'Kompetenzarten zuordnen',q:'Um welche Kompetenzen handelt es sich bei den folgenden Elementen?',pairs:[{l:'Fachsprache, Standards, Formeln',r:'Sach- und Fachkompetenz'},{l:'\u00dcberzeugungen \u00fcber eigene St\u00e4rken und Schw\u00e4chen',r:'Ich-Kompetenz'},{l:'Mit Datenbanken umgehen',r:'Informationskompetenz'},{l:'Konflikte konstruktiv austragen',r:'Sozialkompetenz'},{l:'Zusammenarbeit mit Menschen aus anderen Kulturen',r:'Interkulturelle Kompetenz'},{l:'Prozessmodellierung, Kreativit\u00e4tstechniken',r:'Methodenkompetenz'}],options:['Sach- und Fachkompetenz','Ich-Kompetenz','Informationskompetenz','Sozialkompetenz','Interkulturelle Kompetenz','Methodenkompetenz']};
+exercises[77] = {type:'mc',title:'Informelle Kompetenzen',q:'Was versteht man unter informellen Kompetenzen?',options:['Kompetenzen mit offiziellem Zertifikat','Kompetenzen, die ohne klar definierte Lernziele erworben werden, z.B. durch Hobbys oder Ehrenamt','Computerkompetenzen','Sprachkompetenzen'],correct:1,explanation:'Informell gelernt wird auch informell, d.h. ohne klar definierte Lernziele und ihre \u00dcberpr\u00fcfung. Man spricht hier von informellen Kompetenzen. Informelles Lernen erfolgt z.B. durch Vereinst\u00e4tigkeit, Hobbys oder Ehren\u00e4mter.'};
+exercises[78] = {type:'text',title:'Informelle Lernergebnisse nutzen',q:'Frau Fleissig war drei Jahre lang nicht erwerbst\u00e4tig. Sie hat f\u00fcr die Kinder gesorgt, Bauarbeiten koordiniert und sich freiwillig beim Roten Kreuz engagiert. Was raten Sie ihr als HR-Beraterin?',keywords:['Bestandsaufnahme','informell','Kenntnisse','F\u00e4higkeiten','Lebenslauf','Selbstmarketing'],solution:'Frau Fleissig hat in dieser Zeit sehr viel getan und vor allem viele informelle Lernergebnisse erzielt. Sie sollte eine Bestandsaufnahme machen und die wesentlichen informell erworbenen Kenntnisse, F\u00e4higkeiten und Fertigkeiten in den Lebenslauf integrieren bzw. f\u00fcr das Selbstmarketing nutzen.'};
+exercises[79] = {type:'mc',title:'Kompetenzen priorisieren',q:'Warum ist es wichtig, die eigenen Kompetenzen zu priorisieren?',options:['Um sich besser zu f\u00fchlen','Um gezielt die Kompetenzen weiterzuentwickeln, die f\u00fcr die berufliche Laufbahn am wichtigsten sind','Um weniger lernen zu m\u00fcssen','Es ist nicht wichtig'],correct:1,explanation:'Durch die Priorisierung der Kompetenzen k\u00f6nnen Sie gezielt die Bereiche weiterentwickeln, die f\u00fcr Ihre berufliche Laufbahn am relevantesten sind.'};
+
+// Chapter 15: Strukturierte Problemloesung (7 exercises)
+exercises[80] = {type:'mc',title:'Was ist ein Problem?',q:'Wann sprechen wir von einem Problem?',options:['Wenn eine Aufgabe schwierig ist','Wenn wir mit dem heutigen Zustand (Ist) unzufrieden sind, weil er vom erw\u00fcnschten Zustand (Soll) abweicht','Wenn wir keine L\u00f6sung finden','Wenn der Chef unzufrieden ist'],correct:1,explanation:'Ein Problem ist demnach die Differenz zwischen dem Soll-Zustand und dem Ist-Zustand. Unzufrieden sind wir, weil der Ist-Zustand vom Soll abweicht.'};
+exercises[81] = {type:'match',title:'Merkmale eines Problems',q:'Welche drei typischen Merkmale eines Problems werden hier angesprochen?',pairs:[{l:'Mit einer L\u00f6sung l\u00e4sst sich wom\u00f6glich auch ein vergleichbares anderes Problem l\u00f6sen.',r:'\u00c4hnlichkeit'},{l:'Pers\u00f6nliche Betroffenheit kann die L\u00f6sung eines Problems erschweren bis verunm\u00f6glichen.',r:'Subjektive Bewertung'},{l:'Teilprobleme sind meist einfacher l\u00f6sbar als das Gesamtproblem.',r:'Erfassbarkeit'}],options:['\u00c4hnlichkeit','Subjektive Bewertung','Erfassbarkeit']};
+exercises[82] = {type:'match',title:'Problemloesungsprozess',q:'Der Probleml\u00f6sungsprozess besteht aus sechs Phasen. Ordnen Sie die Fragestellungen der richtigen Phase zu.',pairs:[{l:'Welche spontanen L\u00f6sungen fallen Ihnen zu diesem Problem ein?',r:'Planung'},{l:'Was ist das Problem?',r:'Analyse'},{l:'Wie dringend ist eine Probleml\u00f6sung notwendig?',r:'Analyse'},{l:'Wer ist f\u00fcr die Ausf\u00fchrung der gefundenen L\u00f6sung zust\u00e4ndig?',r:'Realisierung'},{l:'Wie gut wurden die definierten Ziele erreicht?',r:'Kontrolle'}],options:['Analyse','Planung','Realisierung','Kontrolle']};
+exercises[83] = {type:'mc',title:'Vernetztes Denken',q:'Was versteht man unter vernetztem Denken?',options:['Denken im Internet','Die Betrachtung von Problemen aus verschiedenen Blickwinkeln und das Erkennen von Wechselwirkungen zwischen Einflussfaktoren','Logisches Denken','Schnelles Denken'],correct:1,explanation:'Vernetztes Denken bedeutet, Probleme aus verschiedenen Perspektiven zu betrachten und die Wechselwirkungen zwischen verschiedenen Einflussfaktoren zu erkennen.'};
+exercises[84] = {type:'mc',title:'Problemnetzwerk',q:'Aus wie vielen Vorgehensschritten besteht das Problemnetzwerk?',options:['Zwei','Drei: Problem konkretisieren, Vernetzung ermitteln, Ver\u00e4nderungsm\u00f6glichkeiten erfassen','F\u00fcnf','Sieben'],correct:1,explanation:'Das Problemnetzwerk umfasst drei Vorgehensschritte: 1) Problem konkretisieren und Einflussfaktoren ermitteln. 2) Vernetzung ermitteln (Art der Beziehungen, Dynamik). 3) Ver\u00e4nderungsm\u00f6glichkeiten erfassen (Szenarien).'};
+exercises[85] = {type:'mc',title:'Perspektivenwechsel bei Problemen',q:'Warum ist ein Perspektivenwechsel bei der Betrachtung komplexer Probleme besonders wichtig?',options:['Um schneller eine L\u00f6sung zu finden','Weil die Ursachen oft im Dunkeln liegen und man eine einseitige oder eingeschr\u00e4nkte Sichtweise vermeiden sollte','Um den Vorgesetzten zu beeindrucken','Es ist nicht wichtig'],correct:1,explanation:'Oft liegen die Ursachen bei komplexen Problemen im Dunkeln, sodass man sich weniger auf Fakten als auf pers\u00f6nliche Interpretationen st\u00fctzen kann. Darum ist es wichtig, eine einseitige Sichtweise zu vermeiden und das Problem aus vielen verschiedenen Blickwinkeln zu beleuchten.'};
+exercises[86] = {type:'mc',title:'Methodisches Vorgehen',q:'Warum ist ein methodisches Vorgehen bei der Probleml\u00f6sung wichtig?',options:['Es ist schneller','Es stellt sicher, dass Probleme systematisch und nachvollziehbar gel\u00f6st werden, statt nur spontan zu reagieren','Es kostet weniger','Es ist einfacher'],correct:1,explanation:'Der Probleml\u00f6sungsprozess und das vernetzte Denken unterst\u00fctzen das strukturierte Vorgehen bei anspruchsvollen Probleml\u00f6sungen, anstatt nur spontan zu reagieren.'};
+
+// ======================================================================
+// APP COMPONENT
+// ======================================================================
+function App(){
+  var st1=useState(loadProgress()),progress=st1[0],setProgress=st1[1];
+  var st2=useState(null),openCh=st2[0],setOpenCh=st2[1];
+  var st3=useState({}),openEx=st3[0],setOpenEx=st3[1];
+  var st4=useState(false),dark=st4[0],setDark=st4[1];
+  var st5=useState(false),showCalc=st5[0],setShowCalc=st5[1];
+  var st6=useState(false),showNotes=st6[0],setShowNotes=st6[1];
+  var st7=useState(false),showGloss=st7[0],setShowGloss=st7[1];
+  var st8=useState(''),notes=st8[0],setNotes=st8[1];
+  var st9=useState(0),timer=st9[0],setTimer=st9[1];
+  var timerRef=useRef(null);
+  // 3-Modi tabs: 'learn', 'ueben', 'pruefung'
+  var st10=useState({}),chapterMode=st10[0],setChapterMode=st10[1];
+  var st11=useState(loadExamScores()),examScores=st11[0],setExamScores=st11[1];
+
+  useEffect(function(){
+    timerRef.current=setInterval(function(){setTimer(function(t){return t+1})},1000);
+    return function(){clearInterval(timerRef.current)};
+  },[]);
+
+  useEffect(function(){
+    if(dark)document.body.classList.add('dark');
+    else document.body.classList.remove('dark');
+  },[dark]);
+
+  function markDone(id){
+    var p=Object.assign({},progress);
+    p[id]=true;
+    setProgress(p);
+    saveProgress(p);
+  }
+  function resetEx(id){
+    var p=Object.assign({},progress);
+    delete p[id];
+    setProgress(p);
+    saveProgress(p);
+  }
+  function resetAll(){
+    setProgress({});
+    saveProgress({});
+  }
+
+  var doneCount=Object.keys(progress).filter(function(k){return k!=='learn'&&progress[k]}).length;
+  var timerStr=Math.floor(timer/3600)+':'+String(Math.floor((timer%3600)/60)).padStart(2,'0')+':'+String(timer%60).padStart(2,'0');
+
+  function toggleEx(id){
+    var o=Object.assign({},openEx);
+    o[id]=!o[id];
+    setOpenEx(o);
+  }
+
+  function getChMode(chId){return chapterMode[chId]||'ueben'}
+  function setChMode(chId,mode){var t=Object.assign({},chapterMode);t[chId]=mode;setChapterMode(t)}
+  function saveExamScore(chId,score,total){
+    var s=Object.assign({},examScores);
+    var pct=Math.round(score/total*100);
+    var key='ch'+chId;
+    if(!s[key]||pct>s[key].pct){
+      s[key]={score:score,total:total,pct:pct,date:new Date().toLocaleDateString('de-CH')};
+    }
+    setExamScores(s);
+    saveExamScores(s);
+  }
+
+  return e('div',null,
+    // Nav
+    e('div',{className:'nav'},
+      e('div',null,
+        e('a',{href:'../index.html',className:'btn-back',style:{textDecoration:'none',marginBottom:4,display:'inline-flex'}},'\u2190 Zur\u00fcck'),
+        e('div',{className:'nav-title'},'Selbstmanagement'),
+        e('div',{className:'nav-sub'},'Geiger, J\u00e4ggi, Messi, Z\u00fcger, Pifko \u00b7 Compendio')
+      ),
+      e('div',{className:'nav-right'},
+        e('div',{className:'timer-display'},timerStr),
+        e('div',{className:'score-badge '+(doneCount>TOTAL_EX/2?'good':'bad')},doneCount+'/'+TOTAL_EX),
+        e('div',{className:'tool-bar'},
+          e('button',{className:'tool-btn'+(showCalc?' active':''),onClick:function(){setShowCalc(!showCalc);setShowNotes(false);setShowGloss(false)}},'\ud83e\uddc2 Rechner'),
+          e('button',{className:'tool-btn'+(showNotes?' active':''),onClick:function(){setShowNotes(!showNotes);setShowCalc(false);setShowGloss(false)}},'\ud83d\udcdd Notizen'),
+          e('button',{className:'tool-btn'+(showGloss?' active':''),onClick:function(){setShowGloss(!showGloss);setShowCalc(false);setShowNotes(false)}},'\ud83d\udcd6 Glossar')
+        ),
+        e('button',{className:'nav-btn',onClick:function(){setDark(!dark)}},dark?'\u2600\ufe0f':'\ud83c\udf19'),
+        e('button',{className:'nav-btn btn-reset',onClick:resetAll,style:{background:'rgba(220,38,38,.3)'}},'\u21bb Reset')
+      )
+    ),
+    // Container
+    e('div',{className:'container'},
+      chapters.map(function(ch){
+        var exIds=ch.exercises;
+        var done=exIds.filter(function(id){return progress[id]}).length;
+        var isOpen=openCh===ch.id;
+        var hasLearn=!!learningData[ch.id];
+        var curMode=getChMode(ch.id);
+        var bestScore=examScores['ch'+ch.id];
+        var learnKey='learn_ch'+ch.id;
+        var isRead=progress[learnKey];
+
+        return e('div',{key:ch.id,className:'chapter-card'},
+          e('div',{className:'chapter-header',onClick:function(){setOpenCh(isOpen?null:ch.id)}},
+            e('div',{className:'ch-info'},
+              e('div',{className:'ch-num'},'Teil '+ch.teil+' \u2022 Kapitel '+ch.id),
+              e('div',{className:'ch-title'},ch.title,
+                bestScore?e('span',{className:'ch-exam-badge '+(bestScore.pct>=60?'pass':'fail')},'\ud83c\udfaf '+bestScore.pct+'%'):null
+              ),
+              e('div',{className:'ch-meta'},
+                done+' / '+exIds.length+' Aufgaben gel\u00f6st',
+                isRead?' \u2022 \ud83d\udcd6 Gelesen':'',
+                bestScore?' \u2022 \ud83c\udfaf Beste: '+bestScore.pct+'% ('+bestScore.date+')':''
+              ),
+              e('div',{className:'progress-bar'},e('div',{className:'progress-fill',style:{width:Math.round(done/exIds.length*100)+'%'}}))
+            ),
+            e('div',{className:'ch-arrow'+(isOpen?' open':'')},'\u25bc')
+          ),
+          isOpen?e('div',null,
+            // 3-Modi Tabs
+            e('div',{className:'mode-tabs'},
+              e('button',{className:'mode-tab'+(curMode==='learn'?' active-learn':''),onClick:function(){setChMode(ch.id,'learn')}},
+                e('span',{className:'mode-tab-icon'},'\ud83d\udcd6'),'Lernen'
+              ),
+              e('button',{className:'mode-tab'+(curMode==='ueben'?' active-ueben':''),onClick:function(){setChMode(ch.id,'ueben')}},
+                e('span',{className:'mode-tab-icon'},'\u270d\ufe0f'),'Üben'
+              ),
+              e('button',{className:'mode-tab'+(curMode==='pruefung'?' active-pruefung':''),onClick:function(){setChMode(ch.id,'pruefung')}},
+                e('span',{className:'mode-tab-icon'},'\ud83c\udfaf'),'Pr\u00fcfung'
+              )
+            ),
+            // Lernen mode
+            curMode==='learn'?(
+              hasLearn?e(LearnMode,{data:learningData[ch.id],chId:ch.id,progress:progress,setProgress:setProgress}):
+              e(LearnPlaceholder,{ch:ch,progress:progress,setProgress:setProgress})
+            ):null,
+            // Üben mode (existing behavior)
+            curMode==='ueben'?e('div',{className:'exercise-list'},
+              exIds.map(function(exId){
+                var ex=exercises[exId];
+                if(!ex) return null;
+                var isDone=progress[exId];
+                var isExOpen=openEx[exId];
+                return e('div',{key:exId,className:'ex-card'},
+                  e('div',{className:'ex-header',onClick:function(){toggleEx(exId)}},
+                    e('div',{className:'ex-num'+(isDone?' done':'')},exId),
+                    e('div',{className:'ex-title-wrap'},
+                      e('div',{className:'ex-title'},ex.title),
+                      e('div',{className:'ex-type'},ex.type==='mc'?'Multiple Choice':ex.type==='tf'?'Richtig/Falsch':ex.type==='match'?'Zuordnung':ex.type==='check'?'Mehrfachauswahl':ex.type==='text'?'Freitext':'Aufgabe')
+                    ),
+                    isDone?e('span',{className:'score-badge good'},'\u2713'):null
+                  ),
+                  isExOpen?e('div',{className:'ex-body'},
+                    e(ExRenderer,{ex:ex,exId:exId,isDone:isDone,markDone:markDone,resetEx:resetEx})
+                  ):null
+                );
+              })
+            ):null,
+            // Prüfung mode
+            curMode==='pruefung'?e(ExamMode,{ch:ch,examScores:examScores,saveExamScore:saveExamScore}):null
+          ):null
+        );
+      }),
+      e('div',{className:'footer'},'Selbstmanagement f\u00fcr Marketing- und Verkaufsverantwortliche \u2022 Lern-App')
+    ),
+    // Panels
+    showCalc?e(CalcPanel,{onClose:function(){setShowCalc(false)}}):null,
+    showNotes?e(NotesPanel,{onClose:function(){setShowNotes(false)},notes:notes,setNotes:setNotes}):null,
+    showGloss?e(GlossaryPanel,{onClose:function(){setShowGloss(false)}}):null
+  );
+}
+
+// ======================================================================
+// LEARN MODE COMPONENT
+// ======================================================================
+function LearnMode(props){
+  var data=props.data, chId=props.chId, progress=props.progress, setProgress=props.setProgress;
+  var learnKey='learn_ch'+chId;
+  var isComplete=progress[learnKey];
+
+  function completeLearn(){
+    var p=Object.assign({},progress);
+    p[learnKey]=true;
+    setProgress(p);
+    saveProgress(p);
+  }
+
+  return e('div',{className:'learn-container'},
+    data.sections.map(function(sec,i){
+      var icon=sec.type==='intro'?'\ud83c\udfaf':sec.type==='concept'?'\ud83d\udca1':sec.type==='table'?'\ud83d\udcca':sec.type==='merke'?'\u26a0\ufe0f':sec.type==='summary'?'\u2705':sec.type==='keyterms'?'\ud83d\udd11':'\ud83d\udcd6';
+      var cls='learn-section'+(sec.type==='intro'?' learn-intro':'')+(sec.type==='concept'?' learn-concept':'')+(sec.type==='merke'?' learn-merke':'')+(sec.type==='summary'?' learn-summary':'');
+
+      return e('div',{key:i,className:cls},
+        e('div',{className:'learn-section-header'},
+          e('span',{className:'learn-section-icon'},icon),
+          e('div',{className:'learn-section-title'},sec.title)
+        ),
+        e('div',{className:'learn-section-body'},
+          sec.type==='intro'?e('div',null,
+            e('div',{className:'learn-intro-text'},sec.content),
+            e('ul',{className:'learn-intro-list'},sec.items.map(function(item,j){return e('li',{key:j},item)}))
+          ):null,
+          sec.type==='concept'?e('div',null,
+            e('div',{className:'learn-concept-text'},sec.content),
+            sec.highlight?e('div',{className:'learn-highlight'},sec.highlight):null
+          ):null,
+          sec.type==='table'?e('div',{className:'learn-table-wrap'},
+            e('table',{className:'learn-table'},
+              e('thead',null,e('tr',null,sec.headers.map(function(h,j){return e('th',{key:j},h)}))),
+              e('tbody',null,sec.rows.map(function(row,j){return e('tr',{key:j},row.map(function(cell,k){return e('td',{key:k,className:k===0?'table-label':''},cell)}))}))
+            )
+          ):null,
+          sec.type==='merke'?e('ul',{className:'learn-merke-list'},sec.items.map(function(item,j){return e('li',{key:j},item)})):null,
+          sec.type==='summary'?e('div',{className:'learn-summary-text'},sec.content.map(function(p,j){return e('p',{key:j,dangerouslySetInnerHTML:{__html:p}})})):null,
+          sec.type==='keyterms'?e('div',{className:'learn-terms-grid'},sec.terms.map(function(t,j){return e('div',{key:j,className:'learn-term-card'},
+            e('div',{className:'learn-term-name'},t.term),
+            e('div',{className:'learn-term-def'},t.def)
+          )})):null
+        )
+      );
+    }),
+    e('div',{className:'learn-complete-bar'},
+      e('div',{className:'learn-progress-text'},'Kapitel '+chId+' Theorie'),
+      isComplete?e('div',{className:'learn-complete-btn done'},'\u2713 Gelesen'):
+      e('button',{className:'learn-complete-btn ready',onClick:completeLearn},'Als gelesen markieren')
+    )
+  );
+}
+
+// ======================================================================
+// EXERCISE RENDERER
+// ======================================================================
+function ExRenderer(props){
+  var ex=props.ex,exId=props.exId,isDone=props.isDone,markDone=props.markDone,resetEx=props.resetEx;
+
+  if(ex.type==='mc') return e(MCExercise,{ex:ex,exId:exId,isDone:isDone,markDone:markDone,resetEx:resetEx});
+  if(ex.type==='tf') return e(TFExercise,{ex:ex,exId:exId,isDone:isDone,markDone:markDone,resetEx:resetEx});
+  if(ex.type==='match') return e(MatchExercise,{ex:ex,exId:exId,isDone:isDone,markDone:markDone,resetEx:resetEx});
+  if(ex.type==='check') return e(CheckExercise,{ex:ex,exId:exId,isDone:isDone,markDone:markDone,resetEx:resetEx});
+  if(ex.type==='text') return e(TextExercise,{ex:ex,exId:exId,isDone:isDone,markDone:markDone,resetEx:resetEx});
+  return null;
+}
+
+// ---- MC Exercise ----
+function MCExercise(props){
+  var ex=props.ex,exId=props.exId,isDone=props.isDone,markDone=props.markDone,resetEx=props.resetEx;
+  var st=useState(null),sel=st[0],setSel=st[1];
+  var st2=useState(false),checked=st2[0],setChecked=st2[1];
+
+  function check(){
+    setChecked(true);
+    if(sel===ex.correct) markDone(exId);
+  }
+  function reset(){setSel(null);setChecked(false);resetEx(exId)}
+
+  return e('div',null,
+    e('p',{className:'ex-instruction'},ex.q),
+    ex.options.map(function(opt,i){
+      var cls='mc-option';
+      if(!checked&&sel===i) cls+=' selected';
+      if(checked&&sel===i&&i===ex.correct) cls+=' correct-sel';
+      if(checked&&sel===i&&i!==ex.correct) cls+=' wrong-sel';
+      if(checked&&i===ex.correct&&sel!==i) cls+=' correct-unsel';
+      return e('div',{key:i,className:cls,onClick:function(){if(!checked)setSel(i)}},
+        e('div',{className:'mc-radio'}),
+        e('span',null,opt)
+      );
+    }),
+    checked&&ex.explanation?e('div',{className:'feedback '+(sel===ex.correct?'ok':'nok')},ex.explanation):null,
+    e('div',{className:'btn-row'},
+      !checked?e('button',{className:'btn btn-primary',onClick:check,disabled:sel===null},'Pr\u00fcfen'):null,
+      checked?e('button',{className:'btn btn-secondary',onClick:reset},'Zur\u00fccksetzen'):null
+    )
+  );
+}
+
+// ---- TF Exercise ----
+function TFExercise(props){
+  var ex=props.ex,exId=props.exId,isDone=props.isDone,markDone=props.markDone,resetEx=props.resetEx;
+  var st=useState({}),answers=st[0],setAnswers=st[1];
+  var st2=useState(false),checked=st2[0],setChecked=st2[1];
+
+  function select(i,val){if(checked)return;var a=Object.assign({},answers);a[i]=val;setAnswers(a)}
+  function check(){
+    setChecked(true);
+    var allCorrect=ex.statements.every(function(s,i){return answers[i]===(s.c?'r':'f')});
+    if(allCorrect) markDone(exId);
+  }
+  function reset(){setAnswers({});setChecked(false);resetEx(exId)}
+
+  return e('div',null,
+    e('p',{className:'ex-instruction'},ex.q),
+    ex.statements.map(function(s,i){
+      var userAns=answers[i];
+      var correctAns=s.c?'r':'f';
+      return e('div',{key:i,className:'tf-row'},
+        e('div',{className:'tf-statement'},s.s),
+        e('div',{className:'tf-buttons'},
+          e('button',{className:'tf-btn'+(userAns==='r'?checked?(correctAns==='r'?' correct-sel':' wrong-sel'):' selected':'')+(checked&&!userAns&&correctAns==='r'?' correct-unsel':''),onClick:function(){select(i,'r')}},'Richtig'),
+          e('button',{className:'tf-btn'+(userAns==='f'?checked?(correctAns==='f'?' correct-sel':' wrong-sel'):' selected':'')+(checked&&!userAns&&correctAns==='f'?' correct-unsel':''),onClick:function(){select(i,'f')}},'Falsch')
+        )
+      );
+    }),
+    e('div',{className:'btn-row'},
+      !checked?e('button',{className:'btn btn-primary',onClick:check},'Pr\u00fcfen'):null,
+      checked?e('button',{className:'btn btn-secondary',onClick:reset},'Zur\u00fccksetzen'):null
+    )
+  );
+}
+
+// ---- Match Exercise ----
+function MatchExercise(props){
+  var ex=props.ex,exId=props.exId,isDone=props.isDone,markDone=props.markDone,resetEx=props.resetEx;
+  var st=useState({}),answers=st[0],setAnswers=st[1];
+  var st2=useState(false),checked=st2[0],setChecked=st2[1];
+
+  function sel(i,val){if(checked)return;var a=Object.assign({},answers);a[i]=val;setAnswers(a)}
+  function check(){
+    setChecked(true);
+    var allCorrect=ex.pairs.every(function(p,i){return answers[i]===p.r});
+    if(allCorrect) markDone(exId);
+  }
+  function reset(){setAnswers({});setChecked(false);resetEx(exId)}
+
+  return e('div',null,
+    e('p',{className:'ex-instruction'},ex.q),
+    ex.pairs.map(function(p,i){
+      var cls='match-select';
+      if(checked){cls+=(answers[i]===p.r?' correct':' wrong')}
+      return e('div',{key:i,className:'match-row'},
+        e('div',{className:'match-label'},p.l),
+        e('select',{className:cls,value:answers[i]||'',onChange:function(ev){sel(i,ev.target.value)}},
+          e('option',{value:''},'-- W\u00e4hlen --'),
+          ex.options.map(function(o,j){return e('option',{key:j,value:o},o)})
+        )
+      );
+    }),
+    checked?e('div',{className:'solution-box'},
+      e('strong',null,'Richtige Zuordnung:'),
+      e('ul',null,ex.pairs.map(function(p,i){return e('li',{key:i},p.l+' \u2192 '+p.r)}))
+    ):null,
+    e('div',{className:'btn-row'},
+      !checked?e('button',{className:'btn btn-primary',onClick:check},'Pr\u00fcfen'):null,
+      checked?e('button',{className:'btn btn-secondary',onClick:reset},'Zur\u00fccksetzen'):null
+    )
+  );
+}
+
+// ---- Check Exercise ----
+function CheckExercise(props){
+  var ex=props.ex,exId=props.exId,isDone=props.isDone,markDone=props.markDone,resetEx=props.resetEx;
+  var st=useState({}),answers=st[0],setAnswers=st[1];
+  var st2=useState(false),checked=st2[0],setChecked=st2[1];
+
+  function toggle(i){if(checked)return;var a=Object.assign({},answers);a[i]=!a[i];setAnswers(a)}
+  function check(){
+    setChecked(true);
+    var allCorrect=ex.statements.every(function(s,i){return (!!answers[i])===s.c});
+    if(allCorrect) markDone(exId);
+  }
+  function reset(){setAnswers({});setChecked(false);resetEx(exId)}
+
+  return e('div',null,
+    e('p',{className:'ex-instruction'},ex.q),
+    e('table',{className:'check-table'},
+      e('thead',null,e('tr',null,e('th',null,'Aussage'),e('th',null,'Trifft zu'))),
+      e('tbody',null,ex.statements.map(function(s,i){
+        var cls='';
+        if(checked){cls=(!!answers[i])===s.c?'correct-row':'wrong-row'}
+        return e('tr',{key:i,className:cls},
+          e('td',null,s.s),
+          e('td',null,e('input',{type:'checkbox',checked:!!answers[i],onChange:function(){toggle(i)}}))
+        );
+      }))
+    ),
+    e('div',{className:'btn-row'},
+      !checked?e('button',{className:'btn btn-primary',onClick:check},'Pr\u00fcfen'):null,
+      checked?e('button',{className:'btn btn-secondary',onClick:reset},'Zur\u00fccksetzen'):null
+    )
+  );
+}
+
+// ---- Text Exercise ----
+function TextExercise(props){
+  var ex=props.ex,exId=props.exId,isDone=props.isDone,markDone=props.markDone,resetEx=props.resetEx;
+  var st=useState(''),answer=st[0],setAnswer=st[1];
+  var st2=useState(false),checked=st2[0],setChecked=st2[1];
+  var st3=useState(false),showSol=st3[0],setShowSol=st3[1];
+
+  function check(){
+    setChecked(true);
+    var kw=matchKeywords(answer,ex.keywords);
+    if(kw>=2) markDone(exId);
+  }
+  function reset(){setAnswer('');setChecked(false);setShowSol(false);resetEx(exId)}
+
+  return e('div',null,
+    e('p',{className:'ex-instruction',style:{whiteSpace:'pre-line'}},ex.q),
+    e('textarea',{className:'text-input',value:answer,onChange:function(ev){setAnswer(ev.target.value)},rows:4,placeholder:'Ihre Antwort\u2026',disabled:checked}),
+    checked?e('div',null,
+      e('div',{className:'feedback '+(matchKeywords(answer,ex.keywords)>=2?'ok':'nok')},
+        matchKeywords(answer,ex.keywords)>=2?'Gut! Ihre Antwort enth\u00e4lt relevante Schl\u00fcsselw\u00f6rter.':'Ihre Antwort enth\u00e4lt noch wenige Schl\u00fcsselw\u00f6rter. Vergleichen Sie mit der Musterl\u00f6sung.'
+      ),
+      e('div',{className:'reveal-box'},
+        e('div',{className:'reveal-toggle',onClick:function(){setShowSol(!showSol)}},showSol?'\u25bc':'\u25b6',' Musterl\u00f6sung anzeigen'),
+        showSol?e('div',{className:'reveal-content'},ex.solution):null
+      )
+    ):null,
+    e('div',{className:'btn-row'},
+      !checked?e('button',{className:'btn btn-primary',onClick:check,disabled:!answer.trim()},'Pr\u00fcfen'):null,
+      checked?e('button',{className:'btn btn-secondary',onClick:reset},'Zur\u00fccksetzen'):null
+    )
+  );
+}
+
+// ======================================================================
+// LEARN PLACEHOLDER (for chapters without full learning data)
+// ======================================================================
+function LearnPlaceholder(props){
+  var ch=props.ch, progress=props.progress, setProgress=props.setProgress;
+  var learnKey='learn_ch'+ch.id;
+  var isRead=progress[learnKey];
+  // Try to get learning objectives from learningData if partial
+  var objectives=null;
+  if(learningData[ch.id]){
+    var introSec=learningData[ch.id].sections.find(function(s){return s.type==='intro'});
+    if(introSec) objectives=introSec.items;
+  }
+  function toggleRead(){
+    var p=Object.assign({},progress);
+    if(isRead) delete p[learnKey]; else p[learnKey]=true;
+    setProgress(p);
+    saveProgress(p);
+  }
+  return e('div',{className:'learn-placeholder'},
+    e('div',{className:'learn-placeholder-icon'},'\ud83d\udcd6'),
+    e('div',{className:'learn-placeholder-text'},'Theorie wird bald erg\u00e4nzt'),
+    objectives?e('div',null,
+      e('div',{style:{fontWeight:600,fontSize:'.9rem',color:'var(--text)',marginBottom:12}},'Lernziele dieses Kapitels:'),
+      e('ul',{className:'learn-objectives'},objectives.map(function(o,i){return e('li',{key:i},o)}))
+    ):null,
+    e('div',{style:{marginTop:24}},
+      e('label',{style:{display:'flex',alignItems:'center',gap:8,justifyContent:'center',cursor:'pointer',fontSize:'.88rem',color:'var(--text)'}},
+        e('input',{type:'checkbox',checked:!!isRead,onChange:toggleRead,style:{width:18,height:18,accentColor:'var(--green)'}}),
+        'Als gelesen markieren'
+      )
+    )
+  );
+}
+
+// ======================================================================
+// EXAM MODE COMPONENT
+// ======================================================================
+function ExamMode(props){
+  var ch=props.ch, examScores=props.examScores, saveExamScore=props.saveExamScore;
+  var EXAM_TIME=15*60; // 15 minutes
+
+  var stPhase=useState('start'),phase=stPhase[0],setPhase=stPhase[1]; // start, running, results
+  var stExIds=useState([]),examExIds=stExIds[0],setExamExIds=stExIds[1];
+  var stAnswers=useState({}),examAnswers=stAnswers[0],setExamAnswers=stAnswers[1];
+  var stTime=useState(EXAM_TIME),timeLeft=stTime[0],setTimeLeft=stTime[1];
+  var stResults=useState(null),results=stResults[0],setResults=stResults[1];
+  var stShuffledOptions=useState({}),shuffledOpts=stShuffledOptions[0],setShuffledOpts=stShuffledOptions[1];
+  var timerRef=useRef(null);
+  var bestScore=examScores['ch'+ch.id];
+
+  // Timer effect
+  useEffect(function(){
+    if(phase==='running'){
+      timerRef.current=setInterval(function(){
+        setTimeLeft(function(t){
+          if(t<=1){clearInterval(timerRef.current);return 0}
+          return t-1;
+        });
+      },1000);
+      return function(){clearInterval(timerRef.current)};
+    }
+  },[phase]);
+
+  // Auto-submit when time runs out
+  useEffect(function(){
+    if(phase==='running'&&timeLeft<=0) submitExam();
+  },[timeLeft,phase]);
+
+  function startExam(){
+    var selected=selectExamExercises(ch.exercises);
+    setExamExIds(selected);
+    setExamAnswers({});
+    setTimeLeft(EXAM_TIME);
+    setResults(null);
+    // Pre-shuffle MC options
+    var shuffled={};
+    selected.forEach(function(exId){
+      var ex=exercises[exId];
+      if(ex&&ex.type==='mc'){
+        var indices=ex.options.map(function(_,i){return i});
+        var shuffledIdx=shuffleArray(indices);
+        shuffled[exId]=shuffledIdx;
+      }
+    });
+    setShuffledOpts(shuffled);
+    setPhase('running');
+  }
+
+  function setAnswer(exId,val){
+    var a=Object.assign({},examAnswers);
+    a[exId]=val;
+    setExamAnswers(a);
+  }
+
+  function submitExam(){
+    if(timerRef.current) clearInterval(timerRef.current);
+    var correct=0;
+    var total=examExIds.length;
+    var detail=[];
+    examExIds.forEach(function(exId){
+      var ex=exercises[exId];
+      if(!ex) return;
+      var ans=examAnswers[exId];
+      var isCorrect=false;
+
+      if(ex.type==='mc'){
+        // Answer stored is original index
+        isCorrect=ans===ex.correct;
+      } else if(ex.type==='tf'){
+        if(ans&&typeof ans==='object'){
+          isCorrect=ex.statements.every(function(s,i){return ans[i]===(s.c?'r':'f')});
+        }
+      } else if(ex.type==='match'){
+        if(ans&&typeof ans==='object'){
+          isCorrect=ex.pairs.every(function(p,i){return ans[i]===p.r});
+        }
+      } else if(ex.type==='check'){
+        if(ans&&typeof ans==='object'){
+          isCorrect=ex.statements.every(function(s,i){return (!!ans[i])===s.c});
+        }
+      } else if(ex.type==='text'){
+        var kw=matchKeywords(ans||'',ex.keywords);
+        isCorrect=kw>=2;
+      }
+
+      if(isCorrect) correct++;
+      detail.push({exId:exId,title:ex.title,correct:isCorrect});
+    });
+
+    setResults({correct:correct,total:total,detail:detail});
+    saveExamScore(ch.id,correct,total);
+    setPhase('results');
+  }
+
+  // Start screen
+  if(phase==='start'){
+    return e('div',{className:'exam-container'},
+      e('div',{style:{textAlign:'center',padding:'40px 20px'}},
+        e('div',{style:{fontSize:'3rem',marginBottom:16}},'\ud83c\udfaf'),
+        e('div',{style:{fontSize:'1.2rem',fontWeight:700,marginBottom:8,color:'var(--text)'}},'Pr\u00fcfungsmodus'),
+        e('div',{style:{fontSize:'.9rem',color:'var(--text2)',marginBottom:8}},'Kapitel '+ch.id+': '+ch.title),
+        e('div',{style:{fontSize:'.85rem',color:'var(--text2)',marginBottom:24,lineHeight:1.6}},
+          'Zuf\u00e4llige Auswahl von '+Math.round(ch.exercises.length*0.6)+'-'+Math.round(ch.exercises.length*0.8)+' Aufgaben',
+          e('br'),
+          'Zeitlimit: 15 Minuten',
+          e('br'),
+          'Keine Tipps, keine L\u00f6sungshilfen',
+          e('br'),
+          'Bestanden ab 60%'
+        ),
+        bestScore?e('div',{className:'score-best'},
+          'Beste Pr\u00fcfung: '+bestScore.pct+'% ('+bestScore.score+'/'+bestScore.total+') am '+bestScore.date
+        ):null,
+        e('button',{className:'exam-submit-btn',style:{margin:'0 auto',fontSize:'1rem',padding:'14px 36px'},onClick:startExam},'\ud83d\ude80 Pr\u00fcfung starten')
+      )
+    );
+  }
+
+  // Results screen
+  if(phase==='results'&&results){
+    var pct=Math.round(results.correct/results.total*100);
+    var passed=pct>=60;
+    return e('div',{className:'score-screen'},
+      e('div',{className:'score-circle '+(passed?'pass':'fail')},
+        e('div',{className:'score-pct'},pct+'%'),
+        e('div',{className:'score-label'},results.correct+'/'+results.total)
+      ),
+      e('div',{className:'score-status '+(passed?'pass':'fail')},passed?'\u2705 Bestanden':'\u274c Nicht bestanden'),
+      e('div',{className:'score-detail'},passed?'Herzlichen Gl\u00fcckwunsch! Du hast die Pr\u00fcfung bestanden.':'Leider nicht bestanden. Du brauchst mindestens 60%. Versuch es nochmal!'),
+      bestScore?e('div',{className:'score-best'},'\ud83c\udfc6 Pers\u00f6nlicher Rekord: '+bestScore.pct+'% am '+bestScore.date):null,
+      e('div',{className:'score-results'},
+        e('div',{style:{fontWeight:700,fontSize:'.9rem',marginBottom:8,color:'var(--text)'}},'Ergebnisse im Detail:'),
+        results.detail.map(function(d,i){
+          return e('div',{key:i,className:'score-result-row'},
+            e('span',{className:'score-result-icon'},d.correct?'\u2705':'\u274c'),
+            e('span',{className:'score-result-title'},d.title)
+          );
+        })
+      ),
+      e('div',{className:'score-actions'},
+        e('button',{className:'btn btn-primary',onClick:startExam},'\ud83d\udd04 Nochmal'),
+        e('button',{className:'btn btn-secondary',onClick:function(){setPhase('start')}},'Zur\u00fcck')
+      )
+    );
+  }
+
+  // Running exam
+  var isWarning=timeLeft<120;
+  var answered=examExIds.filter(function(id){return examAnswers[id]!==undefined&&examAnswers[id]!==null&&examAnswers[id]!==''}).length;
+
+  return e('div',{className:'exam-container'},
+    e('div',{className:'exam-header'},
+      e('div',{className:'exam-timer'+(isWarning?' warning':'')},
+        e('span',{className:'exam-timer-icon'},'\u23f1'),
+        formatCountdown(timeLeft)
+      ),
+      e('div',{className:'exam-progress-text'},answered+'/'+examExIds.length+' beantwortet'),
+      e('button',{className:'exam-submit-btn',onClick:submitExam},'\ud83d\udcdd Abgeben')
+    ),
+    examExIds.map(function(exId,idx){
+      var ex=exercises[exId];
+      if(!ex) return null;
+      return e('div',{key:exId,className:'exam-ex-card'},
+        e('div',{className:'exam-ex-title'},
+          e('span',{className:'exam-ex-num'},idx+1),
+          ex.title
+        ),
+        e(ExamExRenderer,{ex:ex,exId:exId,answer:examAnswers[exId],setAnswer:function(val){setAnswer(exId,val)},shuffledOpts:shuffledOpts})
+      );
+    })
+  );
+}
+
+// ======================================================================
+// EXAM EXERCISE RENDERER (no tips, no reveal, no check button)
+// ======================================================================
+function ExamExRenderer(props){
+  var ex=props.ex,exId=props.exId,answer=props.answer,setAnswer=props.setAnswer,shuffledOpts=props.shuffledOpts;
+
+  if(ex.type==='mc'){
+    // Use shuffled option order
+    var optOrder=shuffledOpts[exId]||ex.options.map(function(_,i){return i});
+    return e('div',null,
+      e('p',{className:'ex-instruction'},ex.q),
+      optOrder.map(function(origIdx){
+        var cls='mc-option';
+        if(answer===origIdx) cls+=' selected';
+        return e('div',{key:origIdx,className:cls,onClick:function(){setAnswer(origIdx)}},
+          e('div',{className:'mc-radio'}),
+          e('span',null,ex.options[origIdx])
+        );
+      })
+    );
+  }
+
+  if(ex.type==='tf'){
+    var tfAns=answer||{};
+    function tfSelect(i,val){var a=Object.assign({},tfAns);a[i]=val;setAnswer(a)}
+    return e('div',null,
+      e('p',{className:'ex-instruction'},ex.q),
+      ex.statements.map(function(s,i){
+        return e('div',{key:i,className:'tf-row'},
+          e('div',{className:'tf-statement'},s.s),
+          e('div',{className:'tf-buttons'},
+            e('button',{className:'tf-btn'+(tfAns[i]==='r'?' selected':''),onClick:function(){tfSelect(i,'r')}},'Richtig'),
+            e('button',{className:'tf-btn'+(tfAns[i]==='f'?' selected':''),onClick:function(){tfSelect(i,'f')}},'Falsch')
+          )
+        );
+      })
+    );
+  }
+
+  if(ex.type==='match'){
+    var matchAns=answer||{};
+    function matchSelect(i,val){var a=Object.assign({},matchAns);a[i]=val;setAnswer(a)}
+    // Shuffle match options
+    var shuffledMatchOpts=useMemo(function(){return shuffleArray(ex.options)},[exId]);
+    return e('div',null,
+      e('p',{className:'ex-instruction'},ex.q),
+      ex.pairs.map(function(p,i){
+        return e('div',{key:i,className:'match-row'},
+          e('div',{className:'match-label'},p.l),
+          e('select',{className:'match-select',value:matchAns[i]||'',onChange:function(ev){matchSelect(i,ev.target.value)}},
+            e('option',{value:''},'-- W\u00e4hlen --'),
+            shuffledMatchOpts.map(function(o,j){return e('option',{key:j,value:o},o)})
+          )
+        );
+      })
+    );
+  }
+
+  if(ex.type==='check'){
+    var checkAns=answer||{};
+    function checkToggle(i){var a=Object.assign({},checkAns);a[i]=!a[i];setAnswer(a)}
+    return e('div',null,
+      e('p',{className:'ex-instruction'},ex.q),
+      e('table',{className:'check-table'},
+        e('thead',null,e('tr',null,e('th',null,'Aussage'),e('th',null,'Trifft zu'))),
+        e('tbody',null,ex.statements.map(function(s,i){
+          return e('tr',{key:i},
+            e('td',null,s.s),
+            e('td',null,e('input',{type:'checkbox',checked:!!checkAns[i],onChange:function(){checkToggle(i)}}))
+          );
+        }))
+      )
+    );
+  }
+
+  if(ex.type==='text'){
+    return e('div',null,
+      e('p',{className:'ex-instruction',style:{whiteSpace:'pre-line'}},ex.q),
+      e('textarea',{className:'text-input',value:answer||'',onChange:function(ev){setAnswer(ev.target.value)},rows:4,placeholder:'Ihre Antwort\u2026'})
+    );
+  }
+
+  return null;
+}
+
+// ======================================================================
+// RENDER
+// ======================================================================
+ReactDOM.render(e(App), document.getElementById('root'));
+</script>
+</body>
+</html>

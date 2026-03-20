@@ -1,0 +1,1449 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projektmanagement Lern-App</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#f0f1f5;--nav:#1a2332;--card:#ffffff;--text:#1a2332;--text2:#64748b;--accent:#3b82f6;--green:#059669;--red:#dc2626;--border:#e2e8f0;--card-shadow:0 1px 3px rgba(0,0,0,0.08);--input-bg:#f8fafc;--hover:#f1f5f9;--amber:#d97706;--amber-bg:rgba(217,119,6,.08)}
+.dark{--bg:#0f172a;--nav:#0b1120;--card:#1e293b;--text:#e2e8f0;--text2:#94a3b8;--accent:#60a5fa;--green:#34d399;--red:#f87171;--border:#334155;--card-shadow:0 1px 3px rgba(0,0,0,0.3);--input-bg:#0f172a;--hover:#334155;--amber:#fbbf24;--amber-bg:rgba(251,191,36,.1)}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;transition:background .3s,color .3s}
+input,select,button,textarea{font-family:'Inter',sans-serif}
+.nav{background:linear-gradient(165deg, #0a0c10 0%, #141820 40%, #1a2332 70%, #0d1018 100%);padding:12px 20px;position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 12px rgba(0,0,0,.15);flex-wrap:wrap;gap:8px}
+.nav-title{color:#fff;font-size:1.25rem;font-weight:700}
+.nav-sub{color:#94a3b8;font-size:.8rem;margin-top:2px}
+.nav-right{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.nav-btn,.btn-back{background:rgba(255,255,255,.1);border:none;color:#fff;padding:8px 12px;border-radius:8px;cursor:pointer;font-size:.85rem;display:flex;align-items:center;gap:6px;transition:background .2s}
+.nav-btn:hover,.btn-back:hover{background:rgba(255,255,255,.2)}
+.container{max-width:900px;margin:0 auto;padding:24px 16px 80px}
+.chapter-card{background:var(--card);border-radius:16px;box-shadow:var(--card-shadow);margin-bottom:16px;overflow:hidden;border:1px solid var(--border);transition:background .3s,border .3s}
+.chapter-header{padding:20px 24px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;user-select:none}
+.chapter-header:hover{background:var(--hover)}
+.ch-info{flex:1}
+.ch-num{font-size:.75rem;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
+.ch-title{font-size:1.1rem;font-weight:700;margin-bottom:8px}
+.ch-meta{font-size:.8rem;color:var(--text2)}
+.progress-bar{height:4px;background:var(--border);border-radius:2px;margin-top:10px;overflow:hidden;max-width:300px}
+.progress-fill{height:100%;background:var(--accent);border-radius:2px;transition:width .5s ease}
+.ch-arrow{font-size:1.2rem;color:var(--text2);transition:transform .3s;margin-left:16px}
+.ch-arrow.open{transform:rotate(180deg)}
+.exercise-list{padding:0 16px 16px}
+.ex-card{background:var(--card);border:1px solid var(--border);border-radius:12px;margin-bottom:12px;overflow:hidden;transition:background .3s,border .3s;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.ex-header{padding:16px 20px;cursor:pointer;display:flex;align-items:center;justify-content:space-between}
+.ex-header:hover{background:var(--hover)}
+.ex-num{background:var(--accent);color:#fff;width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;flex-shrink:0;margin-right:14px}
+.ex-num.done{background:var(--green)}
+.ex-title-wrap{flex:1}
+.ex-title{font-weight:600;font-size:.95rem}
+.ex-type{font-size:.75rem;color:var(--text2);margin-top:2px}
+.ex-body{padding:0 20px 20px}
+.ex-instruction{font-size:.85rem;color:var(--text2);margin-bottom:16px;line-height:1.5;font-style:italic}
+.tf-row{padding:12px 0;border-bottom:1px solid var(--border);display:flex;flex-direction:column;gap:8px}
+.tf-row:last-child{border-bottom:none}
+.tf-statement{font-size:.9rem;line-height:1.5}
+.tf-buttons{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.tf-btn{padding:6px 16px;border-radius:6px;border:1px solid var(--border);background:var(--input-bg);color:var(--text);cursor:pointer;font-size:.85rem;font-weight:500;transition:all .2s}
+.tf-btn:hover{border-color:var(--accent)}
+.tf-btn.selected{background:var(--accent);color:#fff;border-color:var(--accent)}
+.tf-btn.correct-sel{background:var(--green);color:#fff;border-color:var(--green)}
+.tf-btn.wrong-sel{background:var(--red);color:#fff;border-color:var(--red)}
+.tf-btn.correct-unsel{border-color:var(--green);color:var(--green)}
+.feedback{font-size:.8rem;margin-top:4px;padding:6px 10px;border-radius:6px;line-height:1.4}
+.feedback.ok{background:rgba(5,150,105,.1);color:var(--green)}
+.feedback.nok{background:rgba(220,38,38,.1);color:var(--red)}
+.match-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border);flex-wrap:wrap}
+.match-row:last-child{border-bottom:none}
+.match-label{flex:1;font-size:.9rem;min-width:200px}
+.match-select{border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:.85rem;background:var(--input-bg);color:var(--text);min-width:200px;cursor:pointer}
+.match-select.correct{border-color:var(--green);background:rgba(5,150,105,.08)}
+.match-select.wrong{border-color:var(--red);background:rgba(220,38,38,.08)}
+.check-table{width:100%;border-collapse:collapse;font-size:.85rem}
+.check-table th{padding:8px 6px;text-align:center;background:var(--hover);font-weight:600;font-size:.8rem;border:1px solid var(--border)}
+.check-table td{padding:8px 6px;border:1px solid var(--border);text-align:center}
+.check-table td:first-child{text-align:left;min-width:200px}
+.check-table input[type=radio],.check-table input[type=checkbox]{cursor:pointer;width:16px;height:16px;accent-color:var(--accent)}
+.check-table tr.correct-row{background:rgba(5,150,105,.06)}
+.check-table tr.wrong-row{background:rgba(220,38,38,.06)}
+.btn-row{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
+.btn{padding:10px 20px;border-radius:9px;border:none;font-size:.9rem;font-weight:600;cursor:pointer;transition:all .12s ease;display:flex;align-items:center;gap:6px}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:#2563eb}
+.btn-secondary{background:var(--input-bg);color:var(--text);border:1px solid var(--border)}
+.btn-secondary:hover{background:var(--hover)}
+.btn-reset{background:var(--red);color:#fff}
+.btn-reset:hover{opacity:.9}
+.solution-box{background:rgba(5,150,105,.06);border:1px solid var(--green);border-radius:8px;padding:16px;margin-top:12px;font-size:.85rem;line-height:1.6}
+.solution-box strong{color:var(--green)}
+.text-input{border:1px solid var(--border);border-radius:6px;padding:8px 12px;font-size:.85rem;width:100%;background:var(--input-bg);color:var(--text);margin-top:4px}
+.text-input.correct{border-color:var(--green);background:rgba(5,150,105,.08)}
+.text-input.wrong{border-color:var(--red);background:rgba(220,38,38,.08)}
+.score-badge{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:12px;font-size:.8rem;font-weight:600}
+.score-badge.good{background:rgba(5,150,105,.1);color:var(--green)}
+.score-badge.bad{background:rgba(220,38,38,.1);color:var(--red)}
+.timer-display{color:#fff;font-size:.9rem;font-weight:500;font-variant-numeric:tabular-nums}
+.footer{text-align:center;padding:24px;font-size:.8rem;color:var(--text2)}
+.mc-option{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--border);border-radius:8px;margin-bottom:8px;cursor:pointer;transition:all .15s;font-size:.9rem}
+.mc-option:hover{border-color:var(--accent);background:var(--hover)}
+.mc-option.selected{border-color:var(--accent);background:rgba(59,130,246,.08)}
+.mc-option.correct-sel{border-color:var(--green);background:rgba(5,150,105,.08)}
+.mc-option.wrong-sel{border-color:var(--red);background:rgba(220,38,38,.08)}
+.mc-option.correct-unsel{border-color:var(--green)}
+.mc-radio{width:18px;height:18px;border-radius:50%;border:2px solid var(--border);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .15s}
+.mc-option.selected .mc-radio{border-color:var(--accent);background:var(--accent)}
+.mc-option.selected .mc-radio::after{content:'';width:8px;height:8px;border-radius:50%;background:#fff}
+.tip-box{background:rgba(59,130,246,.06);border:1px solid rgba(59,130,246,.2);border-radius:8px;padding:12px 16px;margin-bottom:16px}
+.tip-toggle{font-size:.85rem;font-weight:600;color:var(--accent);cursor:pointer;display:flex;align-items:center;gap:6px}
+.tip-content{margin-top:8px;font-size:.82rem;color:var(--text2);line-height:1.6}
+.tip-content li{margin-bottom:4px}
+.reveal-box{background:rgba(5,150,105,.04);border:1px solid rgba(5,150,105,.2);border-radius:8px;padding:12px 16px;margin-top:12px}
+.reveal-toggle{font-size:.85rem;font-weight:600;color:var(--green);cursor:pointer;display:flex;align-items:center;gap:6px}
+.reveal-content{margin-top:8px;font-size:.82rem;color:var(--text);line-height:1.6}
+.panel-overlay{position:fixed;bottom:16px;z-index:900;background:var(--card);border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,.2);border:1px solid var(--border);display:flex;flex-direction:column;animation:fadeUp .2s ease}
+.panel-header{padding:12px 16px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.panel-header b{color:var(--text);font-size:.9rem}
+.panel-close{background:var(--hover);border:none;width:28px;height:28px;border-radius:7px;font-size:13px;cursor:pointer;color:var(--text2);display:flex;align-items:center;justify-content:center}
+.panel-close:hover{background:var(--border)}
+.calc-panel{right:16px;width:300px;max-height:480px}
+.calc-display{padding:12px 16px;text-align:right;font-size:1.6rem;font-weight:800;color:var(--text);font-variant-numeric:tabular-nums;border-bottom:1px solid var(--border);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.calc-prev{padding:4px 16px;text-align:right;font-size:.75rem;color:var(--text2);font-variant-numeric:tabular-nums;height:22px}
+.calc-history{padding:6px 12px;max-height:50px;overflow-y:auto;border-bottom:1px solid var(--border)}
+.calc-history-item{font-size:.7rem;color:var(--text2);font-variant-numeric:tabular-nums;line-height:1.4}
+.calc-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:6px;padding:8px 12px 14px}
+.calc-btn{border:none;border-radius:10px;font-size:1.1rem;font-weight:600;height:46px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-variant-numeric:tabular-nums;transition:all .12s}
+.calc-btn:active{transform:scale(.95)}
+.calc-btn-num{background:var(--card);color:var(--text);border:1px solid var(--border)}
+.calc-btn-num:hover{background:var(--hover)}
+.calc-btn-op{background:rgba(26,35,50,.06);color:var(--nav);font-weight:700}
+.dark .calc-btn-op{background:rgba(255,255,255,.08);color:var(--text)}
+.calc-btn-op:hover{background:rgba(26,35,50,.12)}
+.calc-btn-eq{background:var(--nav);color:#fff;font-weight:700}
+.dark .calc-btn-eq{background:var(--accent);color:#fff}
+.calc-btn-eq:hover{opacity:.9}
+.calc-btn-fn{background:rgba(59,130,246,.08);color:var(--accent);font-weight:700}
+.calc-btn-fn:hover{background:rgba(59,130,246,.15)}
+.calc-btn-span2{grid-column:span 2}
+.notes-panel{left:50%;transform:translateX(-50%);width:380px;max-height:420px}
+.notes-body{flex:1;padding:8px 12px 12px}
+.notes-body textarea{width:100%;height:100%;min-height:260px;padding:10px 12px;border-radius:10px;border:1px solid var(--border);background:var(--input-bg);color:var(--text);font-size:.85rem;line-height:1.6;font-family:'Inter',sans-serif;resize:none;box-sizing:border-box;outline:none}
+.notes-body textarea:focus{border-color:var(--accent)}
+.notes-meta{font-size:.7rem;color:var(--text2)}
+.glossary-panel{left:16px;width:320px;max-height:420px}
+.glossary-search{padding:6px 12px 0}
+.glossary-search input{width:100%;padding:7px 10px;border-radius:7px;border:1px solid var(--border);background:var(--input-bg);color:var(--text);font-size:.8rem;box-sizing:border-box;outline:none}
+.glossary-search input:focus{border-color:var(--accent)}
+.glossary-list{padding:6px 12px 12px;flex:1;overflow-y:auto}
+.glossary-item{padding:6px 8px;margin-bottom:4px;border-radius:6px;background:var(--input-bg);border-left:3px solid var(--nav)}
+.dark .glossary-item{border-left-color:var(--accent)}
+.glossary-item-title{color:var(--nav);font-weight:700;font-size:.75rem}
+.dark .glossary-item-title{color:var(--accent)}
+.glossary-item-desc{color:var(--text2);font-size:.7rem;line-height:1.4}
+.tool-bar{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto}
+.tool-btn{padding:6px 12px;border-radius:8px;border:1.5px solid rgba(255,255,255,.2);background:rgba(255,255,255,.07);color:#fff;font-size:.75rem;font-weight:600;cursor:pointer;transition:all .15s;white-space:nowrap}
+.tool-btn:hover{background:rgba(255,255,255,.15)}
+.tool-btn.active{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.4)}
+
+/* === MODE TABS === */
+.mode-tabs{display:flex;gap:6px;padding:16px 16px 8px;flex-wrap:wrap}
+.mode-tab{padding:8px 18px;border-radius:20px;border:1.5px solid var(--border);background:var(--input-bg);color:var(--text2);font-size:.82rem;font-weight:600;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:6px;user-select:none}
+.mode-tab:hover{border-color:var(--accent);color:var(--text)}
+.mode-tab.active-lernen{background:rgba(59,130,246,.1);border-color:var(--accent);color:var(--accent)}
+.mode-tab.active-ueben{background:rgba(5,150,105,.1);border-color:var(--green);color:var(--green)}
+.mode-tab.active-pruefung{background:rgba(217,119,6,.1);border-color:var(--amber);color:var(--amber)}
+
+/* === LERNEN MODE === */
+.lernen-placeholder{padding:32px 24px;text-align:center;color:var(--text2)}
+.lernen-placeholder-icon{font-size:3rem;margin-bottom:12px}
+.lernen-placeholder-text{font-size:.95rem;font-weight:500;margin-bottom:8px}
+.lernen-placeholder-sub{font-size:.82rem;opacity:.7}
+.lernen-check{display:flex;align-items:center;gap:10px;padding:16px 24px;border-top:1px solid var(--border);font-size:.85rem;color:var(--text2)}
+.lernen-check input{width:18px;height:18px;accent-color:var(--accent);cursor:pointer}
+.lernen-check label{cursor:pointer}
+
+/* === EXAM MODE === */
+.exam-bar{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;background:var(--amber-bg);border:1px solid rgba(217,119,6,.2);border-radius:10px;margin:0 16px 12px;flex-wrap:wrap;gap:8px}
+.exam-timer{font-size:1.1rem;font-weight:700;font-variant-numeric:tabular-nums;color:var(--amber);display:flex;align-items:center;gap:6px}
+.exam-timer.urgent{color:var(--red);animation:pulse 1s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+.exam-progress-text{font-size:.82rem;color:var(--text2);font-weight:500}
+.exam-nav{display:flex;gap:8px}
+.exam-nav .btn{padding:8px 16px;font-size:.82rem}
+
+.exam-result{padding:32px 24px;text-align:center}
+.score-circle{width:140px;height:140px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto 20px;border:6px solid;font-weight:800}
+.score-circle.pass{border-color:var(--green);color:var(--green)}
+.score-circle.fail{border-color:var(--red);color:var(--red)}
+.score-circle .score-num{font-size:2.2rem;line-height:1}
+.score-circle .score-pct{font-size:.9rem;font-weight:600;margin-top:2px}
+.exam-result-title{font-size:1.3rem;font-weight:800;margin-bottom:8px}
+.exam-result-sub{font-size:.9rem;color:var(--text2);margin-bottom:4px}
+.exam-best{font-size:.8rem;color:var(--text2);margin-top:12px;padding:8px 16px;background:var(--input-bg);border-radius:8px;display:inline-block}
+.exam-result .btn-row{justify-content:center;margin-top:20px}
+
+/* === CHAPTER META BADGES === */
+.ch-badges{display:flex;gap:6px;margin-top:6px;flex-wrap:wrap}
+.ch-badge{font-size:.7rem;padding:2px 8px;border-radius:10px;font-weight:600}
+.ch-badge-exam{background:var(--amber-bg);color:var(--amber)}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:640px){
+  .panel-overlay{bottom:0;border-radius:16px 16px 0 0;left:0!important;right:0!important;width:100%!important;transform:none!important;animation:slideUp .2s ease}
+  .calc-panel{right:0;max-height:70vh}
+  .notes-panel{max-height:60vh}
+  .notes-body textarea{min-height:180px}
+  .glossary-panel{max-height:50vh}
+  .match-row{flex-direction:column;align-items:flex-start;gap:6px}
+  .nav{padding:12px 16px}
+  .nav-title{font-size:1.05rem}
+  .container{padding:16px 10px 60px}
+  .check-table{font-size:.75rem;display:block;overflow-x:auto}
+  .mode-tabs{padding:12px 12px 6px}
+  .mode-tab{padding:6px 14px;font-size:.78rem}
+}
+@keyframes slideUp{from{transform:translateY(100%);opacity:0}to{transform:translateY(0);opacity:1}}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+var e = React.createElement;
+var useState = React.useState, useEffect = React.useEffect, useRef = React.useRef, useCallback = React.useCallback;
+
+// ---- Data ----
+var chapters = [
+  {id:1, teil:'A', title:'Grundbegriffe des Projektmanagements', exercises:[1,2,3]},
+  {id:2, teil:'A', title:'Vorgehensmethodik', exercises:[4,5,6]},
+  {id:3, teil:'B', title:'Projektinitialisierung', exercises:[7,8,9]},
+  {id:4, teil:'B', title:'Projektziele definieren', exercises:[10,11,12]},
+  {id:5, teil:'B', title:'Stakeholdermanagement', exercises:[13,14,15]},
+  {id:6, teil:'B', title:'Information und Dokumentation', exercises:[16,17]},
+  {id:7, teil:'B', title:'Projektorganisation planen', exercises:[18,19,20,21]},
+  {id:8, teil:'C', title:'Projektstrukturplan', exercises:[22,23,24]},
+  {id:9, teil:'C', title:'Ablauf- und Terminplanung', exercises:[25,26,27]},
+  {id:10, teil:'C', title:'Ressourcenplanung', exercises:[28,29]},
+  {id:11, teil:'C', title:'Kostenplanung', exercises:[30,31]},
+  {id:12, teil:'D', title:'Projektcontrolling', exercises:[32,33,34,35]},
+  {id:13, teil:'D', title:'\u00c4nderungen bearbeiten', exercises:[36,37]},
+  {id:14, teil:'D', title:'Risiken bearbeiten', exercises:[38,39,40]},
+  {id:15, teil:'D', title:'Projektabschluss', exercises:[41,42,43]}
+];
+
+var TOTAL_EX = 43;
+var EXAM_TIME_DEFAULT = 15 * 60; // 15 min in seconds
+
+// ---- Helpers ----
+function matchKeywords(input, keywords){
+  var n = (input||'').toLowerCase();
+  var found = 0;
+  keywords.forEach(function(k){if(n.indexOf(k.toLowerCase())>=0) found++});
+  return found;
+}
+function loadProgress(){try{return JSON.parse(localStorage.getItem('lp-progress-projektmanagement'))||{}}catch(x){return{}}}
+function saveProgress(p){localStorage.setItem('lp-progress-projektmanagement', JSON.stringify(p))}
+function loadExamScores(){try{return JSON.parse(localStorage.getItem('lp-exam-projektmanagement'))||{}}catch(x){return{}}}
+function saveExamScores(s){localStorage.setItem('lp-exam-projektmanagement', JSON.stringify(s))}
+function loadLernenProgress(){try{return JSON.parse(localStorage.getItem('lp-lernen-projektmanagement'))||{}}catch(x){return{}}}
+function saveLernenProgress(p){localStorage.setItem('lp-lernen-projektmanagement', JSON.stringify(p))}
+function loadChapterModes(){try{return JSON.parse(localStorage.getItem('lp-modes-projektmanagement'))||{}}catch(x){return{}}}
+function saveChapterModes(m){localStorage.setItem('lp-modes-projektmanagement', JSON.stringify(m))}
+
+function shuffleArray(arr){
+  var a=arr.slice();
+  for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t}
+  return a;
+}
+
+function formatTime(secs){
+  var m=Math.floor(secs/60);
+  var s=secs%60;
+  return String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');
+}
+
+// ---- Glossary Data ----
+var GLOSSAR = [
+  {t:'Projekt',d:'Ein zeitlich befristetes, einmaliges Vorhaben mit begrenzten Ressourcen, das komplex und innovativ ist.'},
+  {t:'Projektmanagement',d:'Bewusste Gestaltung und Lenkung des Projektverlaufs, um den Projekterfolg zu gew\u00e4hrleisten.'},
+  {t:'Projektarten',d:'Einteilung von Projekten nach Inhalt, Gr\u00f6sse, Komplexit\u00e4t, Laufzeit, Bedeutung, Reichweite etc.'},
+  {t:'Erfolgsfaktoren',d:'Projektleiter, Topmanagement, Projektteam, Methodik, Kommunikation, Information, Projektidee.'},
+  {t:'Basis-Phasenkonzept',d:'Sechs Phasen: Vorstudie, Grobkonzept, Detailkonzept, Realisierung, Einf\u00fchrung, Erhaltung.'},
+  {t:'Planungszyklus',d:'Sieben Schritte innerhalb der Planungsphasen: Auftrag, Erhebung, W\u00fcrdigung, L\u00f6sungssuche, Bewertung, Auswahl.'},
+  {t:'Projektinitialisierung',d:'Prozess von der Projektidee \u00fcber den Projektantrag bis zur Projektfreigabe.'},
+  {t:'Projektauftrag',d:'Zielvereinbarung zwischen Projektleiter und Auftraggeber; Richtschnur f\u00fcr das Gesamtprojekt.'},
+  {t:'Projektantrag',d:'Dokument mit Ausgangslage, Problemen, Lösungsidee, erwarteter Nutzen, Projektzielen.'},
+  {t:'Zieldefinition',d:'Systematischer Prozess: Ziele ermitteln, analysieren, klassifizieren, operationalisieren, gewichten, kommunizieren.'},
+  {t:'SMART-Ziele',d:'Spezifisch, Messbar, Attraktiv, Realistisch, Terminiert.'},
+  {t:'Stakeholder',d:'Betroffene und beteiligte Personen bzw. Anspruchsgruppen eines Projekts.'},
+  {t:'Stakeholdermanagement',d:'Systematische Analyse und Beeinflussung der Stakeholder zur F\u00f6rderung der Projektziele.'},
+  {t:'Einfluss-Interessen-Matrix',d:'Tool zur Einordnung von Stakeholdern nach ihrem Einfluss und Interesse am Projekt.'},
+  {t:'Informationskonzept',d:'Bausteine: Absender, Empf\u00e4nger, Inhalt, Zeitpunkt, Instrument, Ort.'},
+  {t:'Projektorganisation',d:'Bildung von Stellen, Zuordnung zu Instanzen, Wahl der Organisationsform.'},
+  {t:'Reine Projektorganisation',d:'Eigenst\u00e4ndige Organisationseinheit; Projektmitarbeitende arbeiten ausschliesslich f\u00fcr das Projekt.'},
+  {t:'Matrix-Projektorganisation',d:'Aufteilung in Projekt- und Linienaufgaben; Projektleiter ist weisungsbefugt.'},
+  {t:'Stabs-Projektorganisation',d:'Koordinationsfunktion des Projektleiters; Mitarbeitende arbeiten nebenbei.'},
+  {t:'Projektstrukturplan (PSP)',d:'Zerlegung des Projekts in Teilaufgaben; systematische Strukturierung mit Arbeitspaketen.'},
+  {t:'Arbeitspaket',d:'Kleinste Einheit im PSP mit definierten Zielen, Ergebnissen, Aktivit\u00e4ten und Verantwortlichkeiten.'},
+  {t:'Gliederungsprinzipien',d:'Nach Objekten, Funktionen, Projektphasen oder gemischt.'},
+  {t:'Vorgangsliste',d:'Chronologische Anordnung der Vorg\u00e4nge mit Dauer und Vorg\u00e4ngerbeziehungen.'},
+  {t:'Netzplan',d:'Grafische Darstellung der Vorgangsliste; zeigt den kritischen Pfad.'},
+  {t:'Kritischer Pfad',d:'Kette von Vorg\u00e4ngen ohne Zeitreserven; bestimmt die minimale Projektdauer.'},
+  {t:'Terminplan',d:'Balkendiagramm zur Visualisierung der Vorgangsliste mit Meilensteinen.'},
+  {t:'Ressourcenplanung',d:'Ermittlung des Bedarfs an Personal und Sachmitteln f\u00fcr die Arbeitspakete.'},
+  {t:'Kostenplanung',d:'Berechnung der Kosten pro Arbeitspaket; Gliederung nach Kostenarten und Kostentr\u00e4gern.'},
+  {t:'Projektcontrolling',d:'Ist-Situation erheben, Soll-Ist-Vergleich, Abweichungsursachen, Steuerungsmassnahmen.'},
+  {t:'Earned Value',d:'Methode zum Termin- und Kostenvergleich: beantwortet, wie viel die erbrachte Leistung kosten h\u00e4tte d\u00fcrfen.'},
+  {t:'SPI (Schedule Performance Index)',d:'Kennzahl: Earned Value / geplante Kosten. >1 = Vorsprung, <1 = Verz\u00f6gerung.'},
+  {t:'CPI (Cost Performance Index)',d:'Kennzahl: Earned Value / Ist-Kosten. >1 = unter Budget, <1 = \u00fcber Budget.'},
+  {t:'\u00c4nderungsmanagement',d:'Systematische Pr\u00fcfung, Genehmigung und Dokumentation von Projekt\u00e4nderungen.'},
+  {t:'Risikomanagement',d:'Identifikation, Bewertung, Bew\u00e4ltigung und \u00dcberwachung von Projektrisiken.'},
+  {t:'Prophylaktische Massnahme',d:'Vorbeugend: Minimierung der Eintrittswahrscheinlichkeit eines Risikos.'},
+  {t:'Eventualmassnahme',d:'Schadensbegrenzend: Reduktion des Schadensausmasses bei Risikoeintritt.'},
+  {t:'Projektabschluss',d:'\u00dcbergabe, Aufl\u00f6sung Projektteam, Abschlussveranstaltung, Dokumentation, Abrechnung.'}
+];
+
+// ---- Calculator Panel ----
+function CalcPanel(props){
+  var onClose=props.onClose;
+  var s=useState('0'),disp=s[0],setDisp=s[1];
+  var s2=useState(null),prev=s2[0],setPrev=s2[1];
+  var s3=useState(null),op=s3[0],setOp=s3[1];
+  var s4=useState(true),fresh=s4[0],setFresh=s4[1];
+  var s5=useState([]),hist=s5[0],setHist=s5[1];
+  function num(n){if(fresh){setDisp(String(n));setFresh(false)}else{setDisp(disp==='0'?String(n):disp+n)}}
+  function dec(){if(fresh){setDisp('0.');setFresh(false)}else if(disp.indexOf('.')===-1)setDisp(disp+'.')}
+  function oper(o){var cur=parseFloat(disp);if(prev!==null&&op&&!fresh){var r=calc(prev,cur,op);setDisp(String(Math.round(r*1e8)/1e8));setPrev(r);setHist(function(h){return h.concat([prev+' '+op+' '+cur+' = '+Math.round(r*1e8)/1e8])})}else{setPrev(cur)}setOp(o);setFresh(true)}
+  function calc(a,b,o){if(o==='+')return a+b;if(o==='\u2212')return a-b;if(o==='\u00d7')return a*b;if(o==='\u00f7')return b!==0?a/b:0;return b}
+  function eq(){if(prev===null||!op)return;var cur=parseFloat(disp);var r=calc(prev,cur,op);setHist(function(h){return h.concat([prev+' '+op+' '+cur+' = '+Math.round(r*1e8)/1e8])});setDisp(String(Math.round(r*1e8)/1e8));setPrev(null);setOp(null);setFresh(true)}
+  function cl(){setDisp('0');setPrev(null);setOp(null);setFresh(true)}
+  function pct(){setDisp(String(Math.round(parseFloat(disp)/100*1e8)/1e8))}
+  function sign(){setDisp(String(parseFloat(disp)*-1))}
+  function b(label,action,cls){return e('button',{className:'calc-btn '+cls,onClick:action},label)}
+  return e('div',{className:'panel-overlay calc-panel'},
+    e('div',{className:'panel-header'},e('b',null,'\ud83e\uddc2 Taschenrechner'),e('button',{className:'panel-close',onClick:onClose},'\u2715')),
+    hist.length>0?e('div',{className:'calc-history'},hist.slice(-3).map(function(h,i){return e('div',{key:i,className:'calc-history-item'},h)})):null,
+    e('div',{className:'calc-display'},disp),
+    e('div',{className:'calc-prev'},prev!==null&&op?(prev+' '+op):''),
+    e('div',{className:'calc-grid'},
+      b('AC',cl,'calc-btn-fn'),b('\u00b1',sign,'calc-btn-op'),b('%',pct,'calc-btn-op'),b('\u00f7',function(){oper('\u00f7')},'calc-btn-op'),
+      b('7',function(){num('7')},'calc-btn-num'),b('8',function(){num('8')},'calc-btn-num'),b('9',function(){num('9')},'calc-btn-num'),b('\u00d7',function(){oper('\u00d7')},'calc-btn-op'),
+      b('4',function(){num('4')},'calc-btn-num'),b('5',function(){num('5')},'calc-btn-num'),b('6',function(){num('6')},'calc-btn-num'),b('\u2212',function(){oper('\u2212')},'calc-btn-op'),
+      b('1',function(){num('1')},'calc-btn-num'),b('2',function(){num('2')},'calc-btn-num'),b('3',function(){num('3')},'calc-btn-num'),b('+',function(){oper('+')},'calc-btn-op'),
+      b('0',function(){num('0')},'calc-btn-num calc-btn-span2'),b('.',dec,'calc-btn-num'),b('=',eq,'calc-btn-eq')
+    )
+  );
+}
+
+// ---- Notes Panel ----
+function NotesPanel(props){
+  return e('div',{className:'panel-overlay notes-panel'},
+    e('div',{className:'panel-header'},
+      e('b',null,'\ud83d\udcdd Notizen'),
+      e('div',{style:{display:'flex',gap:8,alignItems:'center'}},
+        e('span',{className:'notes-meta'},props.notes.length+' Zeichen'),
+        e('button',{className:'panel-close',onClick:props.onClose},'\u2715')
+      )
+    ),
+    e('div',{className:'notes-body'},
+      e('textarea',{value:props.notes,onChange:function(ev){props.setNotes(ev.target.value)},placeholder:'Notizen, Stichworte\u2026'})
+    )
+  );
+}
+
+// ---- Glossary Panel ----
+function GlossaryPanel(props){
+  var st=useState(''),search=st[0],setSearch=st[1];
+  var filtered=GLOSSAR.filter(function(g){return g.t.toLowerCase().indexOf(search.toLowerCase())>=0||g.d.toLowerCase().indexOf(search.toLowerCase())>=0});
+  return e('div',{className:'panel-overlay glossary-panel'},
+    e('div',{className:'panel-header'},e('b',null,'\ud83d\udcd6 Glossar'),e('button',{className:'panel-close',onClick:props.onClose},'\u2715')),
+    e('div',{className:'glossary-search'},e('input',{value:search,onChange:function(ev){setSearch(ev.target.value)},placeholder:'Suchen\u2026'})),
+    e('div',{className:'glossary-list'},filtered.map(function(g,i){return e('div',{key:i,className:'glossary-item'},
+      e('div',{className:'glossary-item-title'},g.t),
+      e('div',{className:'glossary-item-desc'},g.d)
+    )}))
+  );
+}
+
+// ---- Tips Component ----
+function Tips(props){
+  var st=useState(false),open=st[0],setOpen=st[1];
+  var idx = props.idx !== undefined ? props.idx : 0;
+  var total = props.total !== undefined ? props.total : 1;
+  return e('div',{className:'tip-box'},
+    e('div',{className:'tip-toggle',onClick:function(){setOpen(!open)}},open?'\u25bc':'\u25b6',' \ud83d\udca1 Tipp '+(idx+1)+'/'+total),
+    open?e('ul',{className:'tip-content'},props.tips.map(function(t,i){return e('li',{key:i},t)})):null
+  );
+}
+
+// ---- Reveal Component ----
+function Reveal(props){
+  var st=useState(false),open=st[0],setOpen=st[1];
+  var idx = props.idx !== undefined ? props.idx : 0;
+  var total = props.total !== undefined ? props.total : 1;
+  return e('div',{className:'reveal-box'},
+    e('div',{className:'reveal-toggle',onClick:function(){setOpen(!open)}},open?'\u25bc':'\u25b6',' \ud83d\udd13 L\u00f6sung '+(idx+1)+'/'+total),
+    open?e('div',{className:'reveal-content'},
+      typeof props.content === 'string' ? props.content :
+      props.steps ? props.steps.map(function(s,i){return e('div',{key:i,style:{padding:'4px 0'}},s)}) : null
+    ):null
+  );
+}
+
+// ======================================================================
+// EXERCISES DATA - 43 exercises across 15 chapters
+// ======================================================================
+var exercises = {};
+
+// Chapter 1: Grundbegriffe des Projektmanagements (Repetitionsfragen 1-3, Seite 17)
+exercises[1] = {type:'match',title:'Erfolgsfaktoren des Projektmanagements',q:'Auf welche Erfolgsfaktoren des Projektmanagements beziehen sich die folgenden Aussagen?',
+  pairs:[
+    {l:'\u00abSelbst schwierige und kostspielige Projekte werden bei uns viel zu wenig systematisch angegangen!\u00bb',r:'Methodik'},
+    {l:'\u00abOhne Wir-Gef\u00fchl sind hervorragende Projektergebnisse nicht zu erzielen!\u00bb',r:'Projektteam'},
+    {l:'\u00abJedes Projekt braucht Promotoren, die es aktiv unterst\u00fctzen!\u00bb',r:'Projektumfeld, insbesondere das Topmanagement als wichtiger Promotor'},
+    {l:'\u00abIn vielen Projekten k\u00fcmmert man sich zu wenig darum, wie man die Betroffenen durch gezielte Massnahmen zu echten Beteiligten macht!\u00bb',r:'Kommunikation (Stakeholdermanagement)'}
+  ],
+  options:['Methodik','Projektteam','Projektumfeld, insbesondere das Topmanagement als wichtiger Promotor','Kommunikation (Stakeholdermanagement)']
+};
+
+exercises[2] = {type:'tf',title:'Handelt es sich um ein Projekt?',q:'Handelt es sich bei den folgenden Vorhaben um ein Projekt? Begr\u00fcnden Sie Ihre Antwort in Stichworten.',
+  statements:[
+    {s:'Kongress eines Berufsverbands (zum 100-j\u00e4hrigen Jubil\u00e4um)',c:true},
+    {s:'Umbau des Firmenhauptsitzes',c:true},
+    {s:'Ausbau des MIS (Management-Informationssystems)',c:true},
+    {s:'Jahresplanung der Marketingabteilung',c:false},
+    {s:'Reorganisation des Verkaufs-Innendienstes',c:true}
+  ]
+};
+
+exercises[3] = {type:'text',title:'Begrenzte Ressourcen',q:'Welche besondere Rolle spielen begrenzte Ressourcen bei der Projektarbeit?',
+  keywords:['begrenzt','Ressourcen','kritisch','Projekterfolg','finanziell','Mittel','Budget','personell','Zeit','qualifiziert'],
+  solution:'Begrenzte Ressourcen in der Projektpraxis sind meist ein kritisches Thema. Sie gef\u00e4hrden den Projekterfolg. Seien dies zu geringe finanzielle Mittel (Projektbudgets), unzul\u00e4ngliche IT-Systeme oder vor allem auch: zu wenig personelle Ressourcen (zu wenig Zeit f\u00fcr die betreffende Projektarbeit oder zu wenig gut qualifiziert).'
+};
+
+// Chapter 2: Vorgehensmethodik (Repetitionsfragen 4-6, Seite 24)
+exercises[4] = {type:'check',title:'Aufgaben den Planungsphasen zuordnen',q:'Welche dieser typischen Aufgaben geh\u00f6ren zu welcher Planungsphase im Phasenkonzept? (Kreuzen Sie die Aufgaben an, die zur Vorstudie geh\u00f6ren.)',
+  statements:[
+    {s:'Bed\u00fcrfnisabkl\u00e4rung bei Stakeholdern durchf\u00fchren',c:true},
+    {s:'Projektabgrenzung vervollst\u00e4ndigen',c:true},
+    {s:'Qualit\u00e4tsanforderungen detailliert beschreiben',c:false},
+    {s:'Ausschreibungsunterlagen (Pflichtenhefte) erstellen',c:false},
+    {s:'Machbarkeit von L\u00f6sungsvarianten pr\u00fcfen',c:true},
+    {s:'Einf\u00fchrung planen',c:false}
+  ]
+};
+
+exercises[5] = {type:'text',title:'Phasenkonzept vs. Planungszyklus',q:'Erkl\u00e4ren Sie einem Aussenstehenden in wenigen S\u00e4tzen den Unterschied zwischen dem Phasenkonzept und dem Planungszyklus.',
+  keywords:['Phasenkonzept','Projektverlauf','Planungszyklus','methodisch','Phase','Schritte','Vorgehen','innerhalb'],
+  solution:'Mit dem Phasenkonzept legt man das methodische Vorgehen f\u00fcr den gesamten Projektverlauf fest; eine Phase bildet einen abgeschlossenen Aufgabenblock innerhalb des Projekts. Wie der Name schon sagt, definiert der Planungszyklus das methodische Vorgehen innerhalb einer Planungsphase; f\u00fcr die Erreichung des Phasenziels m\u00fcssen s\u00e4mtliche sechs Schritte des Planungszyklus durchlaufen werden.'
+};
+
+exercises[6] = {type:'match',title:'Zweck der Vorgehensmethodik',q:'Drei Projektleiterinnen tauschen ihre ersten Erfahrungen aus. Welchen Zweck der Vorgehensmethodik sprechen sie jeweils an?',
+  pairs:[
+    {l:'Audrey: \u00abImmer wieder kommt es bei uns zu Grundsatzdiskussionen, ob man nun ein 3-Phasen- oder ein 6-Phasen-Modell einsetzen muss. Ich finde, man sollte nicht ein Modell f\u00fcr alle Projekte vorschreiben, sondern dieses projektbezogen festlegen k\u00f6nnen.\u00bb',r:'Einheitliches Vorgehen'},
+    {l:'Bettina: \u00abIch bin ganz deiner Meinung, denn die Hauptsache ist: Der Auftraggeber, das Entscheidungsgremium und ich als Projektleiterin sind uns einig dar\u00fcber, wann was zu entscheiden ist.\u00bb',r:'Klare Meilensteine f\u00fcr Entscheidungen'},
+    {l:'Charlotte: \u00abMein letztes Projekt kam mir wie ein Hochseilakt vor, unter anderem, weil ich die Vorgehensmethodik nicht konsequent angewandt habe.\u00bb',r:'\u00dcberblick bewahren trotz Detailarbeit'}
+  ],
+  options:['Einheitliches Vorgehen','Klare Meilensteine f\u00fcr Entscheidungen','Transparenz f\u00fcr Entscheidende und Projektteam','\u00dcberblick bewahren trotz Detailarbeit','Unterst\u00fctzung der Projektleitung']
+};
+
+// Chapter 3: Projektinitialisierung (Repetitionsfragen 7-9, Seite 34-35)
+exercises[7] = {type:'check',title:'Aussagen zum Projektinitialisierungsprozess',q:'Welche der folgenden f\u00fcnf Aussagen zum Projektinitialisierungsprozess sind richtig?',
+  statements:[
+    {s:'Projekte, die voraussichtlich der Unternehmensstrategie zuwiderlaufen, sind grunds\u00e4tzlich abzulehnen.',c:true},
+    {s:'Vor der Projektfreigabe ist zu pr\u00fcfen, ob der Projektauftrag mit dem Projektantrag vereinbar ist.',c:true},
+    {s:'Ein Projektauftrag entspricht der Zielvereinbarung zwischen der Projektleiterin und dem Projektteam.',c:false},
+    {s:'Im Antrag m\u00fcssen vision\u00e4re Projektideen nicht so konkret ausgearbeitet sein wie reaktive Projektideen.',c:false},
+    {s:'Ein Projektantrag muss eine grobe L\u00f6sungsskizze enthalten.',c:false}
+  ]
+};
+
+exercises[8] = {type:'match',title:'Projektentscheid: Empfehlung',q:'Welche Empfehlung zum Projektentscheid geben Sie f\u00fcr die Projekte 1 bis 5 aufgrund der Einsch\u00e4tzung ihrer wirtschaftlichen und strategischen Bedeutung?',
+  pairs:[
+    {l:'Projekt 1: Wirtschaftlich Niedrig, Strategisch Mittel',r:'Projekt evtl. realisieren'},
+    {l:'Projekt 2: Wirtschaftlich Hoch, Strategisch Mittel',r:'Projekt realisieren'},
+    {l:'Projekt 3: Wirtschaftlich Hoch, Strategisch Hoch',r:'Projekt realisieren'},
+    {l:'Projekt 4: Wirtschaftlich Niedrig, Strategisch Niedrig',r:'Projekt ablehnen'},
+    {l:'Projekt 5: Wirtschaftlich Mittel, Strategisch Hoch',r:'Projekt realisieren'}
+  ],
+  options:['Projekt realisieren','Projekt evtl. realisieren','Projekt ablehnen']
+};
+
+exercises[9] = {type:'match',title:'Reaktive oder vision\u00e4re Idee?',q:'Handelt es sich bei den folgenden Beispielen um eine reaktive oder um eine vision\u00e4re Idee?',
+  pairs:[
+    {l:'Die heutigen Kursr\u00e4umlichkeiten gen\u00fcgen nicht mehr den Anforderungen. Ein Umzugsprojekt soll diesen Missstand beheben.',r:'Reaktive Idee'},
+    {l:'Seit L\u00e4ngerem ist die schlechte Benutzerf\u00fchrung in der Zeiterfassungssoftware ein Thema. Deshalb soll nun eine neue Software evaluiert werden.',r:'Reaktive Idee'},
+    {l:'Eine auf \u00abBio-Fast-Food\u00bb spezialisierte Restaurantkette m\u00f6chte in die Zentralschweiz expandieren, da sie dort noch keine vergleichbaren Angebote sieht.',r:'Vision\u00e4re Idee'}
+  ],
+  options:['Reaktive Idee','Vision\u00e4re Idee']
+};
+
+// Chapter 4: Projektziele definieren (Repetitionsfragen 10-12, Seite 45)
+exercises[10] = {type:'tf',title:'Aussagen \u00fcber den Zieldefinitionsprozess',q:'Sind die folgenden vier Aussagen \u00fcber den Zieldefinitionsprozess richtig oder falsch?',
+  statements:[
+    {s:'Es darf in einem Projekt keine Zielkonflikte geben.',c:false},
+    {s:'Ein unechtes Projektziel ist z.B.: \u00abWir wollen die Controllingprozesse in s\u00e4mtlichen Unternehmensbereichen automatisieren.\u00bb',c:true},
+    {s:'Alle Muss- und Kann-Ziele sind zu gewichten, damit man sp\u00e4ter die L\u00f6sungsvarianten objektiv beurteilen kann.',c:false}
+  ]
+};
+
+exercises[11] = {type:'text',title:'Operationalisierte Ziele',q:'Warum sind operationalisierte Ziele f\u00fcr ein Projekt wichtig?',
+  keywords:['messen','Massstab','operationalisiert','quantitativ','qualitativ','Zielerreichung','Beurteilung'],
+  solution:'Um die Zielerreichung messen zu k\u00f6nnen, brauchen Ziele einen Massstab. Sie m\u00fcssen operationalisiert werden. Als Massstab sind sowohl qualitative als auch quantitative Kriterien m\u00f6glich.'
+};
+
+exercises[12] = {type:'text',title:'Pr\u00e4ferenzmatrix analysieren',q:'Im Projekt \u00abVerbesserung des Busbetriebs\u00bb wurde eine Pr\u00e4ferenzmatrix erhoben.\nA) Wird das Ziel \u00abViele Direktverbindungen\u00bb vor dem Ziel \u00abTiefe Investitionskosten\u00bb bevorzugt?\nB) Was bedeuten die unterschiedlichen Zahlen in den Spalten \u00abM\u00bb und \u00abG\u00bb beim Ziel \u00abTiefe laufende Kosten\u00bb?\nC) Welches Ziel ist gem\u00e4ss der Pr\u00e4ferenzmatrix am tiefsten zu gewichten?',
+  keywords:['bevorzugt','Schnittpunkt','modifiziert','Gewichtung','Nennungen','Arbeitsbedingungen','tiefsten','Rang'],
+  solution:'A) Im direkten Vergleich wird das Ziel \u00abTiefe Investitionskosten\u00bb bevorzugt (Buchstabe \u00abb\u00bb im Schnittpunkt). B) In der Spalte \u00abM\u00bb wird die modifizierte Gewichtung angegeben, in der Spalte \u00abG\u00bb die urspr\u00fcngliche Gewichtung, die sich aus der Anzahl Nennungen ergibt. Beim Ziel \u00abTiefe laufende Kosten\u00bb wurde die modifizierte Gewichtung um 3% leicht angehoben. C) Das Ziel \u00abGute Arbeitsbedingungen\u00bb hat am wenigsten Nennungen erhalten und ist somit am tiefsten gewichtet. Es erscheint auf dem siebten und letzten Rang.'
+};
+
+// Chapter 5: Stakeholdermanagement (Repetitionsfragen 13-15, Seite 54)
+exercises[13] = {type:'text',title:'Einfluss-Interessen-Matrix',q:'Welche Empfehlungen geben Sie f\u00fcr die Stakeholdergruppen S1 bis S4, die in der Einfluss-Interessen-Matrix wie folgt positioniert sind?\n- S1: Gering Einfluss, Gering Interesse\n- S2: Hoch Einfluss, Hoch Interesse\n- S3: Mittel Einfluss, Hoch Interesse\n- S4: Hoch Einfluss, Gering Interesse',
+  keywords:['Aktivit\u00e4ten','Beziehungspflege','informieren','Kooperation','zufriedenstellen','Machtstellung','untersch\u00e4tzen'],
+  solution:'S1: keine besonderen Aktivit\u00e4ten ausser ergebnisorientierter Informationen; diese Stakeholder verf\u00fcgen \u00fcber wenig Einflussm\u00f6glichkeiten auf das Projekt. S2: Kooperation, Beziehungspflege; diese Stakeholder sind die wichtigsten Partner im Projekt, ihr Einfluss und ihr Interesse sind hoch. S3: Aktiv und regelm\u00e4ssig informieren; trotz des geringen Einflusses sind diese Stakeholder besonders in schwierigen Situationen nicht zu untersch\u00e4tzen, da ihr Interesse am Projekt gross ist. S4: Zufriedenstellen; aufgrund ihrer Machtstellung haben sie einen grossen Einfluss, auch wenn sie sich f\u00fcr das betreffende Projekt weniger zu interessieren scheinen.'
+};
+
+exercises[14] = {type:'text',title:'Schl\u00fcsselfragen der Projektumfeldanalyse',q:'Nennen Sie drei Fragen, die nach einer Projektumfeldanalyse beantwortet sein m\u00fcssen.',
+  keywords:['Stakeholder','betroffen','Interessen','Projektziele','vereinbaren'],
+  solution:'Schl\u00fcsselfragen bei der Projektumfeldanalyse: 1) Welche Stakeholder sind vom Projektergebnis wie betroffen? 2) Welche Interessen verfolgen die Stakeholder? 3) Wie lassen sich die Projektziele mit den Interessen der relevanten Stakeholder vereinbaren?'
+};
+
+exercises[15] = {type:'match',title:'Stakeholdergruppen identifizieren',q:'Welche Stakeholdergruppen sind gemeint?',
+  pairs:[
+    {l:'Die vom Projektergebnis direkt betroffenen Stakeholder',r:'Kunden (Anwender)'},
+    {l:'Einflussreiche Stakeholder, die den Projekterfolg massgeblich f\u00f6rdern k\u00f6nnen',r:'Sponsoren'},
+    {l:'Die vom Projektergebnis indirekt betroffenen Stakeholder, die das Projektergebnis kaum beeinflussen k\u00f6nnen',r:'Kunden (Nutzer)'}
+  ],
+  options:['Kunden (Anwender)','Sponsoren','Kunden (Nutzer)','Projektteam','Auftraggeber']
+};
+
+// Chapter 6: Information und Dokumentation (Repetitionsfragen 16-17, Seite 58)
+exercises[16] = {type:'text',title:'Kriterien des Dokumentationsmanagements',q:'Nennen Sie drei Kriterien eines angemessenen Dokumentationsmanagements in Projekten.',
+  keywords:['dokumentieren','n\u00f6tig','nachvollziehen','Projektbeteiligte','Projektphasen','Aussenstehende'],
+  solution:'Die Kriterien eines angemessenen Dokumentationsmanagements lauten: So viel und so detailliert wie n\u00f6tig dokumentieren, nicht so viel wie m\u00f6glich. Die Projektbeteiligten wie auch Aussenstehende sollten den Projektverlauf jederzeit nachvollziehen k\u00f6nnen. In vielen F\u00e4llen eignet sich daf\u00fcr die Dokumentation analog den Projektphasen am besten.'
+};
+
+exercises[17] = {type:'match',title:'Grunds\u00e4tze der Projektinformation',q:'Um welchen Grundsatz der Projektinformation geht es bei den folgenden Aussagen?',
+  pairs:[
+    {l:'\u00abEs ist wichtig, sich sehr genau zu \u00fcberlegen, wer welche Informationen erhalten soll!\u00bb',r:'Systematisch informieren'},
+    {l:'\u00abInformieren heisst auch: Alle m\u00fcssen dasselbe verstanden haben!\u00bb',r:'Transparent informieren'},
+    {l:'\u00ab\u00dcberlege dir den Zeitpunkt der Information gut \u2013 er kann entscheidend sein!\u00bb',r:'Gezielt informieren'}
+  ],
+  options:['Systematisch informieren','Gezielt informieren','Transparent informieren']
+};
+
+// Chapter 7: Projektorganisation planen (Repetitionsfragen 18-21, Seite 68)
+exercises[18] = {type:'check',title:'Aussagen zur Projektorganisation',q:'Welche der folgenden Aussagen zur Projektorganisation sind korrekt?',
+  statements:[
+    {s:'Der Auftraggeber leitet den Projektausschuss.',c:true},
+    {s:'Der Projektleiter kann dem Project Office die Planungsverantwortung delegieren.',c:false},
+    {s:'Der Projektmitarbeiter tr\u00e4gt die Ausf\u00fchrungsverantwortung f\u00fcr seine Arbeitspakete.',c:true},
+    {s:'Der Teilprojektleiter geh\u00f6rt zur Lenkungsebene.',c:false},
+    {s:'Der Projektleiter tr\u00e4gt die oberste Verantwortung f\u00fcr die Projektergebnisse.',c:false}
+  ]
+};
+
+exercises[19] = {type:'text',title:'Stabs-Projektorganisation: Argumente',q:'Die Gesch\u00e4ftsleitung schl\u00e4gt als Auftraggeberin f\u00fcr das Projekt \u00abMitarbeiter-Bonussystem\u00bb die Stabs-Projektorganisation vor.\nA) Nennen Sie mindestens zwei Argumente, die f\u00fcr diese Organisationsform sprechen.\nB) Nennen Sie mindestens zwei Argumente, die f\u00fcr eine andere Organisationsform sprechen k\u00f6nnten, ob f\u00fcr die reine Projektorganisation oder die Matrix-Projektorganisation.',
+  keywords:['Beeintr\u00e4chtigung','Tagesgesch\u00e4ft','Aufnahme','Mitarbeitende','organisatorisch','Risiko','Zielerreichung','Komplexit\u00e4t','Steuerung'],
+  solution:'A) Argumente f\u00fcr die Stabs-Projektorganisation: Keine Beeintr\u00e4chtigung des regul\u00e4ren Tagesgesch\u00e4fts; Aufnahme von Mitarbeitenden in das Projektteam einfach m\u00f6glich (keine Wiedereingliederung notwendig, Mitarbeitende k\u00f6nnen in mehreren Projekten t\u00e4tig sein); Keine gr\u00f6sseren organisatorischen Massnahmen notwendig. B) Argumente f\u00fcr eine andere Projektorganisationsform: Grosse Bedeutung f\u00fcr das Unternehmen: Kostenfolgen im Entl\u00f6hnungssystem; Mittleres bis hohes Risiko der Zielerreichung; Verschiedene Unternehmensbereiche sind zu koordinieren (mittlerer bis hoher Komplexit\u00e4tsgrad); Bed\u00fcrfnis des Auftraggebers nach einer zentralen Steuerung.'
+};
+
+exercises[20] = {type:'mc',title:'Oberste Verantwortung in der Projektorganisation',q:'Wer in der Projektorganisation tr\u00e4gt die oberste Verantwortung f\u00fcr die Projektergebnisse?',
+  options:['Der Projektleiter','Der Teilprojektleiter','Der Auftraggeber','Das Projektteam'],
+  correct:2,
+  explanation:'Der Auftraggeber tr\u00e4gt die Gesamtverantwortung f\u00fcr das Projekt und somit auch f\u00fcr die Projektergebnisse.'
+};
+
+exercises[21] = {type:'mc',title:'Organisationsform w\u00e4hlen',q:'\u00dcber ein Projekt ist Folgendes bekannt: Das Projekt ist f\u00fcr das Gesamtunternehmen wichtig und imagefoerdernd. Die Unternehmensleitung als Auftraggeberin w\u00fcnscht deshalb, dass es zentral gesteuert wird. Verschiedene Unternehmensbereiche sind betroffen, die optimal zusammenarbeiten m\u00fcssen. Eine autonome Projektorganisation ist nicht notwendig, die Mitglieder des Projektteams sollten jedoch durchschnittlich mindestens zehn Stunden pro Woche f\u00fcr das Projekt aufwenden k\u00f6nnen. Der Zeitdruck ist mittel bis hoch und das Projekt wird voraussichtlich in rund einem Jahr abgeschlossen sein. Welche Organisationsform passt am besten?',
+  options:['Reine Projektorganisation','Matrix-Projektorganisation','Stabs-Projektorganisation','Keine der genannten'],
+  correct:1,
+  explanation:'F\u00fcr die Matrix-Projektorganisation sprechen die folgenden Kriterien: Grosse Bedeutung f\u00fcr das Unternehmen; Teilzeitmitarbeitereinsatz erforderlich; Verschiedene Unternehmensbereiche sind zu koordinieren (mittlerer bis hoher Komplexit\u00e4tsgrad); Bed\u00fcrfnis des Auftraggebers nach einer zentralen Steuerung; Mittelfristige Projektdauer. Eine reine Projektorganisation einzurichten w\u00e4re zu aufwendig, und f\u00fcr eine Stabs-Projektorganisation ist das Vorhaben zu bedeutungsvoll und zu umfangreich.'
+};
+
+// Chapter 8: Projektstrukturplan (Repetitionsfragen 22-24, Seite 76)
+exercises[22] = {type:'text',title:'Gliederungsprinzip erkennen',q:'Der Projektleiter des Kongresses \u00abLernen mit Neuen Medien\u00bb weist im Projektstrukturplan die folgende Gliederung aus: Transport, Verpflegung/\u00dcbernachtung, Kongressprogramm, Rahmenprogramm, Kongressmarketing.\nA) Um welches Gliederungsprinzip handelt es sich bei diesem Projekt?\nB) Wie beurteilen Sie die gew\u00e4hlte Projektstruktur?',
+  keywords:['Objekt','Gliederung','sinnvoll','abgrenzbar','transparent','Teilelement','nachvollziehbar'],
+  solution:'A) Gliederung nach Objekten. B) Die Gliederung nach Objekten scheint aus folgenden Gr\u00fcnden sinnvoll: Logische Aufteilung von abgrenzbaren Kongress-Teilelementen; Transparente Struktur (f\u00fcr Entscheidungsgremien, Projektleitung und -mitarbeitende nachvollziehbar).'
+};
+
+exercises[23] = {type:'text',title:'Gliederungsprinzip f\u00fcr M\u00f6belproduzenten',q:'Cornelia Vetsch leitet das Projekt \u00abAufbau des Produktmanagements\u00bb f\u00fcr einen M\u00f6belproduzenten von Betten, Tischen und Schr\u00e4nken. Die M\u00f6bel werden in der gesamten Schweiz sowie in Deutschland und den Niederlanden an ausgesuchte M\u00f6belhandelsgesch\u00e4fte verkauft. Machen Sie Cornelia Vetsch einen Vorschlag, wie sie dieses Projekt sinnvollerweise gliedern k\u00f6nnte, und begr\u00fcnden Sie Ihren Vorschlag in ein paar S\u00e4tzen.',
+  keywords:['Projektphasen','Organisationsprojekt','Vorgehensmethodik','Objekte','Absatzm\u00e4rkte','Produktmanagement'],
+  solution:'Am ehesten kommen die folgenden Gliederungsprinzipien infrage: Gliederung nach Projektphasen (Begr\u00fcndung: Es handelt sich um ein einfacheres Organisationsprojekt, bei dem die Gliederung gem\u00e4ss Vorgehensmethodik ausreicht.) Gliederung nach Objekten (Begr\u00fcndung: Sofern unterschiedliche Gegebenheiten in den Absatzm\u00e4rkten herrschen, die einen wesentlichen Einfluss auf die Produktmanagement-L\u00f6sung haben k\u00f6nnten, ist dieses Gliederungsprinzip passender als die Gliederung nach Projektphasen.)'
+};
+
+exercises[24] = {type:'text',title:'Detaillierungsgrad des PSP',q:'Cornelia Vetsch weiss nicht genau, wie detailliert sie den Projektstrukturplan entwickeln muss. Geben Sie ihr einen Ratschlag bez\u00fcglich des Detaillierungsgrads.',
+  keywords:['Strukturierungstiefe','angemessen','Arbeitspakete','Arbeitspaketauftr\u00e4ge','vergeben','beteiligt'],
+  solution:'Eine angemessene Strukturierungstiefe erreichen Sie, wenn Sie allen am Projekt beteiligten Mitarbeitenden klare Arbeitspaketauftr\u00e4ge vergeben k\u00f6nnen.'
+};
+
+// Chapter 9: Ablauf- und Terminplanung (Repetitionsfragen 25-27, Seite 84)
+exercises[25] = {type:'text',title:'Sch\u00e4tzung der Vorgangsdauer',q:'Warum muss die Sch\u00e4tzung der Vorgangsdauer sp\u00e4testens mit der Ablaufplanung abgeschlossen werden? Als Antwort gen\u00fcgt ein Satz.',
+  keywords:['Ablaufplanung','Terminplanung','zeitlich','Aufwand','Vorgang','berechnet'],
+  solution:'Weil nach der Ablaufplanung die Terminplanung erfolgt, bei der der zeitliche Aufwand pro Vorgang berechnet wird.'
+};
+
+exercises[26] = {type:'text',title:'Kritischer Pfad in der Netzplan-Technik',q:'Was zeigt der kritische Pfad in der Netzplan-Technik?',
+  keywords:['kritisch','Pfad','Vorg\u00e4nge','Zeitreserven','Zeitverschiebung','Endtermin','Projektdauer'],
+  solution:'Der kritische Pfad zeigt alle Vorg\u00e4nge des Projekts, die keine Zeitreserven bis zum Beginn des n\u00e4chsten Vorgangs aufweisen. Somit wirkt sich eine Zeitverschiebung bei einem solchen Vorgang direkt auf das Ende des Projekts aus.'
+};
+
+exercises[27] = {type:'text',title:'Vorgangsliste vervollst\u00e4ndigen',q:'Timo Reichlin, der Projektleiter des Kongresses \u00abLernen mit Neuen Medien\u00bb, muss sein Projekt besser strukturieren. Er hat eine Vorgangsliste erstellt.\nA) Vervollst\u00e4ndigen Sie die Spalte \u00abDauer\u00bb in Timo Reichlins Vorgangsliste.\nB) Bestimmen Sie f\u00fcr die Arbeitspakete P3.1 bis P3.5 die Vorg\u00e4nger.\n\nP3.1: Grobkonzept f\u00fcr Kongressprogramm entwerfen (Entwurf 7 Tage, Pr\u00e4sentation 1 Tag, Entscheidung/Vernehmlassung 5 Tage, Korrekturen 3 Tage = Total 16 Tage)\nP3.2: Detailkonzept f\u00fcr Kongressprogramm erstellen (Entwurf 3 Tage, Pr\u00e4sentation 1 Tag, Entscheidung/Vernehmlassung 5 Tage, Detailkorrekturen 1 Tag = Total 10 Tage)\nP3.3: Referenten aufbieten (Kontaktaufnahme 2 Tage, Wartezeit 10 Tage, Verhandlungen/Briefing 4 Tage = Total 16 Tage)\nP3.4: Dokumentation zusammenstellen (Referatstexte einfordern 30 Tage, red. \u00dcberarbeitung 3 Tage, grafische Gestaltung 2 Tage, Gut zum Druck 2 Tage, Aufwand Druckerei 4 Tage = Total 41 Tage)\nP3.5: Detailkonzept f\u00fcr Podiumsdiskussion erstellen (Entwurf 4 Tage, Entscheidung/Vernehmlassung 3 Tage, Detailkorrekturen 1 Tag, Briefing der Moderatorin 1 Tag = Total 9 Tage)',
+  keywords:['Dauer','Vorg\u00e4nger','P3.1','P3.2','P3.3','P3.4','P3.5','16','10','41','9'],
+  solution:'A) Dauer: P3.1 = 16 Tage, P3.2 = 10 Tage, P3.3 = 16 Tage, P3.4 = 41 Tage, P3.5 = 9 Tage. B) Vorg\u00e4nger: P3.1 hat keinen Vorg\u00e4nger (Startvorgang). P3.2 hat als Vorg\u00e4nger P3.3 (die Referenten m\u00fcssen feststehen). P3.3 hat als Vorg\u00e4nger P3.1 (nach dem Grobkonzept k\u00f6nnen Referenten aufgeboten werden). P3.4 hat als Vorg\u00e4nger P3.5 (f\u00fcr das Detailkonzept m\u00fcssen die Referenten bekannt sein; aus dem Detailkonzept ergibt sich jenes f\u00fcr die Podiumsdiskussion; die Dokumentation kann erst erfolgen, nachdem das Programm feststeht). P3.5 hat als Vorg\u00e4nger P3.2.'
+};
+
+// Chapter 10: Ressourcenplanung (Repetitionsfragen 28-29, Seite 88)
+exercises[28] = {type:'text',title:'Argumente f\u00fcr sorgf\u00e4ltige Sachmittelplanung',q:'Nennen Sie dem Projektleiter f\u00fcr den Kongress \u00abLernen mit Neuen Medien\u00bb mindestens drei Argumente, die f\u00fcr eine sorgf\u00e4ltige Planung des Sachmittels \u00abKongressort\u00bb sprechen.',
+  keywords:['Gr\u00f6sse','Teilnehmerzahl','Kongressthema','Infrastruktur','Mietpreis','Erreichbarkeit','Reservation'],
+  solution:'Die Evaluation des Kongressorts bzw. geeigneter Kongress-R\u00e4umlichkeiten stellt in mehrerlei Hinsicht einen kritischen Erfolgsfaktor f\u00fcr das Projekt dar: Richtige Gr\u00f6sse (angepasst auf die Teilnehmerzahl); Zum Kongressthema passend (gehobene, moderne technische Infrastruktur und Anschl\u00fcsse bzw. Leitungen f\u00fcr Demonstrationsm\u00f6glichkeiten); Mietpreis (gem\u00e4ss Budget, beeinflusst unter anderem die Teilnahmegeb\u00fchren); Gute Erreichbarkeit mit \u00f6ffentlichen Verkehrsmitteln; Rechtzeitige Reservation.'
+};
+
+exercises[29] = {type:'text',title:'Schwierigkeiten bei interner Rekrutierung',q:'Z\u00e4hlen Sie anhand eines konkreten Projektbeispiels mindestens zwei Schwierigkeiten auf, die sich bei der internen Rekrutierung von Projektmitarbeitenden ergeben.',
+  keywords:['Linienvorgesetzte','freigegeben','beansprucht','Beanspruchung','organisatorisch','Kompetenz\u00fcberpr\u00fcfung','Terminverschiebungen'],
+  solution:'M\u00f6gliche Schwierigkeiten bei der internen Rekrutierung: Gute Mitarbeitende werden von den Linienvorgesetzten nur ungern f\u00fcr Projekte \u00abfreigegeben\u00bb. Gute und / oder einflussreiche Mitarbeitende sind oftmals stark beansprucht, sowohl in ihrer Linient\u00e4tigkeit als auch in weiteren Projekten. Bei einer starken Beanspruchung durch das Projekt braucht es organisatorische Massnahmen (Entlastung in der \u00fcbrigen T\u00e4tigkeit), ansonsten drohen \u00dcberlastungen bzw. Terminverschiebungen im Projekt. Eine objektive Kompetenz\u00fcberpr\u00fcfung ist evtl. schwieriger als bei externen (Fach)Spezialisten.'
+};
+
+// Chapter 11: Kostenplanung (Repetitionsfragen 30-31, Seite 93)
+exercises[30] = {type:'text',title:'Direkte vs. indirekte Personalkosten',q:'Erkl\u00e4ren Sie den Unterschied zwischen direkten und indirekten Personalkosten anhand eines Beispiels.',
+  keywords:['direkt','indirekt','Arbeitspaket','zugeordnet','Projektleiterin','Administrator','gesamte'],
+  solution:'Direkte Personalkosten k\u00f6nnen eindeutig einem Arbeitspaket zugeordnet werden (z.B. die Fachspezialistin, die ein Arbeitspaket bearbeitet), indirekte Personalkosten jedoch nicht (z.B. die Projektleiterin oder der Projektadministrator, die f\u00fcr das gesamte Projekt arbeiten).'
+};
+
+exercises[31] = {type:'text',title:'Kostenplanung f\u00fcr Kongress',q:'Der Projektleiter des Kongresses \u00abLernen mit Neuen Medien\u00bb, Timo Reichlin, besch\u00e4ftigt sich mit der Kostenplanung f\u00fcr sein Projekt.\nA) Welche Kostenarten muss ich im Arbeitspaket P3.3 (Referenten aufbieten) ber\u00fccksichtigen?\nB) \u00abMir ist klar, dass ich den Kostenplan zum einen nach Kostenarten gliedern soll. K\u00f6nnen Sie mir einen konkreten Vorschlag f\u00fcr ein zweites Gliederungskriterium machen?\u00bb',
+  keywords:['Personalkosten','Betriebsmittelkosten','Honorar','Spesen','Referenten','Kostentr\u00e4ger','Projektstrukturplan','Transport','Verpflegung','Kongressprogramm'],
+  solution:'A) Betroffene Kostenarten: Interne Personalkosten (Zeitaufwand f\u00fcr Anrufe); Betriebsmittelkosten (Telefongeb\u00fchren); Interne Personalkosten (Zeitaufwand f\u00fcr Essen und Weg, Wegspesen, Restaurantrechnung); Externe Personalkosten (Honorar, Spesen f\u00fcr Referenten); interne Personalkosten (Zeitaufwand von T. Reichlin f\u00fcr Verhandlungen); Interne Personalkosten (Zeitaufwand f\u00fcr Briefing). B) Es bietet sich eine Gliederung nach Kostentr\u00e4gern an, und zwar gem\u00e4ss Projektstrukturplan nach: Transport; Verpflegung/\u00dcbernachtung; Kongressprogramm; Rahmenprogramm; Kongressmarketing.'
+};
+
+// Chapter 12: Projektcontrolling (Repetitionsfragen 32-35, Seite 113)
+exercises[32] = {type:'tf',title:'Aussagen zur Projektsteuerung',q:'Welche der folgenden Aussagen zur Projektsteuerung sind richtig?',
+  statements:[
+    {s:'Mit der Methode \u00ab0% \u2013 50% \u2013 100%\u00bb l\u00e4sst sich der Projektstand exakter ermitteln als mit der Methode \u00ab0% \u2013 100%\u00bb.',c:true},
+    {s:'In einem Reorganisationsprojekt ist es schwierig, eine Aussage \u00fcber die erreichte Qualit\u00e4t der Zwischenergebnisse zu machen.',c:true},
+    {s:'Der Earned Value beantwortet die Frage, wie viel die bisher erbrachte Leistung h\u00e4tte kosten d\u00fcrfen.',c:false},
+    {s:'Wenn der SPI gr\u00f6sser als 1 ist, bedeutet dies, dass die erbrachte und bewertete Leistung gr\u00f6sser als die tats\u00e4chlich angefallenen Kosten ist.',c:false}
+  ]
+};
+
+exercises[33] = {type:'text',title:'Arbeitsfortschrittsdiagramm kommentieren',q:'Die Projektleiterin f\u00fcr das neue \u00abCorporate Design\u00bb legt Ihnen den Projektzwischenbericht per 31. August vor und pr\u00e4sentiert dazu ein Arbeitsfortschrittsdiagramm.\nA) Kommentieren Sie das Arbeitsfortschrittsdiagramm in einigen S\u00e4tzen.\nB) Formulieren Sie mindestens eine Frage, die Sie der Projektleiterin zu ihrem Zwischenbericht per 31. August stellen w\u00fcrden.',
+  keywords:['Terminverzug','Soll-Kurve','Ist-Kurve','Arbeitsfortschritt','Trend','Kosten\u00fcberschreitung','Projektabschluss','vorzeitig'],
+  solution:'A) Ab Anfang Mai bis gegen Mitte August lag die Ist-Kurve unter der Soll-Kurve. In diesem Zeitraum wies das Projekt einen Terminverzug auf, der in den Monaten Juni und Juli besonders deutlich ausfiel. Per 31. August zeigt sich ein gegenteiliges Bild: Der tats\u00e4chlich erreichte Arbeitsfortschritt ist seit der zweiten H\u00e4lfte Juli stark angestiegen und ist mittlerweile um rund 15% h\u00f6her als geplant. Gem\u00e4ss Projektplan sollte das Projekt in etwa sechs Wochen abgeschlossen sein. B) M\u00f6gliche Fragen: Worauf ist der steile Anstieg im Arbeitsfortschritt der letzten Wochen zur\u00fcckzuf\u00fchren? Welche Auswirkungen hat der Arbeitsfortschritt auf die Kostensituation? Wie realistisch ist ein vorzeitiger Projektabschluss?'
+};
+
+exercises[34] = {type:'text',title:'Steuerungsmassnahmen bei Terminverzug',q:'Timo Reichlin, der Projektleiter des Kongresses \u00abLernen mit Neuen Medien\u00bb, stellt einen Terminverzug im Arbeitspaket \u00abRahmenprogramm organisieren\u00bb fest, weil die daf\u00fcr zust\u00e4ndige Projektmitarbeiterin Olivia Hess zu wenig Zeit f\u00fcr das Projekt einsetzen kann. Schlagen Sie zwei konkrete Steuerungsmassnahmen f\u00fcr dieses Arbeitspaket vor.',
+  keywords:['Verpflichtung','Mitarbeiter','Vergabe','extern','Kapazit\u00e4tenkonflikt','Motivation','strukturbezogen','steuerungsbezogen'],
+  solution:'M\u00f6gliche Steuerungsmassnahmen: Verpflichtung eines zus\u00e4tzlichen Projektmitarbeiters (strukturbezogene Massnahme). Vergabe des Auftrags an eine externe (Event-)Agentur (strukturbezogene Massnahme). Kapazit\u00e4tenkonflikt mit Olivia Hess und mit ihrem Linienvorgesetzten l\u00f6sen (steuerungsbezogene Massnahme). Motivation bei Olivia Hess f\u00f6rdern, sofern fehlende Motivation das eigentliche Problem ist (kulturbezogene Massnahme).'
+};
+
+exercises[35] = {type:'text',title:'Argumente f\u00fcr schriftliche Berichtsform',q:'Ein Auftraggeber w\u00fcnscht, den Projektstand regelm\u00e4ssig m\u00fcndlich zu besprechen. Seiner Meinung nach braucht es daf\u00fcr keine schriftlichen Projektstatusberichte. Welche Argumente sprechen dennoch f\u00fcr eine schriftliche Berichtsform?',
+  keywords:['Schriftlichkeit','Grundlagen','Verbindlichkeit','Verantwortung','Berichterstattung','Rechenschaft','Zwischen'],
+  solution:'Argumente f\u00fcr schriftliche Projektstatusberichte: Schriftlichkeit schafft eindeutige, klare Grundlagen. Bei der m\u00fcndlichen Berichterstattung hingegen besteht die Gefahr, dass wichtige Informationen untergehen oder unterschiedlich interpretiert werden. Der Auftraggeber tr\u00e4gt die oberste Verantwortung f\u00fcr das Projekt. Falls es im Verlauf des Projekts zu Problemen kommen sollte und die Gefahr besteht, dass der Auftraggeber sich dieser Verantwortung entziehen m\u00f6chte, kann der Projektleiter besser \u00abbeweisen\u00bb, wor\u00fcber der Auftraggeber informiert war und welche Entscheidungen er getroffen hatte. Die schriftliche Berichterstattung zwingt dazu, regelm\u00e4ssig Rechenschaft \u00fcber die Projekt-Zwischenergebnisse abzulegen.'
+};
+
+// Chapter 13: Aenderungen bearbeiten (Repetitionsfragen 36-37, Seite 119)
+exercises[36] = {type:'match',title:'\u00c4nderungen im \u00c4nderungsmanagement',q:'Welche der folgenden \u00c4nderungen in einem Umbauprojekt sollten im systematischen \u00c4nderungsmanagement behandelt werden?',
+  pairs:[
+    {l:'Die Denkmalpflege schaltet sich mit Auflagen ins Baubewilligungsverfahren ein.',r:'Zu behandeln'},
+    {l:'Die Schalld\u00e4mmung im Grossraumb\u00fcro ist unbefriedigend, sodass es zus\u00e4tzliche bauliche Massnahmen braucht.',r:'Zu behandeln'},
+    {l:'Der Bodenleger meldet, dass der gew\u00e4hlte Bodenbelag nicht vereinbarungsgem\u00e4ss lieferbar und folglich mit einer Verz\u00f6gerung seiner Arbeiten von zehn Tagen zu rechnen sei.',r:'Nicht zu behandeln'}
+  ],
+  options:['Zu behandeln','Nicht zu behandeln']
+};
+
+exercises[37] = {type:'text',title:'Abgelehnte \u00c4nderungen dokumentieren',q:'Begr\u00fcnden Sie in wenigen S\u00e4tzen, warum auch zur\u00fcckgestellte oder abgelehnte \u00c4nderungen dokumentiert werden sollten.',
+  keywords:['l\u00fcckenlos','nachvollziehen','Verbindlichkeit','Diskussionen','zur\u00fcckgestellt','abgelehnt'],
+  solution:'Dank einer l\u00fcckenlosen Dokumentation kann auch sp\u00e4ter nachvollzogen werden, warum bestimmte \u00c4nderungen entschieden wurde. Dies schafft mehr Verbindlichkeit und aufwendige Diskussionen \u00fcber das F\u00fcr und Wider abgelehnter oder zur\u00fcckgestellter \u00c4nderungen m\u00fcssen so nicht erneut gef\u00fchrt werden.'
+};
+
+// Chapter 14: Risiken bearbeiten (Repetitionsfragen 38-40, Seite 125)
+exercises[38] = {type:'text',title:'Projektrisiken identifizieren',q:'Nennen Sie mindestens drei m\u00f6gliche Projektrisiken f\u00fcr den Kongress \u00abLernen mit Neuen Medien\u00bb.',
+  keywords:['Personelle','Technische','Organisatorische','Externe','Erfahrung','IT-Infrastruktur','Kosten','Terminverschiebungen','Zuverl\u00e4ssigkeit','Lieferanten'],
+  solution:'M\u00f6gliche Projektrisiken: Personelle: mangelnde Erfahrung der Mitarbeitenden. Technische: IT-Infrastruktur f\u00e4llt w\u00e4hrend des Kongresses aus, Verbindungszusammenbruch bei den Internetleitungen w\u00e4hrend einer Produktpr\u00e4sentation. Organisatorische: Kosten-, Terminverschiebungen. Externe: mangelnde Zuverl\u00e4ssigkeit der Lieferanten (Transport, Verpflegung, Hotel), Referenten sagen kurzfristig ab, zu wenig Teilnehmende usw.'
+};
+
+exercises[39] = {type:'match',title:'Ziele des Risikomanagements',q:'Welche Ziele des Risikomanagements sprechen die beiden Manager an?',
+  pairs:[
+    {l:'Harald Gross: \u00abBeim Russland-Expansionsprojekt war uns bewusst: Wenn wir Pech haben, legen uns die lokalen Beh\u00f6rden gewaltige Steine in den Weg und gef\u00e4hrden das ganze Vorhaben; darauf hast du als Aussenstehender kaum Einfluss!\u00bb',r:'Absicherung gegen unvermeidbare Risiken'},
+    {l:'Theo Stieger: \u00abHabt ihr euch gefragt, ob ihr das Projekt \u00fcberhaupt starten wollt?\u00bb',r:'Absch\u00e4tzen der Risikohaftigkeit des Projekts vor Projektstart'},
+    {l:'Harald Gross: \u00abNat\u00fcrlich, alles andere w\u00e4re fahrl\u00e4ssig. Wir wollten diese Chance unbedingt nutzen, also sagten wir uns: Seien wir gegen jene Risiken gewappnet, auf die wir selbst einwirken k\u00f6nnen!\u00bb',r:'Vermeidung erkennbarer Risiken'}
+  ],
+  options:['Vermeidung erkennbarer Risiken','Absicherung gegen unvermeidbare Risiken','Absch\u00e4tzen der Risikohaftigkeit des Projekts vor Projektstart']
+};
+
+exercises[40] = {type:'text',title:'Prophylaktische vs. Eventualmassnahme',q:'Erkl\u00e4ren Sie einem Aussenstehenden in wenigen S\u00e4tzen den Unterschied zwischen einer prophylaktischen Massnahme und einer Eventualmassnahme.',
+  keywords:['prophylaktisch','Eintrittswahrscheinlichkeit','verringern','Eventualmassnahme','Schadensausmass','reduzieren','Tragweite'],
+  solution:'Eine prophylaktische Massnahme zielt darauf ab, die Eintrittswahrscheinlichkeit zu verringern, w\u00e4hrend man Eventualmassnahmen trifft, um die Tragweite des Schadens (das Schadensausmass) zu reduzieren.'
+};
+
+// Chapter 15: Projektabschluss (Repetitionsfragen 41-43, Seite 130)
+exercises[41] = {type:'text',title:'Abschlussveranstaltung',q:'Der Auftraggeber eines Projekts streicht den Budgetposten \u00abAbschlussveranstaltung\u00bb, weil er deren Sinn und Zweck nicht einsieht. Nennen Sie dem Auftraggeber mindestens zwei Argumente, die f\u00fcr eine offizielle Abschlussveranstaltung in Projekten sprechen.',
+  keywords:['offiziell','Akt','Kick-off','Schlusspunkt','symbolisch','Bedeutung','Beteiligten'],
+  solution:'Folgende Argumente sprechen f\u00fcr eine offizielle Abschlussveranstaltung: Ein Projekt mit einem offiziellen Akt beenden, wie es mit einem Kick-off-Meeting gestartet wurde. Eine gelungene Abschlussveranstaltung setzt einen positiven Schlusspunkt. Eine gelungene Abschlussveranstaltung hat eine wichtige symbolische Bedeutung f\u00fcr alle Beteiligten.'
+};
+
+exercises[42] = {type:'text',title:'Risiko bei ungekl\u00e4rter Service-Organisation',q:'Welches Risiko gehen Sie als Projektleiter ein, wenn Sie die Service-Organisation (Ansprechpartner) beim Projektabschluss nicht klar bestimmen?',
+  keywords:['Supportanfragen','Projektteam','offiziell','abgeschlossen','Service-Organisation','Ansprechpartner','verweisen'],
+  solution:'Das Risiko, dass Supportanfragen und weitere Fragen weiterhin bei Ihnen oder beim Projektteam landen, obwohl das Projekt offiziell bereits abgeschlossen ist. F\u00fcr diese Aufgaben m\u00fcssten Sie sp\u00e4testens beim Projektabschluss eine funktionstüchtige Service-Organisation mit den Ansprechpartnern bestimmt haben. Ist dies der Fall, sollten Sie die Anfragenden konsequent an sie verweisen.'
+};
+
+exercises[43] = {type:'check',title:'Inhalte der Abschlussdokumentation',q:'Welche der folgenden Inhalte geh\u00f6ren in die Abschlussdokumentation?',
+  statements:[
+    {s:'Arbeitsanweisungen an die Projektmitarbeitenden',c:false},
+    {s:'Benutzerhandbuch',c:true},
+    {s:'Verfahrensdokumentation',c:true},
+    {s:'Projektorganigramm',c:false},
+    {s:'Entscheidungsprotokolle der Projektausschusssitzungen',c:false}
+  ]
+};
+
+// ======================================================================
+// EXAM MODE COMPONENT
+// ======================================================================
+function ExamMode(props){
+  var ch = props.chapter;
+  var examScores = props.examScores;
+  var setExamScores = props.setExamScores;
+
+  var st1 = useState('idle'), phase = st1[0], setPhase = st1[1]; // idle, running, finished
+  var st2 = useState([]), examExercises = st2[0], setExamExercises = st2[1];
+  var st3 = useState(EXAM_TIME_DEFAULT), timeLeft = st3[0], setTimeLeft = st3[1];
+  var st4 = useState({}), examAnswers = st4[0], setExamAnswers = st4[1];
+  var st5 = useState({}), examChecked = st5[0], setExamChecked = st5[1];
+  var st6 = useState(0), currentIdx = st6[0], setCurrentIdx = st6[1];
+  var st7 = useState(null), result = st7[0], setResult = st7[1];
+  var timerRef = useRef(null);
+
+  var bestKey = 'ch' + ch.id;
+  var best = examScores[bestKey];
+
+  // Generate exam exercises
+  function startExam(){
+    var allIds = ch.exercises.slice();
+    var count = Math.max(1, Math.round(allIds.length * (0.6 + Math.random() * 0.2)));
+    var selected = shuffleArray(allIds).slice(0, count);
+
+    // Build exam exercises with shuffled MC options
+    var examEx = selected.map(function(id){
+      var ex = exercises[id];
+      if(!ex) return null;
+      var copy = Object.assign({}, ex);
+      copy.originalId = id;
+
+      // Shuffle MC options
+      if(copy.type === 'mc' && copy.options){
+        var indices = copy.options.map(function(_,i){return i});
+        var shuffled = shuffleArray(indices);
+        copy.options = shuffled.map(function(i){return ex.options[i]});
+        copy.correct = shuffled.indexOf(ex.correct);
+      }
+
+      // Shuffle TF statements
+      if(copy.type === 'tf' && copy.statements){
+        copy.statements = shuffleArray(copy.statements.slice());
+      }
+
+      // Shuffle check statements
+      if(copy.type === 'check' && copy.statements){
+        copy.statements = shuffleArray(copy.statements.slice());
+      }
+
+      // Shuffle match pairs
+      if(copy.type === 'match' && copy.pairs){
+        copy.pairs = shuffleArray(copy.pairs.slice());
+      }
+
+      return copy;
+    }).filter(Boolean);
+
+    setExamExercises(examEx);
+    setExamAnswers({});
+    setExamChecked({});
+    setCurrentIdx(0);
+    setTimeLeft(EXAM_TIME_DEFAULT);
+    setResult(null);
+    setPhase('running');
+  }
+
+  // Timer
+  useEffect(function(){
+    if(phase === 'running'){
+      timerRef.current = setInterval(function(){
+        setTimeLeft(function(t){
+          if(t <= 1){
+            clearInterval(timerRef.current);
+            return 0;
+          }
+          return t - 1;
+        });
+      }, 1000);
+      return function(){clearInterval(timerRef.current)};
+    }
+  }, [phase]);
+
+  // Auto-submit when time runs out
+  useEffect(function(){
+    if(phase === 'running' && timeLeft <= 0){
+      finishExam();
+    }
+  }, [timeLeft, phase]);
+
+  function finishExam(){
+    clearInterval(timerRef.current);
+    // Score each exercise
+    var correct = 0;
+    var total = examExercises.length;
+
+    examExercises.forEach(function(ex, idx){
+      var ans = examAnswers[idx];
+      if(scoreExercise(ex, ans)){
+        correct++;
+      }
+    });
+
+    var pct = Math.round((correct / total) * 100);
+    var passed = pct >= 60;
+
+    var res = {correct: correct, total: total, pct: pct, passed: passed};
+    setResult(res);
+    setPhase('finished');
+
+    // Save best score
+    var scores = Object.assign({}, examScores);
+    if(!scores[bestKey] || pct > scores[bestKey].pct){
+      scores[bestKey] = {pct: pct, correct: correct, total: total, date: new Date().toLocaleDateString('de-CH')};
+      setExamScores(scores);
+      saveExamScores(scores);
+    }
+  }
+
+  function scoreExercise(ex, ans){
+    if(!ans) return false;
+
+    if(ex.type === 'mc'){
+      return ans.selected === ex.correct;
+    }
+    if(ex.type === 'tf'){
+      return ex.statements.every(function(s, i){
+        return ans[i] === (s.c ? 'r' : 'f');
+      });
+    }
+    if(ex.type === 'check'){
+      return ex.statements.every(function(s, i){
+        return (!!ans[i]) === s.c;
+      });
+    }
+    if(ex.type === 'match'){
+      return ex.pairs.every(function(p, i){
+        return ans[i] === p.r;
+      });
+    }
+    if(ex.type === 'text'){
+      var kw = matchKeywords(ans.text || '', ex.keywords);
+      return kw >= 2;
+    }
+    return false;
+  }
+
+  function setAnswer(idx, val){
+    var a = Object.assign({}, examAnswers);
+    a[idx] = val;
+    setExamAnswers(a);
+  }
+
+  // IDLE state
+  if(phase === 'idle'){
+    return e('div',{style:{padding:'24px 16px'}},
+      e('div',{style:{textAlign:'center',marginBottom:20}},
+        e('div',{style:{fontSize:'2.5rem',marginBottom:8}},'\ud83c\udfaf'),
+        e('div',{style:{fontSize:'1.1rem',fontWeight:700,marginBottom:8}},'Pr\u00fcfungsmodus'),
+        e('div',{style:{fontSize:'.85rem',color:'var(--text2)',marginBottom:4,lineHeight:1.5}},
+          'Zuf\u00e4llige Auswahl von '+Math.round(ch.exercises.length*0.6)+'-'+Math.round(ch.exercises.length*0.8)+' Aufgaben aus '+ch.exercises.length+' Aufgaben.'
+        ),
+        e('div',{style:{fontSize:'.82rem',color:'var(--text2)',marginBottom:4}},
+          'Zeitlimit: 15 Minuten'
+        ),
+        e('div',{style:{fontSize:'.82rem',color:'var(--text2)',marginBottom:16}},
+          'Keine Tipps, keine L\u00f6sungshinweise. Bestanden ab 60%.'
+        )
+      ),
+      best ? e('div',{className:'exam-best',style:{textAlign:'center',display:'block',marginBottom:16}},
+        'Bisheriges Bestergebnis: '+best.pct+'% ('+best.correct+'/'+best.total+') am '+best.date
+      ) : null,
+      e('div',{style:{textAlign:'center'}},
+        e('button',{className:'btn btn-primary',onClick:startExam,style:{padding:'12px 32px',fontSize:'1rem'}},'\ud83c\udfaf Pr\u00fcfung starten')
+      )
+    );
+  }
+
+  // FINISHED state
+  if(phase === 'finished' && result){
+    return e('div',{className:'exam-result'},
+      e('div',{className:'score-circle '+(result.passed?'pass':'fail')},
+        e('div',{className:'score-num'},result.correct+'/'+result.total),
+        e('div',{className:'score-pct'},result.pct+'%')
+      ),
+      e('div',{className:'exam-result-title'},result.passed ? 'Bestanden!' : 'Nicht bestanden'),
+      e('div',{className:'exam-result-sub'},
+        result.passed ? 'Herzlichen Gl\u00fcckwunsch! Du hast '+result.pct+'% erreicht.' :
+        'Du brauchst mindestens 60% zum Bestehen. Versuch es nochmal!'
+      ),
+      best ? e('div',{className:'exam-best'},
+        'Bestergebnis: '+best.pct+'% ('+best.correct+'/'+best.total+') am '+best.date
+      ) : null,
+      e('div',{className:'btn-row'},
+        e('button',{className:'btn btn-primary',onClick:startExam},'Nochmal'),
+        e('button',{className:'btn btn-secondary',onClick:function(){setPhase('idle')}},'Zur\u00fcck')
+      )
+    );
+  }
+
+  // RUNNING state
+  var curEx = examExercises[currentIdx];
+  if(!curEx) return null;
+
+  var isUrgent = timeLeft < 120;
+
+  return e('div',null,
+    // Exam bar
+    e('div',{className:'exam-bar'},
+      e('div',{className:'exam-timer'+(isUrgent?' urgent':'')},
+        '\u23f1 ',formatTime(timeLeft)
+      ),
+      e('div',{className:'exam-progress-text'},
+        'Aufgabe '+(currentIdx+1)+' / '+examExercises.length
+      ),
+      e('div',{className:'exam-nav'},
+        currentIdx > 0 ? e('button',{className:'btn btn-secondary',onClick:function(){setCurrentIdx(currentIdx-1)}},'\u2190') : null,
+        currentIdx < examExercises.length-1 ?
+          e('button',{className:'btn btn-secondary',onClick:function(){setCurrentIdx(currentIdx+1)}},'\u2192') :
+          e('button',{className:'btn btn-primary',onClick:finishExam},'Abgeben')
+      )
+    ),
+    // Current exercise
+    e('div',{style:{padding:'0 16px 16px'}},
+      e('div',{className:'ex-card'},
+        e('div',{style:{padding:'16px 20px'}},
+          e('div',{style:{display:'flex',alignItems:'center',gap:12,marginBottom:12}},
+            e('div',{className:'ex-num'},currentIdx+1),
+            e('div',null,
+              e('div',{className:'ex-title'},curEx.title),
+              e('div',{className:'ex-type'},curEx.type==='mc'?'Multiple Choice':curEx.type==='tf'?'Richtig/Falsch':curEx.type==='match'?'Zuordnung':curEx.type==='check'?'Mehrfachauswahl':'Freitext')
+            )
+          ),
+          e(ExamExRenderer,{ex:curEx,idx:currentIdx,answer:examAnswers[currentIdx],setAnswer:function(val){setAnswer(currentIdx,val)}})
+        )
+      )
+    ),
+    // Bottom navigation dots
+    e('div',{style:{display:'flex',gap:4,justifyContent:'center',padding:'8px 16px',flexWrap:'wrap'}},
+      examExercises.map(function(_, i){
+        var hasAnswer = !!examAnswers[i];
+        var isCurrent = i === currentIdx;
+        return e('div',{key:i,onClick:function(){setCurrentIdx(i)},style:{
+          width:28,height:28,borderRadius:'50%',display:'flex',alignItems:'center',justifyContent:'center',
+          fontSize:'.7rem',fontWeight:600,cursor:'pointer',
+          background:isCurrent?'var(--accent)':hasAnswer?'var(--green)':'var(--input-bg)',
+          color:isCurrent||hasAnswer?'#fff':'var(--text2)',
+          border:'1.5px solid '+(isCurrent?'var(--accent)':hasAnswer?'var(--green)':'var(--border)')
+        }},i+1);
+      })
+    )
+  );
+}
+
+// ======================================================================
+// EXAM EXERCISE RENDERER (no tips, no reveal)
+// ======================================================================
+function ExamExRenderer(props){
+  var ex = props.ex, answer = props.answer, setAnswer = props.setAnswer;
+
+  if(ex.type === 'mc') return e(ExamMC,{ex:ex,answer:answer,setAnswer:setAnswer});
+  if(ex.type === 'tf') return e(ExamTF,{ex:ex,answer:answer,setAnswer:setAnswer});
+  if(ex.type === 'match') return e(ExamMatch,{ex:ex,answer:answer,setAnswer:setAnswer});
+  if(ex.type === 'check') return e(ExamCheck,{ex:ex,answer:answer,setAnswer:setAnswer});
+  if(ex.type === 'text') return e(ExamText,{ex:ex,answer:answer,setAnswer:setAnswer});
+  return null;
+}
+
+function ExamMC(props){
+  var ex=props.ex, answer=props.answer, setAnswer=props.setAnswer;
+  var sel = answer ? answer.selected : null;
+
+  return e('div',null,
+    e('p',{className:'ex-instruction'},ex.q),
+    ex.options.map(function(opt,i){
+      var cls='mc-option';
+      if(sel===i) cls+=' selected';
+      return e('div',{key:i,className:cls,onClick:function(){setAnswer({selected:i})}},
+        e('div',{className:'mc-radio'}),
+        e('span',null,opt)
+      );
+    })
+  );
+}
+
+function ExamTF(props){
+  var ex=props.ex, answer=props.answer||{}, setAnswer=props.setAnswer;
+
+  function select(i,val){
+    var a=Object.assign({},answer);
+    a[i]=val;
+    setAnswer(a);
+  }
+
+  return e('div',null,
+    e('p',{className:'ex-instruction'},ex.q),
+    ex.statements.map(function(s,i){
+      return e('div',{key:i,className:'tf-row'},
+        e('div',{className:'tf-statement'},s.s),
+        e('div',{className:'tf-buttons'},
+          e('button',{className:'tf-btn'+(answer[i]==='r'?' selected':''),onClick:function(){select(i,'r')}},'Richtig'),
+          e('button',{className:'tf-btn'+(answer[i]==='f'?' selected':''),onClick:function(){select(i,'f')}},'Falsch')
+        )
+      );
+    })
+  );
+}
+
+function ExamMatch(props){
+  var ex=props.ex, answer=props.answer||{}, setAnswer=props.setAnswer;
+
+  function sel(i,val){
+    var a=Object.assign({},answer);
+    a[i]=val;
+    setAnswer(a);
+  }
+
+  return e('div',null,
+    e('p',{className:'ex-instruction'},ex.q),
+    ex.pairs.map(function(p,i){
+      return e('div',{key:i,className:'match-row'},
+        e('div',{className:'match-label'},p.l),
+        e('select',{className:'match-select',value:answer[i]||'',onChange:function(ev){sel(i,ev.target.value)}},
+          e('option',{value:''},'-- W\u00e4hlen --'),
+          ex.options.map(function(o,j){return e('option',{key:j,value:o},o)})
+        )
+      );
+    })
+  );
+}
+
+function ExamCheck(props){
+  var ex=props.ex, answer=props.answer||{}, setAnswer=props.setAnswer;
+
+  function toggle(i){
+    var a=Object.assign({},answer);
+    a[i]=!a[i];
+    setAnswer(a);
+  }
+
+  return e('div',null,
+    e('p',{className:'ex-instruction'},ex.q),
+    e('table',{className:'check-table'},
+      e('thead',null,e('tr',null,e('th',null,'Aussage'),e('th',null,'Trifft zu'))),
+      e('tbody',null,ex.statements.map(function(s,i){
+        return e('tr',{key:i},
+          e('td',null,s.s),
+          e('td',null,e('input',{type:'checkbox',checked:!!answer[i],onChange:function(){toggle(i)}}))
+        );
+      }))
+    )
+  );
+}
+
+function ExamText(props){
+  var ex=props.ex, answer=props.answer||{}, setAnswer=props.setAnswer;
+
+  return e('div',null,
+    e('p',{className:'ex-instruction',style:{whiteSpace:'pre-line'}},ex.q),
+    e('textarea',{className:'text-input',value:answer.text||'',onChange:function(ev){setAnswer({text:ev.target.value})},rows:4,placeholder:'Ihre Antwort\u2026'})
+  );
+}
+
+// ======================================================================
+// APP COMPONENT
+// ======================================================================
+function App(){
+  var st1=useState(loadProgress()),progress=st1[0],setProgress=st1[1];
+  var st2=useState(null),openCh=st2[0],setOpenCh=st2[1];
+  var st3=useState({}),openEx=st3[0],setOpenEx=st3[1];
+  var st4=useState(false),dark=st4[0],setDark=st4[1];
+  var st5=useState(false),showCalc=st5[0],setShowCalc=st5[1];
+  var st6=useState(false),showNotes=st6[0],setShowNotes=st6[1];
+  var st7=useState(false),showGloss=st7[0],setShowGloss=st7[1];
+  var st8=useState(''),notes=st8[0],setNotes=st8[1];
+  var st9=useState(0),timer=st9[0],setTimer=st9[1];
+  var timerRef=useRef(null);
+  var st10=useState(loadExamScores()),examScores=st10[0],setExamScores=st10[1];
+  var st11=useState(loadLernenProgress()),lernenProgress=st11[0],setLernenProgress=st11[1];
+  var st12=useState(loadChapterModes()),chapterModes=st12[0],setChapterModes=st12[1];
+
+  useEffect(function(){
+    timerRef.current=setInterval(function(){setTimer(function(t){return t+1})},1000);
+    return function(){clearInterval(timerRef.current)};
+  },[]);
+
+  useEffect(function(){
+    if(dark)document.body.classList.add('dark');
+    else document.body.classList.remove('dark');
+  },[dark]);
+
+  function getChapterMode(chId){
+    return chapterModes[chId] || 'ueben';
+  }
+  function setChapterMode(chId, mode){
+    var m = Object.assign({}, chapterModes);
+    m[chId] = mode;
+    setChapterModes(m);
+    saveChapterModes(m);
+  }
+
+  function toggleLernen(chId){
+    var p = Object.assign({}, lernenProgress);
+    p[chId] = !p[chId];
+    setLernenProgress(p);
+    saveLernenProgress(p);
+  }
+
+  function markDone(id){
+    var p=Object.assign({},progress);
+    p[id]=true;
+    setProgress(p);
+    saveProgress(p);
+  }
+  function resetEx(id){
+    var p=Object.assign({},progress);
+    delete p[id];
+    setProgress(p);
+    saveProgress(p);
+  }
+  function resetAll(){
+    setProgress({});
+    saveProgress({});
+    setExamScores({});
+    saveExamScores({});
+    setLernenProgress({});
+    saveLernenProgress({});
+  }
+
+  var doneCount=Object.keys(progress).filter(function(k){return progress[k]}).length;
+  var timerStr=Math.floor(timer/3600)+':'+String(Math.floor((timer%3600)/60)).padStart(2,'0')+':'+String(timer%60).padStart(2,'0');
+
+  function toggleEx(id){
+    var o=Object.assign({},openEx);
+    o[id]=!o[id];
+    setOpenEx(o);
+  }
+
+  return e('div',null,
+    // Nav
+    e('div',{className:'nav'},
+      e('div',null,
+        e('a',{href:'../index.html',className:'btn-back',style:{textDecoration:'none',marginBottom:4,display:'inline-flex'}},'\u2190 Zur\u00fcck zur \u00dcbersicht'),
+        e('div',{className:'nav-title'},'Projektmanagement'),
+        e('div',{className:'nav-sub'},'F\u00fchrer, Z\u00fcger \u00b7 Compendio 2017')
+      ),
+      e('div',{className:'nav-right'},
+        e('div',{className:'timer-display'},timerStr),
+        e('div',{className:'score-badge '+(doneCount>TOTAL_EX/2?'good':'bad')},doneCount+'/'+TOTAL_EX),
+        e('div',{className:'tool-bar'},
+          e('button',{className:'tool-btn'+(showCalc?' active':''),onClick:function(){setShowCalc(!showCalc);setShowNotes(false);setShowGloss(false)}},'\ud83e\uddc2 Rechner'),
+          e('button',{className:'tool-btn'+(showNotes?' active':''),onClick:function(){setShowNotes(!showNotes);setShowCalc(false);setShowGloss(false)}},'\ud83d\udcdd Notizen'),
+          e('button',{className:'tool-btn'+(showGloss?' active':''),onClick:function(){setShowGloss(!showGloss);setShowCalc(false);setShowNotes(false)}},'\ud83d\udcd6 Glossar')
+        ),
+        e('button',{className:'nav-btn',onClick:function(){setDark(!dark)}},dark?'\u2600\ufe0f':'\ud83c\udf19'),
+        e('button',{className:'nav-btn btn-reset',onClick:resetAll,style:{background:'rgba(220,38,38,.3)'}},'\u21bb Reset')
+      )
+    ),
+    // Container
+    e('div',{className:'container'},
+      chapters.map(function(ch){
+        var exIds=ch.exercises;
+        var done=exIds.filter(function(id){return progress[id]}).length;
+        var isOpen=openCh===ch.id;
+        var mode = getChapterMode(ch.id);
+        var bestExam = examScores['ch'+ch.id];
+        var isLernenDone = lernenProgress[ch.id];
+
+        return e('div',{key:ch.id,className:'chapter-card'},
+          e('div',{className:'chapter-header',onClick:function(){setOpenCh(isOpen?null:ch.id)}},
+            e('div',{className:'ch-info'},
+              e('div',{className:'ch-num'},'Teil '+ch.teil+' \u2022 Kapitel '+ch.id),
+              e('div',{className:'ch-title'},ch.title),
+              e('div',{className:'ch-meta'},
+                done+' / '+exIds.length+' Aufgaben gel\u00f6st',
+                isLernenDone ? ' \u2022 Theorie gelesen' : '',
+                bestExam ? ' \u2022 Pr\u00fcfung: '+bestExam.pct+'%' : ''
+              ),
+              e('div',{className:'progress-bar'},e('div',{className:'progress-fill',style:{width:Math.round(done/exIds.length*100)+'%'}})),
+              bestExam ? e('div',{className:'ch-badges'},
+                e('span',{className:'ch-badge ch-badge-exam'},'\ud83c\udfaf '+bestExam.pct+'%')
+              ) : null
+            ),
+            e('div',{className:'ch-arrow'+(isOpen?' open':'')},'\u25bc')
+          ),
+          isOpen ? e('div',null,
+            // Mode tabs
+            e('div',{className:'mode-tabs'},
+              e('button',{
+                className:'mode-tab'+(mode==='lernen'?' active-lernen':''),
+                onClick:function(){setChapterMode(ch.id,'lernen')}
+              },'\ud83d\udcd6 Lernen'),
+              e('button',{
+                className:'mode-tab'+(mode==='ueben'?' active-ueben':''),
+                onClick:function(){setChapterMode(ch.id,'ueben')}
+              },'\u270d\ufe0f \u00dcben'),
+              e('button',{
+                className:'mode-tab'+(mode==='pruefung'?' active-pruefung':''),
+                onClick:function(){setChapterMode(ch.id,'pruefung')}
+              },'\ud83c\udfaf Pr\u00fcfung')
+            ),
+
+            // LERNEN MODE
+            mode === 'lernen' ? e('div',null,
+              e('div',{className:'lernen-placeholder'},
+                e('div',{className:'lernen-placeholder-icon'},'\ud83d\udcd6'),
+                e('div',{className:'lernen-placeholder-text'},'Theorie wird bald erg\u00e4nzt'),
+                e('div',{className:'lernen-placeholder-sub'},'Hier erscheinen bald die Theorieinhalte, Grafiken und Zusammenfassungen aus dem Buch.')
+              ),
+              e('div',{className:'lernen-check'},
+                e('input',{type:'checkbox',id:'lernen-'+ch.id,checked:!!isLernenDone,onChange:function(){toggleLernen(ch.id)}}),
+                e('label',{htmlFor:'lernen-'+ch.id},'Als gelesen markieren')
+              )
+            ) : null,
+
+            // UEBEN MODE (original behavior)
+            mode === 'ueben' ? e('div',{className:'exercise-list'},
+              exIds.map(function(exId){
+                var ex=exercises[exId];
+                if(!ex) return null;
+                var isDone=progress[exId];
+                var isExOpen=openEx[exId];
+                return e('div',{key:exId,className:'ex-card'},
+                  e('div',{className:'ex-header',onClick:function(){toggleEx(exId)}},
+                    e('div',{className:'ex-num'+(isDone?' done':'')},exId),
+                    e('div',{className:'ex-title-wrap'},
+                      e('div',{className:'ex-title'},ex.title),
+                      e('div',{className:'ex-type'},ex.type==='mc'?'Multiple Choice':ex.type==='tf'?'Richtig/Falsch':ex.type==='match'?'Zuordnung':ex.type==='check'?'Mehrfachauswahl':ex.type==='text'?'Freitext':'Aufgabe')
+                    ),
+                    isDone?e('span',{className:'score-badge good'},'\u2713'):null
+                  ),
+                  isExOpen?e('div',{className:'ex-body'},
+                    e(ExRenderer,{ex:ex,exId:exId,isDone:isDone,markDone:markDone,resetEx:resetEx})
+                  ):null
+                );
+              })
+            ) : null,
+
+            // PRUEFUNG MODE
+            mode === 'pruefung' ? e(ExamMode,{
+              chapter:ch,
+              examScores:examScores,
+              setExamScores:setExamScores
+            }) : null
+
+          ) : null
+        );
+      }),
+      e('div',{className:'footer'},'Projektmanagement f\u00fcr Marketing- und Verkaufsverantwortliche \u2022 Lern-App')
+    ),
+    // Panels
+    showCalc?e(CalcPanel,{onClose:function(){setShowCalc(false)}}):null,
+    showNotes?e(NotesPanel,{onClose:function(){setShowNotes(false)},notes:notes,setNotes:setNotes}):null,
+    showGloss?e(GlossaryPanel,{onClose:function(){setShowGloss(false)}}):null
+  );
+}
+
+// ======================================================================
+// EXERCISE RENDERER
+// ======================================================================
+function ExRenderer(props){
+  var ex=props.ex,exId=props.exId,isDone=props.isDone,markDone=props.markDone,resetEx=props.resetEx;
+
+  if(ex.type==='mc') return e(MCExercise,{ex:ex,exId:exId,isDone:isDone,markDone:markDone,resetEx:resetEx});
+  if(ex.type==='tf') return e(TFExercise,{ex:ex,exId:exId,isDone:isDone,markDone:markDone,resetEx:resetEx});
+  if(ex.type==='match') return e(MatchExercise,{ex:ex,exId:exId,isDone:isDone,markDone:markDone,resetEx:resetEx});
+  if(ex.type==='check') return e(CheckExercise,{ex:ex,exId:exId,isDone:isDone,markDone:markDone,resetEx:resetEx});
+  if(ex.type==='text') return e(TextExercise,{ex:ex,exId:exId,isDone:isDone,markDone:markDone,resetEx:resetEx});
+  return null;
+}
+
+// ---- MC Exercise ----
+function MCExercise(props){
+  var ex=props.ex,exId=props.exId,isDone=props.isDone,markDone=props.markDone,resetEx=props.resetEx;
+  var st=useState(null),sel=st[0],setSel=st[1];
+  var st2=useState(false),checked=st2[0],setChecked=st2[1];
+
+  function check(){
+    setChecked(true);
+    if(sel===ex.correct) markDone(exId);
+  }
+  function reset(){setSel(null);setChecked(false);resetEx(exId)}
+
+  return e('div',null,
+    e('p',{className:'ex-instruction'},ex.q),
+    ex.options.map(function(opt,i){
+      var cls='mc-option';
+      if(!checked&&sel===i) cls+=' selected';
+      if(checked&&sel===i&&i===ex.correct) cls+=' correct-sel';
+      if(checked&&sel===i&&i!==ex.correct) cls+=' wrong-sel';
+      if(checked&&i===ex.correct&&sel!==i) cls+=' correct-unsel';
+      return e('div',{key:i,className:cls,onClick:function(){if(!checked)setSel(i)}},
+        e('div',{className:'mc-radio'}),
+        e('span',null,opt)
+      );
+    }),
+    checked&&ex.explanation?e('div',{className:'feedback '+(sel===ex.correct?'ok':'nok')},ex.explanation):null,
+    e('div',{className:'btn-row'},
+      !checked?e('button',{className:'btn btn-primary',onClick:check,disabled:sel===null},'Pr\u00fcfen'):null,
+      checked?e('button',{className:'btn btn-secondary',onClick:reset},'Zur\u00fccksetzen'):null
+    )
+  );
+}
+
+// ---- TF Exercise ----
+function TFExercise(props){
+  var ex=props.ex,exId=props.exId,isDone=props.isDone,markDone=props.markDone,resetEx=props.resetEx;
+  var st=useState({}),answers=st[0],setAnswers=st[1];
+  var st2=useState(false),checked=st2[0],setChecked=st2[1];
+
+  function select(i,val){if(checked)return;var a=Object.assign({},answers);a[i]=val;setAnswers(a)}
+  function check(){
+    setChecked(true);
+    var allCorrect=ex.statements.every(function(s,i){return answers[i]===(s.c?'r':'f')});
+    if(allCorrect) markDone(exId);
+  }
+  function reset(){setAnswers({});setChecked(false);resetEx(exId)}
+
+  return e('div',null,
+    e('p',{className:'ex-instruction'},ex.q),
+    ex.statements.map(function(s,i){
+      var userAns=answers[i];
+      var correctAns=s.c?'r':'f';
+      return e('div',{key:i,className:'tf-row'},
+        e('div',{className:'tf-statement'},s.s),
+        e('div',{className:'tf-buttons'},
+          e('button',{className:'tf-btn'+(userAns==='r'?checked?(correctAns==='r'?' correct-sel':' wrong-sel'):' selected':'')+(checked&&!userAns&&correctAns==='r'?' correct-unsel':''),onClick:function(){select(i,'r')}},'Richtig'),
+          e('button',{className:'tf-btn'+(userAns==='f'?checked?(correctAns==='f'?' correct-sel':' wrong-sel'):' selected':'')+(checked&&!userAns&&correctAns==='f'?' correct-unsel':''),onClick:function(){select(i,'f')}},'Falsch')
+        )
+      );
+    }),
+    e('div',{className:'btn-row'},
+      !checked?e('button',{className:'btn btn-primary',onClick:check},'Pr\u00fcfen'):null,
+      checked?e('button',{className:'btn btn-secondary',onClick:reset},'Zur\u00fccksetzen'):null
+    )
+  );
+}
+
+// ---- Match Exercise ----
+function MatchExercise(props){
+  var ex=props.ex,exId=props.exId,isDone=props.isDone,markDone=props.markDone,resetEx=props.resetEx;
+  var st=useState({}),answers=st[0],setAnswers=st[1];
+  var st2=useState(false),checked=st2[0],setChecked=st2[1];
+
+  function sel(i,val){if(checked)return;var a=Object.assign({},answers);a[i]=val;setAnswers(a)}
+  function check(){
+    setChecked(true);
+    var allCorrect=ex.pairs.every(function(p,i){return answers[i]===p.r});
+    if(allCorrect) markDone(exId);
+  }
+  function reset(){setAnswers({});setChecked(false);resetEx(exId)}
+
+  return e('div',null,
+    e('p',{className:'ex-instruction'},ex.q),
+    ex.pairs.map(function(p,i){
+      var cls='match-select';
+      if(checked){cls+=(answers[i]===p.r?' correct':' wrong')}
+      return e('div',{key:i,className:'match-row'},
+        e('div',{className:'match-label'},p.l),
+        e('select',{className:cls,value:answers[i]||'',onChange:function(ev){sel(i,ev.target.value)}},
+          e('option',{value:''},'-- W\u00e4hlen --'),
+          ex.options.map(function(o,j){return e('option',{key:j,value:o},o)})
+        )
+      );
+    }),
+    checked?e('div',{className:'solution-box'},
+      e('strong',null,'Richtige Zuordnung:'),
+      e('ul',null,ex.pairs.map(function(p,i){return e('li',{key:i},p.l+' \u2192 '+p.r)}))
+    ):null,
+    e('div',{className:'btn-row'},
+      !checked?e('button',{className:'btn btn-primary',onClick:check},'Pr\u00fcfen'):null,
+      checked?e('button',{className:'btn btn-secondary',onClick:reset},'Zur\u00fccksetzen'):null
+    )
+  );
+}
+
+// ---- Check Exercise ----
+function CheckExercise(props){
+  var ex=props.ex,exId=props.exId,isDone=props.isDone,markDone=props.markDone,resetEx=props.resetEx;
+  var st=useState({}),answers=st[0],setAnswers=st[1];
+  var st2=useState(false),checked=st2[0],setChecked=st2[1];
+
+  function toggle(i){if(checked)return;var a=Object.assign({},answers);a[i]=!a[i];setAnswers(a)}
+  function check(){
+    setChecked(true);
+    var allCorrect=ex.statements.every(function(s,i){return (!!answers[i])===s.c});
+    if(allCorrect) markDone(exId);
+  }
+  function reset(){setAnswers({});setChecked(false);resetEx(exId)}
+
+  return e('div',null,
+    e('p',{className:'ex-instruction'},ex.q),
+    e('table',{className:'check-table'},
+      e('thead',null,e('tr',null,e('th',null,'Aussage'),e('th',null,'Trifft zu'))),
+      e('tbody',null,ex.statements.map(function(s,i){
+        var cls='';
+        if(checked){cls=(!!answers[i])===s.c?'correct-row':'wrong-row'}
+        return e('tr',{key:i,className:cls},
+          e('td',null,s.s),
+          e('td',null,e('input',{type:'checkbox',checked:!!answers[i],onChange:function(){toggle(i)}}))
+        );
+      }))
+    ),
+    e('div',{className:'btn-row'},
+      !checked?e('button',{className:'btn btn-primary',onClick:check},'Pr\u00fcfen'):null,
+      checked?e('button',{className:'btn btn-secondary',onClick:reset},'Zur\u00fccksetzen'):null
+    )
+  );
+}
+
+// ---- Text Exercise ----
+function TextExercise(props){
+  var ex=props.ex,exId=props.exId,isDone=props.isDone,markDone=props.markDone,resetEx=props.resetEx;
+  var st=useState(''),answer=st[0],setAnswer=st[1];
+  var st2=useState(false),checked=st2[0],setChecked=st2[1];
+  var st3=useState(false),showSol=st3[0],setShowSol=st3[1];
+
+  function check(){
+    setChecked(true);
+    var kw=matchKeywords(answer,ex.keywords);
+    if(kw>=2) markDone(exId);
+  }
+  function reset(){setAnswer('');setChecked(false);setShowSol(false);resetEx(exId)}
+
+  return e('div',null,
+    e('p',{className:'ex-instruction',style:{whiteSpace:'pre-line'}},ex.q),
+    e('textarea',{className:'text-input',value:answer,onChange:function(ev){setAnswer(ev.target.value)},rows:4,placeholder:'Ihre Antwort\u2026',disabled:checked}),
+    checked?e('div',null,
+      e('div',{className:'feedback '+(matchKeywords(answer,ex.keywords)>=2?'ok':'nok')},
+        matchKeywords(answer,ex.keywords)>=2?'Gut! Ihre Antwort enth\u00e4lt relevante Schl\u00fcsselw\u00f6rter.':'Ihre Antwort enth\u00e4lt noch wenige Schl\u00fcsselw\u00f6rter. Vergleichen Sie mit der Musterl\u00f6sung.'
+      ),
+      e('div',{className:'reveal-box'},
+        e('div',{className:'reveal-toggle',onClick:function(){setShowSol(!showSol)}},showSol?'\u25bc':'\u25b6',' \ud83d\udd13 Musterl\u00f6sung anzeigen'),
+        showSol?e('div',{className:'reveal-content'},ex.solution):null
+      )
+    ):null,
+    e('div',{className:'btn-row'},
+      !checked?e('button',{className:'btn btn-primary',onClick:check,disabled:!answer.trim()},'Pr\u00fcfen'):null,
+      checked?e('button',{className:'btn btn-secondary',onClick:reset},'Zur\u00fccksetzen'):null
+    )
+  );
+}
+
+// ======================================================================
+// RENDER
+// ======================================================================
+ReactDOM.render(e(App), document.getElementById('root'));
+</script>
+</body>
+</html>

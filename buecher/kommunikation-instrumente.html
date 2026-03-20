@@ -1,0 +1,2257 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kommunikation Instrumente Lern-App</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#f0f1f5;--nav:#1a2332;--card:#ffffff;--text:#1a2332;--text2:#64748b;--accent:#3b82f6;--green:#059669;--red:#dc2626;--border:#e2e8f0;--card-shadow:0 1px 3px rgba(0,0,0,0.08);--input-bg:#f8fafc;--hover:#f1f5f9}
+.dark{--bg:#0f172a;--nav:#0b1120;--card:#1e293b;--text:#e2e8f0;--text2:#94a3b8;--accent:#60a5fa;--green:#34d399;--red:#f87171;--border:#334155;--card-shadow:0 1px 3px rgba(0,0,0,0.3);--input-bg:#0f172a;--hover:#334155}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;transition:background .3s,color .3s}
+input,select,button,textarea{font-family:'Inter',sans-serif}
+.nav{background:linear-gradient(165deg, #0a0c10 0%, #141820 40%, #1a2332 70%, #0d1018 100%);padding:12px 20px;position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 12px rgba(0,0,0,.15);flex-wrap:wrap;gap:8px}
+.nav-title{color:#fff;font-size:1.25rem;font-weight:700}
+.nav-sub{color:#94a3b8;font-size:.8rem;margin-top:2px}
+.nav-right{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.nav-btn,.btn-back{background:rgba(255,255,255,.1);border:none;color:#fff;padding:8px 12px;border-radius:8px;cursor:pointer;font-size:.85rem;display:flex;align-items:center;gap:6px;transition:background .2s}
+.nav-btn:hover,.btn-back:hover{background:rgba(255,255,255,.2)}
+.container{max-width:900px;margin:0 auto;padding:24px 16px 80px}
+.chapter-card{background:var(--card);border-radius:16px;box-shadow:var(--card-shadow);margin-bottom:16px;overflow:hidden;border:1px solid var(--border);transition:background .3s,border .3s}
+.chapter-header{padding:20px 24px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;user-select:none}
+.chapter-header:hover{background:var(--hover)}
+.ch-info{flex:1}
+.ch-num{font-size:.75rem;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
+.ch-title{font-size:1.1rem;font-weight:700;margin-bottom:8px}
+.ch-meta{font-size:.8rem;color:var(--text2)}
+.progress-bar{height:4px;background:var(--border);border-radius:2px;margin-top:10px;overflow:hidden;max-width:300px}
+.progress-fill{height:100%;background:var(--accent);border-radius:2px;transition:width .5s ease}
+.ch-arrow{font-size:1.2rem;color:var(--text2);transition:transform .3s;margin-left:16px}
+.ch-arrow.open{transform:rotate(180deg)}
+.exercise-list{padding:0 16px 16px}
+.ex-card{background:var(--card);border:1px solid var(--border);border-radius:12px;margin-bottom:12px;overflow:hidden;transition:background .3s,border .3s;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.ex-header{padding:16px 20px;cursor:pointer;display:flex;align-items:center;justify-content:space-between}
+.ex-header:hover{background:var(--hover)}
+.ex-num{background:var(--accent);color:#fff;width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;flex-shrink:0;margin-right:14px}
+.ex-num.done{background:var(--green)}
+.ex-title-wrap{flex:1}
+.ex-title{font-weight:600;font-size:.95rem}
+.ex-type{font-size:.75rem;color:var(--text2);margin-top:2px}
+.ex-body{padding:0 20px 20px}
+.ex-instruction{font-size:.85rem;color:var(--text2);margin-bottom:16px;line-height:1.5;font-style:italic}
+.blank-text{font-size:.9rem;line-height:2.2;margin-bottom:12px}
+.blank-input{border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-size:.85rem;width:140px;background:var(--input-bg);color:var(--text);outline:none;transition:border .2s}
+.blank-input:focus{border-color:var(--accent)}
+.blank-input.correct{border-color:var(--green);background:rgba(5,150,105,.08)}
+.blank-input.wrong{border-color:var(--red);background:rgba(220,38,38,.08)}
+.tf-row{padding:12px 0;border-bottom:1px solid var(--border);display:flex;flex-direction:column;gap:8px}
+.tf-row:last-child{border-bottom:none}
+.tf-statement{font-size:.9rem;line-height:1.5}
+.tf-buttons{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.tf-btn{padding:6px 16px;border-radius:6px;border:1px solid var(--border);background:var(--input-bg);color:var(--text);cursor:pointer;font-size:.85rem;font-weight:500;transition:all .2s}
+.tf-btn:hover{border-color:var(--accent)}
+.tf-btn.selected{background:var(--accent);color:#fff;border-color:var(--accent)}
+.tf-btn.correct-sel{background:var(--green);color:#fff;border-color:var(--green)}
+.tf-btn.wrong-sel{background:var(--red);color:#fff;border-color:var(--red)}
+.tf-btn.correct-unsel{border-color:var(--green);color:var(--green)}
+.feedback{font-size:.8rem;margin-top:4px;padding:6px 10px;border-radius:6px;line-height:1.4}
+.feedback.ok{background:rgba(5,150,105,.1);color:var(--green)}
+.feedback.nok{background:rgba(220,38,38,.1);color:var(--red)}
+.match-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border);flex-wrap:wrap}
+.match-row:last-child{border-bottom:none}
+.match-label{flex:1;font-size:.9rem;min-width:200px}
+.match-select{border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:.85rem;background:var(--input-bg);color:var(--text);min-width:200px;cursor:pointer}
+.match-select.correct{border-color:var(--green);background:rgba(5,150,105,.08)}
+.match-select.wrong{border-color:var(--red);background:rgba(220,38,38,.08)}
+.calc-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border);flex-wrap:wrap}
+.calc-row:last-child{border-bottom:none}
+.calc-label{font-size:.9rem;min-width:120px}
+.calc-val{font-size:.9rem;font-weight:500;min-width:80px}
+.calc-input{border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:.85rem;width:120px;background:var(--input-bg);color:var(--text);text-align:right}
+.calc-input.correct{border-color:var(--green);background:rgba(5,150,105,.08)}
+.calc-input.wrong{border-color:var(--red);background:rgba(220,38,38,.08)}
+.check-table{width:100%;border-collapse:collapse;font-size:.85rem}
+.check-table th{padding:8px 6px;text-align:center;background:var(--hover);font-weight:600;font-size:.8rem;border:1px solid var(--border)}
+.check-table td{padding:8px 6px;border:1px solid var(--border);text-align:center}
+.check-table td:first-child{text-align:left;min-width:200px}
+.check-table input[type=radio],.check-table input[type=checkbox]{cursor:pointer;width:16px;height:16px;accent-color:var(--accent)}
+.check-table tr.correct-row{background:rgba(5,150,105,.06)}
+.check-table tr.wrong-row{background:rgba(220,38,38,.06)}
+.btn-row{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
+.btn{padding:10px 20px;border-radius:9px;border:none;font-size:.9rem;font-weight:600;cursor:pointer;transition:all .12s ease;display:flex;align-items:center;gap:6px}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:#2563eb}
+.btn-secondary{background:var(--input-bg);color:var(--text);border:1px solid var(--border)}
+.btn-secondary:hover{background:var(--hover)}
+.btn-reset{background:var(--red);color:#fff}
+.btn-reset:hover{opacity:.9}
+.solution-box{background:rgba(5,150,105,.06);border:1px solid var(--green);border-radius:8px;padding:16px;margin-top:12px;font-size:.85rem;line-height:1.6}
+.solution-box strong{color:var(--green)}
+.text-input{border:1px solid var(--border);border-radius:6px;padding:8px 12px;font-size:.85rem;width:100%;background:var(--input-bg);color:var(--text);margin-top:4px}
+.text-input.correct{border-color:var(--green);background:rgba(5,150,105,.08)}
+.text-input.wrong{border-color:var(--red);background:rgba(220,38,38,.08)}
+.text-q{margin-bottom:16px}
+.text-q p{font-size:.9rem;line-height:1.5;margin-bottom:6px}
+.score-badge{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:12px;font-size:.8rem;font-weight:600}
+.score-badge.good{background:rgba(5,150,105,.1);color:var(--green)}
+.score-badge.bad{background:rgba(220,38,38,.1);color:var(--red)}
+.timer-display{color:#fff;font-size:.9rem;font-weight:500;font-variant-numeric:tabular-nums}
+.footer{text-align:center;padding:24px;font-size:.8rem;color:var(--text2)}
+.mc-option{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--border);border-radius:8px;margin-bottom:8px;cursor:pointer;transition:all .15s;font-size:.9rem}
+.mc-option:hover{border-color:var(--accent);background:var(--hover)}
+.mc-option.selected{border-color:var(--accent);background:rgba(59,130,246,.08)}
+.mc-option.correct-sel{border-color:var(--green);background:rgba(5,150,105,.08)}
+.mc-option.wrong-sel{border-color:var(--red);background:rgba(220,38,38,.08)}
+.mc-option.correct-unsel{border-color:var(--green)}
+.mc-radio{width:18px;height:18px;border-radius:50%;border:2px solid var(--border);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .15s}
+.mc-option.selected .mc-radio{border-color:var(--accent);background:var(--accent)}
+.mc-option.selected .mc-radio::after{content:'';width:8px;height:8px;border-radius:50%;background:#fff}
+.sub-q{margin-top:16px;padding-top:12px;border-top:1px solid var(--border)}
+.sub-q label{font-size:.85rem;font-weight:500;display:block;margin-bottom:4px}
+@keyframes slideUp{from{transform:translateY(100%);opacity:0}to{transform:translateY(0);opacity:1}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.panel-overlay{position:fixed;bottom:16px;z-index:900;background:var(--card);border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,.2);border:1px solid var(--border);display:flex;flex-direction:column;animation:fadeUp .2s ease}
+.panel-header{padding:12px 16px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.panel-header b{color:var(--text);font-size:.9rem}
+.panel-close{background:var(--hover);border:none;width:28px;height:28px;border-radius:7px;font-size:13px;cursor:pointer;color:var(--text2);display:flex;align-items:center;justify-content:center}
+.panel-close:hover{background:var(--border)}
+.calc-panel{right:16px;width:300px;max-height:480px}
+.calc-display{padding:12px 16px;text-align:right;font-size:1.6rem;font-weight:800;color:var(--text);font-variant-numeric:tabular-nums;border-bottom:1px solid var(--border);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.calc-prev{padding:4px 16px;text-align:right;font-size:.75rem;color:var(--text2);font-variant-numeric:tabular-nums;height:22px}
+.calc-history{padding:6px 12px;max-height:50px;overflow-y:auto;border-bottom:1px solid var(--border)}
+.calc-history-item{font-size:.7rem;color:var(--text2);font-variant-numeric:tabular-nums;line-height:1.4}
+.calc-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:6px;padding:8px 12px 14px}
+.calc-btn{border:none;border-radius:10px;font-size:1.1rem;font-weight:600;height:46px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-variant-numeric:tabular-nums;transition:all .12s}
+.calc-btn:active{transform:scale(.95)}
+.calc-btn-num{background:var(--card);color:var(--text);border:1px solid var(--border)}
+.calc-btn-num:hover{background:var(--hover)}
+.calc-btn-op{background:rgba(26,35,50,.06);color:var(--nav);font-weight:700}
+.dark .calc-btn-op{background:rgba(255,255,255,.08);color:var(--text)}
+.calc-btn-op:hover{background:rgba(26,35,50,.12)}
+.calc-btn-eq{background:var(--nav);color:#fff;font-weight:700}
+.dark .calc-btn-eq{background:var(--accent);color:#fff}
+.calc-btn-eq:hover{opacity:.9}
+.calc-btn-fn{background:rgba(59,130,246,.08);color:var(--accent);font-weight:700}
+.calc-btn-fn:hover{background:rgba(59,130,246,.15)}
+.calc-btn-span2{grid-column:span 2}
+.notes-panel{left:50%;transform:translateX(-50%);width:380px;max-height:420px}
+.notes-body{flex:1;padding:8px 12px 12px}
+.notes-body textarea{width:100%;height:100%;min-height:260px;padding:10px 12px;border-radius:10px;border:1px solid var(--border);background:var(--input-bg);color:var(--text);font-size:.85rem;line-height:1.6;font-family:'Inter',sans-serif;resize:none;box-sizing:border-box;outline:none}
+.notes-body textarea:focus{border-color:var(--accent)}
+.notes-meta{font-size:.7rem;color:var(--text2)}
+.glossary-panel{left:16px;width:320px;max-height:420px}
+.glossary-search{padding:6px 12px 0}
+.glossary-search input{width:100%;padding:7px 10px;border-radius:7px;border:1px solid var(--border);background:var(--input-bg);color:var(--text);font-size:.8rem;box-sizing:border-box;outline:none}
+.glossary-search input:focus{border-color:var(--accent)}
+.glossary-list{padding:6px 12px 12px;flex:1;overflow-y:auto}
+.glossary-item{padding:6px 8px;margin-bottom:4px;border-radius:6px;background:var(--input-bg);border-left:3px solid var(--nav)}
+.dark .glossary-item{border-left-color:var(--accent)}
+.glossary-item-title{color:var(--nav);font-weight:700;font-size:.75rem}
+.dark .glossary-item-title{color:var(--accent)}
+.glossary-item-desc{color:var(--text2);font-size:.7rem;line-height:1.4}
+.tool-bar{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto}
+.tool-btn{padding:6px 12px;border-radius:8px;border:1.5px solid rgba(255,255,255,.2);background:rgba(255,255,255,.07);color:#fff;font-size:.75rem;font-weight:600;cursor:pointer;transition:all .15s;white-space:nowrap}
+.tool-btn:hover{background:rgba(255,255,255,.15)}
+.tool-btn.active{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.4)}
+.tip-box{background:rgba(59,130,246,.06);border:1px solid rgba(59,130,246,.2);border-radius:8px;padding:12px 16px;margin-bottom:16px}
+.tip-toggle{font-size:.85rem;font-weight:600;color:var(--accent);cursor:pointer;display:flex;align-items:center;gap:6px}
+.tip-content{margin-top:8px;font-size:.82rem;color:var(--text2);line-height:1.6}
+.tip-content li{margin-bottom:4px}
+.reveal-box{background:rgba(5,150,105,.04);border:1px solid rgba(5,150,105,.2);border-radius:8px;padding:12px 16px;margin-top:12px}
+.reveal-toggle{font-size:.85rem;font-weight:600;color:var(--green);cursor:pointer;display:flex;align-items:center;gap:6px}
+.reveal-content{margin-top:8px;font-size:.82rem;color:var(--text);line-height:1.6}
+.reveal-step{padding:8px 0;border-bottom:1px solid var(--border)}
+.reveal-step:last-child{border-bottom:none}
+.chapter-tabs{display:flex;gap:6px;margin-bottom:0;background:var(--card);padding:12px 16px;border-bottom:1px solid var(--border)}
+.chapter-tab{padding:10px 20px;font-size:.85rem;font-weight:600;cursor:pointer;border:2px solid var(--border);background:var(--input-bg);color:var(--text2);position:relative;transition:all .2s;display:flex;align-items:center;gap:8px;border-radius:50px}
+.chapter-tab:hover{color:var(--text);border-color:var(--accent);background:rgba(59,130,246,.04)}
+.chapter-tab.active{color:#fff;background:var(--accent);border-color:var(--accent)}
+.chapter-tab-icon{font-size:1rem}
+.chapter-tab .tab-badge{font-size:.7rem;padding:2px 6px;border-radius:10px;font-weight:700;margin-left:2px}
+.chapter-tab.active .tab-badge{background:rgba(255,255,255,.25);color:#fff}
+.chapter-tab .tab-badge.done{background:rgba(5,150,105,.15);color:var(--green)}
+.chapter-tab.active .tab-badge.done{background:rgba(255,255,255,.25);color:#fff}
+.exam-container{padding:16px 20px 24px}
+.exam-header{text-align:center;padding:24px;background:linear-gradient(135deg,rgba(59,130,246,.06),rgba(59,130,246,.02));border-radius:14px;margin-bottom:20px;border:1px solid rgba(59,130,246,.15)}
+.exam-header h3{font-size:1.1rem;font-weight:700;margin-bottom:6px}
+.exam-header p{font-size:.85rem;color:var(--text2);margin-bottom:16px}
+.exam-start-btn{padding:14px 36px;border-radius:12px;border:none;font-size:1rem;font-weight:700;cursor:pointer;background:var(--accent);color:#fff;transition:all .15s;display:inline-flex;align-items:center;gap:8px}
+.exam-start-btn:hover{opacity:.9}
+.exam-timer-bar{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;background:var(--card);border:1px solid var(--border);border-radius:12px;margin-bottom:16px;position:sticky;top:60px;z-index:50;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.exam-timer{font-size:1.1rem;font-weight:700;font-variant-numeric:tabular-nums;display:flex;align-items:center;gap:8px}
+.exam-timer.warning{color:var(--red);animation:pulse 1s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.6}}
+.exam-progress-text{font-size:.85rem;color:var(--text2);font-weight:500}
+.exam-exercise{background:var(--card);border:1px solid var(--border);border-radius:14px;margin-bottom:16px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.exam-exercise-header{padding:16px 20px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--border)}
+.exam-exercise-num{background:var(--accent);color:#fff;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;flex-shrink:0}
+.exam-exercise-title{font-weight:600;font-size:.95rem}
+.exam-exercise-body{padding:16px 20px 20px}
+.exam-submit-row{text-align:center;padding:20px 0}
+.exam-submit-btn{padding:14px 40px;border-radius:12px;border:none;font-size:1rem;font-weight:700;cursor:pointer;background:var(--green);color:#fff;transition:all .15s}
+.exam-submit-btn:hover{opacity:.9}
+.exam-result{text-align:center;padding:40px 24px;background:var(--card);border-radius:16px;border:1px solid var(--border);box-shadow:0 4px 16px rgba(0,0,0,.08)}
+.exam-score-circle{width:140px;height:140px;border-radius:50%;margin:0 auto 20px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:800;border:6px solid var(--border)}
+.exam-score-circle.pass{border-color:var(--green);color:var(--green);background:rgba(5,150,105,.06)}
+.exam-score-circle.fail{border-color:var(--red);color:var(--red);background:rgba(220,38,38,.06)}
+.exam-score-pct{font-size:2rem;line-height:1}
+.exam-score-label{font-size:.75rem;font-weight:600;margin-top:4px;text-transform:uppercase;letter-spacing:.5px}
+.exam-score-detail{font-size:1rem;color:var(--text);margin-bottom:6px;font-weight:600}
+.exam-score-status{font-size:1.1rem;font-weight:700;margin-bottom:20px}
+.exam-score-status.pass{color:var(--green)}
+.exam-score-status.fail{color:var(--red)}
+.exam-best-score{font-size:.82rem;color:var(--text2);margin-bottom:20px;padding:10px 16px;background:var(--input-bg);border-radius:8px;display:inline-block}
+.exam-result-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.exam-result-btn{padding:12px 28px;border-radius:10px;border:none;font-size:.9rem;font-weight:700;cursor:pointer;transition:all .15s}
+.exam-result-btn.primary{background:var(--accent);color:#fff}
+.exam-result-btn.secondary{background:var(--input-bg);color:var(--text);border:1px solid var(--border)}
+.learn-container{padding:16px 20px 24px}
+.learn-section{background:var(--card);border:1px solid var(--border);border-radius:14px;margin-bottom:20px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.04);transition:background .3s,border .3s}
+.learn-section-header{padding:18px 22px 14px;display:flex;align-items:center;gap:12px}
+.learn-section-icon{font-size:1.3rem;flex-shrink:0}
+.learn-section-title{font-size:1.05rem;font-weight:700;color:var(--text)}
+.learn-section-body{padding:0 22px 20px}
+.learn-intro{border-top:3px solid var(--accent)}
+.learn-intro .learn-intro-text{font-size:.88rem;color:var(--text2);line-height:1.6;margin-bottom:12px}
+.learn-intro .learn-intro-list{list-style:none;padding:0}
+.learn-intro .learn-intro-list li{padding:8px 14px;font-size:.88rem;line-height:1.5;color:var(--text);background:rgba(59,130,246,.04);border-left:3px solid var(--accent);margin-bottom:6px;border-radius:0 8px 8px 0}
+.learn-concept{border-top:3px solid #8b5cf6}
+.learn-concept .learn-concept-text{font-size:.88rem;line-height:1.7;color:var(--text);margin-bottom:12px}
+.learn-highlight{background:linear-gradient(135deg,rgba(245,158,11,.08),rgba(245,158,11,.04));border:1px solid rgba(245,158,11,.25);border-radius:10px;padding:14px 18px;font-size:.88rem;line-height:1.6;color:var(--text);font-weight:500;position:relative}
+.learn-highlight::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:#f59e0b;border-radius:4px 0 0 4px}
+.learn-table-wrap{overflow-x:auto}
+.learn-table{width:100%;border-collapse:separate;border-spacing:0;font-size:.85rem;border-radius:10px;overflow:hidden;border:1px solid var(--border)}
+.learn-table thead th{background:var(--nav);color:#fff;padding:10px 14px;font-weight:600;font-size:.8rem;text-transform:uppercase;letter-spacing:.3px;text-align:left}
+.dark .learn-table thead th{background:rgba(59,130,246,.2);color:var(--accent)}
+.learn-table tbody td{padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text);vertical-align:top}
+.learn-table tbody tr:last-child td{border-bottom:none}
+.learn-table tbody tr:nth-child(even){background:var(--hover)}
+.learn-table .table-label{font-weight:600;color:var(--accent);min-width:160px}
+.learn-terms-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.learn-term-card{background:var(--input-bg);border:1px solid var(--border);border-radius:10px;padding:14px 16px;transition:all .15s}
+.learn-term-card:hover{border-color:var(--accent);box-shadow:0 2px 8px rgba(59,130,246,.1)}
+.learn-term-name{font-weight:700;font-size:.88rem;color:var(--nav);margin-bottom:4px}
+.dark .learn-term-name{color:var(--accent)}
+.learn-term-def{font-size:.82rem;color:var(--text2);line-height:1.5}
+.learn-merke{border-top:3px solid #f59e0b}
+.learn-merke .learn-merke-list{list-style:none;padding:0}
+.learn-merke .learn-merke-list li{padding:10px 14px;font-size:.88rem;line-height:1.5;color:var(--text);background:linear-gradient(135deg,rgba(245,158,11,.06),rgba(245,158,11,.02));border-left:3px solid #f59e0b;margin-bottom:8px;border-radius:0 8px 8px 0;font-weight:500}
+.learn-summary{border-top:3px solid var(--green)}
+.learn-summary .learn-summary-text{font-size:.88rem;line-height:1.7;color:var(--text)}
+.learn-summary .learn-summary-text p{margin-bottom:10px}
+.learn-summary .learn-summary-text strong{color:var(--green)}
+.learn-complete-bar{padding:20px 22px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.learn-complete-btn{padding:12px 28px;border-radius:10px;border:none;font-size:.9rem;font-weight:700;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:8px}
+.learn-complete-btn.ready{background:var(--green);color:#fff}
+.learn-complete-btn.ready:hover{opacity:.9}
+.learn-complete-btn.done{background:rgba(5,150,105,.1);color:var(--green);cursor:default}
+.learn-progress-text{font-size:.82rem;color:var(--text2)}
+@media(max-width:640px){
+  .panel-overlay{bottom:0;border-radius:16px 16px 0 0;left:0!important;right:0!important;width:100%!important;transform:none!important;animation:slideUp .2s ease}
+  .calc-panel{right:0;max-height:70vh}
+  .notes-panel{max-height:60vh}
+  .notes-body textarea{min-height:180px}
+  .glossary-panel{max-height:50vh}
+  .match-row{flex-direction:column;align-items:flex-start;gap:6px}
+  .calc-row{flex-direction:column;align-items:flex-start;gap:4px}
+  .nav{padding:12px 16px}
+  .nav-title{font-size:1.05rem}
+  .container{padding:16px 10px 60px}
+  .check-table{font-size:.75rem;display:block;overflow-x:auto}
+  .chapter-tabs{padding:8px 12px;flex-wrap:wrap;gap:6px}
+  .chapter-tab{padding:8px 14px;font-size:.78rem}
+  .learn-container{padding:12px 14px 20px}
+  .learn-section-body{padding:0 16px 16px}
+  .learn-section-header{padding:14px 16px 10px}
+  .learn-terms-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+var e = React.createElement;
+var useState = React.useState, useEffect = React.useEffect, useRef = React.useRef, useCallback = React.useCallback, useMemo = React.useMemo;
+
+// ---- Data ----
+var chapters = [
+  {id:1, teil:'A', title:'Mediawerbung - Definition und Merkmale', exercises:[1,2,3,4,5,6,7,8,9]},
+  {id:2, teil:'A', title:'Werbekonzept', exercises:[10,11,12,13,14,15,16,17,18,19]},
+  {id:3, teil:'A', title:'Verkaufsförderung', exercises:[20,21,22,23,24,25,26,27,28]},
+  {id:4, teil:'A', title:'Event-Marketing', exercises:[29,30,31,32,33,34,35,36,37]},
+  {id:5, teil:'A', title:'Messen und Ausstellungen', exercises:[38,39,40,41,42,43,44,45]},
+  {id:6, teil:'A', title:'Sponsoring', exercises:[46,47,48,49,50,51,52,53]},
+  {id:7, teil:'A', title:'Dialogmarketing', exercises:[54,55,56,57,58,59,60,61,62]},
+  {id:8, teil:'A', title:'Social Media', exercises:[63,64,65,66,67,68,69,70,71]},
+  {id:9, teil:'B', title:'Kommunikationsforschung', exercises:[72,73,74,75,76,77,78,79,80]}
+];
+
+var TOTAL_EX = 80;
+
+// ---- Helpers ----
+function normalize(s){return (s||'').trim().toLowerCase().replace(/[ä]/g,'ae').replace(/[ö]/g,'oe').replace(/[ü]/g,'ue').replace(/[ß]/g,'ss').replace(/[^a-z0-9 ]/g,'').replace(/\s+/g,' ')}
+function matchAnswer(input, answers){
+  var n = normalize(input);
+  if(!n) return false;
+  if(typeof answers === 'string') return n === normalize(answers);
+  return answers.some(function(a){return n === normalize(a)});
+}
+function matchKeywords(input, keywords){
+  var n = (input||'').toLowerCase();
+  var found = 0;
+  keywords.forEach(function(k){if(n.indexOf(k.toLowerCase())>=0) found++});
+  return found;
+}
+function loadProgress(){try{return JSON.parse(localStorage.getItem('lp-progress-kommunikation-instrumente'))||{}}catch(x){return{}}}
+function saveProgress(p){localStorage.setItem('lp-progress-kommunikation-instrumente', JSON.stringify(p))}
+
+// ---- Glossary Data ----
+var GLOSSAR = [
+  {t:'Mediawerbung',d:'Bezahlte, unpersönliche Kommunikation über Massenmedien (Print, TV, Radio, Online) zur gezielten Beeinflussung von Zielgruppen.'},
+  {t:'Printwerbung',d:'Werbung in gedruckten Medien wie Zeitungen, Zeitschriften und Fachmagazinen.'},
+  {t:'TV-Werbung',d:'Fernsehwerbung in Form von Spots, Sponsoring-Hinweisen oder Product Placement im TV.'},
+  {t:'Radiowerbung',d:'Werbung über Hörfunk, z.B. Radiospots, Jingles und Programmsponsoring.'},
+  {t:'Aussenwerbung',d:'Werbung im öffentlichen Raum: Plakate, Leuchtschriften, City-Light-Poster, Verkehrsmittelwerbung.'},
+  {t:'Online-Werbung',d:'Digitale Werbung über Websites, Banner, Social Media, Suchmaschinen und E-Mail.'},
+  {t:'Direktwerbung',d:'Individuelle werbliche Kommunikation zwischen Anbietern und Nachfragern, meist in schriftlicher Form.'},
+  {t:'Dialogmarketing',d:'Kommunikationsform mit dem Ziel, eine interaktive Beziehung zum Kunden aufzubauen und zu pflegen.'},
+  {t:'Verkaufsförderung (VKF)',d:'Zeitlich begrenzte Aktionen mit dem Ziel, auf nachgelagerten Vertriebsstufen durch zusätzliche Anreize Kommunikationsziele zu erreichen.'},
+  {t:'POS-Marketing',d:'Marketingmassnahmen am Point of Sale (Verkaufsort), z.B. Displays, Degustationen, Sonderplatzierungen.'},
+  {t:'Sampling',d:'Verteilung von Gratismustern an potenzielle Kunden zur Produktbekanntmachung.'},
+  {t:'Coupon',d:'Gutschein, der dem Konsumenten einen Preisvorteil beim Kauf eines Produkts gewährt.'},
+  {t:'Display',d:'Aufsteller oder Präsentationsmittel am POS zur auffälligen Warenpräsentation.'},
+  {t:'Sponsoring',d:'Bereitstellung von Geld, Sachmitteln oder Dienstleistungen durch ein Unternehmen für eine Person, Gruppe oder Organisation gegen eine Gegenleistung.'},
+  {t:'Eventmarketing',d:'Zielgerichtete und systematische Planung von Veranstaltungen als absatzpolitisches Instrument.'},
+  {t:'Public Relations',d:'Kommunikation im öffentlichen Umfeld zur Erreichung eines guten Rufs (Goodwill) - Meinungspflege.'},
+  {t:'Medienarbeit',d:'Systematische Pflege der Beziehungen zu Journalisten und Medien als Teil der PR.'},
+  {t:'Pressekonferenz',d:'Informationsveranstaltung für Medienvertreter zu aktuellen Themen eines Unternehmens.'},
+  {t:'Medienmitteilung',d:'Schriftliche Information an Medien über Neuigkeiten, Ereignisse oder Stellungnahmen.'},
+  {t:'Corporate Publishing',d:'Unternehmenseigene Publikationen wie Kundenmagazine, Geschäftsberichte und Newsletters.'},
+  {t:'Messen und Ausstellungen',d:'Schauveranstaltungen mit Marktcharakter, die den Verkauf von Waren und Dienstleistungen fördern sollen.'},
+  {t:'Product Placement',d:'Gezielte Platzierung von Markenprodukten in Film, TV oder anderen Medien.'},
+  {t:'Influencer Marketing',d:'Einsatz von Meinungsführern (Influencern) zur Verbreitung von Markenbotschaften.'},
+  {t:'Guerilla Marketing',d:'Unkonventionelle, oft überraschende Marketingmassnahmen mit geringem Budget aber hoher Wirkung.'},
+  {t:'Ambient Marketing',d:'Werbung, die in den Alltag der Zielgruppe integriert wird (z.B. auf Pizzakartons, Zapfpistolen).'},
+  {t:'Viral Marketing',d:'Marketingform, die soziale Netzwerke und Medien ausnutzt, sodass sich die Nachrichten epidemisch verbreiten.'},
+  {t:'Native Advertising',d:'Werbung, die sich nahtlos in den redaktionellen Inhalt einer Plattform einfügt.'},
+  {t:'Programmatic Advertising',d:'Automatisierter, datengesteuerter Ein- und Verkauf von Werbeflächen in Echtzeit.'},
+  {t:'Crossmedia',d:'Vernetzung verschiedener Kommunikationskanäle zu einer integrierten Kampagne.'},
+  {t:'Mediaplanung',d:'Systematische Planung des Einsatzes von Werbeträgern und Werbemitteln zur optimalen Zielgruppenansprache.'},
+  {t:'Streuplan',d:'Zeitliche und mediale Verteilung der Werbemassnahmen innerhalb einer Kampagne.'},
+  {t:'Werbewirkung',d:'Messung der Wirkung von Werbemassnahmen auf die Zielgruppe (Wahrnehmung, Erinnerung, Verhalten).'},
+  {t:'Pre-Test',d:'Werbewirkungsforschung vor der Lancierung einer Kampagne (Vortest).'},
+  {t:'Post-Test',d:'Werbewirkungsforschung nach Durchführung einer Kampagne (Nachtest/Erfolgskontrolle).'},
+  {t:'Werbeerfolg',d:'Messbarer Beitrag der Werbung zur Erreichung der Kommunikations- und Marketingziele.'}
+];
+
+// ---- Calculator Panel ----
+function CalcPanel(props){
+  var onClose=props.onClose;
+  var s=useState('0'),disp=s[0],setDisp=s[1];
+  var s2=useState(null),prev=s2[0],setPrev=s2[1];
+  var s3=useState(null),op=s3[0],setOp=s3[1];
+  var s4=useState(true),fresh=s4[0],setFresh=s4[1];
+  var s5=useState([]),hist=s5[0],setHist=s5[1];
+  function num(n){if(fresh){setDisp(String(n));setFresh(false)}else{setDisp(disp==='0'?String(n):disp+n)}}
+  function dec(){if(fresh){setDisp('0.');setFresh(false)}else if(disp.indexOf('.')===-1)setDisp(disp+'.')}
+  function oper(o){var cur=parseFloat(disp);if(prev!==null&&op&&!fresh){var r=calc(prev,cur,op);setDisp(String(Math.round(r*1e8)/1e8));setPrev(r);setHist(function(h){return h.concat([prev+' '+op+' '+cur+' = '+Math.round(r*1e8)/1e8])})}else{setPrev(cur)}setOp(o);setFresh(true)}
+  function calc(a,b,o){if(o==='+')return a+b;if(o==='\u2212')return a-b;if(o==='\u00d7')return a*b;if(o==='\u00f7')return b!==0?a/b:0;return b}
+  function eq(){if(prev===null||!op)return;var cur=parseFloat(disp);var r=calc(prev,cur,op);setHist(function(h){return h.concat([prev+' '+op+' '+cur+' = '+Math.round(r*1e8)/1e8])});setDisp(String(Math.round(r*1e8)/1e8));setPrev(null);setOp(null);setFresh(true)}
+  function cl(){setDisp('0');setPrev(null);setOp(null);setFresh(true)}
+  function pct(){setDisp(String(Math.round(parseFloat(disp)/100*1e8)/1e8))}
+  function sign(){setDisp(String(parseFloat(disp)*-1))}
+  function b(label,action,cls){return e('button',{className:'calc-btn '+cls,onClick:action},label)}
+  return e('div',{className:'panel-overlay calc-panel'},
+    e('div',{className:'panel-header'},e('b',null,'\ud83e\uddc2 Taschenrechner'),e('button',{className:'panel-close',onClick:onClose},'\u2715')),
+    hist.length>0?e('div',{className:'calc-history'},hist.slice(-3).map(function(h,i){return e('div',{key:i,className:'calc-history-item'},h)})):null,
+    e('div',{className:'calc-display'},disp),
+    e('div',{className:'calc-prev'},prev!==null&&op?(prev+' '+op):''),
+    e('div',{className:'calc-grid'},
+      b('AC',cl,'calc-btn-fn'),b('\u00b1',sign,'calc-btn-op'),b('%',pct,'calc-btn-op'),b('\u00f7',function(){oper('\u00f7')},'calc-btn-op'),
+      b('7',function(){num('7')},'calc-btn-num'),b('8',function(){num('8')},'calc-btn-num'),b('9',function(){num('9')},'calc-btn-num'),b('\u00d7',function(){oper('\u00d7')},'calc-btn-op'),
+      b('4',function(){num('4')},'calc-btn-num'),b('5',function(){num('5')},'calc-btn-num'),b('6',function(){num('6')},'calc-btn-num'),b('\u2212',function(){oper('\u2212')},'calc-btn-op'),
+      b('1',function(){num('1')},'calc-btn-num'),b('2',function(){num('2')},'calc-btn-num'),b('3',function(){num('3')},'calc-btn-num'),b('+',function(){oper('+')},'calc-btn-op'),
+      b('0',function(){num('0')},'calc-btn-num calc-btn-span2'),b('.',dec,'calc-btn-num'),b('=',eq,'calc-btn-eq')
+    )
+  );
+}
+
+// ---- Notes Panel ----
+function NotesPanel(props){
+  return e('div',{className:'panel-overlay notes-panel'},
+    e('div',{className:'panel-header'},
+      e('b',null,'\ud83d\udcdd Notizen'),
+      e('div',{style:{display:'flex',gap:8,alignItems:'center'}},
+        e('span',{className:'notes-meta'},props.notes.length+' Zeichen'),
+        e('button',{className:'panel-close',onClick:props.onClose},'\u2715')
+      )
+    ),
+    e('div',{className:'notes-body'},
+      e('textarea',{value:props.notes,onChange:function(ev){props.setNotes(ev.target.value)},placeholder:'Notizen, Stichworte\u2026'})
+    )
+  );
+}
+
+// ---- Glossary Panel ----
+function GlossaryPanel(props){
+  var st=useState(''),search=st[0],setSearch=st[1];
+  var filtered=GLOSSAR.filter(function(g){return g.t.toLowerCase().indexOf(search.toLowerCase())>=0||g.d.toLowerCase().indexOf(search.toLowerCase())>=0});
+  return e('div',{className:'panel-overlay glossary-panel'},
+    e('div',{className:'panel-header'},e('b',null,'\ud83d\udcd6 Glossar'),e('button',{className:'panel-close',onClick:props.onClose},'\u2715')),
+    e('div',{className:'glossary-search'},e('input',{value:search,onChange:function(ev){setSearch(ev.target.value)},placeholder:'Suchen\u2026'})),
+    e('div',{className:'glossary-list'},filtered.map(function(g,i){return e('div',{key:i,className:'glossary-item'},
+      e('div',{className:'glossary-item-title'},g.t),
+      e('div',{className:'glossary-item-desc'},g.d)
+    )}))
+  );
+}
+
+// ---- Tips Component ----
+function Tips(props){
+  var st=useState(false),open=st[0],setOpen=st[1];
+  return e('div',{className:'tip-box'},
+    e('div',{className:'tip-toggle',onClick:function(){setOpen(!open)}},open?'\u25bc':'\u25b6',' Tipps'),
+    open?e('ul',{className:'tip-content'},props.tips.map(function(t,i){return e('li',{key:i},t)})):null
+  );
+}
+
+// ---- Reveal Component ----
+function Reveal(props){
+  var st=useState(false),open=st[0],setOpen=st[1];
+  return e('div',{className:'reveal-box'},
+    e('div',{className:'reveal-toggle',onClick:function(){setOpen(!open)}},open?'\u25bc':'\u25b6',' L\u00f6sungsweg anzeigen'),
+    open?e('div',{className:'reveal-content'},props.steps.map(function(s,i){return e('div',{key:i,className:'reveal-step'},e('strong',null,'Schritt '+(i+1)+': '),s)})):null
+  );
+}
+
+// ======================================================================
+// EXAM EXERCISE RENDERER (no tips, no reveal)
+// ======================================================================
+function ExamExerciseRenderer(props){
+  var ex = props.ex;
+  var d = ex.data;
+  var onAnswer = props.onAnswer;
+  var shuffledOptions = props.shuffledOptions;
+  var examState = props.examState || {};
+  var submitted = props.submitted;
+  var onAnswerRef = useRef(onAnswer);
+  onAnswerRef.current = onAnswer;
+
+  // --- MC ---
+  if(ex.type==='mc'){
+    var st=useState(examState.sel !== undefined ? examState.sel : null),sel=st[0],setSel=st[1];
+    useEffect(function(){ onAnswerRef.current({sel: sel}); },[sel]);
+    var opts = shuffledOptions || d.options;
+    var origCorrect = d.correct;
+    var correctMapped = shuffledOptions ? shuffledOptions.indexOf(d.options[origCorrect]) : origCorrect;
+    return e('div',null,
+      e('div',{className:'ex-instruction'},d.instruction),
+      opts.map(function(opt,i){
+        var cls='mc-option';
+        if(sel===i)cls+=' selected';
+        if(submitted&&sel===i&&sel===correctMapped)cls=' mc-option correct-sel';
+        if(submitted&&sel===i&&sel!==correctMapped)cls=' mc-option wrong-sel';
+        if(submitted&&sel!==correctMapped&&i===correctMapped)cls=' mc-option correct-unsel';
+        return e('div',{key:i,className:cls,onClick:function(){if(!submitted)setSel(i)}},
+          e('div',{className:'mc-radio'}),
+          e('span',null,opt)
+        );
+      })
+    );
+  }
+
+  // --- RF ---
+  if(ex.type==='rf'){
+    var st=useState(examState.ans || d.statements.map(function(){return null})),ans=st[0],setAns=st[1];
+    useEffect(function(){ onAnswerRef.current({ans: ans}); },[ans]);
+    function pick(i,v){if(submitted)return;var a=ans.slice();a[i]=v;setAns(a)}
+    return e('div',null,
+      d.statements.map(function(s,i){
+        var isCorrect=submitted&&ans[i]===s.correct;
+        var isWrong=submitted&&ans[i]!==null&&ans[i]!==s.correct;
+        return e('div',{key:i,className:'tf-row'},
+          e('div',{className:'tf-statement'},s.s),
+          e('div',{className:'tf-buttons'},
+            e('button',{className:'tf-btn'+(ans[i]===true?' selected':'')+(submitted&&s.correct===true&&ans[i]===true?' correct-sel':'')+(submitted&&s.correct===false&&ans[i]===true?' wrong-sel':'')+(submitted&&s.correct===true&&ans[i]!==true?' correct-unsel':''),onClick:function(){pick(i,true)}},'Richtig'),
+            e('button',{className:'tf-btn'+(ans[i]===false?' selected':'')+(submitted&&s.correct===false&&ans[i]===false?' correct-sel':'')+(submitted&&s.correct===true&&ans[i]===false?' wrong-sel':'')+(submitted&&s.correct===false&&ans[i]!==false?' correct-unsel':''),onClick:function(){pick(i,false)}},'Falsch')
+          ),
+          submitted?e('div',{className:'feedback '+(isCorrect?'ok':'nok')},s.feedback):null
+        );
+      })
+    );
+  }
+
+  // --- Zuordnung ---
+  if(ex.type==='zuordnung'){
+    var st=useState(examState.sel || d.items.map(function(){return ''})),sel=st[0],setSel=st[1];
+    useEffect(function(){ onAnswerRef.current({sel: sel}); },[sel]);
+    function pick(i,v){if(submitted)return;var a=sel.slice();a[i]=v;setSel(a)}
+    var uniqueOpts=[];
+    d.options.forEach(function(o){if(uniqueOpts.indexOf(o)===-1)uniqueOpts.push(o)});
+    return e('div',null,
+      e('div',{className:'ex-instruction'},d.instruction),
+      d.items.map(function(item,i){
+        var cls='match-select';
+        if(submitted&&sel[i]===d.correct[i])cls+=' correct';
+        if(submitted&&sel[i]!==d.correct[i])cls+=' wrong';
+        return e('div',{key:i,className:'match-row'},
+          e('div',{className:'match-label'},item),
+          e('select',{className:cls,value:sel[i],onChange:function(ev){pick(i,ev.target.value)},disabled:submitted},
+            e('option',{value:''},'-- waehlen --'),
+            uniqueOpts.map(function(o,j){return e('option',{key:j,value:o},o)})
+          )
+        );
+      }),
+      submitted?d.items.map(function(item,i){
+        if(sel[i]!==d.correct[i])return e('div',{key:'fb'+i,className:'feedback nok',style:{marginTop:4}},item+' \u2192 '+d.correct[i]);
+        return null;
+      }):null
+    );
+  }
+
+  // --- Lueckentext ---
+  if(ex.type==='lueckentext'){
+    var blanks=[];d.segments.forEach(function(s){if(s&&s.blank)blanks.push('')});
+    var st=useState(examState.vals || blanks),vals=st[0],setVals=st[1];
+    useEffect(function(){ onAnswerRef.current({vals: vals}); },[vals]);
+    function upd(i,v){var a=vals.slice();a[i]=v;setVals(a)}
+    var results = null;
+    if(submitted){
+      results=[];var bi2=0;
+      d.segments.forEach(function(s){
+        if(s&&s.blank){results.push(matchAnswer(vals[bi2],s.answer));bi2++;}
+      });
+    }
+    var bi=0;
+    return e('div',null,
+      e('div',{className:'ex-instruction'},d.instruction),
+      e('div',{className:'blank-text'},d.segments.map(function(s,i){
+        if(typeof s==='string')return e('span',{key:i},s);
+        var idx=bi++;
+        var cls='blank-input';
+        if(results){cls+=results[idx]?' correct':' wrong'}
+        return e('input',{key:i,className:cls,style:{width:s.width||140},value:vals[idx],onChange:function(ev){upd(idx,ev.target.value)},disabled:submitted});
+      })),
+      submitted&&results?e('div',{className:'solution-box'},e('strong',null,'Loesungen: '),function(){
+        return d.segments.filter(function(s){return s&&s.blank}).map(function(s,i){
+          return e('span',{key:i},(i>0?', ':'')+((typeof s.answer==='string')?s.answer:s.answer[0]));
+        });
+      }()):null
+    );
+  }
+
+  // --- Freitext ---
+  if(ex.type==='freitext'){
+    var st=useState(examState.vals || d.questions.map(function(){return ''})),vals=st[0],setVals=st[1];
+    useEffect(function(){ onAnswerRef.current({vals: vals}); },[vals]);
+    function upd(i,v){var a=vals.slice();a[i]=v;setVals(a)}
+    var results = null;
+    if(submitted){
+      results = d.questions.map(function(q,i){return matchKeywords(vals[i],q.keywords)>=q.minKeywords});
+    }
+    return e('div',null,
+      e('div',{className:'ex-instruction'},d.instruction),
+      d.questions.map(function(q,i){
+        var cls='text-input';
+        if(results){cls+=results[i]?' correct':' wrong'}
+        return e('div',{key:i,className:'text-q'},
+          e('p',null,e('strong',null,q.q)),
+          e('textarea',{className:cls,rows:3,value:vals[i],onChange:function(ev){upd(i,ev.target.value)},disabled:submitted}),
+          submitted&&results&&!results[i]?e('div',{className:'feedback nok'},'Richtige Begriffe: '+q.keywords.join(', ')):null,
+          submitted&&results&&results[i]?e('div',{className:'feedback ok'},'\u2713 Korrekt!'):null
+        );
+      })
+    );
+  }
+
+  // --- Tabelle ---
+  if(ex.type==='tabelle'){
+    var st=useState(examState.ans || d.rows.map(function(){return null})),ans=st[0],setAns=st[1];
+    useEffect(function(){ onAnswerRef.current({ans: ans}); },[ans]);
+    function pick(i,v){if(submitted)return;var a=ans.slice();a[i]=v;setAns(a)}
+    var cols=d.headers.length;
+    return e('div',null,
+      e('div',{className:'ex-instruction'},d.instruction),
+      e('table',{className:'check-table'},
+        e('thead',null,e('tr',null,d.headers.map(function(h,i){return e('th',{key:i},h)}).reverse())),
+        e('tbody',null,d.rows.map(function(r,i){
+          var rowCls='';
+          if(submitted&&ans[i]===r.correct)rowCls='correct-row';
+          if(submitted&&ans[i]!==null&&ans[i]!==r.correct)rowCls='wrong-row';
+          return e('tr',{key:i,className:rowCls},
+            e('td',null,r.label),
+            Array.from({length:cols-1},function(_,j){
+              return e('td',{key:j},e('input',{type:'radio',name:'exam-row'+i,checked:ans[i]===j,onChange:function(){pick(i,j)}}));
+            })
+          );
+        }))
+      )
+    );
+  }
+
+  return e('div',null,'Unbekannter Typ: '+ex.type);
+}
+
+// ======================================================================
+// EXAM SCORING
+// ======================================================================
+function scoreExercise(ex, answer){
+  if(!answer) return false;
+  var d = ex.data;
+  if(ex.type==='mc'){
+    var origCorrect = d.correct;
+    return answer.sel === origCorrect || (answer.mappedCorrect !== undefined && answer.sel === answer.mappedCorrect);
+  }
+  if(ex.type==='rf'){
+    if(!answer.ans) return false;
+    return d.statements.every(function(s,i){return answer.ans[i]===s.correct});
+  }
+  if(ex.type==='zuordnung'){
+    if(!answer.sel) return false;
+    return d.items.every(function(item,i){return answer.sel[i]===d.correct[i]});
+  }
+  if(ex.type==='lueckentext'){
+    if(!answer.vals) return false;
+    var bi=0, allOk=true;
+    d.segments.forEach(function(s){
+      if(s&&s.blank){if(!matchAnswer(answer.vals[bi],s.answer))allOk=false;bi++;}
+    });
+    return allOk;
+  }
+  if(ex.type==='freitext'){
+    if(!answer.vals) return false;
+    return d.questions.every(function(q,i){return matchKeywords(answer.vals[i],q.keywords)>=q.minKeywords});
+  }
+  if(ex.type==='tabelle'){
+    if(!answer.ans) return false;
+    return d.rows.every(function(r,i){return answer.ans[i]===r.correct});
+  }
+  return false;
+}
+
+// ======================================================================
+// EXAM MODE COMPONENT
+// ======================================================================
+function ExamMode(props){
+  var chId = props.chId;
+  var chExercises = props.exercises;
+  var EXAM_TIME = 15*60; // 15 minutes
+
+  var st1=useState('idle'),phase=st1[0],setPhase=st1[1]; // idle, running, done
+  var st2=useState([]),examExercises=st2[0],setExamExercises=st2[1];
+  var st3=useState(EXAM_TIME),timeLeft=st3[0],setTimeLeft=st3[1];
+  var st4=useState({}),answers=st4[0],setAnswers=st4[1];
+  var st5=useState(null),result=st5[0],setResult=st5[1];
+  var st6=useState({}),shuffledOpts=st6[0],setShuffledOpts=st6[1];
+  var timerRef = useRef(null);
+
+  // Load best score
+  var bestKey = 'ki-exam-best-'+chId;
+  var st7=useState(function(){
+    try{var v=JSON.parse(localStorage.getItem(bestKey));return v}catch(x){return null}
+  }),bestScore=st7[0],setBestScore=st7[1];
+
+  function shuffleArray(arr){
+    var a=arr.slice();
+    for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}
+    return a;
+  }
+
+  function startExam(){
+    // Select 60-80% of exercises randomly
+    var count = Math.max(3, Math.floor(chExercises.length * (0.6 + Math.random()*0.2)));
+    var selected = shuffleArray(chExercises).slice(0, count);
+    setExamExercises(selected);
+    setTimeLeft(EXAM_TIME);
+    setAnswers({});
+    setResult(null);
+    setPhase('running');
+
+    // Shuffle MC options
+    var sOpts = {};
+    selected.forEach(function(exId){
+      var ex = exerciseData[exId];
+      if(ex && ex.type==='mc'){
+        sOpts[exId] = shuffleArray(ex.data.options);
+      }
+    });
+    setShuffledOpts(sOpts);
+  }
+
+  // Timer
+  useEffect(function(){
+    if(phase==='running'){
+      timerRef.current = setInterval(function(){
+        setTimeLeft(function(t){
+          if(t<=1){clearInterval(timerRef.current);return 0;}
+          return t-1;
+        });
+      },1000);
+      return function(){clearInterval(timerRef.current)};
+    }
+  },[phase]);
+
+  // Auto-submit when time runs out
+  useEffect(function(){
+    if(phase==='running'&&timeLeft<=0){submitExam();}
+  },[timeLeft]);
+
+  function setAnswer(exId, ans){
+    setAnswers(function(prev){var n={};n[exId]=ans;return Object.assign({},prev,n)});
+  }
+
+  function submitExam(){
+    if(timerRef.current)clearInterval(timerRef.current);
+    var correct=0;
+    examExercises.forEach(function(exId){
+      var ex=exerciseData[exId];
+      if(!ex)return;
+      var ans=answers[exId];
+      // For MC with shuffled options, map the selected index back
+      if(ex.type==='mc'&&shuffledOpts[exId]&&ans){
+        var origCorrectOpt = ex.data.options[ex.data.correct];
+        var mappedCorrect = shuffledOpts[exId].indexOf(origCorrectOpt);
+        if(ans.sel===mappedCorrect) correct++;
+      } else {
+        if(scoreExercise(ex, ans)) correct++;
+      }
+    });
+    var total=examExercises.length;
+    var pctScore=Math.round(correct/total*100);
+    var passed=pctScore>=60;
+    var elapsed=EXAM_TIME-timeLeft;
+    var r={correct:correct,total:total,pct:pctScore,passed:passed,elapsed:elapsed,date:new Date().toLocaleDateString('de-CH')};
+    setResult(r);
+    setPhase('done');
+
+    // Save best score
+    if(!bestScore||pctScore>bestScore.pct){
+      var bs={pct:pctScore,correct:correct,total:total,date:r.date};
+      setBestScore(bs);
+      localStorage.setItem(bestKey,JSON.stringify(bs));
+    }
+  }
+
+  function formatTime(s){
+    var m=Math.floor(s/60);var sec=s%60;
+    return String(m).padStart(2,'0')+':'+String(sec).padStart(2,'0');
+  }
+
+  // IDLE state
+  if(phase==='idle'){
+    return e('div',{className:'exam-container'},
+      e('div',{className:'exam-header'},
+        e('h3',null,'\ud83c\udfaf Pr\u00fcfungsmodus'),
+        e('p',null,'Teste dein Wissen unter Pr\u00fcfungsbedingungen. '+Math.floor(chExercises.length*0.6)+'-'+Math.floor(chExercises.length*0.8)+' zuf\u00e4llige Aufgaben, '+EXAM_TIME/60+' Minuten, keine Hilfe.'),
+        bestScore?e('div',{className:'exam-best-score'},'\ud83c\udfc6 Bisheriges Bestergebnis: '+bestScore.pct+'% ('+bestScore.correct+'/'+bestScore.total+') am '+bestScore.date):null,
+        e('button',{className:'exam-start-btn',onClick:startExam},'\ud83d\ude80 Pr\u00fcfung starten')
+      )
+    );
+  }
+
+  // RUNNING state
+  if(phase==='running'){
+    return e('div',{className:'exam-container'},
+      e('div',{className:'exam-timer-bar'},
+        e('div',{className:'exam-timer'+(timeLeft<120?' warning':'')},
+          '\u23f1\ufe0f ',formatTime(timeLeft)
+        ),
+        e('div',{className:'exam-progress-text'},'Aufgabe: '+examExercises.length+' | Keine Hilfe')
+      ),
+      examExercises.map(function(exId,idx){
+        var ex=exerciseData[exId];
+        if(!ex)return null;
+        var typeLabel={mc:'Multiple Choice',rf:'Richtig/Falsch',zuordnung:'Zuordnung',lueckentext:'L\u00fcckentext',freitext:'Freitext',tabelle:'Tabelle'}[ex.type]||ex.type;
+        return e('div',{key:exId,className:'exam-exercise'},
+          e('div',{className:'exam-exercise-header'},
+            e('div',{className:'exam-exercise-num'},idx+1),
+            e('div',null,
+              e('div',{className:'exam-exercise-title'},ex.title),
+              e('div',{className:'ex-type'},typeLabel)
+            )
+          ),
+          e('div',{className:'exam-exercise-body'},
+            e(ExamExerciseRenderer,{
+              key:exId,
+              ex:ex,
+              onAnswer:function(ans){setAnswer(exId,ans)},
+              shuffledOptions:shuffledOpts[exId]||null,
+              examState:answers[exId]||{},
+              submitted:false
+            })
+          )
+        );
+      }),
+      e('div',{className:'exam-submit-row'},
+        e('button',{className:'exam-submit-btn',onClick:submitExam},'\u2705 Pr\u00fcfung abgeben')
+      )
+    );
+  }
+
+  // DONE state
+  if(phase==='done'&&result){
+    return e('div',{className:'exam-container'},
+      e('div',{className:'exam-result'},
+        e('div',{className:'exam-score-circle '+(result.passed?'pass':'fail')},
+          e('div',{className:'exam-score-pct'},result.pct+'%'),
+          e('div',{className:'exam-score-label'},result.passed?'Bestanden':'Nicht bestanden')
+        ),
+        e('div',{className:'exam-score-detail'},result.correct+' von '+result.total+' richtig'),
+        e('div',{className:'exam-score-status '+(result.passed?'pass':'fail')},result.passed?'\u2705 Bestanden (\u226560%)':'\u274c Nicht bestanden (<60%)'),
+        e('div',{style:{fontSize:'.85rem',color:'var(--text2)',marginBottom:16}},'Zeit: '+formatTime(result.elapsed)+' von '+formatTime(EXAM_TIME)),
+        bestScore?e('div',{className:'exam-best-score'},'\ud83c\udfc6 Bestergebnis: '+bestScore.pct+'% ('+bestScore.correct+'/'+bestScore.total+') am '+bestScore.date):null,
+        e('div',{className:'exam-result-actions'},
+          e('button',{className:'exam-result-btn primary',onClick:startExam},'Nochmal'),
+          e('button',{className:'exam-result-btn secondary',onClick:function(){setPhase('idle')}},'Zur\u00fcck')
+        )
+      )
+    );
+  }
+
+  return null;
+}
+
+// ======================================================================
+// LEARNING DATA - Theory content for Chapter 1
+// ======================================================================
+
+var learningData = {};
+
+learningData[1] = {
+  title: 'Mediawerbung - Definition und Merkmale',
+  sections: [
+    {
+      type: 'intro',
+      title: 'Lernziele',
+      content: 'Nach der Bearbeitung dieses Kapitels k\u00f6nnen Sie ...',
+      items: [
+        'die wichtigsten Begriffe und Merkmale der Mediawerbung erkl\u00e4ren.',
+        'die Funktionen und die Wirkung der Werbung beschreiben.',
+        'die Medien, ihre Eigenschaften und Einsatzgebiete erkl\u00e4ren.',
+        'Unterschiede zwischen Konsum- und Investitionsg\u00fcterwerbung benennen.'
+      ]
+    },
+    {
+      type: 'concept',
+      title: '1.1 Definition der Mediawerbung',
+      content: 'Mediawerbung (oder einfach kurz: Werbung) dient der gezielten und bewussten Beeinflussung des Menschen zu meist kommerziellen Zwecken. Der Werbetreibende spricht Bed\u00fcrfnisse teils durch emotionale, teils durch informierende Werbebotschaften zum Zweck der Handlungsmotivation an. Werbung appelliert, involviert, vergleicht, macht betroffen oder neugierig. Werbung wird als eine von mehreren Funktionen der Marktkommunikation im Marketing verstanden.',
+      highlight: 'Mediawerbung geh\u00f6rt zu den bekanntesten Kommunikationsinstrumenten und ist nach wie vor das am besten sichtbare und am breitesten wirkende Kommunikationsinstrument.'
+    },
+    {
+      type: 'table',
+      title: 'Ans\u00e4tze der Werbung in verschiedenen Wissenschaften',
+      headers: ['Wissenschaft', 'Ansatz'],
+      rows: [
+        ['Psychologie', 'Werbepsychologie: Wie Werbung gestaltet sein muss, um Aufmerksamkeit und Beeinflussung zu erzielen.'],
+        ['Soziologie', 'Soziale Einfl\u00fcsse auf das Konsumverhalten (Familie, Freunde, Meinungsf\u00fchrer).'],
+        ['Betriebswirtschaftslehre', 'Werbekostenrechnung und Werbeerfolgskontrolle, Werbewirkung und Effizienz.'],
+        ['Kommunikationswissenschaft', 'Kommunikationsinhalte (Pretest) und Werbeerfolgskontrolle (Posttest), Medienanalyse.']
+      ]
+    },
+    {
+      type: 'concept',
+      title: '1.2 Funktionen und Wirkung der Mediawerbung',
+      content: 'Die Mediawerbung ist innerhalb des Kommunikationsmix das relevanteste Kommunikationsinstrument. Wie kein anderes Instrument ist die Werbung geeignet, Werte wie Bekanntheit, Produktwissen, Einstellungsentwicklung und Verhaltensbeeinflussung fast zeitgleich zu steuern. Typische Funktionen der Werbung sind: Bekanntmachung, Informieren, Image aufbauen, Ersatzbeschaffung sichern, Motivierung und Distributionsaufbau.',
+      highlight: 'Werbung wirkt insbesondere bei guter Zielgruppenkenntnis, m\u00f6glichst hoher Pr\u00e4senz (Omnipr\u00e4senz), regelm\u00e4ssiger Wiederholung und bei Einbezug von Emotionen.'
+    },
+    {
+      type: 'table',
+      title: '1.3 Medien - \u00dcbersicht',
+      headers: ['Medium', 'Merkmale'],
+      rows: [
+        ['Zeitungen', 'Hohe Reichweite, regional steuerbar, kurze Vorlaufzeit, relativ g\u00fcnstig.'],
+        ['Zeitschriften', 'Hohe Druckqualit\u00e4t, l\u00e4ngere Lebensdauer, zielgruppenspezifisch.'],
+        ['Fernsehen', 'Gr\u00f6sste Reichweite, emotionale Ansprache durch Bild und Ton, teuer.'],
+        ['Radio', 'Hohe Reichweite, g\u00fcnstig, Begleitmedium, keine visuelle Komponente.'],
+        ['Kinowerbung', 'Hohe Aufmerksamkeit, junges Publikum, eingeschr\u00e4nkte Reichweite.'],
+        ['Aussenwerbung', 'Plakate, City-Light-Poster: hohe Pr\u00e4senz im \u00f6ffentlichen Raum.'],
+        ['Digitale Werbung', 'Banner, Social Media, Suchmaschinen: pr\u00e4zises Targeting, messbar.'],
+        ['Direktwerbung', 'Pers\u00f6nliche Ansprache, hohe Individualisierung, messbare Response.']
+      ]
+    },
+    {
+      type: 'concept',
+      title: '1.4 Konsum- vs. Investitionsg\u00fcterwerbung',
+      content: 'Die Werbung f\u00fcr Konsumg\u00fcter enth\u00e4lt eine emotionalere Ansprache, es werden h\u00e4ufiger Lifestyle-Themen und unterschwellige Bed\u00fcrfnisse angesprochen. Meist werden Massenmedien eingesetzt. Die Werbung f\u00fcr Investitionsg\u00fcter ist rationaler, produktorientierter abgefasst. Facts and Figures z\u00e4hlen, es werden selten \u00fcbertriebene Werbeversprechen abgegeben. Meist werden Fachzeitschriften und Direct Mails als Kommunikationsinstrumente eingesetzt.',
+      highlight: 'Sonderformen der Werbung sind Cross-Marketing, Mundpropaganda, virales Marketing, Product Placement und Testimonials.'
+    },
+    {
+      type: 'merke',
+      title: 'Merke dir!',
+      items: [
+        'Mediawerbung ist das bekannteste und am breitesten wirkende Kommunikationsinstrument.',
+        'Werbung wirkt bei: guter Zielgruppenkenntnis, hoher Pr\u00e4senz, Wiederholung und Emotionen.',
+        'Funktionen: Bekanntmachung, Informieren, Image aufbauen, Ersatzbeschaffung sichern.',
+        'Medien: Zeitungen, Zeitschriften, TV, Radio, Kino, Aussen, Digital, Direkt.',
+        'Konsumg\u00fcterwerbung = emotional, Massenmedien. Investitionsg\u00fcterwerbung = rational, Fachmedien.',
+        'Sonderformen: Cross-Marketing, Virales Marketing, Product Placement, Testimonials.',
+        'General-Interest-Zeitschriften: breites Publikum. Zielgruppenzeitschriften: spezielle Zielgruppe. Special-Interest: Fachgebiet.'
+      ]
+    },
+    {
+      type: 'summary',
+      title: 'Zusammenfassung',
+      content: [
+        '<strong>Werbung</strong> ist ein Instrument der Marketingkommunikation. Sie befasst sich mit dem Transport von Werbebotschaften an eine Zielgruppe im Rahmen eines Unternehmens zur Erreichung eines bestimmten Ergebnisses.',
+        'Typische <strong>Funktionen</strong> der Werbung sind beispielsweise die Bekanntmachung, die Imageförderung, die Motivierung oder der Distributionsaufbau.',
+        'Formen von <strong>Medien</strong> sind Zeitungen, Zeitschriften, Fernsehwerbung, Radiowerbung, Kinowerbung, digitale Werbung, Direktwerbung und Aussenwerbung.',
+        '<strong>Sonderformen der Werbung</strong> sind Cross-Marketing, Mundpropaganda, virales Marketing, Product Placement und Testimonials.',
+        'Je nachdem, ob ein <strong>Konsum- oder ein Investitionsgut</strong> beworben wird, unterscheiden sich Strategieans\u00e4tze und Zielgruppenansprache der Werbung stark.'
+      ]
+    },
+    {
+      type: 'keyterms',
+      title: 'Schl\u00fcsselbegriffe',
+      terms: [
+        {term: 'Mediawerbung', def: 'Gezielte und bewusste Beeinflussung des Menschen zu kommerziellen Zwecken \u00fcber Massenmedien.'},
+        {term: 'Werbewirkung', def: 'Die Wirkung von Werbemassnahmen auf Bekanntheit, Einstellung und Verhalten der Zielgruppe.'},
+        {term: 'Cross-Marketing', def: 'Unternehmen mit verschiedenen Leistungsbereichen und gleichen oder \u00e4hnlichen Zielgruppen machen gemeinsame Werbung.'},
+        {term: 'Product Placement', def: 'St\u00e4dte, L\u00e4nder oder Regionen (bzw. Produkte) werden gezielt in einem Film, einer Serie etc. platziert.'},
+        {term: 'Virales Marketing', def: 'Marketingform, die soziale Netzwerke und Medien ausnutzt, sodass sich Nachrichten epidemisch verbreiten.'},
+        {term: 'Direktwerbung', def: 'Individuelle werbliche Kommunikation zwischen Anbietern und Nachfragern, meist in schriftlicher Form.'},
+        {term: 'Konsumg\u00fcterwerbung', def: 'Emotionale Ansprache, Lifestyle-Themen, Massenmedien.'},
+        {term: 'Investitionsg\u00fcterwerbung', def: 'Rationale, produktorientierte Ansprache, Fachzeitschriften und Direct Mails.'}
+      ]
+    }
+  ]
+};
+
+// ---- Learning Renderer Component ----
+function LearningRenderer(props) {
+  var chId = props.chId;
+  var data = learningData[chId];
+  if (!data) return e('div', {className: 'learn-container', style: {textAlign: 'center', padding: 40, color: 'var(--text2)'}},
+    e('div', {style: {fontSize: '2rem', marginBottom: 12}}, '\ud83d\udea7'),
+    e('div', {style: {fontSize: '.95rem', fontWeight: 600}}, 'Lernmodus in Vorbereitung'),
+    e('div', {style: {fontSize: '.85rem', marginTop: 6}}, 'Der Lernmodus f\u00fcr dieses Kapitel wird bald verf\u00fcgbar sein.')
+  );
+
+  var readKey = 'ki-learn-read-' + chId;
+  var st = useState(function() { return localStorage.getItem(readKey) === '1'; });
+  var isRead = st[0], setIsRead = st[1];
+
+  function markAsRead() {
+    setIsRead(true);
+    localStorage.setItem(readKey, '1');
+  }
+
+  function renderSection(section, idx) {
+    var icon = '\ud83d\udcc4';
+    var sectionClass = 'learn-section';
+
+    if (section.type === 'intro') {
+      icon = '\ud83c\udfaf';
+      sectionClass += ' learn-intro';
+      return e('div', {key: idx, className: sectionClass},
+        e('div', {className: 'learn-section-header'},
+          e('span', {className: 'learn-section-icon'}, icon),
+          e('span', {className: 'learn-section-title'}, section.title)
+        ),
+        e('div', {className: 'learn-section-body'},
+          e('div', {className: 'learn-intro-text'}, section.content),
+          e('ul', {className: 'learn-intro-list'},
+            section.items.map(function(item, i) { return e('li', {key: i}, item); })
+          )
+        )
+      );
+    }
+
+    if (section.type === 'concept') {
+      icon = '\ud83d\udca1';
+      sectionClass += ' learn-concept';
+      return e('div', {key: idx, className: sectionClass},
+        e('div', {className: 'learn-section-header'},
+          e('span', {className: 'learn-section-icon'}, icon),
+          e('span', {className: 'learn-section-title'}, section.title)
+        ),
+        e('div', {className: 'learn-section-body'},
+          e('div', {className: 'learn-concept-text'}, section.content),
+          section.highlight ? e('div', {className: 'learn-highlight'}, section.highlight) : null
+        )
+      );
+    }
+
+    if (section.type === 'table') {
+      icon = '\ud83d\udccb';
+      return e('div', {key: idx, className: sectionClass},
+        e('div', {className: 'learn-section-header'},
+          e('span', {className: 'learn-section-icon'}, icon),
+          e('span', {className: 'learn-section-title'}, section.title)
+        ),
+        e('div', {className: 'learn-section-body'},
+          e('div', {className: 'learn-table-wrap'},
+            e('table', {className: 'learn-table'},
+              e('thead', null, e('tr', null, section.headers.map(function(h, i) { return e('th', {key: i}, h); }))),
+              e('tbody', null, section.rows.map(function(row, ri) {
+                if (Array.isArray(row)) {
+                  return e('tr', {key: ri}, row.map(function(cell, ci) {
+                    return e('td', {key: ci, className: ci === 0 ? 'table-label' : ''}, cell);
+                  }));
+                }
+                return null;
+              }))
+            )
+          )
+        )
+      );
+    }
+
+    if (section.type === 'keyterms') {
+      icon = '\ud83d\udd11';
+      return e('div', {key: idx, className: sectionClass},
+        e('div', {className: 'learn-section-header'},
+          e('span', {className: 'learn-section-icon'}, icon),
+          e('span', {className: 'learn-section-title'}, section.title)
+        ),
+        e('div', {className: 'learn-section-body'},
+          e('div', {className: 'learn-terms-grid'},
+            section.terms.map(function(t, i) {
+              return e('div', {key: i, className: 'learn-term-card'},
+                e('div', {className: 'learn-term-name'}, t.term),
+                e('div', {className: 'learn-term-def'}, t.def)
+              );
+            })
+          )
+        )
+      );
+    }
+
+    if (section.type === 'merke') {
+      icon = '\u26a1';
+      sectionClass += ' learn-merke';
+      return e('div', {key: idx, className: sectionClass},
+        e('div', {className: 'learn-section-header'},
+          e('span', {className: 'learn-section-icon'}, icon),
+          e('span', {className: 'learn-section-title'}, section.title)
+        ),
+        e('div', {className: 'learn-section-body'},
+          e('ul', {className: 'learn-merke-list'},
+            section.items.map(function(item, i) { return e('li', {key: i}, item); })
+          )
+        )
+      );
+    }
+
+    if (section.type === 'summary') {
+      icon = '\ud83d\udcdd';
+      sectionClass += ' learn-summary';
+      return e('div', {key: idx, className: sectionClass},
+        e('div', {className: 'learn-section-header'},
+          e('span', {className: 'learn-section-icon'}, icon),
+          e('span', {className: 'learn-section-title'}, section.title)
+        ),
+        e('div', {className: 'learn-section-body'},
+          e('div', {className: 'learn-summary-text'},
+            section.content.map(function(p, i) { return e('p', {key: i, dangerouslySetInnerHTML: {__html: p}}); })
+          )
+        )
+      );
+    }
+
+    return e('div', {key: idx, className: sectionClass},
+      e('div', {className: 'learn-section-header'},
+        e('span', {className: 'learn-section-icon'}, icon),
+        e('span', {className: 'learn-section-title'}, section.title || 'Abschnitt')
+      ),
+      e('div', {className: 'learn-section-body'}, e('div', null, section.content || ''))
+    );
+  }
+
+  return e('div', {className: 'learn-container'},
+    data.sections.map(function(section, idx) { return renderSection(section, idx); }),
+    e('div', {className: 'learn-complete-bar'},
+      e('span', {className: 'learn-progress-text'}, isRead ? 'Du hast dieses Kapitel als gelesen markiert.' : 'Hast du den gesamten Lerninhalt durchgearbeitet?'),
+      e('button', {
+        className: 'learn-complete-btn ' + (isRead ? 'done' : 'ready'),
+        onClick: isRead ? null : markAsRead
+      }, isRead ? '\u2713 Gelesen' : 'Als gelesen markieren')
+    )
+  );
+}
+
+// ======================================================================
+// EXERCISE DATA
+// ======================================================================
+
+var exerciseData = {};
+
+function reg(id, title, type, data){
+  exerciseData[id] = {title:title, type:type, data:data};
+}
+
+// ============================================================
+// KAPITEL 1: Mediawerbung - Definition und Merkmale (Ex 1-9)
+// ============================================================
+
+reg(1, 'Werbung und Emotionen', 'freitext', {
+  instruction: 'Die Werbung sollte nur auf die Emotionen der Zielgruppen ausgerichtet sein. Wie beurteilen Sie diese Aussage? (Rep 1, S.33)',
+  questions: [
+    {q:'Beurteilen Sie die Aussage kritisch.',keywords:['kommunikationsinstrument','emotionen','information','produktwissen','vermittelt','verkaufen'],minKeywords:2}
+  ],
+  tips: ['Werbung hat mehrere Ziele, nicht nur emotionale Ansprache.','Denken Sie an die Vermittlung von Produktwissen.','Werbung dient auch der Information und dem Verkauf.'],
+  reveal: ['Werbung ist ein Kommunikationsinstrument mit dem Ziel, Produkte zu verkaufen.','Entsprechend d\u00fcrfen neben der reinen Ansprache der Emotionen auch der Aspekt der Information und die Vermittlung von Produktwissen nicht vergessen werden.']
+});
+
+reg(2, 'Funktionen der Werbung', 'zuordnung', {
+  instruction: 'Nennen Sie 4 Funktionen der Werbung und ordnen Sie sie einem Beispiel zu. (Rep 2, S.33)',
+  items: ['Bekanntmachung','Informieren','Image aufbauen','Ersatzbeschaffung sichern'],
+  options: ['Neue Zahnpasta f\u00fcr Kinder wird durch Werbung bekannt gemacht.','Konsument wird \u00fcber Merkmale, Eignung f\u00fcr Kinder, Preis und Verkaufsstellen informiert.','Image einer Zahnschmelz-aufbauenden und f\u00fcr Kinder geeigneten Zahnpasta wird gef\u00f6rdert.','Bestehende Kunden werden erinnert und zum erneuten Kauf animiert.'],
+  correct: ['Neue Zahnpasta f\u00fcr Kinder wird durch Werbung bekannt gemacht.','Konsument wird \u00fcber Merkmale, Eignung f\u00fcr Kinder, Preis und Verkaufsstellen informiert.','Image einer Zahnschmelz-aufbauenden und f\u00fcr Kinder geeigneten Zahnpasta wird gef\u00f6rdert.','Bestehende Kunden werden erinnert und zum erneuten Kauf animiert.'],
+  tips: ['Bekanntmachung = etwas Neues bekanntmachen.','Informieren = Details \u00fcber Merkmale, Preis etc.','Image = Positionierung und Imageaufbau.','Ersatzbeschaffung = Wiederkauf sichern.'],
+  reveal: ['Bekanntmachung: Neue Zahnpasta wird bekannt gemacht.','Informieren: Konsument erh\u00e4lt Infos \u00fcber Merkmale und Preis.','Image: Zahnschmelz-Image wird aufgebaut.','Ersatzbeschaffung: Bestehende Kunden werden erinnert.']
+});
+
+reg(3, 'Zeitschriftenarten unterscheiden', 'freitext', {
+  instruction: 'Worin unterscheiden sich General-Interest-Zeitschriften, Zielgruppenzeitschriften und Special-Interest-Zeitschriften? Nennen Sie je ein Beispiel. (Rep 3, S.34)',
+  questions: [
+    {q:'Erkl\u00e4ren Sie die drei Arten und geben Sie Beispiele.',keywords:['general','breit','publikum','zielgruppe','special','sachgebiet','hobby','teenager','illustrierte','gartenidee','anlagen'],minKeywords:3}
+  ],
+  tips: ['General-Interest = breites Publikum, allgemeine Informationen.','Zielgruppenzeitschriften = spezielle Zielgruppe.','Special-Interest = bestimmtes Sachgebiet oder Hobby.'],
+  reveal: ['General-Interest-Zeitschriften versorgen ein breites Publikum mit allgemeinen Informationen. Beispiel: Schweizer Illustrierte, Bunte.','Zielgruppenzeitschriften sprechen eine spezielle Zielgruppe an. Beispiel: Teenager, Bravo, Brigitte.','Special-Interest-Zeitschriften bieten spezielle Informationen f\u00fcr ein bestimmtes Sachgebiet. Beispiel: Anlagen, Gartenidee.']
+});
+
+reg(4, 'Fachbegriffe Mediawerbung zuordnen', 'zuordnung', {
+  instruction: 'Ordnen Sie den Beschreibungen die zutreffenden Begriffe zu. (Rep 4, S.34)',
+  items: ['Individuelle werbliche Kommunikation zwischen Anbietern und Nachfragern, meist in schriftlicher Form','Unternehmen mit verschiedenen Leistungsbereichen und gleichen Zielgruppen machen gemeinsame Werbung','St\u00e4dte, L\u00e4nder oder Regionen werden in einem Film gezeigt','Marketingform, die soziale Netzwerke ausnutzt, sodass sich Nachrichten epidemisch verbreiten'],
+  options: ['Direktwerbung','Cross-Marketing','Country oder Location Placement','Virales Marketing'],
+  correct: ['Direktwerbung','Cross-Marketing','Country oder Location Placement','Virales Marketing'],
+  tips: ['Direktwerbung = pers\u00f6nlich, schriftlich.','Cross-Marketing = gemeinsame Werbung verschiedener Unternehmen.','Placement = Platzierung in Filmen.','Viral = epidemische Verbreitung.'],
+  reveal: ['Individuelle werbliche Kommunikation = Direktwerbung.','Gemeinsame Werbung = Cross-Marketing.','In Filmen gezeigt = Country oder Location Placement.','Epidemische Verbreitung = Virales Marketing.']
+});
+
+reg(5, 'Konsum- vs. Investitionsg\u00fcterwerbung', 'freitext', {
+  instruction: 'Worin unterscheidet sich die Werbung f\u00fcr Konsumg\u00fcter von derjenigen f\u00fcr Investitionsg\u00fcter? (Rep 5, S.34)',
+  questions: [
+    {q:'Beschreiben Sie die Unterschiede.',keywords:['emotional','rational','massenmedien','fachzeitschriften','lifestyle','produktorientiert','facts','direct'],minKeywords:3}
+  ],
+  tips: ['Denken Sie an die Art der Ansprache.','Welche Medien werden jeweils eingesetzt?','Welche Argumente stehen im Vordergrund?'],
+  reveal: ['Konsumg\u00fcter: Emotionale Ansprache, Lifestyle-Themen, Massenmedien (TV, Zeitungen, Aussenwerbung).','Investitionsg\u00fcter: Rationale, produktorientierte Ansprache, Facts and Figures, Fachzeitschriften und Direct Mails.']
+});
+
+reg(6, 'Richtig oder Falsch: Mediawerbung', 'rf', {
+  statements: [
+    {s:'Mediawerbung ist das bekannteste und am breitesten wirkende Kommunikationsinstrument.',correct:true,feedback:'Die klassische Werbung nimmt bei vielen Unternehmen den Grossteil des Budgets in Anspruch.'},
+    {s:'Die gr\u00f6ssten Zuwachsraten verzeichnet der digitale Werbemarkt.',correct:true,feedback:'Die digitale Werbung w\u00e4chst am st\u00e4rksten, w\u00e4hrend Printmedien r\u00fccklaufig sind.'},
+    {s:'Werbung f\u00fcr Investitionsg\u00fcter ist typischerweise emotional und nutzt Massenmedien.',correct:false,feedback:'Investitionsg\u00fcterwerbung ist rational und nutzt Fachzeitschriften/Direct Mails.'},
+    {s:'Virales Marketing nutzt soziale Netzwerke, sodass sich Nachrichten epidemisch verbreiten.',correct:true,feedback:'Das ist die korrekte Definition von viralem Marketing.'}
+  ],
+  tips: ['Mediawerbung ist das sichtbarste Instrument.','Digital w\u00e4chst, Print schrumpft.','Investitionsg\u00fcter = rationale Ansprache.'],
+  reveal: ['Aussage 1: Richtig.','Aussage 2: Richtig - digitaler Markt hat die gr\u00f6ssten Zuwachsraten.','Aussage 3: Falsch - Investitionsg\u00fcterwerbung ist rational.','Aussage 4: Richtig - virale Verbreitung.']
+});
+
+reg(7, 'Funktionen der Werbung (MC)', 'mc', {
+  instruction: 'Welche der folgenden ist KEINE typische Funktion der Mediawerbung?',
+  options: [
+    'Bekanntmachung',
+    'Informieren',
+    'Direkter Verkaufsabschluss am POS',
+    'Image aufbauen'
+  ],
+  correct: 2,
+  tips: ['Der direkte Verkaufsabschluss geh\u00f6rt eher zur Verkaufsf\u00f6rderung.','Werbung arbeitet \u00fcber Massenmedien, nicht am POS direkt.','Bekanntmachung, Informieren und Image sind klassische Funktionen.'],
+  reveal: ['Direkter Verkaufsabschluss am POS ist keine Funktion der Mediawerbung.','Dies geh\u00f6rt zur Verkaufsf\u00f6rderung (VKF).','Mediawerbung fokussiert auf Bekanntheit, Information und Image.']
+});
+
+reg(8, 'L\u00fcckentext: Mediawerbung', 'lueckentext', {
+  instruction: 'Erg\u00e4nzen Sie die L\u00fccken zur Mediawerbung.',
+  segments: ['Werbung wirkt insbesondere bei guter ',{blank:true,answer:['Zielgruppenkenntnis'],width:180},', m\u00f6glichst hoher ',{blank:true,answer:['Pr\u00e4senz','Omnipr\u00e4senz'],width:140},', regelm\u00e4ssiger ',{blank:true,answer:['Wiederholung'],width:140},' und bei Einbezug von ',{blank:true,answer:['Emotionen'],width:140},'.'],
+  tips: ['Es geht um die vier Erfolgsfaktoren der Werbewirkung.','Denken Sie an Zielgruppe, Sichtbarkeit, Frequenz und Gef\u00fchle.'],
+  reveal: ['Zielgruppenkenntnis - man muss die Zielgruppe kennen.','Pr\u00e4senz/Omnipr\u00e4senz - m\u00f6glichst oft sichtbar sein.','Wiederholung - regelm\u00e4ssige Kontakte.','Emotionen - emotionale Ansprache wirkt.']
+});
+
+reg(9, 'Medienarten zuordnen', 'zuordnung', {
+  instruction: 'Ordnen Sie die Beschreibungen den richtigen Medienarten zu.',
+  items: ['Hohe Reichweite, emotionale Ansprache durch Bild und Ton, teuer','Hohe Druckqualit\u00e4t, l\u00e4ngere Lebensdauer, zielgruppenspezifisch','Plakate, City-Light-Poster, hohe Pr\u00e4senz im \u00f6ffentlichen Raum','Pr\u00e4zises Targeting, messbar, Banner und Social Media'],
+  options: ['Fernsehen','Zeitschriften','Aussenwerbung','Digitale Werbung'],
+  correct: ['Fernsehen','Zeitschriften','Aussenwerbung','Digitale Werbung'],
+  tips: ['TV = Bild und Ton, teuer.','Zeitschriften = hohe Druckqualit\u00e4t.','Aussenwerbung = \u00f6ffentlicher Raum.','Digital = Targeting und Messbarkeit.'],
+  reveal: ['Fernsehen: emotionale Ansprache, gr\u00f6sste Reichweite.','Zeitschriften: hohe Druckqualit\u00e4t, zielgruppenspezifisch.','Aussenwerbung: Plakate, Pr\u00e4senz im \u00f6ffentlichen Raum.','Digitale Werbung: pr\u00e4zises Targeting, messbar.']
+});
+
+// ============================================================
+// KAPITEL 2: Werbekonzept (Ex 10-19)
+// ============================================================
+
+reg(10, 'Segmentierungskriterien der Werbung', 'zuordnung', {
+  instruction: 'Nennen Sie drei Segmentierungskriterien und geben Sie je zwei Beispiele. (Rep 6, S.60)',
+  items: ['Demografisch','Sozio\u00f6konomisch','Psychologisch'],
+  options: ['Alter, Wohnort','Ausbildung, Berufst\u00e4tigkeit','Meinung \u00fcber das Produkt, Konsumtyp (sparsam, hedonistisch)'],
+  correct: ['Alter, Wohnort','Ausbildung, Berufst\u00e4tigkeit','Meinung \u00fcber das Produkt, Konsumtyp (sparsam, hedonistisch)'],
+  tips: ['Demografisch = pers\u00f6nliche Grunddaten.','Sozio\u00f6konomisch = wirtschaftliche/soziale Stellung.','Psychologisch = Einstellungen und Werte.'],
+  reveal: ['Demografisch: Alter, Wohnort.','Sozio\u00f6konomisch: Ausbildung, Berufst\u00e4tigkeit.','Psychologisch: Meinung \u00fcber das Produkt, Konsumtyp.']
+});
+
+reg(11, 'Werbeziele klassifizieren (KOG/AFF/KON)', 'zuordnung', {
+  instruction: 'Ordnen Sie die Werbeziele den drei Gruppen zu: KOG (kognitiv), AFF (affektiv), KON (konativ). (Rep 7, S.60)',
+  items: ['Einstellung zu Marken, Produkten und Unternehmen','Kaufabsichten','Kenntnis von Marken, Leistungen und Produkten','Vertrauensbildung','F\u00f6rderung des Wiederverkaufs','Erinnerung von Markennamen, Preisen, Slogans','Kundenbindung','Emotionales Erleben der Marke'],
+  options: ['AFF','KON','KOG'],
+  correct: ['AFF','KON','KOG','AFF','KON','KOG','KON','AFF'],
+  tips: ['KOG = Wissen, Kenntnis, Erinnerung.','AFF = Einstellung, Emotionen, Vertrauen.','KON = Handlung, Kauf, Wiederverkauf, Bindung.'],
+  reveal: ['Einstellung = AFF (affektiv).','Kaufabsichten = KON (konativ).','Kenntnis = KOG (kognitiv).','Vertrauensbildung = AFF.','F\u00f6rderung Wiederverkauf = KON.','Erinnerung = KOG.','Kundenbindung = KON.','Emotionales Erleben = AFF.']
+});
+
+reg(12, 'Motivations- vs. psychoanalytische Strategie', 'freitext', {
+  instruction: 'Worin unterscheiden sich die Motivationsstrategie und die psychoanalytische Strategie? (Rep 8, S.60)',
+  questions: [
+    {q:'Erkl\u00e4ren Sie den Unterschied.',keywords:['motivationsstrategie','verbrauchermotive','lifestyle','psychoanalytische','unterbewusstsein','konfliktsituation','intensiv'],minKeywords:3}
+  ],
+  tips: ['Motivationsstrategie = Verbrauchermotive ansprechen.','Psychoanalytische Strategie = Unterbewusstsein ansprechen.','Die psychoanalytische Strategie ist eine besonders intensive Form.'],
+  reveal: ['Motivationsstrategie: starke Verbrauchermotive (z.B. Lifestyle-Bed\u00fcrfnisse) werden angesprochen.','Psychoanalytische Strategie: eine besonders intensive Motivationsstrategie, die stark auf das Unterbewusstsein abzielt. Sie soll eine psychologische Konfliktsituation l\u00f6sen.']
+});
+
+reg(13, 'Mediastrategie-Parameter', 'zuordnung', {
+  instruction: 'Ordnen Sie den Parametern der Mediastrategie die passende Frage zu. (Rep 9, S.60)',
+  items: ['Reichweite','Kontakte','Intensit\u00e4t','Frequenz','Dominanz','Impact'],
+  options: ['Wie viel Prozent der Zielgruppe erreichen wir?','Wie oft werden die Zielpersonen erreicht?','Wie viele Medien und wie h\u00e4ufig werden sie eingesetzt?','In welchen zeitlichen Abst\u00e4nden erfolgen wie viele Kontakte?','Welche Werbemittel, Gr\u00f6ssen, Formate und Spotl\u00e4ngen werden eingesetzt?','Wie sind die Werbemittel gestaltet und wo sind sie platziert?'],
+  correct: ['Wie viel Prozent der Zielgruppe erreichen wir?','Wie oft werden die Zielpersonen erreicht?','Wie viele Medien und wie h\u00e4ufig werden sie eingesetzt?','In welchen zeitlichen Abst\u00e4nden erfolgen wie viele Kontakte?','Welche Werbemittel, Gr\u00f6ssen, Formate und Spotl\u00e4ngen werden eingesetzt?','Wie sind die Werbemittel gestaltet und wo sind sie platziert?'],
+  tips: ['Reichweite = Prozent der Zielgruppe.','Kontakte = wie oft erreicht.','Intensit\u00e4t = Anzahl Medien und H\u00e4ufigkeit.','Impact = Gestaltung und Platzierung.'],
+  reveal: ['Reichweite: Wie viel Prozent der Zielgruppe erreichen wir?','Kontakte: Wie oft werden die Zielpersonen erreicht?','Intensit\u00e4t: Wie viele Medien und wie h\u00e4ufig?','Frequenz: In welchen zeitlichen Abst\u00e4nden?','Dominanz: Welche Werbemittel, Gr\u00f6ssen, Formate?','Impact: Wie sind die Werbemittel gestaltet und platziert?']
+});
+
+reg(14, 'Werbekonzept 6 Schritte', 'lueckentext', {
+  instruction: 'Das Werbekonzept folgt den klassischen 6 Konzeptschritten. Erg\u00e4nzen Sie.',
+  segments: ['1. ',{blank:true,answer:['Analyse'],width:120},': Analyseergebnisse werden auf werbespezifische Aspekte vertieft. 2. ',{blank:true,answer:['Zielgruppen'],width:140},': Beschreibung nach demografischen, psychografischen und verhaltensbezogenen Merkmalen. 3. ',{blank:true,answer:['Werbeziele'],width:140},': kognitiv, affektiv und konativ. 4. ',{blank:true,answer:['Werbestrategie'],width:140},': Copystrategie mit Schl\u00fcsselelementen. 5. ',{blank:true,answer:['Massnahmen'],width:140},': Mediastrategie und Wahl der Werbemittel. 6. ',{blank:true,answer:['Realisation, Budget, Kontrolle','Realisation'],width:180},'.'],
+  tips: ['Das Werbekonzept folgt dem gleichen 6-Schritte-Raster wie andere Konzepte.','Schritt 1 beginnt immer mit der Analyse.','Die Werbeziele werden in drei Gruppen eingeteilt.'],
+  reveal: ['1. Analyse der werbespezifischen Aspekte.','2. Zielgruppen nach Segmentierungskriterien beschreiben.','3. Werbeziele: KOG, AFF, KON.','4. Werbestrategie mit Copystrategie.','5. Massnahmen: Mediastrategie und Werbemittelwahl.','6. Realisation, Budget und Kontrolle.']
+});
+
+reg(15, 'Copystrategie erkl\u00e4ren', 'freitext', {
+  instruction: 'Was ist die Copystrategie und welche Elemente enth\u00e4lt sie?',
+  questions: [
+    {q:'Erkl\u00e4ren Sie die Copystrategie.',keywords:['botschaft','schl\u00fcsselemente','tonality','stil','werbebotschaft','positionierung','kreation'],minKeywords:2}
+  ],
+  tips: ['Die Copystrategie definiert die Werbebotschaft.','Sie enth\u00e4lt Schl\u00fcsselelemente, Botschaften und Stil/Tonalit\u00e4t.','Sie ist Teil der Werbestrategie (Schritt 4).'],
+  reveal: ['Die Copystrategie wird im Rahmen der Werbestrategie entwickelt.','Sie definiert die Schl\u00fcsselelemente der Werbebotschaft.','Stil und Tonalit\u00e4t werden festgelegt.','Sie bildet die kreative Basis f\u00fcr die Umsetzung.']
+});
+
+reg(16, 'Richtig oder Falsch: Werbekonzept', 'rf', {
+  statements: [
+    {s:'Die Werbestrategie ist eine mittel- bis langfristige Grundsatzentscheidung dar\u00fcber, wie Werbebotschaften, -instrumente und -massnahmen eingesetzt werden sollen.',correct:true,feedback:'Exakte Definition der Werbestrategie.'},
+    {s:'Bei den Werbezielen unterscheidet man kognitive, affektive und exekutive Ziele.',correct:false,feedback:'Es sind kognitive, affektive und konative Ziele (nicht exekutive).'},
+    {s:'Basis zur Definition der Strategie stellt die Positionierung dar.',correct:true,feedback:'Die Positionierung ist die Grundlage f\u00fcr die Strategiedefinition.'},
+    {s:'Intermedia-Selektion vergleicht verschiedene Werbetr\u00e4ger innerhalb einer Mediengattung.',correct:false,feedback:'Intermedia-Selektion vergleicht verschiedene Mediengattungen. Intramedia-Selektion vergleicht innerhalb einer Gattung.'}
+  ],
+  tips: ['Drei Werbeziel-Gruppen: KOG, AFF, KON.','Intermedia = zwischen verschiedenen Mediengattungen.','Intramedia = innerhalb einer Mediengattung.'],
+  reveal: ['Aussage 1: Richtig.','Aussage 2: Falsch - konativ, nicht exekutiv.','Aussage 3: Richtig.','Aussage 4: Falsch - Intermedia = zwischen Gattungen.']
+});
+
+reg(17, 'Briefing an die Agentur', 'freitext', {
+  instruction: 'Welche Punkte sollte ein Briefing an die Werbeagentur mindestens enthalten?',
+  questions: [
+    {q:'Nennen Sie die wichtigsten Punkte eines Briefings.',keywords:['markt','konkurrenz','zielgruppe','positionierung','budget','termin','zielsetzung','copyplattform'],minKeywords:3}
+  ],
+  tips: ['Das Briefing enth\u00e4lt Angaben zum Unternehmen, Produkt, Markt.','Zielgruppe(n) und Positionierung m\u00fcssen definiert sein.','Budget, Termine und Verantwortlichkeiten geh\u00f6ren dazu.'],
+  reveal: ['\u00dcbrige Marktteilnehmer, insb. Konkurrenz.','Marketing-/Kommunikations-Zielsetzungen.','Zielgruppe(n) der Kommunikation.','Positionierung/kommunikative Problemstellung.','Copyplattform grob vorgeben.','Musts/Don\'ts: Vorgaben/Restriktionen.','Werbedauer/Termine.','Budget, Verantwortlichkeit.']
+});
+
+reg(18, 'Werbeziele (MC)', 'mc', {
+  instruction: 'Welches Werbeziel ist konativ orientiert?',
+  options: [
+    'Kenntnis von Marken und Produkten',
+    'Einstellung zu Marken und Unternehmen',
+    'F\u00f6rderung des Wiederverkaufs',
+    'Erinnerung von Markennamen und Slogans'
+  ],
+  correct: 2,
+  tips: ['Konativ = handlungsbezogen.','Kenntnis und Erinnerung = kognitiv.','Einstellung = affektiv.','Wiederverkauf = Handlung = konativ.'],
+  reveal: ['F\u00f6rderung des Wiederverkaufs ist konativ (handlungsbezogen).','Kenntnis und Erinnerung sind kognitiv (wissensbezogen).','Einstellung ist affektiv (gef\u00fchlsbezogen).']
+});
+
+reg(19, 'Intermedia vs. Intramedia', 'zuordnung', {
+  instruction: 'Ordnen Sie die Beschreibungen dem richtigen Selektionsverfahren zu.',
+  items: ['Vergleich zwischen verschiedenen Mediengattungen (z.B. TV vs. Print)','Vergleich innerhalb einer Mediengattung (z.B. Blick vs. 20 Minuten)'],
+  options: ['Intermedia-Selektion','Intramedia-Selektion'],
+  correct: ['Intermedia-Selektion','Intramedia-Selektion'],
+  tips: ['Inter = zwischen verschiedenen Gattungen.','Intra = innerhalb einer Gattung.'],
+  reveal: ['Intermedia-Selektion: Vergleich zwischen verschiedenen Mediengattungen.','Intramedia-Selektion: Vergleich innerhalb einer Mediengattung.']
+});
+
+// ============================================================
+// KAPITEL 3: Verkaufsf\u00f6rderung (Ex 20-28)
+// ============================================================
+
+reg(20, 'Funktionen der Verkaufsf\u00f6rderung', 'freitext', {
+  instruction: 'Nennen Sie drei Funktionen der Verkaufsf\u00f6rderung. (Rep 10, S.85)',
+  questions: [
+    {q:'Drei Funktionen der VKF:',keywords:['aktivierung','motivation','unterst\u00fctzung','dynamisierung','diffusion','angew\u00f6hnung','erg\u00e4nzung'],minKeywords:3}
+  ],
+  tips: ['Die VKF hat sechs Hauptfunktionen.','Denken Sie an Aktivierung, Unterst\u00fctzung, Dynamisierung.','Auch Diffusion, Angew\u00f6hnung und Erg\u00e4nzung.'],
+  reveal: ['Aktivierung und Motivation.','Unterst\u00fctzung.','Dynamisierung.','Diffusion.','Angew\u00f6hnung.','Erg\u00e4nzung.']
+});
+
+reg(21, 'Push- oder Pull-Instrument?', 'mc', {
+  instruction: 'Ist die Verkaufsf\u00f6rderung ein Push- oder ein Pull-Instrument? (Rep 11, S.85)',
+  options: [
+    'Nur ein Push-Instrument',
+    'Nur ein Pull-Instrument',
+    'Prim\u00e4r ein Push-Instrument, wird aber meist mit Pull-Instrumenten kombiniert',
+    'Weder Push noch Pull'
+  ],
+  correct: 2,
+  tips: ['VKF ist prim\u00e4r Push - Produkte schnell in den Markt einf\u00fchren.','Meist werden aber zus\u00e4tzlich Pull-Massnahmen eingesetzt.','Z.B. Mediawerbung oder PR als Pull-Instrumente.'],
+  reveal: ['Die Verkaufsf\u00f6rderung ist ein Push-Instrument.','Absatzf\u00f6rdernde Massnahmen werden \u00fcber den Handel an die Konsumenten gerichtet.','Meist werden neben der VKF zus\u00e4tzlich Pull-Instrumente eingesetzt (z.B. Mediawerbung, PR).']
+});
+
+reg(22, 'Negative Auswirkungen der VKF', 'freitext', {
+  instruction: 'Kann sich die Verkaufsf\u00f6rderung negativ auf die Konsumenten auswirken? Nennen Sie ein Beispiel. (Rep 12, S.85)',
+  questions: [
+    {q:'Begr\u00fcnden Sie mit Beispiel.',keywords:['promotion','mehrumsatz','verlagerung','preisaktionen','image','negativ','kaufen','nur'],minKeywords:2}
+  ],
+  tips: ['Manche Leute kaufen nur bei Promotionen.','Es kann zu einer zeitlichen Verlagerung der Ums\u00e4tze kommen.','H\u00e4ufige Preisaktionen k\u00f6nnen das Image negativ beeinflussen.'],
+  reveal: ['Es gibt Leute, die gewisse Produkte nur kaufen, wenn es Promotionen daf\u00fcr gibt.','Es kommt nicht zu einem Mehrumsatz, sondern nur zu einer zeitlichen Verlagerung der \u00fcblichen Ums\u00e4tze.','Ausserdem k\u00f6nnen h\u00e4ufige Preisaktionen negativ auf das Image der Marke auswirken.']
+});
+
+reg(23, 'VKF-Fachbegriffe zuordnen', 'zuordnung', {
+  instruction: 'Ordnen Sie den Erkl\u00e4rungen die zutreffenden Fachbegriffe zu. (Rep 13, S.86)',
+  items: ['Zusatznutzen, den die VKF-Kampagne den anvisierten Zielgruppen bieten soll','Die Verpackung kann nach dem Verbrauch der Ware f\u00fcr einen anderen Zweck verwendet werden','Mittel und Massnahmen der Hersteller und des Handels, um den Verkauf am POS zu unterst\u00fctzen','Zugabe innerhalb der Verpackung','Verbraucher senden nummerierte Warenbestellkarten ein; wenn sie Gl\u00fcck haben, gewinnen sie'],
+  options: ['Sales Promotion Benefit','Zweitnutzenpackung','Merchandising','In-Pack','Sales Promotion Flair'],
+  correct: ['Sales Promotion Benefit','Zweitnutzenpackung','Merchandising','In-Pack','Sales Promotion Flair'],
+  tips: ['Benefit = Zusatznutzen.','Zweitnutzen = Verpackung wird wiederverwendet.','Merchandising = POS-Unterst\u00fctzung.','In-Pack = Zugabe in der Verpackung.'],
+  reveal: ['Sales Promotion Benefit: Zusatznutzen der VKF-Kampagne.','Zweitnutzenpackung: Verpackung wird f\u00fcr anderen Zweck wiederverwendet.','Merchandising: Massnahmen am POS zur Verkaufsunterst\u00fctzung.','In-Pack: Zugabe innerhalb der Verpackung.','Sales Promotion Flair: Nummerierte Warenbestellkarten mit Gewinnchance.']
+});
+
+reg(24, 'Produktlebenszyklus und VKF', 'zuordnung', {
+  instruction: 'Ordnen Sie die Aussagen zum Produktlebenszyklus zu. (Rep 14, S.86)',
+  items: ['VKF wird stark eingesetzt','VKF sollte nicht durchgef\u00fchrt werden'],
+  options: ['Einf\u00fchrung und S\u00e4ttigung','Entwicklung'],
+  correct: ['Einf\u00fchrung und S\u00e4ttigung','Entwicklung'],
+  tips: ['In der Einf\u00fchrungsphase wird VKF stark eingesetzt.','In der S\u00e4ttigungsphase ebenfalls.','In der Entwicklungsphase ist das Produkt noch nicht am Markt.'],
+  reveal: ['VKF wird in der Einf\u00fchrungs- und S\u00e4ttigungsphase stark eingesetzt.','In der Entwicklungsphase (Produkt ist noch nicht am Markt) sollte keine VKF durchgef\u00fchrt werden.','Die Phasen des PLZ: Entwicklung, Einf\u00fchrung, Wachstum, Reife, S\u00e4ttigung, Degeneration, Elimination.']
+});
+
+reg(25, 'Phasen des Produktlebenszyklus', 'lueckentext', {
+  instruction: 'Nennen Sie die sieben Phasen des Produktlebenszyklus.',
+  segments: ['1. ',{blank:true,answer:['Entwicklung'],width:120},', 2. ',{blank:true,answer:['Einf\u00fchrung'],width:120},', 3. ',{blank:true,answer:['Wachstum'],width:120},', 4. ',{blank:true,answer:['Reife'],width:100},', 5. ',{blank:true,answer:['S\u00e4ttigung'],width:120},', 6. ',{blank:true,answer:['Degeneration'],width:130},', 7. ',{blank:true,answer:['Elimination'],width:120}],
+  tips: ['Der PLZ beginnt mit der Entwicklung.','Nach der Einf\u00fchrung folgen Wachstum und Reife.','Am Ende stehen S\u00e4ttigung, Degeneration und Elimination.'],
+  reveal: ['1. Entwicklung - Produktidee wird entwickelt.','2. Einf\u00fchrung - Markteinf\u00fchrung.','3. Wachstum - Umsatz steigt.','4. Reife - Wachstum verlangsamt sich.','5. S\u00e4ttigung - Markt ist ges\u00e4ttigt.','6. Degeneration - Umsatz sinkt.','7. Elimination - Produkt wird vom Markt genommen.']
+});
+
+reg(26, 'VKF-Zielgruppen', 'freitext', {
+  instruction: 'An welche vier Zielgruppen k\u00f6nnen sich VKF-Massnahmen richten?',
+  questions: [
+    {q:'Nennen Sie die vier Zielgruppen der VKF.',keywords:['mitarbeitende','absatzmittler','endverbraucher','beeinflusser','influencer','handel'],minKeywords:3}
+  ],
+  tips: ['Die VKF richtet sich an interne und externe Zielgruppen.','Denken Sie an eigene Mitarbeitende und den Handel.','Auch Endverbraucher und Beeinflusser/Influencer geh\u00f6ren dazu.'],
+  reveal: ['1. Eigene Mitarbeitende.','2. Absatzmittler (Handel).','3. Endverbraucher (Konsumenten).','4. Externe Beeinflusser, evtl. Influencer.']
+});
+
+reg(27, 'VKF-Kontrolle', 'mc', {
+  instruction: 'Wie wird die Kontrolle bei der Verkaufsf\u00f6rderung durchgef\u00fchrt?',
+  options: [
+    'Durch aufwendige Marktforschung mit Pre- und Posttests',
+    'Die Kontrolle ist relativ einfach: Steigen die Absatzzahlen w\u00e4hrend des Aktionszeitraums?',
+    'Kontrolle ist bei der VKF nicht m\u00f6glich',
+    'Nur durch externe Berater'
+  ],
+  correct: 1,
+  tips: ['Die VKF-Kontrolle ist vergleichsweise einfach.','Man misst die Absatzzahlen w\u00e4hrend der Aktion.','Steigen die Absatzzahlen sp\u00fcrbar, war die Massnahme erfolgreich.'],
+  reveal: ['Die Kontrolle der VKF ist relativ einfach.','Die Absatzzahlen m\u00fcssen w\u00e4hrend der Aktion sp\u00fcrbar ansteigen.','Andere Ziele k\u00f6nnen mithilfe von Marktforschung \u00fcberpr\u00fcft werden.']
+});
+
+reg(28, 'VKF Richtig oder Falsch', 'rf', {
+  statements: [
+    {s:'Verkaufsf\u00f6rderung sind zeitlich begrenzte Aktionen mit dem Ziel, durch zus\u00e4tzliche Anreize Kommunikationsziele zu erreichen.',correct:true,feedback:'Exakte Definition der VKF (Sales Promotion).'},
+    {s:'Die Verkaufsf\u00f6rderung ist ein Pull-Instrument.',correct:false,feedback:'Die VKF ist prim\u00e4r ein Push-Instrument.'},
+    {s:'Merchandising umfasst Mittel und Massnahmen der Hersteller und des Handels, um den Verkauf am POS zu unterst\u00fctzen.',correct:true,feedback:'Korrekte Definition von Merchandising.'},
+    {s:'Bei der Strategiewahl ist zu beachten, dass die VKF nur positive Auswirkungen auf die Konsumenten haben kann.',correct:false,feedback:'VKF kann auch negative Auswirkungen haben (z.B. Verlagerung statt Mehrumsatz, Imagesch\u00e4digung).'}
+  ],
+  tips: ['VKF = zeitlich begrenzte Aktionen.','VKF ist ein Push-Instrument.','VKF kann auch negativ wirken.'],
+  reveal: ['Aussage 1: Richtig - exakte Definition.','Aussage 2: Falsch - Push, nicht Pull.','Aussage 3: Richtig - Definition Merchandising.','Aussage 4: Falsch - auch negative Auswirkungen m\u00f6glich.']
+});
+
+// ============================================================
+// KAPITEL 4: Event-Marketing (Ex 29-37)
+// ============================================================
+
+reg(29, 'Event-Marketing vs. Werbung: Zielgruppenmenge', 'freitext', {
+  instruction: 'Wird beim Event-Marketing eine kleinere, \u00e4hnlich grosse oder gr\u00f6ssere Zielgruppenmenge angesprochen als bei der Werbung? (Rep 16, S.103)',
+  questions: [
+    {q:'Begr\u00fcnden Sie Ihre Antwort.',keywords:['kleiner','deutlich','events','kapazit\u00e4tsbegrenzung','kostenintensiv','intensiver','nachhaltiger','homogen'],minKeywords:3}
+  ],
+  tips: ['Events haben Kapazit\u00e4tsbegrenzungen.','Nur ca. 10% aller Events sind auf 1000+ Teilnehmer ausgerichtet.','Event-Erlebnisse wirken intensiver und nachhaltiger.'],
+  reveal: ['Die Zielgruppenmenge ist beim Event-Marketing deutlich kleiner als bei der Werbung.','Events unterliegen Kapazit\u00e4tsbegrenzungen.','Nur ca. 10% aller Events sind auf 1000+ Teilnehmer ausgerichtet.','35% aller Events werden auf durchschnittlich 200 Teilnehmer ausgelegt.','Event-Erlebnisse wirken intensiver und nachhaltiger, wenn die Zielgruppen nicht zu umfangreich und m\u00f6glichst homogen ausgew\u00e4hlt sind.']
+});
+
+reg(30, 'Event-Strategie-Typen', 'zuordnung', {
+  instruction: 'Ordnen Sie den Beschreibungen die zutreffenden Strategie-Typen zu. (Rep 17, S.103)',
+  items: ['Die Zielgruppen werden alive mit einem Produkt konfrontiert.','Neue, bisher nicht bearbeitete Zielgruppen werden angesprochen.','Eine Marke soll st\u00e4rker positioniert werden.','Ein neues Produkt wird bei bestimmten Zielgruppen eingef\u00fchrt.'],
+  options: ['Erlebnisstrategie','Zielgruppenersch\u00f6pfungsstrategie','Imageprofilierungsstrategie','Einf\u00fchrungsstrategie'],
+  correct: ['Erlebnisstrategie','Zielgruppenersch\u00f6pfungsstrategie','Imageprofilierungsstrategie','Einf\u00fchrungsstrategie'],
+  tips: ['Erlebnis = alive, direkt erleben.','Zielgruppenersch\u00f6pfung = neue Zielgruppen.','Imageprofilierung = Marke st\u00e4rker positionieren.','Einf\u00fchrung = neues Produkt einf\u00fchren.'],
+  reveal: ['Erlebnisstrategie: Zielgruppen erleben das Produkt live.','Zielgruppenersch\u00f6pfungsstrategie: Neue Zielgruppen werden erschlossen.','Imageprofilierungsstrategie: Marke wird st\u00e4rker positioniert.','Einf\u00fchrungsstrategie: Neues Produkt wird eingef\u00fchrt.']
+});
+
+reg(31, 'Event-Kostenarten', 'zuordnung', {
+  instruction: 'Geben Sie je ein Beispiel f\u00fcr die aufgef\u00fchrten Kostenarten beim Event-Budget. (Rep 18, S.103)',
+  items: ['Planungskosten','Vorbereitungskosten','Durchf\u00fchrungskosten','Nachbearbeitungskosten','Wirkungsmessungen'],
+  options: ['Personalkosten','Kosten f\u00fcr Einladungen zum Event','Raummiete, Honorar f\u00fcr Referenten','Nachfassaktionen an Leute, die nicht teilnehmen konnten','Befragungen'],
+  correct: ['Personalkosten','Kosten f\u00fcr Einladungen zum Event','Raummiete, Honorar f\u00fcr Referenten','Nachfassaktionen an Leute, die nicht teilnehmen konnten','Befragungen'],
+  tips: ['Planungskosten = Personalaufwand f\u00fcr die Planung.','Vorbereitungskosten = Einladungen etc.','Durchf\u00fchrungskosten = Location, Referenten.','Nachbearbeitung = Follow-up.'],
+  reveal: ['Planungskosten: Personalkosten f\u00fcr die Eventplanung.','Vorbereitungskosten: Kosten f\u00fcr Einladungen.','Durchf\u00fchrungskosten: Raummiete, Honorar.','Nachbearbeitungskosten: Nachfassaktionen.','Wirkungsmessungen: Befragungen der Teilnehmer.']
+});
+
+reg(32, 'Event-Marketing Definition', 'lueckentext', {
+  instruction: 'Erg\u00e4nzen Sie die Definition von Event-Marketing.',
+  segments: ['Event-Marketing ist die ',{blank:true,answer:['zielgerichtete'],width:140},' und ',{blank:true,answer:['systematische'],width:140},' Planung von Veranstaltungen als ',{blank:true,answer:['absatzpolitisches'],width:160},' Instrument oder image- und meinungsbildungsf\u00f6rdernde Massnahmen zur Durchsetzung der ',{blank:true,answer:['Unternehmensziele'],width:170},' im Rahmen der Marketingkommunikation.'],
+  tips: ['Event-Marketing ist zielgerichtet und systematisch.','Es ist ein absatzpolitisches Instrument.','Es dient der Durchsetzung der Unternehmensziele.'],
+  reveal: ['Zielgerichtet: mit klarem Ziel.','Systematisch: nach Plan und Struktur.','Absatzpolitisches Instrument: dient dem Absatz.','Unternehmensziele: im Rahmen der Marketingkommunikation.']
+});
+
+reg(33, 'Event-Arten unterscheiden', 'zuordnung', {
+  instruction: 'Ordnen Sie die Event-Arten der richtigen Kategorie zu.',
+  items: ['Produktpräsentation, Hauptversammlung','Gala-Abend, Konzert, Showveranstaltung','Outdoor-Event, Sportveranstaltung, Abenteuer-Event'],
+  options: ['Arbeitsorientierte Veranstaltungen','Infotainment-Aktivit\u00e4ten','Freizeitorientierte Aktivit\u00e4ten'],
+  correct: ['Arbeitsorientierte Veranstaltungen','Infotainment-Aktivit\u00e4ten','Freizeitorientierte Aktivit\u00e4ten'],
+  tips: ['Events werden in drei Kategorien unterteilt.','Arbeitsorientiert = sachlich, beruflich.','Infotainment = Information + Entertainment.','Freizeitorientiert = Spass und Erlebnis.'],
+  reveal: ['Arbeitsorientiert: Produktpr\u00e4sentationen, Hauptversammlungen.','Infotainment: Gala-Abende, Konzerte, Showveranstaltungen.','Freizeitorientiert: Outdoor-Events, Sportveranstaltungen.']
+});
+
+reg(34, 'Event-Zielgruppen', 'freitext', {
+  instruction: 'Welche Zielgruppen gibt es beim Event-Marketing?',
+  questions: [
+    {q:'Nennen Sie die Event-Zielgruppen.',keywords:['mitarbeitende','absatzmittler','bestehende','potenzielle','kunden','opinion','leader','medien'],minKeywords:3}
+  ],
+  tips: ['Event-Zielgruppen sind interne und externe Gruppen.','Denken Sie auch an Meinungsf\u00fchrer und Medien.'],
+  reveal: ['Eigene Mitarbeitende.','Absatzmittler.','Bestehende Kunden.','Potenzielle Kunden.','Opinion Leader und Medien.']
+});
+
+reg(35, 'Event-Marketing Ziele', 'mc', {
+  instruction: 'Was sind die Hauptziele des Event-Marketings?',
+  options: [
+    'Ausschliesslich kurzfristige Umsatzsteigerung',
+    'Vermittlung von Schl\u00fcsselinformationen, emotionales Erleben, Kundenbindung',
+    'Nur Imagebildung, kein Verkauf',
+    'Ausschliesslich Mitarbeitermotivation'
+  ],
+  correct: 1,
+  tips: ['Event-Marketing hat emotionale und informative Ziele.','Schl\u00fcsselinformationen werden vermittelt.','Emotionales Erleben und Kundenbindung stehen im Vordergrund.'],
+  reveal: ['Ziele des Event-Marketings sind die Vermittlung von Schl\u00fcsselinformationen \u00fcber Produkte.','Emotionales Erleben von Unternehmen, Marken und Produkten.','Festigung der Kundenbindung.']
+});
+
+reg(36, 'Massnahmenplanung beim Event', 'rf', {
+  statements: [
+    {s:'Die Massnahmenplanung beim Event umfasst Massnahmen vor, w\u00e4hrend und nach dem Event.',correct:true,feedback:'Alle drei Phasen m\u00fcssen geplant werden.'},
+    {s:'Beim Event-Marketing ist die Nachbearbeitung unwichtig.',correct:false,feedback:'Die Nachbearbeitung (Follow-up) ist essenziell f\u00fcr den Erfolg.'},
+    {s:'Events werden in arbeitsorientierte Veranstaltungen, Infotainment und freizeitorientierte Aktivit\u00e4ten unterteilt.',correct:true,feedback:'Dies sind die drei Event-Kategorien.'}
+  ],
+  tips: ['Massnahmenplanung = vor, w\u00e4hrend und nach dem Event.','Nachbearbeitung ist wichtig f\u00fcr den Erfolg.','Drei Event-Kategorien.'],
+  reveal: ['Aussage 1: Richtig - drei Phasen.','Aussage 2: Falsch - Nachbearbeitung ist essenziell.','Aussage 3: Richtig - drei Kategorien.']
+});
+
+reg(37, 'Event-Konzept erstellen', 'freitext', {
+  instruction: 'Ein Event-Marketing-Konzept folgt den bekannten Konzeptschritten. Welche sind das?',
+  questions: [
+    {q:'Nennen Sie die Konzeptschritte f\u00fcr ein Event.',keywords:['situationsanalyse','zielgruppen','ziele','strategie','massnahmen','budget','kontrolle','realisation'],minKeywords:4}
+  ],
+  tips: ['Ein Event-Konzept folgt dem gleichen 6-Schritte-Raster.','Es beginnt mit der Situationsanalyse.','Budget, Realisation und Kontrolle geh\u00f6ren dazu.'],
+  reveal: ['1. Situationsanalyse.','2. Zielgruppen definieren.','3. Ziele festlegen.','4. Strategie entwickeln.','5. Massnahmen planen.','6. Budget, Realisation und Kontrolle.']
+});
+
+// ============================================================
+// KAPITEL 5: Messen und Ausstellungen (Ex 38-45)
+// ============================================================
+
+reg(38, 'Messe vs. Ausstellung', 'freitext', {
+  instruction: 'Beschreiben Sie den Unterschied zwischen einer Messe und einer Ausstellung. (Rep 20, S.123)',
+  questions: [
+    {q:'Erkl\u00e4ren Sie die Unterschiede.',keywords:['messe','handeln','verkaufen','fachpublikum','ausstellung','pr\u00e4sentation','visuell','interessenten','kundenkreis'],minKeywords:3}
+  ],
+  tips: ['Messen: Handeln und Verkaufen.','Ausstellungen: Pr\u00e4sentation von Produkten.','Beide sind wichtige Kommunikationsinstrumente.'],
+  reveal: ['Messen: Handeln und verkaufen. Traditionell f\u00fcr Fachpublikum, heute auch f\u00fcr Verbraucher.','Ausstellungen: Schwerpunkt auf visueller Darstellung. Bestimmte Artikel werden einem ausgew\u00e4hlten Kundenkreis vorgestellt.','Beide dienen als Plattform, um neue Kunden zu akquirieren und bestehende Kontakte zu intensivieren.']
+});
+
+reg(39, 'Ziele der Messeteilnahme', 'freitext', {
+  instruction: 'Nennen Sie mindestens f\u00fcnf Ziele, die mit der Teilnahme an einer Messe erreicht werden k\u00f6nnen. (Rep 21, S.123)',
+  questions: [
+    {q:'Nennen Sie mindestens 5 Messeziele.',keywords:['gesch\u00e4ftskontakte','projekte','leistungsf\u00e4higkeit','bed\u00fcrfnisse','markt','preisgestaltung','neukunden','absatzchancen','produktideen'],minKeywords:4}
+  ],
+  tips: ['Denken Sie an Kontakte, Projekte und Leistungsf\u00e4higkeit.','Auch Marktinformationen und Preisgestaltung sind Ziele.','Neukunden und Produktideen geh\u00f6ren dazu.'],
+  reveal: ['1. Vorhandene Gesch\u00e4ftskontakte entwickeln bzw. neue anbahnen.','2. Gesch\u00e4fte und Projekte vorbereiten oder abschliessen.','3. Leistungsf\u00e4higkeit des Unternehmens darstellen.','4. Aktuelle Bed\u00fcrfnisse und Erwartungen des Markts kennenlernen.','5. Produkt- und Sortimentsgestaltung am Kunden orientieren.','6. Preisgestaltung am Kunden und Markt orientieren.','7. Test der Absatzchancen neuer Produkte.','8. Aus Kundenbed\u00fcrfnissen neue Produktideen entwickeln.','9. Pers\u00f6nliche Kontakte f\u00fcr verschiedene Zielsetzungen herstellen.','10. Aus Gespr\u00e4chen Marktinformationen gewinnen.']
+});
+
+reg(40, 'Dreiminutenerkl\u00e4rung und Alleinstellungsmerkmal', 'freitext', {
+  instruction: 'A) Was ist eine Dreiminutenerkl\u00e4rung? B) Was ist das Alleinstellungsmerkmal? (Rep 22, S.123)',
+  questions: [
+    {q:'Erkl\u00e4ren Sie beide Begriffe.',keywords:['kurz','aussagef\u00e4hig','unternehmen','leistungs','angebots','angebot','produkt','dienstleistung','eigenschaft','unterschied','wettbewerb'],minKeywords:3}
+  ],
+  tips: ['Dreiminutenerkl\u00e4rung = kurze, pr\u00e4gnante Unternehmenspr\u00e4sentation.','Alleinstellungsmerkmal = was unterscheidet uns von der Konkurrenz?'],
+  reveal: ['A) Dreiminutenerkl\u00e4rung: Eine kurze, allgemeine und doch aussagef\u00e4hige Aussage \u00fcber das Unternehmen und seine Leistungs- und Angebotsm\u00f6glichkeiten.','B) Alleinstellungsmerkmal: Angebot, Produkte oder Dienstleistungen und ihre m\u00f6glichen Anwendungen mit Eigenschaften, die sich von den Wettbewerbern der Branche deutlich abheben.']
+});
+
+reg(41, 'Messearten unterscheiden', 'zuordnung', {
+  instruction: 'Ordnen Sie die Messearten den Kategorien zu.',
+  items: ['Swissbau, Bauma','Comptoir Suisse, BEA','IGEHO, SIHH'],
+  options: ['Fachmesse','Publikumsmesse','Fachmesse (international)'],
+  correct: ['Fachmesse','Publikumsmesse','Fachmesse (international)'],
+  tips: ['Es wird zwischen Publikums- und Fachmessen unterschieden.','Auch regionale vs. internationale Messen.','Fachmessen richten sich an Fachpublikum.'],
+  reveal: ['Fachmessen: Swissbau, Bauma - f\u00fcr Fachbesucher.','Publikumsmessen: Comptoir Suisse, BEA - f\u00fcr breites Publikum.','Internationale Fachmessen: IGEHO, SIHH.']
+});
+
+reg(42, 'Drei Phasen der Ausstelleraktivit\u00e4t', 'lueckentext', {
+  instruction: 'Die Ausstelleraktivit\u00e4t l\u00e4sst sich in drei Phasen unterteilen.',
+  segments: ['Phase 1: ',{blank:true,answer:['Vorbereiten'],width:140},' \u2013 Phase 2: ',{blank:true,answer:['Ausstellen'],width:140},' \u2013 Phase 3: ',{blank:true,answer:['Auswerten'],width:140},'. Diese drei Phasen beschreiben einen Regelkreis, der Unternehmen mit Menschen und M\u00e4rkten zusammenf\u00fchrt und verbindet.'],
+  tips: ['Die drei Phasen beginnen mit der Vorbereitung.','Die zweite Phase ist die eigentliche Ausstellung.','Die dritte Phase ist die Auswertung.'],
+  reveal: ['Phase 1: Vorbereiten - Planung und Standkonzept.','Phase 2: Ausstellen - die eigentliche Messe.','Phase 3: Auswerten - Nachbereitung und Erfolgskontrolle.']
+});
+
+reg(43, 'Messekonzept-Schritte', 'zuordnung', {
+  instruction: 'Ein Messekonzept erstellen Sie entlang der bekannten Konzeptschritte. Ordnen Sie die Schritte.',
+  items: ['1.','2.','3.','4.','5.','6.'],
+  options: ['Situationsanalyse','Zielgruppen','Ziele','Massnahmen','Realisation und Budget','Kontrolle'],
+  correct: ['Situationsanalyse','Zielgruppen','Ziele','Massnahmen','Realisation und Budget','Kontrolle'],
+  tips: ['Das Messekonzept folgt dem gleichen 6-Schritte-Raster.','Es beginnt mit der Situationsanalyse.','Budget und Kontrolle am Schluss.'],
+  reveal: ['1. Situationsanalyse.','2. Zielgruppen definieren.','3. Ziele festlegen.','4. Massnahmen planen.','5. Realisation und Budget.','6. Kontrolle.']
+});
+
+reg(44, 'Messen: Richtig oder Falsch', 'rf', {
+  statements: [
+    {s:'Messen erm\u00f6glichen einen direkten Kontakt zu einer Vielzahl potenzieller Kunden innerhalb eines kurzen Zeitraums.',correct:true,feedback:'Dies ist einer der Hauptvorteile von Messen.'},
+    {s:'Bei Messen gibt es keine M\u00f6glichkeit der Selbstdarstellung.',correct:false,feedback:'Messen bieten gerade die M\u00f6glichkeit der Selbstdarstellung und des direkten Feedbacks.'},
+    {s:'Es wird zwischen Publikums- und Fachmessen unterschieden.',correct:true,feedback:'Dies sind die zwei Hauptkategorien von Messen.'},
+    {s:'Die Nachbearbeitung nach einer Messe ist f\u00fcr den Messeerfolg unwichtig.',correct:false,feedback:'Die Nachbearbeitung (Phase 3: Auswerten) ist essenziell.'}
+  ],
+  tips: ['Messen = direkter Kontakt, kurzer Zeitraum.','M\u00f6glichkeit der Selbstdarstellung ist ein Vorteil.','Nachbearbeitung ist wichtig.'],
+  reveal: ['Aussage 1: Richtig.','Aussage 2: Falsch - Selbstdarstellung ist ein Kernvorteil.','Aussage 3: Richtig.','Aussage 4: Falsch - Nachbearbeitung ist essenziell.']
+});
+
+reg(45, 'Standkonzept erstellen', 'freitext', {
+  instruction: 'Welche Themen sollte ein kurzes Standkonzept behandeln? (Rep 23, S.123)',
+  questions: [
+    {q:'Nennen Sie die Elemente eines Standkonzepts.',keywords:['standgestaltung','produktpr\u00e4sentation','standaktivit\u00e4ten','personaleinsatz','design'],minKeywords:3}
+  ],
+  tips: ['Ein Standkonzept behandelt die Gestaltung des Standes.','Auch Produktpr\u00e4sentation und Aktivit\u00e4ten am Stand.','Personaleinsatz muss geplant werden.'],
+  reveal: ['Standgestaltung: Design, Gr\u00f6sse, Aufteilung.','Produktpr\u00e4sentation: Wie werden Produkte pr\u00e4sentiert?','Standaktivit\u00e4ten: Mini-Events, Degustationen, Vortr\u00e4ge.','Personaleinsatz: Anzahl, Qualifikation, Briefing.']
+});
+
+// ============================================================
+// KAPITEL 6: Sponsoring (Ex 46-53)
+// ============================================================
+
+reg(46, 'Gr\u00fcnde f\u00fcr Bedeutungszunahme des Sponsoring', 'freitext', {
+  instruction: 'Nennen Sie drei Gr\u00fcnde f\u00fcr die starke Bedeutungszunahme des Sponsoring. (Rep 24, S.137)',
+  questions: [
+    {q:'Drei Gr\u00fcnde f\u00fcr das Wachstum des Sponsoring.',keywords:['positionierung','emotionale','freizeit','kommunikationsbarrieren','zapping','steigende','mediakosten','akzeptanz','\u00f6ffentlichkeit','exklusiv','beziehung'],minKeywords:3}
+  ],
+  tips: ['Neue Positionierungsm\u00f6glichkeiten \u00fcber emotionale Argumente.','Kommunikationsbarrieren k\u00f6nnen umgangen werden.','Steigende Mediakosten der klassischen Werbung.'],
+  reveal: ['Neue Positionierungsm\u00f6glichkeiten \u00fcber emotionale Argumente.','Ansprache der Konsumenten in der Freizeit.','Kommunikationsbarrieren (Werbebeschr\u00e4nkungen) und Zapping-Gefahr k\u00f6nnen umgangen werden.','Steigende Mediakosten der klassischen Werbung.','Sponsoring erm\u00f6glicht den Aufbau einer exklusiven Werbe- und Beziehungsplattform.','Positive Akzeptanz in der \u00d6ffentlichkeit.']
+});
+
+reg(47, 'Sponsoringformen und Beispiele', 'zuordnung', {
+  instruction: 'Nennen Sie drei Sponsoringformen und geben Sie ein Beispiel daf\u00fcr. (Rep 25, S.137)',
+  items: ['Sportsponsoring','Kultursponsoring','Umweltsponsoring','Sozialsponsoring','Mediensponsoring'],
+  options: ['F\u00f6rderung von sportlichen Anl\u00e4ssen oder Mannschaften','Unterst\u00fctzung von kulturellen Veranstaltungen, z.B. Konzerten','Unterst\u00fctzung von Naturschutzorganisationen','F\u00f6rderung des Gesundheitswesens','Unterst\u00fctzung von TV-Sendungen'],
+  correct: ['F\u00f6rderung von sportlichen Anl\u00e4ssen oder Mannschaften','Unterst\u00fctzung von kulturellen Veranstaltungen, z.B. Konzerten','Unterst\u00fctzung von Naturschutzorganisationen','F\u00f6rderung des Gesundheitswesens','Unterst\u00fctzung von TV-Sendungen'],
+  tips: ['Sportsponsoring ist die bekannteste Form.','Kultursponsoring unterst\u00fctzt Kunst und Kultur.','Umweltsponsoring f\u00f6rdert Nachhaltigkeit.'],
+  reveal: ['Sportsponsoring: Mannschaften, Events.','Kultursponsoring: Konzerte, Ausstellungen.','Umweltsponsoring: Naturschutz.','Sozialsponsoring: Gesundheit, Bildung.','Mediensponsoring: TV, Radio.']
+});
+
+reg(48, 'Exklusiv-Sponsor vs. Hauptsponsor', 'freitext', {
+  instruction: 'A) Worin unterscheidet sich der Exklusiv-Sponsor vom Hauptsponsor? B) Sind mit dem Sponsoringbeitrag s\u00e4mtliche Aufw\u00e4nde abgegolten? (Rep 26, S.137)',
+  questions: [
+    {q:'Erkl\u00e4ren Sie die Unterschiede und die Kostenfrage.',keywords:['exklusiv','einzige','hauptsponsor','umfangreiche','rechte','co-sponsor','official supplier','nicht','zus\u00e4tzlich'],minKeywords:3}
+  ],
+  tips: ['Der Exklusiv-Sponsor ist der einzige Sponsor.','Der Hauptsponsor hat umfangreiche Rechte.','Neben dem Sponsoringbeitrag fallen weitere Kosten an.'],
+  reveal: ['A) Der Exklusiv-Sponsor ist der einzige Sponsor, w\u00e4hrend der Hauptsponsor \u00fcber umfangreiche Rechte am Event verf\u00fcgt.','Der Co-Sponsor hat meist Branchenexklusivrechte. Der Official Supplier hat Exklusivrechte innerhalb einer Produktkategorie.','B) Nein. Neben dem Sponsoringbeitrag fallen zus\u00e4tzliche Kosten an (z.B. Aktivierungsmassnahmen).']
+});
+
+reg(49, 'Sponsoring-Definition', 'lueckentext', {
+  instruction: 'Erg\u00e4nzen Sie die Definition von Sponsoring.',
+  segments: ['Sponsoring ist die Bereitstellung von ',{blank:true,answer:['Geld'],width:100},', ',{blank:true,answer:['Sachmitteln'],width:130},' oder ',{blank:true,answer:['Dienstleistungen'],width:150},' durch ein Unternehmen f\u00fcr eine Person, Gruppe oder Organisation gegen eine ',{blank:true,answer:['Gegenleistung'],width:140},'.'],
+  tips: ['Sponsoring basiert auf dem Prinzip von Leistung und Gegenleistung.','Es k\u00f6nnen Geld, Sachmittel oder Dienstleistungen bereitgestellt werden.','Eine Gegenleistung (z.B. Werbem\u00f6glichkeiten) wird erwartet.'],
+  reveal: ['Geld: finanzielle Unterst\u00fctzung.','Sachmittel: z.B. Ausr\u00fcstung, Material.','Dienstleistungen: z.B. Know-how, Personal.','Gegenleistung: z.B. Logoplatzierung, Erw\u00e4hnung.']
+});
+
+reg(50, 'Sponsoring-Ziele klassifizieren', 'zuordnung', {
+  instruction: 'Die Sponsoring-Ziele unterteilen sich in drei Kategorien. Ordnen Sie zu.',
+  items: ['Bekanntheit steigern, Image verbessern','Umsatz steigern, neue M\u00e4rkte erschliessen','Kundenloyalit\u00e4t st\u00e4rken, Beziehungen pflegen'],
+  options: ['Unternehmenskommunikationsziele','Produkt-/Markenziele','Beziehungsziele'],
+  correct: ['Unternehmenskommunikationsziele','Produkt-/Markenziele','Beziehungsziele'],
+  tips: ['Sponsoring-Ziele: Unternehmenskommunikation, Produkt/Marke, Beziehungen.','Bekanntheit und Image = Kommunikation.','Umsatz = Markenziele.','Loyalit\u00e4t = Beziehungsziele.'],
+  reveal: ['Unternehmenskommunikationsziele: Bekanntheit, Image.','Produkt-/Markenziele: Umsatz, neue M\u00e4rkte.','Beziehungsziele: Kundenloyalit\u00e4t, Beziehungspflege.']
+});
+
+reg(51, 'Sponsoringstrategie', 'mc', {
+  instruction: 'Was hilft bei der Definition der Sponsoringstrategie?',
+  options: [
+    'Das Affinit\u00e4tenkonzept',
+    'Die ABC-Analyse',
+    'Das AIDA-Modell',
+    'Die Balanced Scorecard'
+  ],
+  correct: 0,
+  tips: ['Das Affinit\u00e4tenkonzept hilft, passende Sponsoring-Engagements zu finden.','Es geht um die \u00dcbereinstimmung zwischen Sponsor und Gesponsertem.'],
+  reveal: ['Das Affinit\u00e4tenkonzept hilft bei der Definition der Sponsoringstrategie.','Es analysiert die \u00dcbereinstimmung (Affinit\u00e4t) zwischen Sponsor und Gesponsertem.']
+});
+
+reg(52, 'Sponsoring: Richtig oder Falsch', 'rf', {
+  statements: [
+    {s:'Sponsoringmassnahmen werden idealerweise immer durch Massnahmen der Mediawerbung, Verkaufsf\u00f6rderung und Public Relations erg\u00e4nzt.',correct:true,feedback:'Sponsoring allein reicht nicht aus, es braucht flankierende Massnahmen.'},
+    {s:'Bei der Realisation des Sponsoring gilt es insbesondere rechtliche Bestimmungen zu ber\u00fccksichtigen.',correct:true,feedback:'Rechtliche Aspekte (Vertr\u00e4ge, Markenrechte) sind wichtig.'},
+    {s:'Die Kontrolle beim Sponsoring misst nur die Umsatzwirkung.',correct:false,feedback:'Kontrolliert werden auch Erinnerung, Imagewirkung und Verhaltenswirkung.'}
+  ],
+  tips: ['Sponsoring braucht flankierende Massnahmen.','Rechtliche Bestimmungen sind wichtig.','Kontrolle misst verschiedene Wirkungen.'],
+  reveal: ['Aussage 1: Richtig - Sponsoring braucht Erg\u00e4nzung.','Aussage 2: Richtig - rechtliche Aspekte beachten.','Aussage 3: Falsch - auch Erinnerung, Image, Verhalten werden gemessen.']
+});
+
+reg(53, 'Sponsoring-Kontrollphase', 'freitext', {
+  instruction: 'Was wird in der Kontrollphase des Sponsoring gemessen?',
+  questions: [
+    {q:'Nennen Sie die Kontrollbereiche.',keywords:['exposition','erinnerung','imagewirkung','verhaltens','umsatzwirkung','botschaft'],minKeywords:3}
+  ],
+  tips: ['In der Kontrollphase werden verschiedene Wirkungen gemessen.','Denken Sie an Exposition, Erinnerung und Image.','Auch Verhaltens- und Umsatzwirkung werden gemessen.'],
+  reveal: ['Exposition der Sponsoring-Botschaft.','Erinnerungs- und Imagewirkung.','Verhaltens- und Umsatzwirkung.']
+});
+
+// ============================================================
+// KAPITEL 7: Dialogmarketing (Ex 54-62)
+// ============================================================
+
+reg(54, 'Vorteile des Dialogmarketings', 'freitext', {
+  instruction: 'Nennen Sie zwei Vorteile des Dialogmarketings gegen\u00fcber der klassischen Werbung. (Rep 27, S.147)',
+  questions: [
+    {q:'Zwei Vorteile des Dialogmarketings.',keywords:['pers\u00f6nlich','individuell','dialog','beziehung','datenbank','cross-selling','kontaktiert','bekannte'],minKeywords:2}
+  ],
+  tips: ['Dialogmarketing erm\u00f6glicht pers\u00f6nliche Ansprache.','Es baut eine Beziehung auf.','Datenbanken erm\u00f6glichen gezieltes Cross-Selling.'],
+  reveal: ['Bekannte Personen k\u00f6nnen pers\u00f6nlich und individualisiert kontaktiert werden.','Es wird ein Dialog aufgebaut und daraus folgend eine Beziehung mit dem Kunden.','Die Kunden k\u00f6nnen pers\u00f6nlich ermittelt und in einer Datenbank erfasst werden.','Den Kunden k\u00f6nnen weitere, auf ihre Bed\u00fcrfnisse abgestimmte Produkte angeboten werden (Cross-Selling).']
+});
+
+reg(55, 'Nachteile des Dialogmarketings', 'freitext', {
+  instruction: 'Nennen Sie zwei Nachteile des Dialogmarketings gegen\u00fcber der klassischen Werbung. (Rep 28, S.147)',
+  questions: [
+    {q:'Zwei Nachteile des Dialogmarketings.',keywords:['rechtlich','datenschutz','stopp','kleber','response','schwach','einschr\u00e4nkung'],minKeywords:2}
+  ],
+  tips: ['Datenschutz ist ein grosses Thema.','Stopp-Kleber nehmen zu.','Die Response-Rate ist oft schwach.'],
+  reveal: ['Rechtliche Einschr\u00e4nkungen (Datenschutzgesetz).','Die Stopp-Kleber sind weiter zunehmend (ca. 45% gesamtschweizerisch).','Allgemein schwache Response-Rate.']
+});
+
+reg(56, 'Dialogmarketing-Datenbank', 'zuordnung', {
+  instruction: 'Eine Dialogmarketing-Datenbank enth\u00e4lt vier Datenarten. Ordnen Sie die Kriterien den Datenarten zu. (Rep 29, S.147)',
+  items: ['Bedarfsmenge, Bedarfszeitpunkte','Datum der letzten Bestellung, Kauffrequenz','Art des ersten Kontakts, Datum des ersten Interesses','Aktuelle Adressdaten','Kundenwert, Kundenpotenzial','Soziodemografische Daten','Durchschnittlicher Bestellwert, Beschwerden'],
+  options: ['Potenzialdaten','Reaktionsdaten','Aktionsdaten','Grunddaten'],
+  correct: ['Potenzialdaten','Reaktionsdaten','Aktionsdaten','Grunddaten','Potenzialdaten','Grunddaten','Reaktionsdaten'],
+  tips: ['Grunddaten = Basisdaten wie Adresse, Demografie.','Aktionsdaten = Informationen \u00fcber eigene Aktionen.','Reaktionsdaten = Kundenreaktionen und Kaufverhalten.','Potenzialdaten = Kundenwert und -potenzial.'],
+  reveal: ['Bedarfsmenge/Bedarfszeitpunkte = Potenzialdaten.','Datum letzte Bestellung/Kauffrequenz = Reaktionsdaten.','Art/Datum des ersten Kontakts = Aktionsdaten.','Aktuelle Adressdaten = Grunddaten.','Kundenwert/Kundenpotenzial = Potenzialdaten.','Soziodemografische Daten = Grunddaten.','Durchschn. Bestellwert/Beschwerden = Reaktionsdaten.']
+});
+
+reg(57, 'Dialogmarketing Definition', 'lueckentext', {
+  instruction: 'Erg\u00e4nzen Sie die Definition des Dialogmarketings.',
+  segments: ['Dialogmarketing ist eine Kommunikationsform mit dem Ziel, eine ',{blank:true,answer:['interaktive'],width:120},' Beziehung zum ',{blank:true,answer:['Kunden'],width:100},' aufzubauen und zu pflegen. Es erm\u00f6glicht eine ',{blank:true,answer:['individuelle','pers\u00f6nliche'],width:130},' Ansprache und den Aufbau einer ',{blank:true,answer:['Datenbank'],width:120},'.'],
+  tips: ['Dialogmarketing = interaktive Beziehung.','Individuelle Ansprache ist ein Kernmerkmal.','Datenbanken sind das Herzst\u00fcck.'],
+  reveal: ['Interaktive Beziehung zum Kunden.','Individuelle/pers\u00f6nliche Ansprache.','Aufbau und Pflege einer Datenbank.']
+});
+
+reg(58, 'Strategien des Dialogmarketings', 'zuordnung', {
+  instruction: 'Ordnen Sie die Beschreibungen den Dialogmarketing-Strategien zu.',
+  items: ['Neue Kunden gewinnen','Bestehende Kunden binden und Mehrwert bieten','Verlorene Kunden zur\u00fcckgewinnen'],
+  options: ['Akquisitionsstrategie','Bindungsstrategie','R\u00fcckgewinnungsstrategie'],
+  correct: ['Akquisitionsstrategie','Bindungsstrategie','R\u00fcckgewinnungsstrategie'],
+  tips: ['Akquisition = neue Kunden.','Bindung = bestehende Kunden.','R\u00fcckgewinnung = verlorene Kunden.'],
+  reveal: ['Akquisitionsstrategie: Neue Kunden gewinnen.','Bindungsstrategie: Bestehende Kunden binden.','R\u00fcckgewinnungsstrategie: Verlorene Kunden zur\u00fcckgewinnen.']
+});
+
+reg(59, 'Massnahmen des Dialogmarketings', 'mc', {
+  instruction: 'Welches ist KEINE typische Massnahme des Dialogmarketings?',
+  options: [
+    'Direct Mail (adressiert)',
+    'E-Mail-Marketing',
+    'TV-Spot zur Primetime',
+    'Telefonmarketing'
+  ],
+  correct: 2,
+  tips: ['Dialogmarketing = individuelle, pers\u00f6nliche Kommunikation.','TV-Spots sind Massenwerbung, kein Dialog.','Direct Mail, E-Mail und Telefon sind typische DM-Instrumente.'],
+  reveal: ['TV-Spot zur Primetime ist Massenwerbung (Mediawerbung), kein Dialogmarketing.','Direct Mail, E-Mail-Marketing und Telefonmarketing sind klassische DM-Massnahmen.']
+});
+
+reg(60, 'Dialogmarketing: Richtig oder Falsch', 'rf', {
+  statements: [
+    {s:'Beim Dialogmarketing steht die individuelle, pers\u00f6nliche Ansprache im Vordergrund.',correct:true,feedback:'Dies ist das Kernmerkmal des Dialogmarketings.'},
+    {s:'Eine Dialogmarketing-Datenbank enth\u00e4lt nur Adressdaten.',correct:false,feedback:'Sie enth\u00e4lt Grunddaten, Aktionsdaten, Reaktionsdaten und Potenzialdaten.'},
+    {s:'Die Stopp-Kleber liegen gesamtschweizerisch bei ca. 45%.',correct:true,feedback:'Ca. 45% der Briefk\u00e4sten haben Stopp-Kleber.'},
+    {s:'Dialogmarketing hat keine rechtlichen Einschr\u00e4nkungen.',correct:false,feedback:'Das Datenschutzgesetz stellt eine wichtige Einschr\u00e4nkung dar.'}
+  ],
+  tips: ['Individuelle Ansprache = Kernmerkmal.','Datenbank = vier Datenarten.','Datenschutz = wichtige Einschr\u00e4nkung.'],
+  reveal: ['Aussage 1: Richtig.','Aussage 2: Falsch - vier Datenarten.','Aussage 3: Richtig.','Aussage 4: Falsch - Datenschutzgesetz.']
+});
+
+reg(61, 'Budget im Dialogmarketing', 'freitext', {
+  instruction: 'Welche Kostenfaktoren m\u00fcssen beim Dialogmarketing-Budget ber\u00fccksichtigt werden?',
+  questions: [
+    {q:'Nennen Sie die Kostenfaktoren.',keywords:['datenbank','adress','produktion','versand','porto','kreation','personal','response'],minKeywords:3}
+  ],
+  tips: ['Denken Sie an Datenbank- und Adresskosten.','Produktion, Versand und Porto sind wichtig.','Auch Kreation und Personalkosten.'],
+  reveal: ['Datenbankaufbau und -pflege.','Adressbeschaffung und -aktualisierung.','Kreation und Produktion der Werbemittel.','Versand und Porto.','Personalkosten f\u00fcr Bearbeitung.','Response-Handling.']
+});
+
+reg(62, 'Ziele des Dialogmarketings', 'mc', {
+  instruction: 'Was ist das prim\u00e4re Ziel des Dialogmarketings?',
+  options: [
+    'M\u00f6glichst viele Personen mit einer Botschaft zu erreichen',
+    'Eine interaktive Beziehung zum Kunden aufzubauen und zu pflegen',
+    'Das Image des Unternehmens in der \u00d6ffentlichkeit zu verbessern',
+    'M\u00f6glichst g\u00fcnstig zu werben'
+  ],
+  correct: 1,
+  tips: ['Dialog = interaktiver Austausch.','Es geht um Beziehungsaufbau, nicht um Massenreichweite.'],
+  reveal: ['Das prim\u00e4re Ziel des Dialogmarketings ist der Aufbau einer interaktiven Beziehung zum Kunden.','Es geht nicht um Massenreichweite (das w\u00e4re Mediawerbung).']
+});
+
+// ============================================================
+// KAPITEL 8: Social Media (Ex 63-71)
+// ============================================================
+
+reg(63, 'Vor- und Nachteile von Online-Medien', 'zuordnung', {
+  instruction: 'Ordnen Sie die Aussagen den Vor- oder Nachteilen von Online-Medien zu. (Rep 30, S.159)',
+  items: ['Hohe Reichweite','Hohe Aufmerksamkeit, wenn richtig eingesetzt','Tiefe Kosten, wenn richtig eingesetzt','Funktionsweise ist nicht immer transparent','Hohe Kosten ohne Werbeeffekt, wenn falsch eingesetzt'],
+  options: ['Vorteil','Nachteil'],
+  correct: ['Vorteil','Vorteil','Vorteil','Nachteil','Nachteil'],
+  tips: ['Online-Medien bieten hohe Reichweite und Aufmerksamkeit.','Kosten k\u00f6nnen tief sein, aber auch hoch bei falscher Nutzung.','Transparenz ist nicht immer gegeben.'],
+  reveal: ['Vorteile: Hohe Reichweite, hohe Aufmerksamkeit, tiefe Kosten (wenn richtig).','Nachteile: Funktionsweise nicht immer transparent, hohe Kosten ohne Effekt bei falscher Nutzung.']
+});
+
+reg(64, 'SEO und SEA Budget', 'freitext', {
+  instruction: 'Kommentieren Sie die Aussage: \u00abSEO und SEA sind wichtig, deshalb sollte das Budget etwa 50% zu 50% aufgeteilt sein.\u00bb (Rep 31, S.159)',
+  questions: [
+    {q:'Ihre Kommentierung.',keywords:['sinn','kombinieren','nicht','50','fixkosten','variabel','optimierung','klick','agentur','aufwand'],minKeywords:3}
+  ],
+  tips: ['SEO und SEA sollten kombiniert werden.','Die optimale Budgetaufteilung ist nicht 50:50.','SEO = Fixkosten (Optimierung), SEA = variable Kosten (pro Klick).'],
+  reveal: ['Es macht Sinn, SEO und SEA zu kombinieren.','Die optimale Budgetaufteilung muss jedoch nicht 50:50 sein.','SEO sind h\u00e4ufig Fixkosten (Optimierung der Website durch Mitarbeitende oder Agenturkosten).','SEA sind in der Regel variable Kosten (pro Klick).']
+});
+
+reg(65, 'Formen der digitalen Kommunikation', 'lueckentext', {
+  instruction: 'Die g\u00e4ngigen Formen der digitalen Kommunikation sind:',
+  segments: ['1. Eigene ',{blank:true,answer:['Website'],width:120},', 2. ',{blank:true,answer:['Suchmaschinenmarketing'],width:200},' (SEO und SEA), 3. ',{blank:true,answer:['Social-Media-Kommunikation','Social Media'],width:200},', 4. ',{blank:true,answer:['E-Mail-Marketing'],width:160},', 5. ',{blank:true,answer:['Newsletter'],width:120},', 6. Banner-Werbung (',{blank:true,answer:['Display-Werbung','Display'],width:150},').'],
+  tips: ['Es gibt sechs g\u00e4ngige Formen.','Die Website ist die Basis.','Suchmaschinenmarketing, Social Media und E-Mail sind zentral.'],
+  reveal: ['1. Eigene Website.','2. Suchmaschinenmarketing SEO und SEA.','3. Social-Media-Kommunikation.','4. E-Mail-Marketing.','5. Newsletter.','6. Banner-Werbung (Display-Werbung).']
+});
+
+reg(66, 'Social-Media-Strategie', 'freitext', {
+  instruction: 'Was muss bei der Umsetzung einer Social-Media-Strategie beachtet werden?',
+  questions: [
+    {q:'Nennen Sie wichtige Aspekte.',keywords:['zeit','aufwand','wandel','ausprobieren','content','zielgruppe','kanal','regelm\u00e4ssig'],minKeywords:3}
+  ],
+  tips: ['Social-Media-Strategie erfordert Zeit und Aufwand.','Der schnelle Wandel verlangt Flexibilit\u00e4t.','Content und Kanalwahl sind entscheidend.'],
+  reveal: ['Die Umsetzung erfordert Zeit und ist mit Aufwand verbunden.','Der schnelle Wandel in der Social-Media-Welt verlangt auch etwas Ausprobieren.','Content muss regelm\u00e4ssig und zielgruppengerecht erstellt werden.','Die richtige Kanalwahl ist entscheidend.']
+});
+
+reg(67, 'Social-Media-Analyse (Fallbeispiel)', 'freitext', {
+  instruction: 'Ein KMU hat einen Instagram-Account mit 7 Abonnenten und postet monatlich ein Bild mit dem Spruch \u00abDamit wird\'s hygienisch sauber\u00bb. Formulieren Sie vier Fragen zur Situationsanalyse. (Rep 32, S.159)',
+  questions: [
+    {q:'Vier Analysefragen formulieren.',keywords:['instagram','richtig','kanal','funktioniert','inhalte','relevant','oft','wann','kunden','erreichen'],minKeywords:3}
+  ],
+  tips: ['Fragen Sie, ob Instagram der richtige Kanal ist.','Fragen Sie nach der Funktionsweise von Instagram.','Fragen Sie nach den Inhalten und der Posting-Frequenz.'],
+  reveal: ['1. Ist Instagram der richtige Social-Media-Kanal f\u00fcr uns?','2. Wie funktioniert Instagram?','3. Welche Inhalte sind f\u00fcr unsere Kunden relevant?','4. Wie oft und wann sollen wir unsere Beitr\u00e4ge posten, damit wir unsere Kunden erreichen?']
+});
+
+reg(68, 'Content Management System', 'mc', {
+  instruction: 'Was ist ein Content Management System (CMS)?',
+  options: [
+    'Ein System zur Verwaltung von Kundenbeziehungen',
+    'Eine Software zur Erstellung und Verwaltung von Website-Inhalten',
+    'Ein Tool f\u00fcr die Mediaplanung',
+    'Ein Instrument der Marktforschung'
+  ],
+  correct: 1,
+  tips: ['CMS = Content Management System.','Es dient der Erstellung und Verwaltung von Inhalten.','Open-Source-CMS k\u00f6nnen kostenlos genutzt werden.'],
+  reveal: ['Ein CMS ist eine Software zur Erstellung und Verwaltung von Website-Inhalten.','Es kann als Open-Source-Software kostenlos genutzt werden.','Beispiele: WordPress, Joomla, Drupal.']
+});
+
+reg(69, 'Kontrollinstrumente der Online-Kommunikation', 'freitext', {
+  instruction: 'Welche Kontrollinstrumente stehen bei der Online-Kommunikation zur Verf\u00fcgung?',
+  questions: [
+    {q:'Nennen Sie Kontrollinstrumente.',keywords:['besucher','verweildauer','kommentieren','weiterleiten','liken','abonnenten','newsletter','klick','google','analytics','aktivit\u00e4ten'],minKeywords:3}
+  ],
+  tips: ['Bei keiner anderen Kommunikationsform gibt es so viele Kontrollinstrumente.','Denken Sie an Website-Statistiken und Social-Media-Metriken.','Google Analytics ist ein bekanntes Tool.'],
+  reveal: ['Besucherzahlen und Verweildauer auf der Website.','Kommentare, Likes, Shares und Weiterleitungen.','Newsletter-Abonnenten und Abmeldungen.','Klickraten der Online-Werbung.','Google Analytics als kostenloses Tool zur Messung von Aktivit\u00e4ten.']
+});
+
+reg(70, 'Online-Medien: Richtig oder Falsch', 'rf', {
+  statements: [
+    {s:'Die Bedeutung der herk\u00f6mmlichen Medien nimmt zugunsten der Online-Medien ab.',correct:true,feedback:'Online-Massnahmen werden f\u00fcr Unternehmen immer wichtiger.'},
+    {s:'Online-Kommunikation geh\u00f6rt zu den teuersten Kommunikationsformen.',correct:false,feedback:'Online-Kommunikation ist eher g\u00fcnstig, aber zeitintensiv.'},
+    {s:'Google Analytics ist ein kostenloses Tool zur Messung der Online-Aktivit\u00e4ten.',correct:true,feedback:'Die Grundversion von Google Analytics ist kostenlos.'},
+    {s:'Cookies sind f\u00fcr das Targeting irrelevant.',correct:false,feedback:'Cookies werden f\u00fcr die Kontrolle der Werbung und das Targeting verwendet.'}
+  ],
+  tips: ['Online w\u00e4chst, herk\u00f6mmlich schrumpft.','Online-Kommunikation ist g\u00fcnstig aber zeitintensiv.','Google Analytics ist kostenlos.'],
+  reveal: ['Aussage 1: Richtig.','Aussage 2: Falsch - g\u00fcnstig, aber zeitintensiv.','Aussage 3: Richtig.','Aussage 4: Falsch - Cookies sind wichtig f\u00fcrs Targeting.']
+});
+
+reg(71, 'Social-Media-Kan\u00e4le', 'zuordnung', {
+  instruction: 'Ordnen Sie die Beschreibungen den Social-Media-Kan\u00e4len zu.',
+  items: ['Kurze Textnachrichten, Echtzeitkommunikation, 280 Zeichen','Foto- und Video-Sharing, visueller Content, Stories','Berufliches Netzwerk, B2B-Kommunikation','Gr\u00f6sstes soziales Netzwerk, breite Zielgruppe'],
+  options: ['Twitter/X','Instagram','LinkedIn','Facebook'],
+  correct: ['Twitter/X','Instagram','LinkedIn','Facebook'],
+  tips: ['Twitter/X = kurze Texte.','Instagram = visueller Content.','LinkedIn = beruflich/B2B.','Facebook = breiteste Zielgruppe.'],
+  reveal: ['Twitter/X: Kurze Nachrichten, Echtzeit.','Instagram: Fotos, Videos, Stories.','LinkedIn: B2B, berufliches Netzwerk.','Facebook: Gr\u00f6sstes Netzwerk, breite Zielgruppe.']
+});
+
+// ============================================================
+// KAPITEL 9: Kommunikationsforschung (Ex 72-80)
+// ============================================================
+
+reg(72, 'Kommunikationswirkungsmessung', 'freitext', {
+  instruction: 'Beschreiben Sie das inhaltliche und zeitliche Vorgehen bei der Kommunikationswirkungsmessung vor dem Medieneinsatz. (Rep 33, S.179)',
+  questions: [
+    {q:'Vorgehen beim Pretesting.',keywords:['pretest','verdichtung','konzepte','konzeptboards','grafische','umsetzung','brainstorming','varianten','ausformulierung','folder','studiotests','tachistoskop','copy'],minKeywords:3}
+  ],
+  tips: ['Pretesting findet vor der Lancierung statt.','Es geht um Verdichtung, Konkretisierung und Tests.','Instrumente: Folder Tests, Studiotests, Tachistoskop-Tests, Copy Tests.'],
+  reveal: ['Pretesting - Vorgehen: Verdichtung, Konkretisierung von Ideen zu Konzepten, verbale und/oder optische Konzeptboards.','Die Entwicklung der kreativen Brainstorming-Phase wird verdichtet; Ausformulierung der tragf\u00e4higen Konzepte (1-2 Varianten).','Instrumente: Folder Tests, Studiotests, Tachistoskop-Tests, Copy Tests.','Messfaktoren: Stimulationsleistung, Informationsleistung, Persuasionsleistung.']
+});
+
+reg(73, 'Kommunikationswirkungsmessverfahren zuordnen', 'zuordnung', {
+  instruction: 'Ordnen Sie die Begriffe dem entsprechenden Kommunikationswirkungsmessungsverfahren zu. (Rep 34, S.179)',
+  items: ['Anzeige oder Packungsabbildungen in Sekundenbruchteile aufgel\u00f6st','Wiederholte Befragung gleichartiger, aber nicht identischer Zielgruppen','Beurteilung und \u00dcberpr\u00fcfung der Erinnerungswerte (Posttest)','Liefert Indikatoren f\u00fcr die Einsch\u00e4tzung der Anzeigen-Wirkungsvoraussetzungen','Kontrolle des Lernerfolgs','Beurteilung unterschiedlicher Anzeigenentwurfe','Vergleich unterschiedlicher Spotkonzepte bzw. Spotl\u00e4ngen','Messung der Anzeigenerinnerung, Markenerinnerung, Bildelemente, Texterinnerung'],
+  options: ['Tachistoskop-Test','Trackingstudie','Folder Test','Copy Test','Trackingstudie','Folder Test','Studiotest','Folder Test'],
+  correct: ['Tachistoskop-Test','Trackingstudie','Folder Test','Copy Test','Trackingstudie','Folder Test','Studiotest','Folder Test'],
+  tips: ['Tachistoskop = Sekundenbruchteile.','Trackingstudie = wiederholte Befragung.','Folder Test = Erinnerungswerte, Anzeigenbeurteilung.','Copy Test = Wirkungsvoraussetzungen.'],
+  reveal: ['Tachistoskop-Test: Sekundenbruchteile.','Trackingstudie: Wiederholte Befragung nicht-identischer Zielgruppen.','Folder Test: Erinnerungswerte (Posttest) und Anzeigenbeurteilung.','Copy Test: Indikatoren f\u00fcr Wirkungsvoraussetzungen.','Studiotest: Vergleich von Spotkonzepten.']
+});
+
+reg(74, 'MACH-Studien', 'freitext', {
+  instruction: 'Beschreiben Sie die wichtigsten Unterschiede der Mediastudien MACH Basic, MACH Consumer und MA Leader. (Rep 35, S.179)',
+  questions: [
+    {q:'Unterschiede erkl\u00e4ren.',keywords:['basic','allgemeine','mediennutzung','bev\u00f6lkerung','consumer','einkaufsgewohnheiten','leader','f\u00fchrungskr\u00e4fte','funktion','unternehmen'],minKeywords:4}
+  ],
+  tips: ['MACH Basic erforscht die allgemeine Mediennutzung.','MACH Consumer erg\u00e4nzt um Einkaufsgewohnheiten.','MA Leader fokussiert auf F\u00fchrungskr\u00e4fte.'],
+  reveal: ['MACH Basic: Erforscht die allgemeine Mediennutzung der Schweizer Bev\u00f6lkerung insgesamt. Grundgesamtheit: 6 565 000 Personen.','MACH Consumer: Basierend auf MACH Basic werden die Einkaufsgewohnheiten erhoben und damit in Bezug zur allgemeinen Mediennutzung gebracht. Grundgesamtheit: 6 565 000 Personen.','MA Leader: Befragung der schweizerischen F\u00fchrungskr\u00e4fte, erg\u00e4nzt mit Angaben zu deren Funktion in ihren Unternehmen. Grundgesamtheit: Leader 438 000, Top-Leader 151 000 Personen.']
+});
+
+reg(75, 'Pre-Test vs. Post-Test', 'zuordnung', {
+  instruction: 'Ordnen Sie die Beschreibungen dem richtigen Verfahren zu.',
+  items: ['Wird vor der Lancierung einer Kampagne durchgef\u00fchrt','Wird nach der Durchf\u00fchrung einer Kampagne durchgef\u00fchrt','Dient der Optimierung der Werbemittel','Dient der Erfolgskontrolle'],
+  options: ['Pre-Test (Vortest)','Post-Test (Nachtest)'],
+  correct: ['Pre-Test (Vortest)','Post-Test (Nachtest)','Pre-Test (Vortest)','Post-Test (Nachtest)'],
+  tips: ['Pre-Test = vor der Lancierung.','Post-Test = nach der Durchf\u00fchrung.','Pre-Test optimiert, Post-Test kontrolliert.'],
+  reveal: ['Pre-Test: Vor der Lancierung, dient der Optimierung.','Post-Test: Nach der Durchf\u00fchrung, dient der Erfolgskontrolle.']
+});
+
+reg(76, 'Prozess der Kommunikationsforschung', 'lueckentext', {
+  instruction: 'Erg\u00e4nzen Sie die Schritte im Prozess der Kommunikationsforschung.',
+  segments: ['1. Festlegung der ',{blank:true,answer:['Forschungsziele','Ziele'],width:160},'. 2. Bestimmung der ',{blank:true,answer:['Methode','Forschungsmethode'],width:140},'. 3. ',{blank:true,answer:['Datenerhebung'],width:140},'. 4. ',{blank:true,answer:['Datenanalyse','Auswertung'],width:140},'. 5. Pr\u00e4sentation der ',{blank:true,answer:['Ergebnisse','Resultate'],width:140},'.'],
+  tips: ['Der Prozess beginnt mit der Festlegung der Forschungsziele.','Danach wird die Methode bestimmt.','Datenerhebung, -analyse und Pr\u00e4sentation folgen.'],
+  reveal: ['1. Forschungsziele festlegen.','2. Methode bestimmen.','3. Datenerhebung durchf\u00fchren.','4. Datenanalyse/Auswertung.','5. Pr\u00e4sentation der Ergebnisse.']
+});
+
+reg(77, 'Institutionen der Kommunikationsforschung', 'mc', {
+  instruction: 'Welche Institution misst die Mediennutzung der Schweizer Bev\u00f6lkerung?',
+  options: [
+    'Google Analytics',
+    'WEMF/MACH',
+    'Nielsen',
+    'Comscore'
+  ],
+  correct: 1,
+  tips: ['WEMF = Werbemedienforschung.','MACH = Media Analysis CH.','WEMF/MACH misst die Mediennutzung in der Schweiz.'],
+  reveal: ['WEMF/MACH (Media Analysis CH) misst die Mediennutzung der Schweizer Bev\u00f6lkerung.','MACH Basic, MACH Consumer, MA Leader sind die wichtigsten Studien.']
+});
+
+reg(78, 'Kommunikationsforschung: Richtig oder Falsch', 'rf', {
+  statements: [
+    {s:'Der Effizienznachweis des Kommunikationsbudgets spielt angesichts knapper werdender Budgets eine immer gr\u00f6ssere Rolle.',correct:true,feedback:'Die Werbewirkungs- und Werbeerfolgskontrolle wird immer wichtiger.'},
+    {s:'Pre-Tests werden nach der Durchf\u00fchrung einer Kampagne eingesetzt.',correct:false,feedback:'Pre-Tests werden VOR der Lancierung eingesetzt. Post-Tests nach der Durchf\u00fchrung.'},
+    {s:'Tachistoskop-Tests zeigen Anzeigen oder Packungsabbildungen in Sekundenbruchteilen.',correct:true,feedback:'Der Tachistoskop-Test ist ein klassisches Verfahren.'},
+    {s:'Trackingstudien befragen immer die gleichen Personen.',correct:false,feedback:'Trackingstudien befragen gleichartige, aber NICHT identische Zielgruppen (wiederholte Befragung).'}
+  ],
+  tips: ['Effizienznachweis wird immer wichtiger.','Pre-Test = vor, Post-Test = nach der Kampagne.','Trackingstudien = nicht-identische Zielgruppen.'],
+  reveal: ['Aussage 1: Richtig.','Aussage 2: Falsch - Pre-Tests = vor der Lancierung.','Aussage 3: Richtig.','Aussage 4: Falsch - nicht identische, sondern gleichartige Zielgruppen.']
+});
+
+reg(79, 'Messfaktoren der Kommunikationswirkung', 'zuordnung', {
+  instruction: 'Ordnen Sie die Messfaktoren den richtigen Beschreibungen zu.',
+  items: ['F\u00e4higkeit der Werbung, Aufmerksamkeit zu erzeugen','F\u00e4higkeit der Werbung, Informationen zu vermitteln','F\u00e4higkeit der Werbung, Einstellungen und Verhalten zu beeinflussen'],
+  options: ['Stimulationsleistung','Informationsleistung','Persuasionsleistung'],
+  correct: ['Stimulationsleistung','Informationsleistung','Persuasionsleistung'],
+  tips: ['Stimulation = Aufmerksamkeit.','Information = Wissensvermittlung.','Persuasion = \u00dcberzeugung und Verhaltens\u00e4nderung.'],
+  reveal: ['Stimulationsleistung: Aufmerksamkeit erzeugen.','Informationsleistung: Informationen vermitteln.','Persuasionsleistung: Einstellungen und Verhalten beeinflussen.']
+});
+
+reg(80, 'Werbewirkung und Werbeerfolg', 'freitext', {
+  instruction: 'Erkl\u00e4ren Sie den Unterschied zwischen Werbewirkung und Werbeerfolg.',
+  questions: [
+    {q:'Unterschied Werbewirkung vs. Werbeerfolg.',keywords:['werbewirkung','wahrnehmung','erinnerung','einstellung','werbeerfolg','\u00f6konomisch','umsatz','absatz','marktanteil','kommunikativ'],minKeywords:3}
+  ],
+  tips: ['Werbewirkung = kommunikative Wirkung (Wahrnehmung, Erinnerung).','Werbeerfolg = \u00f6konomische Wirkung (Umsatz, Absatz).','Werbewirkung ist die Voraussetzung f\u00fcr Werbeerfolg.'],
+  reveal: ['Werbewirkung: Kommunikative Wirkung - wie wird die Werbung wahrgenommen, erinnert, wie beeinflusst sie Einstellungen?','Werbeerfolg: \u00d6konomische Wirkung - wie wirkt sich die Werbung auf Umsatz, Absatz und Marktanteil aus?','Die Werbewirkung ist die Voraussetzung f\u00fcr den Werbeerfolg.']
+});
+
+
+// ======================================================================
+// EXERCISE RENDERER
+// ======================================================================
+
+function ExerciseRenderer(props){
+  var ex = props.ex;
+  var d = ex.data;
+  var progress = props.progress;
+  var onDone = props.onDone;
+
+  // --- MC ---
+  if(ex.type==='mc'){
+    var st=useState(null),sel=st[0],setSel=st[1];
+    var st2=useState(false),checked=st2[0],setChecked=st2[1];
+    function check(){setChecked(true);if(sel===d.correct)onDone()}
+    function reset(){setSel(null);setChecked(false)}
+    return e('div',null,
+      e('div',{className:'ex-instruction'},d.instruction),
+      e(Tips,{tips:d.tips}),
+      d.options.map(function(opt,i){
+        var cls='mc-option';
+        if(sel===i)cls+=' selected';
+        if(checked&&sel===i&&sel===d.correct)cls=' mc-option correct-sel';
+        if(checked&&sel===i&&sel!==d.correct)cls=' mc-option wrong-sel';
+        if(checked&&sel!==d.correct&&i===d.correct)cls=' mc-option correct-unsel';
+        return e('div',{key:i,className:cls,onClick:function(){if(!checked)setSel(i)}},
+          e('div',{className:'mc-radio'}),
+          e('span',null,opt)
+        );
+      }),
+      e('div',{className:'btn-row'},
+        !checked?e('button',{className:'btn btn-primary',onClick:check,disabled:sel===null},'Pr\u00fcfen'):null,
+        checked?e('button',{className:'btn btn-secondary',onClick:reset},'Nochmal'):null
+      ),
+      checked?e('div',{className:'solution-box'},e('strong',null,sel===d.correct?'\u2713 Korrekt!':'\u2717 Leider falsch.'),' Die richtige Antwort ist: ',d.options[d.correct]):null,
+      e(Reveal,{steps:d.reveal})
+    );
+  }
+
+  // --- RF (Richtig/Falsch) ---
+  if(ex.type==='rf'){
+    var st=useState(d.statements.map(function(){return null})),ans=st[0],setAns=st[1];
+    var st2=useState(false),checked=st2[0],setChecked=st2[1];
+    function pick(i,v){if(checked)return;var a=ans.slice();a[i]=v;setAns(a)}
+    function check(){setChecked(true);var allOk=true;d.statements.forEach(function(s,i){if(ans[i]!==s.correct)allOk=false});if(allOk)onDone()}
+    function reset(){setAns(d.statements.map(function(){return null}));setChecked(false)}
+    return e('div',null,
+      e(Tips,{tips:d.tips}),
+      d.statements.map(function(s,i){
+        var isCorrect=checked&&ans[i]===s.correct;
+        var isWrong=checked&&ans[i]!==s.correct;
+        return e('div',{key:i,className:'tf-row'},
+          e('div',{className:'tf-statement'},s.s),
+          e('div',{className:'tf-buttons'},
+            e('button',{className:'tf-btn'+(ans[i]===true?' selected':'')+(checked&&s.correct===true&&ans[i]===true?' correct-sel':'')+(checked&&s.correct===false&&ans[i]===true?' wrong-sel':'')+(checked&&s.correct===true&&ans[i]!==true?' correct-unsel':''),onClick:function(){pick(i,true)}},'Richtig'),
+            e('button',{className:'tf-btn'+(ans[i]===false?' selected':'')+(checked&&s.correct===false&&ans[i]===false?' correct-sel':'')+(checked&&s.correct===true&&ans[i]===false?' wrong-sel':'')+(checked&&s.correct===false&&ans[i]!==false?' correct-unsel':''),onClick:function(){pick(i,false)}},'Falsch')
+          ),
+          checked?e('div',{className:'feedback '+(isCorrect?'ok':'nok')},s.feedback):null
+        );
+      }),
+      e('div',{className:'btn-row'},
+        !checked?e('button',{className:'btn btn-primary',onClick:check},'Pr\u00fcfen'):null,
+        checked?e('button',{className:'btn btn-secondary',onClick:reset},'Nochmal'):null
+      ),
+      e(Reveal,{steps:d.reveal})
+    );
+  }
+
+  // --- Zuordnung ---
+  if(ex.type==='zuordnung'){
+    var st=useState(d.items.map(function(){return ''})),sel=st[0],setSel=st[1];
+    var st2=useState(false),checked=st2[0],setChecked=st2[1];
+    function pick(i,v){if(checked)return;var a=sel.slice();a[i]=v;setSel(a)}
+    function check(){setChecked(true);var allOk=true;d.items.forEach(function(item,i){if(sel[i]!==d.correct[i])allOk=false});if(allOk)onDone()}
+    function reset(){setSel(d.items.map(function(){return ''}));setChecked(false)}
+    var uniqueOpts=[];
+    d.options.forEach(function(o){if(uniqueOpts.indexOf(o)===-1)uniqueOpts.push(o)});
+    return e('div',null,
+      e('div',{className:'ex-instruction'},d.instruction),
+      e(Tips,{tips:d.tips}),
+      d.items.map(function(item,i){
+        var cls='match-select';
+        if(checked&&sel[i]===d.correct[i])cls+=' correct';
+        if(checked&&sel[i]!==d.correct[i])cls+=' wrong';
+        return e('div',{key:i,className:'match-row'},
+          e('div',{className:'match-label'},item),
+          e('select',{className:cls,value:sel[i],onChange:function(ev){pick(i,ev.target.value)}},
+            e('option',{value:''},'-- w\u00e4hlen --'),
+            uniqueOpts.map(function(o,j){return e('option',{key:j,value:o},o)})
+          )
+        );
+      }),
+      checked?d.items.map(function(item,i){
+        if(sel[i]!==d.correct[i])return e('div',{key:'fb'+i,className:'feedback nok',style:{marginTop:4}},item+' \u2192 '+d.correct[i]);
+        return null;
+      }):null,
+      e('div',{className:'btn-row'},
+        !checked?e('button',{className:'btn btn-primary',onClick:check},'Pr\u00fcfen'):null,
+        checked?e('button',{className:'btn btn-secondary',onClick:reset},'Nochmal'):null
+      ),
+      e(Reveal,{steps:d.reveal})
+    );
+  }
+
+  // --- L\u00fcckentext ---
+  if(ex.type==='lueckentext'){
+    var blanks=[];d.segments.forEach(function(s){if(s&&s.blank)blanks.push('')});
+    var st=useState(blanks),vals=st[0],setVals=st[1];
+    var st2=useState(false),checked=st2[0],setChecked=st2[1];
+    var st3=useState(null),results=st3[0],setResults=st3[1];
+    function upd(i,v){var a=vals.slice();a[i]=v;setVals(a)}
+    function check(){
+      var r=[],bi=0,allOk=true;
+      d.segments.forEach(function(s){
+        if(s&&s.blank){
+          var ok=matchAnswer(vals[bi],s.answer);
+          r.push(ok);if(!ok)allOk=false;bi++;
+        }
+      });
+      setResults(r);setChecked(true);if(allOk)onDone();
+    }
+    function reset(){setVals(blanks.map(function(){return ''}));setChecked(false);setResults(null)}
+    var bi=0;
+    return e('div',null,
+      e('div',{className:'ex-instruction'},d.instruction),
+      e(Tips,{tips:d.tips}),
+      e('div',{className:'blank-text'},d.segments.map(function(s,i){
+        if(typeof s==='string')return e('span',{key:i},s);
+        var idx=bi++;
+        var cls='blank-input';
+        if(results){cls+=results[idx]?' correct':' wrong'}
+        return e('input',{key:i,className:cls,style:{width:s.width||140},value:vals[idx],onChange:function(ev){upd(idx,ev.target.value)},disabled:checked});
+      })),
+      checked&&results?e('div',{className:'solution-box'},e('strong',null,'L\u00f6sungen: '),function(){
+        var bi2=0;return d.segments.filter(function(s){return s&&s.blank}).map(function(s,i){
+          return e('span',{key:i},(i>0?', ':'')+((typeof s.answer==='string')?s.answer:s.answer[0]));
+        });
+      }()):null,
+      e('div',{className:'btn-row'},
+        !checked?e('button',{className:'btn btn-primary',onClick:check},'Pr\u00fcfen'):null,
+        checked?e('button',{className:'btn btn-secondary',onClick:reset},'Nochmal'):null
+      ),
+      e(Reveal,{steps:d.reveal})
+    );
+  }
+
+  // --- Freitext ---
+  if(ex.type==='freitext'){
+    var st=useState(d.questions.map(function(){return ''})),vals=st[0],setVals=st[1];
+    var st2=useState(false),checked=st2[0],setChecked=st2[1];
+    var st3=useState(null),results=st3[0],setResults=st3[1];
+    function upd(i,v){var a=vals.slice();a[i]=v;setVals(a)}
+    function check(){
+      var r=d.questions.map(function(q,i){return matchKeywords(vals[i],q.keywords)>=q.minKeywords});
+      setResults(r);setChecked(true);if(r.every(function(v){return v}))onDone();
+    }
+    function reset(){setVals(d.questions.map(function(){return ''}));setChecked(false);setResults(null)}
+    return e('div',null,
+      e('div',{className:'ex-instruction'},d.instruction),
+      e(Tips,{tips:d.tips}),
+      d.questions.map(function(q,i){
+        var cls='text-input';
+        if(results){cls+=results[i]?' correct':' wrong'}
+        return e('div',{key:i,className:'text-q'},
+          e('p',null,e('strong',null,q.q)),
+          e('textarea',{className:cls,rows:3,value:vals[i],onChange:function(ev){upd(i,ev.target.value)},disabled:checked}),
+          checked&&results&&!results[i]?e('div',{className:'feedback nok'},'Versuche folgende Begriffe einzubauen: '+q.keywords.join(', ')):null,
+          checked&&results&&results[i]?e('div',{className:'feedback ok'},'\u2713 Gut beantwortet!'):null
+        );
+      }),
+      e('div',{className:'btn-row'},
+        !checked?e('button',{className:'btn btn-primary',onClick:check},'Pr\u00fcfen'):null,
+        checked?e('button',{className:'btn btn-secondary',onClick:reset},'Nochmal'):null
+      ),
+      e(Reveal,{steps:d.reveal})
+    );
+  }
+
+  // --- Tabelle ---
+  if(ex.type==='tabelle'){
+    var st=useState(d.rows.map(function(){return null})),ans=st[0],setAns=st[1];
+    var st2=useState(false),checked=st2[0],setChecked=st2[1];
+    function pick(i,v){if(checked)return;var a=ans.slice();a[i]=v;setAns(a)}
+    function check(){setChecked(true);var allOk=true;d.rows.forEach(function(r,i){if(ans[i]!==r.correct)allOk=false});if(allOk)onDone()}
+    function reset(){setAns(d.rows.map(function(){return null}));setChecked(false)}
+    var cols=d.headers.length;
+    return e('div',null,
+      e('div',{className:'ex-instruction'},d.instruction),
+      e(Tips,{tips:d.tips}),
+      e('table',{className:'check-table'},
+        e('thead',null,e('tr',null,d.headers.map(function(h,i){return e('th',{key:i},h)}).reverse())),
+        e('tbody',null,d.rows.map(function(r,i){
+          var rowCls='';
+          if(checked&&ans[i]===r.correct)rowCls='correct-row';
+          if(checked&&ans[i]!==null&&ans[i]!==r.correct)rowCls='wrong-row';
+          return e('tr',{key:i,className:rowCls},
+            e('td',null,r.label),
+            Array.from({length:cols-1},function(_,j){
+              return e('td',{key:j},e('input',{type:'radio',name:'row'+i,checked:ans[i]===j,onChange:function(){pick(i,j)}}));
+            })
+          );
+        }))
+      ),
+      e('div',{className:'btn-row'},
+        !checked?e('button',{className:'btn btn-primary',onClick:check},'Pr\u00fcfen'):null,
+        checked?e('button',{className:'btn btn-secondary',onClick:reset},'Nochmal'):null
+      ),
+      e(Reveal,{steps:d.reveal})
+    );
+  }
+
+  return e('div',null,'Unbekannter \u00dcbungstyp: '+ex.type);
+}
+
+// ======================================================================
+// MAIN APP
+// ======================================================================
+
+function App(){
+  var st=useState(loadProgress()),progress=st[0],setProgress=st[1];
+  var st2=useState({}),openCh=st2[0],setOpenCh=st2[1];
+  var st3=useState({}),openEx=st3[0],setOpenEx=st3[1];
+  var st4=useState(false),dark=st4[0],setDark=st4[1];
+  var st5=useState(false),showCalc=st5[0],setShowCalc=st5[1];
+  var st6=useState(''),notes=st6[0],setNotes=st6[1];
+  var st7=useState(false),showNotes=st7[0],setShowNotes=st7[1];
+  var st8=useState(false),showGloss=st8[0],setShowGloss=st8[1];
+  var st9=useState(0),timer=st9[0],setTimer=st9[1];
+  var st10=useState({}),activeTab=st10[0],setActiveTab=st10[1];
+
+  useEffect(function(){
+    var n=localStorage.getItem('ki-notes')||'';setNotes(n);
+    var d=localStorage.getItem('ki-dark')==='1';setDark(d);
+  },[]);
+
+  useEffect(function(){
+    if(dark)document.body.classList.add('dark');else document.body.classList.remove('dark');
+    localStorage.setItem('ki-dark',dark?'1':'0');
+  },[dark]);
+
+  useEffect(function(){localStorage.setItem('ki-notes',notes)},[notes]);
+
+  useEffect(function(){var t=setInterval(function(){setTimer(function(v){return v+1})},1000);return function(){clearInterval(t)}},[]);
+
+  function toggleCh(id){setOpenCh(function(o){var n={};n[id]=!o[id];return Object.assign({},o,n)})}
+  function toggleEx(id){setOpenEx(function(o){var n={};n[id]=!o[id];return Object.assign({},o,n)})}
+
+  function markDone(id){
+    var p=Object.assign({},progress);p[id]=true;setProgress(p);saveProgress(p);
+  }
+
+  function resetAll(){
+    setProgress({});saveProgress({});
+    setOpenCh({});setOpenEx({});setTimer(0);
+  }
+
+  var doneCount=Object.keys(progress).length;
+  var pct=Math.round(doneCount/TOTAL_EX*100);
+  var mm=String(Math.floor(timer/60)).padStart(2,'0');
+  var ss=String(timer%60).padStart(2,'0');
+
+  function getTabKey(chId){return activeTab[chId]||'exercises'}
+  function setTab(chId,tab){setActiveTab(function(o){var n={};n[chId]=tab;return Object.assign({},o,n)})}
+
+  // Get learn-read status for a chapter
+  function isLearnRead(chId){return localStorage.getItem('ki-learn-read-'+chId)==='1'}
+
+  // Get best exam score for a chapter
+  function getExamBest(chId){
+    try{var v=JSON.parse(localStorage.getItem('ki-exam-best-'+chId));return v}catch(x){return null}
+  }
+
+  return e('div',null,
+    // NAV
+    e('div',{className:'nav'},
+      e('div',{style:{display:'flex',alignItems:'center',gap:12}},
+        e('a',{href:'../index.html',className:'btn-back'},'\u2190'),
+        e('div',null,
+          e('div',{className:'nav-title'},'Kommunikation Instrumente'),
+          e('div',{className:'nav-sub'},'Markus Aerni \u00b7 Compendio')
+        )
+      ),
+      e('div',{className:'nav-right'},
+        e('div',{className:'timer-display'},mm+':'+ss),
+        e('div',{className:'score-badge '+(pct>=50?'good':'bad')},doneCount+'/'+TOTAL_EX+' ('+pct+'%)'),
+        e('div',{className:'tool-bar'},
+          e('button',{className:'tool-btn'+(showCalc?' active':''),onClick:function(){setShowCalc(!showCalc);setShowNotes(false);setShowGloss(false)}},'\ud83e\uddc2 Rechner'),
+          e('button',{className:'tool-btn'+(showNotes?' active':''),onClick:function(){setShowNotes(!showNotes);setShowCalc(false);setShowGloss(false)}},'\ud83d\udcdd Notizen'),
+          e('button',{className:'tool-btn'+(showGloss?' active':''),onClick:function(){setShowGloss(!showGloss);setShowCalc(false);setShowNotes(false)}},'\ud83d\udcd6 Glossar'),
+          e('button',{className:'tool-btn',onClick:function(){setDark(!dark)}},dark?'\u2600\ufe0f Hell':'\ud83c\udf19 Dunkel'),
+          e('button',{className:'tool-btn',onClick:resetAll},'\ud83d\uddd1\ufe0f Reset')
+        )
+      )
+    ),
+
+    // CONTENT
+    e('div',{className:'container'},
+      chapters.map(function(ch){
+        var exDone=ch.exercises.filter(function(id){return progress[id]}).length;
+        var exTotal=ch.exercises.length;
+        var pctCh=Math.round(exDone/exTotal*100);
+        var isOpen=openCh[ch.id];
+        var tabKey=getTabKey(ch.id);
+
+        return e('div',{key:ch.id,className:'chapter-card'},
+          e('div',{className:'chapter-header',onClick:function(){toggleCh(ch.id)}},
+            e('div',{className:'ch-info'},
+              e('div',{className:'ch-num'},'Teil '+ch.teil+' \u00b7 Kapitel '+ch.id),
+              e('div',{className:'ch-title'},ch.title),
+              e('div',{className:'ch-meta'},exDone+' von '+exTotal+' \u00dcbungen gel\u00f6st'),
+              e('div',{className:'progress-bar'},e('div',{className:'progress-fill',style:{width:pctCh+'%'}}))
+            ),
+            e('div',{className:'ch-arrow'+(isOpen?' open':'')},'\u25bc')
+          ),
+          isOpen?e('div',null,
+            // 3-Modi Tabs
+            e('div',{className:'chapter-tabs'},
+              e('button',{className:'chapter-tab'+(tabKey==='learn'?' active':''),onClick:function(){setTab(ch.id,'learn')}},
+                e('span',{className:'chapter-tab-icon'},'\ud83d\udcd6'),
+                'Lernen',
+                isLearnRead(ch.id)?e('span',{className:'tab-badge done'},'\u2713'):null
+              ),
+              e('button',{className:'chapter-tab'+(tabKey==='exercises'?' active':''),onClick:function(){setTab(ch.id,'exercises')}},
+                e('span',{className:'chapter-tab-icon'},'\u270d\ufe0f'),
+                '\u00dcben',
+                e('span',{className:'tab-badge'+(exDone===exTotal?' done':'')},exDone+'/'+exTotal)
+              ),
+              e('button',{className:'chapter-tab'+(tabKey==='exam'?' active':''),onClick:function(){setTab(ch.id,'exam')}},
+                e('span',{className:'chapter-tab-icon'},'\ud83c\udfaf'),
+                'Pr\u00fcfung',
+                function(){var bs=getExamBest(ch.id);return bs?e('span',{className:'tab-badge'+(bs.pct>=60?' done':'')},bs.pct+'%'):null}()
+              )
+            ),
+            // Learning content
+            tabKey==='learn'?e(LearningRenderer,{chId:ch.id}):null,
+            // Exam mode
+            tabKey==='exam'?e(ExamMode,{chId:ch.id,exercises:ch.exercises}):null,
+            // Exercises (Ueben)
+            tabKey==='exercises'?e('div',{className:'exercise-list'},
+              ch.exercises.map(function(exId){
+                var ex=exerciseData[exId];
+                if(!ex)return null;
+                var isDone=progress[exId];
+                var isExOpen=openEx[exId];
+                var typeLabel={mc:'Multiple Choice',rf:'Richtig/Falsch',zuordnung:'Zuordnung',lueckentext:'L\u00fcckentext',freitext:'Freitext',tabelle:'Tabelle'}[ex.type]||ex.type;
+                return e('div',{key:exId,className:'ex-card'},
+                  e('div',{className:'ex-header',onClick:function(){toggleEx(exId)}},
+                    e('div',{className:'ex-num'+(isDone?' done':'')},isDone?'\u2713':exId),
+                    e('div',{className:'ex-title-wrap'},
+                      e('div',{className:'ex-title'},ex.title),
+                      e('div',{className:'ex-type'},typeLabel)
+                    ),
+                    e('div',{className:'ch-arrow'+(isExOpen?' open':'')},'\u25bc')
+                  ),
+                  isExOpen?e('div',{className:'ex-body'},
+                    e(ExerciseRenderer,{ex:ex,progress:progress,onDone:function(){markDone(exId)}})
+                  ):null
+                );
+              })
+            ):null
+          ):null
+        );
+      }),
+      e('div',{className:'footer'},'Kommunikation Instrumente Lern-App \u00b7 Basierend auf dem Lehrmittel von Markus Aerni (Compendio, 2023)')
+    ),
+
+    // PANELS
+    showCalc?e(CalcPanel,{onClose:function(){setShowCalc(false)}}):null,
+    showNotes?e(NotesPanel,{notes:notes,setNotes:setNotes,onClose:function(){setShowNotes(false)}}):null,
+    showGloss?e(GlossaryPanel,{onClose:function(){setShowGloss(false)}}):null
+  );
+}
+
+ReactDOM.render(e(App),document.getElementById('root'));
+</script>
+</body>
+</html>

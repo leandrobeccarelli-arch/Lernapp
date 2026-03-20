@@ -1,0 +1,2357 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digitales Marketing Lern-App</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#f0f1f5;--nav:#1a2332;--card:#ffffff;--text:#1a2332;--text2:#64748b;--accent:#3b82f6;--green:#059669;--red:#dc2626;--border:#e2e8f0;--card-shadow:0 1px 3px rgba(0,0,0,0.08);--input-bg:#f8fafc;--hover:#f1f5f9}
+.dark{--bg:#0f172a;--nav:#0b1120;--card:#1e293b;--text:#e2e8f0;--text2:#94a3b8;--accent:#60a5fa;--green:#34d399;--red:#f87171;--border:#334155;--card-shadow:0 1px 3px rgba(0,0,0,0.3);--input-bg:#0f172a;--hover:#334155}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;transition:background .3s,color .3s}
+input,select,button,textarea{font-family:'Inter',sans-serif}
+.nav{background:linear-gradient(165deg, #0a0c10 0%, #141820 40%, #1a2332 70%, #0d1018 100%);padding:12px 20px;position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 12px rgba(0,0,0,.15);flex-wrap:wrap;gap:8px}
+.nav-title{color:#fff;font-size:1.25rem;font-weight:700}
+.nav-sub{color:#94a3b8;font-size:.8rem;margin-top:2px}
+.nav-right{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.nav-btn,.btn-back{background:rgba(255,255,255,.1);border:none;color:#fff;padding:8px 12px;border-radius:8px;cursor:pointer;font-size:.85rem;display:flex;align-items:center;gap:6px;transition:background .2s}
+.nav-btn:hover,.btn-back:hover{background:rgba(255,255,255,.2)}
+.container{max-width:900px;margin:0 auto;padding:24px 16px 80px}
+.chapter-card{background:var(--card);border-radius:16px;box-shadow:var(--card-shadow);margin-bottom:16px;overflow:hidden;border:1px solid var(--border);transition:background .3s,border .3s}
+.chapter-header{padding:20px 24px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;user-select:none}
+.chapter-header:hover{background:var(--hover)}
+.ch-info{flex:1}
+.ch-num{font-size:.75rem;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
+.ch-title{font-size:1.1rem;font-weight:700;margin-bottom:8px}
+.ch-meta{font-size:.8rem;color:var(--text2)}
+.progress-bar{height:4px;background:var(--border);border-radius:2px;margin-top:10px;overflow:hidden;max-width:300px}
+.progress-fill{height:100%;background:var(--accent);border-radius:2px;transition:width .5s ease}
+.ch-arrow{font-size:1.2rem;color:var(--text2);transition:transform .3s;margin-left:16px}
+.ch-arrow.open{transform:rotate(180deg)}
+.exercise-list{padding:0 16px 16px}
+.ex-card{background:var(--card);border:1px solid var(--border);border-radius:12px;margin-bottom:12px;overflow:hidden;transition:background .3s,border .3s;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.ex-header{padding:16px 20px;cursor:pointer;display:flex;align-items:center;justify-content:space-between}
+.ex-header:hover{background:var(--hover)}
+.ex-num{background:var(--accent);color:#fff;width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;flex-shrink:0;margin-right:14px}
+.ex-num.done{background:var(--green)}
+.ex-title-wrap{flex:1}
+.ex-title{font-weight:600;font-size:.95rem}
+.ex-type{font-size:.75rem;color:var(--text2);margin-top:2px}
+.ex-body{padding:0 20px 20px}
+.ex-instruction{font-size:.85rem;color:var(--text2);margin-bottom:16px;line-height:1.5;font-style:italic}
+.blank-text{font-size:.9rem;line-height:2.2;margin-bottom:12px}
+.blank-input{border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-size:.85rem;width:140px;background:var(--input-bg);color:var(--text);outline:none;transition:border .2s}
+.blank-input:focus{border-color:var(--accent)}
+.blank-input.correct{border-color:var(--green);background:rgba(5,150,105,.08)}
+.blank-input.wrong{border-color:var(--red);background:rgba(220,38,38,.08)}
+.tf-row{padding:12px 0;border-bottom:1px solid var(--border);display:flex;flex-direction:column;gap:8px}
+.tf-row:last-child{border-bottom:none}
+.tf-statement{font-size:.9rem;line-height:1.5}
+.tf-buttons{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.tf-btn{padding:6px 16px;border-radius:6px;border:1px solid var(--border);background:var(--input-bg);color:var(--text);cursor:pointer;font-size:.85rem;font-weight:500;transition:all .2s}
+.tf-btn:hover{border-color:var(--accent)}
+.tf-btn.selected{background:var(--accent);color:#fff;border-color:var(--accent)}
+.tf-btn.correct-sel{background:var(--green);color:#fff;border-color:var(--green)}
+.tf-btn.wrong-sel{background:var(--red);color:#fff;border-color:var(--red)}
+.tf-btn.correct-unsel{border-color:var(--green);color:var(--green)}
+.feedback{font-size:.8rem;margin-top:4px;padding:6px 10px;border-radius:6px;line-height:1.4}
+.feedback.ok{background:rgba(5,150,105,.1);color:var(--green)}
+.feedback.nok{background:rgba(220,38,38,.1);color:var(--red)}
+.match-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border);flex-wrap:wrap}
+.match-row:last-child{border-bottom:none}
+.match-label{flex:1;font-size:.9rem;min-width:200px}
+.match-select{border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:.85rem;background:var(--input-bg);color:var(--text);min-width:200px;cursor:pointer}
+.match-select.correct{border-color:var(--green);background:rgba(5,150,105,.08)}
+.match-select.wrong{border-color:var(--red);background:rgba(220,38,38,.08)}
+.calc-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border);flex-wrap:wrap}
+.calc-row:last-child{border-bottom:none}
+.calc-label{font-size:.9rem;min-width:120px}
+.calc-val{font-size:.9rem;font-weight:500;min-width:80px}
+.calc-input{border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:.85rem;width:120px;background:var(--input-bg);color:var(--text);text-align:right}
+.calc-input.correct{border-color:var(--green);background:rgba(5,150,105,.08)}
+.calc-input.wrong{border-color:var(--red);background:rgba(220,38,38,.08)}
+.check-table{width:100%;border-collapse:collapse;font-size:.85rem}
+.check-table th{padding:8px 6px;text-align:center;background:var(--hover);font-weight:600;font-size:.8rem;border:1px solid var(--border)}
+.check-table td{padding:8px 6px;border:1px solid var(--border);text-align:center}
+.check-table td:first-child{text-align:left;min-width:200px}
+.check-table input[type=radio],.check-table input[type=checkbox]{cursor:pointer;width:16px;height:16px;accent-color:var(--accent)}
+.check-table tr.correct-row{background:rgba(5,150,105,.06)}
+.check-table tr.wrong-row{background:rgba(220,38,38,.06)}
+.btn-row{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
+.btn{padding:10px 20px;border-radius:9px;border:none;font-size:.9rem;font-weight:600;cursor:pointer;transition:all .12s ease;display:flex;align-items:center;gap:6px}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:#2563eb}
+.btn-secondary{background:var(--input-bg);color:var(--text);border:1px solid var(--border)}
+.btn-secondary:hover{background:var(--hover)}
+.btn-reset{background:var(--red);color:#fff}
+.btn-reset:hover{opacity:.9}
+.solution-box{background:rgba(5,150,105,.06);border:1px solid var(--green);border-radius:8px;padding:16px;margin-top:12px;font-size:.85rem;line-height:1.6}
+.solution-box strong{color:var(--green)}
+.text-input{border:1px solid var(--border);border-radius:6px;padding:8px 12px;font-size:.85rem;width:100%;background:var(--input-bg);color:var(--text);margin-top:4px}
+.text-input.correct{border-color:var(--green);background:rgba(5,150,105,.08)}
+.text-input.wrong{border-color:var(--red);background:rgba(220,38,38,.08)}
+.text-q{margin-bottom:16px}
+.text-q p{font-size:.9rem;line-height:1.5;margin-bottom:6px}
+.score-badge{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:12px;font-size:.8rem;font-weight:600}
+.score-badge.good{background:rgba(5,150,105,.1);color:var(--green)}
+.score-badge.bad{background:rgba(220,38,38,.1);color:var(--red)}
+.timer-display{color:#fff;font-size:.9rem;font-weight:500;font-variant-numeric:tabular-nums}
+.footer{text-align:center;padding:24px;font-size:.8rem;color:var(--text2)}
+.mc-option{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--border);border-radius:8px;margin-bottom:8px;cursor:pointer;transition:all .15s;font-size:.9rem}
+.mc-option:hover{border-color:var(--accent);background:var(--hover)}
+.mc-option.selected{border-color:var(--accent);background:rgba(59,130,246,.08)}
+.mc-option.correct-sel{border-color:var(--green);background:rgba(5,150,105,.08)}
+.mc-option.wrong-sel{border-color:var(--red);background:rgba(220,38,38,.08)}
+.mc-option.correct-unsel{border-color:var(--green)}
+.mc-radio{width:18px;height:18px;border-radius:50%;border:2px solid var(--border);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .15s}
+.mc-check{width:18px;height:18px;border-radius:4px;border:2px solid var(--border);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .15s}
+.mc-option.selected .mc-radio{border-color:var(--accent);background:var(--accent)}
+.mc-option.selected .mc-radio::after{content:'';width:8px;height:8px;border-radius:50%;background:#fff}
+.mc-option.selected .mc-check{border-color:var(--accent);background:var(--accent)}
+.mc-option.selected .mc-check::after{content:'';width:8px;height:8px;background:#fff}
+.sub-q{margin-top:16px;padding-top:12px;border-top:1px solid var(--border)}
+.sub-q label{font-size:.85rem;font-weight:500;display:block;margin-bottom:4px}
+@keyframes slideUp{from{transform:translateY(100%);opacity:0}to{transform:translateY(0);opacity:1}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.panel-overlay{position:fixed;bottom:16px;z-index:900;background:var(--card);border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,.2);border:1px solid var(--border);display:flex;flex-direction:column;animation:fadeUp .2s ease}
+.panel-header{padding:12px 16px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.panel-header b{color:var(--text);font-size:.9rem}
+.panel-close{background:var(--hover);border:none;width:28px;height:28px;border-radius:7px;font-size:13px;cursor:pointer;color:var(--text2);display:flex;align-items:center;justify-content:center}
+.panel-close:hover{background:var(--border)}
+.calc-panel{right:16px;width:300px;max-height:480px}
+.calc-display{padding:12px 16px;text-align:right;font-size:1.6rem;font-weight:800;color:var(--text);font-variant-numeric:tabular-nums;border-bottom:1px solid var(--border);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.calc-prev{padding:4px 16px;text-align:right;font-size:.75rem;color:var(--text2);font-variant-numeric:tabular-nums;height:22px}
+.calc-history{padding:6px 12px;max-height:50px;overflow-y:auto;border-bottom:1px solid var(--border)}
+.calc-history-item{font-size:.7rem;color:var(--text2);font-variant-numeric:tabular-nums;line-height:1.4}
+.calc-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:6px;padding:8px 12px 14px}
+.calc-btn{border:none;border-radius:10px;font-size:1.1rem;font-weight:600;height:46px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-variant-numeric:tabular-nums;transition:all .12s}
+.calc-btn:active{transform:scale(.95)}
+.calc-btn-num{background:var(--card);color:var(--text);border:1px solid var(--border)}
+.calc-btn-num:hover{background:var(--hover)}
+.calc-btn-op{background:rgba(26,35,50,.06);color:var(--nav);font-weight:700}
+.dark .calc-btn-op{background:rgba(255,255,255,.08);color:var(--text)}
+.calc-btn-op:hover{background:rgba(26,35,50,.12)}
+.calc-btn-eq{background:var(--nav);color:#fff;font-weight:700}
+.dark .calc-btn-eq{background:var(--accent);color:#fff}
+.calc-btn-eq:hover{opacity:.9}
+.calc-btn-fn{background:rgba(59,130,246,.08);color:var(--accent);font-weight:700}
+.calc-btn-fn:hover{background:rgba(59,130,246,.15)}
+.calc-btn-span2{grid-column:span 2}
+.notes-panel{left:50%;transform:translateX(-50%);width:380px;max-height:420px}
+.notes-body{flex:1;padding:8px 12px 12px}
+.notes-body textarea{width:100%;height:100%;min-height:260px;padding:10px 12px;border-radius:10px;border:1px solid var(--border);background:var(--input-bg);color:var(--text);font-size:.85rem;line-height:1.6;font-family:'Inter',sans-serif;resize:none;box-sizing:border-box;outline:none}
+.notes-body textarea:focus{border-color:var(--accent)}
+.notes-meta{font-size:.7rem;color:var(--text2)}
+.glossary-panel{left:16px;width:320px;max-height:420px}
+.glossary-search{padding:6px 12px 0}
+.glossary-search input{width:100%;padding:7px 10px;border-radius:7px;border:1px solid var(--border);background:var(--input-bg);color:var(--text);font-size:.8rem;box-sizing:border-box;outline:none}
+.glossary-search input:focus{border-color:var(--accent)}
+.glossary-list{padding:6px 12px 12px;flex:1;overflow-y:auto}
+.glossary-item{padding:6px 8px;margin-bottom:4px;border-radius:6px;background:var(--input-bg);border-left:3px solid var(--nav)}
+.dark .glossary-item{border-left-color:var(--accent)}
+.glossary-item-title{color:var(--nav);font-weight:700;font-size:.75rem}
+.dark .glossary-item-title{color:var(--accent)}
+.glossary-item-desc{color:var(--text2);font-size:.7rem;line-height:1.4}
+.tool-bar{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto}
+.tool-btn{padding:6px 12px;border-radius:8px;border:1.5px solid rgba(255,255,255,.2);background:rgba(255,255,255,.07);color:#fff;font-size:.75rem;font-weight:600;cursor:pointer;transition:all .15s;white-space:nowrap}
+.tool-btn:hover{background:rgba(255,255,255,.15)}
+.tool-btn.active{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.4)}
+.tip-box{background:rgba(59,130,246,.06);border:1px solid rgba(59,130,246,.2);border-radius:8px;padding:12px 16px;margin-bottom:16px}
+.tip-toggle{font-size:.85rem;font-weight:600;color:var(--accent);cursor:pointer;display:flex;align-items:center;gap:6px}
+.tip-content{margin-top:8px;font-size:.82rem;color:var(--text2);line-height:1.6}
+.tip-content li{margin-bottom:4px}
+.reveal-box{background:rgba(5,150,105,.04);border:1px solid rgba(5,150,105,.2);border-radius:8px;padding:12px 16px;margin-top:12px}
+.reveal-toggle{font-size:.85rem;font-weight:600;color:var(--green);cursor:pointer;display:flex;align-items:center;gap:6px}
+.reveal-content{margin-top:8px;font-size:.82rem;color:var(--text);line-height:1.6}
+.reveal-step{padding:8px 0;border-bottom:1px solid var(--border)}
+.reveal-step:last-child{border-bottom:none}
+.chapter-tabs{display:flex;gap:0;margin-bottom:0;border-bottom:2px solid var(--border);background:var(--card);padding:0 16px}
+.chapter-tab{padding:14px 24px;font-size:.9rem;font-weight:600;cursor:pointer;border:none;background:none;color:var(--text2);position:relative;transition:color .2s;display:flex;align-items:center;gap:8px}
+.chapter-tab:hover{color:var(--text)}
+.chapter-tab.active{color:var(--accent)}
+.chapter-tab.active::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:2px;background:var(--accent);border-radius:2px 2px 0 0}
+.chapter-tab-icon{font-size:1.1rem}
+.learn-container{padding:16px 20px 24px}
+.learn-section{background:var(--card);border:1px solid var(--border);border-radius:14px;margin-bottom:20px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.04);transition:background .3s,border .3s}
+.learn-section-header{padding:18px 22px 14px;display:flex;align-items:center;gap:12px}
+.learn-section-icon{font-size:1.3rem;flex-shrink:0}
+.learn-section-title{font-size:1.05rem;font-weight:700;color:var(--text)}
+.learn-section-body{padding:0 22px 20px}
+.learn-intro{border-top:3px solid var(--accent)}
+.learn-intro .learn-intro-text{font-size:.88rem;color:var(--text2);line-height:1.6;margin-bottom:12px}
+.learn-intro .learn-intro-list{list-style:none;padding:0}
+.learn-intro .learn-intro-list li{padding:8px 14px;font-size:.88rem;line-height:1.5;color:var(--text);background:rgba(59,130,246,.04);border-left:3px solid var(--accent);margin-bottom:6px;border-radius:0 8px 8px 0}
+.learn-concept{border-top:3px solid #8b5cf6}
+.learn-concept .learn-concept-text{font-size:.88rem;line-height:1.7;color:var(--text);margin-bottom:12px}
+.learn-highlight{background:linear-gradient(135deg,rgba(245,158,11,.08),rgba(245,158,11,.04));border:1px solid rgba(245,158,11,.25);border-radius:10px;padding:14px 18px;font-size:.88rem;line-height:1.6;color:var(--text);font-weight:500;position:relative}
+.learn-highlight::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:#f59e0b;border-radius:4px 0 0 4px}
+.learn-table-wrap{overflow-x:auto}
+.learn-table{width:100%;border-collapse:separate;border-spacing:0;font-size:.85rem;border-radius:10px;overflow:hidden;border:1px solid var(--border)}
+.learn-table thead th{background:var(--nav);color:#fff;padding:10px 14px;font-weight:600;font-size:.8rem;text-transform:uppercase;letter-spacing:.3px;text-align:left}
+.dark .learn-table thead th{background:rgba(59,130,246,.2);color:var(--accent)}
+.learn-table tbody td{padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text);vertical-align:top}
+.learn-table tbody tr:last-child td{border-bottom:none}
+.learn-table tbody tr:nth-child(even){background:var(--hover)}
+.learn-table .table-label{font-weight:600;color:var(--accent);min-width:160px}
+.learn-terms-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.learn-term-card{background:var(--input-bg);border:1px solid var(--border);border-radius:10px;padding:14px 16px;transition:all .15s}
+.learn-term-card:hover{border-color:var(--accent);box-shadow:0 2px 8px rgba(59,130,246,.1)}
+.learn-term-name{font-weight:700;font-size:.88rem;color:var(--nav);margin-bottom:4px}
+.dark .learn-term-name{color:var(--accent)}
+.learn-term-def{font-size:.82rem;color:var(--text2);line-height:1.5}
+.learn-merke{border-top:3px solid #f59e0b}
+.learn-merke .learn-merke-list{list-style:none;padding:0}
+.learn-merke .learn-merke-list li{padding:10px 14px;font-size:.88rem;line-height:1.5;color:var(--text);background:linear-gradient(135deg,rgba(245,158,11,.06),rgba(245,158,11,.02));border-left:3px solid #f59e0b;margin-bottom:8px;border-radius:0 8px 8px 0;font-weight:500}
+.learn-summary{border-top:3px solid var(--green)}
+.learn-summary .learn-summary-text{font-size:.88rem;line-height:1.7;color:var(--text)}
+.learn-summary .learn-summary-text p{margin-bottom:10px}
+.learn-summary .learn-summary-text strong{color:var(--green)}
+.learn-hinweis{background:rgba(14,165,233,.06);border:1px solid rgba(14,165,233,.2);border-radius:10px;padding:14px 18px;font-size:.85rem;line-height:1.6;color:var(--text);margin-top:12px;margin-bottom:12px}
+.learn-hinweis::before{content:'Hinweis';display:block;font-weight:700;color:#0ea5e9;font-size:.75rem;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+.learn-complete-bar{padding:20px 22px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.learn-complete-btn{padding:12px 28px;border-radius:10px;border:none;font-size:.9rem;font-weight:700;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:8px}
+.learn-complete-btn.ready{background:var(--green);color:#fff}
+.learn-complete-btn.ready:hover{opacity:.9}
+.learn-complete-btn.done{background:rgba(5,150,105,.1);color:var(--green);cursor:default}
+.learn-progress-text{font-size:.82rem;color:var(--text2)}
+/* Exam Mode Styles */
+.exam-header{background:linear-gradient(135deg,rgba(59,130,246,.08),rgba(59,130,246,.03));border:1px solid rgba(59,130,246,.2);border-radius:14px;padding:20px 24px;margin:16px 16px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.exam-timer{font-size:1.4rem;font-weight:800;font-variant-numeric:tabular-nums;padding:8px 18px;border-radius:10px;background:var(--card);border:2px solid var(--accent);color:var(--accent)}
+.exam-timer.warning{border-color:var(--red);color:var(--red);animation:pulse 1s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.6}}
+.exam-info{font-size:.85rem;color:var(--text2)}
+.exam-info strong{color:var(--text);font-size:.95rem}
+.exam-start-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:32px;margin:16px;text-align:center}
+.exam-start-card h3{font-size:1.2rem;margin-bottom:12px;color:var(--text)}
+.exam-start-card p{font-size:.88rem;color:var(--text2);line-height:1.6;margin-bottom:8px}
+.exam-start-btn{background:var(--accent);color:#fff;border:none;padding:14px 36px;border-radius:12px;font-size:1rem;font-weight:700;cursor:pointer;margin-top:16px;transition:all .15s}
+.exam-start-btn:hover{background:#2563eb;transform:scale(1.02)}
+.exam-exercise{background:var(--card);border:1px solid var(--border);border-radius:14px;margin:12px 16px;padding:20px 24px;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.exam-exercise .ex-num-label{font-size:.8rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px}
+.exam-result{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:32px;margin:16px;text-align:center}
+.score-circle{width:140px;height:140px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto 20px;border:6px solid var(--border);position:relative}
+.score-circle.pass{border-color:var(--green);background:rgba(5,150,105,.06)}
+.score-circle.fail{border-color:var(--red);background:rgba(220,38,38,.06)}
+.score-circle .score-pct{font-size:2rem;font-weight:800;line-height:1}
+.score-circle .score-label{font-size:.75rem;font-weight:600;margin-top:4px}
+.score-circle.pass .score-pct{color:var(--green)}
+.score-circle.pass .score-label{color:var(--green)}
+.score-circle.fail .score-pct{color:var(--red)}
+.score-circle.fail .score-label{color:var(--red)}
+.exam-result h3{font-size:1.2rem;margin-bottom:8px}
+.exam-result .result-detail{font-size:.9rem;color:var(--text2);margin-bottom:6px}
+.exam-result .result-pass{color:var(--green);font-weight:700;font-size:1.05rem;margin:12px 0}
+.exam-result .result-fail{color:var(--red);font-weight:700;font-size:1.05rem;margin:12px 0}
+.exam-best-score{background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.25);border-radius:10px;padding:12px 18px;margin-top:16px;font-size:.85rem;display:inline-block}
+.exam-best-score strong{color:#f59e0b}
+.exam-btn-row{display:flex;gap:10px;justify-content:center;margin-top:20px;flex-wrap:wrap}
+.chapter-tab .mode-badge{font-size:.65rem;background:rgba(5,150,105,.15);color:var(--green);padding:2px 6px;border-radius:4px;font-weight:700;margin-left:4px}
+@media(max-width:640px){
+  .panel-overlay{bottom:0;border-radius:16px 16px 0 0;left:0!important;right:0!important;width:100%!important;transform:none!important;animation:slideUp .2s ease}
+  .calc-panel{right:0;max-height:70vh}
+  .notes-panel{max-height:60vh}
+  .notes-body textarea{min-height:180px}
+  .glossary-panel{max-height:50vh}
+  .match-row{flex-direction:column;align-items:flex-start;gap:6px}
+  .calc-row{flex-direction:column;align-items:flex-start;gap:4px}
+  .nav{padding:12px 16px}
+  .nav-title{font-size:1.05rem}
+  .container{padding:16px 10px 60px}
+  .check-table{font-size:.75rem;display:block;overflow-x:auto}
+  .chapter-tabs{padding:0 12px}
+  .chapter-tab{padding:12px 16px;font-size:.82rem}
+  .learn-container{padding:12px 14px 20px}
+  .learn-section-body{padding:0 16px 16px}
+  .learn-section-header{padding:14px 16px 10px}
+  .learn-terms-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+var e = React.createElement;
+var useState = React.useState, useEffect = React.useEffect, useRef = React.useRef, useCallback = React.useCallback, useMemo = React.useMemo;
+
+// ---- Data ----
+var chapters = [
+  {id:1, title:'Digitales Marketing verstehen', exercises:[1,2,3,4,5,6,7,8,9,10]},
+  {id:2, title:'Marketingkonzept für das digitale Marketing', exercises:[11,12,13,14,15,16,17,18]},
+  {id:3, title:'Analyse (Ist-Zustand)', exercises:[19,20,21,22,23,24,25,26,27]},
+  {id:4, title:'Zielsetzung und Strategien (Soll-Zustand)', exercises:[28,29,30,31,32,33,34,35,36]},
+  {id:5, title:'Instrumente - Teil 1', exercises:[37,38,39,40,41,42,43,44,45,46]},
+  {id:6, title:'Instrumente - Teil 2', exercises:[47,48,49,50,51,52,53,54,55,56]},
+  {id:7, title:'Budget und Realisation', exercises:[57,58,59,60,61,62,63,64,65]},
+  {id:8, title:'Kontrolle', exercises:[66,67,68,69,70,71,72,73,74,75]}
+];
+
+var TOTAL_EX = 75;
+
+// ---- Helpers ----
+function normalize(s){return (s||'').trim().toLowerCase().replace(/[ä]/g,'ae').replace(/[ö]/g,'oe').replace(/[ü]/g,'ue').replace(/[ß]/g,'ss').replace(/[^a-z0-9 ]/g,'').replace(/\s+/g,' ')}
+function matchAnswer(input, answers){
+  var n = normalize(input);
+  if(!n) return false;
+  if(typeof answers === 'string') return n === normalize(answers);
+  return answers.some(function(a){return n === normalize(a)});
+}
+function matchKeywords(input, keywords){
+  var n = (input||'').toLowerCase();
+  var found = 0;
+  keywords.forEach(function(k){if(n.indexOf(k.toLowerCase())>=0) found++});
+  return found;
+}
+function loadProgress(){try{return JSON.parse(localStorage.getItem('lp-progress-digitales-marketing'))||{}}catch(x){return{}}}
+function saveProgress(p){localStorage.setItem('lp-progress-digitales-marketing', JSON.stringify(p))}
+
+// ---- Glossary Data ----
+var GLOSSAR = [
+  {t:'SEO',d:'Search Engine Optimization - Suchmaschinenoptimierung. Massnahmen zur Verbesserung der organischen (unbezahlten) Platzierung in Suchmaschinen.'},
+  {t:'SEA',d:'Search Engine Advertising - Suchmaschinenwerbung. Bezahlte Anzeigen in Suchmaschinen (z.B. Google Ads).'},
+  {t:'SEM',d:'Search Engine Marketing - Suchmaschinenmarketing. Oberbegriff für SEO und SEA.'},
+  {t:'Content Marketing',d:'Strategischer Marketingansatz, bei dem wertvolle, relevante Inhalte erstellt werden, um eine klar definierte Zielgruppe anzuziehen und zu binden.'},
+  {t:'Social Media Marketing',d:'Nutzung sozialer Medien (Facebook, Instagram, LinkedIn etc.) für Marketingzwecke.'},
+  {t:'E-Mail-Marketing',d:'Strategischer Einsatz von E-Mail, um den Empfänger auf eine bestimmte Online-Präsenz zu lenken und Geschäfte anzubahnen.'},
+  {t:'Display Advertising',d:'Online-Werbung mit visuellen Anzeigen (Banner, Videos) auf Websites und in Apps.'},
+  {t:'Affiliate Marketing',d:'Partnerprogramm, bei dem Vertriebspartner Produkte bewerben und bei Erfolg eine Provision erhalten.'},
+  {t:'Influencer Marketing',d:'Einsatz von Meinungsmachern mit reichweitenstarker Community für Marketing- und Kommunikationszwecke.'},
+  {t:'Customer Journey',d:'Die Phasen des Kaufentscheidungsprozesses, die ein Kunde durchläuft - von der Wahrnehmung bis zum Kauf und darüber hinaus.'},
+  {t:'Touchpoints',d:'Kontaktpunkte, an denen Kunden mit dem Unternehmen, der Marke oder dem Produkt in Berührung kommen.'},
+  {t:'Conversion',d:'Umwandlung eines Website-Besuchers in einen Kunden oder eine gewünschte Aktion (Kauf, Anmeldung etc.).'},
+  {t:'Conversion Rate',d:'Prozentsatz der Besucher, die eine gewünschte Aktion durchführen, im Verhältnis zur Gesamtzahl der Besucher.'},
+  {t:'KPI',d:'Key Performance Indicator - Schlüsselkennzahl zur Messung des Erfolgs von Marketingaktivitäten.'},
+  {t:'ROI',d:'Return on Investment - Verhältnis zwischen Gewinn und investiertem Kapital.'},
+  {t:'CTR',d:'Click-Through Rate - Klickrate. Verhältnis zwischen Einblendungen eines Werbemittels und der Anzahl der Klicks.'},
+  {t:'CPC',d:'Cost per Click - Kosten pro Klick auf eine Werbeanzeige.'},
+  {t:'CPM',d:'Cost per Mille (TKP) - Tausender-Kontakt-Preis. Kosten pro 1000 Einblendungen/Sichtkontakte.'},
+  {t:'Landing Page',d:'Speziell gestaltete Webseite, auf die Besucher nach dem Klick auf eine Anzeige gelangen.'},
+  {t:'A/B-Testing',d:'Vergleich von zwei Varianten (z.B. Webseiten, E-Mails), um die bessere Performance zu ermitteln.'},
+  {t:'Tracking',d:'Verfolgung und Aufzeichnung des Nutzerverhaltens auf Websites und in digitalen Kanälen.'},
+  {t:'Analytics',d:'Systematische Auswertung von Daten zur Messung und Optimierung von Marketingaktivitäten.'},
+  {t:'Retargeting',d:'Erneutes Ansprechen von Nutzern, die bereits mit einer Website oder einem Produkt interagiert haben.'},
+  {t:'Remarketing',d:'Ähnlich wie Retargeting - gezielte Werbung an Personen, die bereits Interesse gezeigt haben.'},
+  {t:'Organic Reach',d:'Organische Reichweite - Anzahl der Personen, die Inhalte ohne bezahlte Werbung sehen.'},
+  {t:'Paid Reach',d:'Bezahlte Reichweite - Anzahl der Personen, die durch bezahlte Werbung erreicht werden.'},
+  {t:'AIDA',d:'Attention, Interest, Desire, Action - Werbewirkungsmodell für die Gestaltung von Marketingbotschaften.'},
+  {t:'Sales Funnel',d:'Verkaufstrichter - Modell, das den Weg vom Interessenten zum Kunden in verschiedenen Phasen abbildet.'},
+  {t:'Lead Generation',d:'Leadgenerierung - Gewinnung von Kontaktdaten potenzieller Kunden.'},
+  {t:'Marketing Automation',d:'Automatisierung von Marketingprozessen durch Software zur Effizienzsteigerung.'},
+  {t:'Responsive Design',d:'Webdesign-Ansatz, bei dem sich die Darstellung automatisch an verschiedene Bildschirmgrössen anpasst.'},
+  {t:'UX',d:'User Experience - Nutzererfahrung. Gesamtheit der Erfahrungen eines Nutzers bei der Interaktion mit einem Produkt.'},
+  {t:'Bounce Rate',d:'Absprungrate - Anteil der Besucher, die eine Website nach dem Aufrufen nur einer Seite wieder verlassen.'},
+  {t:'Engagement Rate',d:'Interaktionsrate - Verhältnis der Interaktionen (Likes, Kommentare, Shares) zur Reichweite.'},
+  {t:'POST-Methode',d:'People, Objectives, Strategy, Technology - Alternative Methode zur Erstellung eines digitalen Marketingkonzepts.'},
+  {t:'Digitale Transformation',d:'Prozess der stetigen Weiterentwicklung digitaler Technologien, der Wirtschaft und Gesellschaft nachhaltig beeinflusst.'},
+  {t:'Web 2.0',d:'Das veränderte Internet, bei dem User Inhalte nicht nur konsumieren, sondern auch selbst produzieren können.'},
+  {t:'Prosumer',d:'Kunstwort aus Producer und Consumer - User, die Inhalte sowohl konsumieren als auch produzieren.'},
+  {t:'User Generated Content',d:'Von Nutzern erstellte Inhalte (Bewertungen, Kommentare, Fotos etc.).'},
+  {t:'SWOT-Analyse',d:'Analyse von Stärken (Strengths), Schwächen (Weaknesses), Chancen (Opportunities) und Risiken (Threats).'},
+  {t:'Persona',d:'Fiktive, repräsentative Person, die eine Zielgruppe eines Angebots repräsentiert, charakterisiert durch Motive, Bedürfnisse und Ziele.'},
+  {t:'Cookies',d:'Daten der Besucher einer Website, die gespeichert werden, um Seitenaufrufe oder Sitzungen Besuchern zuzuordnen.'},
+  {t:'Performance Marketing',d:'Einsatz von Online-Marketing-Instrumenten mit dem Ziel, eine messbare Reaktion oder Transaktion mit dem Nutzer zu erzielen.'},
+  {t:'CPL',d:'Cost per Lead - Kosten pro generiertem Lead/Kontakt.'},
+  {t:'Redaktionsplan',d:'Plan zur zeitlichen und inhaltlichen Organisation von Content-Marketing-Aktivitäten.'},
+  {t:'Social Commerce',d:'Verkauf von Produkten direkt über Social-Media-Plattformen.'},
+  {t:'Online PR',d:'Public Relations im digitalen Bereich zur Steigerung der Aufmerksamkeit und Bekanntheit.'},
+  {t:'Double-Opt-in',d:'Zweistufiges Bestätigungsverfahren für Newsletter-Anmeldungen (rechtlich erforderlich).'},
+  {t:'Microsite',d:'Projekt- oder themenbezogene Seite, wird oft im Zusammenhang mit Kampagnen genutzt.'}
+];
+
+// ---- Calculator Panel ----
+function CalcPanel(props){
+  var onClose=props.onClose;
+  var s=useState('0'),disp=s[0],setDisp=s[1];
+  var s2=useState(null),prev=s2[0],setPrev=s2[1];
+  var s3=useState(null),op=s3[0],setOp=s3[1];
+  var s4=useState(true),fresh=s4[0],setFresh=s4[1];
+  var s5=useState([]),hist=s5[0],setHist=s5[1];
+  function num(n){if(fresh){setDisp(String(n));setFresh(false)}else{setDisp(disp==='0'?String(n):disp+n)}}
+  function dec(){if(fresh){setDisp('0.');setFresh(false)}else if(disp.indexOf('.')===-1)setDisp(disp+'.')}
+  function oper(o){var cur=parseFloat(disp);if(prev!==null&&op&&!fresh){var r=calc(prev,cur,op);setDisp(String(Math.round(r*1e8)/1e8));setPrev(r);setHist(function(h){return h.concat([prev+' '+op+' '+cur+' = '+Math.round(r*1e8)/1e8])})}else{setPrev(cur)}setOp(o);setFresh(true)}
+  function calc(a,b,o){if(o==='+')return a+b;if(o==='\u2212')return a-b;if(o==='\u00d7')return a*b;if(o==='\u00f7')return b!==0?a/b:0;return b}
+  function eq(){if(prev===null||!op)return;var cur=parseFloat(disp);var r=calc(prev,cur,op);setHist(function(h){return h.concat([prev+' '+op+' '+cur+' = '+Math.round(r*1e8)/1e8])});setDisp(String(Math.round(r*1e8)/1e8));setPrev(null);setOp(null);setFresh(true)}
+  function cl(){setDisp('0');setPrev(null);setOp(null);setFresh(true)}
+  function pct(){setDisp(String(Math.round(parseFloat(disp)/100*1e8)/1e8))}
+  function sign(){setDisp(String(parseFloat(disp)*-1))}
+  function b(label,action,cls){return e('button',{className:'calc-btn '+cls,onClick:action},label)}
+  return e('div',{className:'panel-overlay calc-panel'},
+    e('div',{className:'panel-header'},e('b',null,'Taschenrechner'),e('button',{className:'panel-close',onClick:onClose},'\u2715')),
+    hist.length>0?e('div',{className:'calc-history'},hist.slice(-3).map(function(h,i){return e('div',{key:i,className:'calc-history-item'},h)})):null,
+    e('div',{className:'calc-display'},disp),
+    e('div',{className:'calc-prev'},prev!==null&&op?(prev+' '+op):''),
+    e('div',{className:'calc-grid'},
+      b('AC',cl,'calc-btn-fn'),b('\u00b1',sign,'calc-btn-op'),b('%',pct,'calc-btn-op'),b('\u00f7',function(){oper('\u00f7')},'calc-btn-op'),
+      b('7',function(){num('7')},'calc-btn-num'),b('8',function(){num('8')},'calc-btn-num'),b('9',function(){num('9')},'calc-btn-num'),b('\u00d7',function(){oper('\u00d7')},'calc-btn-op'),
+      b('4',function(){num('4')},'calc-btn-num'),b('5',function(){num('5')},'calc-btn-num'),b('6',function(){num('6')},'calc-btn-num'),b('\u2212',function(){oper('\u2212')},'calc-btn-op'),
+      b('1',function(){num('1')},'calc-btn-num'),b('2',function(){num('2')},'calc-btn-num'),b('3',function(){num('3')},'calc-btn-num'),b('+',function(){oper('+')},'calc-btn-op'),
+      b('0',function(){num('0')},'calc-btn-num calc-btn-span2'),b('.',dec,'calc-btn-num'),b('=',eq,'calc-btn-eq')
+    )
+  );
+}
+
+// ---- Notes Panel ----
+function NotesPanel(props){
+  return e('div',{className:'panel-overlay notes-panel'},
+    e('div',{className:'panel-header'},
+      e('b',null,'Notizen'),
+      e('div',{style:{display:'flex',gap:8,alignItems:'center'}},
+        e('span',{className:'notes-meta'},props.notes.length+' Zeichen'),
+        e('button',{className:'panel-close',onClick:props.onClose},'\u2715')
+      )
+    ),
+    e('div',{className:'notes-body'},
+      e('textarea',{value:props.notes,onChange:function(ev){props.setNotes(ev.target.value)},placeholder:'Notizen, Stichworte ...'})
+    )
+  );
+}
+
+// ---- Glossary Panel ----
+function GlossaryPanel(props){
+  var st=useState(''),search=st[0],setSearch=st[1];
+  var filtered=GLOSSAR.filter(function(g){return g.t.toLowerCase().indexOf(search.toLowerCase())>=0||g.d.toLowerCase().indexOf(search.toLowerCase())>=0});
+  return e('div',{className:'panel-overlay glossary-panel'},
+    e('div',{className:'panel-header'},e('b',null,'Glossar'),e('button',{className:'panel-close',onClick:props.onClose},'\u2715')),
+    e('div',{className:'glossary-search'},e('input',{value:search,onChange:function(ev){setSearch(ev.target.value)},placeholder:'Suchen ...'})),
+    e('div',{className:'glossary-list'},filtered.map(function(g,i){return e('div',{key:i,className:'glossary-item'},
+      e('div',{className:'glossary-item-title'},g.t),
+      e('div',{className:'glossary-item-desc'},g.d)
+    )}))
+  );
+}
+
+// ---- Tips Component ----
+function Tips(props){
+  var st=useState(false),open=st[0],setOpen=st[1];
+  return e('div',{className:'tip-box'},
+    e('div',{className:'tip-toggle',onClick:function(){setOpen(!open)}},open?'\u25bc':'\u25b6',' Tipps'),
+    open?e('ul',{className:'tip-content'},props.tips.map(function(t,i){return e('li',{key:i},t)})):null
+  );
+}
+
+// ---- Reveal Component ----
+function Reveal(props){
+  var st=useState(false),open=st[0],setOpen=st[1];
+  return e('div',{className:'reveal-box'},
+    e('div',{className:'reveal-toggle',onClick:function(){setOpen(!open)}},open?'\u25bc':'\u25b6',' L\u00f6sungsweg anzeigen'),
+    open?e('div',{className:'reveal-content'},props.steps.map(function(s,i){return e('div',{key:i,className:'reveal-step'},e('strong',null,'Schritt '+(i+1)+': '),s)})):null
+  );
+}
+
+// ======================================================================
+// EXAM MODE COMPONENT
+// ======================================================================
+
+function shuffleArray(arr) {
+  var a = arr.slice();
+  for (var i = a.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+  }
+  return a;
+}
+
+function loadExamBest(chId) {
+  try { return JSON.parse(localStorage.getItem('dm-exam-best-' + chId)) || null; } catch(x) { return null; }
+}
+function saveExamBest(chId, data) {
+  localStorage.setItem('dm-exam-best-' + chId, JSON.stringify(data));
+}
+
+function ExamExerciseRenderer(props) {
+  var ex = exerciseData[props.id];
+  if (!ex) return null;
+  var d = ex.data;
+  var onAnswer = props.onAnswer;
+  var submitted = props.submitted;
+  var shuffledMcOptions = props.shuffledMcOptions;
+
+  // --- MC (exam) ---
+  if (ex.type === 'mc') {
+    var st = useState([]), sel = st[0], setSel = st[1];
+    var mapping = shuffledMcOptions || [];
+    var displayOptions = mapping.map(function(origIdx) { return d.options[origIdx]; });
+    function toggle(i) {
+      if (submitted) return;
+      var origIdx = mapping[i];
+      var newSel;
+      if (d.multi) { newSel = sel.indexOf(origIdx) >= 0 ? sel.filter(function(x){return x!==origIdx}) : sel.concat([origIdx]); }
+      else { newSel = [origIdx]; }
+      setSel(newSel);
+      onAnswer(props.id, newSel);
+    }
+    return e('div', null,
+      e('div', {className: 'ex-instruction'}, d.instruction),
+      displayOptions.map(function(opt, i) {
+        var origIdx = mapping[i];
+        var isSel = sel.indexOf(origIdx) >= 0;
+        var cls = 'mc-option';
+        if (isSel) cls += ' selected';
+        if (submitted && isSel && d.correct.indexOf(origIdx) >= 0) cls = 'mc-option correct-sel';
+        if (submitted && isSel && d.correct.indexOf(origIdx) < 0) cls = 'mc-option wrong-sel';
+        if (submitted && !isSel && d.correct.indexOf(origIdx) >= 0) cls = 'mc-option correct-unsel';
+        return e('div', {key: i, className: cls, onClick: function(){toggle(i)}},
+          e('div', {className: d.multi ? 'mc-check' : 'mc-radio'}),
+          e('span', null, opt)
+        );
+      })
+    );
+  }
+
+  // --- TF (exam) ---
+  if (ex.type === 'tf') {
+    var st = useState({}), ans = st[0], setAns = st[1];
+    function pick(i, v) {
+      if (submitted) return;
+      var n = {}; Object.keys(ans).forEach(function(k){n[k]=ans[k]}); n[i] = v; setAns(n);
+      onAnswer(props.id, n);
+    }
+    return e('div', null,
+      e('div', {className: 'ex-instruction'}, d.instruction),
+      d.statements.map(function(s, i) {
+        var fb = null;
+        if (submitted) {
+          if (ans[i] === s.correct) fb = e('div',{className:'feedback ok'},'Richtig!');
+          else fb = e('div',{className:'feedback nok'},'Falsch. Korrekt: '+(s.correct?'Richtig':'Falsch'));
+        }
+        return e('div', {key: i, className: 'tf-row'},
+          e('div', {className: 'tf-statement'}, s.text),
+          e('div', {className: 'tf-buttons'},
+            e('button', {className: 'tf-btn'+(ans[i]===true?' selected':'')+(submitted&&s.correct===true&&ans[i]===true?' correct-sel':'')+(submitted&&s.correct===false&&ans[i]===true?' wrong-sel':''), onClick: function(){pick(i,true)}}, 'Richtig'),
+            e('button', {className: 'tf-btn'+(ans[i]===false?' selected':'')+(submitted&&s.correct===false&&ans[i]===false?' correct-sel':'')+(submitted&&s.correct===true&&ans[i]===false?' wrong-sel':''), onClick: function(){pick(i,false)}}, 'Falsch')
+          ),
+          fb
+        );
+      })
+    );
+  }
+
+  // --- Zuordnung (exam) ---
+  if (ex.type === 'zuordnung') {
+    var st = useState({}), sel = st[0], setSel = st[1];
+    function pick(i, v) {
+      if (submitted) return;
+      var n = {}; Object.keys(sel).forEach(function(k){n[k]=sel[k]}); n[i] = v; setSel(n);
+      onAnswer(props.id, n);
+    }
+    return e('div', null,
+      e('div', {className: 'ex-instruction'}, d.instruction),
+      d.items.map(function(item, i) {
+        var cls = 'match-select';
+        if (submitted) { cls += (sel[i] === d.correct[i]) ? ' correct' : ' wrong'; }
+        return e('div', {key: i, className: 'match-row'},
+          e('div', {className: 'match-label'}, item),
+          e('select', {className: cls, value: sel[i] || '', onChange: function(ev){pick(i, ev.target.value)}},
+            e('option', {value: ''}, '-- Waehlen --'),
+            d.options.map(function(o, j) { return e('option', {key: j, value: o}, o); })
+          )
+        );
+      })
+    );
+  }
+
+  // --- Lueckentext (exam) ---
+  if (ex.type === 'lueckentext') {
+    var st = useState({}), vals = st[0], setVals = st[1];
+    var bi2 = 0;
+    function setVal(i, v) {
+      var n = {}; Object.keys(vals).forEach(function(k){n[k]=vals[k]}); n[i] = v; setVals(n);
+      onAnswer(props.id, n);
+    }
+    return e('div', null,
+      e('div', {className: 'ex-instruction'}, d.instruction),
+      e('div', {className: 'blank-text'}, d.segments.map(function(seg, i) {
+        if (typeof seg === 'string') return e('span', {key: i}, seg);
+        var idx = bi2++;
+        var cls = 'blank-input';
+        if (submitted) { cls += matchAnswer(vals[idx]||'', seg.answer) ? ' correct' : ' wrong'; }
+        return e('input', {key: i, className: cls, style: {width: seg.width||140}, value: vals[idx]||'', onChange: function(ev){setVal(idx, ev.target.value)}, disabled: submitted});
+      }))
+    );
+  }
+
+  // --- Freitext (exam) ---
+  if (ex.type === 'freitext') {
+    var st = useState({}), vals = st[0], setVals = st[1];
+    function setVal(i, v) {
+      var n = {}; Object.keys(vals).forEach(function(k){n[k]=vals[k]}); n[i] = v; setVals(n);
+      onAnswer(props.id, n);
+    }
+    return e('div', null,
+      e('div', {className: 'ex-instruction'}, d.instruction),
+      d.questions.map(function(q, i) {
+        var found = matchKeywords(vals[i]||'', q.keywords);
+        var cls = 'text-input';
+        if (submitted) { cls += found >= q.minKeywords ? ' correct' : ' wrong'; }
+        return e('div', {key: i, className: 'text-q'},
+          e('p', null, e('strong', null, q.q)),
+          e('textarea', {className: cls, rows: 3, value: vals[i]||'', onChange: function(ev){setVal(i, ev.target.value)}, disabled: submitted}),
+          submitted ? e('div', {className: 'feedback '+(found>=q.minKeywords?'ok':'nok')}, found>=q.minKeywords ? 'Gut! '+found+' Schluesselwoerter erkannt.' : 'Nur '+found+' von '+q.minKeywords+' Schluesselwoertern erkannt.') : null
+        );
+      })
+    );
+  }
+
+  // --- Tabelle (exam) ---
+  if (ex.type === 'tabelle') {
+    var st = useState({}), sel = st[0], setSel = st[1];
+    function pick(i, v) {
+      if (submitted) return;
+      var n = {}; Object.keys(sel).forEach(function(k){n[k]=sel[k]}); n[i] = v; setSel(n);
+      onAnswer(props.id, n);
+    }
+    return e('div', null,
+      e('div', {className: 'ex-instruction'}, d.instruction),
+      e('table', {className: 'check-table'},
+        e('thead', null, e('tr', null, d.headers.map(function(h, i){return e('th', {key:i}, h)}))),
+        e('tbody', null, d.rows.map(function(r, i) {
+          var cls = '';
+          if (submitted) { cls = sel[i] === r.correct ? 'correct-row' : 'wrong-row'; }
+          return e('tr', {key: i, className: cls},
+            e('td', null, e('input', {type: 'radio', name: 'exam-tab'+props.id+'_'+i, checked: sel[i]===0, onChange: function(){pick(i,0)}})),
+            e('td', null, e('input', {type: 'radio', name: 'exam-tab'+props.id+'_'+i, checked: sel[i]===1, onChange: function(){pick(i,1)}})),
+            e('td', null, r.label)
+          );
+        }))
+      )
+    );
+  }
+
+  return e('div', null, 'Unbekannter Aufgabentyp: ' + ex.type);
+}
+
+function ExamMode(props) {
+  var chId = props.chId;
+  var chExercises = props.exercises;
+  var EXAM_TIME = 15 * 60; // 15 minutes
+
+  var st1 = useState('idle'), phase = st1[0], setPhase = st1[1]; // idle, running, finished
+  var st2 = useState([]), examExercises = st2[0], setExamExercises = st2[1];
+  var st3 = useState(EXAM_TIME), timeLeft = st3[0], setTimeLeft = st3[1];
+  var st4 = useState({}), answers = st4[0], setAnswers = st4[1];
+  var st5 = useState(false), submitted = st5[0], setSubmitted = st5[1];
+  var st6 = useState(null), result = st6[0], setResult = st6[1];
+  var st7 = useState(function(){ return loadExamBest(chId); }), bestScore = st7[0], setBestScore = st7[1];
+  var st8 = useState({}), mcShuffles = st8[0], setMcShuffles = st8[1];
+  var timerRef = useRef(null);
+
+  function startExam() {
+    var count = Math.max(3, Math.floor(chExercises.length * (0.6 + Math.random() * 0.2)));
+    count = Math.min(count, chExercises.length);
+    var selected = shuffleArray(chExercises).slice(0, count);
+
+    // Pre-compute MC shuffles
+    var shuffles = {};
+    selected.forEach(function(exId) {
+      var ex = exerciseData[exId];
+      if (ex && ex.type === 'mc') {
+        var indices = ex.data.options.map(function(_, i) { return i; });
+        shuffles[exId] = shuffleArray(indices);
+      }
+    });
+
+    setExamExercises(selected);
+    setMcShuffles(shuffles);
+    setTimeLeft(EXAM_TIME);
+    setAnswers({});
+    setSubmitted(false);
+    setResult(null);
+    setPhase('running');
+  }
+
+  useEffect(function() {
+    if (phase !== 'running') return;
+    timerRef.current = setInterval(function() {
+      setTimeLeft(function(t) {
+        if (t <= 1) {
+          clearInterval(timerRef.current);
+          return 0;
+        }
+        return t - 1;
+      });
+    }, 1000);
+    return function() { clearInterval(timerRef.current); };
+  }, [phase]);
+
+  // Auto-submit when time runs out
+  useEffect(function() {
+    if (phase === 'running' && timeLeft === 0 && !submitted) {
+      submitExam();
+    }
+  }, [timeLeft, phase, submitted]);
+
+  function onAnswer(exId, answer) {
+    var n = {}; Object.keys(answers).forEach(function(k){n[k]=answers[k]}); n[exId] = answer; setAnswers(n);
+  }
+
+  function gradeExercise(exId, answer) {
+    var ex = exerciseData[exId];
+    if (!ex) return false;
+    var d = ex.data;
+    if (ex.type === 'mc') {
+      var sel = answer || [];
+      return d.correct.length === sel.length && d.correct.every(function(c){return sel.indexOf(c)>=0});
+    }
+    if (ex.type === 'tf') {
+      var ans = answer || {};
+      return d.statements.every(function(s,i){return ans[i]===s.correct});
+    }
+    if (ex.type === 'zuordnung') {
+      var sel = answer || {};
+      return d.items.every(function(_,i){return sel[i]===d.correct[i]});
+    }
+    if (ex.type === 'lueckentext') {
+      var vals = answer || {};
+      var allOk = true; var bi = 0;
+      d.segments.forEach(function(seg){if(seg.blank){if(!matchAnswer(vals[bi]||'',seg.answer))allOk=false;bi++}});
+      return allOk;
+    }
+    if (ex.type === 'freitext') {
+      var vals = answer || {};
+      var allOk = true;
+      d.questions.forEach(function(q,i){
+        var found = matchKeywords(vals[i]||'', q.keywords);
+        if (found < q.minKeywords) allOk = false;
+      });
+      return allOk;
+    }
+    if (ex.type === 'tabelle') {
+      var sel = answer || {};
+      return d.rows.every(function(r,i){return sel[i]===r.correct});
+    }
+    return false;
+  }
+
+  function submitExam() {
+    clearInterval(timerRef.current);
+    setSubmitted(true);
+    var correct = 0;
+    examExercises.forEach(function(exId) {
+      if (gradeExercise(exId, answers[exId])) correct++;
+    });
+    var total = examExercises.length;
+    var pct = Math.round(correct / total * 100);
+    var passed = pct >= 60;
+    var res = {correct: correct, total: total, pct: pct, passed: passed, timeUsed: EXAM_TIME - timeLeft};
+    setResult(res);
+    setPhase('finished');
+
+    // Save best score
+    var prev = loadExamBest(chId);
+    if (!prev || pct > prev.pct) {
+      var bestData = {pct: pct, correct: correct, total: total, date: new Date().toLocaleDateString('de-CH')};
+      saveExamBest(chId, bestData);
+      setBestScore(bestData);
+    }
+  }
+
+  function formatTime(s) {
+    var m = Math.floor(s / 60);
+    var sec = s % 60;
+    return String(m).padStart(2,'0') + ':' + String(sec).padStart(2,'0');
+  }
+
+  // --- IDLE: Start screen ---
+  if (phase === 'idle') {
+    var totalEx = chExercises.length;
+    var selCount = Math.max(3, Math.floor(totalEx * 0.7));
+    selCount = Math.min(selCount, totalEx);
+    return e('div', {style: {padding: '16px'}},
+      e('div', {className: 'exam-start-card'},
+        e('div', {style: {fontSize: '2.5rem', marginBottom: 12}}, '\ud83c\udfaf'),
+        e('h3', null, 'Pruefungsmodus'),
+        e('p', null, 'Es werden ca. ' + selCount + ' von ' + totalEx + ' Aufgaben zufaellig ausgewaehlt und gemischt.'),
+        e('p', null, 'Zeitlimit: 15 Minuten \u00b7 Bestanden ab 60%'),
+        e('p', {style: {fontSize: '.82rem', color: 'var(--red)', fontWeight: 600}}, 'Keine Tipps und keine Loesungswege verfuegbar!'),
+        bestScore ? e('div', {className: 'exam-best-score'}, e('strong', null, '\ud83c\udfc6 Bestleistung: '), bestScore.pct + '% (' + bestScore.correct + '/' + bestScore.total + ') am ' + bestScore.date) : null,
+        e('button', {className: 'exam-start-btn', onClick: startExam}, 'Pruefung starten')
+      )
+    );
+  }
+
+  // --- RUNNING ---
+  if (phase === 'running') {
+    var timerClass = 'exam-timer' + (timeLeft < 120 ? ' warning' : '');
+    return e('div', null,
+      e('div', {className: 'exam-header'},
+        e('div', {className: 'exam-info'},
+          e('strong', null, 'Pruefung - Kapitel ' + chId),
+          e('div', null, examExercises.length + ' Aufgaben')
+        ),
+        e('div', {className: timerClass}, formatTime(timeLeft)),
+        e('button', {className: 'btn btn-primary', onClick: submitExam}, 'Abgeben')
+      ),
+      examExercises.map(function(exId, idx) {
+        var ex = exerciseData[exId];
+        return e('div', {key: exId, className: 'exam-exercise'},
+          e('div', {className: 'ex-num-label'}, 'Aufgabe ' + (idx + 1) + ' von ' + examExercises.length),
+          e('div', {style: {fontWeight: 700, fontSize: '.95rem', marginBottom: 12}}, ex.title),
+          e(ExamExerciseRenderer, {id: exId, onAnswer: onAnswer, submitted: false, shuffledMcOptions: mcShuffles[exId] || null})
+        );
+      }),
+      e('div', {style: {padding: '16px', textAlign: 'center'}},
+        e('button', {className: 'btn btn-primary', style: {margin: '0 auto'}, onClick: submitExam}, 'Pruefung abgeben')
+      )
+    );
+  }
+
+  // --- FINISHED ---
+  if (phase === 'finished' && result) {
+    var timeUsedStr = formatTime(result.timeUsed);
+    return e('div', {style: {padding: '16px'}},
+      e('div', {className: 'exam-result'},
+        e('div', {className: 'score-circle ' + (result.passed ? 'pass' : 'fail')},
+          e('div', {className: 'score-pct'}, result.pct + '%'),
+          e('div', {className: 'score-label'}, result.passed ? 'Bestanden' : 'Nicht bestanden')
+        ),
+        e('h3', null, result.passed ? 'Glueckwunsch!' : 'Leider nicht bestanden'),
+        e('div', {className: 'result-detail'}, result.correct + ' von ' + result.total + ' Aufgaben richtig'),
+        e('div', {className: 'result-detail'}, 'Zeit: ' + timeUsedStr + ' von 15:00'),
+        e('div', {className: result.passed ? 'result-pass' : 'result-fail'}, result.passed ? 'Bestanden (>= 60%)' : 'Nicht bestanden (< 60%)'),
+        bestScore ? e('div', {className: 'exam-best-score'}, e('strong', null, '\ud83c\udfc6 Bestleistung: '), bestScore.pct + '% (' + bestScore.correct + '/' + bestScore.total + ') am ' + bestScore.date) : null,
+        e('div', {className: 'exam-btn-row'},
+          e('button', {className: 'btn btn-primary', onClick: startExam}, 'Nochmal'),
+          e('button', {className: 'btn btn-secondary', onClick: function(){setPhase('idle')}}, 'Zurueck')
+        )
+      ),
+      // Show graded exercises
+      e('div', {style: {marginTop: 16}},
+        examExercises.map(function(exId, idx) {
+          var ex = exerciseData[exId];
+          var isCorrect = gradeExercise(exId, answers[exId]);
+          return e('div', {key: exId, className: 'exam-exercise', style: {borderLeft: '4px solid ' + (isCorrect ? 'var(--green)' : 'var(--red)')}},
+            e('div', {className: 'ex-num-label', style: {color: isCorrect ? 'var(--green)' : 'var(--red)'}},
+              (isCorrect ? '\u2713 ' : '\u2717 ') + 'Aufgabe ' + (idx + 1)
+            ),
+            e('div', {style: {fontWeight: 700, fontSize: '.95rem', marginBottom: 12}}, ex.title),
+            e(ExamExerciseRenderer, {id: exId, onAnswer: function(){}, submitted: true, shuffledMcOptions: mcShuffles[exId] || null})
+          );
+        })
+      )
+    );
+  }
+
+  return null;
+}
+
+// ======================================================================
+// LEARNING DATA - Theory content for Chapter 1
+// ======================================================================
+
+var learningData = {};
+
+learningData[1] = {
+  title: 'Digitales Marketing verstehen',
+  sections: [
+    {
+      type: 'intro',
+      title: 'Lernziele',
+      content: 'Nach der Bearbeitung dieses Kapitels k\u00f6nnen Sie ...',
+      items: [
+        'erl\u00e4utern, was die digitale Transformation ist und wie sie das Unternehmen beeinflusst.',
+        'erkl\u00e4ren, was man unter digitalem Marketing versteht.',
+        'die Beziehung zwischen dem klassischen und dem digitalen Marketing beschreiben.',
+        'Chancen, Risiken und Erfolgsfaktoren des digitalen Marketings erkl\u00e4ren.'
+      ]
+    },
+    {
+      type: 'concept',
+      title: '1.1 Die digitale Transformation im Marketing',
+      content: 'Die Digitalisierung hat grosse Auswirkungen auf die Art und Weise, wie wir mit anderen kommunizieren, wie wir Unternehmen wahrnehmen und mit diesen interagieren. Die Eigenschaften der digitalen Medien wie die einfachere Auswertung von Massnahmen, die Interaktivit\u00e4t und die M\u00f6glichkeit der personalisierten Ansprache haben ganz neue Marketingm\u00f6glichkeiten geschaffen.',
+      highlight: 'Die vier Hauptvorteile der digitalen Transformation f\u00fcr das Marketing: 1) Systematische Auswertung grosser Datenmengen, 2) Interaktivit\u00e4t in der Kommunikation, 3) Personalisierung von Marketingaktivit\u00e4ten, 4) Automatisierung von Marketingaktivit\u00e4ten.'
+    },
+    {
+      type: 'concept',
+      title: '1.2 Grundlegende Begriffe',
+      content: 'Im digitalen Marketing werden die drei Begriffe "digitales Marketing", "E-Commerce" und "Web 2.0" besprochen, die oft als Synonym verwendet werden, aber nicht das Gleiche bedeuten. Das Internet erm\u00f6glicht sowohl digitales Marketing als auch E-Commerce, wobei Web 2.0 und Social Media die technische Grundlage bilden.',
+      highlight: 'Digitales Marketing ist eine Teildisziplin des klassischen Marketings. Es nutzt die gleichen Konzepte und Managementans\u00e4tze, erg\u00e4nzt diese aber um Elemente digitaler Technologien.'
+    },
+    {
+      type: 'table',
+      title: 'Digitales Marketing vs. klassisches Marketing',
+      headers: ['Merkmal', 'Digitales Marketing', 'Klassisches Marketing'],
+      rows: [
+        ['Planungshorizonte', 'K\u00fcrzer, agiler', 'L\u00e4nger, strukturierter'],
+        ['Kundenbeziehungen', 'Vielf\u00e4ltiger, interaktiv', 'Weniger interaktiv'],
+        ['Reaktionszeiten', 'Schneller', 'Langsamer'],
+        ['Instrumente', 'Vielf\u00e4ltig, digital', 'Traditionell (Print, TV, Radio)'],
+        ['Messbarkeit', 'Sehr gut messbar', 'Schwieriger messbar']
+      ]
+    },
+    {
+      type: 'concept',
+      title: '1.5 Erfolgsfaktoren des digitalen Marketings',
+      content: 'Die f\u00fcnf Erfolgsfaktoren des digitalen Marketings sind: 1) Zielgruppen verstehen (der Kunde ist Ausgangspunkt), 2) Aufmerksamkeit erregen und Geschichten erz\u00e4hlen (Storytelling), 3) Die richtige Sprache sprechen (online und offline gelten teilweise andere Regeln), 4) Zielorientiert arbeiten (jede Massnahme muss einen Call-to-Action enthalten), 5) Messen, messen, messen (und kontinuierlich optimieren).',
+      highlight: 'Die 5 Erfolgsfaktoren: Zielgruppen verstehen, Aufmerksamkeit erregen und Geschichten erz\u00e4hlen, Die richtige Sprache sprechen, Zielorientiert arbeiten, Messen, messen, messen.'
+    },
+    {
+      type: 'merke',
+      title: 'Merke dir!',
+      items: [
+        'Digitales Marketing ist KEIN eigenst\u00e4ndiges Marketing, sondern eine Teildisziplin des klassischen Marketings.',
+        'Die 4 Hauptvorteile der digitalen Transformation: Datenauswertung, Interaktivit\u00e4t, Personalisierung, Automatisierung.',
+        'Web 2.0 bedeutet: User k\u00f6nnen Inhalte nicht nur konsumieren, sondern auch selbst produzieren (Prosumer).',
+        'E-Commerce ist NICHT gleichzusetzen mit digitalem Marketing - es bezieht sich auf elektronischen Handel.',
+        'Die 5 Erfolgsfaktoren beginnen beim Kunden und enden beim Messen.',
+        'Digitale Massnahmen unterscheiden sich durch: k\u00fcrzere Planungshorizonte, vielf\u00e4ltigere Kundenbeziehungen, schnellere Reaktionszeiten, vielf\u00e4ltige Instrumente.'
+      ]
+    },
+    {
+      type: 'summary',
+      title: 'Zusammenfassung',
+      content: [
+        'Die <strong>digitale Transformation</strong> beschreibt den Prozess der stetigen Weiterentwicklung digitaler Technologien, der sowohl Wirtschaft als auch Gesellschaft nachhaltig beeinflusst.',
+        'Das <strong>digitale Marketing</strong> ist eine Teildisziplin des klassischen Marketings. Es nutzt die gleichen Konzepte, erg\u00e4nzt diese aber um Elemente digitaler Technologien und erweitert den Marketingmix um digitale Kan\u00e4le.',
+        'Die f\u00fcnf <strong>Erfolgsfaktoren</strong>: Zielgruppen verstehen, Aufmerksamkeit erregen, Die richtige Sprache sprechen, Zielorientiert arbeiten, Messen und optimieren.'
+      ]
+    }
+  ]
+};
+
+// ---- Learning Renderer Component ----
+function LearningRenderer(props) {
+  var chId = props.chId;
+  var data = learningData[chId];
+  if (!data) return e('div', {className: 'learn-container', style: {textAlign: 'center', padding: 40, color: 'var(--text2)'}},
+    e('div', {style: {fontSize: '2rem', marginBottom: 12}}, '\ud83d\udea7'),
+    e('div', {style: {fontSize: '.95rem', fontWeight: 600}}, 'Lernmodus in Vorbereitung'),
+    e('div', {style: {fontSize: '.85rem', marginTop: 6}}, 'Der Lernmodus f\u00fcr dieses Kapitel wird bald verf\u00fcgbar sein.')
+  );
+
+  var readKey = 'dm-learn-read-' + chId;
+  var st = useState(function() { return localStorage.getItem(readKey) === '1'; });
+  var isRead = st[0], setIsRead = st[1];
+
+  function markAsRead() {
+    setIsRead(true);
+    localStorage.setItem(readKey, '1');
+  }
+
+  function renderSection(section, idx) {
+    var icon = '\ud83d\udcc4';
+    var sectionClass = 'learn-section';
+
+    if (section.type === 'intro') {
+      icon = '\ud83c\udfaf';
+      sectionClass += ' learn-intro';
+      return e('div', {key: idx, className: sectionClass},
+        e('div', {className: 'learn-section-header'},
+          e('span', {className: 'learn-section-icon'}, icon),
+          e('span', {className: 'learn-section-title'}, section.title)
+        ),
+        e('div', {className: 'learn-section-body'},
+          e('div', {className: 'learn-intro-text'}, section.content),
+          e('ul', {className: 'learn-intro-list'},
+            section.items.map(function(item, i) { return e('li', {key: i}, item); })
+          )
+        )
+      );
+    }
+
+    if (section.type === 'concept') {
+      icon = '\ud83d\udca1';
+      sectionClass += ' learn-concept';
+      return e('div', {key: idx, className: sectionClass},
+        e('div', {className: 'learn-section-header'},
+          e('span', {className: 'learn-section-icon'}, icon),
+          e('span', {className: 'learn-section-title'}, section.title)
+        ),
+        e('div', {className: 'learn-section-body'},
+          e('div', {className: 'learn-concept-text'}, section.content),
+          section.highlight ? e('div', {className: 'learn-highlight'}, section.highlight) : null
+        )
+      );
+    }
+
+    if (section.type === 'table') {
+      icon = '\ud83d\udccb';
+      return e('div', {key: idx, className: sectionClass},
+        e('div', {className: 'learn-section-header'},
+          e('span', {className: 'learn-section-icon'}, icon),
+          e('span', {className: 'learn-section-title'}, section.title)
+        ),
+        e('div', {className: 'learn-section-body'},
+          e('div', {className: 'learn-table-wrap'},
+            e('table', {className: 'learn-table'},
+              e('thead', null, e('tr', null, section.headers.map(function(h, i) { return e('th', {key: i}, h); }))),
+              e('tbody', null, section.rows.map(function(row, ri) {
+                if (Array.isArray(row)) {
+                  return e('tr', {key: ri}, row.map(function(cell, ci) { return e('td', {key: ci, className: ci === 0 ? 'table-label' : ''}, cell); }));
+                }
+                return null;
+              }))
+            )
+          )
+        )
+      );
+    }
+
+    if (section.type === 'merke') {
+      icon = '\u26a1';
+      sectionClass += ' learn-merke';
+      return e('div', {key: idx, className: sectionClass},
+        e('div', {className: 'learn-section-header'},
+          e('span', {className: 'learn-section-icon'}, icon),
+          e('span', {className: 'learn-section-title'}, section.title)
+        ),
+        e('div', {className: 'learn-section-body'},
+          e('ul', {className: 'learn-merke-list'},
+            section.items.map(function(item, i) { return e('li', {key: i}, item); })
+          )
+        )
+      );
+    }
+
+    if (section.type === 'summary') {
+      icon = '\ud83d\udcdd';
+      sectionClass += ' learn-summary';
+      return e('div', {key: idx, className: sectionClass},
+        e('div', {className: 'learn-section-header'},
+          e('span', {className: 'learn-section-icon'}, icon),
+          e('span', {className: 'learn-section-title'}, section.title)
+        ),
+        e('div', {className: 'learn-section-body'},
+          e('div', {className: 'learn-summary-text'},
+            section.content.map(function(p, i) { return e('p', {key: i, dangerouslySetInnerHTML: {__html: p}}); })
+          )
+        )
+      );
+    }
+
+    return e('div', {key: idx, className: sectionClass},
+      e('div', {className: 'learn-section-header'},
+        e('span', {className: 'learn-section-icon'}, icon),
+        e('span', {className: 'learn-section-title'}, section.title || 'Abschnitt')
+      ),
+      e('div', {className: 'learn-section-body'}, e('div', null, section.content || ''))
+    );
+  }
+
+  return e('div', {className: 'learn-container'},
+    data.sections.map(function(section, idx) { return renderSection(section, idx); }),
+    e('div', {className: 'learn-complete-bar'},
+      e('span', {className: 'learn-progress-text'}, isRead ? 'Du hast dieses Kapitel als gelesen markiert.' : 'Hast du den gesamten Lerninhalt durchgearbeitet?'),
+      e('button', {
+        className: 'learn-complete-btn ' + (isRead ? 'done' : 'ready'),
+        onClick: isRead ? null : markAsRead
+      }, isRead ? '\u2713 Gelesen' : 'Als gelesen markieren')
+    )
+  );
+}
+
+// ======================================================================
+// EXERCISE DATA
+// ======================================================================
+
+var exerciseData = {};
+
+function reg(id, title, type, data){
+  exerciseData[id] = {title:title, type:type, data:data};
+}
+
+// ============================================================
+// KAPITEL 1: Digitales Marketing verstehen (S.8-24)
+// ============================================================
+
+// Rep 1 (S.23)
+reg(1, 'Digitales Marketing als Teildisziplin', 'freitext', {
+  instruction: 'Beschreiben Sie in einigen kurzen S\u00e4tzen, warum das digitale Marketing als Teildisziplin des Marketings zu verstehen ist und nicht umgekehrt.',
+  questions: [
+    {q:'Warum ist digitales Marketing eine Teildisziplin?', keywords:['teildisziplin','klassisch','konzept','erg\u00e4nz','technolog','digital','kanal','erweit'], minKeywords:3}
+  ],
+  tips: ['Digitales Marketing steht nicht f\u00fcr sich allein.','Es nutzt die gleichen Konzepte wie klassisches Marketing.','Es erweitert den Marketingmix um digitale Kan\u00e4le.'],
+  reveal: ['Das Marketing als Kernfunktion deckt s\u00e4mtliche Marketingmassnahmen ab, unabh\u00e4ngig davon, ob diese in der Offline- oder Online-Welt stattfinden.','Das digitale Marketing nutzt die gleichen Konzepte und Vorgehensweisen, ist aber auf die Nutzung digitaler Technologien beschr\u00e4nkt.','Es ist somit eine Anreicherung der klassischen Marketingbem\u00fchungen, nicht etwas Eigenst\u00e4ndiges.']
+});
+
+// Rep 2 (S.23)
+reg(2, 'Web 1.0 vs. Web 2.0', 'freitext', {
+  instruction: 'Was ist der Unterschied zwischen dem Web 1.0 und dem Web 2.0?',
+  questions: [
+    {q:'Unterschied Web 1.0 und Web 2.0?', keywords:['statisch','interag','produz','konsum','kommentar','social','inhalte','erstell','prosumer'], minKeywords:3}
+  ],
+  tips: ['Web 1.0 war vor allem statisch.','Web 2.0 erm\u00f6glicht Interaktion und eigene Inhalte.','Der Begriff Prosumer spielt hier eine Rolle.'],
+  reveal: ['Web 1.0 war revolution\u00e4r, machte Informationen weltweit zug\u00e4nglich, aber es war nicht m\u00f6glich zu interagieren.','Das Web war sehr statisch, Internetseiten wurden konzipiert und nur selten angepasst.','Web 2.0 wird das ver\u00e4nderte Internet genannt: User k\u00f6nnen nicht nur Inhalte anschauen, sondern auch selbst Inhalte produzieren (Prosumer).']
+});
+
+// Rep 3 (S.23)
+reg(3, 'Beispiele f\u00fcr Web 2.0', 'freitext', {
+  instruction: 'Nennen Sie Beispiele von Anwendungen, die zum Web 2.0 z\u00e4hlen.',
+  questions: [
+    {q:'Beispiele f\u00fcr Web 2.0?', keywords:['blog','podcast','social media','kommentar','bewertung','facebook','twitter','instagram','youtube','wiki'], minKeywords:3}
+  ],
+  tips: ['Denken Sie an Plattformen, auf denen User selbst Inhalte erstellen.','Blogs, Podcasts und Social Media sind typische Beispiele.','Kommentarfunktionen auf Websites z\u00e4hlen ebenfalls dazu.'],
+  reveal: ['Blog (eine Art Tagebuch im Internet)','Podcast (meistens Audio- oder Videobeitr\u00e4ge)','Social Media (Facebook, Twitter etc.)','Kommentarfunktion (User k\u00f6nnen kommentieren und sogar Bewertungen abgeben)']
+});
+
+// Rep 4 (S.23)
+reg(4, 'Erfolgsfaktoren im digitalen Marketing', 'mc', {
+  instruction: 'Welches sind die 5 Erfolgsfaktoren im digitalen Marketing? W\u00e4hlen Sie die richtigen Aussagen.',
+  options: [
+    'Zielgruppen verstehen.',
+    'Digitales Marketing unabh\u00e4ngig vom klassischen Marketing planen.',
+    'Seriosit\u00e4t in den Mittelpunkt stellen.',
+    'Aufmerksamkeit erregen und Geschichten erz\u00e4hlen.',
+    'Die richtige Sprache sprechen.',
+    'Zielorientiert arbeiten.',
+    'Messen, messen, messen.'
+  ],
+  correct: [0,3,4,5,6],
+  multi: true,
+  tips: ['Es sind genau 5 Erfolgsfaktoren.','Sie beginnen beim Kunden und enden beim Messen.','Digitales Marketing wird NICHT unabh\u00e4ngig vom klassischen Marketing geplant.'],
+  reveal: ['Die 5 Erfolgsfaktoren sind: 1) Zielgruppen verstehen, 2) Aufmerksamkeit erregen und Geschichten erz\u00e4hlen, 3) Die richtige Sprache sprechen, 4) Zielorientiert arbeiten, 5) Messen, messen, messen.','Die Aussagen \u00abDigitales Marketing unabh\u00e4ngig planen\u00bb und \u00abSeriosit\u00e4t in den Mittelpunkt\u00bb sind keine Erfolgsfaktoren.']
+});
+
+// Theorie-basiert: Vorteile der digitalen Transformation
+reg(5, 'Vorteile der digitalen Transformation', 'zuordnung', {
+  instruction: 'Ordnen Sie die vier Hauptvorteile der digitalen Transformation den richtigen Beschreibungen zu.',
+  items: ['Datenauswertung', 'Interaktivit\u00e4t', 'Personalisierung', 'Automatisierung'],
+  options: [
+    'Systematische Auswertung grosser Datenmengen und Optimierung der Marketingmassnahmen',
+    'St\u00e4rkere M\u00f6glichkeiten der Kundenbindung durch wechselseitige Kommunikation',
+    'H\u00f6here Akzeptanz der Botschaften bei den Zielgruppen durch individuelle Ansprache',
+    'Effizienzsteigerung und Kostenreduktion durch automatisierte Prozesse'
+  ],
+  correct: [
+    'Systematische Auswertung grosser Datenmengen und Optimierung der Marketingmassnahmen',
+    'St\u00e4rkere M\u00f6glichkeiten der Kundenbindung durch wechselseitige Kommunikation',
+    'H\u00f6here Akzeptanz der Botschaften bei den Zielgruppen durch individuelle Ansprache',
+    'Effizienzsteigerung und Kostenreduktion durch automatisierte Prozesse'
+  ],
+  tips: ['Die vier Vorteile sind: Datenauswertung, Interaktivit\u00e4t, Personalisierung, Automatisierung.','Jeder Vorteil hat eine spezifische Wirkung auf das Marketing.'],
+  reveal: ['Datenauswertung: Systematische Auswertung grosser Datenmengen f\u00fchrt zur Optimierung.','Interaktivit\u00e4t: St\u00e4rkere Kundenbindung durch wechselseitige Kommunikation.','Personalisierung: H\u00f6here Akzeptanz durch individuelle Ansprache.','Automatisierung: Effizienzsteigerung und Kostenreduktion.']
+});
+
+// Theorie: Begriffe Abgrenzung
+reg(6, 'Grundlegende Begriffe abgrenzen', 'zuordnung', {
+  instruction: 'Ordnen Sie die Begriffe den richtigen Definitionen zu.',
+  items: ['Digitales Marketing', 'E-Commerce', 'Web 2.0'],
+  options: [
+    'Teildisziplin des klassischen Marketings, erg\u00e4nzt um digitale Technologien',
+    'Elektronischer Handel - technische Systeme f\u00fcr den Online-Verkauf',
+    'Das ver\u00e4nderte Internet, bei dem User auch selbst Inhalte produzieren k\u00f6nnen'
+  ],
+  correct: [
+    'Teildisziplin des klassischen Marketings, erg\u00e4nzt um digitale Technologien',
+    'Elektronischer Handel - technische Systeme f\u00fcr den Online-Verkauf',
+    'Das ver\u00e4nderte Internet, bei dem User auch selbst Inhalte produzieren k\u00f6nnen'
+  ],
+  tips: ['Diese drei Begriffe werden oft verwechselt, sind aber nicht dasselbe.','E-Commerce bezieht sich auf den Handel, nicht auf Marketing.'],
+  reveal: ['Digitales Marketing = Teildisziplin des klassischen Marketings mit digitalen Technologien.','E-Commerce = Elektronischer Handel, technische Systeme f\u00fcr Online-Verkauf.','Web 2.0 = User k\u00f6nnen Inhalte nicht nur konsumieren, sondern auch produzieren.']
+});
+
+// Theorie: Unterschiede digital vs. klassisch
+reg(7, 'Digitale vs. klassische Massnahmen', 'tf', {
+  instruction: 'Sind die folgenden Aussagen zu digitalen Massnahmen richtig oder falsch?',
+  statements: [
+    {text:'Digitale Massnahmen haben k\u00fcrzere Planungshorizonte als klassische.', correct:true},
+    {text:'Die Kundenbeziehungen im digitalen Marketing sind weniger vielf\u00e4ltig als im klassischen Marketing.', correct:false},
+    {text:'Die Reaktionszeiten im digitalen Marketing sind schneller als im klassischen Marketing.', correct:true},
+    {text:'Digitales Marketing nutzt grundlegend andere Konzepte als klassisches Marketing.', correct:false},
+    {text:'Die Instrumente im digitalen Marketing sind vielf\u00e4ltiger als im klassischen Marketing.', correct:true}
+  ],
+  tips: ['Digitales Marketing ist eine Erweiterung, kein Ersatz.','Es nutzt die gleichen Grundkonzepte, erweitert sie aber.'],
+  reveal: ['K\u00fcrzere Planungshorizonte: Richtig - digital ist agiler.','Weniger vielf\u00e4ltige Beziehungen: Falsch - sie sind vielf\u00e4ltiger.','Schnellere Reaktionszeiten: Richtig.','Andere Konzepte: Falsch - gleiche Konzepte, erweitert um digitale Technologien.','Vielf\u00e4ltigere Instrumente: Richtig.']
+});
+
+// Theorie: Checkliste Bereitschaft
+reg(8, 'Bereitschaft f\u00fcr digitales Marketing', 'tf', {
+  instruction: 'Welche Aussagen zur Bereitschaft f\u00fcr digitales Marketing sind korrekt?',
+  statements: [
+    {text:'Es muss Aktivit\u00e4ten und Initiativen im Unternehmen zum Thema digitale Transformation geben.', correct:true},
+    {text:'Digitales Marketing kann unabh\u00e4ngig vom klassischen Marketing betrieben werden.', correct:false},
+    {text:'Das Unternehmen sollte Technologien nutzen, um sich online mit Kunden auszutauschen.', correct:true},
+    {text:'Eine Kundendatenbank mit guter Datenqualit\u00e4t ist hilfreich f\u00fcr zielgerichtete Massnahmen.', correct:true},
+    {text:'Es reicht, eine Website zu haben - weitere digitale Pr\u00e4senz ist nicht n\u00f6tig.', correct:false}
+  ],
+  tips: ['Digitales Marketing muss in die Unternehmensstrategie eingebettet sein.','Die Checkliste pr\u00fcft die Bereitschaft des Unternehmens.'],
+  reveal: ['Initiativen zur digitalen Transformation: Richtig.','Unabh\u00e4ngig betreiben: Falsch - muss integriert werden.','Technologien f\u00fcr Kundenaustausch: Richtig.','Gute Datenqualit\u00e4t: Richtig.','Nur Website: Falsch - Kundengewinnung ist ein mehrstufiger Prozess.']
+});
+
+// Minicase-basiert
+reg(9, 'Bedeutung des digitalen Marketings argumentieren', 'freitext', {
+  instruction: 'Daniel Schmid m\u00f6chte die Gesch\u00e4ftsleitung davon \u00fcberzeugen, dass das Unternehmen auf digitales Marketing setzen soll. Nennen Sie mindestens zwei Gr\u00fcnde, weshalb sich digitales Marketing etabliert hat.',
+  questions: [
+    {q:'Zwei Gr\u00fcnde f\u00fcr digitales Marketing:', keywords:['daten','interaktiv','personal','automat','kosten','kund','reichweite','mess','effizienz','zielgrupp'], minKeywords:3}
+  ],
+  tips: ['Denken Sie an die vier Hauptvorteile der digitalen Transformation.','Welche Argumente w\u00fcrden eine Gesch\u00e4ftsleitung \u00fcberzeugen?'],
+  reveal: ['Systematische Auswertung grosser Datenmengen: Die Effektivit\u00e4t kann besser gemessen werden.','Interaktive Kommunikation mit Kunden: Kunden k\u00f6nnen st\u00e4rker einbezogen werden.','Personalisierung: Marketing kann zielgerichteter ausgef\u00fchrt werden.','Automatisierung: F\u00fchrt zu Kostenreduktion und h\u00f6herer Effizienz.']
+});
+
+// Theorie: Chancen und Risiken
+reg(10, 'Chancen und Risiken des digitalen Marketings', 'zuordnung', {
+  instruction: 'Ordnen Sie die Aussagen als Chancen oder Risiken des digitalen Marketings zu.',
+  items: ['Neue M\u00e4rkte erschliessen', 'Negative Bewertungen verbreiten sich schnell', 'Personalisierte Kundenansprache', 'Datenschutz-Anforderungen steigen'],
+  options: ['Chance', 'Risiko', 'Chance', 'Risiko'],
+  correct: ['Chance', 'Risiko', 'Chance', 'Risiko'],
+  tips: ['Chancen er\u00f6ffnen neue M\u00f6glichkeiten.','Risiken stellen Herausforderungen dar.'],
+  reveal: ['Neue M\u00e4rkte erschliessen = Chance: Digitales Marketing erm\u00f6glicht Zugang zu globalen M\u00e4rkten.','Negative Bewertungen = Risiko: Im Internet verbreiten sich negative Bewertungen schnell.','Personalisierte Ansprache = Chance: Daten erm\u00f6glichen individuelle Kommunikation.','Datenschutz = Risiko: Strenge Anforderungen an den Umgang mit Kundendaten.']
+});
+
+// ============================================================
+// KAPITEL 2: Marketingkonzept f\u00fcr das digitale Marketing (S.25-32)
+// ============================================================
+
+// Rep 6 (S.31)
+reg(11, 'Aussagen zum digitalen Marketingkonzept', 'mc', {
+  instruction: 'Welche Aussagen zum digitalen Marketingkonzept sind richtig?',
+  options: [
+    'Die Strategie wird immer als Erstes erstellt, damit man darauf aufbauen und eine Analyse der Ist-Situation vornehmen kann.',
+    'Ziele und Zielgruppen sind ein zentraler Bestandteil des Marketingkonzepts. Wer nicht versteht, mit wem er kommuniziert, hat meistens keinen Erfolg.',
+    '\u00abZuh\u00f6ren\u00bb ist im digitalen Marketing keine geeignete Zielsetzung, weil die M\u00f6glichkeiten der Interaktivit\u00e4t nicht ber\u00fccksichtigt werden.',
+    'Digitales Marketing l\u00e4sst sich nicht ohne Weiteres in klassische Marketing\u00fcberlegungen integrieren, weshalb sich die POST-Methode besser zur Erstellung eines digitalen Marketingkonzepts eignet als die klassischen sieben Stufen.'
+  ],
+  correct: [1],
+  multi: true,
+  tips: ['Nur eine Aussage ist korrekt.','Die Analyse kommt immer VOR der Strategie.','Zuh\u00f6ren ist ein gutes Ziel im digitalen Marketing.'],
+  reveal: ['Aussage 1: Falsch - Die Analyse kommt immer zuerst.','Aussage 2: Richtig - Ziele und Zielgruppen sind zentral.','Aussage 3: Falsch - Zuh\u00f6ren ist ein gutes Ziel, da es Hinweise auf Bed\u00fcrfnisse der Zielgruppe liefert.','Aussage 4: Falsch - Digitales Marketing l\u00e4sst sich in klassische Konzepte integrieren.']
+});
+
+// Rep 7 (S.31)
+reg(12, 'Sechs Schritte des Marketingkonzepts', 'lueckentext', {
+  instruction: 'Aus welchen sechs Schritten besteht ein digitales Marketingkonzept?',
+  segments: ['1. ',{blank:true,answer:['Analyse','Situationsanalyse'],width:180},', 2. ',{blank:true,answer:['Ziele'],width:120},', 3. ',{blank:true,answer:['Strategien','Strategie'],width:160},', 4. ',{blank:true,answer:['Instrumente','Marketingmix','Taktik'],width:180},', 5. ',{blank:true,answer:['Budget und Realisation','Budget','Realisation'],width:200},', 6. ',{blank:true,answer:['Kontrolle'],width:140}],
+  tips: ['Das Konzept folgt einer logischen Reihenfolge.','Es beginnt mit der Analyse und endet mit der Kontrolle.','Die Instrumente werden auch als Marketingmix oder Taktik bezeichnet.'],
+  reveal: ['Schritt 1: Analyse (Situationsanalyse)','Schritt 2: Ziele','Schritt 3: Strategien','Schritt 4: Instrumente (Marketingmix, Taktik)','Schritt 5: Budget und Realisation','Schritt 6: Kontrolle']
+});
+
+// Rep 8 (S.31)
+reg(13, 'Critics und Joiners', 'freitext', {
+  instruction: 'Was versteht man unter \u00abCritics\u00bb und \u00abJoiners\u00bb, wenn man von der Zielgruppe im digitalen Marketing spricht?',
+  questions: [
+    {q:'Was sind Critics?', keywords:['kritisch','bewert','komment','aktiv'], minKeywords:2},
+    {q:'Was sind Joiners?', keywords:['mitl\u00e4ufer','sozial','medien','aktiv','selten','eigene','beitr\u00e4ge'], minKeywords:2}
+  ],
+  tips: ['Diese Begriffe stammen aus der POST-Methode.','Critics sind digital aktiv in einem bestimmten Sinne.','Joiners sind auf sozialen Medien aktiv, aber eher passiv.'],
+  reveal: ['Critics: Kritische, digital aktive Zielgruppe, die gerne bewertet und kommentiert.','Joiners: \u00abMitl\u00e4ufer\u00bb, die auf den sozialen Medien aktiv sind, aber seltener eigene Beitr\u00e4ge machen.']
+});
+
+// Rep 9 (S.31)
+reg(14, 'Objectives f\u00fcr Creators (POST)', 'freitext', {
+  instruction: 'Welche Zielsetzungen (Objectives) nach POST-Methode eignen sich besonders f\u00fcr Creators?',
+  questions: [
+    {q:'Zielsetzungen f\u00fcr Creators?', keywords:['anreg','unterst\u00fctz','einbezieh','mitmach','erstell','inhalt','content','user generated'], minKeywords:2}
+  ],
+  tips: ['Creators sind User, die selbst Inhalte erstellen.','Denken Sie an Zielsetzungen, die deren Aktivit\u00e4t f\u00f6rdern.'],
+  reveal: ['F\u00fcr Creators eignen sich Zielsetzungen wie: Anregen, Unterst\u00fctzen, Einbeziehen.','Creators erstellen eigene Inhalte - man sollte sie zum Mitmachen motivieren und unterst\u00fctzen.']
+});
+
+// Theorie: POST-Methode
+reg(15, 'POST-Methode erkl\u00e4ren', 'zuordnung', {
+  instruction: 'Ordnen Sie die Buchstaben der POST-Methode den richtigen Beschreibungen zu.',
+  items: ['P - People', 'O - Objectives', 'S - Strategy', 'T - Technology'],
+  options: [
+    'Definition der Zielgruppe und deren Web-Verhalten',
+    'Definition der Ziele und Intensit\u00e4t der Interaktion mit der Zielgruppe',
+    'Festlegung, wie das Unternehmen agieren sollte, um die Ziele zu erreichen',
+    'Auswahl der passenden Instrumente und Technologien'
+  ],
+  correct: [
+    'Definition der Zielgruppe und deren Web-Verhalten',
+    'Definition der Ziele und Intensit\u00e4t der Interaktion mit der Zielgruppe',
+    'Festlegung, wie das Unternehmen agieren sollte, um die Ziele zu erreichen',
+    'Auswahl der passenden Instrumente und Technologien'
+  ],
+  tips: ['POST steht f\u00fcr People, Objectives, Strategy, Technology.','Die Technologie kommt immer zuletzt!','Zuerst muss man wissen, WER die Zielgruppe ist.'],
+  reveal: ['P = People: Zielgruppe und deren Web-Verhalten definieren.','O = Objectives: Ziele und Intensit\u00e4t der Interaktion definieren.','S = Strategy: Wie das Unternehmen agieren soll.','T = Technology: Auswahl der Instrumente (Blog, Social Media, SEO etc.).']
+});
+
+// Theorie: Klassisches vs. POST
+reg(16, 'Klassisches Konzept vs. POST-Methode', 'tf', {
+  instruction: 'Sind die folgenden Aussagen korrekt?',
+  statements: [
+    {text:'Das klassische Marketingkonzept besteht aus sechs Schritten.', correct:true},
+    {text:'Die POST-Methode ist eine Alternative zum klassischen Marketingkonzept.', correct:true},
+    {text:'Bei der POST-Methode wird die Technologie als Erstes gew\u00e4hlt.', correct:false},
+    {text:'Digitales Marketing kann in jeder Phase des klassischen Marketingkonzepts integriert werden.', correct:true}
+  ],
+  tips: ['Die POST-Methode stellt People (Zielgruppe) an den Anfang.','Technologie kommt bei POST immer zuletzt.'],
+  reveal: ['Sechs Schritte: Richtig.','POST als Alternative: Richtig.','Technologie zuerst: Falsch - Technology kommt zuletzt.','Integration in jeder Phase: Richtig - digitale \u00dcberlegungen fliessen in alle Schritte ein.']
+});
+
+// Minicase: Marketingkonzept erstellen
+reg(17, 'Marketingkonzept in 6 Schritten', 'freitext', {
+  instruction: 'Erstellen Sie ein kurzes Marketingkonzept in sechs Schritten f\u00fcr ein KMU, das online vermarkten m\u00f6chte. Nennen Sie je einen Punkt pro Phase.',
+  questions: [
+    {q:'Skizzieren Sie die 6 Schritte:', keywords:['analyse','ziel','strateg','instrument','budget','kontroll','swot','online','digital','website','social'], minKeywords:4}
+  ],
+  tips: ['Beginnen Sie mit der Analyse der Ausgangslage.','Definieren Sie dann Ziele, Strategien, Instrumente.','Vergessen Sie Budget und Kontrolle nicht.'],
+  reveal: ['1. Analyse: Ist-Situation des Unternehmens (Offline und Online) bewerten, SWOT erstellen.','2. Ziele: Z.B. Bekanntheit steigern, Absatz um 10% erh\u00f6hen.','3. Strategie: Digitale Marketingstrategie ableiten, Content Marketing aufbauen.','4. Instrumente: SEO, Social Media, Online Ads etc. einsetzen.','5. Budget und Realisation: Kosten planen, Ressourcen zuteilen.','6. Kontrolle: KPIs festlegen und regelm\u00e4ssig \u00fcberpr\u00fcfen.']
+});
+
+// Theorie: Konzeptstruktur
+reg(18, 'Struktur des digitalen Marketingkonzepts', 'zuordnung', {
+  instruction: 'Ordnen Sie die Phasen des Marketingkonzepts den richtigen Fragen zu.',
+  items: ['Analyse', 'Ziele', 'Strategien', 'Instrumente'],
+  options: [
+    'Wo stehen wir heute? (Ist-Zustand)',
+    'Wo wollen wir hin? (Soll-Zustand)',
+    'Wie kommen wir dorthin? (Weg zum Ziel)',
+    'Was setzen wir konkret ein? (Marketingmix)'
+  ],
+  correct: [
+    'Wo stehen wir heute? (Ist-Zustand)',
+    'Wo wollen wir hin? (Soll-Zustand)',
+    'Wie kommen wir dorthin? (Weg zum Ziel)',
+    'Was setzen wir konkret ein? (Marketingmix)'
+  ],
+  tips: ['Das Konzept folgt einer logischen Reihenfolge.','Jede Phase beantwortet eine bestimmte Frage.'],
+  reveal: ['Analyse = Wo stehen wir heute?','Ziele = Wo wollen wir hin?','Strategien = Wie kommen wir dorthin?','Instrumente = Was setzen wir konkret ein?']
+});
+
+// ============================================================
+// KAPITEL 3: Analyse (Ist-Zustand) (S.33-62)
+// ============================================================
+
+// Rep 11 (S.61)
+reg(19, 'Zielsetzung der Analysephase', 'freitext', {
+  instruction: 'A) Beschreiben Sie die Zielsetzung der Analysephase in 3-4 S\u00e4tzen. B) Warum ist die Analysephase so wichtig?',
+  questions: [
+    {q:'A) Zielsetzung der Analysephase:', keywords:['information','daten','sammel','marketingkonzept','gestalt','analysemethode','ist-situation','ausgangslage'], minKeywords:3},
+    {q:'B) Warum ist sie wichtig?', keywords:['voraussetzung','phase','grundlage','ableitung','ohne','fehlen','falsch','gefahr'], minKeywords:2}
+  ],
+  tips: ['Die Analysephase ist die erste Phase im Marketingkonzept.','Ohne Analyse fehlt die Grundlage f\u00fcr alle weiteren Schritte.','Es geht um das Sammeln relevanter Informationen und Daten.'],
+  reveal: ['A) Zielsetzung ist, alle relevanten Informationen und Daten zu sammeln, die zur Erstellung eines Marketingkonzepts oder zur Gestaltung von Marketingaktivit\u00e4ten n\u00f6tig sind.','B) Die Analysephase ist die Voraussetzung f\u00fcr alle folgenden Phasen. Ohne Analyse fehlen wichtige Informationen f\u00fcr die Ableitung von Zielen und Strategien.']
+});
+
+// Rep 12 (S.61)
+reg(20, 'Qualitative und quantitative Methoden', 'freitext', {
+  instruction: 'Warum ergeben sich aus der Kombination von qualitativen und quantitativen Methoden Vorteile in der Analyse?',
+  questions: [
+    {q:'Vorteile der Kombination:', keywords:['qualitativ','quantitativ','kombination','entdeck','neues','\u00fcberpr\u00fcf','st\u00e4rk','umfrage','interview','bekannt'], minKeywords:3}
+  ],
+  tips: ['Qualitative Methoden entdecken Neues.','Quantitative Methoden \u00fcberpr\u00fcfen Bekanntes.','In der Kombination spielen die St\u00e4rken zusammen.'],
+  reveal: ['Qualitative Methoden (z.B. Interviews) dienen dem Entdecken von etwas Neuem oder Unerwartetem.','Quantitative Methoden (z.B. Umfragen) \u00fcberpr\u00fcfen etwas Bekanntes.','In der Kombination lassen sich die St\u00e4rken der Analysen ausspielen: erst qualitativ explorieren, dann quantitativ \u00fcberpr\u00fcfen.']
+});
+
+// Rep 13 (S.61)
+reg(21, 'E-Mail als digitaler Touchpoint (B2B)', 'freitext', {
+  instruction: 'Warum ist die E-Mail vor allem f\u00fcr die Marketingkommunikation zwischen Unternehmen (B2B) ein erfolgreicher digitaler Touchpoint?',
+  questions: [
+    {q:'E-Mail als B2B-Touchpoint:', keywords:['offiziell','formell','strukturiert','postfach','newsletter','ablegen','sp\u00e4ter','empf\u00e4nger','zugeschnitten','informationen'], minKeywords:3}
+  ],
+  tips: ['E-Mail ist die meistgenutzte digitale Kommunikationsform im Gesch\u00e4ftsumfeld.','E-Mails sind formeller als Social-Media-Posts.','Man kann E-Mails gut ablegen und sp\u00e4ter aufrufen.'],
+  reveal: ['E-Mail hat etwas \u00abOffizielles\u00bb und ist immer noch die meistgenutzte digitale Kommunikationsform im gesch\u00e4ftlichen Umfeld.','E-Mail-Newsletter sind nicht so unverbindlich wie ein Post in einer Diskussionsgruppe auf Social Media.','Man kann die E-Mail im Postfach ablegen und sp\u00e4ter aufrufen. Wichtig ist, dass die Informationen auf den Empf\u00e4nger zugeschnitten sind.']
+});
+
+// Rep 14 (S.61)
+reg(22, 'Kundengewinnung im Kundenlebenszyklus', 'freitext', {
+  instruction: 'Im Kundenlebenszyklus gibt es die Phase der Kundengewinnung. Warum ist sie so herausfordernd f\u00fcr Unternehmen?',
+  questions: [
+    {q:'Herausforderung der Kundengewinnung:', keywords:['identifiz','zeitpunkt','kanal','ansprache','interesse','produkt','richt','heraus'], minKeywords:3}
+  ],
+  tips: ['Es geht nicht nur darum, Kunden zu identifizieren.','Der richtige Zeitpunkt und Kanal sind entscheidend.','Kunden zeigen Interesse an verschiedenen Touchpoints.'],
+  reveal: ['Die Kundengewinnung setzt voraus, dass der Kunde identifiziert wird und Interesse zeigt.','Die Herausforderung besteht nicht nur darin, Kunden zu identifizieren, sondern auch den richtigen Zeitpunkt und den richtigen Kanal f\u00fcr die Ansprache zu finden.']
+});
+
+// Rep 15 (S.61)
+reg(23, 'Online- und Offline-Pflege', 'freitext', {
+  instruction: 'Warum sollte es keine Trennung zwischen Offline- und Online-Pflege der Kundenbeziehung geben?',
+  questions: [
+    {q:'Keine Trennung:', keywords:['durchmischung','online','offline','komplex','zufrieden','information','bekannt','beides'], minKeywords:3}
+  ],
+  tips: ['Kunden bewegen sich in beiden Welten.','Informationen m\u00fcssen konsistent sein.','Die Kundenbeziehung ist komplex.'],
+  reveal: ['Ein Kunde ist niemals \u00abnur online\u00bb oder \u00abnur offline\u00bb unterwegs.','Es gibt eine Durchmischung des Online-Bereichs mit der Offline-Welt.','Die Kundenbeziehungen sind komplex. Der Kunde m\u00f6chte, dass Informationen, die er online gegeben hat, auch offline bekannt sind und umgekehrt.']
+});
+
+// Rep 16 (S.61)
+reg(24, 'Analyse-Begriffe zuordnen', 'zuordnung', {
+  instruction: 'Ordnen Sie die Begriffe den richtigen Beschreibungen zu.',
+  items: ['Customer Journey', 'Sekund\u00e4re Marktforschung', 'Zielgruppenanalyse', 'Google Analytics', 'Prim\u00e4re Marktforschung'],
+  options: [
+    'Phasen des Kaufentscheidungsprozesses',
+    'Marktforschung aufgrund von schon bestehenden Daten',
+    'Analyse der Zielgruppen, mit denen das Unternehmen heute kommuniziert',
+    'Software zur Datenverkehrsanalyse von Websites',
+    'Marktforschung aufgrund der Erkenntnisse aus der Untersuchung der Marktteilnehmer'
+  ],
+  correct: [
+    'Phasen des Kaufentscheidungsprozesses',
+    'Marktforschung aufgrund von schon bestehenden Daten',
+    'Analyse der Zielgruppen, mit denen das Unternehmen heute kommuniziert',
+    'Software zur Datenverkehrsanalyse von Websites',
+    'Marktforschung aufgrund der Erkenntnisse aus der Untersuchung der Marktteilnehmer'
+  ],
+  tips: ['Customer Journey beschreibt den Weg des Kunden.','Sekund\u00e4rforschung nutzt bereits vorhandene Daten.','Google Analytics ist ein Analyse-Tool.'],
+  reveal: ['Customer Journey = Phasen des Kaufentscheidungsprozesses.','Sekund\u00e4re Marktforschung = bestehende Daten nutzen.','Zielgruppenanalyse = aktuelle Zielgruppen analysieren.','Google Analytics = Website-Analyse-Software.','Prim\u00e4re Marktforschung = eigene Erhebung bei Marktteilnehmern.']
+});
+
+// Rep 17 (S.61)
+reg(25, 'SWOT-Analyse: Intern und extern', 'freitext', {
+  instruction: 'Warum werden bei der SWOT-Analyse immer eine interne und eine externe Analyse vorausgesetzt?',
+  questions: [
+    {q:'Warum beide Analysen?', keywords:['intern','extern','st\u00e4rken','schw\u00e4chen','chancen','risiken','vergleich','konkurrenz','unternehmen','umfeld'], minKeywords:3}
+  ],
+  tips: ['Die interne Analyse betrachtet das eigene Unternehmen.','Die externe Analyse betrachtet das Umfeld und die Konkurrenz.','Nur die Kombination ergibt ein vollst\u00e4ndiges Bild.'],
+  reveal: ['Bei der internen Analyse betrachtet man nur das Unternehmen und seine St\u00e4rken (S) und Schw\u00e4chen (W).','Aber es fehlt der Vergleich mit anderen - der Konkurrenz oder Unternehmen, die ihre Sache sehr gut machen.','Nur wenn das Unternehmen weiss, wo es im Vergleich steht (externe Analyse), k\u00f6nnen Chancen (O) und Risiken (T) erkannt werden.','Und nur auf Basis beider Analysen l\u00e4sst sich die SWOT ableiten.']
+});
+
+// Theorie: Marktforschungsmethoden
+reg(26, 'Prim\u00e4re vs. Sekund\u00e4re Marktforschung', 'tf', {
+  instruction: 'Ordnen Sie die Aussagen als richtig oder falsch ein.',
+  statements: [
+    {text:'Prim\u00e4re Marktforschung nutzt bereits vorhandene Daten.', correct:false},
+    {text:'Google Analytics ist ein Tool f\u00fcr sekund\u00e4re Marktforschung.', correct:false},
+    {text:'Interviews und Umfragen sind Methoden der prim\u00e4ren Marktforschung.', correct:true},
+    {text:'Die Customer Journey beschreibt die Phasen des Kaufentscheidungsprozesses.', correct:true},
+    {text:'Eine Zielgruppenanalyse ist nur bei B2C-Unternehmen relevant.', correct:false}
+  ],
+  tips: ['Prim\u00e4r = eigene Erhebung, Sekund\u00e4r = bestehende Daten.','Google Analytics liefert eigene Erstdaten.','Customer Journey = Kaufentscheidungsprozess.'],
+  reveal: ['Prim\u00e4re nutzt vorhandene Daten: Falsch - das ist sekund\u00e4re Marktforschung.','Google Analytics sekund\u00e4r: Falsch - es erhebt eigene Daten und ist eine Art prim\u00e4re Datenquelle.','Interviews/Umfragen prim\u00e4r: Richtig.','Customer Journey: Richtig.','Nur B2C: Falsch - auch B2B braucht Zielgruppenanalysen.']
+});
+
+// Theorie: SWOT-Elemente
+reg(27, 'SWOT-Analyse Elemente zuordnen', 'zuordnung', {
+  instruction: 'Ordnen Sie die SWOT-Elemente der richtigen Kategorie zu.',
+  items: ['Strengths (St\u00e4rken)', 'Weaknesses (Schw\u00e4chen)', 'Opportunities (Chancen)', 'Threats (Risiken)'],
+  options: ['Interne Analyse - positiv', 'Interne Analyse - negativ', 'Externe Analyse - positiv', 'Externe Analyse - negativ'],
+  correct: ['Interne Analyse - positiv', 'Interne Analyse - negativ', 'Externe Analyse - positiv', 'Externe Analyse - negativ'],
+  tips: ['S und W geh\u00f6ren zur internen Analyse.','O und T geh\u00f6ren zur externen Analyse.'],
+  reveal: ['Strengths = Interne Analyse, positiv (eigene St\u00e4rken).','Weaknesses = Interne Analyse, negativ (eigene Schw\u00e4chen).','Opportunities = Externe Analyse, positiv (Chancen im Umfeld).','Threats = Externe Analyse, negativ (Risiken im Umfeld).']
+});
+
+// ============================================================
+// KAPITEL 4: Zielsetzung und Strategien (S.63-77)
+// ============================================================
+
+// Rep 19 (S.76)
+reg(28, 'Zielgruppe vs. Kunde', 'freitext', {
+  instruction: 'Warum ist eine Zielgruppe nicht immer identisch mit dem Kunden? Beantworten Sie die Frage in einigen S\u00e4tzen.',
+  questions: [
+    {q:'Zielgruppe vs. Kunde:', keywords:['b2b','organisation','person','bezahlt','kauft','nutzer','website','entscheidung','nicht identisch'], minKeywords:3}
+  ],
+  tips: ['Speziell im B2B-Bereich ist der Unterschied relevant.','Wer bezahlt, ist nicht immer der Nutzer.','Die Zielgruppe der Website kann eine andere sein als der Kunde.'],
+  reveal: ['Speziell im B2B-Bereich sind Zielgruppe und Kunde oft nicht identisch.','Der Kunde ist die Person oder Organisation, die bezahlt und kauft.','Die Zielgruppe k\u00f6nnte z.B. der Bauarbeiter sein, der ein Werkzeug sucht. Bezahlt wird es durch den Chef.','Da der Bauarbeiter der haupts\u00e4chliche Nutzer der Website ist, wird die Website auf seine Bed\u00fcrfnisse zugeschnitten.']
+});
+
+// Rep 20 (S.76)
+reg(29, 'Zielgruppen beschreiben', 'freitext', {
+  instruction: 'Was sind Zielgruppen und wie l\u00e4sst sich eine Zielgruppe beschreiben?',
+  questions: [
+    {q:'Was sind Zielgruppen?', keywords:['gruppe','person','merkmal','angesprochen','marketingbotschaft','kriterien','geschlecht','alter','einkommen','wohnort','bed\u00fcrfnis'], minKeywords:3}
+  ],
+  tips: ['Zielgruppen sind Gruppen mit gemeinsamen Merkmalen.','Man beschreibt sie \u00fcber verschiedene Kriterien.','Im digitalen Marketing k\u00f6nnen Zielgruppen detaillierter definiert werden.'],
+  reveal: ['Zielgruppen sind Gruppen von Personen mit vergleichbaren Merkmalen, die gezielt angesprochen werden sollen.','Man kann sie \u00fcber Kriterien wie Geschlecht, Alter, Einkommen, Wohnort, W\u00fcnsche, Probleme und Bed\u00fcrfnisse beschreiben.','Dank digitaler Tools k\u00f6nnen Zielgruppen viel detaillierter definiert werden als im klassischen Marketing.']
+});
+
+// Rep 21 (S.76)
+reg(30, 'Personas erkl\u00e4ren', 'freitext', {
+  instruction: 'Was sind Personas und wie l\u00e4sst sich eine Persona beschreiben?',
+  questions: [
+    {q:'Was sind Personas?', keywords:['fiktiv','virtuell','person','stellvertreter','zielgruppe','motive','bed\u00fcrfnis','ziele','story','lebensnah'], minKeywords:3}
+  ],
+  tips: ['Eine Persona ist eine fiktive Person mit einer Geschichte.','Sie repr\u00e4sentiert eine Zielgruppe.','Sie wird durch Motive, Bed\u00fcrfnisse und Ziele charakterisiert.'],
+  reveal: ['Eine Persona ist die Beschreibung einer fiktiven (virtuellen) Person mit Story.','Sie ist ein konstruierter, repr\u00e4sentativer Stellvertreter einer Zielgruppe eines Angebots.','Dieser Stellvertreter wird konkret und lebensnah charakterisiert, vor allem durch seine Motive, Bed\u00fcrfnisse und Ziele.']
+});
+
+// Rep 22 (S.76)
+reg(31, '5-S-Ziele: Sizzle', 'freitext', {
+  instruction: 'Die 5-S-Ziele beinhalten ein Ziel: Sizzle (Motivieren und begeistern). Was ist die wichtigste Voraussetzung zur Umsetzung dieses Ziels?',
+  questions: [
+    {q:'Voraussetzung f\u00fcr Sizzle:', keywords:['zielgruppe','kennen','begeistert','verstehen','vorstellung','analyse','konkret','inhalt','wo','soll'], minKeywords:3}
+  ],
+  tips: ['Wenn man motivieren und begeistern will, muss man wissen, was die Zielgruppe begeistert.','Die konkrete Analyse der Zielgruppe ist Voraussetzung.'],
+  reveal: ['Die wichtigste Voraussetzung ist, dass bekannt ist, was genau die Zielgruppe begeistert.','Man muss den Kunden verstehen und eine Vorstellung \u00fcber Ziele und Verhaltensweisen haben.','Die konkrete Analyse der Zielgruppe - welche Inhalte sollen gepostet werden, wie und wo - ist somit Voraussetzung f\u00fcr die Umsetzung.']
+});
+
+// Rep 23 (S.76)
+reg(32, 'Content Marketing in der Strategie', 'freitext', {
+  instruction: 'Warum ist die Auseinandersetzung mit dem Content Marketing auf Ebene der Strategie so wichtig?',
+  questions: [
+    {q:'Content Marketing in der Strategie:', keywords:['kernelement','voraussetzung','inhalt','content','zielgrupp','spannend','binden','konkurrenz','differenz','unterscheid'], minKeywords:3}
+  ],
+  tips: ['Content Marketing ist ein Kernelement des digitalen Marketings.','Es geht um die Entwicklung spannender Inhalte.','Nur differenzierende Inhalte heben sich von der Konkurrenz ab.'],
+  reveal: ['Content Marketing ist ein Kernelement oder sogar eine Voraussetzung f\u00fcr erfolgreiches digitales Marketing.','Content bedeutet Inhalt - es geht um die Entwicklung spannender Inhalte, mit denen das Unternehmen Zielgruppen an sich binden will.','Es ist wichtig, sich bei der Entwicklung der Strategie damit auseinanderzusetzen, da dies das Hauptunterscheidungskriterium zur Konkurrenz darstellt.']
+});
+
+// Rep 24 (S.76)
+reg(33, 'Aussagen zum Content Marketing', 'tabelle', {
+  instruction: 'Sind die folgenden Aussagen zum Content Marketing korrekt?',
+  headers: ['Richtig', 'Falsch', 'Aussage'],
+  rows: [
+    {label:'Reine Produktinformationen des Unternehmens d\u00fcrfen nicht im Mittelpunkt stehen.', correct:0},
+    {label:'Im Content Marketing sollte man nur \u00fcber das Unternehmen sprechen.', correct:1},
+    {label:'Die Kunden und Anwender m\u00fcssen beim Content Marketing miteinbezogen werden.', correct:0},
+    {label:'Im Content Marketing sollte man authentisch bleiben.', correct:0},
+    {label:'Wenn jemand etwas Unwahres postet, verliert er das Vertrauen der User.', correct:0}
+  ],
+  tips: ['Content Marketing stellt den Kunden in den Mittelpunkt, nicht das Unternehmen.','Authentizit\u00e4t ist ein wichtiger Erfolgsfaktor.','Unwahre Inhalte zerst\u00f6ren Vertrauen.'],
+  reveal: ['Keine reinen Produktinfos: Richtig - Kunden stehen im Mittelpunkt.','Nur \u00fcber Unternehmen sprechen: Falsch - es geht um die Kunden und deren Geschichten.','Kunden einbeziehen: Richtig.','Authentisch bleiben: Richtig.','Unwahres postet = Vertrauen verlieren: Richtig.']
+});
+
+// Theorie: Strategieelemente
+reg(34, 'Elemente der digitalen Marketingstrategie', 'zuordnung', {
+  instruction: 'Ordnen Sie die drei Strategie-\u00dcberlegungen den richtigen Beschreibungen zu.',
+  items: ['Markenstrategie', 'Content-Strategie', 'Kommunikationsstrategie'],
+  options: [
+    'Welche \u00fcbergeordneten Vorgaben gibt es f\u00fcr Sprache, Bild, Tonalit\u00e4t und Qualit\u00e4t?',
+    'Wie k\u00f6nnen die Produkte des Unternehmens in spannende Geschichten verpackt werden?',
+    'Welche Instrumente passen zum Unternehmen und unterst\u00fctzen die Ziele?'
+  ],
+  correct: [
+    'Welche \u00fcbergeordneten Vorgaben gibt es f\u00fcr Sprache, Bild, Tonalit\u00e4t und Qualit\u00e4t?',
+    'Wie k\u00f6nnen die Produkte des Unternehmens in spannende Geschichten verpackt werden?',
+    'Welche Instrumente passen zum Unternehmen und unterst\u00fctzen die Ziele?'
+  ],
+  tips: ['Die Markenstrategie definiert den Rahmen (Sprache, Bild etc.).','Die Content-Strategie fokussiert auf Storytelling.','Die Kommunikationsstrategie w\u00e4hlt die Instrumente.'],
+  reveal: ['Markenstrategie = Vorgaben f\u00fcr Sprache, Bild, Tonalit\u00e4t, Qualit\u00e4t.','Content-Strategie = Produkte in spannende Geschichten verpacken.','Kommunikationsstrategie = Instrumente w\u00e4hlen, die zu Unternehmen und Zielen passen.']
+});
+
+// Theorie: Zielgruppen im digitalen Marketing
+reg(35, 'Zielgruppen im digitalen Marketing', 'tf', {
+  instruction: 'Sind die folgenden Aussagen richtig oder falsch?',
+  statements: [
+    {text:'Zielgruppen im digitalen Marketing entsprechen den Zielgruppen im klassischen Marketing.', correct:true},
+    {text:'Dank digitaler Tools k\u00f6nnen Zielgruppen detaillierter definiert werden.', correct:true},
+    {text:'Personas sind reale Kunden des Unternehmens.', correct:false},
+    {text:'Neben Zielgruppen werden im digitalen Marketing oft Personas erstellt.', correct:true}
+  ],
+  tips: ['Zielgruppen sind im Prinzip die gleichen, aber digitale Tools erm\u00f6glichen mehr.','Personas sind fiktive Personen.'],
+  reveal: ['Gleiche Zielgruppen: Richtig.','Detailliertere Definition: Richtig - dank digitaler Tools.','Personas reale Kunden: Falsch - Personas sind fiktive, repr\u00e4sentative Personen.','Personas erstellt: Richtig - sie erg\u00e4nzen die Zielgruppendefinition.']
+});
+
+// Minicase: Persona erstellen
+reg(36, 'Persona f\u00fcr ein KMU erstellen', 'freitext', {
+  instruction: 'Entwickeln Sie eine Persona f\u00fcr ein KMU, das lokale Qualit\u00e4tsprodukte online vermarkten m\u00f6chte. Beschreiben Sie die Person in Stichpunkten.',
+  questions: [
+    {q:'Persona beschreiben:', keywords:['name','alter','beruf','hobby','bed\u00fcrfnis','motivation','kanal','online','regional','qualit\u00e4t','kaufverhalten'], minKeywords:4}
+  ],
+  tips: ['Eine Persona braucht einen Namen, Alter und Hintergrund.','Beschreiben Sie Hobbys, Bed\u00fcrfnisse und Kaufverhalten.','Welche digitalen Kan\u00e4le nutzt die Person?'],
+  reveal: ['Beispiel-Persona: Erika, 35, verheiratet, 1 Kind.','Hobbys: Sport, Kochen, Wanderungen mit der Familie.','Bed\u00fcrfnisse: Hochwertige Lebensmittel aus der Region, gute Ern\u00e4hrung.','Digitale Kan\u00e4le: Google, Bewertungsportale, Instagram.','Kaufverhalten: Qualit\u00e4tsbewusst, recherchiert online, kauft dann lokal oder im Onlineshop.']
+});
+
+// ============================================================
+// KAPITEL 5: Instrumente - Teil 1 (S.78-95)
+// ============================================================
+
+// Rep 26 (S.95)
+reg(37, 'Vorteile der Online-Werbung', 'freitext', {
+  instruction: 'Nennen Sie 4 Vorteile der Online-Werbung gegen\u00fcber der klassischen Werbung.',
+  questions: [
+    {q:'4 Vorteile der Online-Werbung:', keywords:['reichweite','verf\u00fcgbarkeit','kosten','flexibel','branding','messbar','echtzeit','skalier','zielgrupp','g\u00fcnstig'], minKeywords:4}
+  ],
+  tips: ['Denken Sie an Reichweite, Kosten, Flexibilit\u00e4t und Branding.','Online-Werbung hat geringere Einstiegskosten.','Sie bietet hohe Verf\u00fcgbarkeit und Messbarkeit.'],
+  reveal: ['1) Gr\u00f6ssere Reichweite','2) Hohe Verf\u00fcgbarkeit','3) Geringe Einstiegskosten','4) Hohe Flexibilit\u00e4t','5) Starker Einfluss auf das Branding']
+});
+
+// Rep 27 (S.95)
+reg(38, 'Promotions-Tools im digitalen Marketing', 'freitext', {
+  instruction: 'Welche 5 Arten von Promotions-Tools im digitalen Marketing sind Ihnen bekannt?',
+  questions: [
+    {q:'5 Promotions-Tools:', keywords:['werbung','display','affiliate','verkaufsf\u00f6rderung','suchmaschine','pr','public relation','online pr','direktmarketing','e-mail','social','influencer','pers\u00f6nlich'], minKeywords:4}
+  ],
+  tips: ['Es geht um die klassischen Promotions-Tools, angepasst an digitale Kan\u00e4le.','Denken Sie an Werbung, PR, Direktmarketing, Social Media und pers\u00f6nlichen Verkauf.'],
+  reveal: ['A) Werbung - Display-Werbung und damit verbunden Affiliate Marketing','B) Verkaufsf\u00f6rderung - Suchmaschinenmarketing, digitales Marketing auf der Website','C) Public Relations - Online PR','D) Direktmarketing - E-Mail-Marketing, Social Commerce und Bewertungsplattformen','E) Pers\u00f6nlicher Verkauf - Social Media Marketing, Influencer Marketing']
+});
+
+// Rep 28 (S.95)
+reg(39, 'Bannerformate in der Online-Werbung', 'freitext', {
+  instruction: 'Nennen Sie 3 g\u00e4ngige Bannerformate in der Online-Werbung.',
+  questions: [
+    {q:'3 Bannerformate:', keywords:['halfpage','skyscraper','leaderboard','bigsize','hockey','medium rectangle','layer','billboard','wallpaper'], minKeywords:3}
+  ],
+  tips: ['Es gibt viele verschiedene Bannerformate.','Denken Sie an Halfpage Ad, Skyscraper, Leaderboard, Medium Rectangle etc.'],
+  reveal: ['G\u00e4ngige Bannerformate sind z.B.: Halfpage Ad, Skyscraper Ad, Leaderboard/Bigsize, Hockey Stick, Medium Rectangle, Layer Ad, Billboard, Wallpaper.']
+});
+
+// Rep 29 (S.95)
+reg(40, 'Vorteile des Suchmaschinenmarketings', 'freitext', {
+  instruction: 'Nennen Sie 2 Vorteile des Suchmaschinenmarketings.',
+  questions: [
+    {q:'2 Vorteile von SEM:', keywords:['kurzfristig','buchbar','position','kapital','erfolgsorientiert','zahlt','klick','flexibel','skalier','echtzeit','messbar'], minKeywords:2}
+  ],
+  tips: ['Suchmaschinenmarketing (SEM) umfasst SEO und SEA.','SEA-Anzeigen sind kurzfristig buchbar und erfolgsorientiert.','Die Positionierung kann \u00fcber das Budget gesteuert werden.'],
+  reveal: ['A) Anzeigen sind kurzfristig buchbar.','B) Die Positionierung kann \u00fcber das investierte Kapital gesteuert werden.','C) Die Werbung ist erfolgsorientiert - man zahlt nur bei Klick.','D) Kampagnen haben einen hohen Grad an Flexibilit\u00e4t.','E) Kampagnen lassen sich gut skalieren.','F) Der Erfolg kann in Echtzeit gemessen werden.']
+});
+
+// Rep 30 (S.95)
+reg(41, 'Herausforderung bei Schl\u00fcsselw\u00f6rtern', 'freitext', {
+  instruction: 'Warum kann die Auswahl geeigneter Schl\u00fcsselw\u00f6rter eine Herausforderung sein?',
+  questions: [
+    {q:'Herausforderung bei Keywords:', keywords:['konkurrenz','abheben','generisch','h\u00e4ufig','gesucht','unbekannt','suchmaschine','synonym','kunde','eingibt'], minKeywords:3}
+  ],
+  tips: ['Man muss sich von der Konkurrenz abheben.','Keywords m\u00fcssen genug gesucht werden.','Man weiss oft nicht genau, was Kunden eingeben.'],
+  reveal: ['Die Auswahl kann eine Herausforderung sein, da man sich auf der einen Seite von der Konkurrenz abheben muss, auf der anderen Seite aber auch generisch genug sein m\u00fcssen, damit sie oft genug gesucht werden.','Zudem ist oft unbekannt, was genau die Kunden in der Suchmaschine eingeben - sie nutzen vielleicht Synonyme oder Begriffe, die dem Marketing nicht bekannt sind.']
+});
+
+// Rep 31 (S.95)
+reg(42, 'Google Ads Prozess - Reihenfolge', 'zuordnung', {
+  instruction: 'Bringen Sie die Schritte des Google Ads Prozesses in die richtige Reihenfolge.',
+  items: ['Schritt 1', 'Schritt 2', 'Schritt 3', 'Schritt 4', 'Schritt 5'],
+  options: [
+    'Festlegung, ob die Schaltung im Suchnetzwerk erfolgen soll',
+    'Auswahl der Endger\u00e4te, auf denen die Werbung angezeigt werden soll',
+    'Festlegung des Tagesbudgets',
+    'Erfassung des Anzeigentexts',
+    'Erfassung der Zahlungsmodalit\u00e4ten'
+  ],
+  correct: [
+    'Festlegung, ob die Schaltung im Suchnetzwerk erfolgen soll',
+    'Auswahl der Endger\u00e4te, auf denen die Werbung angezeigt werden soll',
+    'Festlegung des Tagesbudgets',
+    'Erfassung des Anzeigentexts',
+    'Erfassung der Zahlungsmodalit\u00e4ten'
+  ],
+  tips: ['Der Prozess beginnt mit der Festlegung des Netzwerks.','Der Anzeigentext wird vor den Zahlungsmodalit\u00e4ten erfasst.'],
+  reveal: ['1. Festlegung, ob die Schaltung im Suchnetzwerk erfolgen soll.','2. Auswahl der Endger\u00e4te.','3. Festlegung des Tagesbudgets.','4. Erfassung des Anzeigentexts.','5. Erfassung der Zahlungsmodalit\u00e4ten.']
+});
+
+// Theorie: Der digitale Marketingmix (4P)
+reg(43, 'Digitaler Marketingmix (4 P)', 'zuordnung', {
+  instruction: 'Ordnen Sie die 4 P des digitalen Marketingmix den richtigen Beschreibungen zu.',
+  items: ['Product', 'Price', 'Place', 'Promotion'],
+  options: [
+    'Produkt- und Sortimentsgestaltung im digitalen Kontext',
+    'Preisgestaltung und Online-Preismodelle',
+    'Distribution und Verf\u00fcgbarkeit \u00fcber digitale Kan\u00e4le',
+    'Kommunikation und Werbung \u00fcber digitale Instrumente'
+  ],
+  correct: [
+    'Produkt- und Sortimentsgestaltung im digitalen Kontext',
+    'Preisgestaltung und Online-Preismodelle',
+    'Distribution und Verf\u00fcgbarkeit \u00fcber digitale Kan\u00e4le',
+    'Kommunikation und Werbung \u00fcber digitale Instrumente'
+  ],
+  tips: ['Die 4 P gelten auch im digitalen Marketing.','Sie werden um digitale Aspekte erg\u00e4nzt.'],
+  reveal: ['Product = Produkt- und Sortimentsgestaltung.','Price = Preisgestaltung und Online-Preismodelle.','Place = Distribution \u00fcber digitale Kan\u00e4le.','Promotion = Kommunikation und Werbung digital.']
+});
+
+// Theorie: SEO vs. SEA
+reg(44, 'SEO vs. SEA unterscheiden', 'tf', {
+  instruction: 'Sind die folgenden Aussagen richtig oder falsch?',
+  statements: [
+    {text:'SEO steht f\u00fcr Search Engine Optimization und ist eine bezahlte Massnahme.', correct:false},
+    {text:'SEA steht f\u00fcr Search Engine Advertising und umfasst bezahlte Anzeigen.', correct:true},
+    {text:'SEM ist der Oberbegriff f\u00fcr SEO und SEA.', correct:true},
+    {text:'Bei SEA zahlt man pro Einblendung der Anzeige.', correct:false},
+    {text:'SEO-Massnahmen wirken langfristig, w\u00e4hrend SEA kurzfristig wirkt.', correct:true}
+  ],
+  tips: ['SEO ist organisch (unbezahlt), SEA ist bezahlt.','SEM umfasst beides.','Bei SEA zahlt man typischerweise pro Klick (CPC).'],
+  reveal: ['SEO bezahlt: Falsch - SEO ist die organische (unbezahlte) Optimierung.','SEA bezahlt: Richtig.','SEM Oberbegriff: Richtig.','SEA zahlt pro Einblendung: Falsch - man zahlt typischerweise pro Klick (CPC).','SEO langfristig: Richtig - SEO braucht Zeit, wirkt aber nachhaltig.']
+});
+
+// Theorie: Online Ads
+reg(45, 'Arten von Online-Anzeigen', 'mc', {
+  instruction: 'Welche der folgenden geh\u00f6ren zu den g\u00e4ngigen Online-Werbeformaten?',
+  options: [
+    'Halfpage Ad',
+    'Skyscraper Ad',
+    'Leaderboard / Bigsize',
+    'Medium Rectangle',
+    'Printanzeige',
+    'Layer Ad',
+    'Radiowerbung'
+  ],
+  correct: [0,1,2,3,5],
+  multi: true,
+  tips: ['Es geht um digitale Werbeformate.','Printanzeige und Radiowerbung sind klassische, nicht digitale Formate.'],
+  reveal: ['Halfpage Ad, Skyscraper Ad, Leaderboard/Bigsize, Medium Rectangle und Layer Ad sind g\u00e4ngige Online-Werbeformate.','Printanzeige und Radiowerbung sind klassische (nicht digitale) Werbeformate.']
+});
+
+// Theorie: Keywords
+reg(46, 'Keyword-Strategie', 'freitext', {
+  instruction: 'Was m\u00fcssen Sie bei der Auswahl von Keywords f\u00fcr SEO und SEA beachten? Nennen Sie drei wichtige Punkte.',
+  questions: [
+    {q:'Drei Punkte zur Keyword-Auswahl:', keywords:['relevant','suchvolumen','konkurrenz','spezifisch','generisch','long-tail','synonym','kunde','sucht','balance'], minKeywords:3}
+  ],
+  tips: ['Keywords m\u00fcssen relevant und gleichzeitig h\u00e4ufig genug gesucht werden.','Die Konkurrenz um bestimmte Keywords spielt eine Rolle.','Long-Tail-Keywords k\u00f6nnen eine gute Alternative sein.'],
+  reveal: ['1) Keywords m\u00fcssen relevant f\u00fcr das Angebot sein und gleichzeitig genug Suchvolumen haben.','2) Man muss die Konkurrenz ber\u00fccksichtigen - bei sehr beliebten Keywords ist es schwieriger.','3) Keywords sollten 3-5% des Textes ausmachen und nat\u00fcrlich integriert werden.']
+});
+
+// ============================================================
+// KAPITEL 6: Instrumente - Teil 2 (S.96-113)
+// ============================================================
+
+// Rep 33 (S.112)
+reg(47, 'Erscheinungsformen einer Website', 'zuordnung', {
+  instruction: 'Ordnen Sie die Erscheinungsformen einer Website den richtigen Beschreibungen zu.',
+  items: ['Corporate Website', 'Onlineshop', 'Microsite', 'Portal'],
+  options: [
+    'Seite mit allen relevanten Informationen rund um das Unternehmen und dessen Produkte',
+    'E-Commerce-Website f\u00fcr den Online-Verkauf von Produkten und Dienstleistungen',
+    'Projekt- oder themenbezogene Seite, oft im Zusammenhang mit Kampagnen',
+    'Seite, die Informationen und Angebote b\u00fcndelt (z.B. Reiseportal)'
+  ],
+  correct: [
+    'Seite mit allen relevanten Informationen rund um das Unternehmen und dessen Produkte',
+    'E-Commerce-Website f\u00fcr den Online-Verkauf von Produkten und Dienstleistungen',
+    'Projekt- oder themenbezogene Seite, oft im Zusammenhang mit Kampagnen',
+    'Seite, die Informationen und Angebote b\u00fcndelt (z.B. Reiseportal)'
+  ],
+  tips: ['Es gibt vier Haupterscheinungsformen von Websites.','Jede hat einen spezifischen Zweck.'],
+  reveal: ['Corporate Website: Alle Infos zum Unternehmen und Produkten.','Onlineshop: E-Commerce f\u00fcr Online-Verkauf.','Microsite: Projekt-/themenbezogene Kampagnenseite.','Portal: B\u00fcndelt Informationen und Angebote.']
+});
+
+// Rep 34 (S.112)
+reg(48, 'Blog vs. Unternehmens-Website', 'freitext', {
+  instruction: 'Welche Vorteile hat ein Blog gegen\u00fcber einer klassischen Unternehmens-Website aus Sicht des Marketings?',
+  questions: [
+    {q:'Vorteile eines Blogs:', keywords:['pers\u00f6nlich','kommunizier','kreativ','starr','autoren','wort','offen','flexibel','inhalt','aktuell'], minKeywords:3}
+  ],
+  tips: ['Ein Blog ist pers\u00f6nlicher und kreativer als eine Website.','Verschiedene Autoren k\u00f6nnen zu Wort kommen.','Blogs sind flexibler in der Inhaltserstellung.'],
+  reveal: ['Ein Blog eignet sich sehr gut, um in einer pers\u00f6nlichen Art zu kommunizieren.','Die Website ist meistens etwas starr und l\u00e4sst nicht so viele M\u00f6glichkeiten f\u00fcr Kreativit\u00e4t offen.','Im Blog ist es m\u00f6glich, diverse Autoren zu Wort kommen zu lassen.']
+});
+
+// Rep 35 (S.112)
+reg(49, 'Anzahl Social-Media-Kan\u00e4le', 'freitext', {
+  instruction: 'Wie viele Social-Media-Kan\u00e4le sollte ein Unternehmen generell managen? Bitte argumentieren Sie mit 3-5 S\u00e4tzen.',
+  questions: [
+    {q:'Anzahl Kan\u00e4le:', keywords:['wenig','qualit\u00e4t','ressourcen','zielgruppe','kanal','betreuen','potenzial','erfolgreich','grundsatz'], minKeywords:3}
+  ],
+  tips: ['Grunds\u00e4tzlich gilt: Weniger ist mehr!','Die Auswahl richtet sich nach bestimmten Kriterien.','Qualit\u00e4t geht vor Quantit\u00e4t.'],
+  reveal: ['Die Anzahl richtet sich nach: Auf welchen Kan\u00e4len sind die Zielgruppen aktiv? Wie viele Ressourcen stehen zur Verf\u00fcgung? Auf welchem Kanal hat man das gr\u00f6sste Potenzial?','Grunds\u00e4tzlich gilt: Weniger ist oft mehr. Lieber wenige Kan\u00e4le sehr gut betreuen als viele Kan\u00e4le mit mittelm\u00e4ssiger Qualit\u00e4t.']
+});
+
+// Rep 36 (S.112)
+reg(50, 'Influencer Marketing - Bedeutung', 'freitext', {
+  instruction: 'Warum hat Influencer Marketing so stark an Bedeutung gewonnen?',
+  questions: [
+    {q:'Bedeutung von Influencer Marketing:', keywords:['meinungsmacher','community','vertrauen','botschaft','wahrgenommen','authentisch','informationsflut','transparenz','wettbewerb'], minKeywords:3}
+  ],
+  tips: ['Influencer sind Meinungsmacher mit einer reichweitenstarken Community.','Botschaften von Influencern werden als vertrauensvoller wahrgenommen.','In der heutigen Informationsflut ist Vertrauen ein Wettbewerbsvorteil.'],
+  reveal: ['Influencer sind Meinungsmacher, denen Fans und ihre Community starkes Vertrauen entgegenbringen.','Botschaften eines Unternehmens werden bei der Zielgruppe eher wahrgenommen, wenn sie ein Influencer sendet.','Empf\u00e4nger nehmen sie als vertrauensvoller und authentischer wahr.','In der heutigen Informationsflut kann Vertrauen und Transparenz ein bedeutender Wettbewerbsvorteil sein.']
+});
+
+// Rep 37 (S.112)
+reg(51, 'Aussagen zum Influencer Marketing', 'tabelle', {
+  instruction: 'Kreuzen Sie die zutreffenden Aussagen zum Influencer Marketing an.',
+  headers: ['Trifft zu', 'Trifft nicht zu', 'Aussage'],
+  rows: [
+    {label:'Influencer sind Personen, die andere \u00fcber die Online-Kan\u00e4le beeinflussen k\u00f6nnen.', correct:0},
+    {label:'Das Ziel des Influencer Marketings ist, m\u00f6glichst viele Personen zu erreichen.', correct:1},
+    {label:'Es ist einfach f\u00fcr Unternehmen, gute Influencer zu finden.', correct:1}
+  ],
+  tips: ['Influencer haben Einfluss \u00fcber Online-Kan\u00e4le.','Das Ziel ist nicht nur Reichweite, sondern Glaubw\u00fcrdigkeit.','Gute Influencer zu finden, ist eine Herausforderung.'],
+  reveal: ['Beeinflussen \u00fcber Online-Kan\u00e4le: Trifft zu.','M\u00f6glichst viele Personen erreichen: Trifft nicht zu - es geht um die richtigen Personen, nicht nur viele.','Einfach gute Influencer finden: Trifft nicht zu - es ist eine Herausforderung.']
+});
+
+// Theorie: Social Media Marketing
+reg(52, 'Social Media Marketing Fragen', 'freitext', {
+  instruction: 'Welche Fragen sollten bei der Umsetzung einer Social-Media-Strategie beantwortet werden?',
+  questions: [
+    {q:'Fragen f\u00fcr Social-Media-Strategie:', keywords:['kanal','tageszeit','inhalt','gestalt','post','kritisch','kommunikation','umgehen','wann','was','wie'], minKeywords:3}
+  ],
+  tips: ['Es geht um die praktische Umsetzung.','Welche Kan\u00e4le, wann posten, wie gestalten?','Der Umgang mit kritischer Kommunikation ist wichtig.'],
+  reveal: ['1) Welche Kan\u00e4le werden bewirtschaftet?','2) Zu welcher Tageszeit wird gepostet?','3) Welches Vorgehen ist f\u00fcr die Gestaltung der Inhalte definiert?','4) Wie umgehen mit kritischer Kommunikation?']
+});
+
+// Theorie: E-Mail-Marketing
+reg(53, 'E-Mail-Marketing Grundlagen', 'tf', {
+  instruction: 'Sind die folgenden Aussagen zum E-Mail-Marketing richtig oder falsch?',
+  statements: [
+    {text:'E-Mail-Marketing umfasst den strategischen Einsatz von E-Mail, um Empf\u00e4nger auf eine Online-Pr\u00e4senz zu lenken.', correct:true},
+    {text:'F\u00fcr E-Mail-Marketing braucht man kein Einverst\u00e4ndnis der Empf\u00e4nger.', correct:false},
+    {text:'Ein Newsletter sollte immer einen Call-to-Action enthalten.', correct:true},
+    {text:'Die \u00d6ffnungsrate ist eine wichtige Kennzahl im E-Mail-Marketing.', correct:true}
+  ],
+  tips: ['E-Mail-Marketing muss rechtlich konform sein (Double-Opt-in).','Jede E-Mail sollte ein klares Ziel haben.','Kennzahlen wie \u00d6ffnungsrate und Klickrate sind wichtig.'],
+  reveal: ['Strategischer Einsatz: Richtig.','Kein Einverst\u00e4ndnis: Falsch - Double-Opt-in ist rechtlich erforderlich.','Call-to-Action: Richtig - jede E-Mail braucht ein Ziel.','Oeffnungsrate wichtig: Richtig - sie zeigt, wie attraktiv der Betreff ist.']
+});
+
+// Theorie: Social Commerce
+reg(54, 'Social Commerce und Bewertungsplattformen', 'freitext', {
+  instruction: 'Was versteht man unter Social Commerce und welche Vorteile hat die Nutzung von Bewertungsplattformen?',
+  questions: [
+    {q:'Social Commerce und Bewertungsplattformen:', keywords:['verkauf','social','media','produkt','bewert','interaktion','kunde','like','share','mundpropaganda','vertrauen'], minKeywords:3}
+  ],
+  tips: ['Social Commerce erm\u00f6glicht Verkauf \u00fcber Social Media.','Bewertungsplattformen schaffen Vertrauen.','Interaktion zwischen Unternehmen und Kunden steht im Zentrum.'],
+  reveal: ['Social Commerce = M\u00f6glichkeit, ein Produkt innerhalb der eigenen Social-Media-Seiten zu verkaufen.','Das Produkt kann von den Nutzern auch direkt auf Social Media bewertet werden.','Vorteile: Interaktion mit Kunden (durch Likes/Shares/Bewertungen) und Interaktion zwischen Kunden (Mundpropaganda).']
+});
+
+// Theorie: Redaktionsplan
+reg(55, 'Redaktionsplan erstellen', 'freitext', {
+  instruction: 'Was ist ein Redaktionsplan und warum ist er wichtig f\u00fcr das Content Marketing?',
+  questions: [
+    {q:'Redaktionsplan:', keywords:['plan','zeitlich','inhalt','organis','content','regelm\u00e4ssig','qualit\u00e4t','\u00fcbersicht','kanal','themen'], minKeywords:3}
+  ],
+  tips: ['Ein Redaktionsplan organisiert Inhalte zeitlich.','Er hilft bei der regelm\u00e4ssigen Ver\u00f6ffentlichung.','Er gibt eine \u00dcbersicht \u00fcber Themen, Kan\u00e4le und Zeitpunkte.'],
+  reveal: ['Ein Redaktionsplan ist ein zeitlicher und inhaltlicher Organisationsplan f\u00fcr Content-Marketing-Aktivit\u00e4ten.','Er ist wichtig, um regelm\u00e4ssig qualitativ hochwertige Inhalte zu ver\u00f6ffentlichen.','Er enth\u00e4lt: Themen, Kan\u00e4le, Zeitpunkte, Verantwortliche und Format der Inhalte.']
+});
+
+// Theorie: Online PR
+reg(56, 'Online PR erkl\u00e4ren', 'tf', {
+  instruction: 'Sind die folgenden Aussagen zur Online PR richtig oder falsch?',
+  statements: [
+    {text:'Bei der Online PR werden Kunden und Interessenten direkt adressiert.', correct:false},
+    {text:'Online PR versucht, Aufmerksamkeit und Bekanntheit \u00fcber die Zusammenarbeit mit Medien zu steigern.', correct:true},
+    {text:'Online PR richtet sich an das Umfeld des Unternehmens.', correct:true},
+    {text:'Online PR und Online-Werbung sind dasselbe.', correct:false}
+  ],
+  tips: ['PR adressiert nicht direkt die Kunden.','PR arbeitet mit Medien und dem Unternehmensumfeld.'],
+  reveal: ['Direkte Adressierung: Falsch - PR adressiert indirekt \u00fcber Medien.','Aufmerksamkeit \u00fcber Medien: Richtig.','Umfeld des Unternehmens: Richtig.','PR = Werbung: Falsch - PR ist redaktionell, Werbung ist bezahlt.']
+});
+
+// ============================================================
+// KAPITEL 7: Budget und Realisation (S.114-130)
+// ============================================================
+
+// Rep 39 (S.130)
+reg(57, 'Preismodelle im digitalen Marketing', 'zuordnung', {
+  instruction: 'Ordnen Sie die Preismodelle den richtigen Beschreibungen zu.',
+  items: ['TKP / CPM', 'CPC', 'CPL'],
+  options: [
+    'Tausender-Kontakt-Preis: Abrechnung pro 1000 ausgelieferte Bannereinblendungen',
+    'Cost per Click: Abrechnung nach Anzahl Klicks auf die Werbung',
+    'Cost per Lead: Abrechnung pro konkreter, vereinbarter Interaktion (z.B. Formularausf\u00fcllung)'
+  ],
+  correct: [
+    'Tausender-Kontakt-Preis: Abrechnung pro 1000 ausgelieferte Bannereinblendungen',
+    'Cost per Click: Abrechnung nach Anzahl Klicks auf die Werbung',
+    'Cost per Lead: Abrechnung pro konkreter, vereinbarter Interaktion (z.B. Formularausf\u00fcllung)'
+  ],
+  tips: ['TKP/CPM rechnet nach Einblendungen ab.','CPC rechnet nach Klicks ab.','CPL rechnet nach generierten Leads ab.'],
+  reveal: ['TKP/CPM = Tausender-Kontakt-Preis, Abrechnung pro 1000 Sichtkontakte/Einblendungen.','CPC = Cost per Click, Abrechnung nach Klicks auf die Werbung.','CPL = Cost per Lead, Abrechnung pro konkreter Interaktion (Formular, Offertanfrage etc.).']
+});
+
+// Rep 40 (S.130)
+reg(58, 'Budgetplan erkl\u00e4ren', 'freitext', {
+  instruction: 'Was ist ein Budgetplan und wof\u00fcr kann er eingesetzt werden?',
+  questions: [
+    {q:'Budgetplan:', keywords:['ausgaben','kosten','planungsperiode','zusammen','tabelle','monatlich','quartalsweise','zeitlich','\u00fcbersicht'], minKeywords:3}
+  ],
+  tips: ['Ein Budgetplan fasst alle geplanten Ausgaben zusammen.','Er stellt Kosten einer zeitlichen Dimension gegen\u00fcber.','Er dient der Planung und Kontrolle der Ausgaben.'],
+  reveal: ['Der Budgetplan fasst alle geplanten Ausgaben und Kosten f\u00fcr die n\u00e4chste Planungsperiode zusammen.','Er stellt diese einer zeitlichen Dimension gegen\u00fcber.','Kurz gesagt ist es eine Tabelle, in der die monatlichen oder quartalsweisen Ausgaben erfasst werden.']
+});
+
+// Rep 41 (S.130)
+reg(59, 'Preisgestaltung im digitalen Marketing', 'freitext', {
+  instruction: 'Nennen Sie 2 Ans\u00e4tze zur Preisgestaltung im digitalen Marketing.',
+  questions: [
+    {q:'2 Ans\u00e4tze:', keywords:['klassisch','personalisiert','abonnement','auktion','performance','bezahlung','preissystem','abo'], minKeywords:2}
+  ],
+  tips: ['Es gibt verschiedene innovative Preismodelle im digitalen Marketing.','Denken Sie an klassische und digitale Ans\u00e4tze.'],
+  reveal: ['M\u00f6gliche Ans\u00e4tze: Klassische Preisgestaltung, Personalisierte Preissysteme, Abonnements, Auktionen, Performancegerechte Bezahlung.']
+});
+
+// Rep 42 (S.130)
+reg(60, 'Phasen der Realisation', 'lueckentext', {
+  instruction: 'Nennen Sie die typischen Phasen in der Realisation.',
+  segments: ['Die vier Phasen der Realisation sind: 1. ',{blank:true,answer:['Ideenfindung'],width:160},', 2. ',{blank:true,answer:['Skizzierung und Planung','Skizzierung'],width:200},', 3. ',{blank:true,answer:['Durchf\u00fchrung'],width:160},', 4. ',{blank:true,answer:['Umsetzung'],width:160}],
+  tips: ['Die Realisation folgt einem logischen Ablauf.','Es beginnt mit der Idee und endet mit der Umsetzung.'],
+  reveal: ['Phase 1: Ideenfindung','Phase 2: Skizzierung und Planung','Phase 3: Durchf\u00fchrung','Phase 4: Umsetzung']
+});
+
+// Rep 43 (S.130)
+reg(61, 'Arten von Marketingagenturen', 'freitext', {
+  instruction: 'Welche Arten von Marketingagenturen kennen Sie?',
+  questions: [
+    {q:'Arten von Marketingagenturen:', keywords:['werbeagentur','full-service','pr-agentur','dialogmarketing','media-agentur','design','branding','internet','digital'], minKeywords:4}
+  ],
+  tips: ['Es gibt viele verschiedene Agenturtypen.','Manche sind auf bestimmte Bereiche spezialisiert.'],
+  reveal: ['Klassische Werbeagenturen oder Full-Service-Werbeagenturen, PR-Agenturen, Dialogmarketingagenturen, Media-Agenturen, Design-Agenturen, Branding-Agenturen, Internetagenturen oder Digitalagenturen.']
+});
+
+// Rep 44 (S.130)
+reg(62, 'Arten von Digitalagenturen', 'freitext', {
+  instruction: 'Welche Arten von Digitalagenturen kennen Sie?',
+  questions: [
+    {q:'Arten von Digitalagenturen:', keywords:['content','social media','influencer','mobile','app','seo','online-marketing','performance'], minKeywords:3}
+  ],
+  tips: ['Digitalagenturen sind auf den digitalen Bereich spezialisiert.','Es gibt verschiedene Spezialisierungen.'],
+  reveal: ['Content-Marketing-Agenturen, Social-Media-Marketing-Agenturen, Influencer-Marketing-Agenturen, Mobile-/App-Agenturen, SEO-Agenturen, Online-Marketing-Agenturen, Performance-Marketing-Agenturen.']
+});
+
+// Rep 45 (S.130)
+reg(63, 'Kriterien f\u00fcr Agenturwahl', 'freitext', {
+  instruction: 'Nach welchen Kriterien k\u00f6nnen Agenturen vorausgew\u00e4hlt werden?',
+  questions: [
+    {q:'Kriterien f\u00fcr Agenturwahl:', keywords:['agenturtyp','erfahrung','referenz','leistungsportfolio','preis','flexibil','innovation','langfrist','beziehung','branche'], minKeywords:3}
+  ],
+  tips: ['Es gibt mehrere Kriterien, die bei der Auswahl wichtig sind.','Erfahrung und Referenzen spielen eine Rolle.','Die langfristige Beziehung ist wichtig.'],
+  reveal: ['Agenturtyp (abh\u00e4ngig von den Zielen), Erfahrung der Agentur in der Branche, Referenzen zu \u00e4hnlichen Marketingmassnahmen und Ruf, Leistungsportfolio, Preisgestaltung, Flexibilit\u00e4t, Innovationsgrad, Langfristige Beziehung anstreben.']
+});
+
+// Theorie: Zusammenarbeit mit Agenturen
+reg(64, 'Zusammenarbeit mit Agenturen', 'tf', {
+  instruction: 'Sind die folgenden Aussagen zur Zusammenarbeit mit Agenturen richtig oder falsch?',
+  statements: [
+    {text:'Ein durchdachtes, ausf\u00fchrliches Briefing ist wichtig f\u00fcr die Zusammenarbeit.', correct:true},
+    {text:'Die \u00dcberpr\u00fcfung der gelieferten Arbeiten ist nicht n\u00f6tig, wenn man eine gute Agentur hat.', correct:false},
+    {text:'Langfristige Beziehungen mit Agenturen sind effizienter als h\u00e4ufige Wechsel.', correct:true},
+    {text:'Agenturen sind kein bedeutender Kostenfaktor.', correct:false}
+  ],
+  tips: ['Briefing, \u00dcberpr\u00fcfung und R\u00fcckmeldung sind wichtig.','Langfristige Beziehungen schaffen Effizienz.','Agenturen sind ein bedeutender Kostenfaktor.'],
+  reveal: ['Briefing wichtig: Richtig.','Keine \u00dcberpr\u00fcfung n\u00f6tig: Falsch - genaue \u00dcberpr\u00fcfung ist immer n\u00f6tig.','Langfristige Beziehungen: Richtig - je besser eine Agentur das Unternehmen kennt, desto effizienter.','Kein Kostenfaktor: Falsch - Agenturen sind ein bedeutender Kostenfaktor.']
+});
+
+// Theorie: Budgetstruktur
+reg(65, 'Budgetstruktur f\u00fcr digitales Marketing', 'zuordnung', {
+  instruction: 'Ordnen Sie die Kostenarten den richtigen Kategorien zu.',
+  items: ['Lohn und Weiterbildung', 'SEO-Projekt, Google Ads', 'Social-Media-Management-Tools', 'Content Marketing und Instagram-Betreuung'],
+  options: ['Personalkosten', 'Kosten Online Advertising', 'Kosten Social Media Marketing', 'Agenturkosten'],
+  correct: ['Personalkosten', 'Kosten Online Advertising', 'Kosten Social Media Marketing', 'Agenturkosten'],
+  tips: ['Die Budgetstruktur umfasst verschiedene Kostenkategorien.','Jede Aktivit\u00e4t geh\u00f6rt zu einer bestimmten Kategorie.'],
+  reveal: ['Lohn und Weiterbildung = Personalkosten.','SEO-Projekt und Google Ads = Kosten Online Advertising.','Social-Media-Management-Tools = Kosten Social Media Marketing.','Content Marketing und Instagram-Betreuung = Agenturkosten.']
+});
+
+// ============================================================
+// KAPITEL 8: Kontrolle (S.131-142)
+// ============================================================
+
+// Rep 47 (S.141)
+reg(66, 'Bedeutung von Kennzahlensystemen', 'freitext', {
+  instruction: 'Warum ist die Nutzung von Kennzahlensystemen im digitalen Marketing so wichtig?',
+  questions: [
+    {q:'Bedeutung von KPIs:', keywords:['erfolgsmessung','belegbar','ableiten','aktivit\u00e4ten','konzept','strategi','kampagne','erfolgreich','umgesetzt','nachwei','investier'], minKeywords:3}
+  ],
+  tips: ['KPIs machen den Erfolg messbar und belegbar.','Ohne Messung weiss man nicht, ob Massnahmen erfolgreich waren.','KPIs helfen bei der Optimierung.'],
+  reveal: ['Die Erfolgsmessung der digitalen Marketingaktivit\u00e4ten sollte ein zentraler Bestandteil des digitalen Marketings sein.','Nur so l\u00e4sst sich belegbar ableiten, wie erfolgreich die einzelnen Aktivit\u00e4ten waren oder ob das Marketingkonzept, die Marketingstrategie oder die Kampagne erfolgreich umgesetzt wurden.','Ohne Kennzahlen fehlt ein klarer Nachweis des Erfolgs und es wird in Aktionen investiert, die oft nicht den erwarteten Erfolg bringen.']
+});
+
+// Rep 48 (S.141)
+reg(67, 'Kennzahlen im digitalen Marketing', 'freitext', {
+  instruction: 'Welche Kennzahlen werden zur Kontrolle der digitalen Marketingaktivit\u00e4ten genutzt? Nennen Sie 3 Kennzahlen und erkl\u00e4ren Sie diese.',
+  questions: [
+    {q:'3 Kennzahlen nennen und erkl\u00e4ren:', keywords:['ctr','klickrate','conversion','cost per','cpc','kosten','umsatz','roi','reichweite','impression','besucher','bounce','absprung'], minKeywords:3}
+  ],
+  tips: ['Es gibt technische und betriebswirtschaftliche Kennzahlen.','CTR, Conversion Rate und CPC sind wichtige Kennzahlen.','Kennzahlen sollten regelm\u00e4ssig \u00fcberpr\u00fcft werden.'],
+  reveal: ['Klickrate (CTR): Verh\u00e4ltnis zwischen Einblendungen und Klicks. CTR = Impressions / Klicks x 100.','Cost per Conversion: Kosten, die pro beabsichtigter Transaktion anfallen.','Kosten je Bestellung: Kosten der Kampagne geteilt durch die Anzahl der herbeigef\u00fchrten Bestellungen.']
+});
+
+// Rep 49 (S.141)
+reg(68, 'Technische und betriebswirtschaftliche Kennzahlen', 'freitext', {
+  instruction: 'A) Warum braucht es neben den technischen Kennzahlen auch betriebswirtschaftliche Kennzahlen? B) Nennen Sie 2 betriebswirtschaftliche Kennzahlen als Beispiel.',
+  questions: [
+    {q:'A) Warum betriebswirtschaftliche Kennzahlen?', keywords:['business','relevanz','gesch\u00e4ft','umsatz','transaktion','wiederk\u00e4ufer','kundenwert','traffic','allein','nicht ausreich'], minKeywords:2},
+    {q:'B) 2 Beispiele:', keywords:['umsatz','wiederk\u00e4ufer','kundenwert','customer lifetime','kosten','bestellung','nettok\u00e4ufe','retouren'], minKeywords:2}
+  ],
+  tips: ['Technische Kennzahlen (z.B. Traffic) reichen allein nicht aus.','Betriebswirtschaftliche Kennzahlen zeigen die Gesch\u00e4ftsrelevanz.','Sie zeigen, ob sich die Marketingaktivit\u00e4ten auch finanziell lohnen.'],
+  reveal: ['A) Neben den technischen Kennzahlen, die oft eher technisch orientiert sind (Traffic-Daten), werden auch businessrelevante Interaktionen (betriebswirtschaftliche KPIs) ausgewertet. Diese sind wichtig, weil sie die Relevanz des Marketings f\u00fcr die allgemeinen Gesch\u00e4ftsaktivit\u00e4ten aufzeigen.','B) Beispiele: Umsatz, Anzahl Transaktionen, Warenkorbwert, Wiederk\u00e4ufer, Kosten je Bestellung, Kundenwert (Customer Lifetime Value), Retouren.']
+});
+
+// Rep 50 (S.141)
+reg(69, 'Social-Media-Datenanalysen', 'freitext', {
+  instruction: 'Gibt es Social-Media-Datenanalysen? Beantworten Sie die Frage in 2-3 S\u00e4tzen.',
+  questions: [
+    {q:'Social-Media-Datenanalysen:', keywords:['ja','plattform','integriert','analyse','tool','facebook','statistik','reichweite','fans','zusammensetzung','daten'], minKeywords:3}
+  ],
+  tips: ['Ja, es gibt Social-Media-Datenanalysen!','Plattformen bieten eigene, integrierte Analyse-Tools an.','Facebook z.B. bietet Seitenstatistiken f\u00fcr Administratoren.'],
+  reveal: ['Ja, es lassen sich diverse Daten via Social Media analysieren.','Einige Plattformen bieten sogar integrierte Analysen an, also eigene Tools, die innerhalb ihrer Plattform die Daten schon analysieren und aufbereiten.','Die bekannteste Plattform Facebook bietet f\u00fcr Administratoren von Seiten Statistiken an: Reichweite der Posts, neue Fans, Zusammensetzung der Fans etc.']
+});
+
+// Rep 51 (S.142)
+reg(70, 'Kontroll-Begriffe zuordnen', 'zuordnung', {
+  instruction: 'Ordnen Sie die Begriffe den richtigen Beschreibungen zu.',
+  items: ['KPIs', 'Conversions', 'Cookies', 'Performance Marketing', 'Klicks'],
+  options: [
+    'Key Performance Indicators, Erfolgsfaktoren',
+    'Anzahl der Website-Besucher, die eine gew\u00fcnschte Transaktion durchgef\u00fchrt haben',
+    'Daten der Besucher einer Website, die gespeichert werden, um Seitenaufrufe zuzuordnen',
+    'Einsatz von Online-Marketing-Instrumenten mit dem Ziel, eine messbare Reaktion zu erzielen',
+    'Anzahl der Besucher, die auf ein Werbemittel geklickt haben'
+  ],
+  correct: [
+    'Key Performance Indicators, Erfolgsfaktoren',
+    'Anzahl der Website-Besucher, die eine gew\u00fcnschte Transaktion durchgef\u00fchrt haben',
+    'Daten der Besucher einer Website, die gespeichert werden, um Seitenaufrufe zuzuordnen',
+    'Einsatz von Online-Marketing-Instrumenten mit dem Ziel, eine messbare Reaktion zu erzielen',
+    'Anzahl der Besucher, die auf ein Werbemittel geklickt haben'
+  ],
+  tips: ['KPIs sind Schl\u00fcsselkennzahlen.','Conversions sind gew\u00fcnschte Aktionen.','Performance Marketing fokussiert auf messbare Ergebnisse.'],
+  reveal: ['KPIs = Key Performance Indicators, Erfolgsfaktoren.','Conversions = gew\u00fcnschte Transaktionen (Kauf, Formular etc.).','Cookies = gespeicherte Besucherdaten zur Zuordnung.','Performance Marketing = messbare Reaktionen erzielen.','Klicks = Besucher, die auf Werbemittel geklickt haben.']
+});
+
+// Theorie: A/B-Testing
+reg(71, 'A/B-Testing erkl\u00e4ren', 'freitext', {
+  instruction: 'Was ist A/B-Testing und wof\u00fcr wird es eingesetzt?',
+  questions: [
+    {q:'A/B-Testing:', keywords:['vergleich','variante','inhalt','form','position','headline','call-to-action','wirkung','besser','performance','webseite','newsletter'], minKeywords:3}
+  ],
+  tips: ['A/B-Testing vergleicht zwei Varianten.','Es wird bei Webseiten und Newslettern eingesetzt.','Man testet verschiedene Inhaltselemente.'],
+  reveal: ['Mittels A/B-Testing lassen sich verschiedene Inhaltselemente (Inhalt, Form und Positionierung von Headlines, Titeln, Call-to-Action etc.) vergleichen.','Ziel ist es, die Wirkung verschiedener Varianten festzustellen.','Es wird insbesondere zur Analyse von Webseiten und Newslettern eingesetzt.']
+});
+
+// Theorie: Social Media Monitoring
+reg(72, 'Social Media Monitoring', 'tf', {
+  instruction: 'Sind die folgenden Aussagen zum Social Media Monitoring richtig oder falsch?',
+  statements: [
+    {text:'Social Media Monitoring liefert Informationen dar\u00fcber, was in Social-Media-Plattformen \u00fcber das Unternehmen gesagt wird.', correct:true},
+    {text:'Social Media Monitoring ist nur f\u00fcr grosse Unternehmen relevant.', correct:false},
+    {text:'Es gibt Tools, die den Prozess des Monitorings vereinfachen.', correct:true},
+    {text:'Social Media Monitoring umfasst auch allgemeine Informationen im Internet.', correct:true}
+  ],
+  tips: ['Monitoring ist f\u00fcr alle Unternehmensgr\u00f6ssen relevant.','Es gibt spezielle Tools daf\u00fcr.','Es geht nicht nur um Social Media, sondern auch um das Internet allgemein.'],
+  reveal: ['Informationen \u00fcber Unternehmen: Richtig.','Nur f\u00fcr grosse Unternehmen: Falsch - f\u00fcr alle relevant.','Tools verf\u00fcgbar: Richtig.','Auch allgemeine Infos: Richtig - auch im Internet allgemein wird \u00fcber Unternehmen gesprochen.']
+});
+
+// Theorie: Performance Marketing
+reg(73, 'Performance Marketing erkl\u00e4ren', 'freitext', {
+  instruction: 'Was ist Performance Marketing und was ist das Ziel?',
+  questions: [
+    {q:'Performance Marketing:', keywords:['online-marketing','instrument','messbar','reaktion','transaktion','nutzer','maximierung','betriebswirtschaft','ergebnis','daten','leistung'], minKeywords:3}
+  ],
+  tips: ['Performance Marketing fokussiert auf messbare Ergebnisse.','Es geht um die Maximierung betriebswirtschaftlicher Ergebnisse.','Es nutzt die gesammelten Daten intensiv.'],
+  reveal: ['Performance Marketing ist eine spezielle Form des digitalen Marketings.','Performance kann man mit Leistung \u00fcbersetzen.','Es ist der Einsatz von Online-Marketing-Instrumenten mit dem Ziel, eine messbare Reaktion und/oder Transaktion mit dem Nutzer zu erzielen.','Beim Performance Marketing geht es um die Maximierung der betriebswirtschaftlichen Ergebnisse und um die Ausnutzung der gesammelten Daten.']
+});
+
+// Theorie: Net Promoter Score
+reg(74, 'Net Promoter Score', 'freitext', {
+  instruction: 'Was ist der Net Promoter Score (NPS) und wof\u00fcr wird er eingesetzt?',
+  questions: [
+    {q:'Net Promoter Score:', keywords:['kennzahl','zufriedenheit','kunden','weiterempfehl','einsch\u00e4tz','loyalit\u00e4t','skala','promoter','detractor'], minKeywords:3}
+  ],
+  tips: ['Der NPS misst die Kundenzufriedenheit.','Er basiert auf der Frage nach der Weiterempfehlungsbereitschaft.','Unternehmen nutzen ihn zunehmend.'],
+  reveal: ['Der Net Promoter Score ist eine Kennzahl, die immer mehr Unternehmen einsetzen, um die Zufriedenheit ihrer Kunden einzusch\u00e4tzen.','Er basiert auf der Frage: Wie wahrscheinlich ist es, dass Sie unser Unternehmen/Produkt weiterempfehlen?','Kunden werden in Promotoren (begeistert), Passive und Detraktoren (unzufrieden) eingeteilt.']
+});
+
+// Theorie: Website Analytics
+reg(75, 'Website Analytics Kennzahlen', 'zuordnung', {
+  instruction: 'Ordnen Sie die Kennzahlen den richtigen Beschreibungen zu.',
+  items: ['Bounce Rate', 'CTR', 'Conversion Rate', 'Page Impressions'],
+  options: [
+    'Anteil der Besucher, die die Website nach nur einer Seite verlassen',
+    'Verh\u00e4ltnis zwischen Einblendungen und Klicks auf eine Anzeige',
+    'Prozentsatz der Besucher, die eine gew\u00fcnschte Aktion durchf\u00fchren',
+    'Anzahl der Seitenaufrufe auf einer Website'
+  ],
+  correct: [
+    'Anteil der Besucher, die die Website nach nur einer Seite verlassen',
+    'Verh\u00e4ltnis zwischen Einblendungen und Klicks auf eine Anzeige',
+    'Prozentsatz der Besucher, die eine gew\u00fcnschte Aktion durchf\u00fchren',
+    'Anzahl der Seitenaufrufe auf einer Website'
+  ],
+  tips: ['Bounce Rate = Absprungrate.','CTR = Click-Through Rate.','Conversion Rate = Umwandlungsrate.'],
+  reveal: ['Bounce Rate = Absprungrate: Besucher, die nach einer Seite wieder gehen.','CTR = Verh\u00e4ltnis Einblendungen zu Klicks.','Conversion Rate = Anteil der Besucher, die eine gew\u00fcnschte Aktion durchf\u00fchren.','Page Impressions = Seitenaufrufe.']
+});
+
+
+// ======================================================================
+// Exercise Renderer Component
+// ======================================================================
+
+function ExerciseRenderer(props){
+  var ex = exerciseData[props.id];
+  if(!ex) return e('div',null,'Aufgabe nicht gefunden.');
+  var d = ex.data;
+  var progress = props.progress;
+  var setDone = props.setDone;
+
+  // --- MC ---
+  if(ex.type==='mc'){
+    var st=useState([]),sel=st[0],setSel=st[1];
+    var st2=useState(false),checked=st2[0],setChecked=st2[1];
+    function toggle(i){if(checked)return;if(d.multi){setSel(sel.indexOf(i)>=0?sel.filter(function(x){return x!==i}):sel.concat([i]))}else{setSel([i])}}
+    function check(){setChecked(true);var ok=d.correct.length===sel.length&&d.correct.every(function(c){return sel.indexOf(c)>=0});if(ok)setDone(props.id)}
+    function reset(){setSel([]);setChecked(false)}
+    return e('div',null,
+      e('div',{className:'ex-instruction'},d.instruction),
+      e(Tips,{tips:d.tips}),
+      d.options.map(function(opt,i){
+        var isSel=sel.indexOf(i)>=0;
+        var cls='mc-option';
+        if(isSel)cls+=' selected';
+        if(checked&&isSel&&d.correct.indexOf(i)>=0)cls=' mc-option correct-sel';
+        if(checked&&isSel&&d.correct.indexOf(i)<0)cls=' mc-option wrong-sel';
+        if(checked&&!isSel&&d.correct.indexOf(i)>=0)cls=' mc-option correct-unsel';
+        return e('div',{key:i,className:cls,onClick:function(){toggle(i)}},
+          e('div',{className:d.multi?'mc-check':'mc-radio'}),
+          e('span',null,opt)
+        );
+      }),
+      e('div',{className:'btn-row'},
+        e('button',{className:'btn btn-primary',onClick:check},'Pr\u00fcfen'),
+        checked?e('button',{className:'btn btn-secondary',onClick:reset},'Zur\u00fccksetzen'):null
+      ),
+      e(Reveal,{steps:d.reveal})
+    );
+  }
+
+  // --- TF ---
+  if(ex.type==='tf'){
+    var st=useState({}),ans=st[0],setAns=st[1];
+    var st2=useState(false),checked=st2[0],setChecked=st2[1];
+    function pick(i,v){if(checked)return;var n={};Object.keys(ans).forEach(function(k){n[k]=ans[k]});n[i]=v;setAns(n)}
+    function check(){setChecked(true);var all=d.statements.every(function(s,i){return ans[i]===s.correct});if(all)setDone(props.id)}
+    function reset(){setAns({});setChecked(false)}
+    return e('div',null,
+      e('div',{className:'ex-instruction'},d.instruction),
+      e(Tips,{tips:d.tips}),
+      d.statements.map(function(s,i){
+        var fb=null;
+        if(checked){
+          if(ans[i]===s.correct)fb=e('div',{className:'feedback ok'},'Richtig!');
+          else fb=e('div',{className:'feedback nok'},'Falsch. Korrekt: '+(s.correct?'Richtig':'Falsch'));
+        }
+        return e('div',{key:i,className:'tf-row'},
+          e('div',{className:'tf-statement'},s.text),
+          e('div',{className:'tf-buttons'},
+            e('button',{className:'tf-btn'+(ans[i]===true?' selected':'')+(checked&&s.correct===true&&ans[i]===true?' correct-sel':'')+(checked&&s.correct===false&&ans[i]===true?' wrong-sel':''),onClick:function(){pick(i,true)}},'Richtig'),
+            e('button',{className:'tf-btn'+(ans[i]===false?' selected':'')+(checked&&s.correct===false&&ans[i]===false?' correct-sel':'')+(checked&&s.correct===true&&ans[i]===false?' wrong-sel':''),onClick:function(){pick(i,false)}},'Falsch')
+          ),
+          fb
+        );
+      }),
+      e('div',{className:'btn-row'},
+        e('button',{className:'btn btn-primary',onClick:check},'Pr\u00fcfen'),
+        checked?e('button',{className:'btn btn-secondary',onClick:reset},'Zur\u00fccksetzen'):null
+      ),
+      e(Reveal,{steps:d.reveal})
+    );
+  }
+
+  // --- Zuordnung ---
+  if(ex.type==='zuordnung'){
+    var st=useState({}),sel=st[0],setSel=st[1];
+    var st2=useState(false),checked=st2[0],setChecked=st2[1];
+    function pick(i,v){if(checked)return;var n={};Object.keys(sel).forEach(function(k){n[k]=sel[k]});n[i]=v;setSel(n)}
+    function check(){setChecked(true);var all=d.items.every(function(item,i){return sel[i]===d.correct[i]});if(all)setDone(props.id)}
+    function reset(){setSel({});setChecked(false)}
+    return e('div',null,
+      e('div',{className:'ex-instruction'},d.instruction),
+      e(Tips,{tips:d.tips}),
+      d.items.map(function(item,i){
+        var cls='match-select';
+        if(checked){cls+=(sel[i]===d.correct[i])?' correct':' wrong'}
+        return e('div',{key:i,className:'match-row'},
+          e('div',{className:'match-label'},item),
+          e('select',{className:cls,value:sel[i]||'',onChange:function(ev){pick(i,ev.target.value)}},
+            e('option',{value:''},'-- W\u00e4hlen --'),
+            d.options.map(function(o,j){return e('option',{key:j,value:o},o)})
+          )
+        );
+      }),
+      e('div',{className:'btn-row'},
+        e('button',{className:'btn btn-primary',onClick:check},'Pr\u00fcfen'),
+        checked?e('button',{className:'btn btn-secondary',onClick:reset},'Zur\u00fccksetzen'):null
+      ),
+      e(Reveal,{steps:d.reveal})
+    );
+  }
+
+  // --- L\u00fcckentext ---
+  if(ex.type==='lueckentext'){
+    var st=useState({}),vals=st[0],setVals=st[1];
+    var st2=useState(false),checked=st2[0],setChecked=st2[1];
+    var blankIdx=0;
+    function setVal(i,v){var n={};Object.keys(vals).forEach(function(k){n[k]=vals[k]});n[i]=v;setVals(n)}
+    function check(){setChecked(true);var allOk=true;var bi=0;d.segments.forEach(function(seg){if(seg.blank){if(!matchAnswer(vals[bi]||'',seg.answer))allOk=false;bi++}});if(allOk)setDone(props.id)}
+    function reset(){setVals({});setChecked(false)}
+    var bi2=0;
+    return e('div',null,
+      e('div',{className:'ex-instruction'},d.instruction),
+      e(Tips,{tips:d.tips}),
+      e('div',{className:'blank-text'},d.segments.map(function(seg,i){
+        if(typeof seg==='string')return e('span',{key:i},seg);
+        var idx=bi2++;
+        var cls='blank-input';
+        if(checked){cls+=matchAnswer(vals[idx]||'',seg.answer)?' correct':' wrong'}
+        return e('input',{key:i,className:cls,style:{width:seg.width||140},value:vals[idx]||'',onChange:function(ev){setVal(idx,ev.target.value)},disabled:checked});
+      })),
+      e('div',{className:'btn-row'},
+        e('button',{className:'btn btn-primary',onClick:check},'Pr\u00fcfen'),
+        checked?e('button',{className:'btn btn-secondary',onClick:reset},'Zur\u00fccksetzen'):null
+      ),
+      e(Reveal,{steps:d.reveal})
+    );
+  }
+
+  // --- Freitext ---
+  if(ex.type==='freitext'){
+    var st=useState({}),vals=st[0],setVals=st[1];
+    var st2=useState(false),checked=st2[0],setChecked=st2[1];
+    function setVal(i,v){var n={};Object.keys(vals).forEach(function(k){n[k]=vals[k]});n[i]=v;setVals(n)}
+    function check(){
+      setChecked(true);
+      var allOk=true;
+      d.questions.forEach(function(q,i){
+        var found=matchKeywords(vals[i]||'',q.keywords);
+        if(found<q.minKeywords)allOk=false;
+      });
+      if(allOk)setDone(props.id);
+    }
+    function reset(){setVals({});setChecked(false)}
+    return e('div',null,
+      e('div',{className:'ex-instruction'},d.instruction),
+      e(Tips,{tips:d.tips}),
+      d.questions.map(function(q,i){
+        var found=matchKeywords(vals[i]||'',q.keywords);
+        var cls='text-input';
+        if(checked){cls+=found>=q.minKeywords?' correct':' wrong'}
+        return e('div',{key:i,className:'text-q'},
+          e('p',null,e('strong',null,q.q)),
+          e('textarea',{className:cls,rows:3,value:vals[i]||'',onChange:function(ev){setVal(i,ev.target.value)},disabled:checked}),
+          checked?e('div',{className:'feedback '+(found>=q.minKeywords?'ok':'nok')},found>=q.minKeywords?'Gut! '+found+' Schl\u00fcsselw\u00f6rter erkannt.':'Nur '+found+' von '+q.minKeywords+' Schl\u00fcsselw\u00f6rtern erkannt.'):null
+        );
+      }),
+      e('div',{className:'btn-row'},
+        e('button',{className:'btn btn-primary',onClick:check},'Pr\u00fcfen'),
+        checked?e('button',{className:'btn btn-secondary',onClick:reset},'Zur\u00fccksetzen'):null
+      ),
+      e(Reveal,{steps:d.reveal})
+    );
+  }
+
+  // --- Tabelle (Richtig/Falsch Tabelle) ---
+  if(ex.type==='tabelle'){
+    var st=useState({}),sel=st[0],setSel=st[1];
+    var st2=useState(false),checked=st2[0],setChecked=st2[1];
+    function pick(i,v){if(checked)return;var n={};Object.keys(sel).forEach(function(k){n[k]=sel[k]});n[i]=v;setSel(n)}
+    function check(){setChecked(true);var all=d.rows.every(function(r,i){return sel[i]===r.correct});if(all)setDone(props.id)}
+    function reset(){setSel({});setChecked(false)}
+    return e('div',null,
+      e('div',{className:'ex-instruction'},d.instruction),
+      e(Tips,{tips:d.tips}),
+      e('table',{className:'check-table'},
+        e('thead',null,e('tr',null,d.headers.map(function(h,i){return e('th',{key:i},h)}))),
+        e('tbody',null,d.rows.map(function(r,i){
+          var cls='';
+          if(checked){cls=sel[i]===r.correct?'correct-row':'wrong-row'}
+          return e('tr',{key:i,className:cls},
+            e('td',null,e('input',{type:'radio',name:'tab'+props.id+'_'+i,checked:sel[i]===0,onChange:function(){pick(i,0)}})),
+            e('td',null,e('input',{type:'radio',name:'tab'+props.id+'_'+i,checked:sel[i]===1,onChange:function(){pick(i,1)}})),
+            e('td',null,r.label)
+          );
+        }))
+      ),
+      e('div',{className:'btn-row'},
+        e('button',{className:'btn btn-primary',onClick:check},'Pr\u00fcfen'),
+        checked?e('button',{className:'btn btn-secondary',onClick:reset},'Zur\u00fccksetzen'):null
+      ),
+      e(Reveal,{steps:d.reveal})
+    );
+  }
+
+  return e('div',null,'Unbekannter Aufgabentyp: '+ex.type);
+}
+
+
+// ======================================================================
+// Main App Component
+// ======================================================================
+
+function App(){
+  var st1=useState(function(){return loadProgress()}),progress=st1[0],setProgress=st1[1];
+  var st2=useState(null),openCh=st2[0],setOpenCh=st2[1];
+  var st3=useState({}),openEx=st3[0],setOpenEx=st3[1];
+  var st4=useState(false),dark=st4[0],setDark=st4[1];
+  var st5=useState(false),showCalc=st5[0],setShowCalc=st5[1];
+  var st6=useState(false),showNotes=st6[0],setShowNotes=st6[1];
+  var st7=useState(false),showGloss=st7[0],setShowGloss=st7[1];
+  var st8=useState(''),notes=st8[0],setNotes=st8[1];
+  var st9=useState(0),timer=st9[0],setTimer=st9[1];
+  var st10=useState({}),chTab=st10[0],setChTab=st10[1];
+
+  useEffect(function(){var iv=setInterval(function(){setTimer(function(t){return t+1})},1000);return function(){clearInterval(iv)}},[]);
+  useEffect(function(){if(dark)document.body.classList.add('dark');else document.body.classList.remove('dark')},[dark]);
+  useEffect(function(){try{var n=localStorage.getItem('dm-notes');if(n)setNotes(n)}catch(x){}},[]);
+  useEffect(function(){try{localStorage.setItem('dm-notes',notes)}catch(x){}},[notes]);
+
+  function setDone(id){
+    var p={};Object.keys(progress).forEach(function(k){p[k]=progress[k]});
+    p[id]=true;setProgress(p);saveProgress(p);
+  }
+
+  function toggleCh(id){setOpenCh(openCh===id?null:id)}
+  function toggleEx(id){var n={};Object.keys(openEx).forEach(function(k){n[k]=openEx[k]});n[id]=!openEx[id];setOpenEx(n)}
+
+  function resetAll(){setProgress({});saveProgress({})}
+  var doneCount=Object.keys(progress).filter(function(k){return progress[k]}).length;
+  var timerStr=Math.floor(timer/3600)+':'+String(Math.floor((timer%3600)/60)).padStart(2,'0')+':'+String(timer%60).padStart(2,'0');
+
+  function getTabMode(chId){return chTab[chId]||'exercises'}
+  function setTabMode(chId,mode){var n={};Object.keys(chTab).forEach(function(k){n[k]=chTab[k]});n[chId]=mode;setChTab(n)}
+
+  return e('div',null,
+    // Nav
+    e('div',{className:'nav'},
+      e('div',null,
+        e('a',{href:'../index.html',className:'btn-back',style:{textDecoration:'none',marginBottom:4,display:'inline-flex'}},'\u2190 Zur\u00fcck'),
+        e('div',{className:'nav-title'},'Digitales Marketing'),
+        e('div',{className:'nav-sub'},'Michael Klaas \u00b7 Compendio')
+      ),
+      e('div',{className:'nav-right'},
+        e('div',{className:'timer-display'},timerStr),
+        e('div',{className:'score-badge '+(doneCount>TOTAL_EX/2?'good':'bad')},doneCount+'/'+TOTAL_EX),
+        e('div',{className:'tool-bar'},
+          e('button',{className:'tool-btn'+(showCalc?' active':''),onClick:function(){setShowCalc(!showCalc);setShowNotes(false);setShowGloss(false)}},'\ud83e\uddc2 Rechner'),
+          e('button',{className:'tool-btn'+(showNotes?' active':''),onClick:function(){setShowNotes(!showNotes);setShowCalc(false);setShowGloss(false)}},'\ud83d\udcdd Notizen'),
+          e('button',{className:'tool-btn'+(showGloss?' active':''),onClick:function(){setShowGloss(!showGloss);setShowCalc(false);setShowNotes(false)}},'\ud83d\udcd6 Glossar')
+        ),
+        e('button',{className:'nav-btn',onClick:function(){setDark(!dark)}},dark?'\u2600\ufe0f':'\ud83c\udf19'),
+        e('button',{className:'nav-btn btn-reset',onClick:resetAll,style:{background:'rgba(220,38,38,.3)'}},'\u21bb Reset')
+      )
+    ),
+
+    // Progress
+    e('div',{className:'container'},
+      e('div',{style:{marginBottom:20,display:'flex',alignItems:'center',justifyContent:'space-between',flexWrap:'wrap',gap:8}},
+        e('span',{style:{fontSize:'.85rem',color:'var(--text2)'}},'Fortschritt: '+doneCount+' / '+TOTAL_EX+' Aufgaben'),
+        e('div',{className:'progress-bar',style:{flex:1,maxWidth:300,marginLeft:12}},
+          e('div',{className:'progress-fill',style:{width:Math.round(doneCount/TOTAL_EX*100)+'%'}})
+        ),
+        e('span',{className:'score-badge '+(doneCount/TOTAL_EX>.5?'good':'bad')},Math.round(doneCount/TOTAL_EX*100)+'%')
+      ),
+
+      // Chapters
+      chapters.map(function(ch){
+        var chDone=ch.exercises.filter(function(id){return progress[id]}).length;
+        var isOpen=openCh===ch.id;
+        var tabMode=getTabMode(ch.id);
+        return e('div',{key:ch.id,className:'chapter-card'},
+          e('div',{className:'chapter-header',onClick:function(){toggleCh(ch.id)}},
+            e('div',{className:'ch-info'},
+              e('div',{className:'ch-num'},'Kapitel '+ch.id),
+              e('div',{className:'ch-title'},ch.title),
+              e('div',{className:'ch-meta'},chDone+' / '+ch.exercises.length+' Aufgaben gel\u00f6st'),
+              e('div',{className:'progress-bar'},e('div',{className:'progress-fill',style:{width:Math.round(chDone/ch.exercises.length*100)+'%'}}))
+            ),
+            e('span',{className:'ch-arrow'+(isOpen?' open':'')},'\u25bc')
+          ),
+          isOpen?e('div',null,
+            e('div',{className:'chapter-tabs'},
+              e('button',{className:'chapter-tab'+(tabMode==='learning'?' active':''),onClick:function(){setTabMode(ch.id,'learning')}},
+                e('span',{className:'chapter-tab-icon'},'\ud83d\udcd6 Lernen'),
+                localStorage.getItem('dm-learn-read-'+ch.id)==='1'?e('span',{className:'mode-badge'},'\u2713'):null
+              ),
+              e('button',{className:'chapter-tab'+(tabMode==='exercises'?' active':''),onClick:function(){setTabMode(ch.id,'exercises')}},
+                e('span',{className:'chapter-tab-icon'},'\u270d\ufe0f \u00dcben ('+chDone+'/'+ch.exercises.length+')')
+              ),
+              e('button',{className:'chapter-tab'+(tabMode==='exam'?' active':''),onClick:function(){setTabMode(ch.id,'exam')}},
+                e('span',{className:'chapter-tab-icon'},'\ud83c\udfaf Pr\u00fcfung'),
+                (function(){var b=loadExamBest(ch.id);return b?e('span',{className:'mode-badge'},b.pct+'%'):null})()
+              )
+            ),
+            tabMode==='learning'?e(LearningRenderer,{chId:ch.id}):
+            tabMode==='exam'?e(ExamMode,{chId:ch.id,exercises:ch.exercises}):
+            e('div',{className:'exercise-list'},
+              ch.exercises.map(function(exId){
+                var ex=exerciseData[exId];
+                if(!ex)return null;
+                var isDone=progress[exId];
+                var isExOpen=openEx[exId];
+                var typeLabel={mc:'Multiple Choice',tf:'Richtig/Falsch',zuordnung:'Zuordnung',lueckentext:'L\u00fcckentext',freitext:'Freitext',tabelle:'Tabelle'}[ex.type]||ex.type;
+                return e('div',{key:exId,className:'ex-card'},
+                  e('div',{className:'ex-header',onClick:function(){toggleEx(exId)}},
+                    e('div',{className:'ex-num'+(isDone?' done':'')},isDone?'\u2713':exId),
+                    e('div',{className:'ex-title-wrap'},
+                      e('div',{className:'ex-title'},ex.title),
+                      e('div',{className:'ex-type'},typeLabel)
+                    ),
+                    e('span',{className:'ch-arrow'+(isExOpen?' open':'')},'\u25bc')
+                  ),
+                  isExOpen?e('div',{className:'ex-body'},
+                    e(ExerciseRenderer,{id:exId,progress:progress,setDone:setDone})
+                  ):null
+                );
+              })
+            )
+          ):null
+        );
+      }),
+
+      e('div',{className:'footer'},'Digitales Marketing f\u00fcr Marketing- und Verkaufsverantwortliche \u00b7 Michael Klaas \u00b7 Compendio')
+    ),
+
+    // Panels
+    showCalc?e(CalcPanel,{onClose:function(){setShowCalc(false)}}):null,
+    showNotes?e(NotesPanel,{notes:notes,setNotes:setNotes,onClose:function(){setShowNotes(false)}}):null,
+    showGloss?e(GlossaryPanel,{onClose:function(){setShowGloss(false)}}):null
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(e(App));
+</script>
+</body>
+</html>

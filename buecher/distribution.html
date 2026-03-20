@@ -1,0 +1,1938 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Distribution 3.0 Lern-App</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#f0f1f5;--nav:#1a2332;--card:#ffffff;--text:#1a2332;--text2:#64748b;--accent:#3b82f6;--green:#059669;--red:#dc2626;--border:#e2e8f0;--card-shadow:0 1px 3px rgba(0,0,0,0.08);--input-bg:#f8fafc;--hover:#f1f5f9}
+.dark{--bg:#0f172a;--nav:#0b1120;--card:#1e293b;--text:#e2e8f0;--text2:#94a3b8;--accent:#60a5fa;--green:#34d399;--red:#f87171;--border:#334155;--card-shadow:0 1px 3px rgba(0,0,0,0.3);--input-bg:#0f172a;--hover:#334155}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;transition:background .3s,color .3s}
+input,select,button,textarea{font-family:'Inter',sans-serif}
+.nav{background:linear-gradient(165deg, #0a0c10 0%, #141820 40%, #1a2332 70%, #0d1018 100%);padding:12px 20px;position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 12px rgba(0,0,0,.15);flex-wrap:wrap;gap:8px}
+.nav-title{color:#fff;font-size:1.25rem;font-weight:700}
+.nav-sub{color:#94a3b8;font-size:.8rem;margin-top:2px}
+.nav-right{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.nav-btn,.btn-back{background:rgba(255,255,255,.1);border:none;color:#fff;padding:8px 12px;border-radius:8px;cursor:pointer;font-size:.85rem;display:flex;align-items:center;gap:6px;transition:background .2s}
+.nav-btn:hover,.btn-back:hover{background:rgba(255,255,255,.2)}
+.container{max-width:900px;margin:0 auto;padding:24px 16px 80px}
+.chapter-card{background:var(--card);border-radius:16px;box-shadow:var(--card-shadow);margin-bottom:16px;overflow:hidden;border:1px solid var(--border);transition:background .3s,border .3s}
+.chapter-header{padding:20px 24px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;user-select:none}
+.chapter-header:hover{background:var(--hover)}
+.ch-info{flex:1}
+.ch-num{font-size:.75rem;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
+.ch-title{font-size:1.1rem;font-weight:700;margin-bottom:8px}
+.ch-meta{font-size:.8rem;color:var(--text2)}
+.progress-bar{height:4px;background:var(--border);border-radius:2px;margin-top:10px;overflow:hidden;max-width:300px}
+.progress-fill{height:100%;background:var(--accent);border-radius:2px;transition:width .5s ease}
+.ch-arrow{font-size:1.2rem;color:var(--text2);transition:transform .3s;margin-left:16px}
+.ch-arrow.open{transform:rotate(180deg)}
+.exercise-list{padding:0 16px 16px}
+.ex-card{background:var(--card);border:1px solid var(--border);border-radius:12px;margin-bottom:12px;overflow:hidden;transition:background .3s,border .3s;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.ex-header{padding:16px 20px;cursor:pointer;display:flex;align-items:center;justify-content:space-between}
+.ex-header:hover{background:var(--hover)}
+.ex-num{background:var(--accent);color:#fff;width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;flex-shrink:0;margin-right:14px}
+.ex-num.done{background:var(--green)}
+.ex-title-wrap{flex:1}
+.ex-title{font-weight:600;font-size:.95rem}
+.ex-type{font-size:.75rem;color:var(--text2);margin-top:2px}
+.ex-body{padding:0 20px 20px}
+.ex-instruction{font-size:.85rem;color:var(--text2);margin-bottom:16px;line-height:1.5;font-style:italic}
+.blank-text{font-size:.9rem;line-height:2.2;margin-bottom:12px}
+.blank-input{border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-size:.85rem;width:140px;background:var(--input-bg);color:var(--text);outline:none;transition:border .2s}
+.blank-input:focus{border-color:var(--accent)}
+.blank-input.correct{border-color:var(--green);background:rgba(5,150,105,.08)}
+.blank-input.wrong{border-color:var(--red);background:rgba(220,38,38,.08)}
+.tf-row{padding:12px 0;border-bottom:1px solid var(--border);display:flex;flex-direction:column;gap:8px}
+.tf-row:last-child{border-bottom:none}
+.tf-statement{font-size:.9rem;line-height:1.5}
+.tf-buttons{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.tf-btn{padding:6px 16px;border-radius:6px;border:1px solid var(--border);background:var(--input-bg);color:var(--text);cursor:pointer;font-size:.85rem;font-weight:500;transition:all .2s}
+.tf-btn:hover{border-color:var(--accent)}
+.tf-btn.selected{background:var(--accent);color:#fff;border-color:var(--accent)}
+.tf-btn.correct-sel{background:var(--green);color:#fff;border-color:var(--green)}
+.tf-btn.wrong-sel{background:var(--red);color:#fff;border-color:var(--red)}
+.tf-btn.correct-unsel{border-color:var(--green);color:var(--green)}
+.feedback{font-size:.8rem;margin-top:4px;padding:6px 10px;border-radius:6px;line-height:1.4}
+.feedback.ok{background:rgba(5,150,105,.1);color:var(--green)}
+.feedback.nok{background:rgba(220,38,38,.1);color:var(--red)}
+.match-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border);flex-wrap:wrap}
+.match-row:last-child{border-bottom:none}
+.match-label{flex:1;font-size:.9rem;min-width:200px}
+.match-select{border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:.85rem;background:var(--input-bg);color:var(--text);min-width:200px;cursor:pointer}
+.match-select.correct{border-color:var(--green);background:rgba(5,150,105,.08)}
+.match-select.wrong{border-color:var(--red);background:rgba(220,38,38,.08)}
+.calc-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border);flex-wrap:wrap}
+.calc-row:last-child{border-bottom:none}
+.calc-label{font-size:.9rem;min-width:120px}
+.calc-input{border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:.85rem;width:120px;background:var(--input-bg);color:var(--text);text-align:right}
+.calc-input.correct{border-color:var(--green);background:rgba(5,150,105,.08)}
+.calc-input.wrong{border-color:var(--red);background:rgba(220,38,38,.08)}
+.check-table{width:100%;border-collapse:collapse;font-size:.85rem}
+.check-table th{padding:8px 6px;text-align:center;background:var(--hover);font-weight:600;font-size:.8rem;border:1px solid var(--border)}
+.check-table td{padding:8px 6px;border:1px solid var(--border);text-align:center}
+.check-table td:first-child{text-align:left;min-width:200px}
+.check-table input[type=radio]{cursor:pointer;width:16px;height:16px;accent-color:var(--accent)}
+.check-table tr.correct-row{background:rgba(5,150,105,.06)}
+.check-table tr.wrong-row{background:rgba(220,38,38,.06)}
+.btn-row{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
+.btn{padding:10px 20px;border-radius:9px;border:none;font-size:.9rem;font-weight:600;cursor:pointer;transition:all .12s ease;display:flex;align-items:center;gap:6px}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:#2563eb}
+.btn-secondary{background:var(--input-bg);color:var(--text);border:1px solid var(--border)}
+.btn-secondary:hover{background:var(--hover)}
+.solution-box{background:rgba(5,150,105,.06);border:1px solid var(--green);border-radius:8px;padding:16px;margin-top:12px;font-size:.85rem;line-height:1.6}
+.solution-box strong{color:var(--green)}
+.text-input{border:1px solid var(--border);border-radius:6px;padding:8px 12px;font-size:.85rem;width:100%;background:var(--input-bg);color:var(--text);margin-top:4px}
+.text-input.correct{border-color:var(--green);background:rgba(5,150,105,.08)}
+.text-input.wrong{border-color:var(--red);background:rgba(220,38,38,.08)}
+.text-q{margin-bottom:16px}
+.text-q p{font-size:.9rem;line-height:1.5;margin-bottom:6px}
+.score-badge{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:12px;font-size:.8rem;font-weight:600}
+.score-badge.good{background:rgba(5,150,105,.1);color:var(--green)}
+.score-badge.bad{background:rgba(220,38,38,.1);color:var(--red)}
+.timer-display{color:#fff;font-size:.9rem;font-weight:500;font-variant-numeric:tabular-nums}
+.footer{text-align:center;padding:24px;font-size:.8rem;color:var(--text2)}
+.mc-option{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--border);border-radius:8px;margin-bottom:8px;cursor:pointer;transition:all .15s;font-size:.9rem}
+.mc-option:hover{border-color:var(--accent);background:var(--hover)}
+.mc-option.selected{border-color:var(--accent);background:rgba(59,130,246,.08)}
+.mc-option.correct-sel{border-color:var(--green);background:rgba(5,150,105,.08)}
+.mc-option.wrong-sel{border-color:var(--red);background:rgba(220,38,38,.08)}
+.mc-option.correct-unsel{border-color:var(--green)}
+.mc-radio{width:18px;height:18px;border-radius:50%;border:2px solid var(--border);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .15s}
+.mc-option.selected .mc-radio{border-color:var(--accent);background:var(--accent)}
+.mc-option.selected .mc-radio::after{content:'';width:8px;height:8px;border-radius:50%;background:#fff}
+.tip-box{background:rgba(59,130,246,.06);border:1px solid rgba(59,130,246,.2);border-radius:8px;padding:12px 16px;margin-bottom:16px}
+.tip-toggle{font-size:.85rem;font-weight:600;color:var(--accent);cursor:pointer;display:flex;align-items:center;gap:6px}
+.tip-content{margin-top:8px;font-size:.82rem;color:var(--text2);line-height:1.6}
+.tip-content li{margin-bottom:4px}
+.reveal-box{background:rgba(5,150,105,.04);border:1px solid rgba(5,150,105,.2);border-radius:8px;padding:12px 16px;margin-top:12px}
+.reveal-toggle{font-size:.85rem;font-weight:600;color:var(--green);cursor:pointer;display:flex;align-items:center;gap:6px}
+.reveal-content{margin-top:8px;font-size:.82rem;color:var(--text);line-height:1.6}
+.reveal-step{padding:8px 0;border-bottom:1px solid var(--border)}
+.reveal-step:last-child{border-bottom:none}
+.chapter-tabs{display:flex;gap:6px;margin-bottom:0;background:var(--card);padding:12px 16px;border-bottom:1px solid var(--border)}
+.chapter-tab{padding:10px 20px;font-size:.85rem;font-weight:600;cursor:pointer;border:2px solid var(--border);background:var(--input-bg);color:var(--text2);border-radius:50px;transition:all .2s;display:flex;align-items:center;gap:6px;white-space:nowrap}
+.chapter-tab:hover{border-color:var(--accent);color:var(--text);background:rgba(59,130,246,.04)}
+.chapter-tab.active{color:#fff;background:var(--accent);border-color:var(--accent)}
+.chapter-tab.active-exam{color:#fff;background:var(--red);border-color:var(--red)}
+.chapter-tab-icon{font-size:1rem}
+.exam-container{padding:20px 16px}
+.exam-header{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px 24px;margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.exam-timer{font-size:1.8rem;font-weight:800;font-variant-numeric:tabular-nums;color:var(--text)}
+.exam-timer.warning{color:var(--red);animation:pulse 1s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+.exam-timer-label{font-size:.75rem;color:var(--text2);text-transform:uppercase;letter-spacing:.5px;font-weight:600}
+.exam-progress-text{font-size:.85rem;color:var(--text2);font-weight:500}
+.exam-ex-card{background:var(--card);border:1px solid var(--border);border-radius:12px;margin-bottom:16px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.exam-ex-num{display:inline-flex;align-items:center;justify-content:center;background:var(--red);color:#fff;width:32px;height:32px;border-radius:50%;font-weight:700;font-size:.85rem;margin-right:12px;flex-shrink:0}
+.exam-ex-title{font-weight:700;font-size:.95rem;margin-bottom:12px;display:flex;align-items:center}
+.exam-result-overlay{padding:32px 20px;text-align:center}
+.exam-score-circle{width:140px;height:140px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto 20px;border:6px solid var(--border);font-weight:800}
+.exam-score-circle.pass{border-color:var(--green);background:rgba(5,150,105,.06)}
+.exam-score-circle.fail{border-color:var(--red);background:rgba(220,38,38,.06)}
+.exam-score-pct{font-size:2.2rem;line-height:1}
+.exam-score-label{font-size:.75rem;color:var(--text2);margin-top:4px;font-weight:600}
+.exam-result-title{font-size:1.4rem;font-weight:800;margin-bottom:8px}
+.exam-result-detail{font-size:.9rem;color:var(--text2);margin-bottom:6px}
+.exam-best-score{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:8px;font-size:.8rem;font-weight:600;background:rgba(59,130,246,.08);color:var(--accent);margin-top:8px}
+.exam-start-box{text-align:center;padding:48px 24px}
+.exam-start-box h3{font-size:1.2rem;font-weight:700;margin-bottom:8px}
+.exam-start-box p{font-size:.88rem;color:var(--text2);margin-bottom:4px;line-height:1.6}
+.exam-start-btn{margin-top:20px;padding:14px 36px;border-radius:50px;border:none;background:var(--red);color:#fff;font-size:1rem;font-weight:700;cursor:pointer;transition:all .15s}
+.exam-start-btn:hover{opacity:.9}
+.exam-start-btn:active{transform:scale(.97)}
+.learn-container{padding:16px 20px 24px}
+.learn-section{background:var(--card);border:1px solid var(--border);border-radius:14px;margin-bottom:20px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.04);transition:background .3s,border .3s}
+.learn-section-header{padding:18px 22px 14px;display:flex;align-items:center;gap:12px}
+.learn-section-icon{font-size:1.3rem;flex-shrink:0}
+.learn-section-title{font-size:1.05rem;font-weight:700;color:var(--text)}
+.learn-section-body{padding:0 22px 20px}
+.learn-intro{border-top:3px solid var(--accent)}
+.learn-intro .learn-intro-text{font-size:.88rem;color:var(--text2);line-height:1.6;margin-bottom:12px}
+.learn-intro .learn-intro-list{list-style:none;padding:0}
+.learn-intro .learn-intro-list li{padding:8px 14px;font-size:.88rem;line-height:1.5;color:var(--text);background:rgba(59,130,246,.04);border-left:3px solid var(--accent);margin-bottom:6px;border-radius:0 8px 8px 0}
+.learn-concept{border-top:3px solid #8b5cf6}
+.learn-concept .learn-concept-text{font-size:.88rem;line-height:1.7;color:var(--text);margin-bottom:12px}
+.learn-highlight{background:linear-gradient(135deg,rgba(245,158,11,.08),rgba(245,158,11,.04));border:1px solid rgba(245,158,11,.25);border-radius:10px;padding:14px 18px;font-size:.88rem;line-height:1.6;color:var(--text);font-weight:500;position:relative}
+.learn-highlight::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:#f59e0b;border-radius:4px 0 0 4px}
+.learn-table-wrap{overflow-x:auto}
+.learn-table{width:100%;border-collapse:separate;border-spacing:0;font-size:.85rem;border-radius:10px;overflow:hidden;border:1px solid var(--border)}
+.learn-table thead th{background:var(--nav);color:#fff;padding:10px 14px;font-weight:600;font-size:.8rem;text-transform:uppercase;letter-spacing:.3px;text-align:left}
+.dark .learn-table thead th{background:rgba(59,130,246,.2);color:var(--accent)}
+.learn-table tbody td{padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text);vertical-align:top}
+.learn-table tbody tr:last-child td{border-bottom:none}
+.learn-table tbody tr:nth-child(even){background:var(--hover)}
+.learn-table .table-label{font-weight:600;color:var(--accent);min-width:160px}
+.learn-terms-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.learn-term-card{background:var(--input-bg);border:1px solid var(--border);border-radius:10px;padding:14px 16px;transition:all .15s}
+.learn-term-card:hover{border-color:var(--accent);box-shadow:0 2px 8px rgba(59,130,246,.1)}
+.learn-term-name{font-weight:700;font-size:.88rem;color:var(--nav);margin-bottom:4px}
+.dark .learn-term-name{color:var(--accent)}
+.learn-term-def{font-size:.82rem;color:var(--text2);line-height:1.5}
+.learn-merke{border-top:3px solid #f59e0b}
+.learn-merke .learn-merke-list{list-style:none;padding:0}
+.learn-merke .learn-merke-list li{padding:10px 14px;font-size:.88rem;line-height:1.5;color:var(--text);background:linear-gradient(135deg,rgba(245,158,11,.06),rgba(245,158,11,.02));border-left:3px solid #f59e0b;margin-bottom:8px;border-radius:0 8px 8px 0;font-weight:500}
+.learn-summary{border-top:3px solid var(--green)}
+.learn-summary .learn-summary-text{font-size:.88rem;line-height:1.7;color:var(--text)}
+.learn-summary .learn-summary-text p{margin-bottom:10px}
+.learn-summary .learn-summary-text strong{color:var(--green)}
+.learn-methodenbox{border-top:3px solid #0ea5e9}
+.learn-methodenbox .learn-method-item{margin-bottom:14px}
+.learn-methodenbox .learn-method-q{font-size:.88rem;font-weight:600;color:var(--text);margin-bottom:4px}
+.learn-methodenbox .learn-method-a{font-size:.85rem;color:var(--text2);line-height:1.6}
+.learn-complete-bar{padding:20px 22px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.learn-complete-btn{padding:12px 28px;border-radius:10px;border:none;font-size:.9rem;font-weight:700;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:8px}
+.learn-complete-btn.ready{background:var(--green);color:#fff}
+.learn-complete-btn.ready:hover{opacity:.9}
+.learn-complete-btn.done{background:rgba(5,150,105,.1);color:var(--green);cursor:default}
+.learn-progress-text{font-size:.82rem;color:var(--text2)}
+.panel-overlay{position:fixed;bottom:16px;z-index:900;background:var(--card);border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,.2);border:1px solid var(--border);display:flex;flex-direction:column;animation:fadeUp .2s ease}
+.panel-header{padding:12px 16px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.panel-header b{color:var(--text);font-size:.9rem}
+.panel-close{background:var(--hover);border:none;width:28px;height:28px;border-radius:7px;font-size:13px;cursor:pointer;color:var(--text2);display:flex;align-items:center;justify-content:center}
+.panel-close:hover{background:var(--border)}
+.calc-panel{right:16px;width:300px;max-height:480px}
+.calc-display{padding:12px 16px;text-align:right;font-size:1.6rem;font-weight:800;color:var(--text);font-variant-numeric:tabular-nums;border-bottom:1px solid var(--border);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.calc-prev{padding:4px 16px;text-align:right;font-size:.75rem;color:var(--text2);font-variant-numeric:tabular-nums;height:22px}
+.calc-history{padding:6px 12px;max-height:50px;overflow-y:auto;border-bottom:1px solid var(--border)}
+.calc-history-item{font-size:.7rem;color:var(--text2);font-variant-numeric:tabular-nums;line-height:1.4}
+.calc-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:6px;padding:8px 12px 14px}
+.calc-btn{border:none;border-radius:10px;font-size:1.1rem;font-weight:600;height:46px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-variant-numeric:tabular-nums;transition:all .12s}
+.calc-btn:active{transform:scale(.95)}
+.calc-btn-num{background:var(--card);color:var(--text);border:1px solid var(--border)}
+.calc-btn-num:hover{background:var(--hover)}
+.calc-btn-op{background:rgba(26,35,50,.06);color:var(--nav);font-weight:700}
+.dark .calc-btn-op{background:rgba(255,255,255,.08);color:var(--text)}
+.calc-btn-op:hover{background:rgba(26,35,50,.12)}
+.calc-btn-eq{background:var(--nav);color:#fff;font-weight:700}
+.dark .calc-btn-eq{background:var(--accent);color:#fff}
+.calc-btn-eq:hover{opacity:.9}
+.calc-btn-fn{background:rgba(59,130,246,.08);color:var(--accent);font-weight:700}
+.calc-btn-fn:hover{background:rgba(59,130,246,.15)}
+.calc-btn-span2{grid-column:span 2}
+.notes-panel{left:50%;transform:translateX(-50%);width:380px;max-height:420px}
+.notes-body{flex:1;padding:8px 12px 12px}
+.notes-body textarea{width:100%;height:100%;min-height:260px;padding:10px 12px;border-radius:10px;border:1px solid var(--border);background:var(--input-bg);color:var(--text);font-size:.85rem;line-height:1.6;font-family:'Inter',sans-serif;resize:none;box-sizing:border-box;outline:none}
+.notes-body textarea:focus{border-color:var(--accent)}
+.notes-meta{font-size:.7rem;color:var(--text2)}
+.glossary-panel{left:16px;width:320px;max-height:420px}
+.glossary-search{padding:6px 12px 0}
+.glossary-search input{width:100%;padding:7px 10px;border-radius:7px;border:1px solid var(--border);background:var(--input-bg);color:var(--text);font-size:.8rem;box-sizing:border-box;outline:none}
+.glossary-search input:focus{border-color:var(--accent)}
+.glossary-list{padding:6px 12px 12px;flex:1;overflow-y:auto}
+.glossary-item{padding:6px 8px;margin-bottom:4px;border-radius:6px;background:var(--input-bg);border-left:3px solid var(--nav)}
+.dark .glossary-item{border-left-color:var(--accent)}
+.glossary-item-title{color:var(--nav);font-weight:700;font-size:.75rem}
+.dark .glossary-item-title{color:var(--accent)}
+.glossary-item-desc{color:var(--text2);font-size:.7rem;line-height:1.4}
+.tool-bar{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto}
+.tool-btn{padding:6px 12px;border-radius:8px;border:1.5px solid rgba(255,255,255,.2);background:rgba(255,255,255,.07);color:#fff;font-size:.75rem;font-weight:600;cursor:pointer;transition:all .15s;white-space:nowrap}
+.tool-btn:hover{background:rgba(255,255,255,.15)}
+.tool-btn.active{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.4)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideUp{from{transform:translateY(100%);opacity:0}to{transform:translateY(0);opacity:1}}
+@media(max-width:640px){
+  .panel-overlay{bottom:0;border-radius:16px 16px 0 0;left:0!important;right:0!important;width:100%!important;transform:none!important;animation:slideUp .2s ease}
+  .calc-panel{right:0;max-height:70vh}
+  .notes-panel{max-height:60vh}
+  .notes-body textarea{min-height:180px}
+  .glossary-panel{max-height:50vh}
+  .match-row{flex-direction:column;align-items:flex-start;gap:6px}
+  .calc-row{flex-direction:column;align-items:flex-start;gap:4px}
+  .nav{padding:12px 16px}
+  .nav-title{font-size:1.05rem}
+  .container{padding:16px 10px 60px}
+  .check-table{font-size:.75rem;display:block;overflow-x:auto}
+  .chapter-tabs{padding:10px 12px;flex-wrap:wrap}
+  .chapter-tab{padding:8px 14px;font-size:.78rem}
+  .learn-container{padding:12px 14px 20px}
+  .learn-section-body{padding:0 16px 16px}
+  .learn-section-header{padding:14px 16px 10px}
+  .learn-terms-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+var e = React.createElement;
+var useState = React.useState;
+var useEffect = React.useEffect;
+var useRef = React.useRef;
+
+// ---- Data ----
+var chapters = [
+  {id:1, teil:'A', title:'Grundlagen der Distribution', exercises:[1,2,3,4,5,6,7,8,9]},
+  {id:2, teil:'A', title:'Strategische Distribution', exercises:[10,11,12,13,14,15,16,17]},
+  {id:3, teil:'A', title:'Das Distributionskonzept', exercises:[18,19,20,21,22,23,24,25,26]},
+  {id:4, teil:'A', title:'Direkte und indirekte Distribution', exercises:[27,28,29,30,31,32,33,34,35]},
+  {id:5, teil:'B', title:'Physische Distribution', exercises:[36,37,38,39,40,41,42,43,44,45]},
+  {id:6, teil:'B', title:'Distribution und Digitalisierung', exercises:[46,47,48,49,50,51,52,53]},
+  {id:7, teil:'B', title:'Standort / Standortwahl', exercises:[54,55,56,57,58,59,60]},
+  {id:8, teil:'C', title:'Export', exercises:[61,62,63,64,65,66,67]},
+  {id:9, teil:'C', title:'Distribution nach Gütern', exercises:[68,69,70,71,72,73,74]},
+  {id:10, teil:'C', title:'Spezialgebiete und Ausblick in der Distribution', exercises:[75,76,77,78,79,80]}
+];
+
+var TOTAL_EX = 80;
+
+// ---- Helpers ----
+function normalize(s){return (s||'').trim().toLowerCase().replace(/[ä]/g,'ae').replace(/[ö]/g,'oe').replace(/[ü]/g,'ue').replace(/[ß]/g,'ss').replace(/[^a-z0-9 ]/g,'').replace(/\s+/g,' ')}
+function matchAnswer(input, answers){
+  var n = normalize(input);
+  if(!n) return false;
+  if(typeof answers === 'string') return n === normalize(answers);
+  return answers.some(function(a){return n === normalize(a)});
+}
+function matchKeywords(input, keywords){
+  var n = (input||'').toLowerCase();
+  var found = 0;
+  keywords.forEach(function(k){if(n.indexOf(k.toLowerCase())>=0) found++});
+  return found;
+}
+function loadProgress(){try{return JSON.parse(localStorage.getItem('lp-progress-distribution'))||{}}catch(x){return{}}}
+function saveProgress(p){localStorage.setItem('lp-progress-distribution', JSON.stringify(p))}
+
+// ---- Glossary Data ----
+var GLOSSAR = [
+  {t:'Distribution',d:'Verfügbarmachung der Marktleistung (Produkt oder Dienstleistung) für die Nachfragenden. Umschreibt sowohl die Aufgabe als auch die oberste Zielsetzung.'},
+  {t:'Distributionskanal',d:'Weg, über den ein Produkt vom Hersteller zum Endkunden gelangt (direkt, indirekt oder Multichannel).'},
+  {t:'Distributionslogistik',d:'Organisation der physischen Warenverteilung vom Hersteller bis zum Endkunden, inkl. Lager, Transport und Informationsfluss.'},
+  {t:'Direktvertrieb',d:'0-stufige Distribution: Hersteller verkauft direkt an den Endkunden ohne Zwischenhändler.'},
+  {t:'Indirekter Vertrieb',d:'1- bis 3-stufige Distribution über den Handel (Grosshandel, Detailhandel) an den Endkunden.'},
+  {t:'Mehrkanalvertrieb',d:'Nutzung mehrerer Distributionskanäle gleichzeitig, um verschiedene Kundensegmente zu erreichen.'},
+  {t:'Omnichannel',d:'Nahtlose Verknüpfung aller Vertriebskanäle (online und offline) für ein einheitliches Kundenerlebnis.'},
+  {t:'E-Commerce',d:'Elektronischer Handel: Kauf und Verkauf von Waren und Dienstleistungen über das Internet.'},
+  {t:'Plattformökonomie',d:'Geschäftsmodell, das auf digitalen Plattformen basiert und Anbieter und Nachfrager zusammenbringt (z.B. Amazon, Zalando).'},
+  {t:'Fulfillment',d:'Gesamtheit aller Aktivitäten zur Auftragsabwicklung: Bestellung, Verpackung, Versand, Retouren.'},
+  {t:'Absatzmittler',d:'Unternehmen, die als Zwischenhändler zwischen Hersteller und Endkunde fungieren (Gross- und Detailhandel).'},
+  {t:'Grosshandel',d:'Handelsunternehmen, das Waren in grossen Mengen einkauft und an Detailhändler oder gewerbliche Abnehmer weiterverkauft.'},
+  {t:'Detailhandel',d:'Einzelhandel: Verkauf von Waren direkt an den Endkonsumenten in kleinen Mengen.'},
+  {t:'Franchising',d:'Vertriebssystem, bei dem ein Franchisegeber einem Franchisenehmer gegen Gebühr das Recht einräumt, sein Geschäftskonzept zu nutzen.'},
+  {t:'Vertikale Integration',d:'Zusammenschluss von Unternehmen auf verschiedenen Stufen der Wertschöpfungskette (z.B. Hersteller kauft Händler).'},
+  {t:'Horizontale Integration',d:'Zusammenschluss von Unternehmen auf der gleichen Stufe der Wertschöpfungskette (z.B. Fusion zweier Grosshändler).'},
+  {t:'Supply Chain',d:'Gesamte Wertschöpfungskette von der Rohstoffgewinnung über die Produktion bis zur Auslieferung an den Endkunden.'},
+  {t:'Logistik',d:'Planung, Steuerung und Kontrolle des Material-, Informations- und Wertflusses entlang der gesamten Supply Chain.'},
+  {t:'Lagerhaltung',d:'Aufbewahrung von Waren in einem Lager bis zur Auslieferung oder Weiterverarbeitung.'},
+  {t:'Kommissionierung',d:'Zusammenstellung von Teilmengen aus einem Gesamtbestand nach Kundenaufträgen.'},
+  {t:'Letzte Meile',d:'Letzte Etappe der Lieferkette: Transport vom letzten Verteilzentrum bis zum Endkunden.'},
+  {t:'Category Management',d:'Strategische Steuerung von Warengruppen als eigenständige Geschäftseinheiten zur Optimierung des Sortiments.'},
+  {t:'Trade Marketing',d:'Marketingmassnahmen des Herstellers, die sich an den Handel richten, um die Zusammenarbeit zu optimieren.'},
+  {t:'Listung',d:'Aufnahme eines Produkts in das Sortiment eines Handelsunternehmens.'},
+  {t:'Konditionenpolitik',d:'Festlegung von Rabatten, Boni, Zahlungs- und Lieferbedingungen im Handel.'},
+  {t:'ECR (Efficient Consumer Response)',d:'Ganzheitliche Betrachtung der Wertschöpfungskette. Logistikdaten werden zum Zwecke der Marktforschung aufbereitet und zur nachfrageorientierten Sortimentsoptimierung am POS eingesetzt.'},
+  {t:'POS (Point of Sale)',d:'Ort des Verkaufs, an dem der Kunde die Ware kauft (z.B. Ladengeschäft, Online-Shop).'},
+  {t:'Warenwirtschaftssystem',d:'IT-System zur Steuerung und Kontrolle des Warenflusses: Bestellung, Lagerhaltung, Verkauf, Statistik.'},
+  {t:'Numerische Distribution',d:'Anteil der Verkaufsstellen, die ein bestimmtes Produkt führen, an der Gesamtzahl der Verkaufsstellen (in Prozent). Misst die Präsenz.'},
+  {t:'Gewichtete Distribution',d:'Umsatzanteil der Verkaufsstellen, die ein Produkt führen, am Gesamtumsatz der Warengruppe (in Prozent). Misst die Umsatzbedeutung.'}
+];
+
+// ---- Calculator Panel ----
+function CalcPanel(props){
+  var onClose=props.onClose;
+  var s=useState('0'),disp=s[0],setDisp=s[1];
+  var s2=useState(null),prev=s2[0],setPrev=s2[1];
+  var s3=useState(null),op=s3[0],setOp=s3[1];
+  var s4=useState(true),fresh=s4[0],setFresh=s4[1];
+  var s5=useState([]),hist=s5[0],setHist=s5[1];
+  function num(n){if(fresh){setDisp(String(n));setFresh(false)}else{setDisp(disp==='0'?String(n):disp+n)}}
+  function dec(){if(fresh){setDisp('0.');setFresh(false)}else if(disp.indexOf('.')===-1)setDisp(disp+'.')}
+  function oper(o){var cur=parseFloat(disp);if(prev!==null&&op&&!fresh){var r=calc(prev,cur,op);setDisp(String(Math.round(r*1e8)/1e8));setPrev(r);setHist(function(h){return h.concat([prev+' '+op+' '+cur+' = '+Math.round(r*1e8)/1e8])})}else{setPrev(cur)}setOp(o);setFresh(true)}
+  function calc(a,b,o){if(o==='+')return a+b;if(o==='\u2212')return a-b;if(o==='\u00d7')return a*b;if(o==='\u00f7')return b!==0?a/b:0;return b}
+  function eq(){if(prev===null||!op)return;var cur=parseFloat(disp);var r=calc(prev,cur,op);setHist(function(h){return h.concat([prev+' '+op+' '+cur+' = '+Math.round(r*1e8)/1e8])});setDisp(String(Math.round(r*1e8)/1e8));setPrev(null);setOp(null);setFresh(true)}
+  function cl(){setDisp('0');setPrev(null);setOp(null);setFresh(true)}
+  function pct(){setDisp(String(Math.round(parseFloat(disp)/100*1e8)/1e8))}
+  function sign(){setDisp(String(parseFloat(disp)*-1))}
+  function b(label,action,cls){return e('button',{className:'calc-btn '+cls,onClick:action},label)}
+  return e('div',{className:'panel-overlay calc-panel'},
+    e('div',{className:'panel-header'},e('b',null,'Taschenrechner'),e('button',{className:'panel-close',onClick:onClose},'\u2715')),
+    hist.length>0?e('div',{className:'calc-history'},hist.slice(-3).map(function(h,i){return e('div',{key:i,className:'calc-history-item'},h)})):null,
+    e('div',{className:'calc-display'},disp),
+    e('div',{className:'calc-prev'},prev!==null&&op?(prev+' '+op):''),
+    e('div',{className:'calc-grid'},
+      b('AC',cl,'calc-btn-fn'),b('\u00b1',sign,'calc-btn-op'),b('%',pct,'calc-btn-op'),b('\u00f7',function(){oper('\u00f7')},'calc-btn-op'),
+      b('7',function(){num('7')},'calc-btn-num'),b('8',function(){num('8')},'calc-btn-num'),b('9',function(){num('9')},'calc-btn-num'),b('\u00d7',function(){oper('\u00d7')},'calc-btn-op'),
+      b('4',function(){num('4')},'calc-btn-num'),b('5',function(){num('5')},'calc-btn-num'),b('6',function(){num('6')},'calc-btn-num'),b('\u2212',function(){oper('\u2212')},'calc-btn-op'),
+      b('1',function(){num('1')},'calc-btn-num'),b('2',function(){num('2')},'calc-btn-num'),b('3',function(){num('3')},'calc-btn-num'),b('+',function(){oper('+')},'calc-btn-op'),
+      b('0',function(){num('0')},'calc-btn-num calc-btn-span2'),b('.',dec,'calc-btn-num'),b('=',eq,'calc-btn-eq')
+    )
+  );
+}
+
+// ---- Notes Panel ----
+function NotesPanel(props){
+  return e('div',{className:'panel-overlay notes-panel'},
+    e('div',{className:'panel-header'},
+      e('b',null,'Notizen'),
+      e('div',{style:{display:'flex',gap:8,alignItems:'center'}},
+        e('span',{className:'notes-meta'},props.notes.length+' Zeichen'),
+        e('button',{className:'panel-close',onClick:props.onClose},'\u2715')
+      )
+    ),
+    e('div',{className:'notes-body'},
+      e('textarea',{value:props.notes,onChange:function(ev){props.setNotes(ev.target.value)},placeholder:'Notizen, Stichworte...'})
+    )
+  );
+}
+
+// ---- Glossary Panel ----
+function GlossaryPanel(props){
+  var st=useState(''),search=st[0],setSearch=st[1];
+  var filtered=GLOSSAR.filter(function(g){return g.t.toLowerCase().indexOf(search.toLowerCase())>=0||g.d.toLowerCase().indexOf(search.toLowerCase())>=0});
+  return e('div',{className:'panel-overlay glossary-panel'},
+    e('div',{className:'panel-header'},e('b',null,'Glossar'),e('button',{className:'panel-close',onClick:props.onClose},'\u2715')),
+    e('div',{className:'glossary-search'},e('input',{value:search,onChange:function(ev){setSearch(ev.target.value)},placeholder:'Suchen...'})),
+    e('div',{className:'glossary-list'},filtered.map(function(g,i){return e('div',{key:i,className:'glossary-item'},
+      e('div',{className:'glossary-item-title'},g.t),
+      e('div',{className:'glossary-item-desc'},g.d)
+    )}))
+  );
+}
+
+// ---- Tips Component ----
+function Tips(props){
+  var st=useState(false),open=st[0],setOpen=st[1];
+  return e('div',{className:'tip-box'},
+    e('div',{className:'tip-toggle',onClick:function(){setOpen(!open)}},open?'\u25bc':'\u25b6',' Tipps'),
+    open?e('ul',{className:'tip-content'},props.tips.map(function(t,i){return e('li',{key:i},t)})):null
+  );
+}
+
+// ---- Reveal Component ----
+function Reveal(props){
+  var st=useState(false),open=st[0],setOpen=st[1];
+  return e('div',{className:'reveal-box'},
+    e('div',{className:'reveal-toggle',onClick:function(){setOpen(!open)}},open?'\u25bc':'\u25b6',' Lösungsweg anzeigen'),
+    open?e('div',{className:'reveal-content'},props.steps.map(function(s,i){return e('div',{key:i,className:'reveal-step'},e('strong',null,'Schritt '+(i+1)+': '),s)})):null
+  );
+}
+
+// ======================================================================
+// LEARNING DATA - Chapter 1 Prototype
+// ======================================================================
+var learningData = {};
+
+learningData[1] = {
+  title: 'Grundlagen der Distribution',
+  sections: [
+    {
+      type: 'intro',
+      title: 'Lernziele',
+      content: 'Nach der Bearbeitung dieses Kapitels können Sie ...',
+      items: [
+        'die Begriffe "Distribution" und "Aufgabe der Distribution" beschreiben.',
+        'die Bedeutung der Distribution im Rahmen des Marketingmix erklären.',
+        'die Träger und Einflussfaktoren der strategischen Distribution (Distributionspolitik) erkennen.',
+        'die grundsätzlichen Fachbegriffe der Distribution nennen.'
+      ]
+    },
+    {
+      type: 'concept',
+      title: '1.1 Definition und Aufgabe',
+      content: 'Der Begriff "Distribution" umschreibt die Verfügbarmachung der Marktleistung (Produkt oder Dienstleistung) für die Nachfragenden. Dies umschreibt sowohl die Aufgabe als auch die oberste Zielsetzung der Distribution. Distribution ist das dritte "P" im Marketingmix (Place) und befasst sich mit allen Entscheidungen, die den Weg eines Produkts vom Hersteller zum Endkunden betreffen.',
+      highlight: 'Distribution = Verfügbarmachung der Marktleistung für die Nachfragenden. Sie ist das "Place" im Marketingmix.'
+    },
+    {
+      type: 'concept',
+      title: '1.3 Instrumente der Distribution',
+      content: 'Die Distribution lässt sich in drei Hauptinstrumente gliedern: 1. Strategische Distribution (Bestimmung des Absatzwegs insgesamt), 2. Physische Distribution (Festlegung der Infrastruktur in der Logistik), 3. Standortwahl (Evaluation des Orts der Warenübergabe). Dazu kommt das übergreifende Element des Serviceniveaus.',
+      highlight: 'Die drei Instrumente der Distribution: Strategische Distribution, Physische Distribution und Standortwahl.'
+    },
+    {
+      type: 'table',
+      title: 'Übersicht Distributionssystem',
+      headers: ['Instrument', 'Beschreibung', 'Unterbereiche'],
+      rows: [
+        ['Strategische Distribution', 'Bestimmung des Absatzwegs insgesamt', 'Direkt, Indirekt, Multichannel'],
+        ['Physische Distribution', 'Festlegung der Infrastruktur in der Logistik', 'Lager, Transport, Informationsfluss'],
+        ['Standortwahl', 'Evaluation des Orts der Warenübergabe', 'Standorttypen, Standortkriterien']
+      ]
+    },
+    {
+      type: 'concept',
+      title: '1.5 Träger der Distribution',
+      content: 'Die Marketingfunktionen (Verkauf, Marketinglogistik, Finanzen) und vorgelagert die Marktforschung sind Träger der Distribution. Sie gewährleisten, dass die gewünschten Marktleistungen für die Konsumentinnen und Konsumenten entsprechend verfügbar sind.',
+      highlight: 'Träger der Distribution: 1. Strategische Distribution, 2. Physische Distribution, 3. Supply Chain Management, 4. Modell der Stufen, 5. Träger der Distribution (Abteilungen, die Distributionsaufgaben wahrnehmen).'
+    },
+    {
+      type: 'concept',
+      title: '1.7 Stufenmodell',
+      content: 'Das Stufenmodell zeigt, dass die Distribution nach Anzahl der Zwischenstufen gegliedert werden kann. Man unterscheidet: 0-stufig (direkte Distribution) oder 1- bis 3-stufig (indirekte Distribution). Als Stufe gilt, wenn das Eigentum dazwischen auf eine Drittfirma (Handel oder Importfirma) wechselt.',
+      highlight: '0-stufig = Direktvertrieb (Hersteller an Konsument). 1-3 stufig = indirekter Vertrieb über den Handel.'
+    },
+    {
+      type: 'concept',
+      title: '1.8 Modell der Distributionsflüsse/-ströme',
+      content: 'Die Distributionsabläufe können nach Flüssen (Strömen) dargestellt werden. Zwischen Produktion und Konsumation fliessen fünf Ströme: 1. Warenfluss (physische Verschiebung), 2. Geldfluss (Zahlungen), 3. Informationsfluss (Anfragen, Offerten, Bestellungen, Rechnungen), 4. Eigentumsfluss (Eigentumswechsel), 5. Kommunikationsfluss.',
+      highlight: 'Die 5 Distributionsflüsse: Warenfluss, Geldfluss, Informationsfluss, Eigentumsfluss, Kommunikationsfluss.'
+    },
+    {
+      type: 'merke',
+      title: 'Merke dir!',
+      items: [
+        'Distribution = Verfügbarmachung der Marktleistung (Place im Marketingmix).',
+        'Drei Instrumente: Strategische Distribution, Physische Distribution, Standortwahl.',
+        'Stufenmodell: 0-stufig (direkt) bis 3-stufig (indirekt).',
+        'Fünf Distributionsflüsse: Waren, Geld, Information, Eigentum, Kommunikation.',
+        'Supply Chain Management (SCM) steuert die gesamte Wertschöpfungskette.'
+      ]
+    },
+    {
+      type: 'keyterms',
+      title: 'Schlüsselbegriffe',
+      terms: [
+        {term: 'Distribution', def: 'Verfügbarmachung der Marktleistung für die Nachfragenden.'},
+        {term: 'Strategische Distribution', def: 'Bestimmung des Absatzwegs insgesamt (direkt, indirekt, Multichannel).'},
+        {term: 'Physische Distribution', def: 'Festlegung der Infrastruktur in der Logistik (Lager, Transport, Informationsfluss).'},
+        {term: 'Standortwahl', def: 'Evaluation des Orts der Warenübergabe.'},
+        {term: 'Stufenmodell', def: 'Gliederung nach Anzahl Zwischenstufen (0- bis 3-stufig).'},
+        {term: 'Distributionsflüsse', def: 'Waren-, Geld-, Informations-, Eigentums- und Kommunikationsfluss.'},
+        {term: 'Supply Chain Management', def: 'Steuerung der gesamten Wertschöpfungskette vom Rohstoff bis zum Endkunden.'}
+      ]
+    },
+    {
+      type: 'summary',
+      title: 'Zusammenfassung',
+      content: [
+        '<strong>Distribution</strong> umschreibt die Verfügbarmachung der Marktleistung für die Nachfragenden und ist das dritte "P" (Place) im Marketingmix.',
+        'Die drei <strong>Instrumente der Distribution</strong> sind: Strategische Distribution, Physische Distribution und Standortwahl.',
+        'Das <strong>Stufenmodell</strong> unterscheidet zwischen 0-stufiger (direkter) und 1- bis 3-stufiger (indirekter) Distribution.',
+        'Zwischen Produktion und Konsumation gibt es fünf <strong>Distributionsflüsse</strong>: Warenfluss, Geldfluss, Informationsfluss, Eigentumsfluss und Kommunikationsfluss.',
+        '<strong>Supply Chain Management (SCM)</strong> steuert die gesamte Wertschöpfungskette und ist ein übergeordnetes Konzept der Distribution.'
+      ]
+    }
+  ]
+};
+
+// ---- Learning Renderer Component ----
+function LearningRenderer(props) {
+  var chId = props.chId;
+  var data = learningData[chId];
+  if (!data) return e('div', {className: 'learn-container', style: {textAlign: 'center', padding: 48, color: 'var(--text2)'}},
+    e('div', {style: {fontSize: '2rem', marginBottom: 12}}, '\ud83d\udcd6'),
+    e('div', {style: {fontSize: '1.1rem', fontWeight: 700, marginBottom: 8, color: 'var(--text)'}}, 'Theorie wird bald erg\u00e4nzt'),
+    e('div', {style: {fontSize: '.85rem', marginTop: 6}}, 'Der Lernmodus f\u00fcr dieses Kapitel ist in Vorbereitung.')
+  );
+
+  var readKey = 'dist-learn-read-' + chId;
+  var st = useState(function() { return localStorage.getItem(readKey) === '1'; });
+  var isRead = st[0], setIsRead = st[1];
+
+  function markAsRead() { setIsRead(true); localStorage.setItem(readKey, '1'); }
+
+  function renderSection(section, idx) {
+    var sectionClass = 'learn-section';
+
+    if (section.type === 'intro') {
+      sectionClass += ' learn-intro';
+      return e('div', {key: idx, className: sectionClass},
+        e('div', {className: 'learn-section-header'}, e('span', {className: 'learn-section-icon'}, 'Lernziele'), e('span', {className: 'learn-section-title'}, section.title)),
+        e('div', {className: 'learn-section-body'}, e('div', {className: 'learn-intro-text'}, section.content),
+          e('ul', {className: 'learn-intro-list'}, section.items.map(function(item, i) { return e('li', {key: i}, item); })))
+      );
+    }
+    if (section.type === 'concept') {
+      sectionClass += ' learn-concept';
+      return e('div', {key: idx, className: sectionClass},
+        e('div', {className: 'learn-section-header'}, e('span', {className: 'learn-section-icon'}, 'Konzept'), e('span', {className: 'learn-section-title'}, section.title)),
+        e('div', {className: 'learn-section-body'}, e('div', {className: 'learn-concept-text'}, section.content),
+          section.highlight ? e('div', {className: 'learn-highlight'}, section.highlight) : null)
+      );
+    }
+    if (section.type === 'table') {
+      return e('div', {key: idx, className: sectionClass},
+        e('div', {className: 'learn-section-header'}, e('span', {className: 'learn-section-icon'}, 'Tabelle'), e('span', {className: 'learn-section-title'}, section.title)),
+        e('div', {className: 'learn-section-body'}, e('div', {className: 'learn-table-wrap'},
+          e('table', {className: 'learn-table'},
+            e('thead', null, e('tr', null, section.headers.map(function(h, i) { return e('th', {key: i}, h); }))),
+            e('tbody', null, section.rows.map(function(row, ri) {
+              return e('tr', {key: ri}, row.map(function(cell, ci) { return e('td', {key: ci, className: ci === 0 ? 'table-label' : ''}, cell); }));
+            }))
+          )))
+      );
+    }
+    if (section.type === 'keyterms') {
+      return e('div', {key: idx, className: sectionClass},
+        e('div', {className: 'learn-section-header'}, e('span', {className: 'learn-section-icon'}, 'Begriffe'), e('span', {className: 'learn-section-title'}, section.title)),
+        e('div', {className: 'learn-section-body'}, e('div', {className: 'learn-terms-grid'},
+          section.terms.map(function(t, i) { return e('div', {key: i, className: 'learn-term-card'}, e('div', {className: 'learn-term-name'}, t.term), e('div', {className: 'learn-term-def'}, t.def)); })))
+      );
+    }
+    if (section.type === 'merke') {
+      sectionClass += ' learn-merke';
+      return e('div', {key: idx, className: sectionClass},
+        e('div', {className: 'learn-section-header'}, e('span', {className: 'learn-section-icon'}, 'Merke'), e('span', {className: 'learn-section-title'}, section.title)),
+        e('div', {className: 'learn-section-body'}, e('ul', {className: 'learn-merke-list'}, section.items.map(function(item, i) { return e('li', {key: i}, item); })))
+      );
+    }
+    if (section.type === 'summary') {
+      sectionClass += ' learn-summary';
+      return e('div', {key: idx, className: sectionClass},
+        e('div', {className: 'learn-section-header'}, e('span', {className: 'learn-section-icon'}, 'Zusammenfassung'), e('span', {className: 'learn-section-title'}, section.title)),
+        e('div', {className: 'learn-section-body'}, e('div', {className: 'learn-summary-text'},
+          section.content.map(function(p, i) { return e('p', {key: i, dangerouslySetInnerHTML: {__html: p}}); })))
+      );
+    }
+    return e('div', {key: idx, className: sectionClass},
+      e('div', {className: 'learn-section-header'}, e('span', {className: 'learn-section-title'}, section.title || 'Abschnitt')),
+      e('div', {className: 'learn-section-body'}, e('div', null, section.content || ''))
+    );
+  }
+
+  return e('div', {className: 'learn-container'},
+    data.sections.map(function(section, idx) { return renderSection(section, idx); }),
+    e('div', {className: 'learn-complete-bar'},
+      e('span', {className: 'learn-progress-text'}, isRead ? 'Du hast dieses Kapitel als gelesen markiert.' : 'Hast du den gesamten Lerninhalt durchgearbeitet?'),
+      e('button', { className: 'learn-complete-btn ' + (isRead ? 'done' : 'ready'), onClick: isRead ? null : markAsRead }, isRead ? 'Gelesen' : 'Als gelesen markieren')
+    )
+  );
+}
+
+// ======================================================================
+// EXERCISE DATA
+// ======================================================================
+var exerciseData = {};
+function reg(id, title, type, data){ exerciseData[id] = {title:title, type:type, data:data}; }
+
+// ============================================================
+// KAPITEL 1: Grundlagen der Distribution (Rep 1-5 + Extras)
+// ============================================================
+
+// Rep 1 (S.25) - Grundbegriffe
+reg(1, 'Grundbegriffe der Distribution', 'zuordnung', {
+  instruction: 'Ordnen Sie die fünf grundsätzlichen Begriffe der Distribution ihrer Bedeutung zu.',
+  items: ['Strategische Distribution','Physische Distribution','Supply Chain Management','Modell der Stufen','Träger der Distribution'],
+  options: ['Die Bestimmung des Absatzwegs insgesamt','Die Festlegung der Infrastruktur in der Logistik','Die Steuerung der Wertschöpfungskette','Der Vertriebsweg eines Produkts über den Handel','Die Abteilungen, die Distributionsaufgaben wahrnehmen'],
+  correct: ['Die Bestimmung des Absatzwegs insgesamt','Die Festlegung der Infrastruktur in der Logistik','Die Steuerung der Wertschöpfungskette','Der Vertriebsweg eines Produkts über den Handel','Die Abteilungen, die Distributionsaufgaben wahrnehmen'],
+  tips: ['Strategische Distribution betrifft den Absatzweg.','Physische Distribution betrifft die Logistik-Infrastruktur.','SCM steuert die gesamte Wertschöpfungskette.'],
+  reveal: ['Strategische Distribution = Bestimmung des Absatzwegs insgesamt.','Physische Distribution = Festlegung der Infrastruktur in der Logistik.','Supply Chain Management = Steuerung der Wertschöpfungskette.','Modell der Stufen = Der Vertriebsweg eines Produkts über den Handel.','Träger der Distribution = Die Abteilungen, die Distributionsaufgaben wahrnehmen.']
+});
+
+// Rep 2 (S.25) - Definition Distribution
+reg(2, 'Definition Distribution', 'freitext', {
+  instruction: 'Definieren Sie in Ihren eigenen Worten den Begriff "Distribution".',
+  questions: [{q:'Definition Distribution:',keywords:['verfügbarmachung','marktleistung','produkt','dienstleistung','nachfragenden','aufgabe','zielsetzung'],minKeywords:3}],
+  tips: ['Distribution ist ein zentraler Begriff des Marketingmix.','Es geht um die Verfügbarkeit von Produkten.','Denken Sie an die Aufgabe UND die Zielsetzung.'],
+  reveal: ['Der Begriff "Distribution" umschreibt die Verfügbarmachung der Marktleistung (Produkt oder Dienstleistung) für die Nachfragenden.','Dies umschreibt sowohl die Aufgabe als auch die oberste Zielsetzung der Distribution.']
+});
+
+// Rep 3 (S.25) - Drei Instrumente
+reg(3, 'Drei Instrumente der Distribution', 'lueckentext', {
+  instruction: 'Nennen Sie die drei klassischen Instrumente der Distribution.',
+  segments: ['1. ',{blank:true,answer:['Strategische Distribution'],width:220},' | 2. ',{blank:true,answer:['Physische Distribution'],width:220},' | 3. ',{blank:true,answer:['Standortwahl'],width:180}],
+  tips: ['Die drei Instrumente bilden das Distributionssystem.','Ein Instrument befasst sich mit dem Absatzweg.','Ein Instrument befasst sich mit dem Ort der Warenübergabe.'],
+  reveal: ['1. Strategische Distribution (Bestimmung des Absatzwegs).','2. Physische Distribution (Festlegung der Logistik-Infrastruktur).','3. Standortwahl (Evaluation des Orts der Warenübergabe).']
+});
+
+// Rep 4 (S.25) - Dreistufige Distribution
+reg(4, 'Dreistufige Distribution', 'zuordnung', {
+  instruction: 'Ordnen Sie die Stufen der dreistufigen Distribution am Beispiel eines Weins aus Frankreich zu.',
+  items: ['1. Stufe','2. Stufe','3. Stufe','Endstation'],
+  options: ['Importfirma (in der Schweiz)','Grosshandel','Detailhandel','Konsument/-in'],
+  correct: ['Importfirma (in der Schweiz)','Grosshandel','Detailhandel','Konsument/-in'],
+  tips: ['Die 1. Stufe ist der erste Zwischenhändler nach der Produktion.','Bei einem ausländischen Produkt ist die 1. Stufe oft ein Importeur.','Am Ende der Kette steht immer der Konsument.'],
+  reveal: ['Produktion (Weinkeller in Frankreich) -> 1. Stufe: Importfirma -> 2. Stufe: Grosshandel -> 3. Stufe: Detailhandel -> Konsument/-in.','Jede Stufe bedeutet einen Eigentumswechsel.']
+});
+
+// Rep 5 (S.25) - Minicase SCM
+reg(5, 'Minicase: Supply Chain Management', 'freitext', {
+  instruction: 'Eine global tätige Firma der Konsumgüterindustrie möchte den Markteintritt in der Schweiz. Definieren Sie die Organisation der Warenverfügbarkeit nach dem Modell der Distributionsflüsse.',
+  questions: [{q:'Beschreiben Sie die relevanten Distributionsflüsse:',keywords:['warenfluss','geldfluss','informationsfluss','eigentumsfluss','kommunikationsfluss','transport','lager','import'],minKeywords:3}],
+  tips: ['Es gibt fünf Distributionsflüsse zwischen Produktion und Konsumation.','Denken Sie an den physischen Warenfluss (Transport, Lager).','Der Informationsfluss umfasst Anfragen, Offerten, Bestellungen, Rechnungen.'],
+  reveal: ['Warenfluss: Bewegung der Ware vom Produktionsland in die Schweiz, Entgegennahme in eigenes Lager oder Fremdlager, Weiterleiten an den Handel.','Geldfluss: Fliesst gemäss Vereinbarungen zwischen den Vertragsparteien.','Informationsfluss: Anfragen, Offerten, Bestellungen, Lieferpapiere und Rechnungen werden heute meist elektronisch verarbeitet.','Eigentumsfluss: Eigentumsübergang bei Gattungsware gemäss OR 184 ff.']
+});
+
+// Extra: RF Kapitel 1
+reg(6, 'Richtig oder Falsch: Grundlagen', 'rf', {
+  statements: [
+    {s:'Distribution ist das dritte "P" (Place) im Marketingmix.',correct:true,feedback:'Richtig. Die 4 Ps sind Product, Price, Place, Promotion.'},
+    {s:'Bei einer 0-stufigen Distribution verkauft der Hersteller direkt an den Endkunden.',correct:true,feedback:'0-stufig = kein Zwischenhändler = Direktvertrieb.'},
+    {s:'Der Informationsfluss umfasst nur den Transport der physischen Ware.',correct:false,feedback:'Der Informationsfluss umfasst Anfragen, Offerten, Bestellungen und Rechnungen. Der Warenfluss umfasst den physischen Transport.'},
+    {s:'Supply Chain Management steuert nur die Logistik innerhalb eines Unternehmens.',correct:false,feedback:'SCM steuert die gesamte Wertschöpfungskette von der Rohstoffgewinnung bis zum Endkunden.'}
+  ],
+  tips: ['Distribution = Place im Marketingmix.','0-stufig = direkt, 1-3 stufig = indirekt.','SCM ist unternehmensübergreifend.'],
+  reveal: ['Aussage 1: Richtig.','Aussage 2: Richtig.','Aussage 3: Falsch - Informationsfluss ist nicht der Warenfluss.','Aussage 4: Falsch - SCM ist unternehmensübergreifend.']
+});
+
+// Extra: MC Kapitel 1
+reg(7, 'Distributionsflüsse (MC)', 'mc', {
+  instruction: 'Welcher der folgenden ist KEIN Distributionsfluss?',
+  options: ['Warenfluss','Geldfluss','Personalfluss','Eigentumsfluss'],
+  correct: 2,
+  tips: ['Es gibt fünf Distributionsflüsse.','Alle fliessen zwischen Produktion und Konsumation.','Personal gehört nicht zu den Distributionsflüssen.'],
+  reveal: ['Die fünf Distributionsflüsse sind: Warenfluss, Geldfluss, Informationsfluss, Eigentumsfluss und Kommunikationsfluss.','Personalfluss ist kein Distributionsfluss.']
+});
+
+// Extra: Lückentext Stufenmodell
+reg(8, 'Lückentext: Stufenmodell', 'lueckentext', {
+  instruction: 'Ergänzen Sie die Lücken zum Stufenmodell der Distribution.',
+  segments: ['Bei der ',{blank:true,answer:['0-stufigen','nullstufigen'],width:140},' Distribution verkauft der Hersteller direkt an den Endkunden (= ',{blank:true,answer:['Direktvertrieb','direkte Distribution'],width:180},'). Bei der indirekten Distribution durchläuft das Produkt ',{blank:true,answer:['1 bis 3','1-3','ein bis drei'],width:100},' Zwischenstufen. Als Stufe gilt, wenn das ',{blank:true,answer:['Eigentum'],width:120},' auf eine Drittfirma wechselt.'],
+  tips: ['0-stufig = kein Zwischenhändler.','Eine Stufe = ein Eigentumswechsel.','Indirekt kann 1-, 2- oder 3-stufig sein.'],
+  reveal: ['0-stufig = Direktvertrieb (Hersteller an Konsument).','Indirekte Distribution = 1 bis 3 Zwischenstufen.','Als Stufe gilt ein Eigentumswechsel an eine Drittfirma (Handel oder Importfirma).']
+});
+
+// Extra: Einflussfaktoren
+reg(9, 'Einflussfaktoren auf die Distribution', 'freitext', {
+  instruction: 'Nennen Sie mindestens vier Einflussfaktoren auf die Distribution und erklären Sie, warum Verpackung bei einem Körperpflegeprodukt eine grosse Bedeutung hat.',
+  questions: [{q:'Einflussfaktoren und Begründung Verpackung:',keywords:['produkt','verpackung','marke','sortiment','serviceleistung','design','transport','stapelbar','gesetzlich','haltbarkeit'],minKeywords:4}],
+  tips: ['Denken Sie an die Checkliste Einflussfaktoren (Abb. 1-4 im Buch).','Verpackung hat bei Transportgütern grosse Bedeutung.','Auch gesetzliche Vorschriften spielen eine Rolle.'],
+  reveal: ['Einflussfaktoren: Produkt/Produktnutzen, Design, Verpackung, Marke, Sortiment, Serviceleistungen.','Verpackung bei Körperpflege: Sehr wichtig, muss bei Transportverpackung bedacht werden (Stapelbarkeit, Transportfähigkeit, Angabe Verderb-Datum, gesetzliche Vorschriften).']
+});
+
+// ============================================================
+// KAPITEL 2: Strategische Distribution (Rep 6-9 + Extras)
+// ============================================================
+
+// Rep 6 (S.33)
+reg(10, 'Wichtigster strategischer Entscheid', 'mc', {
+  instruction: 'Welches ist der wichtigste strategische Entscheid im Rahmen der Distribution?',
+  options: ['Die Wahl des Standorts','Die Bestimmung des Distributionswegs','Die Festlegung der Logistik','Die Auswahl der Mitarbeitenden'],
+  correct: 1,
+  tips: ['Es geht um den grundsätzlichsten Entscheid.','Direkt, indirekt oder Kombination?','Dies bestimmt alle weiteren Distributionsentscheidungen.'],
+  reveal: ['Der wichtigste strategische Entscheid ist die Bestimmung des Distributionswegs.','Zur Wahl stehen: Direktvertrieb, Vertrieb über den Handel oder eine Kombination davon (Multichannel).']
+});
+
+// Rep 7 (S.33) - Duale Distribution
+reg(11, 'Duale Distribution', 'freitext', {
+  instruction: 'Was wird unter einer "dualen Distribution" verstanden?',
+  questions: [{q:'Definition duale Distribution:',keywords:['direkt','indirekt','sowohl','handel','multichannel','bearbeitung','nachfragenden'],minKeywords:3}],
+  tips: ['Dual bedeutet "zweifach".','Es geht um die gleichzeitige Nutzung zweier Wege.','Ein anderer Begriff ist "Multichanneling".'],
+  reveal: ['Als Duale Distribution wird die Bearbeitung der Nachfragenden sowohl direkt (durch eigene Organe) wie auch indirekt (über den Handel) verstanden.','Es wird häufig als "Multichanneling" bezeichnet.']
+});
+
+// Rep 8 (S.33) - Absatzkanäle und Handelskanäle
+reg(12, 'Absatzkanäle und Handelskanäle', 'zuordnung', {
+  instruction: 'Ordnen Sie die Absatzkanäle den passenden Handelskanälen zu.',
+  items: ['Grossverteiler','Discounter','Online'],
+  options: ['Migros, Coop','Denner, Aldi Schweiz, Lidl Schweiz','Digitec.ch, Zalando.ch, Bergfreunde.de'],
+  correct: ['Migros, Coop','Denner, Aldi Schweiz, Lidl Schweiz','Digitec.ch, Zalando.ch, Bergfreunde.de'],
+  tips: ['Grossverteiler sind die grössten Detailhändler.','Discounter zeichnen sich durch niedrige Preise aus.','Online-Kanäle umfassen E-Commerce-Plattformen.'],
+  reveal: ['Grossverteiler: Migros, Coop.','Discounter: Denner, Aldi Schweiz, Lidl Schweiz.','Online: Digitec.ch, Zalando.ch, Bergfreunde.de.']
+});
+
+// Rep 9 (S.33) - Minicase Tapanah
+reg(13, 'Minicase: Indirekter Vertrieb vs. Multichannel', 'freitext', {
+  instruction: 'Kosmetikfirma Tapanah International: Vergleichen Sie indirekten Vertrieb und Multichannel. Welche Möglichkeit ist vorteilhafter?',
+  questions: [{q:'Begründeter Vorschlag:',keywords:['indirekt','multichannel','fachhandel','drogerien','onlineshop','kosten','infrastruktur','markteintritt','goodwill','umsatzpotenzial'],minKeywords:4}],
+  tips: ['Betrachten Sie die Entscheidungsmatrix (Kriterien gewichten).','Denken Sie an Umsatzpotenzial, Kundenbindung, Deckungsbeitrag, IT-Kosten.','Der Goodwill des Fachhandels ist wichtig.'],
+  reveal: ['Nach Auswertung der Entscheidungsmatrix: Indirekter Vertriebsweg über den Fachhandel (Drogerien, Drogeriemärkte).','Begründung: Für den Markteintritt ist der Goodwill des Fachhandels wichtig. Das berechnete Umsatzpotenzial wird durch Multichanneling nicht massgeblich gesteigert. Die IT-Kosten sind nicht zu unterschätzen.']
+});
+
+// Extra: RF Kap 2
+reg(14, 'RF: Strategische Distribution', 'rf', {
+  statements: [
+    {s:'Beim Direktvertrieb verkauft der Hersteller ohne Zwischenhändler an den Endkunden.',correct:true,feedback:'Direkt = 0-stufig, kein Zwischenhändler.'},
+    {s:'Multichannel bedeutet, dass nur ein einziger Vertriebskanal genutzt wird.',correct:false,feedback:'Multichannel = mehrere Kanäle gleichzeitig (direkt und indirekt).'},
+    {s:'Die Wahl des Distributionswegs ist der wichtigste strategische Entscheid.',correct:true,feedback:'Dies bestimmt alle weiteren Distributionsentscheide.'},
+    {s:'Duale Distribution und Multichannel sind unterschiedliche Konzepte.',correct:false,feedback:'Duale Distribution wird häufig als Multichanneling bezeichnet.'}
+  ],
+  tips: ['Direkt = ohne Zwischenhändler.','Multi = mehrere.','Dual = zweifach = Multichannel.'],
+  reveal: ['Aussage 1: Richtig.','Aussage 2: Falsch - Multi = mehrere Kanäle.','Aussage 3: Richtig.','Aussage 4: Falsch - gleicher Begriff.']
+});
+
+// Extra: Zuordnung Distributionswege
+reg(15, 'Distributionswege zuordnen', 'tabelle', {
+  instruction: 'Ordnen Sie die Beispiele dem richtigen Distributionsweg zu.',
+  headers: ['Direkt','Indirekt','Beispiel'],
+  rows: [
+    {label:'Firmeneigener Onlineshop',correct:0},
+    {label:'Verkauf über Migros',correct:1},
+    {label:'Werksverkauf (Factory Outlet)',correct:0},
+    {label:'Verkauf über Fachhandel',correct:1},
+    {label:'Eigener Aussendienst',correct:0},
+    {label:'Verkauf über Grosshändler',correct:1}
+  ],
+  tips: ['Direkt = Hersteller verkauft selbst.','Indirekt = über Zwischenhändler.','Online-Shop des Herstellers = direkt.'],
+  reveal: ['Direkt: Firmeneigener Onlineshop, Werksverkauf, Eigener Aussendienst.','Indirekt: Migros, Fachhandel, Grosshändler.']
+});
+
+reg(16, 'Lückentext: Strategische Distribution', 'lueckentext', {
+  instruction: 'Ergänzen Sie die Lücken zur strategischen Distribution.',
+  segments: ['Der wichtigste strategische Entscheid ist die Bestimmung des ',{blank:true,answer:['Distributionswegs','Vertriebswegs'],width:180},'. Zur Wahl stehen: ',{blank:true,answer:['Direktvertrieb'],width:150},', Vertrieb über den ',{blank:true,answer:['Handel'],width:120},' oder eine ',{blank:true,answer:['Kombination'],width:140},' davon (Multichannel).'],
+  tips: ['Es gibt drei Optionen für den Distributionsweg.','Die Kombination heisst auch Multichannel oder duale Distribution.'],
+  reveal: ['Der wichtigste Entscheid = Bestimmung des Distributionswegs.','Optionen: Direktvertrieb, Handel (indirekt), Kombination (Multichannel).']
+});
+
+reg(17, 'MC: Strategische Distribution', 'mc', {
+  instruction: 'Welche Aussage zur dualen Distribution ist korrekt?',
+  options: ['Duale Distribution nutzt ausschliesslich digitale Kanäle.','Duale Distribution bedeutet Bearbeitung der Nachfragenden sowohl direkt als auch indirekt.','Duale Distribution ist ein veraltetes Konzept.','Duale Distribution bezieht sich nur auf den B2B-Bereich.'],
+  correct: 1,
+  tips: ['Dual = zweifach.','Es geht um direkte UND indirekte Kanäle.','Der Begriff wird auch als Multichanneling verwendet.'],
+  reveal: ['Duale Distribution = Bearbeitung sowohl direkt (eigene Organe) als auch indirekt (über den Handel).','Wird häufig als Multichanneling bezeichnet.']
+});
+
+// ============================================================
+// KAPITEL 3: Das Distributionskonzept (Rep 10-13 + Extras)
+// ============================================================
+
+reg(18, 'Sechs Schritte des Distributionskonzepts', 'zuordnung', {
+  instruction: 'Ordnen Sie die sechs Schritte des Distributionskonzepts den Beschreibungen zu.',
+  items: ['1. Analyse','2. Distributionsziele','3. Strategien','4. Massnahmen','5. Budget','6. Kontrolle'],
+  options: ['Ausgangslage mit Interpretation (Fazit) erstellen','Quantitative und qualitative Soll-Zustände aus Vorgaben ableiten','Grundsätzliche Ausrichtung der Distribution auf den Markt','Tätigkeiten zur Zielerreichung bestimmen','Potenzielle Kosten aller Aktivitäten errechnen','Zielerreichung (Punkte 2 und 3) kontrollieren'],
+  correct: ['Ausgangslage mit Interpretation (Fazit) erstellen','Quantitative und qualitative Soll-Zustände aus Vorgaben ableiten','Grundsätzliche Ausrichtung der Distribution auf den Markt','Tätigkeiten zur Zielerreichung bestimmen','Potenzielle Kosten aller Aktivitäten errechnen','Zielerreichung (Punkte 2 und 3) kontrollieren'],
+  tips: ['Das Distributionskonzept folgt dem allgemeinen Konzeptraster.','Es beginnt immer mit der Analyse.','Die Kontrolle steht am Ende.'],
+  reveal: ['1. Analyse: Ausgangslage mit Fazit.','2. Distributionsziele: Soll-Zustände ableiten.','3. Strategien: Ausrichtung auf den Markt.','4. Massnahmen: Tätigkeiten bestimmen.','5. Budget: Kosten errechnen.','6. Kontrolle: Zielerreichung kontrollieren.']
+});
+
+// Rep 11 (S.61) - Distributionsorgane
+reg(19, 'Distributionsorgane und -techniken', 'zuordnung', {
+  instruction: 'Ordnen Sie die Beispiele den Kategorien Distributionsorgan oder Distributionstechnik zu.',
+  items: ['Aussendienstmitarbeitende (ADM)','Besuche bei der Kundschaft','Verkaufsmitarbeitende im eigenen Shop (VKM)','Ladenverkauf','Administrative Mitarbeitende IT (IDM)','Onlineshop'],
+  options: ['Distributionsorgan','Distributionstechnik'],
+  correct: ['Distributionsorgan','Distributionstechnik','Distributionsorgan','Distributionstechnik','Distributionsorgan','Distributionstechnik'],
+  tips: ['Organe sind Personen oder Abteilungen.','Techniken sind die Art und Weise des Verkaufs.','ADM, VKM und IDM sind Organe.'],
+  reveal: ['Distributionsorgane: ADM, VKM, IDM (= Personen/Abteilungen).','Distributionstechniken: Besuche bei Kundschaft, Ladenverkauf, Onlineshop (= Verkaufsarten).']
+});
+
+// Rep 12 (S.61) - Numerische und Gewichtete Distribution
+reg(20, 'Distributionsgrad berechnen', 'berechnung', {
+  instruction: 'Berechnen Sie die numerische und gewichtete Distribution: Kanal Coop (Schweiz), VS insgesamt: 900, Umsatz mit Leim: CHF 12 Mio., Produkt "Cementit", Umsatz dieser VS mit Leim: CHF 6 Mio., "Cementit" führen: 360 VS, Umsatz "Cementit" in der Schweiz: CHF 3 Mio.',
+  fields: [
+    {label:'Numerische Distribution (360/900 x 100)',answer:40,tolerance:1},
+    {label:'Gewichtete Distribution (6/12 x 100)',answer:50,tolerance:1}
+  ],
+  tips: ['ND = Anzahl VS mit Produkt / Anzahl VS insgesamt x 100.','GD = Umsatz der VS mit Produkt in der Warengruppe / Gesamtumsatz Warengruppe x 100.','ND misst die Präsenz, GD die Umsatzbedeutung.'],
+  reveal: ['Numerische Distribution: 360 / 900 x 100 = 40% (ND 40).','Gewichtete Distribution: 6 Mio. / 12 Mio. x 100 = 50% (GD 50).','Die GD ist höher als die ND, d.h. das Produkt ist in umsatzstarken Verkaufsstellen gelistet.']
+});
+
+// Rep 13 (S.61) - Selektive Distribution Pro/Kontra
+reg(21, 'Selektive Distribution: Pro und Kontra', 'freitext', {
+  instruction: 'Erarbeiten Sie eine Pro-Kontra-Liste für eine selektive Distribution gegenüber einer exklusiven Distribution.',
+  questions: [{q:'Pro und Kontra selektive Distribution:',keywords:['zielgruppe','grössere','umsatz','marktdurchdringung','fachhandel','logistik','komplexer','preiskonflikte','POS','image'],minKeywords:4}],
+  tips: ['Pro: grössere Zielgruppe, mehr Umsatz, schnellere Marktdurchdringung.','Kontra: Fachhandel reagiert negativ, Logistikaufbau komplexer.','Denken Sie auch an Preiskonflikte am POS.'],
+  reveal: ['Pro selektive Distribution: Grössere Zielgruppe erreichen, mehr Umsatz erwirtschaften, schnellere Marktdurchdringung.','Kontra: Fachhandel reagiert negativ, Logistikaufbau komplexer, Preiskonflikte am POS, Imageabwertung (Verlust Profilierung), Irritation der Zielgruppen.','Entscheid: exklusive Distribution über den Fachhandel (Nachteile überwiegen).']
+});
+
+reg(22, 'Distributionsfeld und -differenzierung', 'mc', {
+  instruction: 'Was beschreibt die Distributionsdifferenzierung?',
+  options: ['Die Wahl zwischen verschiedenen Transportmitteln','Die unterschiedliche Gestaltung der Distribution für verschiedene Marktsegmente','Die Berechnung des Distributionsgrads','Die Auswahl der Distributionsorgane'],
+  correct: 1,
+  tips: ['Differenzierung = Unterscheidung/Anpassung.','Es geht um verschiedene Marktsegmente.','Nicht alle Kunden werden gleich bedient.'],
+  reveal: ['Distributionsdifferenzierung = Die unterschiedliche Gestaltung der Distribution je nach Marktsegment.','Bei der Distributionsdifferenzierung ist nur eine einzige Entscheidung möglich (exklusiv, selektiv oder intensiv).']
+});
+
+reg(23, 'RF: Distributionskonzept', 'rf', {
+  statements: [
+    {s:'Das Distributionskonzept umfasst sechs Schritte: Analyse, Ziele, Strategien, Massnahmen, Budget, Kontrolle.',correct:true,feedback:'Dies entspricht dem allgemeinen Konzeptraster.'},
+    {s:'Die numerische Distribution misst die Umsatzbedeutung der Verkaufsstellen.',correct:false,feedback:'Die numerische Distribution misst die Präsenz (Anteil VS). Die gewichtete Distribution misst die Umsatzbedeutung.'},
+    {s:'Ein hoher Distributionsgrad bedeutet, dass das Produkt in vielen Verkaufsstellen erhältlich ist.',correct:true,feedback:'Je höher der numerische Distributionsgrad, desto breiter die Verfügbarkeit.'},
+    {s:'Die Distributionsrationalisierung betrifft nur den Transport.',correct:false,feedback:'Sie umfasst: Auftragswesen, Transportverpackung, Transportpolitik, Lagerpolitik und Entsorgungspolitik.'}
+  ],
+  tips: ['ND = Präsenz, GD = Umsatzbedeutung.','Rationalisierung betrifft mehrere Bereiche.','Das Konzept folgt dem 6-Schritte-Raster.'],
+  reveal: ['Aussage 1: Richtig.','Aussage 2: Falsch - ND misst Präsenz, GD misst Umsatzbedeutung.','Aussage 3: Richtig.','Aussage 4: Falsch - betrifft mehrere Bereiche.']
+});
+
+reg(24, 'Konzeptelemente zuordnen', 'zuordnung', {
+  instruction: 'Ordnen Sie die Elemente dem richtigen Bereich des Distributionskonzepts zu.',
+  items: ['Distributionsorgane bestimmen','Numerische Distribution festlegen','Distributionsbindung verhandeln','Kanalwahl treffen','Distributionsfeld definieren'],
+  options: ['Wer verkauft?','Wie breit verteilen?','Vertragliche Bindung','Welcher Kanal?','Wo verkaufen?'],
+  correct: ['Wer verkauft?','Wie breit verteilen?','Vertragliche Bindung','Welcher Kanal?','Wo verkaufen?'],
+  tips: ['Organe = Personen, die verkaufen.','Distributionsgrad = Breite der Verteilung.','Bindung = vertragliche Vereinbarungen.'],
+  reveal: ['Distributionsorgane = Wer verkauft? (ADM, VKM, IDM).','Numerische Distribution = Wie breit verteilen?','Distributionsbindung = Vertragliche Bindung.','Kanalwahl = Welcher Kanal?','Distributionsfeld = Wo verkaufen?']
+});
+
+reg(25, 'Lückentext: Distributionsgrad', 'lueckentext', {
+  instruction: 'Ergänzen Sie die Definitionen zum Distributionsgrad.',
+  segments: ['Die ',{blank:true,answer:['numerische','Numerische'],width:140},' Distribution misst die ',{blank:true,answer:['Präsenz'],width:120},' eines Produkts (Anteil der Verkaufsstellen). Die ',{blank:true,answer:['gewichtete','Gewichtete'],width:140},' Distribution misst die ',{blank:true,answer:['Umsatzbedeutung'],width:160},' (Umsatzanteil der VS).'],
+  tips: ['Numerisch = Anzahl (Präsenz).','Gewichtet = nach Umsatz bewertet.','ND kann tiefer sein als GD, wenn das Produkt in umsatzstarken VS ist.'],
+  reveal: ['Numerische Distribution = Präsenz (Anteil VS mit Produkt an Gesamt-VS).','Gewichtete Distribution = Umsatzbedeutung (Umsatzanteil der VS an Gesamtumsatz der Warengruppe).']
+});
+
+reg(26, 'POS-Massnahmen', 'freitext', {
+  instruction: 'Nennen Sie drei typische Point-of-Sale-Massnahmen und erklären Sie deren Zweck.',
+  questions: [{q:'POS-Massnahmen:',keywords:['display','platzierung','promotion','degustation','zweitplatzierung','regalplatzierung','preisaktion','verkostung','werbematerial'],minKeywords:3}],
+  tips: ['POS = Point of Sale = Ort des Verkaufs.','Denken Sie an Massnahmen im Ladengeschäft.','Displays, Promotionen und Platzierungen sind typisch.'],
+  reveal: ['Typische POS-Massnahmen: 1. Displays und Zweitplatzierungen (Aufmerksamkeit erhöhen), 2. Degustationen/Verkostungen (Produkt erlebbar machen), 3. Preisaktionen und Promotionen (Kaufanreiz schaffen).']
+});
+
+// ============================================================
+// KAPITEL 4: Direkte und indirekte Distribution (Rep 14-17 + Extras)
+// ============================================================
+
+reg(27, 'Interne und externe Organe', 'freitext', {
+  instruction: 'Welche beiden Arten von Organen sind in der direkten Distribution zu unterscheiden? Machen Sie dazu je zwei Beispiele.',
+  questions: [{q:'Organe in der direkten Distribution:',keywords:['intern','extern','aussendienst','verkaufsladen','agenten','makler','eigene','mitarbeitende','fremd'],minKeywords:4}],
+  tips: ['Es gibt interne und externe Organe.','Interne = eigene Mitarbeitende.','Externe = Agenten oder Makler.'],
+  reveal: ['Interne Organe: Eigene Mitarbeitende im Aussendienst sowie der eigene Verkaufsladen.','Externe Organe: Agenten oder Makler.']
+});
+
+reg(28, 'Ablauf Streckengeschäft (Dropshipping)', 'freitext', {
+  instruction: 'Beschreiben Sie kurz an einem Beispiel den Ablauf im Streckengeschäft (Dropshipping).',
+  questions: [{q:'Ablauf Dropshipping:',keywords:['kunde','bestellt','händler','hersteller','direkt','liefert','versand','lager','kein','eigenes'],minKeywords:3}],
+  tips: ['Beim Dropshipping hält der Händler keine eigenen Waren.','Die Ware wird direkt vom Hersteller an den Endkunden geschickt.','Der Händler ist nur Vermittler.'],
+  reveal: ['Beim Dropshipping bestellt der Kunde bei einem Händler (z.B. Online-Shop). Der Händler leitet die Bestellung an den Hersteller weiter, der die Ware direkt an den Endkunden liefert. Der Händler hält kein eigenes Lager.','Beispiel: My Sport bietet modische Sportartikel im Internet an. Kunden bestellen bei My Sport, die Artikel werden direkt von den Herstellern an die Kunden geschickt.']
+});
+
+reg(29, 'Pop-up-Store Eigenheiten', 'lueckentext', {
+  instruction: 'Nennen Sie zwei spezifische Eigenheiten eines Pop-up-Stores.',
+  segments: ['Ein Pop-up-Store ist jeweils nur ',{blank:true,answer:['kurzzeitig','zeitlich begrenzt','temporär'],width:160},' an einem bestimmten Ort geöffnet. Neben dem Aspekt Verkauf können ',{blank:true,answer:['Bekanntheit','Bekanntheit und Imagebildung'],width:200},' im Fokus stehen.'],
+  tips: ['Pop-up = taucht auf und verschwindet wieder.','Es geht nicht nur um Verkauf.','Auch Branding ist ein Ziel.'],
+  reveal: ['1. Nur kurzzeitig an einem bestimmten Ort geöffnet.','2. Neben dem Aspekt Verkauf können Bekanntheit und Imagebildung im Fokus stehen.']
+});
+
+reg(30, 'Minicase: Warenhauskanal', 'freitext', {
+  instruction: 'Tapanah (Schweiz) AG möchte neben dem Fachhandel auch in einen Warenhauskanal eintreten. Zur Auswahl: Manor (59 Filialen, CHF 2 Mrd.), Globus (13, CHF 850 Mio.), Coop City (31, CHF 780 Mio.), Loeb (3, CHF 75 Mio.). Welchen Kanal empfehlen Sie und warum?',
+  questions: [{q:'Empfehlung mit Begründung:',keywords:['manor','filialen','marktdurchdringung','umsatzbedeutung','signalwirkung','gewichtet','kriterien','sortiment','eignung'],minKeywords:3}],
+  tips: ['Bewerten Sie nach gewichteten Kriterien.','Anzahl Filialen = Marktdurchdringung.','Umsatzbedeutung und Signalwirkung beachten.'],
+  reveal: ['Empfehlung: Manor - hohe Zahl der Verkaufsstellen (gute Marktdurchdringung), grosse Umsatzbedeutung, Signalwirkung auf andere Kanäle.','Manor hat 59 Filialen und CHF 2 Mrd. Umsatz - deutlich mehr als die Konkurrenz.']
+});
+
+reg(31, 'RF: Direkte und indirekte Distribution', 'rf', {
+  statements: [
+    {s:'Beim Grosshandel kauft der Endkonsument direkt ein.',correct:false,feedback:'Der Grosshandel verkauft an den Detailhandel oder gewerbliche Abnehmer, nicht an Endkonsumenten.'},
+    {s:'Merchandising umfasst alle Massnahmen zur Warenpräsentation am POS.',correct:true,feedback:'Merchandising = Warenpräsentation und -pflege am Point of Sale.'},
+    {s:'Franchising ist eine Form der direkten Distribution.',correct:false,feedback:'Franchising ist eine Form der indirekten Distribution (über Franchisenehmer).'},
+    {s:'Der Detailhandel (Einzelhandel) verkauft direkt an den Endkonsumenten.',correct:true,feedback:'Detail = Einzelhandel = Verkauf an Endkonsumenten.'}
+  ],
+  tips: ['Grosshandel verkauft an Wiederverkäufer.','Merchandising = Warenpräsentation.','Franchising = indirekt, da über Partner.'],
+  reveal: ['Aussage 1: Falsch - Grosshandel verkauft an Detailhandel.','Aussage 2: Richtig.','Aussage 3: Falsch - Franchising = indirekt.','Aussage 4: Richtig.']
+});
+
+reg(32, 'Handelsformen zuordnen', 'zuordnung', {
+  instruction: 'Ordnen Sie die Handelsformen der richtigen Kategorie zu.',
+  items: ['Migros','Denner','Digitec.ch','Manor','Landi'],
+  options: ['Grossverteiler','Discounter','Online-Händler','Warenhaus','Fachmarkt'],
+  correct: ['Grossverteiler','Discounter','Online-Händler','Warenhaus','Fachmarkt'],
+  tips: ['Migros und Coop sind Grossverteiler.','Denner ist ein Discounter.','Manor ist ein Warenhaus.'],
+  reveal: ['Migros = Grossverteiler, Denner = Discounter, Digitec.ch = Online-Händler, Manor = Warenhaus, Landi = Fachmarkt.']
+});
+
+reg(33, 'Eintritt in den Handel', 'freitext', {
+  instruction: 'Nennen Sie drei wichtige Aspekte, die beim Eintritt in den Handel zu beachten sind.',
+  questions: [{q:'Aspekte Markteintritt Handel:',keywords:['listung','kondition','sortiment','regalplatz','margin','lieferfähigkeit','verpackung','mindestbestellung','promotion'],minKeywords:3}],
+  tips: ['Die Listung ist der erste Schritt.','Konditionen müssen verhandelt werden.','Der Handel erwartet Lieferfähigkeit.'],
+  reveal: ['Wichtige Aspekte: 1. Listung (Aufnahme ins Sortiment), 2. Konditionen (Rabatte, Boni, Zahlungsbedingungen), 3. Lieferfähigkeit und Mindestbestellmengen.']
+});
+
+reg(34, 'MC: Grosshandel vs. Detailhandel', 'mc', {
+  instruction: 'Welche Aussage zum Grosshandel ist korrekt?',
+  options: ['Der Grosshandel verkauft ausschliesslich an Endkonsumenten.','Der Grosshandel kauft grosse Mengen ein und verkauft an Detailhändler weiter.','Der Grosshandel ist immer ein Online-Handel.','Der Grosshandel betreibt nur eigene Ladengeschäfte.'],
+  correct: 1,
+  tips: ['Gross = grosse Mengen.','Grosshandel ≠ Endkonsument.','Grosshandel = Zwischenhändler.'],
+  reveal: ['Der Grosshandel kauft Waren in grossen Mengen ein und verkauft sie an Detailhändler oder gewerbliche Abnehmer weiter.']
+});
+
+reg(35, 'Lückentext: Handel', 'lueckentext', {
+  instruction: 'Ergänzen Sie die Lücken zum Handel in der Distribution.',
+  segments: ['Der ',{blank:true,answer:['Grosshandel'],width:140},' kauft grosse Mengen ein und verkauft an den ',{blank:true,answer:['Detailhandel','Einzelhandel'],width:150},' weiter. Der Detailhandel verkauft direkt an den ',{blank:true,answer:['Endkonsumenten','Konsumenten'],width:160},'. ',{blank:true,answer:['Franchising'],width:130},' ist ein Vertriebssystem, bei dem ein Franchisegeber einem Franchisenehmer das Recht einräumt, sein Geschäftskonzept zu nutzen.'],
+  tips: ['Gross = an Wiederverkäufer.','Detail = an Endkonsumenten.','Franchising = Geschäftskonzept-Lizenz.'],
+  reveal: ['Grosshandel -> Detailhandel -> Endkonsument.','Franchising = Lizenzierung des Geschäftskonzepts.']
+});
+
+// ============================================================
+// KAPITEL 5: Physische Distribution (Rep 18-21 + Extras)
+// ============================================================
+
+reg(36, 'Marketinglogistik / Auftragswesen', 'freitext', {
+  instruction: 'Wie heisst der Teilbereich der Marketinglogistik, der für die Steuerung der Logistik zuständig ist? Beschreiben Sie diesen Teilbereich und begründen Sie seine zunehmende Wichtigkeit.',
+  questions: [{q:'Teilbereich und Begründung:',keywords:['auftragswesen','informationsfluss','digitalisiert','automatisierung','elektronisch','hilfsmittel','kosten','effizienz'],minKeywords:3}],
+  tips: ['Es geht um den Informationsfluss.','Dieser Bereich wird zunehmend digitalisiert.','Elektronische Hilfsmittel ermöglichen Kosteneinsparungen.'],
+  reveal: ['Der Teilbereich heisst Auftragswesen und beinhaltet den Informationsfluss.','Dieser wird zunehmend digitalisiert. Die neuen elektronischen Hilfsmittel erlauben eine hohe Automatisierung, was zu Kosteneinsparungen führt.']
+});
+
+reg(37, 'Vorteile und Nachteile Outsourcing', 'zuordnung', {
+  instruction: 'Ordnen Sie die Aussagen den Kategorien "Vorteil Outsourcing" oder "Nachteil Outsourcing" zu.',
+  items: ['Variable Kosten (Vereinbarung pro Einheit)','Abhängigkeit von externen Stellen','Kleinere Kapitalbindung in der Infrastruktur','Wertschöpfungsverlust (Teil der Gewinnmarge geht verloren)','Entlastung der Infrastruktur von nebensächlichen Tätigkeiten','Kleinere Kontrollmöglichkeit'],
+  options: ['Vorteil Outsourcing','Nachteil Outsourcing'],
+  correct: ['Vorteil Outsourcing','Nachteil Outsourcing','Vorteil Outsourcing','Nachteil Outsourcing','Vorteil Outsourcing','Nachteil Outsourcing'],
+  tips: ['Vorteile beziehen sich auf Kostenreduktion und Flexibilität.','Nachteile betreffen Abhängigkeit und Kontrollverlust.','Drei Vorteile und drei Nachteile.'],
+  reveal: ['Vorteile: Variable Kosten, kleinere Kapitalbindung, Entlastung von nebensächlichen Tätigkeiten.','Nachteile: Abhängigkeit von Externen, Wertschöpfungsverlust, kleinere Kontrollmöglichkeit.']
+});
+
+reg(38, 'Vendor Managed Inventory', 'freitext', {
+  instruction: 'Definieren Sie den Begriff "Vendor Managed Inventory" (VMI).',
+  questions: [{q:'Definition VMI:',keywords:['lieferant','lagerhaltung','kunden','verantwortlich','bestandsverwaltung','nachschub','disposition','bestandsführung'],minKeywords:3}],
+  tips: ['Vendor = Lieferant.','Managed = verwaltet.','Inventory = Bestand/Lager.'],
+  reveal: ['VMI umschreibt ein System, bei dem bereits bekannte Lieferanten für die Lagerhaltung der Kunden verantwortlich sind.','Die Lieferanten übernehmen die Bestandsverwaltung und die Nachschubdisposition beim Kunden.']
+});
+
+reg(39, 'Minicase: Entsorgung zum Nulltarif', 'freitext', {
+  instruction: 'Die Geschäftsleitung der HUMAG will eine Entsorgung zum Nulltarif diskutieren. Erstellen Sie ein Best-Case- und Worst-Case-Szenario.',
+  questions: [{q:'Best-Case und Worst-Case:',keywords:['best','worst','image','nachhaltig','kosten','kunden','presse','stammkundschaft','umsatz','risiko'],minKeywords:4}],
+  tips: ['Best-Case: positive Auswirkungen auf Image und Kundenbindung.','Worst-Case: Kosten steigen, Image leidet.','Denken Sie an die 10-10-10-Methode.'],
+  reveal: ['Best-Case: Dienstleistung trifft Nerv der Zeit, Stammkundschaft bestellt weiterhin, neue Nachfrager kommen dazu, Imagegewinn als nachhaltiger Hersteller.','Worst-Case: Dienstleistung unnütz, hohe Kosten, langjährige Stammkundschaft springt ab, Presse bezeichnet HUMAG als Etikettenschwindlerin.']
+});
+
+reg(40, 'RF: Physische Distribution', 'rf', {
+  statements: [
+    {s:'Die physische Distribution umfasst Lager, Transport und Informationsfluss.',correct:true,feedback:'Dies sind die drei Hauptbereiche der physischen Distribution.'},
+    {s:'Cross Docking bedeutet, dass Ware im Lager lange gelagert wird.',correct:false,feedback:'Cross Docking bedeutet Umschlag ohne Lagerung: Ware wird direkt vom Wareneingang zum Warenausgang umgeleitet.'},
+    {s:'Just in Time bedeutet Lieferung genau zum benötigten Zeitpunkt.',correct:true,feedback:'JIT = Produktion und Lieferung genau dann, wenn die Ware benötigt wird.'},
+    {s:'Outsourcing der Transportlogistik hat nur Vorteile.',correct:false,feedback:'Es gibt auch Nachteile: Abhängigkeit, Wertschöpfungsverlust, kleinere Kontrollmöglichkeit.'}
+  ],
+  tips: ['Physische Distribution = Lager + Transport + Informationsfluss.','Cross Docking = ohne Lagerung.','JIT = zum richtigen Zeitpunkt.'],
+  reveal: ['Aussage 1: Richtig.','Aussage 2: Falsch - Cross Docking = Umschlag ohne Lagerung.','Aussage 3: Richtig.','Aussage 4: Falsch - auch Nachteile.']
+});
+
+reg(41, 'Logistikbegriffe zuordnen', 'zuordnung', {
+  instruction: 'Ordnen Sie die Logistikbegriffe den Beschreibungen zu.',
+  items: ['Cross Docking','Just in Time','Vendor Managed Inventory','Outsourcing','Rückruf'],
+  options: ['Umschlag ohne Lagerung','Lieferung genau zum benötigten Zeitpunkt','Lieferant verwaltet Kundenbestand','Auslagerung von Tätigkeiten an Dritte','Rücknahme fehlerhafter Produkte'],
+  correct: ['Umschlag ohne Lagerung','Lieferung genau zum benötigten Zeitpunkt','Lieferant verwaltet Kundenbestand','Auslagerung von Tätigkeiten an Dritte','Rücknahme fehlerhafter Produkte'],
+  tips: ['Cross = quer durch (ohne zu lagern).','JIT = just = genau.','VMI = Vendor = Lieferant managed = verwaltet.'],
+  reveal: ['Cross Docking = Umschlag ohne Lagerung.','JIT = Lieferung zum benötigten Zeitpunkt.','VMI = Lieferant verwaltet Kundenbestand.','Outsourcing = Auslagerung an Dritte.','Rückruf = Rücknahme fehlerhafter Produkte.']
+});
+
+reg(42, 'Bereiche der physischen Distribution', 'lueckentext', {
+  instruction: 'Ergänzen Sie die drei Bereiche der physischen Distribution.',
+  segments: ['Die drei Bereiche sind: 1. ',{blank:true,answer:['Lager','Lagerhaltung'],width:150},' (Lagerung der konsumbereiten Produkte), 2. ',{blank:true,answer:['Transport'],width:130},' (Auslieferung an die Kundschaft), 3. ',{blank:true,answer:['Informationsfluss'],width:170},' (Bestimmung der IT in der Logistik).'],
+  tips: ['Denken Sie an die drei Säulen der physischen Distribution.','Alle drei sind nötig für die Warenverteilung.'],
+  reveal: ['1. Lager (Lagerhaltung der Produkte).','2. Transport (Auslieferung an die Kundschaft).','3. Informationsfluss (IT in der Logistik / Auftragswesen).']
+});
+
+reg(43, 'Entsorgungslogistik', 'mc', {
+  instruction: 'Was gehört NICHT zur Entsorgungslogistik?',
+  options: ['Recycling von Verpackungsmaterial','Rücknahme defekter Produkte','Neukundenakquisition','Entsorgung von Restbeständen'],
+  correct: 2,
+  tips: ['Entsorgungslogistik = Rückwärtslogistik.','Es geht um den Umgang mit Rückläufern und Abfall.','Neukundengewinnung gehört zum Verkauf, nicht zur Logistik.'],
+  reveal: ['Neukundenakquisition gehört zum Verkauf, nicht zur Entsorgungslogistik.','Entsorgungslogistik umfasst: Recycling, Rücknahme, Entsorgung von Restbeständen.']
+});
+
+reg(44, 'Bestimmung der Logistikkosten', 'freitext', {
+  instruction: 'Welche Kostenarten müssen bei der Bestimmung der Logistikkosten berücksichtigt werden?',
+  questions: [{q:'Logistikkostenarten:',keywords:['transport','lager','verpackung','kommissionierung','administration','personal','versicherung','bestandskosten'],minKeywords:4}],
+  tips: ['Denken Sie an alle Schritte der physischen Distribution.','Jeder Schritt verursacht Kosten.','Auch indirekte Kosten wie Versicherung zählen.'],
+  reveal: ['Logistikkostenarten: Transportkosten, Lagerkosten, Verpackungskosten, Kommissionierungskosten, Administrationskosten, Personalkosten, Versicherungskosten, Bestandskosten.']
+});
+
+reg(45, 'Kontrolle in der physischen Distribution', 'mc', {
+  instruction: 'Was ist das Hauptziel der Kontrolle in der physischen Distribution?',
+  options: ['Maximierung der Lagerbestände','Sicherstellung des Serviceniveaus bei optimalen Kosten','Eliminierung aller Zwischenhändler','Ausschliessliche Nutzung eigener Transportmittel'],
+  correct: 1,
+  tips: ['Es geht um ein Gleichgewicht.','Serviceniveau und Kosten müssen ausbalanciert werden.','Weder Überbestände noch Lieferengpässe sind erwünscht.'],
+  reveal: ['Hauptziel: Sicherstellung des vereinbarten Serviceniveaus bei gleichzeitiger Optimierung der Kosten.']
+});
+
+// ============================================================
+// KAPITEL 6: Distribution und Digitalisierung (Rep 22-25 + Extras)
+// ============================================================
+
+reg(46, 'EDI: Definition und Hauptvorteil', 'freitext', {
+  instruction: 'Was bedeutet EDI und worin besteht der Hauptvorteil bei seinem Einsatz für den Lieferanten?',
+  questions: [{q:'EDI Definition und Vorteil:',keywords:['electronic','data','interchange','elektronisch','austausch','daten','automatisierung','administration','kosten','minimum','manuell'],minKeywords:4}],
+  tips: ['EDI = Abkürzung für drei englische Wörter.','Der Hauptvorteil liegt in der Automatisierung.','Weniger manuelle Eingriffe = weniger Fehler und Kosten.'],
+  reveal: ['EDI = Electronic Data Interchange: elektronischer Austausch genormter, formatierter Daten zwischen ICT-Systemen zweier oder mehrerer Partner mit einem Minimum an manuellen Eingriffen.','Hauptvorteil: Möglichkeit der Automatisierung von Abläufen in der Administration.']
+});
+
+reg(47, 'ECR: Efficient Consumer Response', 'freitext', {
+  instruction: 'Was bedeutet ECR und worin besteht der Gewinn für den Handel bei seinem Einsatz?',
+  questions: [{q:'ECR Definition und Gewinn:',keywords:['efficient','consumer','response','wertschöpfungskette','logistikdaten','marktforschung','sortimentsoptimierung','POS','nachfrageorientiert'],minKeywords:3}],
+  tips: ['ECR = ganzheitliche Betrachtung der Wertschöpfungskette.','Logistikdaten werden für die Marktforschung aufbereitet.','Der Handel kann sein Sortiment am POS optimieren.'],
+  reveal: ['ECR = Efficient Consumer Response: ganzheitliche Betrachtung der Wertschöpfungskette.','Logistikdaten werden zum Zwecke der Marktforschung aufbereitet und ausgewertet.','Gewinn für den Handel: Möglichkeit der Optimierung am POS (nachfrageorientierte Sortimentsgestaltung).']
+});
+
+reg(48, 'RFID: Technologie und Hindernis', 'freitext', {
+  instruction: 'Was bedeutet RFID und worin besteht das grösste Hindernis, das seinen Einsatz verzögert?',
+  questions: [{q:'RFID und Hindernis:',keywords:['chip','transponder','TAG','kleinsender','funk','warendaten','erfassen','übertragen','kosten','investition','infrastruktur','kontaktlos'],minKeywords:3}],
+  tips: ['RFID nutzt einen Chip mit integriertem Kleinsender.','Daten werden per Funk übertragen.','Das grösste Hindernis sind die Investitionskosten.'],
+  reveal: ['RFID = Radio Frequency Identification: Ein Chip mit integriertem Kleinsender (Transponder, TAG) ermöglicht das Übertragen und Erfassen von Warendaten per Funk.','Grösstes Hindernis: Die nötigen Investitionen in die Infrastruktur, die den kontaktlosen Datenaustausch ermöglichen sollen.']
+});
+
+reg(49, 'Minicase: Elektronische Hilfsmittel', 'freitext', {
+  instruction: 'Welche elektronischen Hilfsmittel sind für ein Entsorgungslager sinnvoll und nötig? Erstellen Sie eine Entscheidungsmatrix.',
+  questions: [{q:'Hilfsmittel und Bewertung:',keywords:['GTIN','QR-Code','RFID','manuell','rückverfolgung','fehlerquote','kosten','technisch','bedienung','entscheid'],minKeywords:4}],
+  tips: ['Vergleichen Sie manuell, GTIN, QR-Code und RFID.','Bewerten Sie nach Rückverfolgbarkeit, Fehlerquote, Kosten etc.','Für ein Entsorgungslager ist Rückverfolgung wichtig.'],
+  reveal: ['Empfehlung: GTIN (Strichcode) - Die Technik reicht für den Moment aus und die Kosten sind überschaubar.','Kriterien: Rückverfolgung möglich, Fehlerquote, Kosten (Einführung und Unterhalt), technischer Stand, Bedienungsfähigkeit, Abhängigkeit von Technik.']
+});
+
+reg(50, 'RF: Digitalisierung', 'rf', {
+  statements: [
+    {s:'Affiliate-Marketing erlaubt die Nutzung bestehender Vertriebskanäle anderer Websites.',correct:true,feedback:'Affiliate-Marketing = Vertrieb über Partner-Websites gegen Provision.'},
+    {s:'GTIN-Strichcodes können mehr Informationen speichern als QR-Codes.',correct:false,feedback:'QR-Codes können mehr Informationen speichern als GTIN-Strichcodes.'},
+    {s:'ECR dient der nachfrageorientierten Sortimentsoptimierung am POS.',correct:true,feedback:'ECR wertet Logistikdaten für die Marktforschung aus und optimiert das Sortiment.'},
+    {s:'EDI erfordert einen hohen Anteil an manuellen Eingriffen.',correct:false,feedback:'EDI ermöglicht gerade ein Minimum an manuellen Eingriffen durch Automatisierung.'}
+  ],
+  tips: ['Affiliate = Partnerschaft.','QR-Codes sind leistungsfähiger als Strichcodes.','EDI = minimale manuelle Eingriffe.'],
+  reveal: ['Aussage 1: Richtig.','Aussage 2: Falsch - QR > GTIN.','Aussage 3: Richtig.','Aussage 4: Falsch - EDI minimiert manuelle Eingriffe.']
+});
+
+reg(51, 'Digitale Technologien zuordnen', 'zuordnung', {
+  instruction: 'Ordnen Sie die Technologien ihrer Beschreibung zu.',
+  items: ['GTIN','QR-Code','RFID','EDI','ECR'],
+  options: ['Strichcode für Warenkennzeichnung','Zweidimensionaler Code mit mehr Informationen','Funk-Chip (Transponder) für Warenerfassung','Elektronischer Datenaustausch zwischen Partnern','Ganzheitliche Wertschöpfungskettenbetrachtung'],
+  correct: ['Strichcode für Warenkennzeichnung','Zweidimensionaler Code mit mehr Informationen','Funk-Chip (Transponder) für Warenerfassung','Elektronischer Datenaustausch zwischen Partnern','Ganzheitliche Wertschöpfungskettenbetrachtung'],
+  tips: ['GTIN = der bekannte Strichcode.','QR = Quick Response, mehr Daten als Strichcode.','RFID = Radio Frequency Identification.'],
+  reveal: ['GTIN = Strichcode.','QR-Code = mehr Informationen als Strichcode.','RFID = Funk-Chip (Transponder).','EDI = elektronischer Datenaustausch.','ECR = ganzheitliche Wertschöpfungskette.']
+});
+
+reg(52, 'Affiliate-Marketing', 'mc', {
+  instruction: 'Was ist Affiliate-Marketing?',
+  options: ['Direktverkauf über eigene Filialen','Nutzung bestehender Vertriebskanäle anderer Websites für den eigenen Vertrieb','Ausschliesslich Social-Media-Werbung','Verkauf über Grosshändler'],
+  correct: 1,
+  tips: ['Affiliate = Partner/Verbundener.','Es geht um die Nutzung fremder Kanäle.','Der Partner erhält eine Provision.'],
+  reveal: ['Affiliate-Marketing = Nutzung bestehender Vertriebskanäle anderer Websites für den eigenen Vertrieb. Der Affiliate-Partner erhält eine Provision für vermittelte Verkäufe.']
+});
+
+reg(53, 'Lückentext: Digitalisierung', 'lueckentext', {
+  instruction: 'Ergänzen Sie die Lücken zur Digitalisierung in der Distribution.',
+  segments: ['Um die Logistikkosten tief zu halten, werden u.a. ',{blank:true,answer:['elektronische Hilfsmittel'],width:200},' eingesetzt. Diese erlauben einen hohen ',{blank:true,answer:['Automatisierungsgrad'],width:200},'. Die Basis bildet der Einsatz von ',{blank:true,answer:['GTIN'],width:100},'-Strichcodes im Lager sowie an der Kasse im Detailhandel.'],
+  tips: ['Elektronische Hilfsmittel reduzieren manuelle Arbeit.','Automatisierung spart Kosten.','GTIN ist der Standard-Strichcode.'],
+  reveal: ['Elektronische Hilfsmittel ermöglichen hohen Automatisierungsgrad.','GTIN-Strichcodes sind die Basis im Lager und an der Kasse.']
+});
+
+// ============================================================
+// KAPITEL 7: Standort / Standortwahl (Rep 26-29 + Extras)
+// ============================================================
+
+reg(54, 'Standortkriterien Bioladen', 'freitext', {
+  instruction: 'Nennen Sie die wichtigsten fünf Entscheidungskriterien für die Wahl eines Standorts für ein Lebensmittelgeschäft (Bioladen, Naturkost) in der Innenstadt.',
+  questions: [{q:'Fünf Kriterien:',keywords:['frequenz','fussgänger','preis','miete','verkehrsanbindung','parkplätze','sichtbarkeit','begehbarkeit','lage','erreichbarkeit'],minKeywords:4}],
+  tips: ['Denken Sie an Passantenfrequenz.','Mietpreise müssen marktüblich sein.','Erreichbarkeit (ÖV, Parkplätze) ist wichtig.'],
+  reveal: ['1. Hohe Frequenzen (viele Fussgänger/Passanten).','2. Marktüblicher Preis (Miete oder Kauf im Rahmen).','3. Gute Verkehrsanbindung (ÖV oder Parkplätze in nächster Nähe).','4. Gute Sichtbarkeit (optisch gut sichtbar, kein Hinterhof).','5. Gute Begehbarkeit (keine Stolpertreppen oder andere Barrieren).']
+});
+
+reg(55, 'Psychologische Marktnähe', 'freitext', {
+  instruction: 'Was versteht man unter "psychologischer Marktnähe"? Erklären Sie diesen Begriff.',
+  questions: [{q:'Psychologische Marktnähe:',keywords:['gefühl','nähe','kundschaft','sprache','kultur','verständnis','identifikation','vertrauen'],minKeywords:3}],
+  tips: ['Es geht nicht um geografische Distanz.','Denken Sie an kulturelle und sprachliche Nähe.','Kunden müssen sich verstanden fühlen.'],
+  reveal: ['Psychologische Marktnähe: Das Gefühl der Nähe, das die Kundschaft hat.','Beispiele: Die richtige Sprache (Französisch in der Romandie), die richtige Technik (keine Dieselwolken hinter dem Lkw), kulturelles Verständnis.']
+});
+
+reg(56, 'Standortbewertung: Marketing vs. Finanzabteilung', 'freitext', {
+  instruction: 'Welche Vorgehensweise drängt sich bei der Standortbewertung aus Sicht des Marketings und welche aus Sicht der Finanzabteilung auf?',
+  questions: [{q:'Sicht Marketing und Finanzen:',keywords:['subjektiv','qualitativ','kundennähe','image','finanziell','quantitativ','kosten','nutzen','vergleich','rendite'],minKeywords:3}],
+  tips: ['Marketing denkt an Kundennähe und Image.','Die Finanzabteilung denkt an Kosten und Rendite.','Beides sind gültige Perspektiven.'],
+  reveal: ['Marketing: Subjektive (qualitative) Betrachtung - Kundennähe, Imagekomponenten.','Finanzabteilung: Finanzielle (quantitative) Betrachtung - Vergleich Kosten/Nutzen, Rendite.']
+});
+
+reg(57, 'RF: Standortwahl', 'rf', {
+  statements: [
+    {s:'Die Wahl eines Logistikstandorts hat unmittelbare Auswirkung auf das ganze Unternehmen.',correct:true,feedback:'Standortentscheide sind langfristig und betreffen das ganze Unternehmen.'},
+    {s:'Standortqualität wird ausschliesslich aus Kundensicht beurteilt.',correct:false,feedback:'Standortqualität wird sowohl aus Kundensicht als auch unter Berücksichtigung anderer Faktoren (Steuern, Infrastruktur etc.) beurteilt.'},
+    {s:'Die 10-10-10-Methode eignet sich gut für strategische Standortentscheidungen.',correct:true,feedback:'Die Methode betrachtet Auswirkungen nach 10 Minuten, 10 Monaten und 10 Jahren.'},
+    {s:'Psychologische Marktnähe bezieht sich auf die geografische Distanz zum Kunden.',correct:false,feedback:'Psychologische Marktnähe bezieht sich auf das Gefühl der Nähe (Sprache, Kultur, Verständnis).'}
+  ],
+  tips: ['Standort = langfristige, ganzheitliche Entscheidung.','10-10-10 = drei Zeithorizonte.','Psychologisch ≠ geografisch.'],
+  reveal: ['Aussage 1: Richtig.','Aussage 2: Falsch - auch andere Faktoren.','Aussage 3: Richtig.','Aussage 4: Falsch - psychologisch ≠ geografisch.']
+});
+
+reg(58, 'MC: Standortfaktoren', 'mc', {
+  instruction: 'Welcher Faktor ist KEIN typisches Standortkriterium?',
+  options: ['Verkehrsanbindung','Mietkosten','Lieblingsfarbe des Geschäftsführers','Kundenfrequenz'],
+  correct: 2,
+  tips: ['Standortkriterien sind objektiv messbar oder bewertbar.','Persönliche Vorlieben sind keine Standortkriterien.'],
+  reveal: ['Die Lieblingsfarbe des Geschäftsführers ist kein relevantes Standortkriterium.','Relevante Kriterien: Verkehrsanbindung, Mietkosten, Kundenfrequenz, Sichtbarkeit etc.']
+});
+
+reg(59, 'Standorttypen', 'zuordnung', {
+  instruction: 'Ordnen Sie die Standorttypen ihrer Beschreibung zu.',
+  items: ['Verkaufsstelle','Auslieferungslager','Zentrallager','Showroom'],
+  options: ['Ort, wo Endkunden direkt kaufen','Lager nahe beim Kunden für schnelle Lieferung','Hauptlager mit grosser Kapazität','Ausstellungsraum ohne direkten Verkauf'],
+  correct: ['Ort, wo Endkunden direkt kaufen','Lager nahe beim Kunden für schnelle Lieferung','Hauptlager mit grosser Kapazität','Ausstellungsraum ohne direkten Verkauf'],
+  tips: ['VS = Point of Sale.','Auslieferungslager = nahe beim Kunden.','Showroom = nur Ausstellung, kein Verkauf.'],
+  reveal: ['Verkaufsstelle = Endkunden kaufen direkt.','Auslieferungslager = nahe beim Kunden.','Zentrallager = grosse Kapazität.','Showroom = Ausstellung ohne direkten Verkauf.']
+});
+
+reg(60, 'Lückentext: Standort', 'lueckentext', {
+  instruction: 'Ergänzen Sie die Lücken zur Standortwahl.',
+  segments: ['Die Standortbewertung kann sowohl aus ',{blank:true,answer:['subjektiver','qualitativer'],width:150},' (qualitativer) wie auch aus ',{blank:true,answer:['finanzieller','quantitativer'],width:150},' (quantitativer) Sicht erfolgen. Insbesondere die Wahl aus Sicht des Marketings beeinflusst die ',{blank:true,answer:['Standortqualität'],width:160},' aus Kundensicht.'],
+  tips: ['Zwei Perspektiven: qualitativ und quantitativ.','Marketing = qualitative/subjektive Sicht.','Finanzen = quantitative/finanzielle Sicht.'],
+  reveal: ['Subjektive (qualitative) und finanzielle (quantitative) Sicht.','Marketing beeinflusst die Standortqualität aus Kundensicht.']
+});
+
+// ============================================================
+// KAPITEL 8: Export (Rep 30-33 + Extras)
+// ============================================================
+
+reg(61, 'Direkter und indirekter Export', 'freitext', {
+  instruction: 'Was wird unter direktem resp. indirektem Export verstanden?',
+  questions: [{q:'Direkter und indirekter Export:',keywords:['direkt','fakturiert','ausland','grenze','nach','indirekt','inland','vor','eigentum','wechselt'],minKeywords:4}],
+  tips: ['Beim direkten Export wechselt das Eigentum nach der Grenze.','Beim indirekten Export wechselt es vor der Grenze.','Der Unterschied liegt im Ort des Eigentumswechsels.'],
+  reveal: ['Direkter Export: Der Anbieter fakturiert auf einen Kunden im Ausland, das Eigentum wechselt nach der Grenze.','Indirekter Export: Der Anbieter fakturiert auf einen Kunden im Inland, das Eigentum wechselt vor der Grenze.']
+});
+
+reg(62, 'Distributionsrelevante Aspekte im Export', 'freitext', {
+  instruction: 'Welche zusätzlichen distributionsrelevanten Aspekte sind im Export zu bedenken?',
+  questions: [{q:'Zusätzliche Aspekte:',keywords:['gesetze','vorschriften','zoll','deklaration','transport','verpackung','kosten','währung','devisen','administrativ'],minKeywords:4}],
+  tips: ['Im Export kommen länderspezifische Gesetze hinzu.','Zolldeklarationen sind nötig.','Transport- und Verpackungskosten steigen.'],
+  reveal: ['Zu beachten: Länderspezifische Gesetze (Einfuhr und Vertrieb), Vorschriften administrativer Art (Zolldeklarationen), direkte Kosten (Transport, Verpackung), finanzielle Umstände (Währungsschwankungen, Devisenvorschriften).']
+});
+
+reg(63, 'Schweiz und Export', 'freitext', {
+  instruction: 'Nennen Sie die Eigenheiten der Schweiz im Zusammenhang mit dem Export.',
+  questions: [{q:'Eigenheiten Schweiz:',keywords:['EU','umgeben','warenaustausch','administrativ','aufwand','handelspartner','deutschland','grösster'],minKeywords:3}],
+  tips: ['Die Schweiz liegt mitten in der EU.','Der Warenaustausch ist daher besonders relevant.','Deutschland ist der grösste Handelspartner.'],
+  reveal: ['Alle Länder rund um die Schweiz sind in der EU. Der Warenaustausch zwischen CH und EU erfordert immer einen administrativen Aufwand, den EU-Länder untereinander nicht haben.','Grösster Handelspartner der Schweiz ist Deutschland.']
+});
+
+reg(64, 'RF: Export', 'rf', {
+  statements: [
+    {s:'Beim direkten Export wechselt das Eigentum nach der Grenze.',correct:true,feedback:'Direkt = Fakturierung an Kunden im Ausland, Eigentum nach der Grenze.'},
+    {s:'Der Export kann nur direkt erfolgen.',correct:false,feedback:'Export kann sowohl direkt als auch indirekt vorgenommen werden.'},
+    {s:'Im Export tragen die Organe teilweise eigene Namen wie Exportkommissionäre oder Distributoren.',correct:true,feedback:'Im Export gibt es spezielle Organe wie Tochtergesellschaft, Exportkommissionäre/-makler, Distributoren.'},
+    {s:'Deutschland ist der grösste Handelspartner der Schweiz.',correct:true,feedback:'Dies ist korrekt.'}
+  ],
+  tips: ['Direkt = nach der Grenze.','Export = direkt oder indirekt.','Spezielle Export-Organe existieren.'],
+  reveal: ['Aussage 1: Richtig.','Aussage 2: Falsch - auch indirekt möglich.','Aussage 3: Richtig.','Aussage 4: Richtig.']
+});
+
+reg(65, 'Minicase: Kriterienkatalog Export', 'freitext', {
+  instruction: 'Die AWAG sucht neue Absatzmärkte in Finnland, Schweden oder Norwegen. Erstellen Sie einen Kriterienkatalog für den Ländervergleich.',
+  questions: [{q:'Kriterienkatalog:',keywords:['einwohner','bruttoinlandprodukt','gesundheitsausgaben','entwicklung','trend','senior','anteil','spitäler','infrastruktur'],minKeywords:4}],
+  tips: ['Vergleichen Sie demografische Daten.','Wirtschaftliche Kennzahlen sind relevant.','Branchenspezifische Daten einbeziehen.'],
+  reveal: ['Kriterienkatalog: 1. Anzahl Einwohner, 2. Entwicklung/Trend, 3. Anteil Senioren, 4. Bruttoinlandprodukt, 5. Gesundheitsausgaben pro Kopf, 6. Ärztedichte, 7. Anzahl Spitäler.']
+});
+
+reg(66, 'Export-Organe zuordnen', 'zuordnung', {
+  instruction: 'Ordnen Sie die Export-Organe der richtigen Kategorie zu.',
+  items: ['Tochtergesellschaft','Exportkommissionär','Lokaler Distributor','Eigene Niederlassung'],
+  options: ['Eigenes Organ im Ausland','Externer Vermittler','Externer Händler im Zielmarkt','Eigenes Organ im Ausland'],
+  correct: ['Eigenes Organ im Ausland','Externer Vermittler','Externer Händler im Zielmarkt','Eigenes Organ im Ausland'],
+  tips: ['Tochtergesellschaft und Niederlassung = eigene Organe.','Kommissionäre und Makler = externe Vermittler.','Distributoren = externe Händler.'],
+  reveal: ['Eigene Organe: Tochtergesellschaft, Niederlassung.','Externe: Exportkommissionär (Vermittler), Distributor (Händler im Zielmarkt).']
+});
+
+reg(67, 'MC: Export', 'mc', {
+  instruction: 'Welche Aussage zum indirekten Export ist korrekt?',
+  options: ['Das Eigentum wechselt nach der Landesgrenze.','Der Anbieter fakturiert auf einen Kunden im Inland und das Eigentum wechselt vor der Grenze.','Es gibt keine Zolldeklarationen.','Der Anbieter muss immer eine Tochtergesellschaft gründen.'],
+  correct: 1,
+  tips: ['Indirekt = vor der Grenze.','Der Abnehmer im Inland übernimmt den Export.','Tochtergesellschaft = direkt.'],
+  reveal: ['Indirekter Export: Fakturierung auf Kunden im Inland, Eigentum wechselt vor der Grenze. Der Abnehmer im Inland exportiert die Ware selbst.']
+});
+
+// ============================================================
+// KAPITEL 9: Distribution nach Gütern (Rep 34-37 + Extras)
+// ============================================================
+
+reg(68, 'Konsumgüter vs. Dienstleistungen', 'freitext', {
+  instruction: 'Welches ist der grundsätzliche Unterschied in der Distribution zwischen Konsumgütern und Dienstleistungen?',
+  questions: [{q:'Unterschied:',keywords:['indirekt','direkt','materiell','immateriell','lager','transport','konsumgüter','dienstleistungen','physisch'],minKeywords:3}],
+  tips: ['Konsumgüter sind materiell (physisch fassbar).','Dienstleistungen sind immateriell.','Dies hat Auswirkungen auf Lager und Transport.'],
+  reveal: ['Konsumgüter werden i.d.R. indirekt vertrieben, Dienstleistungen werden häufig direkt vertrieben.','Konsumgüter sind materielle Güter (physisch fassbar), Dienstleistungen sind immaterielle Güter.','Dies hat direkte Auswirkungen auf Lager und Transport.']
+});
+
+reg(69, 'Konsumgüter vs. Investitionsgüter', 'freitext', {
+  instruction: 'Welches ist der grundsätzliche Unterschied in der Distribution zwischen Konsumgütern und Investitionsgütern?',
+  questions: [{q:'Unterschied:',keywords:['indirekt','direkt','viele','kleine','kunden','wenige','grosse','beratung','aufwand','umsatz'],minKeywords:3}],
+  tips: ['Konsumgüter = viele kleine Kunden.','Investitionsgüter = wenige grosse Kunden.','Beratungsaufwand ist unterschiedlich.'],
+  reveal: ['Konsumgüter: i.d.R. indirekt vertrieben, viele kleine Kunden, Massengeschäft.','Investitionsgüter: mehrheitlich direkt vertrieben, wenige grosse Kunden, hoher Beratungsaufwand und Bedeutung einzelner Kunden viel grösser.']
+});
+
+reg(70, 'Drei Güterarten', 'lueckentext', {
+  instruction: 'Ergänzen Sie die drei Güterarten.',
+  segments: ['In der Volkswirtschaft spricht man von drei Güterarten: 1. ',{blank:true,answer:['Konsumgüter'],width:150},' (Gebrauch und Verbrauch werden von Privatpersonen konsumiert), 2. ',{blank:true,answer:['Investitionsgüter'],width:170},' (Gebrauch und Verbrauch werden von Firmen für eine weitere Verwendung gekauft), 3. ',{blank:true,answer:['Dienstleistungen'],width:170},' (persönlich oder unpersönlich, werden von Privaten wie auch von Firmen bezogen).'],
+  tips: ['Konsumgüter = für Privatpersonen.','Investitionsgüter = für Firmen/Unternehmen.','Dienstleistungen = für beide.'],
+  reveal: ['1. Konsumgüter (Privatpersonen).','2. Investitionsgüter (Firmen, weitere Verwendung).','3. Dienstleistungen (Private und Firmen).']
+});
+
+reg(71, 'Tabelle: IG vs. DL Distribution', 'tabelle', {
+  instruction: 'Ordnen Sie die Merkmale den Güterarten zu (Investitionsgüter vs. Dienstleistungen).',
+  headers: ['Investitionsgüter','Dienstleistungen','Merkmal'],
+  rows: [
+    {label:'Langfristiger Kaufentscheid',correct:0},
+    {label:'Relativ spontaner Kaufentscheid',correct:1},
+    {label:'Sachliche Ansprache',correct:0},
+    {label:'Emotional beeinflusste Kommunikation',correct:1},
+    {label:'Grosses Volumen pro Auftrag',correct:0},
+    {label:'Klein bis gross je nach Auftrag',correct:1}
+  ],
+  tips: ['IG = sachlich, langfristig, grosse Aufträge.','DL = spontaner, emotional, variabel.','Denken Sie an den Kaufprozess.'],
+  reveal: ['IG: Langfristiger Kaufentscheid, sachliche Ansprache, grosses Volumen.','DL: Spontaner Kaufentscheid, emotionale Kommunikation, variables Volumen.']
+});
+
+reg(72, 'RF: Güterarten', 'rf', {
+  statements: [
+    {s:'Konsumgüter werden i.d.R. indirekt über den Handel vertrieben.',correct:true,feedback:'Konsumgüter = Massengeschäft = indirekt über den Handel.'},
+    {s:'Investitionsgüter werden meist direkt vertrieben.',correct:true,feedback:'IG = wenige grosse Kunden = direkter Vertrieb.'},
+    {s:'Dienstleistungen sind materielle Güter.',correct:false,feedback:'Dienstleistungen sind immaterielle Güter (nicht fassbar).'},
+    {s:'Formulardruck (Lieferscheine auf Papier) ist ein Investitionsgut.',correct:true,feedback:'Es ist ein materielles Gut, das von Firmen für eine weitere Verwendung gekauft wird (wirtschaftliches, materielles Investitionsgut, Verbrauchsgut).'}
+  ],
+  tips: ['KG = indirekt, IG = direkt, DL = häufig direkt.','Dienstleistungen = immateriell.','Formulardruck = materiell, für Firmen.'],
+  reveal: ['Aussage 1: Richtig.','Aussage 2: Richtig.','Aussage 3: Falsch - immateriell.','Aussage 4: Richtig.']
+});
+
+reg(73, 'MC: Gütervertrieb', 'mc', {
+  instruction: 'Welches Kriterium unterscheidet Investitionsgüter am stärksten von Konsumgütern in der Distribution?',
+  options: ['Die Farbe der Verpackung','Der hohe Beratungsaufwand und die Bedeutung einzelner Kunden','Die Transportkosten','Die Werbemassnahmen'],
+  correct: 1,
+  tips: ['IG = wenige, grosse Kunden.','Die Beziehung zum einzelnen Kunden ist zentral.','Beratung ist bei IG viel intensiver.'],
+  reveal: ['Bei Investitionsgütern ist der Beratungsaufwand im Vertrieb und die Bedeutung einzelner Kunden viel grösser als bei Konsumgütern.']
+});
+
+reg(74, 'Kriterien der Differenzierung', 'zuordnung', {
+  instruction: 'Ordnen Sie die Beschreibungen den richtigen Güterarten zu.',
+  items: ['Viele kleine Kunden, Massengeschäft','Wenige grosse Kunden, hoher Beratungsaufwand','Immateriell, persönlich oder unpersönlich'],
+  options: ['Konsumgüter','Investitionsgüter','Dienstleistungen'],
+  correct: ['Konsumgüter','Investitionsgüter','Dienstleistungen'],
+  tips: ['KG = Masse.','IG = Einzelkunden, Beratung.','DL = immateriell.'],
+  reveal: ['Konsumgüter = viele kleine Kunden, Masse.','Investitionsgüter = wenige grosse Kunden, Beratung.','Dienstleistungen = immateriell.']
+});
+
+// ============================================================
+// KAPITEL 10: Spezialgebiete (Rep 38-40 + Extras)
+// ============================================================
+
+reg(75, 'Alternative Vertriebsformen', 'freitext', {
+  instruction: 'Definieren Sie den Begriff "alternative Vertriebsformen" und nennen Sie je drei Beispiele von "stationärem Verkauf" sowie drei Beispiele von "Besuchsverkauf".',
+  questions: [{q:'Definition und Beispiele:',keywords:['alternativ','klassisch','detailhandel','convenience','factory','outlet','automaten','mobil','online','e-shop','selecta'],minKeywords:4}],
+  tips: ['Alternativ = unterscheidet sich vom klassischen Detailhandel.','Stationär = fester Standort.','Besuchsverkauf = der Verkäufer kommt zum Kunden.'],
+  reveal: ['Alternative Vertriebsform = unterscheidet sich für Konsumenten nachvollziehbar vom klassischen Einkaufsakt.','Stationär: Convenience-Shops, Factory-Outlets, SB-Shops (Automaten).','Besuchsverkauf: Mobile Verkaufsstellen, Online-Verkauf (E-Shop), Vertrieb über Automaten (z.B. Selecta).']
+});
+
+reg(76, 'Detailhandelspanel', 'zuordnung', {
+  instruction: 'Ordnen Sie die Kanäle den Kategorien "Im Detailhandelspanel enthalten" oder "Nicht enthalten" zu.',
+  items: ['Coop','Migros','Denner','Volg','Aldi','Lidl','Otto\'s','Landi'],
+  options: ['Enthalten','Nicht enthalten'],
+  correct: ['Enthalten','Enthalten','Enthalten','Enthalten','Nicht enthalten','Nicht enthalten','Nicht enthalten','Nicht enthalten'],
+  tips: ['Schweizer Traditionsdetailhändler sind meist enthalten.','Internationale Discounter und Spezialhändler oft nicht.','Coop, Migros, Denner, Volg = enthalten.'],
+  reveal: ['Enthalten: Coop, Migros, Denner, Volg.','Nicht enthalten: Aldi, Lidl, Otto\'s, Landi.']
+});
+
+reg(77, 'LSVA', 'freitext', {
+  instruction: 'Was versteht man unter "LSVA"? Erklären Sie den Begriff, beschreiben Sie ihn und nennen Sie das Ziel dieser Steuer.',
+  questions: [{q:'LSVA:',keywords:['leistungsabhängig','schwerverkehr','abgabe','unternehmen','strassenverkehr','belasten','verlagerung','güter','bahn','schiene'],minKeywords:4}],
+  tips: ['LSVA = Abkürzung aus vier Wörtern.','Es ist eine Steuer für Schwerverkehr.','Ziel: Verlagerung auf die Schiene.'],
+  reveal: ['LSVA = Leistungsabhängige Schwerverkehrsabgabe.','Sie wird bei allen Unternehmen erhoben, die durch ihre Geschäftstätigkeit den Strassenverkehr in der Schweiz belasten.','Ziel: Vermehrte Verlagerung der Güter auf die Bahn (Schiene).']
+});
+
+reg(78, 'RF: Spezialgebiete', 'rf', {
+  statements: [
+    {s:'Category Management ist die strategische Steuerung von Warengruppen als eigenständige Geschäftseinheiten.',correct:true,feedback:'CM optimiert Warengruppen als eigenständige Business Units.'},
+    {s:'Die LSVA fördert den Strassentransport.',correct:false,feedback:'Die LSVA fördert die Verlagerung des Güterverkehrs auf die Bahn, nicht den Strassentransport.'},
+    {s:'Alternative Vertriebsformen unterscheiden sich vom klassischen Detailhandel.',correct:true,feedback:'Sie sind für Konsumenten nachvollziehbar anders als der klassische Einkaufsakt.'},
+    {s:'Im Detailhandelspanel sind alle Kanäle der Schweiz enthalten.',correct:false,feedback:'Nicht alle Kanäle sind enthalten - z.B. fehlen Aldi, Lidl, Otto\'s und Landi.'}
+  ],
+  tips: ['CM = Warengruppen als Business Units.','LSVA = Verlagerung auf Schiene.','Detailhandelspanel ≠ alle Kanäle.'],
+  reveal: ['Aussage 1: Richtig.','Aussage 2: Falsch - fördert Verlagerung auf Bahn.','Aussage 3: Richtig.','Aussage 4: Falsch - nicht alle Kanäle enthalten.']
+});
+
+reg(79, 'Zukunft der Distribution', 'mc', {
+  instruction: 'Welcher Trend wird die Distribution in Zukunft am stärksten prägen?',
+  options: ['Rückkehr zum reinen Ladenverkauf','Zunehmende Digitalisierung und Omnichannel-Strategien','Abschaffung aller Zwischenhändler','Nur noch B2B-Distribution'],
+  correct: 1,
+  tips: ['Die Digitalisierung verändert alles.','Omnichannel = alle Kanäle verknüpft.','Der Trend geht zu mehr Kanälen, nicht weniger.'],
+  reveal: ['Die zunehmende Digitalisierung und Omnichannel-Strategien werden die Distribution am stärksten prägen.','Kunden erwarten nahtlose Erlebnisse über alle Kanäle hinweg.']
+});
+
+reg(80, 'Gesetze und Vorschriften', 'freitext', {
+  instruction: 'Nennen Sie drei Gesetze oder Vorschriften, die für die Distribution in der Schweiz relevant sind.',
+  questions: [{q:'Gesetze/Vorschriften:',keywords:['lebensmittelgesetz','umweltschutz','arbeitsgesetz','LSVA','strassenverkehr','zoll','wettbewerbsrecht','datenschutz','verbraucherschutz'],minKeywords:3}],
+  tips: ['Denken Sie an Lebensmittelsicherheit.','Umweltschutzgesetze betreffen die Logistik.','Auch Arbeitsgesetze und LSVA sind relevant.'],
+  reveal: ['Relevante Gesetze: 1. Lebensmittelgesetz (bei Lebensmitteldistribution), 2. Umweltschutzgesetz (Entsorgung, Transport), 3. LSVA (Schwerverkehrsabgabe), sowie Strassenverkehrsgesetz, Arbeitsgesetz, Wettbewerbsrecht.']
+});
+
+// ======================================================================
+// EXERCISE RENDERER
+// ======================================================================
+function ExerciseRenderer(props){
+  var exId = props.exId;
+  var markDone = props.markDone;
+  var data = exerciseData[exId];
+  if(!data) return e('div',null,'Aufgabe nicht gefunden.');
+  switch(data.type){
+    case 'lueckentext': return e(LueckentextEx,{key:exId,exId:exId,data:data.data,markDone:markDone});
+    case 'rf': return e(RichtigFalschEx,{key:exId,exId:exId,data:data.data,markDone:markDone});
+    case 'zuordnung': return e(ZuordnungEx,{key:exId,exId:exId,data:data.data,markDone:markDone});
+    case 'freitext': return e(FreitextEx,{key:exId,exId:exId,data:data.data,markDone:markDone});
+    case 'berechnung': return e(BerechnungEx,{key:exId,exId:exId,data:data.data,markDone:markDone});
+    case 'tabelle': return e(TabelleEx,{key:exId,exId:exId,data:data.data,markDone:markDone});
+    case 'mc': return e(MultipleChoiceEx,{key:exId,exId:exId,data:data.data,markDone:markDone});
+    default: return e('div',null,'Unbekannter Aufgabentyp.');
+  }
+}
+
+// ---- Lückentext Exercise ----
+function LueckentextEx(props){
+  var d=props.data, exId=props.exId, markDone=props.markDone;
+  var blanks = d.segments.filter(function(s){return s && s.blank});
+  var st=useState(blanks.map(function(){return ''})),answers=st[0],setAnswers=st[1];
+  var st2=useState(null),results=st2[0],setResults=st2[1];
+  var st3=useState(false),showSol=st3[0],setShowSol=st3[1];
+  function check(){var r=blanks.map(function(b,i){return matchAnswer(answers[i],b.answer)});setResults(r);var score=r.filter(Boolean).length;if(score===r.length) markDone(exId,score+'/'+r.length)}
+  function reset(){setAnswers(blanks.map(function(){return ''}));setResults(null);setShowSol(false)}
+  var blankIdx=-1;
+  return e('div',null,
+    e('div',{className:'ex-instruction'},d.instruction),
+    d.tips?e(Tips,{tips:d.tips}):null,
+    e('div',{className:'blank-text'},d.segments.map(function(seg,i){
+      if(typeof seg==='string') return seg;
+      blankIdx++;var bi=blankIdx;var cls='blank-input';if(results) cls+=results[bi]?' correct':' wrong';
+      return e('input',{key:i,className:cls,style:{width:seg.width||140},value:answers[bi],onChange:function(ev){var a=answers.slice();a[bi]=ev.target.value;setAnswers(a)}});
+    })),
+    e('div',{className:'btn-row'},e('button',{className:'btn btn-primary',onClick:check},'Prüfen'),e('button',{className:'btn btn-secondary',onClick:function(){setShowSol(!showSol)}},showSol?'Lösung ausblenden':'Lösung'),e('button',{className:'btn btn-secondary',onClick:reset},'Zurücksetzen')),
+    results?e('div',{style:{marginTop:12}},e('span',{className:'score-badge '+(results.every(Boolean)?'good':'bad')},results.filter(Boolean).length+'/'+results.length+' korrekt')):null,
+    showSol?e('div',{className:'solution-box'},e('strong',null,'Lösung: '),blanks.map(function(b,i){return e('div',{key:i},(i+1)+'. '+(Array.isArray(b.answer)?b.answer[0]:b.answer))})):null,
+    d.reveal?e(Reveal,{steps:d.reveal}):null
+  );
+}
+
+// ---- Richtig/Falsch Exercise ----
+function RichtigFalschEx(props){
+  var d=props.data, exId=props.exId, markDone=props.markDone;
+  var st=useState(d.statements.map(function(){return null})),sel=st[0],setSel=st[1];
+  var st2=useState(null),checked=st2[0],setChecked=st2[1];
+  var st3=useState(false),showSol=st3[0],setShowSol=st3[1];
+  function check(){var r=d.statements.map(function(s,i){return sel[i]===s.correct});setChecked(r);var score=r.filter(Boolean).length;if(score===r.length) markDone(exId,score+'/'+r.length)}
+  function reset(){setSel(d.statements.map(function(){return null}));setChecked(null);setShowSol(false)}
+  return e('div',null,
+    d.tips?e(Tips,{tips:d.tips}):null,
+    d.statements.map(function(s,i){
+      var rCls=function(v){var c='tf-btn';if(sel[i]===v) c+=' selected';if(checked){if(sel[i]===v&&checked[i]) c=' tf-btn correct-sel';else if(sel[i]===v&&!checked[i]) c=' tf-btn wrong-sel';else if(v===s.correct) c=' tf-btn correct-unsel'}return c};
+      return e('div',{key:i,className:'tf-row'},
+        e('div',{className:'tf-statement'},(i+1)+'. '+s.s),
+        e('div',{className:'tf-buttons'},e('button',{className:rCls(true),onClick:function(){var n=sel.slice();n[i]=true;setSel(n)}},'Richtig'),e('button',{className:rCls(false),onClick:function(){var n=sel.slice();n[i]=false;setSel(n)}},'Falsch')),
+        checked&&!checked[i]?e('div',{className:'feedback nok'},s.feedback):null,
+        checked&&checked[i]?e('div',{className:'feedback ok'},'Korrekt!'):null
+      );
+    }),
+    e('div',{className:'btn-row'},e('button',{className:'btn btn-primary',onClick:check},'Prüfen'),e('button',{className:'btn btn-secondary',onClick:function(){setShowSol(!showSol)}},showSol?'Lösung ausblenden':'Lösung'),e('button',{className:'btn btn-secondary',onClick:reset},'Zurücksetzen')),
+    checked?e('div',{style:{marginTop:12}},e('span',{className:'score-badge '+(checked.every(Boolean)?'good':'bad')},checked.filter(Boolean).length+'/'+checked.length+' korrekt')):null,
+    showSol?e('div',{className:'solution-box'},d.statements.map(function(s,i){return e('div',{key:i},e('strong',null,(i+1)+'. '+(s.correct?'Richtig':'Falsch')+': '),s.feedback)})):null,
+    d.reveal?e(Reveal,{steps:d.reveal}):null
+  );
+}
+
+// ---- Zuordnung Exercise ----
+function ZuordnungEx(props){
+  var d=props.data, exId=props.exId, markDone=props.markDone;
+  var st=useState(d.items.map(function(){return ''})),sel=st[0],setSel=st[1];
+  var st2=useState(null),checked=st2[0],setChecked=st2[1];
+  var st3=useState(false),showSol=st3[0],setShowSol=st3[1];
+  function check(){var r=d.items.map(function(_,i){return sel[i]===d.correct[i]});setChecked(r);var score=r.filter(Boolean).length;if(score===r.length) markDone(exId,score+'/'+r.length)}
+  function reset(){setSel(d.items.map(function(){return ''}));setChecked(null);setShowSol(false)}
+  var opts = d.options;
+  return e('div',null,
+    e('div',{className:'ex-instruction'},d.instruction),
+    d.tips?e(Tips,{tips:d.tips}):null,
+    d.items.map(function(item,i){var cls='match-select';if(checked) cls+=checked[i]?' correct':' wrong';
+      return e('div',{key:i,className:'match-row'},e('div',{className:'match-label'},item),
+        e('select',{className:cls,value:sel[i],onChange:function(ev){var n=sel.slice();n[i]=ev.target.value;setSel(n)}},
+          e('option',{value:''},'-- Wählen --'),opts.map(function(o,j){return e('option',{key:j,value:o},o)})));
+    }),
+    e('div',{className:'btn-row'},e('button',{className:'btn btn-primary',onClick:check},'Prüfen'),e('button',{className:'btn btn-secondary',onClick:function(){setShowSol(!showSol)}},showSol?'Lösung ausblenden':'Lösung'),e('button',{className:'btn btn-secondary',onClick:reset},'Zurücksetzen')),
+    checked?e('div',{style:{marginTop:12}},e('span',{className:'score-badge '+(checked.every(Boolean)?'good':'bad')},checked.filter(Boolean).length+'/'+checked.length+' korrekt')):null,
+    showSol?e('div',{className:'solution-box'},d.items.map(function(item,i){return e('div',{key:i},e('strong',null,item+': '),d.correct[i])})):null,
+    d.reveal?e(Reveal,{steps:d.reveal}):null
+  );
+}
+
+// ---- Freitext Exercise ----
+function FreitextEx(props){
+  var d=props.data, exId=props.exId, markDone=props.markDone;
+  var st=useState(d.questions.map(function(){return ''})),answers=st[0],setAnswers=st[1];
+  var st2=useState(null),results=st2[0],setResults=st2[1];
+  var st3=useState(false),showSol=st3[0],setShowSol=st3[1];
+  function check(){var r=d.questions.map(function(q,i){return matchKeywords(answers[i],q.keywords)>=q.minKeywords});setResults(r);var score=r.filter(Boolean).length;if(score===r.length) markDone(exId,score+'/'+r.length)}
+  function reset(){setAnswers(d.questions.map(function(){return ''}));setResults(null);setShowSol(false)}
+  return e('div',null,
+    e('div',{className:'ex-instruction'},d.instruction),
+    d.tips?e(Tips,{tips:d.tips}):null,
+    d.questions.map(function(q,i){var cls='text-input';if(results) cls+=results[i]?' correct':' wrong';
+      return e('div',{key:i,className:'text-q'},e('p',null,q.q),e('textarea',{className:cls,rows:3,value:answers[i],onChange:function(ev){var a=answers.slice();a[i]=ev.target.value;setAnswers(a)},placeholder:'Ihre Antwort...'}));
+    }),
+    e('div',{className:'btn-row'},e('button',{className:'btn btn-primary',onClick:check},'Prüfen (Schlüsselwörter)'),e('button',{className:'btn btn-secondary',onClick:function(){setShowSol(!showSol)}},showSol?'Lösung ausblenden':'Lösung'),e('button',{className:'btn btn-secondary',onClick:reset},'Zurücksetzen')),
+    results?e('div',{style:{marginTop:12}},e('span',{className:'score-badge '+(results.every(Boolean)?'good':'bad')},results.filter(Boolean).length+'/'+results.length+' ausreichend Schlüsselwörter')):null,
+    showSol?e('div',{className:'solution-box'},e('strong',null,'Musterlösung: '),d.reveal?d.reveal.map(function(s,i){return e('div',{key:i},s)}):e('div',null,'Schlüsselwörter: '+d.questions.map(function(q){return q.keywords.join(', ')}).join(' | '))):null,
+    d.reveal?e(Reveal,{steps:d.reveal}):null
+  );
+}
+
+// ---- Berechnung Exercise ----
+function BerechnungEx(props){
+  var d=props.data, exId=props.exId, markDone=props.markDone;
+  var st=useState(d.fields.map(function(){return ''})),answers=st[0],setAnswers=st[1];
+  var st2=useState(null),results=st2[0],setResults=st2[1];
+  var st3=useState(false),showSol=st3[0],setShowSol=st3[1];
+  function check(){var r=d.fields.map(function(f,i){var v=parseFloat(answers[i].replace(/'/g,'').replace(/,/g,'.'));if(isNaN(v))return false;return Math.abs(v-f.answer)<=f.tolerance});setResults(r);var score=r.filter(Boolean).length;if(score===r.length) markDone(exId,score+'/'+r.length)}
+  function reset(){setAnswers(d.fields.map(function(){return ''}));setResults(null);setShowSol(false)}
+  return e('div',null,
+    e('div',{className:'ex-instruction'},d.instruction),
+    d.tips?e(Tips,{tips:d.tips}):null,
+    d.fields.map(function(f,i){var cls='calc-input';if(results) cls+=results[i]?' correct':' wrong';
+      return e('div',{key:i,className:'calc-row'},e('div',{className:'calc-label'},f.label),e('input',{className:cls,value:answers[i],onChange:function(ev){var a=answers.slice();a[i]=ev.target.value;setAnswers(a)},placeholder:'0'}));
+    }),
+    e('div',{className:'btn-row'},e('button',{className:'btn btn-primary',onClick:check},'Prüfen'),e('button',{className:'btn btn-secondary',onClick:function(){setShowSol(!showSol)}},showSol?'Lösung ausblenden':'Lösung'),e('button',{className:'btn btn-secondary',onClick:reset},'Zurücksetzen')),
+    results?e('div',{style:{marginTop:12}},e('span',{className:'score-badge '+(results.every(Boolean)?'good':'bad')},results.filter(Boolean).length+'/'+results.length+' korrekt')):null,
+    showSol?e('div',{className:'solution-box'},d.fields.map(function(f,i){return e('div',{key:i},e('strong',null,f.label+': '),String(f.answer))})):null,
+    d.reveal?e(Reveal,{steps:d.reveal}):null
+  );
+}
+
+// ---- Tabelle Exercise (Radio) ----
+function TabelleEx(props){
+  var d=props.data, exId=props.exId, markDone=props.markDone;
+  var st=useState(d.rows.map(function(){return -1})),sel=st[0],setSel=st[1];
+  var st2=useState(null),checked=st2[0],setChecked=st2[1];
+  var st3=useState(false),showSol=st3[0],setShowSol=st3[1];
+  function check(){var r=d.rows.map(function(row,i){return sel[i]===row.correct});setChecked(r);var score=r.filter(Boolean).length;if(score===r.length) markDone(exId,score+'/'+r.length)}
+  function reset(){setSel(d.rows.map(function(){return -1}));setChecked(null);setShowSol(false)}
+  var numCols=d.headers.length-1;
+  return e('div',null,
+    e('div',{className:'ex-instruction'},d.instruction),
+    d.tips?e(Tips,{tips:d.tips}):null,
+    e('table',{className:'check-table'},
+      e('thead',null,e('tr',null,d.headers.map(function(h,i){return e('th',{key:i},h)}))),
+      e('tbody',null,d.rows.map(function(row,ri){var rowCls='';if(checked) rowCls=checked[ri]?'correct-row':'wrong-row';
+        return e('tr',{key:ri,className:rowCls},
+          Array.from({length:numCols},function(_,ci){return e('td',{key:ci},e('input',{type:'radio',name:'tab-'+exId+'-'+ri,checked:sel[ri]===ci,onChange:function(){var n=sel.slice();n[ri]=ci;setSel(n)}}))}),
+          e('td',null,row.label));
+      }))),
+    e('div',{className:'btn-row'},e('button',{className:'btn btn-primary',onClick:check},'Prüfen'),e('button',{className:'btn btn-secondary',onClick:function(){setShowSol(!showSol)}},showSol?'Lösung ausblenden':'Lösung'),e('button',{className:'btn btn-secondary',onClick:reset},'Zurücksetzen')),
+    checked?e('div',{style:{marginTop:12}},e('span',{className:'score-badge '+(checked.every(Boolean)?'good':'bad')},checked.filter(Boolean).length+'/'+checked.length+' korrekt')):null,
+    showSol?e('div',{className:'solution-box'},d.rows.map(function(row,i){return e('div',{key:i},e('strong',null,row.label+': '),d.headers[row.correct])})):null,
+    d.reveal?e(Reveal,{steps:d.reveal}):null
+  );
+}
+
+// ---- Multiple Choice Exercise ----
+function MultipleChoiceEx(props){
+  var d=props.data, exId=props.exId, markDone=props.markDone;
+  var st=useState(-1),sel=st[0],setSel=st[1];
+  var st2=useState(null),checked=st2[0],setChecked=st2[1];
+  var st3=useState(false),showSol=st3[0],setShowSol=st3[1];
+  function check(){var correct=sel===d.correct;setChecked(correct);if(correct) markDone(exId,'1/1')}
+  function reset(){setSel(-1);setChecked(null);setShowSol(false)}
+  return e('div',null,
+    e('div',{className:'ex-instruction'},d.instruction),
+    d.tips?e(Tips,{tips:d.tips}):null,
+    d.options.map(function(opt,i){var cls='mc-option';if(sel===i) cls+=' selected';if(checked!==null){if(sel===i&&checked) cls=' mc-option correct-sel';else if(sel===i&&!checked) cls=' mc-option wrong-sel';else if(i===d.correct) cls=' mc-option correct-unsel'}
+      return e('div',{key:i,className:cls,onClick:function(){if(checked===null)setSel(i)}},e('div',{className:'mc-radio'}),e('span',null,String.fromCharCode(65+i)+') '+opt));
+    }),
+    e('div',{className:'btn-row'},e('button',{className:'btn btn-primary',onClick:check},'Prüfen'),e('button',{className:'btn btn-secondary',onClick:function(){setShowSol(!showSol)}},showSol?'Lösung ausblenden':'Lösung'),e('button',{className:'btn btn-secondary',onClick:reset},'Zurücksetzen')),
+    checked!==null?e('div',{style:{marginTop:12}},e('span',{className:'score-badge '+(checked?'good':'bad')},checked?'Korrekt!':'Falsch')):null,
+    showSol?e('div',{className:'solution-box'},e('strong',null,'Korrekt: '),String.fromCharCode(65+d.correct)+') '+d.options[d.correct]):null,
+    d.reveal?e(Reveal,{steps:d.reveal}):null
+  );
+}
+
+// ======================================================================
+// EXAM MODE COMPONENT
+// ======================================================================
+function shuffleArray(arr){var a=arr.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t}return a}
+
+function ExamMode(props){
+  var chId=props.chId;
+  var ch=chapters.find(function(c){return c.id===chId});
+  var allExIds=ch?ch.exercises:[];
+
+  var EXAM_TIME=15*60;
+  var st1=useState('idle'),phase=st1[0],setPhase=st1[1]; // idle, running, finished
+  var st2=useState([]),examExercises=st2[0],setExamExercises=st2[1];
+  var st3=useState(EXAM_TIME),timeLeft=st3[0],setTimeLeft=st3[1];
+  var st4=useState({}),answers=st4[0],setAnswers=st4[1];
+  var st5=useState(null),results=st5[0],setResults=st5[1];
+  var timerRef=useRef(null);
+  var finishRef=useRef(false);
+
+  // Load best score
+  var bestKey='dist-exam-best-'+chId;
+  var st6=useState(function(){try{return JSON.parse(localStorage.getItem(bestKey))}catch(x){return null}}),bestScore=st6[0],setBestScore=st6[1];
+
+  function startExam(){
+    // Select 60-80% of exercises randomly
+    var count=Math.max(3,Math.floor(allExIds.length*(0.6+Math.random()*0.2)));
+    var shuffled=shuffleArray(allExIds);
+    var selected=shuffled.slice(0,count);
+    // Build exam exercises with shuffled MC options
+    var exams=selected.map(function(exId){
+      var data=exerciseData[exId];
+      if(!data) return {exId:exId,data:null};
+      var examData=JSON.parse(JSON.stringify(data));
+      // Shuffle MC options
+      if(examData.type==='mc'&&examData.data.options){
+        var opts=examData.data.options;
+        var correctOpt=opts[examData.data.correct];
+        var shuffledOpts=shuffleArray(opts);
+        examData.data.options=shuffledOpts;
+        examData.data.correct=shuffledOpts.indexOf(correctOpt);
+      }
+      // Shuffle RF statement order
+      if(examData.type==='rf'&&examData.data.statements){
+        examData.data.statements=shuffleArray(examData.data.statements);
+      }
+      return {exId:exId,data:examData};
+    });
+    setExamExercises(exams);
+    setAnswers({});
+    setResults(null);
+    setTimeLeft(EXAM_TIME);
+    setPhase('running');
+    finishRef.current=false;
+  }
+
+  // Timer
+  useEffect(function(){
+    if(phase==='running'&&timeLeft>0){
+      timerRef.current=setInterval(function(){
+        setTimeLeft(function(t){
+          if(t<=1){
+            clearInterval(timerRef.current);
+            return 0;
+          }
+          return t-1;
+        });
+      },1000);
+      return function(){clearInterval(timerRef.current)};
+    }
+  },[phase,timeLeft]);
+
+  // Auto-finish when time runs out
+  useEffect(function(){
+    if(phase==='running'&&timeLeft===0&&!finishRef.current){
+      finishRef.current=true;
+      finishExam();
+    }
+  });
+
+  function setAnswer(exId,val){
+    setAnswers(function(prev){var n={};for(var k in prev)n[k]=prev[k];n[exId]=val;return n});
+  }
+
+  function finishExam(){
+    clearInterval(timerRef.current);
+    // Grade each exercise
+    var scored=examExercises.map(function(ex){
+      if(!ex.data) return {exId:ex.exId,correct:false,total:1,got:0};
+      var d=ex.data.data;
+      var ans=answers[ex.exId];
+      switch(ex.data.type){
+        case 'mc':
+          return {exId:ex.exId,correct:ans===d.correct,total:1,got:ans===d.correct?1:0};
+        case 'rf':
+          if(!ans||!Array.isArray(ans)){return {exId:ex.exId,correct:false,total:d.statements.length,got:0}}
+          var rfCorrect=d.statements.reduce(function(c,s,i){return c+(ans[i]===s.correct?1:0)},0);
+          return {exId:ex.exId,correct:rfCorrect===d.statements.length,total:d.statements.length,got:rfCorrect};
+        case 'zuordnung':
+          if(!ans||!Array.isArray(ans)){return {exId:ex.exId,correct:false,total:d.items.length,got:0}}
+          var zuCorrect=d.items.reduce(function(c,_,i){return c+(ans[i]===d.correct[i]?1:0)},0);
+          return {exId:ex.exId,correct:zuCorrect===d.items.length,total:d.items.length,got:zuCorrect};
+        case 'lueckentext':
+          var blanks=d.segments.filter(function(s){return s&&s.blank});
+          if(!ans||!Array.isArray(ans)){return {exId:ex.exId,correct:false,total:blanks.length,got:0}}
+          var ltCorrect=blanks.reduce(function(c,b,i){return c+(matchAnswer(ans[i]||'',b.answer)?1:0)},0);
+          return {exId:ex.exId,correct:ltCorrect===blanks.length,total:blanks.length,got:ltCorrect};
+        case 'berechnung':
+          if(!ans||!Array.isArray(ans)){return {exId:ex.exId,correct:false,total:d.fields.length,got:0}}
+          var bcCorrect=d.fields.reduce(function(c,f,i){var v=parseFloat((ans[i]||'').replace(/'/g,'').replace(/,/g,'.'));return c+(!isNaN(v)&&Math.abs(v-f.answer)<=f.tolerance?1:0)},0);
+          return {exId:ex.exId,correct:bcCorrect===d.fields.length,total:d.fields.length,got:bcCorrect};
+        case 'tabelle':
+          if(!ans||!Array.isArray(ans)){return {exId:ex.exId,correct:false,total:d.rows.length,got:0}}
+          var tbCorrect=d.rows.reduce(function(c,row,i){return c+(ans[i]===row.correct?1:0)},0);
+          return {exId:ex.exId,correct:tbCorrect===d.rows.length,total:d.rows.length,got:tbCorrect};
+        case 'freitext':
+          if(!ans||!Array.isArray(ans)){return {exId:ex.exId,correct:false,total:d.questions.length,got:0}}
+          var ftCorrect=d.questions.reduce(function(c,q,i){return c+(matchKeywords(ans[i]||'',q.keywords)>=q.minKeywords?1:0)},0);
+          return {exId:ex.exId,correct:ftCorrect===d.questions.length,total:d.questions.length,got:ftCorrect};
+        default:
+          return {exId:ex.exId,correct:false,total:1,got:0};
+      }
+    });
+    var totalCorrect=scored.filter(function(s){return s.correct}).length;
+    var totalExercises=scored.length;
+    var pct=Math.round(totalCorrect/totalExercises*100);
+    var passed=pct>=60;
+    var res={scored:scored,totalCorrect:totalCorrect,totalExercises:totalExercises,pct:pct,passed:passed};
+    setResults(res);
+    setPhase('finished');
+    // Save best score
+    var prev=bestScore;
+    if(!prev||pct>prev.pct){
+      var best={pct:pct,score:totalCorrect+'/'+totalExercises,date:new Date().toLocaleDateString('de-CH')};
+      localStorage.setItem(bestKey,JSON.stringify(best));
+      setBestScore(best);
+    }
+  }
+
+  function formatExamTime(s){var m=Math.floor(s/60);var ss=s%60;return String(m).padStart(2,'0')+':'+String(ss).padStart(2,'0')}
+
+  // ---- IDLE: Start screen ----
+  if(phase==='idle'){
+    return e('div',{className:'exam-container'},
+      e('div',{className:'exam-start-box'},
+        e('h3',null,'Pruefungsmodus \u2013 Kapitel '+chId),
+        e('p',null,'Zufaellige Auswahl von '+Math.max(3,Math.floor(allExIds.length*0.6))+'-'+Math.min(allExIds.length,Math.floor(allExIds.length*0.8))+' Aufgaben aus '+allExIds.length),
+        e('p',null,'15 Minuten Zeitlimit'),
+        e('p',null,'Keine Tipps, keine Loesungswege'),
+        e('p',null,'Bestehensgrenze: 60%'),
+        bestScore?e('div',{className:'exam-best-score'},'Bestes Ergebnis: '+bestScore.score+' ('+bestScore.pct+'%) \u2013 '+bestScore.date):null,
+        e('button',{className:'exam-start-btn',onClick:startExam},'Pruefung starten')
+      )
+    );
+  }
+
+  // ---- FINISHED: Result screen ----
+  if(phase==='finished'&&results){
+    return e('div',{className:'exam-container'},
+      e('div',{className:'exam-result-overlay'},
+        e('div',{className:'exam-score-circle '+(results.passed?'pass':'fail')},
+          e('div',{className:'exam-score-pct',style:{color:results.passed?'var(--green)':'var(--red)'}},results.pct+'%'),
+          e('div',{className:'exam-score-label'},results.passed?'Bestanden':'Nicht bestanden')
+        ),
+        e('div',{className:'exam-result-title',style:{color:results.passed?'var(--green)':'var(--red)'}},results.passed?'Glueckwunsch!':'Leider nicht bestanden'),
+        e('div',{className:'exam-result-detail'},results.totalCorrect+' von '+results.totalExercises+' Aufgaben korrekt'),
+        e('div',{className:'exam-result-detail'},'Benoetigte Zeit: '+formatExamTime(EXAM_TIME-timeLeft)),
+        bestScore?e('div',{className:'exam-best-score'},'Bestes Ergebnis: '+bestScore.score+' ('+bestScore.pct+'%) \u2013 '+bestScore.date):null,
+        e('div',{style:{marginTop:24,display:'flex',gap:12,justifyContent:'center',flexWrap:'wrap'}},
+          e('button',{className:'exam-start-btn',onClick:startExam},'Nochmal'),
+          e('button',{className:'btn btn-secondary',style:{padding:'14px 36px',borderRadius:50,fontSize:'1rem',fontWeight:700},onClick:function(){setPhase('idle');setResults(null)}},'Zurueck')
+        )
+      ),
+      e('div',{style:{marginTop:24}},
+        e('h3',{style:{fontSize:'1rem',fontWeight:700,marginBottom:12}},'Ergebnisse im Detail'),
+        results.scored.map(function(s,i){
+          var exData=examExercises[i]?examExercises[i].data:null;
+          return e('div',{key:i,className:'exam-ex-card',style:{borderLeft:'4px solid '+(s.correct?'var(--green)':'var(--red)')}},
+            e('div',{style:{display:'flex',alignItems:'center',gap:8}},
+              e('span',{style:{fontSize:'1.1rem'}},s.correct?'\u2705':'\u274c'),
+              e('span',{style:{fontWeight:600,fontSize:'.9rem'}},exData?exData.title:'Aufgabe '+s.exId),
+              e('span',{className:'score-badge '+(s.correct?'good':'bad'),style:{marginLeft:'auto'}},s.got+'/'+s.total)
+            )
+          );
+        })
+      )
+    );
+  }
+
+  // ---- RUNNING: Exam in progress ----
+  return e('div',{className:'exam-container'},
+    e('div',{className:'exam-header'},
+      e('div',null,
+        e('div',{className:'exam-timer-label'},'Verbleibende Zeit'),
+        e('div',{className:'exam-timer'+(timeLeft<120?' warning':'')},formatExamTime(timeLeft))
+      ),
+      e('div',{className:'exam-progress-text'},'Aufgabe '+Object.keys(answers).length+' / '+examExercises.length+' bearbeitet'),
+      e('button',{className:'btn btn-primary',style:{background:'var(--red)',borderRadius:50,padding:'10px 24px'},onClick:finishExam},'Abgeben')
+    ),
+    examExercises.map(function(ex,idx){
+      if(!ex.data) return e('div',{key:idx,className:'exam-ex-card'},'Aufgabe nicht verfuegbar.');
+      var d=ex.data.data;
+      var exId=ex.exId;
+
+      // MC in exam
+      if(ex.data.type==='mc'){
+        var mcSel=answers[exId]!==undefined?answers[exId]:-1;
+        return e('div',{key:idx,className:'exam-ex-card'},
+          e('div',{className:'exam-ex-title'},e('span',{className:'exam-ex-num'},idx+1),ex.data.title),
+          d.instruction?e('div',{className:'ex-instruction'},d.instruction):null,
+          d.options.map(function(opt,i){
+            var cls='mc-option';if(mcSel===i)cls+=' selected';
+            return e('div',{key:i,className:cls,onClick:function(){setAnswer(exId,i)}},e('div',{className:'mc-radio'}),e('span',null,String.fromCharCode(65+i)+') '+opt));
+          })
+        );
+      }
+
+      // RF in exam
+      if(ex.data.type==='rf'){
+        var rfAns=answers[exId]||d.statements.map(function(){return null});
+        return e('div',{key:idx,className:'exam-ex-card'},
+          e('div',{className:'exam-ex-title'},e('span',{className:'exam-ex-num'},idx+1),ex.data.title),
+          d.statements.map(function(s,i){
+            return e('div',{key:i,className:'tf-row'},
+              e('div',{className:'tf-statement'},(i+1)+'. '+s.s),
+              e('div',{className:'tf-buttons'},
+                e('button',{className:'tf-btn'+(rfAns[i]===true?' selected':''),onClick:function(){var n=rfAns.slice();n[i]=true;setAnswer(exId,n)}},'Richtig'),
+                e('button',{className:'tf-btn'+(rfAns[i]===false?' selected':''),onClick:function(){var n=rfAns.slice();n[i]=false;setAnswer(exId,n)}},'Falsch')
+              )
+            );
+          })
+        );
+      }
+
+      // Zuordnung in exam
+      if(ex.data.type==='zuordnung'){
+        var zuAns=answers[exId]||d.items.map(function(){return ''});
+        return e('div',{key:idx,className:'exam-ex-card'},
+          e('div',{className:'exam-ex-title'},e('span',{className:'exam-ex-num'},idx+1),ex.data.title),
+          d.instruction?e('div',{className:'ex-instruction'},d.instruction):null,
+          d.items.map(function(item,i){
+            return e('div',{key:i,className:'match-row'},e('div',{className:'match-label'},item),
+              e('select',{className:'match-select',value:zuAns[i],onChange:function(ev){var n=zuAns.slice();n[i]=ev.target.value;setAnswer(exId,n)}},
+                e('option',{value:''},'-- Waehlen --'),d.options.map(function(o,j){return e('option',{key:j,value:o},o)})));
+          })
+        );
+      }
+
+      // Lueckentext in exam
+      if(ex.data.type==='lueckentext'){
+        var blanks=d.segments.filter(function(s){return s&&s.blank});
+        var ltAns=answers[exId]||blanks.map(function(){return ''});
+        var blankIdx2=-1;
+        return e('div',{key:idx,className:'exam-ex-card'},
+          e('div',{className:'exam-ex-title'},e('span',{className:'exam-ex-num'},idx+1),ex.data.title),
+          d.instruction?e('div',{className:'ex-instruction'},d.instruction):null,
+          e('div',{className:'blank-text'},d.segments.map(function(seg,si){
+            if(typeof seg==='string')return seg;
+            blankIdx2++;var bi2=blankIdx2;
+            return e('input',{key:si,className:'blank-input',style:{width:seg.width||140},value:ltAns[bi2],onChange:function(ev){var n=ltAns.slice();n[bi2]=ev.target.value;setAnswer(exId,n)}});
+          }))
+        );
+      }
+
+      // Berechnung in exam
+      if(ex.data.type==='berechnung'){
+        var bcAns=answers[exId]||d.fields.map(function(){return ''});
+        return e('div',{key:idx,className:'exam-ex-card'},
+          e('div',{className:'exam-ex-title'},e('span',{className:'exam-ex-num'},idx+1),ex.data.title),
+          d.instruction?e('div',{className:'ex-instruction'},d.instruction):null,
+          d.fields.map(function(f,i){
+            return e('div',{key:i,className:'calc-row'},e('div',{className:'calc-label'},f.label),e('input',{className:'calc-input',value:bcAns[i],onChange:function(ev){var n=bcAns.slice();n[i]=ev.target.value;setAnswer(exId,n)},placeholder:'0'}));
+          })
+        );
+      }
+
+      // Tabelle in exam
+      if(ex.data.type==='tabelle'){
+        var tbAns=answers[exId]||d.rows.map(function(){return -1});
+        var numCols2=d.headers.length-1;
+        return e('div',{key:idx,className:'exam-ex-card'},
+          e('div',{className:'exam-ex-title'},e('span',{className:'exam-ex-num'},idx+1),ex.data.title),
+          d.instruction?e('div',{className:'ex-instruction'},d.instruction):null,
+          e('table',{className:'check-table'},
+            e('thead',null,e('tr',null,d.headers.map(function(h,i){return e('th',{key:i},h)}))),
+            e('tbody',null,d.rows.map(function(row,ri){
+              return e('tr',{key:ri},
+                Array.from({length:numCols2},function(_,ci){return e('td',{key:ci},e('input',{type:'radio',name:'exam-'+exId+'-'+ri,checked:tbAns[ri]===ci,onChange:function(){var n=tbAns.slice();n[ri]=ci;setAnswer(exId,n)}}))}),
+                e('td',null,row.label));
+            })))
+        );
+      }
+
+      // Freitext in exam
+      if(ex.data.type==='freitext'){
+        var ftAns=answers[exId]||d.questions.map(function(){return ''});
+        return e('div',{key:idx,className:'exam-ex-card'},
+          e('div',{className:'exam-ex-title'},e('span',{className:'exam-ex-num'},idx+1),ex.data.title),
+          d.instruction?e('div',{className:'ex-instruction'},d.instruction):null,
+          d.questions.map(function(q,i){
+            return e('div',{key:i,className:'text-q'},e('p',null,q.q),e('textarea',{className:'text-input',rows:3,value:ftAns[i],onChange:function(ev){var n=ftAns.slice();n[i]=ev.target.value;setAnswer(exId,n)},placeholder:'Ihre Antwort...'}));
+          })
+        );
+      }
+
+      return e('div',{key:idx,className:'exam-ex-card'},'Unbekannter Aufgabentyp.');
+    })
+  );
+}
+
+// ======================================================================
+// APP COMPONENT
+// ======================================================================
+function App(){
+  var s1=useState(function(){return localStorage.getItem('dist-dark')==='1'}),dark=s1[0],setDark=s1[1];
+  var s2=useState(null),openCh=s2[0],setOpenCh=s2[1];
+  var s3=useState(null),openEx=s3[0],setOpenEx=s3[1];
+  var s3b=useState({}),chTabs=s3b[0],setChTabs=s3b[1];
+  function getChTab(chId){return chTabs[chId]||'ueben'}
+  function setChTab(chId,tab){setChTabs(function(prev){var n={};for(var k in prev)n[k]=prev[k];n[chId]=tab;return n})}
+  var s4=useState(loadProgress),progress=s4[0],setProgress=s4[1];
+  var s5=useState(false),timerOn=s5[0],setTimerOn=s5[1];
+  var s6=useState(3600),seconds=s6[0],setSeconds=s6[1];
+  var timerRef=useRef(null);
+  var s7=useState(false),showCalc=s7[0],setShowCalc=s7[1];
+  var s8=useState(false),showNotes=s8[0],setShowNotes=s8[1];
+  var s9=useState(false),showGlossar=s9[0],setShowGlossar=s9[1];
+  var s10=useState(function(){return localStorage.getItem('dist-notes')||''}),notes=s10[0],setNotes=s10[1];
+  useEffect(function(){localStorage.setItem('dist-notes',notes)},[notes]);
+  useEffect(function(){document.documentElement.className=dark?'dark':''},[dark]);
+  useEffect(function(){saveProgress(progress)},[progress]);
+  useEffect(function(){
+    if(timerOn&&seconds>0){timerRef.current=setInterval(function(){setSeconds(function(s){return s>0?s-1:0})},1000);return function(){clearInterval(timerRef.current)}}else{clearInterval(timerRef.current)}
+  },[timerOn,seconds]);
+
+  function toggleDark(){setDark(function(d){localStorage.setItem('dist-dark',d?'0':'1');return !d})}
+  function toggleTimer(){setTimerOn(function(t){return !t})}
+  function resetTimer(){setSeconds(3600);setTimerOn(false)}
+  function markDone(exId,score){setProgress(function(p){var n={};for(var k in p)n[k]=p[k];n[exId]={done:true,score:score};return n})}
+  function resetAll(){setProgress({});localStorage.removeItem('lp-progress-distribution')}
+  function formatTime(s){var m=Math.floor(s/60);var ss=s%60;return String(m).padStart(2,'0')+':'+String(ss).padStart(2,'0')}
+
+  function chProgress(ch){
+    var done=ch.exercises.filter(function(id){return progress[id]&&progress[id].done}).length;
+    return {done:done,total:ch.exercises.length,pct:Math.round(done/ch.exercises.length*100)};
+  }
+
+  var totalDone=Object.values(progress).filter(function(p){return p&&p.done}).length;
+
+  return e('div',null,
+    e('nav',{className:'nav'},
+      e('button',{className:'btn-back',onClick:function(){window.location.href='../index.html'}},'\u2190 Alle Bücher'),
+      e('div',null,
+        e('div',{className:'nav-title'},'Distribution 3.0'),
+        e('div',{className:'nav-sub'},'Bislin, Röösli \u00b7 Compendio')
+      ),
+      e('div',{className:'nav-right'},
+        e('div',{className:'timer-display',style:{cursor:'pointer',display:'flex',alignItems:'center',gap:8}},
+          e('span',{onClick:toggleTimer,style:{cursor:'pointer'}},timerOn?'\u23f8':'\u25b6'),
+          e('span',{onClick:toggleTimer,style:{cursor:'pointer'}},formatTime(seconds)),
+          seconds<3600?e('span',{onClick:resetTimer,style:{cursor:'pointer',fontSize:'.75rem',opacity:.6}},'\u21bb'):null
+        ),
+        e('div',{className:'tool-bar'},
+          e('button',{className:'tool-btn'+(showCalc?' active':''),onClick:function(){setShowCalc(!showCalc)}},(showCalc?' \u2715':' Rechner')),
+          e('button',{className:'tool-btn'+(showNotes?' active':''),onClick:function(){setShowNotes(!showNotes)}},(showNotes?' \u2715':' Notizen')),
+          e('button',{className:'tool-btn'+(showGlossar?' active':''),onClick:function(){setShowGlossar(!showGlossar)}},(showGlossar?' \u2715':' Glossar'))
+        ),
+        e('span',{className:'nav-btn',style:{fontSize:'.75rem'}},totalDone+'/'+TOTAL_EX),
+        e('button',{className:'nav-btn',onClick:toggleDark},dark?'Licht':'Dunkel'),
+        e('button',{className:'nav-btn',onClick:resetAll},'Reset')
+      )
+    ),
+    e('div',{className:'container'},
+      chapters.map(function(ch){
+        var cp=chProgress(ch);
+        var isOpen=openCh===ch.id;
+        return e('div',{key:ch.id,className:'chapter-card'},
+          e('div',{className:'chapter-header',onClick:function(){setOpenCh(isOpen?null:ch.id)}},
+            e('div',{className:'ch-info'},
+              e('div',{className:'ch-num'},'Teil '+ch.teil+' \u2013 Kapitel '+ch.id),
+              e('div',{className:'ch-title'},ch.title),
+              e('div',{className:'ch-meta'},cp.done+'/'+cp.total+' Aufgaben abgeschlossen'),
+              e('div',{className:'progress-bar'},e('div',{className:'progress-fill',style:{width:cp.pct+'%'}}))
+            ),
+            e('span',{className:'ch-arrow'+(isOpen?' open':'')},'\u25bc')
+          ),
+          isOpen?e('div',null,
+            e('div',{className:'chapter-tabs'},
+              e('button',{className:'chapter-tab'+(getChTab(ch.id)==='lernen'?' active':''),onClick:function(){setChTab(ch.id,'lernen')}},
+                '\ud83d\udcd6 Lernen'
+              ),
+              e('button',{className:'chapter-tab'+(getChTab(ch.id)==='ueben'?' active':''),onClick:function(){setChTab(ch.id,'ueben')}},
+                '\u270d\ufe0f \u00dcben'
+              ),
+              e('button',{className:'chapter-tab'+(getChTab(ch.id)==='pruefung'?' active-exam':''),onClick:function(){setChTab(ch.id,'pruefung')}},
+                '\ud83c\udfaf Pr\u00fcfung'
+              )
+            ),
+            getChTab(ch.id)==='lernen'?e(LearningRenderer,{chId:ch.id}):null,
+            getChTab(ch.id)==='pruefung'?e(ExamMode,{chId:ch.id}):null,
+            getChTab(ch.id)==='ueben'?e('div',{className:'exercise-list'},
+              ch.exercises.map(function(exId){
+                var isDone=progress[exId]&&progress[exId].done;
+                var isExOpen=openEx===exId;
+                var exData=exerciseData[exId];
+                return e('div',{key:exId,className:'ex-card'},
+                  e('div',{className:'ex-header',onClick:function(){setOpenEx(isExOpen?null:exId)}},
+                    e('span',{className:'ex-num'+(isDone?' done':'')},exId),
+                    e('div',{className:'ex-title-wrap'},
+                      e('div',{className:'ex-title'},exData?exData.title:'Aufgabe '+exId),
+                      e('div',{className:'ex-type'},exData?exData.type:''),
+                      isDone?e('span',{className:'score-badge good'},'Erledigt'):null
+                    ),
+                    e('span',{className:'ch-arrow'+(isExOpen?' open':'')},'\u25bc')
+                  ),
+                  isExOpen?e('div',{className:'ex-body'},
+                    e(ExerciseRenderer,{exId:exId,markDone:markDone,progress:progress})
+                  ):null
+                );
+              })
+            ):null
+          ):null
+        );
+      }),
+      e('div',{className:'footer'},'Built by Leandro')
+    ),
+    showCalc?e(CalcPanel,{onClose:function(){setShowCalc(false)}}):null,
+    showNotes?e(NotesPanel,{onClose:function(){setShowNotes(false)},notes:notes,setNotes:setNotes}):null,
+    showGlossar?e(GlossaryPanel,{onClose:function(){setShowGlossar(false)}}):null
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(e(App));
+</script>
+</body>
+</html>

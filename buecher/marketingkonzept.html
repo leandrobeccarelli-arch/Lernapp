@@ -1,0 +1,1579 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marketingkonzept Lern-App</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#f0f1f5;--nav:#1a2332;--card:#ffffff;--text:#1a2332;--text2:#64748b;--accent:#3b82f6;--green:#059669;--red:#dc2626;--border:#e2e8f0;--card-shadow:0 1px 3px rgba(0,0,0,0.08);--input-bg:#f8fafc;--hover:#f1f5f9}
+.dark{--bg:#0f172a;--nav:#0b1120;--card:#1e293b;--text:#e2e8f0;--text2:#94a3b8;--accent:#60a5fa;--green:#34d399;--red:#f87171;--border:#334155;--card-shadow:0 1px 3px rgba(0,0,0,0.3);--input-bg:#0f172a;--hover:#334155}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;transition:background .3s,color .3s}
+input,select,button,textarea{font-family:'Inter',sans-serif}
+.nav{background:linear-gradient(165deg, #0a0c10 0%, #141820 40%, #1a2332 70%, #0d1018 100%);padding:12px 20px;position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 12px rgba(0,0,0,.15);flex-wrap:wrap;gap:8px}
+.nav-title{color:#fff;font-size:1.25rem;font-weight:700}
+.nav-sub{color:#94a3b8;font-size:.8rem;margin-top:2px}
+.nav-right{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.nav-btn,.btn-back{background:rgba(255,255,255,.1);border:none;color:#fff;padding:8px 12px;border-radius:8px;cursor:pointer;font-size:.85rem;display:flex;align-items:center;gap:6px;transition:background .2s}
+.nav-btn:hover,.btn-back:hover{background:rgba(255,255,255,.2)}
+.container{max-width:900px;margin:0 auto;padding:24px 16px 80px}
+.chapter-card{background:var(--card);border-radius:16px;box-shadow:var(--card-shadow);margin-bottom:16px;overflow:hidden;border:1px solid var(--border);transition:background .3s,border .3s}
+.chapter-header{padding:20px 24px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;user-select:none}
+.chapter-header:hover{background:var(--hover)}
+.ch-info{flex:1}
+.ch-num{font-size:.75rem;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
+.ch-title{font-size:1.1rem;font-weight:700;margin-bottom:8px}
+.ch-meta{font-size:.8rem;color:var(--text2)}
+.progress-bar{height:4px;background:var(--border);border-radius:2px;margin-top:10px;overflow:hidden;max-width:300px}
+.progress-fill{height:100%;background:var(--accent);border-radius:2px;transition:width .5s ease}
+.ch-arrow{font-size:1.2rem;color:var(--text2);transition:transform .3s;margin-left:16px}
+.ch-arrow.open{transform:rotate(180deg)}
+.exercise-list{padding:0 16px 16px}
+.ex-card{background:var(--card);border:1px solid var(--border);border-radius:12px;margin-bottom:12px;overflow:hidden;transition:background .3s,border .3s;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.ex-header{padding:16px 20px;cursor:pointer;display:flex;align-items:center;justify-content:space-between}
+.ex-header:hover{background:var(--hover)}
+.ex-num{background:var(--accent);color:#fff;width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;flex-shrink:0;margin-right:14px}
+.ex-num.done{background:var(--green)}
+.ex-title-wrap{flex:1}
+.ex-title{font-weight:600;font-size:.95rem}
+.ex-type{font-size:.75rem;color:var(--text2);margin-top:2px}
+.ex-body{padding:0 20px 20px}
+.ex-instruction{font-size:.85rem;color:var(--text2);margin-bottom:16px;line-height:1.5;font-style:italic}
+.blank-text{font-size:.9rem;line-height:2.2;margin-bottom:12px}
+.blank-input{border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-size:.85rem;width:140px;background:var(--input-bg);color:var(--text);outline:none;transition:border .2s}
+.blank-input:focus{border-color:var(--accent)}
+.blank-input.correct{border-color:var(--green);background:rgba(5,150,105,.08)}
+.blank-input.wrong{border-color:var(--red);background:rgba(220,38,38,.08)}
+.tf-row{padding:12px 0;border-bottom:1px solid var(--border);display:flex;flex-direction:column;gap:8px}
+.tf-row:last-child{border-bottom:none}
+.tf-statement{font-size:.9rem;line-height:1.5}
+.tf-buttons{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.tf-btn{padding:6px 16px;border-radius:6px;border:1px solid var(--border);background:var(--input-bg);color:var(--text);cursor:pointer;font-size:.85rem;font-weight:500;transition:all .2s}
+.tf-btn:hover{border-color:var(--accent)}
+.tf-btn.selected{background:var(--accent);color:#fff;border-color:var(--accent)}
+.tf-btn.correct-sel{background:var(--green);color:#fff;border-color:var(--green)}
+.tf-btn.wrong-sel{background:var(--red);color:#fff;border-color:var(--red)}
+.tf-btn.correct-unsel{border-color:var(--green);color:var(--green)}
+.feedback{font-size:.8rem;margin-top:4px;padding:6px 10px;border-radius:6px;line-height:1.4}
+.feedback.ok{background:rgba(5,150,105,.1);color:var(--green)}
+.feedback.nok{background:rgba(220,38,38,.1);color:var(--red)}
+.match-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border);flex-wrap:wrap}
+.match-row:last-child{border-bottom:none}
+.match-label{flex:1;font-size:.9rem;min-width:200px}
+.match-select{border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:.85rem;background:var(--input-bg);color:var(--text);min-width:200px;cursor:pointer}
+.match-select.correct{border-color:var(--green);background:rgba(5,150,105,.08)}
+.match-select.wrong{border-color:var(--red);background:rgba(220,38,38,.08)}
+.calc-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border);flex-wrap:wrap}
+.calc-row:last-child{border-bottom:none}
+.calc-label{font-size:.9rem;min-width:120px}
+.calc-val{font-size:.9rem;font-weight:500;min-width:80px}
+.calc-input{border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:.85rem;width:120px;background:var(--input-bg);color:var(--text);text-align:right}
+.calc-input.correct{border-color:var(--green);background:rgba(5,150,105,.08)}
+.calc-input.wrong{border-color:var(--red);background:rgba(220,38,38,.08)}
+.check-table{width:100%;border-collapse:collapse;font-size:.85rem}
+.check-table th{padding:8px 6px;text-align:center;background:var(--hover);font-weight:600;font-size:.8rem;border:1px solid var(--border)}
+.check-table td{padding:8px 6px;border:1px solid var(--border);text-align:center}
+.check-table td:first-child{text-align:left;min-width:200px}
+.check-table input[type=radio],.check-table input[type=checkbox]{cursor:pointer;width:16px;height:16px;accent-color:var(--accent)}
+.check-table tr.correct-row{background:rgba(5,150,105,.06)}
+.check-table tr.wrong-row{background:rgba(220,38,38,.06)}
+.btn-row{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
+.btn{padding:10px 20px;border-radius:9px;border:none;font-size:.9rem;font-weight:600;cursor:pointer;transition:all .12s ease;display:flex;align-items:center;gap:6px}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:#2563eb}
+.btn-secondary{background:var(--input-bg);color:var(--text);border:1px solid var(--border)}
+.btn-secondary:hover{background:var(--hover)}
+.btn-reset{background:var(--red);color:#fff}
+.btn-reset:hover{opacity:.9}
+.solution-box{background:rgba(5,150,105,.06);border:1px solid var(--green);border-radius:8px;padding:16px;margin-top:12px;font-size:.85rem;line-height:1.6}
+.solution-box strong{color:var(--green)}
+.text-input{border:1px solid var(--border);border-radius:6px;padding:8px 12px;font-size:.85rem;width:100%;background:var(--input-bg);color:var(--text);margin-top:4px}
+.text-input.correct{border-color:var(--green);background:rgba(5,150,105,.08)}
+.text-input.wrong{border-color:var(--red);background:rgba(220,38,38,.08)}
+.text-q{margin-bottom:16px}
+.text-q p{font-size:.9rem;line-height:1.5;margin-bottom:6px}
+.score-badge{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:12px;font-size:.8rem;font-weight:600}
+.score-badge.good{background:rgba(5,150,105,.1);color:var(--green)}
+.score-badge.bad{background:rgba(220,38,38,.1);color:var(--red)}
+.timer-display{color:#fff;font-size:.9rem;font-weight:500;font-variant-numeric:tabular-nums}
+.footer{text-align:center;padding:24px;font-size:.8rem;color:var(--text2)}
+.mc-option{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--border);border-radius:8px;margin-bottom:8px;cursor:pointer;transition:all .15s;font-size:.9rem}
+.mc-option:hover{border-color:var(--accent);background:var(--hover)}
+.mc-option.selected{border-color:var(--accent);background:rgba(59,130,246,.08)}
+.mc-option.correct-sel{border-color:var(--green);background:rgba(5,150,105,.08)}
+.mc-option.wrong-sel{border-color:var(--red);background:rgba(220,38,38,.08)}
+.mc-option.correct-unsel{border-color:var(--green)}
+.mc-radio{width:18px;height:18px;border-radius:50%;border:2px solid var(--border);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .15s}
+.mc-option.selected .mc-radio{border-color:var(--accent);background:var(--accent)}
+.mc-option.selected .mc-radio::after{content:'';width:8px;height:8px;border-radius:50%;background:#fff}
+.sub-q{margin-top:16px;padding-top:12px;border-top:1px solid var(--border)}
+.sub-q label{font-size:.85rem;font-weight:500;display:block;margin-bottom:4px}
+@keyframes slideUp{from{transform:translateY(100%);opacity:0}to{transform:translateY(0);opacity:1}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.panel-overlay{position:fixed;bottom:16px;z-index:900;background:var(--card);border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,.2);border:1px solid var(--border);display:flex;flex-direction:column;animation:fadeUp .2s ease}
+.panel-header{padding:12px 16px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.panel-header b{color:var(--text);font-size:.9rem}
+.panel-close{background:var(--hover);border:none;width:28px;height:28px;border-radius:7px;font-size:13px;cursor:pointer;color:var(--text2);display:flex;align-items:center;justify-content:center}
+.panel-close:hover{background:var(--border)}
+.calc-panel{right:16px;width:300px;max-height:480px}
+.calc-display{padding:12px 16px;text-align:right;font-size:1.6rem;font-weight:800;color:var(--text);font-variant-numeric:tabular-nums;border-bottom:1px solid var(--border);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.calc-prev{padding:4px 16px;text-align:right;font-size:.75rem;color:var(--text2);font-variant-numeric:tabular-nums;height:22px}
+.calc-history{padding:6px 12px;max-height:50px;overflow-y:auto;border-bottom:1px solid var(--border)}
+.calc-history-item{font-size:.7rem;color:var(--text2);font-variant-numeric:tabular-nums;line-height:1.4}
+.calc-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:6px;padding:8px 12px 14px}
+.calc-btn{border:none;border-radius:10px;font-size:1.1rem;font-weight:600;height:46px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-variant-numeric:tabular-nums;transition:all .12s}
+.calc-btn:active{transform:scale(.95)}
+.calc-btn-num{background:var(--card);color:var(--text);border:1px solid var(--border)}
+.calc-btn-num:hover{background:var(--hover)}
+.calc-btn-op{background:rgba(26,35,50,.06);color:var(--nav);font-weight:700}
+.dark .calc-btn-op{background:rgba(255,255,255,.08);color:var(--text)}
+.calc-btn-op:hover{background:rgba(26,35,50,.12)}
+.calc-btn-eq{background:var(--nav);color:#fff;font-weight:700}
+.dark .calc-btn-eq{background:var(--accent);color:#fff}
+.calc-btn-eq:hover{opacity:.9}
+.calc-btn-fn{background:rgba(59,130,246,.08);color:var(--accent);font-weight:700}
+.calc-btn-fn:hover{background:rgba(59,130,246,.15)}
+.calc-btn-span2{grid-column:span 2}
+.notes-panel{left:50%;transform:translateX(-50%);width:380px;max-height:420px}
+.notes-body{flex:1;padding:8px 12px 12px}
+.notes-body textarea{width:100%;height:100%;min-height:260px;padding:10px 12px;border-radius:10px;border:1px solid var(--border);background:var(--input-bg);color:var(--text);font-size:.85rem;line-height:1.6;font-family:'Inter',sans-serif;resize:none;box-sizing:border-box;outline:none}
+.notes-body textarea:focus{border-color:var(--accent)}
+.notes-meta{font-size:.7rem;color:var(--text2)}
+.glossary-panel{left:16px;width:320px;max-height:420px}
+.glossary-search{padding:6px 12px 0}
+.glossary-search input{width:100%;padding:7px 10px;border-radius:7px;border:1px solid var(--border);background:var(--input-bg);color:var(--text);font-size:.8rem;box-sizing:border-box;outline:none}
+.glossary-search input:focus{border-color:var(--accent)}
+.glossary-list{padding:6px 12px 12px;flex:1;overflow-y:auto}
+.glossary-item{padding:6px 8px;margin-bottom:4px;border-radius:6px;background:var(--input-bg);border-left:3px solid var(--nav)}
+.dark .glossary-item{border-left-color:var(--accent)}
+.glossary-item-title{color:var(--nav);font-weight:700;font-size:.75rem}
+.dark .glossary-item-title{color:var(--accent)}
+.glossary-item-desc{color:var(--text2);font-size:.7rem;line-height:1.4}
+.tool-bar{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto}
+.tool-btn{padding:6px 12px;border-radius:8px;border:1.5px solid rgba(255,255,255,.2);background:rgba(255,255,255,.07);color:#fff;font-size:.75rem;font-weight:600;cursor:pointer;transition:all .15s;white-space:nowrap}
+.tool-btn:hover{background:rgba(255,255,255,.15)}
+.tool-btn.active{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.4)}
+.tip-box{background:rgba(59,130,246,.06);border:1px solid rgba(59,130,246,.2);border-radius:8px;padding:12px 16px;margin-bottom:16px}
+.tip-toggle{font-size:.85rem;font-weight:600;color:var(--accent);cursor:pointer;display:flex;align-items:center;gap:6px}
+.tip-content{margin-top:8px;font-size:.82rem;color:var(--text2);line-height:1.6}
+.tip-content li{margin-bottom:4px}
+.reveal-box{background:rgba(5,150,105,.04);border:1px solid rgba(5,150,105,.2);border-radius:8px;padding:12px 16px;margin-top:12px}
+.reveal-toggle{font-size:.85rem;font-weight:600;color:var(--green);cursor:pointer;display:flex;align-items:center;gap:6px}
+.reveal-content{margin-top:8px;font-size:.82rem;color:var(--text);line-height:1.6}
+.reveal-step{padding:8px 0;border-bottom:1px solid var(--border)}
+.reveal-step:last-child{border-bottom:none}
+/* ---- Learning Mode Styles ---- */
+.chapter-tabs{display:flex;gap:0;margin-bottom:0;border-bottom:2px solid var(--border);background:var(--card);padding:0 16px}
+.chapter-tab{padding:14px 24px;font-size:.9rem;font-weight:600;cursor:pointer;border:none;background:none;color:var(--text2);position:relative;transition:color .2s;display:flex;align-items:center;gap:8px}
+.chapter-tab:hover{color:var(--text)}
+.chapter-tab.active{color:var(--accent)}
+.chapter-tab.active::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:2px;background:var(--accent);border-radius:2px 2px 0 0}
+.chapter-tab-icon{font-size:1.1rem}
+.learn-container{padding:16px 20px 24px}
+.learn-section{background:var(--card);border:1px solid var(--border);border-radius:14px;margin-bottom:20px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.04);transition:background .3s,border .3s}
+.learn-section-header{padding:18px 22px 14px;display:flex;align-items:center;gap:12px}
+.learn-section-icon{font-size:1.3rem;flex-shrink:0}
+.learn-section-title{font-size:1.05rem;font-weight:700;color:var(--text)}
+.learn-section-body{padding:0 22px 20px}
+.learn-intro{border-top:3px solid var(--accent)}
+.learn-intro .learn-intro-text{font-size:.88rem;color:var(--text2);line-height:1.6;margin-bottom:12px}
+.learn-intro .learn-intro-list{list-style:none;padding:0}
+.learn-intro .learn-intro-list li{padding:8px 14px;font-size:.88rem;line-height:1.5;color:var(--text);background:rgba(59,130,246,.04);border-left:3px solid var(--accent);margin-bottom:6px;border-radius:0 8px 8px 0}
+.learn-concept{border-top:3px solid #8b5cf6}
+.learn-concept .learn-concept-text{font-size:.88rem;line-height:1.7;color:var(--text);margin-bottom:12px}
+.learn-highlight{background:linear-gradient(135deg,rgba(245,158,11,.08),rgba(245,158,11,.04));border:1px solid rgba(245,158,11,.25);border-radius:10px;padding:14px 18px;font-size:.88rem;line-height:1.6;color:var(--text);font-weight:500;position:relative}
+.learn-highlight::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:#f59e0b;border-radius:4px 0 0 4px}
+.learn-table-wrap{overflow-x:auto}
+.learn-table{width:100%;border-collapse:separate;border-spacing:0;font-size:.85rem;border-radius:10px;overflow:hidden;border:1px solid var(--border)}
+.learn-table thead th{background:var(--nav);color:#fff;padding:10px 14px;font-weight:600;font-size:.8rem;text-transform:uppercase;letter-spacing:.3px;text-align:left}
+.dark .learn-table thead th{background:rgba(59,130,246,.2);color:var(--accent)}
+.learn-table tbody td{padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text);vertical-align:top}
+.learn-table tbody tr:last-child td{border-bottom:none}
+.learn-table tbody tr:nth-child(even){background:var(--hover)}
+.learn-table .table-label{font-weight:600;color:var(--accent);min-width:160px}
+.learn-terms-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.learn-term-card{background:var(--input-bg);border:1px solid var(--border);border-radius:10px;padding:14px 16px;transition:all .15s}
+.learn-term-card:hover{border-color:var(--accent);box-shadow:0 2px 8px rgba(59,130,246,.1)}
+.learn-term-name{font-weight:700;font-size:.88rem;color:var(--nav);margin-bottom:4px}
+.dark .learn-term-name{color:var(--accent)}
+.learn-term-def{font-size:.82rem;color:var(--text2);line-height:1.5}
+.learn-merke{border-top:3px solid #f59e0b}
+.learn-merke .learn-merke-list{list-style:none;padding:0}
+.learn-merke .learn-merke-list li{padding:10px 14px;font-size:.88rem;line-height:1.5;color:var(--text);background:linear-gradient(135deg,rgba(245,158,11,.06),rgba(245,158,11,.02));border-left:3px solid #f59e0b;margin-bottom:8px;border-radius:0 8px 8px 0;font-weight:500}
+.learn-summary{border-top:3px solid var(--green)}
+.learn-summary .learn-summary-text{font-size:.88rem;line-height:1.7;color:var(--text)}
+.learn-summary .learn-summary-text p{margin-bottom:10px}
+.learn-summary .learn-summary-text strong{color:var(--green)}
+.learn-complete-bar{padding:20px 22px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.learn-complete-btn{padding:12px 28px;border-radius:10px;border:none;font-size:.9rem;font-weight:700;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:8px}
+.learn-complete-btn.ready{background:var(--green);color:#fff}
+.learn-complete-btn.ready:hover{opacity:.9}
+.learn-complete-btn.done{background:rgba(5,150,105,.1);color:var(--green);cursor:default}
+.learn-progress-text{font-size:.82rem;color:var(--text2)}
+@media(max-width:640px){
+  .panel-overlay{bottom:0;border-radius:16px 16px 0 0;left:0!important;right:0!important;width:100%!important;transform:none!important;animation:slideUp .2s ease}
+  .calc-panel{right:0;max-height:70vh}
+  .notes-panel{max-height:60vh}
+  .notes-body textarea{min-height:180px}
+  .glossary-panel{max-height:50vh}
+  .match-row{flex-direction:column;align-items:flex-start;gap:6px}
+  .calc-row{flex-direction:column;align-items:flex-start;gap:4px}
+  .nav{padding:12px 16px}
+  .nav-title{font-size:1.05rem}
+  .container{padding:16px 10px 60px}
+  .check-table{font-size:.75rem;display:block;overflow-x:auto}
+  .chapter-tabs{padding:0 12px}
+  .chapter-tab{padding:12px 16px;font-size:.82rem}
+  .learn-container{padding:12px 14px 20px}
+  .learn-section-body{padding:0 16px 16px}
+  .learn-section-header{padding:14px 16px 10px}
+  .learn-terms-grid{grid-template-columns:1fr}
+  .mode-tabs{flex-wrap:wrap}
+  .mode-tab{padding:10px 16px;font-size:.82rem}
+}
+/* ---- Exam / Prüfungsmodus Styles ---- */
+.mode-tabs{display:flex;gap:0;border-bottom:2px solid var(--border);background:var(--card);padding:0 16px}
+.mode-tab{padding:14px 24px;font-size:.9rem;font-weight:600;cursor:pointer;border:none;background:none;color:var(--text2);position:relative;transition:color .2s;display:flex;align-items:center;gap:8px}
+.mode-tab:hover{color:var(--text)}
+.mode-tab.active{color:var(--accent)}
+.mode-tab.active::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:2px;background:var(--accent);border-radius:2px 2px 0 0}
+.mode-tab .mode-badge{font-size:.7rem;padding:2px 7px;border-radius:8px;font-weight:700;margin-left:2px}
+.mode-badge.learn-badge{background:rgba(139,92,246,.12);color:#8b5cf6}
+.mode-badge.ueben-badge{background:rgba(59,130,246,.12);color:var(--accent)}
+.mode-badge.exam-badge{background:rgba(245,158,11,.12);color:#f59e0b}
+.exam-container{padding:16px 20px 24px}
+.exam-setup{text-align:center;padding:40px 20px}
+.exam-setup-title{font-size:1.2rem;font-weight:700;margin-bottom:8px}
+.exam-setup-desc{font-size:.88rem;color:var(--text2);margin-bottom:24px;line-height:1.6}
+.exam-setup-info{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:24px}
+.exam-info-card{background:var(--input-bg);border:1px solid var(--border);border-radius:10px;padding:14px 20px;min-width:120px}
+.exam-info-card .info-val{font-size:1.3rem;font-weight:800;color:var(--accent)}
+.exam-info-card .info-label{font-size:.75rem;color:var(--text2);margin-top:2px}
+.exam-start-btn{padding:14px 40px;border-radius:12px;border:none;font-size:1rem;font-weight:700;cursor:pointer;background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff;box-shadow:0 4px 14px rgba(245,158,11,.3);transition:all .15s}
+.exam-start-btn:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(245,158,11,.4)}
+.exam-timer-bar{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;background:var(--input-bg);border-bottom:1px solid var(--border);position:sticky;top:52px;z-index:50}
+.exam-timer{font-size:1.1rem;font-weight:700;font-variant-numeric:tabular-nums;display:flex;align-items:center;gap:8px}
+.exam-timer.warn{color:var(--red);animation:pulse 1s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+.exam-progress-text{font-size:.85rem;color:var(--text2)}
+.exam-finish-btn{padding:8px 20px;border-radius:8px;border:none;font-size:.85rem;font-weight:600;cursor:pointer;background:var(--red);color:#fff;transition:all .15s}
+.exam-finish-btn:hover{opacity:.9}
+.exam-ex-card{background:var(--card);border:1px solid var(--border);border-radius:12px;margin-bottom:16px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.exam-ex-num{display:inline-flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff;width:32px;height:32px;border-radius:50%;font-weight:700;font-size:.85rem;margin-right:10px}
+.exam-ex-title{font-weight:600;font-size:.95rem;margin-bottom:12px;display:flex;align-items:center}
+.exam-result{padding:40px 20px;text-align:center}
+.exam-score-circle{width:140px;height:140px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto 24px;font-weight:800;position:relative}
+.exam-score-circle .score-pct{font-size:2.2rem;line-height:1}
+.exam-score-circle .score-label{font-size:.8rem;font-weight:600;margin-top:4px}
+.exam-score-circle.pass{background:rgba(5,150,105,.1);color:var(--green);border:3px solid var(--green)}
+.exam-score-circle.fail{background:rgba(220,38,38,.1);color:var(--red);border:3px solid var(--red)}
+.exam-result-title{font-size:1.2rem;font-weight:700;margin-bottom:8px}
+.exam-result-detail{font-size:.9rem;color:var(--text2);margin-bottom:4px}
+.exam-result-best{font-size:.82rem;color:var(--text2);margin-top:16px;padding:10px 16px;background:var(--input-bg);border-radius:8px;display:inline-block}
+.exam-result-btns{display:flex;gap:10px;justify-content:center;margin-top:24px;flex-wrap:wrap}
+.exam-retry-btn{padding:12px 28px;border-radius:10px;border:none;font-size:.9rem;font-weight:700;cursor:pointer;background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff;transition:all .15s}
+.exam-retry-btn:hover{transform:translateY(-1px)}
+.exam-back-btn{padding:12px 28px;border-radius:10px;border:1px solid var(--border);font-size:.9rem;font-weight:600;cursor:pointer;background:var(--card);color:var(--text);transition:all .15s}
+.exam-back-btn:hover{background:var(--hover)}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+var e = React.createElement;
+var useState = React.useState, useEffect = React.useEffect, useRef = React.useRef, useCallback = React.useCallback, useMemo = React.useMemo;
+
+// ---- Data ----
+var chapters = [
+  {id:1, teil:'A', title:'Aufbau eines Marketingkonzepts', exercises:[1,2,3,4,5]},
+  {id:2, teil:'A', title:'Marktdefinition und Abh\u00e4ngigkeiten', exercises:[6,7,8,9,10,11]},
+  {id:3, teil:'A', title:'Analyse I: Marktanalyse', exercises:[12,13,14,15,16,17,18,19,20]},
+  {id:4, teil:'A', title:'Analyse II: Unternehmens- und Umfeldanalyse', exercises:[21,22,23,24,25,26]},
+  {id:5, teil:'A', title:'Marketingziele', exercises:[27,28,29,30,31,32,33,34]},
+  {id:6, teil:'A', title:'Marketingstrategien', exercises:[35,36,37,38,39,40,41]},
+  {id:7, teil:'A', title:'Marketingmix', exercises:[42,43,44,45,46,47,48]},
+  {id:8, teil:'A', title:'Produktmix I: das Produkt (Product)', exercises:[49,50,51,52,53]},
+  {id:9, teil:'A', title:'Produktmix II: die Produktentwicklung', exercises:[54,55,56,57,58]},
+  {id:10, teil:'A', title:'Produktmix III: Verpackung', exercises:[59,60,61,62,63]},
+  {id:11, teil:'A', title:'Preismix (Price)', exercises:[64,65,66,67,68,69,70]},
+  {id:12, teil:'A', title:'Distributionsmix (Place)', exercises:[71,72,73,74,75]},
+  {id:13, teil:'A', title:'Kommunikationsmix (Promotion)', exercises:[76,77,78,79,80]},
+  {id:14, teil:'A', title:'Marketingbudget und -kontrolle', exercises:[81,82,83,84,85,86]},
+  {id:15, teil:'B', title:'Qualit\u00e4tsmanagement I: Grundlagen und \u00d6kologie', exercises:[87,88,89,90,91,92]},
+  {id:16, teil:'B', title:'Qualit\u00e4tsmanagement II: Reklamationswesen', exercises:[93,94,95,96,97]}
+];
+
+var TOTAL_EX = 97;
+
+// ---- Helpers ----
+function normalize(s){return (s||'').trim().toLowerCase().replace(/[\u00e4]/g,'ae').replace(/[\u00f6]/g,'oe').replace(/[\u00fc]/g,'ue').replace(/[\u00df]/g,'ss').replace(/[^a-z0-9 ]/g,'').replace(/\s+/g,' ')}
+function matchAnswer(input, answers){
+  var n = normalize(input);
+  if(!n) return false;
+  if(typeof answers === 'string') return n === normalize(answers);
+  return answers.some(function(a){return n === normalize(a)});
+}
+function matchKeywords(input, keywords){
+  var n = (input||'').toLowerCase();
+  var found = 0;
+  keywords.forEach(function(k){if(n.indexOf(k.toLowerCase())>=0) found++});
+  return found;
+}
+function loadProgress(){try{return JSON.parse(localStorage.getItem('lp-progress-marketingkonzept'))||{}}catch(x){return{}}}
+function saveProgress(p){localStorage.setItem('lp-progress-marketingkonzept', JSON.stringify(p))}
+
+// ---- Glossary Data ----
+var GLOSSAR = [
+  {t:'Marketing',d:'Alle T\u00e4tigkeiten und Anstrengungen eines Unternehmens, um Bed\u00fcrfnisse des Markts zu erkennen und in ein Produkt oder eine Dienstleistung umzuwandeln.'},
+  {t:'Marketingkonzept',d:'\u00dcbergeordneter Rahmen f\u00fcr die T\u00e4tigkeiten im Marketing. Umfasst 6 Schritte: Analyse, Ziele, Strategien, Instrumente, Budget, Kontrolle.'},
+  {t:'Marktanalyse',d:'Systematische Untersuchung des Marktes: Kunden, Konkurrenz, Distribution und Beeinflusser.'},
+  {t:'Marktforschung',d:'Systematische Erhebung, Aufbereitung und Analyse von Marktdaten zur fundierten Entscheidungsfindung.'},
+  {t:'Prim\u00e4rforschung',d:'Erhebung neuer, bisher nicht vorhandener Daten (z.B. Befragungen, Beobachtungen, Experimente).'},
+  {t:'Sekund\u00e4rforschung',d:'Auswertung bereits vorhandener Daten (z.B. Statistiken, Studien, Berichte).'},
+  {t:'SWOT-Analyse',d:'Kombination von St\u00e4rken/Schw\u00e4chen (intern) mit Chancen/Gefahren (extern) zur Ableitung von Strategien.'},
+  {t:'PEST-Analyse',d:'Auch PESTEL: Analyse der Umfeldfaktoren \u2013 Political, Economic, Social, Technological, Ecological, Legal.'},
+  {t:'Porters Five Forces',d:'F\u00fcnf Wettbewerbskr\u00e4fte: Rivalit\u00e4t, Verhandlungsmacht der Lieferanten/Kunden, Bedrohung durch neue Konkurrenten/Ersatzprodukte.'},
+  {t:'Benchmarking',d:'Vergleich des eigenen Unternehmens mit den Besten der Branche (Best-in-Class) oder intern.'},
+  {t:'Marktsegmentierung',d:'Aufteilung des Gesamtmarktes in homogene Teilm\u00e4rkte und Kundengruppen.'},
+  {t:'Positionierung',d:'Differenzierung gegen\u00fcber der Konkurrenz aus Kundensicht, dargestellt im Positionierungskreuz.'},
+  {t:'USP',d:'Unique Selling Proposition \u2013 einzigartiges Verkaufsversprechen, das ein Produkt von der Konkurrenz abhebt.'},
+  {t:'Marketing-Mix',d:'Kombination der Marketinginstrumente zur Umsetzung der Marketingstrategie.'},
+  {t:'4P',d:'Product, Price, Place, Promotion \u2013 die vier Instrumente des klassischen Marketing-Mix.'},
+  {t:'Produkt',d:'Marktleistung: Kernprodukt, formales Produkt und erweitertes Produkt.'},
+  {t:'Preis',d:'Preispolitik: Festlegung der Preise unter Ber\u00fccksichtigung von Kosten, Konkurrenz und Konsumentenzahlungsbereitschaft.'},
+  {t:'Place',d:'Distributionspolitik: Wahl der Vertriebskan\u00e4le und -partner.'},
+  {t:'Promotion',d:'Kommunikationspolitik: Werbung, Verkaufsf\u00f6rderung, PR, pers\u00f6nlicher Verkauf, Direktmarketing.'},
+  {t:'Produktlebenszyklus',d:'Phasen eines Produkts: Einf\u00fchrung, Wachstum, Reife, S\u00e4ttigung, Degeneration.'},
+  {t:'BCG-Matrix',d:'Boston-Consulting-Group-Portfolio: Stars, Cash Cows, Question Marks, Dogs \u2013 basierend auf Marktwachstum und Marktanteil.'},
+  {t:'Ansoff-Matrix',d:'Wachstumsstrategien: Marktpenetration, Produktentwicklung, Marktentwicklung, Diversifikation.'},
+  {t:'Marktpotenzial',d:'Maximal m\u00f6gliches Absatz-/Umsatzvolumen eines Marktes.'},
+  {t:'Marktvolumen',d:'Tats\u00e4chlich realisiertes Absatz-/Umsatzvolumen aller Anbieter eines Marktes.'},
+  {t:'Marktanteil',d:'Anteil eines Unternehmens am Marktvolumen (relativ oder absolut).'},
+  {t:'Marktwachstum',d:'Prozentuale Ver\u00e4nderung des Marktvolumens \u00fcber eine bestimmte Periode.'},
+  {t:'Zielgruppe',d:'Definierte Personengruppe, die mit Marketingmassnahmen angesprochen werden soll.'},
+  {t:'Buyer Persona',d:'Fiktive, detaillierte Beschreibung eines idealen Kunden basierend auf Marktforschungsdaten.'},
+  {t:'Customer Journey',d:'Der gesamte Weg des Kunden vom Erstkontakt bis zum Kauf und dar\u00fcber hinaus.'},
+  {t:'Wettbewerbsanalyse',d:'Systematische Untersuchung der Konkurrenten hinsichtlich St\u00e4rken, Schw\u00e4chen und Strategien.'},
+  {t:'Branchenanalyse',d:'Analyse der Branchenstruktur, oft mithilfe von Porters Five Forces.'},
+  {t:'Marketingstrategie',d:'Langfristiger Plan zur Erreichung der Marketingziele, bestimmt den Weg zum Ziel.'},
+  {t:'Differenzierungsstrategie',d:'Strategie, bei der sich ein Unternehmen durch einzigartige Leistungsmerkmale von der Konkurrenz abhebt.'},
+  {t:'Kostenf\u00fchrerschaft',d:'Strategie, bei der ein Unternehmen die niedrigsten Kosten in der Branche anstrebt.'},
+  {t:'Nischenstrategie',d:'Konzentration auf ein bestimmtes Marktsegment oder eine bestimmte Kundengruppe.'},
+  {t:'Marke',d:'Zeichen, das die Marktleistung eines Unternehmens kennzeichnet und von der Konkurrenz differenziert.'},
+  {t:'Branding',d:'Aufbau und F\u00fchrung einer Marke, um eine emotionale Bindung zum Kunden herzustellen.'},
+  {t:'Sortimentspolitik',d:'Entscheidungen \u00fcber Breite, Tiefe, L\u00e4nge und Geschlossenheit des Produktsortiments.'},
+  {t:'Preispolitik',d:'Alle Massnahmen zur Festlegung und Gestaltung der Preise f\u00fcr Produkte und Dienstleistungen.'},
+  {t:'Distributionspolitik',d:'Alle Massnahmen zur \u00dcberbr\u00fcckung der r\u00e4umlichen und zeitlichen Distanz zwischen Hersteller und Endkunde.'},
+  {t:'Kommunikationspolitik',d:'Alle Massnahmen zur Information und Beeinflussung von Zielgruppen \u00fcber das Unternehmen und seine Leistungen.'}
+];
+
+// ---- Calculator Panel ----
+function CalcPanel(props){
+  var onClose=props.onClose;
+  var s=useState('0'),disp=s[0],setDisp=s[1];
+  var s2=useState(null),prev=s2[0],setPrev=s2[1];
+  var s3=useState(null),op=s3[0],setOp=s3[1];
+  var s4=useState(true),fresh=s4[0],setFresh=s4[1];
+  var s5=useState([]),hist=s5[0],setHist=s5[1];
+  function num(n){if(fresh){setDisp(String(n));setFresh(false)}else{setDisp(disp==='0'?String(n):disp+n)}}
+  function dec(){if(fresh){setDisp('0.');setFresh(false)}else if(disp.indexOf('.')===-1)setDisp(disp+'.')}
+  function oper(o){var cur=parseFloat(disp);if(prev!==null&&op&&!fresh){var r=calc(prev,cur,op);setDisp(String(Math.round(r*1e8)/1e8));setPrev(r);setHist(function(h){return h.concat([prev+' '+op+' '+cur+' = '+Math.round(r*1e8)/1e8])})}else{setPrev(cur)}setOp(o);setFresh(true)}
+  function calc(a,b,o){if(o==='+')return a+b;if(o==='\u2212')return a-b;if(o==='\u00d7')return a*b;if(o==='\u00f7')return b!==0?a/b:0;return b}
+  function eq(){if(prev===null||!op)return;var cur=parseFloat(disp);var r=calc(prev,cur,op);setHist(function(h){return h.concat([prev+' '+op+' '+cur+' = '+Math.round(r*1e8)/1e8])});setDisp(String(Math.round(r*1e8)/1e8));setPrev(null);setOp(null);setFresh(true)}
+  function cl(){setDisp('0');setPrev(null);setOp(null);setFresh(true)}
+  function pct(){setDisp(String(Math.round(parseFloat(disp)/100*1e8)/1e8))}
+  function sign(){setDisp(String(parseFloat(disp)*-1))}
+  function b(label,action,cls){return e('button',{className:'calc-btn '+cls,onClick:action},label)}
+  return e('div',{className:'panel-overlay calc-panel'},
+    e('div',{className:'panel-header'},e('b',null,'\ud83e\uddc2 Taschenrechner'),e('button',{className:'panel-close',onClick:onClose},'\u2715')),
+    hist.length>0?e('div',{className:'calc-history'},hist.slice(-3).map(function(h,i){return e('div',{key:i,className:'calc-history-item'},h)})):null,
+    e('div',{className:'calc-display'},disp),
+    e('div',{className:'calc-prev'},prev!==null&&op?(prev+' '+op):''),
+    e('div',{className:'calc-grid'},
+      b('AC',cl,'calc-btn-fn'),b('\u00b1',sign,'calc-btn-op'),b('%',pct,'calc-btn-op'),b('\u00f7',function(){oper('\u00f7')},'calc-btn-op'),
+      b('7',function(){num('7')},'calc-btn-num'),b('8',function(){num('8')},'calc-btn-num'),b('9',function(){num('9')},'calc-btn-num'),b('\u00d7',function(){oper('\u00d7')},'calc-btn-op'),
+      b('4',function(){num('4')},'calc-btn-num'),b('5',function(){num('5')},'calc-btn-num'),b('6',function(){num('6')},'calc-btn-num'),b('\u2212',function(){oper('\u2212')},'calc-btn-op'),
+      b('1',function(){num('1')},'calc-btn-num'),b('2',function(){num('2')},'calc-btn-num'),b('3',function(){num('3')},'calc-btn-num'),b('+',function(){oper('+')},'calc-btn-op'),
+      b('0',function(){num('0')},'calc-btn-num calc-btn-span2'),b('.',dec,'calc-btn-num'),b('=',eq,'calc-btn-eq')
+    )
+  );
+}
+
+// ---- Notes Panel ----
+function NotesPanel(props){
+  return e('div',{className:'panel-overlay notes-panel'},
+    e('div',{className:'panel-header'},
+      e('b',null,'\ud83d\udcdd Notizen'),
+      e('div',{style:{display:'flex',gap:8,alignItems:'center'}},
+        e('span',{className:'notes-meta'},props.notes.length+' Zeichen'),
+        e('button',{className:'panel-close',onClick:props.onClose},'\u2715')
+      )
+    ),
+    e('div',{className:'notes-body'},
+      e('textarea',{value:props.notes,onChange:function(ev){props.setNotes(ev.target.value)},placeholder:'Notizen, Stichworte\u2026'})
+    )
+  );
+}
+
+// ---- Glossary Panel ----
+function GlossaryPanel(props){
+  var st=useState(''),search=st[0],setSearch=st[1];
+  var filtered=GLOSSAR.filter(function(g){return g.t.toLowerCase().indexOf(search.toLowerCase())>=0||g.d.toLowerCase().indexOf(search.toLowerCase())>=0});
+  return e('div',{className:'panel-overlay glossary-panel'},
+    e('div',{className:'panel-header'},e('b',null,'\ud83d\udcd6 Glossar'),e('button',{className:'panel-close',onClick:props.onClose},'\u2715')),
+    e('div',{className:'glossary-search'},e('input',{value:search,onChange:function(ev){setSearch(ev.target.value)},placeholder:'Suchen\u2026'})),
+    e('div',{className:'glossary-list'},filtered.map(function(g,i){return e('div',{key:i,className:'glossary-item'},
+      e('div',{className:'glossary-item-title'},g.t),
+      e('div',{className:'glossary-item-desc'},g.d)
+    )}))
+  );
+}
+
+// ---- Tips Component ----
+function Tips(props){
+  var st=useState(false),open=st[0],setOpen=st[1];
+  return e('div',{className:'tip-box'},
+    e('div',{className:'tip-toggle',onClick:function(){setOpen(!open)}},open?'\u25bc':'\u25b6',' Tipps'),
+    open?e('ul',{className:'tip-content'},props.tips.map(function(t,i){return e('li',{key:i},t)})):null
+  );
+}
+
+// ---- Reveal Component ----
+function Reveal(props){
+  var st=useState(false),open=st[0],setOpen=st[1];
+  return e('div',{className:'reveal-box'},
+    e('div',{className:'reveal-toggle',onClick:function(){setOpen(!open)}},open?'\u25bc':'\u25b6',' L\u00f6sungsweg anzeigen'),
+    open?e('div',{className:'reveal-content'},props.steps.map(function(s,i){return e('div',{key:i,className:'reveal-step'},e('strong',null,'Schritt '+(i+1)+': '),s)})):null
+  );
+}
+
+// ======================================================================
+// LEARNING DATA - Theory content for Chapter 1
+// ======================================================================
+var learningData = {};
+
+learningData[1] = {
+  title: 'Aufbau eines Marketingkonzepts',
+  sections: [
+    {
+      type: 'intro',
+      title: 'Lernziele',
+      content: 'Nach der Bearbeitung dieses Kapitels k\u00f6nnen Sie ...',
+      items: [
+        'erkl\u00e4ren, was Marketing ist und welche Bedeutung Kundenorientierung hat.',
+        'die 6 Schritte eines Marketingkonzepts aufz\u00e4hlen und erl\u00e4utern.',
+        'ein Marketingkonzept von anderen Konzeptarten unterscheiden.',
+        'den iterativen Charakter des Marketingkonzepts verstehen.'
+      ]
+    },
+    {
+      type: 'concept',
+      title: 'Was ist Marketing?',
+      content: 'Ausgangspunkt jeder Marketingaktivit\u00e4t ist es, das Bed\u00fcrfnis der Kunden zu erkennen. Marketing umfasst alle T\u00e4tigkeiten und Anstrengungen eines Unternehmens, um ein Bed\u00fcrfnis des Markts zu erkennen, in ein entsprechendes Produkt oder eine Dienstleistung umzuwandeln und diese anschliessend auf dem Markt den Kunden mit Gewinn zu verkaufen.',
+      highlight: 'Marketing = alle T\u00e4tigkeiten, um Bed\u00fcrfnisse zu erkennen, Produkte/DL zu schaffen und gewinnbringend zu verkaufen.'
+    },
+    {
+      type: 'concept',
+      title: 'Das Marketingkonzept',
+      content: 'Das Marketingkonzept ist der \u00fcbergeordnete Rahmen f\u00fcr die T\u00e4tigkeiten im Marketing. Es stellt sicher, dass die einzelnen Elemente des Marketings zusammenpassen. Es schafft Ordnung und einen Orientierungsrahmen in der Marketingpraxis. In den meisten F\u00e4llen wird ein Marketingkonzept auf der Stufe einer strategischen Gesch\u00e4ftseinheit (SGE) formuliert.',
+      highlight: 'Das Marketingkonzept umfasst in der Regel 6 Schritte: Analyse, Zielsetzung, Strategien, Instrumente (Marketing-Mix), Budget und Realisation, Kontrolle.'
+    },
+    {
+      type: 'table',
+      title: 'Die 6 Schritte des Marketingkonzepts',
+      headers: ['Schritt', 'Fragestellung'],
+      rows: [
+        ['1. Analyse', 'Wo stehen wir? Welche St\u00e4rken, Schw\u00e4chen, Risiken und Chancen bestehen im und f\u00fcr unser Unternehmen?'],
+        ['2. Ziele', 'Wohin wollen wir? Welche Zielsetzungen verfolgen wir im Marketing?'],
+        ['3. Strategien', 'Wie erreichen wir die Ziele? Welche grunds\u00e4tzlichen Vorgehensweisen wollen wir definieren?'],
+        ['4. Instrumente', 'Welche Massnahmen sind n\u00f6tig? (Marketing-Mix: Product, Price, Place, Promotion)'],
+        ['5. Budget und Realisation', 'Welche Ressourcen brauchen wir daf\u00fcr?'],
+        ['6. Kontrolle', 'Wie kontrollieren wir den Erfolg? Haben wir die Ziele tats\u00e4chlich erreicht?']
+      ]
+    },
+    {
+      type: 'concept',
+      title: 'Konzeptarten',
+      content: 'Marketingkonzepte k\u00f6nnen sich auf verschiedene Ebenen beziehen: auf ein gesamtes Unternehmen, auf ein strategisches Gesch\u00e4ftsfeld oder auf eine bestimmte Marktleistung. Sie unterscheiden sich nach Umfang/Ebene, Anlass, Empf\u00e4nger, Zweck und Ersteller. Ein Konzept auf der Ebene Marktleistung erstellt z.B. ein Product Manager f\u00fcr die Einf\u00fchrung einer neuen Hypothek.',
+      highlight: 'Es gibt Konzepte auf Unternehmens-, Gesch\u00e4ftsfeld- und Marktleistungsebene.'
+    },
+    {
+      type: 'concept',
+      title: 'Iterativer Charakter',
+      content: 'Die Erarbeitung eines Marketingkonzepts ist ein iterativer Prozess. Die Phasen werden laufend immer wieder durchgespielt. Jeden Tag treffen neue Informationen ein, die die Analyse beeinflussen oder die Ziele \u00e4ndern usw. In einer Pr\u00fcfungssituation ist es jedoch h\u00e4ufig so, dass das Marketingkonzept aus didaktischen Gr\u00fcnden linear aufgebaut wird.',
+      highlight: 'In der Praxis ist das Marketingkonzept iterativ \u2013 in der Pr\u00fcfung wird es oft linear dargestellt.'
+    },
+    {
+      type: 'merke',
+      title: 'Merke dir!',
+      items: [
+        'Marketing beginnt beim Bed\u00fcrfnis der Kunden (Kundenorientierung).',
+        'Das Marketingkonzept hat 6 Schritte: Analyse, Ziele, Strategien, Instrumente, Budget, Kontrolle.',
+        'Es wird meist auf Stufe SGE (strategische Gesch\u00e4ftseinheit) formuliert.',
+        'Konzepte unterscheiden sich nach Umfang, Anlass, Empf\u00e4nger, Zweck und Ersteller.',
+        'Die Erarbeitung ist ein iterativer Prozess \u2013 die Phasen beeinflussen sich gegenseitig.'
+      ]
+    },
+    {
+      type: 'summary',
+      title: 'Zusammenfassung',
+      content: [
+        'Ausgangspunkt jeder Marketingaktivit\u00e4t ist es, das <strong>Bed\u00fcrfnis</strong> der Kunden zu erkennen.',
+        'Eine konsequente <strong>Kundenorientierung</strong> ist unerl\u00e4sslich, um Bed\u00fcrfnisse des Markts zu erkennen und mit einem Produkt oder einer Dienstleistung zu bedienen.',
+        '<strong>Marketing</strong> umfasst alle T\u00e4tigkeiten, um ein Bed\u00fcrfnis des Markts zu erkennen, in ein Produkt umzuwandeln und gewinnbringend zu verkaufen.',
+        'Das <strong>Marketingkonzept</strong> umfasst in der Regel 6 Schritte: Analyse, Ziele, Strategien, Instrumente (Marketing-Mix), Budget und Realisation, Kontrolle.'
+      ]
+    },
+    {
+      type: 'keyterms',
+      title: 'Schl\u00fcsselbegriffe',
+      terms: [
+        {term: 'Marketing', def: 'Alle T\u00e4tigkeiten eines Unternehmens zur Erkennung von Marktbed\u00fcrfnissen und deren Befriedigung durch Produkte/DL.'},
+        {term: 'Marketingkonzept', def: '\u00dcbergeordneter Rahmen f\u00fcr die Marketingt\u00e4tigkeiten mit 6 Schritten.'},
+        {term: 'Kundenorientierung', def: 'Konsequente Ausrichtung aller Aktivit\u00e4ten an den Bed\u00fcrfnissen der Kunden.'},
+        {term: 'Strategische Gesch\u00e4ftseinheit (SGE)', def: 'Organisatorische Einheit, die bestimmte strategische Gesch\u00e4ftsfelder bearbeitet.'},
+        {term: 'Iterativer Prozess', def: 'Ein Prozess, bei dem die Phasen wiederholt durchlaufen und gegenseitig beeinflusst werden.'},
+        {term: 'Marketing-Mix', def: 'Kombination der vier Instrumente: Product, Price, Place, Promotion (4P).'}
+      ]
+    }
+  ]
+};
+
+// ======================================================================
+// EXERCISES DATA
+// ======================================================================
+var exercises = {};
+
+// Chapter 1: Aufbau eines Marketingkonzepts (S.20)
+exercises[1] = {type:'mc', title:'Marketingkonzept und Erfolg', q:'Kann ein Unternehmen ohne Marketingkonzept erfolgreich sein?', options:['Nein, ohne Konzept ist kein Erfolg m\u00f6glich','Ja, aber ein Konzept hilft bei systematischem Vorgehen und wichtigen Entscheidungen','Ja, ein Konzept ist nur f\u00fcr grosse Unternehmen n\u00f6tig','Nein, ein Marketingkonzept ist gesetzlich vorgeschrieben'], correct:1, tip:['Denken Sie an Unternehmen, die von Einzelpersonen gef\u00fchrt werden.','Es gibt Unternehmen, die intuitiv richtig handeln.'], reveal:['Es gibt Unternehmen, die ohne ausformuliertes Konzept erfolgreich sind, aber konzeptionell vorgehen.','Ein Marketingkonzept hilft bei systematischem Vorgehen und unterst\u00fctzt wichtige Entscheidungen.']};
+
+exercises[2] = {type:'fill', title:'Die 6 Schritte des Marketingkonzepts', q:'Erg\u00e4nzen Sie die 6 Schritte des Marketingkonzepts:', parts:[{text:'1. Die ',blank:'Analyse',after:''},  {text:'2. Die ',blank:'Zielsetzung',after:' (Ziele)'}, {text:'3. Die ',blank:'Strategien',after:''}, {text:'4. Die ',blank:'Instrumente',after:' (Marketing-Mix)'}, {text:'5. Das ',blank:'Budget',after:' und die Realisation'}, {text:'6. Die ',blank:'Kontrolle',after:''}], tip:['Denken Sie an die logische Reihenfolge eines Planungsprozesses.'], reveal:['Die 6 Schritte: Analyse, Zielsetzung, Strategien, Instrumente, Budget/Realisation, Kontrolle.']};
+
+exercises[3] = {type:'mc', title:'Marketingdefinition', q:'Welche Marketingdefinitionen sind allgemeing\u00fcltig und nachvollziehbar?', options:['A) Marketing ist darauf gerichtet, Bed\u00fcrfnisse und W\u00fcnsche durch Austauschprozesse zu befriedigen.','B) Marketing ist marktgerichtete und marktgerechte Unternehmensf\u00fchrung.','C) Marketing heisst, mit Werbung den Brand optimal zu positionieren.','D) Marketing ist Planung, Koordination und Kontrolle aller auf die aktuellen und potenziellen M\u00e4rkte ausgerichteten Unternehmensaktivit\u00e4ten.'], correct:2, tip:['Welche Definition beschr\u00e4nkt sich nur auf Werbung?'], reveal:['C ist nicht allgemeing\u00fcltig \u2013 Marketing ist viel mehr als nur Werbung.','A, B und D sind anerkannte Definitionen.']};
+
+exercises[4] = {type:'mc', title:'Konzeptebene', q:'Ein neues Produkt wird eingef\u00fchrt. Daf\u00fcr erstellen Sie als Produktmanagerin ein Marketingkonzept. Um welche Art von Konzept handelt es sich?', options:['Konzept auf Unternehmensebene','Konzept auf SGF-Ebene (strategisches Gesch\u00e4ftsfeld)','Konzept auf Marktleistungsebene','Konzept auf Abteilungsebene'], correct:2, tip:['Auf welcher Ebene arbeitet ein Produktmanager typischerweise?'], reveal:['Da es um ein einzelnes Produkt geht, handelt es sich um ein Konzept auf der Ebene Marktleistung.']};
+
+exercises[5] = {type:'tf', title:'Iterativer Prozess', statements:[{text:'In der Praxis baut man ein Marketingkonzept streng linear auf.', correct:false, feedback:'Die Erarbeitung ist ein iterativer Prozess \u2013 die Phasen beeinflussen sich gegenseitig.'},{text:'Neue Informationen k\u00f6nnen die Analyse und Ziele jederzeit \u00e4ndern.', correct:true, feedback:'Richtig \u2013 deshalb ist der Prozess iterativ.'},{text:'In der Pr\u00fcfung wird das Konzept oft linear dargestellt.', correct:true, feedback:'Aus didaktischen Gr\u00fcnden wird das Konzept in Pr\u00fcfungen oft linear aufgebaut.'}]};
+
+// Chapter 2: Marktdefinition und Abh\u00e4ngigkeiten (S.33-34)
+exercises[6] = {type:'table-check', title:'Teilm\u00e4rkte oder Segmente?', q:'Handelt es sich bei den folgenden Einteilungen um Teilm\u00e4rkte oder Segmente?', headers:['Beispiel','Teilmarkt','Segment'], rows:[{label:'Studierende an Fachhochschulen, Universit\u00e4ten und ETHs, die B\u00fccher kaufen',correct:1},{label:'Lehrmittel f\u00fcr Fachhochschulen, die von Verlagen produziert werden',correct:0},{label:'Sportliche Fahrer, die BMW, Audi oder Ford Mustang lieben',correct:1},{label:'Die Firma Dow Chemicals beliefert Unternehmen in der Kosmetik- und Automobilbranche mit Silikonen',correct:0}], tip:['Teilm\u00e4rkte werden nach dem Angebot definiert, Segmente nach der Nachfrage (Kundengruppen).']};
+
+exercises[7] = {type:'calc', title:'S\u00e4ttigungsgrad berechnen', q:'Berechnen Sie den S\u00e4ttigungsgrad f\u00fcr eine spezielle Software im Markt Europa.', rows:[{label:'Marktvolumen 20_1',val:'EUR 18 Mio.'},{label:'Marktpotenzial 20_1',val:'EUR 68 Mio.'},{label:'Marktvolumen 20_2',val:'EUR 31 Mio.'},{label:'Marktpotenzial 20_2',val:'EUR 75 Mio.'}], inputs:[{label:'S\u00e4ttigungsgrad 20_1 (in %)',answer:['26.5','26,5'],tolerance:0.5},{label:'S\u00e4ttigungsgrad 20_2 (in %)',answer:['41.3','41,3'],tolerance:0.5}], tip:['S\u00e4ttigungsgrad = Marktvolumen / Marktpotenzial \u00d7 100'], reveal:['S\u00e4ttigungsgrad 20_1: 18/68 = 26.5%','S\u00e4ttigungsgrad 20_2: 31/75 = 41.3%','Der S\u00e4ttigungsgrad steigt.']};
+
+exercises[8] = {type:'open', title:'Marktanteil berechnen', q:'Berechnen Sie den wertm\u00e4ssigen Marktanteil und den relativen Marktanteil von LINK. Die Forschungsumsatztabelle zeigt: LINK = 32 855 von Total 227 889 (CHF 1000). Die gr\u00f6ssten drei Konkurrenten: IHA-GfK = 84 164, LINK = 32 855, DemoSCOPE = 18 775.', keywords:['14.4','14,4','85.8','85,8','marktanteil'], tip:['Wertm\u00e4ssiger Marktanteil = eigener Umsatz / Gesamtumsatz','Relativer Marktanteil = Marktanteil / Marktanteil der gr\u00f6ssten 3 Konkurrenten'], reveal:['Wertm\u00e4ssiger Marktanteil = 32 855 / 227 889 = 14.4%','Relativer Marktanteil (gemessen an den 3 Gr\u00f6ssten) = 85.8% (32 855 / (84 164 + 18 775 + 11 887) / 3)']};
+
+exercises[9] = {type:'open', title:'SGF vs. SGE', q:'Was ist der Unterschied zwischen einem strategischen Gesch\u00e4ftsfeld (SGF) und einer strategischen Gesch\u00e4ftseinheit (SGE)? Beschreiben Sie die beiden Begriffe sowie die Unterschiede.', keywords:['markt','extern','intern','organisation','unternehmen','aussen','innen'], tip:['SGF wird von aussen definiert, SGE von innen.'], reveal:['Ein SGF ist ein \u00abMarkt im Markt\u00bb \u2013 es wird von aussen durch unterschiedliche Kunden, Konkurrenten und Angebote definiert.','Eine SGE ist eine organisatorische Einheit im Unternehmen, die bestimmte SGF bearbeitet \u2013 sie wird von innen definiert.']};
+
+exercises[10] = {type:'match', title:'Marktgr\u00f6ssen ordnen', q:'Ordnen Sie die Marktgr\u00f6ssen in aufsteigender Reihenfolge (1=kleinste, 4=gr\u00f6sste).', pairs:[{left:'Marktanteil',right:'1'},{left:'Marktvolumen',right:'2'},{left:'Marktpotenzial',right:'3'},{left:'Marktkapazit\u00e4t',right:'4'}], options:['1','2','3','4']};
+
+exercises[11] = {type:'open', title:'Minicase: Easy Building AG', q:'Sie sind Marketingverantwortliche/r beim Bauberatungsunternehmen Easy Building AG. Ihre Kunden sind Bauherren (Privatpersonen). Erl\u00e4utern Sie das Marktsystem, in dem sich Easy Building bewegt.', keywords:['kunden','konkurrenz','beeinflusser','umfeld','dienstleistung'], tip:['Denken Sie an die Akteure im Marktsystem: Unternehmen, Kunden, Konkurrenz, Beeinflusser, Umfeld.'], reveal:['Im Dienstleistungssektor fallen Handelspartner weg \u2013 direkter Kontakt zum Endkunden.','Externe Beeinflusser: Architekturb\u00fcros, Hauseigent\u00fcmerverband, Medien.','Umfeldfaktoren: Wirtschaft (Konjunktur, Zinspolitik), Technologie (Bautechnologien), Gesellschaft, Recht.']};
+
+// Chapter 3: Analyse I: Marktanalyse (S.58-59)
+exercises[12] = {type:'open', title:'Kundenanalyse und CLV', q:'Eine Buchhandlung sch\u00e4tzt, dass Stammkunden pro Monat im Durchschnitt ein Buch zu einem Preis von CHF 38 kaufen und 10 Jahre treu bleiben. Berechnen Sie den Customer Lifetime Value (Umsatz, nicht Deckungsbeitrag).', keywords:['4560','4\'560','4560'], tip:['CLV = Durchschnittsumsatz pro Monat \u00d7 12 Monate \u00d7 Anzahl Jahre'], reveal:['CLV = CHF 38 \u00d7 12 \u00d7 10 = CHF 4\u2019560']};
+
+exercises[13] = {type:'tf', title:'Marktanalyse: Richtig oder falsch?', statements:[{text:'Beim Benchmarking vergleicht man sich immer mit dem Branchenleader.', correct:false, feedback:'Man kann auch internes Benchmarking betreiben oder Best-in-Class aus anderen Branchen.'},{text:'Bei einer ABC-Analyse generieren A-Kunden \u00fcberdurchschnittlich viel Umsatz.', correct:true, feedback:'A-Kunden machen ca. 80% des Umsatzes aus.'},{text:'Ein iPhone ist ein High-Involvement-Produkt f\u00fcr die meisten Jugendlichen.', correct:true, feedback:'Hoher Preis, emotionale Bindung \u2013 typisch High-Involvement.'},{text:'In einem Markt, der schnell w\u00e4chst, ist die Rivalit\u00e4t eher gering.', correct:true, feedback:'Bei Marktwachstum k\u00f6nnen alle Anbieter wachsen, der Wettbewerb ist weniger intensiv.'},{text:'Je h\u00f6her die Markteintrittsbarrieren, desto h\u00f6her die m\u00f6gliche Rentabilit\u00e4t der etablierten Unternehmen.', correct:true, feedback:'Hohe Barrieren sch\u00fctzen bestehende Anbieter.'}]};
+
+exercises[14] = {type:'mc', title:'Externer Beeinflusser', q:'Wenn Jasmin im Swisscom-Shop ein neues Samsung-Smartphone kauft, weil der Verk\u00e4ufer sie von den Vorteilen \u00fcberzeugt \u2013 ist der Verk\u00e4ufer dann ein externer Beeinflusser?', options:['Ja, der Verk\u00e4ufer ist ein externer Beeinflusser','Nein, der Verk\u00e4ufer ist kein externer Beeinflusser','Es kommt auf die Situation an','Nur wenn er nicht bei Swisscom angestellt ist'], correct:1, tip:['Der Verk\u00e4ufer ist Teil des Vertriebskanals, nicht ein externer Beeinflusser.'], reveal:['Nein. Der Verk\u00e4ufer ist Teil der Handelskette \u2013 kein externer Beeinflusser.','Externe Beeinflusser sind z.B. Testmagazine, Medien, Verb\u00e4nde.']};
+
+exercises[15] = {type:'mc', title:'Externe Beeinflusser II', q:'Wenn Feriensg\u00e4ste auf TripAdvisor ein Hotel kommentieren, sind sie dann externe Beeinflusser?', options:['Nein, sie sind K\u00e4ufer','Ja, sie sind externe Beeinflusser','Nein, sie sind interne Beeinflusser','Nur wenn sie bezahlt werden'], correct:1, tip:['TripAdvisor-Bewertungen beeinflussen die Kaufentscheidung anderer.'], reveal:['Ja. Bewertungen auf Plattformen wie TripAdvisor beeinflussen die Kaufentscheidung Dritter \u2013 das macht die Rezensenten zu externen Beeinflussern.']};
+
+exercises[16] = {type:'mc', title:'Emotion oder Motivation', q:'Wenn ich beim Glacegenuss gl\u00fccklich bin, ist Gl\u00fcck eine Emotion oder eine Einstellung?', options:['Eine Einstellung','Eine Emotion','Eine Motivation','Ein Bed\u00fcrfnis'], correct:1, tip:['Emotionen sind kurzfristige Gef\u00fchle, Einstellungen sind langfristig.'], reveal:['Gl\u00fcck ist eine Emotion \u2013 ein kurzfristiges Gef\u00fchl im Moment des Genusses.']};
+
+exercises[17] = {type:'tf', title:'Konkurrenten und Qualit\u00e4t', statements:[{text:'Konkurrenten, die kosteng\u00fcnstig produzieren, sind weniger gef\u00e4hrlich f\u00fcr ein Unternehmen, weil die Qualit\u00e4t der Produkte schlecht ist.', correct:false, feedback:'Kosteng\u00fcnstige Produktion bedeutet nicht automatisch schlechte Qualit\u00e4t. Kostenf\u00fchrerschaft kann sehr gef\u00e4hrlich sein.'}]};
+
+exercises[18] = {type:'table-check', title:'Five Forces: Hyatt-Hotel Z\u00fcrich', q:'Ordnen Sie die folgenden Faktoren den f\u00fcnf Wettbewerbskr\u00e4ften nach Porter zu.', headers:['Faktor','Neue Konkurrenten','Abnehmer','Lieferanten','Ersatzprodukte','Rivalit\u00e4t'], rows:[{label:'Airbnb-Vermietungsplattform',correct:3},{label:'Booking.com-Reservationsplattform',correct:1},{label:'Tiefpreispolitik von Hilton in Z\u00fcrich',correct:4},{label:'Fusion der gr\u00f6ssten Konferenz- und Messeveranstalter',correct:2}], tip:['Denken Sie: wer ist Ersatzprodukt, wer verst\u00e4rkt die Verhandlungsmacht?']};
+
+exercises[19] = {type:'open', title:'Minicase: Ski and Fun AG', q:'Fabio, der neue Gesch\u00e4ftsf\u00fchrer der \u00abSki and Fun AG\u00bb, hat festgestellt, dass der Verkauf \u00fcber kleine Fachgesch\u00e4fte und den eigenen Onlineshop noch nicht ausreicht. Er bittet Sie um eine Analyse m\u00f6glicher Absatzkan\u00e4le und erste Empfehlungen f\u00fcr zwei weitere Absatzwege.', keywords:['distribution','kanal','online','plattform','handel','grosshandel','sport'], tip:['Denken Sie an direkte und indirekte Absatzkan\u00e4le.','Online-Plattformen, Sportfachhandel, Kaufh\u00e4user, Franchise.'], reveal:['M\u00f6gliche Absatzwege: Sportfachhandelsketten, Kaufh\u00e4user, Online-Plattformen (z.B. Galaxus, Amazon), Pop-up-Stores in Skigebieten.']};
+
+exercises[20] = {type:'mc', title:'Marktforschungsinstitute', q:'Welches ist das gr\u00f6sste Schweizer Marktforschungsinstitut gemessen am Forschungsumsatz?', options:['LINK Institut','DemoSCOPE','IHA-GfK AG','gfs.bern'], correct:2, tip:['Schauen Sie sich die Tabelle der Forschungsums\u00e4tze an.'], reveal:['IHA-GfK AG (Hergiswil/Lausanne) ist mit Abstand das gr\u00f6sste Schweizer Marktforschungsinstitut.']};
+
+// Chapter 4: Analyse II: Unternehmens- und Umfeldanalyse (S.75-76)
+exercises[21] = {type:'open', title:'BCG-Portfolio: Nur Cash Cows?', q:'Ein Unternehmen erstellt eine Portfolioanalyse und stellt fest, dass alle vier Produkte Cash Cows sind. Beurteilen Sie diese Situation als vorteilhaft oder problematisch.', keywords:['zukunft','wachstum','star','investition','innovation'], tip:['Was passiert, wenn es keine Stars oder Question Marks gibt?'], reveal:['Problematisch: Cash Cows generieren zwar Geld, aber ohne Stars oder Question Marks fehlen k\u00fcnftige Wachstumstr\u00e4ger.','Langfristig braucht ein Unternehmen neue Produkte, die in wachsenden M\u00e4rkten positioniert sind.']};
+
+exercises[22] = {type:'open', title:'Umfeldanalyse und McKinsey', q:'Welchen Einfluss hat die Umfeldanalyse auf die Bewertung einer strategischen Gesch\u00e4ftseinheit in der McKinsey-Matrix?', keywords:['marktattraktivit\u00e4t','umfeld','extern','chancen','gefahren'], tip:['Die McKinsey-Matrix betrachtet Marktattraktivit\u00e4t und Wettbewerbsvorteil.'], reveal:['Die Umfeldanalyse fliesst in die Dimension Marktattraktivit\u00e4t ein.','Politische, wirtschaftliche und technologische Faktoren beeinflussen die Attraktivit\u00e4t eines Marktes.']};
+
+exercises[23] = {type:'mc', title:'Kritischer Erfolgsfaktor oder SEP?', q:'Eine Analyse ergibt, dass im \u00d6lgesch\u00e4ft die Gr\u00f6sse eine entscheidende Rolle spielt. Grosse Unternehmen sind erfolgreicher. Ist die Gr\u00f6sse ein kritischer Erfolgsfaktor oder eine strategische Erfolgsposition?', options:['Strategische Erfolgsposition (SEP)','Kritischer Erfolgsfaktor (KEF)','Beides','Keines von beiden'], correct:1, tip:['KEF gelten f\u00fcr alle in der Branche. SEP sind unternehmensspezifisch.'], reveal:['Die Gr\u00f6sse ist ein kritischer Erfolgsfaktor (KEF) \u2013 sie gilt f\u00fcr alle Unternehmen in der \u00d6lbranche.','Eine SEP w\u00e4re eine unternehmensspezifische St\u00e4rke, z.B. ein patentiertes Bohrverfahren.']};
+
+exercises[24] = {type:'table-check', title:'SWOT-Analyse: MUSKELFIT Fitnesscenter', q:'Ordnen Sie die Aussagen den SWOT-Bereichen zu (S=St\u00e4rke, W=Schw\u00e4che, O=Opportunity/Chance, T=Threat/Gefahr).', headers:['Aussage','S','W','O','T'], rows:[{label:'Es besteht ein starker Trend zu Outdooraktivit\u00e4ten.',correct:3},{label:'Fitnesscenter hat optimalen Standort.',correct:0},{label:'Wir verf\u00fcgen \u00fcber eine gute Kostenstruktur.',correct:0},{label:'Im Vergleich zur Konkurrenz haben wir eine schlechte Kommunikationspolitik.',correct:1},{label:'Es gibt einen Trend zu Fitness / K\u00f6rperbewusstsein.',correct:2},{label:'Krankenkassen streichen Beitr\u00e4ge f\u00fcr Sport-Abos.',correct:3}], tip:['Intern = St\u00e4rken/Schw\u00e4chen; Extern = Chancen/Gefahren']};
+
+exercises[25] = {type:'table-check', title:'McKinsey: M oder W?', q:'Ordnen Sie die Bewertungskriterien den Dimensionen Marktattraktivit\u00e4t (M) oder Wettbewerbsvorteil (W) zu.', headers:['Bewertungskriterium','M','W'], rows:[{label:'Mengenentwicklung',correct:0},{label:'Ressourcenpotenzial',correct:1},{label:'Marktanteilsentwicklung',correct:1},{label:'Marktwachstumspotenzial',correct:0},{label:'Effizienz der Abwicklungsprozesse',correct:1},{label:'Kundenverhalten',correct:0}], tip:['M betrifft den Markt als Ganzes, W betrifft das eigene Unternehmen.']};
+
+exercises[26] = {type:'open', title:'McKinsey-Portfolio interpretieren', q:'Was k\u00f6nnen wir \u00fcber die Gesch\u00e4ftseinheiten A, B und C der Firma Anastasas sagen, wenn A geringe Marktattraktivit\u00e4t und mittleren Wettbewerbsvorteil hat, B mittlere Marktattraktivit\u00e4t und mittleren Wettbewerbsvorteil, und C hohe Marktattraktivit\u00e4t und hohen Wettbewerbsvorteil?', keywords:['investition','selektiv','absch\u00f6pf','wachstum'], tip:['Oben rechts = investieren, Mitte = selektiv, unten links = absch\u00f6pfen/desinvestieren.'], reveal:['A: Absch\u00f6pfen oder Desinvestition empfohlen.','B: Selektive Strategie \u2013 in einzelne Bereiche investieren.','C: Investitionsstrategie \u2013 Wachstum vorantreiben.']};
+
+// Chapter 5: Marketingziele (S.85-86)
+exercises[27] = {type:'fill', title:'Zielhierarchie', q:'Ordnen Sie die Zielebenen in die richtige Reihenfolge (von oben nach unten):', parts:[{text:'1. ',blank:'Unternehmensziele',after:''}, {text:'2. ',blank:'Marketingoberziele',after:''}, {text:'3. ',blank:'Marketingzwischenziele',after:''}, {text:'4. ',blank:'Marketingunterziele',after:''}], tip:['Von der obersten Ebene (Unternehmen) bis zur untersten (Unterziele).']};
+
+exercises[28] = {type:'mc', title:'Zielarten', q:'Was sind strategische Ziele?', options:['Kurzfristige Ziele bis 1 Jahr','Langfristige Ziele von 3-5 Jahren','Mittelfristige Ziele von 2-3 Jahren','Ziele ohne Zeitbezug'], correct:1, tip:['Strategisch = langfristig, operativ = mittelfristig, taktisch = kurzfristig.']};
+
+exercises[29] = {type:'open', title:'5-W-Formulierung (Image)', q:'Formulieren Sie das folgende Marketingziel anhand der 5 W: \u00abDas Image bei den Jungen soll verbessert werden.\u00bb', keywords:['was','wie viel','wem','wann','wo'], tip:['Die 5 W: Was, Wie viel, Wem, Wann, Wo.','Beispiel: Was: Image verbessern, Wie viel: um 15%, Wem: bei 18-25-J\u00e4hrigen, Wann: bis Ende 20xx, Wo: Deutschschweiz.'], reveal:['Was: Image verbessern','Wie viel: z.B. Imagewert von 3.2 auf 4.0 steigern','Wem: bei der Zielgruppe 18-25-J\u00e4hrige','Wann: bis Ende des Gesch\u00e4ftsjahres','Wo: in der Deutschschweiz']};
+
+exercises[30] = {type:'open', title:'5-W-Formulierung (Marktanteile)', q:'Formulieren Sie das folgende Marketingziel anhand der 5 W: \u00abWir d\u00fcrfen keine Marktanteile verlieren.\u00bb', keywords:['was','wie viel','wem','wann','wo'], tip:['Was genau? Welcher Marktanteil? Bis wann? Wo?'], reveal:['Was: Marktanteil halten','Wie viel: z.B. mindestens 15% Marktanteil','Wem: bei den bestehenden Kunden in der Zielgruppe','Wann: bis Ende 20xx','Wo: in der Schweiz']};
+
+exercises[31] = {type:'open', title:'5-W-Formulierung (Produktlancierung)', q:'Formulieren Sie das folgende Marketingziel anhand der 5 W: \u00abDie Produktlancierung muss ein voller Erfolg werden.\u00bb', keywords:['was','wie viel','wem','wann','wo'], tip:['Definieren Sie, was \u00abErfolg\u00bb konkret bedeutet.'], reveal:['Was: Erfolgreiche Produktlancierung (z.B. Absatzziel erreichen)','Wie viel: z.B. 10\u2019000 St\u00fcck im ersten Quartal','Wem: bei der Zielgruppe Frauen 25-45','Wann: bis 31.03.20xx','Wo: in der Deutschschweiz']};
+
+exercises[32] = {type:'match', title:'Zielhierarchie ordnen', q:'Bringen Sie die folgenden Ziele in eine Zielhierarchie (1=oberste Ebene, 3=unterste).', pairs:[{left:'Umsatz von Produkt A im Jahr 20xx in der Schweiz: CHF 3.2 Mio.',right:'1'},{left:'Kosten von Produkt A im Jahr 20xx in der Schweiz: CHF 2.5 Mio.',right:'2'},{left:'Rendite von Produkt A im Jahr 20xx in der Schweiz: 15%',right:'3'}], options:['1','2','3'], tip:['Rendite = Gewinn/Umsatz. Was leitet sich woraus ab?'], reveal:['1. Umsatz (Oberziel)','2. Kosten (muss zum Umsatz passen)','3. Rendite (ergibt sich aus Umsatz und Kosten)']};
+
+exercises[33] = {type:'table-check', title:'Zielbeziehungen', q:'Welche Beziehung besteht zwischen folgenden Zielen? Annahmen: 1) Umsatz steigt \u2192 Gewinn steigt, 2) Preis steigt \u2192 Umsatz konstant, 3) Preis steigt \u2192 Kunden unzufrieden, 4) Zuschlagskalkulation.', headers:['Zielpaar','Zielkonflikt','Zielkongruenz','Zielindifferenz'], rows:[{label:'Umsatz und Gewinn',correct:1},{label:'Kundenzufriedenheit und Preis',correct:0},{label:'Umsatz und Marge',correct:2}], tip:['Zielkonflikt: Ziele widersprechen sich. Zielkongruenz: Ziele unterst\u00fctzen sich. Zielindifferenz: keine Beziehung.']};
+
+exercises[34] = {type:'table-check', title:'SMART-Formel', q:'Welche Elemente der SMART-Formel enthalten die folgenden Zielformulierungen?', headers:['Zielformulierung','S','M','A','R','T'], rows:[{label:'Ich will in 2 Wochen 4 Kilo abnehmen.',correct:4},{label:'Mein Konzept f\u00fcr die Umnutzung des Dachgeschosses liegt per 31.05., 9 Uhr zur Verabschiedung vor.',correct:4},{label:'Bis Anfang n\u00e4chster Woche erarbeite ich eine Grossofferte f\u00fcr die Firma Alpa AG.',correct:3},{label:'Bis 15. Dezember 20xx versenden wir die Weihnachtsgeschenke an Firmenkunden.',correct:4}], tip:['S=spezifisch, M=messbar, A=attraktiv/akzeptiert, R=realistisch, T=terminiert']};
+
+// Chapter 6: Marketingstrategien (S.112-113)
+exercises[35] = {type:'table-check', title:'Ansoff-Matrix zuordnen', q:'Um welche Wachstumsstrategie nach Ansoff handelt es sich?', headers:['Beispiel','Marktpenetration','Produkt-/Sortimentsentwicklung','Marktentwicklung','Diversifikation'], rows:[{label:'Starbucks betreibt nicht nur Restaurants, sondern verkauft Kaffee in Superm\u00e4rkten.',correct:2},{label:'Lindt-Schokoladen treten mit grossem Aufwand in den amerikanischen Markt ein.',correct:2},{label:'Das Plattenlabel Virgin betreibt eine Fluglinie und stellt Cola her.',correct:3},{label:'Google \u00fcbernimmt YouTube f\u00fcr USD 1.6 Mrd.',correct:3}], tip:['Marktpenetration: gleicher Markt, gleiches Produkt. Marktentwicklung: neuer Markt. Produktentwicklung: neues Produkt. Diversifikation: neuer Markt + neues Produkt.']};
+
+exercises[36] = {type:'open', title:'Konkurrenzstrategie vs. Marktentwicklung', q:'Beschreiben Sie, wie ein Unternehmen nach der Konkurrenzstrategie und nach der Marktentwicklungsstrategie nach K\u00fchn wachsen kann. Wie ver\u00e4ndern sich Marktvolumen und Marktanteil?', keywords:['marktvolumen','marktanteil','konkurrenz','verdrangt','neu'], tip:['Konkurrenzstrategie: im bestehenden Markt wachsen. Marktentwicklung: neue M\u00e4rkte erschliessen.'], reveal:['Konkurrenzstrategie: Marktanteil steigt, Marktvolumen bleibt gleich \u2013 man w\u00e4chst auf Kosten der Konkurrenz.','Marktentwicklungsstrategie: Marktvolumen steigt, weil neue K\u00e4ufer gewonnen werden \u2013 Marktanteil kann steigen oder gleich bleiben.']};
+
+exercises[37] = {type:'open', title:'Warum Diversifikation?', q:'Warum gibt es Unternehmen, die eine Diversifikationsstrategie verfolgen, obwohl eine Marktpenetration gem\u00e4ss Ansoff viel weniger risikoreich ist?', keywords:['risiko','wachstum','s\u00e4ttigung','synergie','chance','markt'], tip:['Denken Sie an ges\u00e4ttigte M\u00e4rkte, neue Chancen, Risikoverteilung.'], reveal:['M\u00f6gliche Gr\u00fcnde: Markt ist ges\u00e4ttigt, neue Wachstumschancen in anderen Branchen, Risikostreuung, Synergien nutzen, Attraktivit\u00e4t neuer M\u00e4rkte.']};
+
+exercises[38] = {type:'open', title:'Joint Venture Risiko', q:'Ein Schweizer Produzent von Werkzeugmaschinen geht mit einem chinesischen Partner ein Joint Venture ein. Der Partner hat zwar nicht das Know-how, aber sehr g\u00fcnstige Arbeitskr\u00e4fte. Worin besteht das gr\u00f6sste Risiko f\u00fcr die Schweizer Firma?', keywords:['know-how','technologie','kopieren','wissen','konkurrenz'], tip:['Was k\u00f6nnte der Partner mit dem gewonnenen Wissen tun?'], reveal:['Das gr\u00f6sste Risiko ist der Know-how-Transfer: Der chinesische Partner k\u00f6nnte das erlernte technische Wissen nutzen, um eigene Produkte herzustellen und zum Konkurrenten zu werden.']};
+
+exercises[39] = {type:'mc', title:'Massenmarketing vs. Segmentierung', q:'Unter welchen Bedingungen ist ein Massenmarketing erfolgversprechender als eine Segmentierung?', options:['Wenn die Kundenbed\u00fcrfnisse sehr heterogen sind','Wenn die Kundenbed\u00fcrfnisse sehr homogen sind und der Markt gross genug ist','Wenn das Unternehmen viele Ressourcen hat','Wenn der Markt ges\u00e4ttigt ist'], correct:1, tip:['Bei homogenen Bed\u00fcrfnissen lohnt sich keine Differenzierung.']};
+
+exercises[40] = {type:'open', title:'Alter als Segmentierungskriterium', q:'Nennen Sie drei M\u00e4rkte, in denen das \u00abAlter\u00bb ein sinnvolles Segmentierungskriterium darstellt. Begr\u00fcnden Sie Ihre Wahl.', keywords:['alter','generation','lebensphase'], tip:['Denken Sie an Branchen, wo das Alter die Bed\u00fcrfnisse stark beeinflusst.'], reveal:['Beispiele: 1) Versicherungen (Lebensversicherung, Pensionskasse), 2) Medien/Unterhaltung (TikTok vs. Fernsehen), 3) Gesundheit/Pharma (Kindermedizin vs. Alterspflege).']};
+
+exercises[41] = {type:'open', title:'Positionierungsstrategien', q:'Nennen Sie die vier Positionierungsstrategien und geben Sie jeweils ein Beispiel.', keywords:['pr\u00e4ferenz','leistung','kommunikation','preis','me-too'], tip:['Es gibt vier Strategien: Pr\u00e4ferenzstrategie mittels Leistungsprofilierung, mittels Kommunikationsprofilierung, Preis-Mengen-Strategie und Me-too-Strategie.'], reveal:['1. Pr\u00e4ferenzstrategie mittels Leistungsprofilierung (z.B. Apple)','2. Pr\u00e4ferenzstrategie mittels Kommunikationsprofilierung (z.B. Red Bull)','3. Preis-Mengen-Strategie (z.B. Aldi, Lidl)','4. Me-too-Strategie (z.B. No-Name-Produkte)']};
+
+// Chapter 7: Marketingmix (S.138)
+exercises[42] = {type:'open', title:'Begriffe Marketingmix', q:'Erkl\u00e4ren Sie die Begriffe \u00abMarketingmix\u00bb, \u00abSubmix\u00bb und \u00abTeilmix\u00bb.', keywords:['instrument','kombination','4p','product','price','place','promotion'], tip:['Marketingmix = Gesamtheit, Submix = eines der 4P, Teilmix = Unterkategorie eines Submix.'], reveal:['Marketingmix: Kombination aller Marketinginstrumente (4P).','Submix: Eines der 4P (z.B. Produktmix).','Teilmix: Unterkategorie eines Submix (z.B. Sortimentspolitik als Teil des Produktmix).']};
+
+exercises[43] = {type:'open', title:'Produktlebenszyklus: Telegramm', q:'Der Telegrammdienst der Schweizer Post wurde 1999 eingestellt. Zwischen 1870 und 1900 wurden j\u00e4hrlich 1.7 Mio. Telegramme gesendet, Spitzenwert 1919: 8 Mio. Beschreiben Sie den Produktlebenszyklus des Telegramms.', keywords:['einf\u00fchrung','wachstum','reife','s\u00e4ttigung','degeneration','r\u00fcckgang'], tip:['Zeichnen Sie gedanklich die klassische PLZ-Kurve.'], reveal:['Einf\u00fchrung: ab 1852','Wachstum: 1870-1919 (starkes Wachstum auf 8 Mio.)','Reife/S\u00e4ttigung: nach 1919 (Spitzenwert nie mehr erreicht)','Degeneration: Verdr\u00e4ngung durch Telefon, Telex, Fax, E-Mail','Ende: 1999 Einstellung des Dienstes']};
+
+exercises[44] = {type:'open', title:'Internationaler Marketingmix: McDonald\'s', q:'Welche Elemente des internationalen Marketingmix der Fast-Food-Kette McDonald\'s sind standardisiert und welche differenziert?', keywords:['standard','differenz','preis','produkt','marke','werbung'], tip:['Die Marke ist weltweit gleich, aber das Sortiment variiert nach Land.'], reveal:['Standardisiert: Marke, Logo, grundlegendes Konzept, Big Mac.','Etwas standardisiert bis gemischt: Werbung (global + lokal).','Etwas differenziert: Produktsortiment (McRaclette in der Schweiz, McFalafel etc.).','Differenziert: Preise (nach Kaufkraft des Landes).']};
+
+exercises[45] = {type:'mc', title:'Marketing in der Politik', q:'Ist es legitim, auch in der Politik von Marketing zu sprechen?', options:['Nein, Marketing ist nur f\u00fcr Produkte','Ja, politische Parteien nutzen Marketingkonzepte f\u00fcr Wahlkampf und Positionierung','Nur bei Wahlkampf','Nein, Politik hat nichts mit Marketing zu tun'], correct:1, tip:['Denken Sie an Wahlkampf, Parteiimage, Positionierung.'], reveal:['Ja \u2013 Parteien nutzen Marketinginstrumente: Marktforschung, Zielgruppenansprache, Positionierung, Kommunikationsmix.']};
+
+exercises[46] = {type:'match', title:'Submix zuordnen', q:'Ordnen Sie die Instrumente dem richtigen Submix zu.', pairs:[{left:'Sortimentspolitik',right:'Product'},{left:'Rabattgew\u00e4hrung',right:'Price'},{left:'Wahl des Vertriebskanals',right:'Place'},{left:'Werbung und PR',right:'Promotion'}], options:['Product','Price','Place','Promotion']};
+
+exercises[47] = {type:'mc', title:'Standard-Dominanz-Modell', q:'Was sind dominante Instrumente im Standard-Dominanz-Modell?', options:['Instrumente mit geringem Einfluss','Instrumente mit hoher Absatzbedeutung und grossem Freiheitsgrad','Instrumente mit hoher Absatzbedeutung und geringem Freiheitsgrad','Instrumente mit geringer Absatzbedeutung und geringem Freiheitsgrad'], correct:1, tip:['Dominant = wichtig UND der Konkurrenz \u00fcberlegen (grosser Freiheitsgrad).'], reveal:['Dominante Instrumente sind wichtig f\u00fcr den Absatz UND bieten Freiheitsgrade zur Differenzierung gegen\u00fcber der Konkurrenz.']};
+
+exercises[48] = {type:'tf', title:'Konsumg\u00fctermarketing', statements:[{text:'Beim Konsumg\u00fctermarketing hat sich die Formel mit den 4 P (Product, Price, Place, Promotion) gut bew\u00e4hrt.',correct:true,feedback:'Richtig. Die 4P sind das klassische Modell f\u00fcr Konsumg\u00fctermarketing.'},{text:'Bei personalintensiven Dienstleistungen reichen die 4P aus.',correct:false,feedback:'Falsch. Bei Dienstleistungen kommen 3 zus\u00e4tzliche P hinzu: People, Process, Physical Tangibles.'},{text:'Investitionsg\u00fctermarketing besteht aus wenigen K\u00e4ufern mit enger Beziehung.',correct:true,feedback:'Richtig. Wenige K\u00e4ufer, enge Beziehung, Kaufentscheid durch mehrere Personen (Buying Center).'}]};
+
+// Chapter 8: Produktmix I (S.150)
+exercises[49] = {type:'table-check', title:'Kernprodukt, formales oder erweitertes Produkt?', q:'Bei einer Stadtrundfahrt: Handelt es sich um das Kernprodukt, das formale Produkt oder das erweiterte Produkt?', headers:['Beschreibung','Kernprodukt','Formales Produkt','Erweitertes Produkt'], rows:[{label:'Die Touristen erhalten einen 20%-Rabattcoupon f\u00fcr ein Musical am Broadway.',correct:2},{label:'Die Tageskarte erlaubt, bei jeder Haltestelle auszusteigen. Busse verkehren im Halbstundentakt.',correct:1},{label:'Der Bus stoppt, sodass die Touristen die Freiheitsstatue fotografieren k\u00f6nnen.',correct:0}], tip:['Kernprodukt = Grundnutzen, formales Produkt = konkretes Angebot, erweitertes Produkt = Zusatzleistungen.']};
+
+exercises[50] = {type:'open', title:'Convenience vs. Shopping vs. Spezialgut', q:'Warum ist die Unterscheidung zwischen Convenience-G\u00fctern, Shopping-G\u00fctern und Spezialgut oft sinnvoll?', keywords:['kauf','verhalten','vertrieb','preis','aufwand','involvement'], tip:['Denken Sie an das unterschiedliche Kaufverhalten der Konsumenten.'], reveal:['Die Unterscheidung hilft bei der Wahl der Marketingstrategie:','Convenience: geringer Aufwand, breite Distribution','Shopping: Vergleich, selektive Distribution','Spezialgut: hohes Involvement, exklusive Distribution']};
+
+exercises[51] = {type:'open', title:'Sortimentsplanung', q:'Herr Maitek m\u00f6chte in einem Skigebiet einen Laden er\u00f6ffnen. Beschreiben Sie m\u00f6gliche Sortimente entlang der Dimensionen Breite und Tiefe.', keywords:['breit','tief','sortiment','flach','schmal'], tip:['Breite = Anzahl Produktlinien, Tiefe = Anzahl Varianten pro Linie.'], reveal:['Schmales/tiefes Sortiment: z.B. nur regionale Spezialit\u00e4ten in vielen Varianten.','Breites/flaches Sortiment: Postkarten, Souvenirs, B\u00fccher, Snacks \u2013 wenige Varianten pro Kategorie.','Empfehlung: H\u00e4ngt von Zielgruppe und Standort ab.']};
+
+exercises[52] = {type:'fill', title:'Sortimentsdimensionen', q:'Erg\u00e4nzen Sie die vier Dimensionen der Sortimentspolitik:', parts:[{text:'1. Die ',blank:'Breite',after:' (Anzahl Produktlinien)'}, {text:'2. Die ',blank:'L\u00e4nge',after:' (Anzahl Produkttypen)'}, {text:'3. Die ',blank:'Tiefe',after:' (Anzahl Varianten pro Produkttyp)'}, {text:'4. Die ',blank:'Geschlossenheit',after:' (Beziehung zwischen den Artikeln)'}], tip:['Denken Sie an Breite, L\u00e4nge, Tiefe, Geschlossenheit.']};
+
+exercises[53] = {type:'mc', title:'ABC-Analyse', q:'Wof\u00fcr wird die ABC-Analyse im Sortimentsmanagement eingesetzt?', options:['Zur Preisfestlegung','Zur Gruppierung von Produkten nach Umsatz, Deckungsbeitrag oder Rentabilit\u00e4t','Zur Bestimmung der Marktgr\u00f6sse','Zur Wettbewerbsanalyse'], correct:1, tip:['ABC = Klassifizierung nach Wichtigkeit.']};
+
+// Chapter 9: Produktmix II: Produktentwicklung (S.167-168)
+exercises[54] = {type:'calc', title:'Break-even Produktinnovation', q:'Ein Unternehmen entwickelt drei Produktideen bis zur Beta-Test-Phase. Pro Idee fallen CHF 18\u2019000 an. Das vielversprechendste wird lanciert mit Budget CHF 90\u2019000. Verkaufspreis CHF 2\u2019400, variable Kosten CHF 1\u2019200.', rows:[{label:'Gesamtkosten Innovation',val:'3 \u00d7 18\u2019000 + 90\u2019000'},{label:'Deckungsbeitrag/St\u00fcck',val:'2\u2019400 \u2212 1\u2019200'}], inputs:[{label:'Gesamtkosten (CHF)',answer:['144000','144\'000','144 000'],tolerance:0},{label:'DB pro St\u00fcck (CHF)',answer:['1200','1\'200','1 200'],tolerance:0},{label:'Break-even (St\u00fcck)',answer:['120'],tolerance:0}], tip:['Gesamtkosten = Entwicklungskosten aller Ideen + Lancierungsbudget','Break-even = Gesamtkosten / DB pro St\u00fcck'], reveal:['Gesamtkosten: 3 \u00d7 18\u2019000 + 90\u2019000 = 144\u2019000','DB/St\u00fcck: 2\u2019400 \u2212 1\u2019200 = 1\u2019200','Break-even: 144\u2019000 / 1\u2019200 = 120 St\u00fcck']};
+
+exercises[55] = {type:'open', title:'Testmarkt', q:'A) Was versteht man unter einem Testmarkt? B) Nennen Sie zwei Nachteile von Testm\u00e4rkten.', keywords:['region','begrenzt','test','kosten','konkurrenz','zeit','geheim'], tip:['Ein Testmarkt ist ein geographisch begrenztes Gebiet f\u00fcr einen Markttest.'], reveal:['A) Ein Testmarkt ist ein geographisch begrenztes Gebiet, in dem ein Produkt vor der eigentlichen Markteinf\u00fchrung getestet wird.','B) Nachteile: 1) Kosten und Zeitaufwand, 2) Konkurrenz kann die Strategie beobachten und kopieren.']};
+
+exercises[56] = {type:'open', title:'Brainstorming vs. Brainwriting', q:'A) Was ist der Unterschied zwischen Brainstorming und Brainwriting? B) Nennen Sie zwei Vorteile des Brainwritings.', keywords:['m\u00fcndlich','schriftlich','anonym','leise','gruppe'], tip:['Brainstorming = m\u00fcndlich, Brainwriting = schriftlich.'], reveal:['A) Brainstorming: m\u00fcndliche Ideensammlung in der Gruppe. Brainwriting: schriftliche Ideensammlung.','B) Vorteile Brainwriting: 1) Alle kommen zu Wort (nicht nur die Lauten), 2) Keine gegenseitige Beeinflussung, mehr Kreativit\u00e4t.']};
+
+exercises[57] = {type:'match', title:'Produktentwicklungsphasen', q:'Ordnen Sie die Begriffe den sechs Phasen der Produktentwicklung zu.', pairs:[{left:'Brainstorming',right:'Ideengewinnung'},{left:'Eliminierung von schlechten Ideen',right:'Ideenauswahl'},{left:'Target Costing',right:'Wirtschaftlichkeitsanalyse'},{left:'Marktbeobachtung',right:'Einf\u00fchrung'},{left:'Mindmapping',right:'Ideengewinnung'},{left:'Testmarkt',right:'Beta- und Markttest'}], options:['Ideengewinnung','Ideenauswahl','Konzeptentwicklung und -test','Wirtschaftlichkeitsanalyse','Beta- und Markttest','Einf\u00fchrung']};
+
+exercises[58] = {type:'mc', title:'Diffusionsprozess', q:'Welche Gruppe von Adoptoren \u00fcbernimmt eine Innovation als Erstes?', options:['Fr\u00fche Mehrheit','Innovatoren','Fr\u00fche Adopter','Sp\u00e4te Mehrheit'], correct:1, tip:['Der Diffusionsprozess beginnt mit den Innovatoren.'], reveal:['Reihenfolge: 1. Innovatoren, 2. Fr\u00fche Adopter, 3. Fr\u00fche Mehrheit, 4. Sp\u00e4te Mehrheit, 5. Nachz\u00fcgler.']};
+
+// Chapter 10: Produktmix III: Verpackung (S.178-179)
+exercises[59] = {type:'table-check', title:'Funktionen der Verpackung', q:'Welche der angegebenen Begriffe ist KEINE Funktion der Verpackung?', headers:['Begriff','Ist Funktion','Ist keine Funktion'], rows:[{label:'Information',correct:0},{label:'Produktdifferenzierung',correct:0},{label:'Dosierfunktion',correct:0},{label:'Kosteng\u00fcnstig',correct:1},{label:'Stapelbarkeit',correct:0},{label:'Verkaufsfunktion',correct:0}], tip:['\u00abKosteng\u00fcnstig\u00bb ist eine Anforderung, keine Funktion.']};
+
+exercises[60] = {type:'open', title:'\u00d6kologische Anforderungen', q:'Unternehmen versuchen heute, auch bei der Verpackung \u00f6kologische Anforderungen zu erf\u00fcllen. Nennen Sie zwei Massnahmen.', keywords:['\u00f6ko','recyc','material','reduz','nachhaltig','bio','abbau'], tip:['Denken Sie an Materialwahl, Recycling, Reduktion.'], reveal:['1. Verwendung von recycelbaren oder biologisch abbaubaren Materialien.','2. Reduktion des Verpackungsmaterials (weniger Plastik, d\u00fcnnere Verpackungen).']};
+
+exercises[61] = {type:'mc', title:'EUL', q:'Was sind Effiziente Ladeeinheiten (EUL)?', options:['Einzelne Verkaufsverpackungen','Zusammenfassung von Einzeleinheiten zu gr\u00f6sseren Einheiten f\u00fcr die Logistik','Recycling-Beh\u00e4lter','Paletten f\u00fcr den Lufttransport'], correct:1, tip:['EUL dienen der effizienten Logistik.']};
+
+exercises[62] = {type:'match', title:'Verpackungsarten', q:'Ordnen Sie die Verpackungsarten richtig zu.', pairs:[{left:'Steht in direktem Kontakt mit dem Produkt',right:'Prim\u00e4rverpackung'},{left:'Dient als Informationstr\u00e4ger und Werbemittel',right:'Sekund\u00e4rverpackung'},{left:'Dient als Lager- und Transporthilfsmittel',right:'Terti\u00e4rverpackung'}], options:['Prim\u00e4rverpackung','Sekund\u00e4rverpackung','Terti\u00e4rverpackung']};
+
+exercises[63] = {type:'mc', title:'GS1-Strichcode', q:'Was ist der Zweck des GS1-Strichcodes auf der Verpackung?', options:['Dekoration','Identifikation des Produkts und Erm\u00f6glichung der automatisierten Datenerfassung','Angabe des Preises','Hinweis auf das Herkunftsland'], correct:1, tip:['GS1 = Global Standards One.']};
+
+// Chapter 11: Preismix (S.195-196)
+exercises[64] = {type:'calc', title:'Deckungsbeitrag bei Rabattvarianten', q:'Ein Verkaufsleiter analysiert Rabattvarianten. Richtpreis CHF 100, variable Kosten CHF 50.', rows:[{label:'Ausgangssituation',val:'Rabatt 5%, Netto CHF 95, Absatz 1000'},{label:'Variante 1',val:'Rabatt 0%, Netto CHF 100, Absatz 800'},{label:'Variante 2',val:'Rabatt 10%, Netto CHF 90, Absatz 1100'},{label:'Variante 3',val:'Rabatt 20%, Netto CHF 80, Absatz 1400'}], inputs:[{label:'DB gesamt Ausgangssituation',answer:['45000','45\'000','45 000'],tolerance:0},{label:'DB gesamt Variante 1',answer:['40000','40\'000','40 000'],tolerance:0},{label:'DB gesamt Variante 2',answer:['44000','44\'000','44 000'],tolerance:0},{label:'DB gesamt Variante 3',answer:['42000','42\'000','42 000'],tolerance:0}], tip:['DB pro St\u00fcck = Netto \u2212 variable Kosten. DB gesamt = DB/St\u00fcck \u00d7 Absatz.'], reveal:['Ausgangssituation: (95-50) \u00d7 1000 = 45\u2019000','Variante 1: (100-50) \u00d7 800 = 40\u2019000','Variante 2: (90-50) \u00d7 1100 = 44\u2019000','Variante 3: (80-50) \u00d7 1400 = 42\u2019000','Die Ausgangssituation liefert den h\u00f6chsten DB!']};
+
+exercises[65] = {type:'mc', title:'Rabattpolitik', q:'Welche M\u00f6glichkeiten bestehen, um Neukunden zu gewinnen, ohne Bestandskunden durch Rabatte zu ver\u00e4rgern?', options:['Allen den gleichen Rabatt geben','Differenzierte Preise, Erstkundenrabatt, Mengenrabatt, Bundle-Angebote','Preise f\u00fcr alle erh\u00f6hen','Keine Rabatte geben'], correct:1};
+
+exercises[66] = {type:'mc', title:'Preiselastizit\u00e4t', q:'Eine Ferienwohnung in Davos: Hauptsaison CHF 1\u2019700/Woche (Auslastung 100%), Nebensaison CHF 1\u2019200/Woche (Auslastung 30%). Handelt es sich um eine positive Preiselastizit\u00e4t?', options:['Ja, positive Preiselastizit\u00e4t','Nein, die Nachfrage steigt trotz h\u00f6herem Preis \u2013 Sondersituation','Es gibt keine Preiselastizit\u00e4t in der Hotellerie','Kann nicht beurteilt werden'], correct:1, tip:['Normalerweise: h\u00f6herer Preis = weniger Nachfrage.'], reveal:['Nein, keine \u00abpositive Preiselastizit\u00e4t\u00bb im klassischen Sinne. Die hohe Nachfrage in der Hauptsaison trotz h\u00f6herem Preis ist durch saisonale Faktoren bedingt (Weihnachten, Skiferien), nicht durch den Preis.']};
+
+exercises[67] = {type:'mc', title:'Submix-Zusammenhang', q:'Im Kapitel Preismix wird das Rabattsystem f\u00fcr BMW-H\u00e4ndler beschrieben. Obwohl es sich um den Submix Preis handelt, wird mindestens ein anderer Submix stark tangiert. Welcher?', options:['Product','Place (Distribution)','Promotion','Alle drei'], correct:1, tip:['Rabatte f\u00fcr H\u00e4ndler beeinflussen die Vertriebsstruktur.'], reveal:['Der Submix Place (Distribution) wird tangiert \u2013 Rabatte beeinflussen die Attraktivit\u00e4t des Vertriebskanals f\u00fcr H\u00e4ndler.']};
+
+exercises[68] = {type:'tf', title:'Preisgesetz und Regeln', statements:[{text:'In der Schweiz regelt das Preisgesetz (PG), welche Preise erlaubt und welche verboten sind.',correct:true,feedback:'Richtig. Das Preisgesetz sch\u00fctzt Konsumenten vor \u00fcberh\u00f6hten Preisen.'},{text:'Die Bundesverfassung verlangt, dass Unternehmen wie die Migros in allen Kantonen f\u00fcr das gleiche Produkt denselben Preis verlangen.',correct:false,feedback:'Falsch. Es gibt keine solche Pflicht \u2013 regionale Preisunterschiede sind erlaubt.'},{text:'In der Schweiz darf man grunds\u00e4tzlich Produkte unter den eigenen Kosten verkaufen.',correct:true,feedback:'Grunds\u00e4tzlich ja, ausser es handelt sich um Missbrauch einer marktbeherrschenden Stellung.'}]};
+
+exercises[69] = {type:'open', title:'Preisdifferenzierung im Caf\u00e9', q:'Sie er\u00f6ffnen ein Caf\u00e9 in der Z\u00fcrcher Innenstadt. Nennen Sie drei M\u00f6glichkeiten zur Preisdifferenzierung mit konkreten Beispielen.', keywords:['zeit','happy','student','menge','region','kanal'], tip:['Preisdifferenzierung: nach Zeit, Kundengruppe, Menge, Ort, Kanal.'], reveal:['1. Zeitliche Differenzierung: Happy Hour am Nachmittag mit g\u00fcnstigeren Preisen.','2. Pers\u00f6nliche Differenzierung: Studenten-/Seniorenrabatt.','3. Mengendifferenzierung: \u00abKaffee-Abo\u00bb \u2013 10 Kaffees zum Preis von 8.']};
+
+exercises[70] = {type:'mc', title:'Preisbestimmung mit den 4 K', q:'Die 4 K der Preisbestimmung sind:', options:['Kosten, Kunden, Konkurrenz, Kapital','Kosten, Konkurrenz, Konsumentenzahlungsbereitschaft, Kapazit\u00e4t','Kaufkraft, Kosten, Konkurrenz, Kontrolle','Kommunikation, Kosten, Kunden, Konkurrenz'], correct:1, tip:['Die 4 K: Kosten, Konkurrenz, Konsumenten(zahlungsbereitschaft), Kapazit\u00e4t.']};
+
+// Chapter 12: Distributionsmix (S.203)
+exercises[71] = {type:'tf', title:'Zielkonflikt Reichhaltigkeit/Reichweite', statements:[{text:'Bei traditionellen Kan\u00e4len besteht ein Zielkonflikt zwischen Reichhaltigkeit und Reichweite.',correct:true,feedback:'Richtig. E-Commerce l\u00f6st diesen Konflikt teilweise auf.'},{text:'E-Government-L\u00f6sungen haben denselben Zielkonflikt.',correct:false,feedback:'Nein \u2013 E-Government kann beides bieten: breite Reichweite und detaillierte Informationen.'}]};
+
+exercises[72] = {type:'open', title:'Fixkosten-Dilemma', q:'Worin besteht das typische Dilemma zwischen Fixkosten und variablen Kosten bei der Gestaltung des Vertriebssystems?', keywords:['fix','variabel','eigen','fremd','risiko','kontrolle'], tip:['Eigener Vertrieb = hohe Fixkosten, aber Kontrolle. Fremder Vertrieb = variable Kosten, aber weniger Kontrolle.'], reveal:['Eigener Vertrieb (z.B. eigene Filialen): Hohe Fixkosten, aber volle Kontrolle \u00fcber den Verkaufsprozess.','Fremder Vertrieb (z.B. H\u00e4ndler): Geringere Fixkosten (v.a. variable Kosten/Provisionen), aber weniger Kontrolle \u00fcber Markenauftritt und Kundenerlebnis.']};
+
+exercises[73] = {type:'mc', title:'B2B E-Commerce', q:'Warum verkaufen f\u00fcnf der gr\u00f6ssten zehn B2B-E-Commerce-Plattformen der Schweiz B\u00fcromaterialien?', options:['Weil B\u00fcromaterialien teuer sind','Weil B\u00fcromaterialien standardisiert, regelm\u00e4ssig bestellt und preissensibel sind','Weil es keine Alternativen gibt','Weil B\u00fcromaterialien emotional gekauft werden'], correct:1, tip:['E-Commerce eignet sich besonders f\u00fcr standardisierte, regelm\u00e4ssig bestellte Produkte.']};
+
+exercises[74] = {type:'match', title:'Vertriebssystem-Kriterien', q:'Ordnen Sie die Kriterien f\u00fcr die Wahl des Vertriebssystems richtig zu.', pairs:[{left:'Wie gut erf\u00fcllt das System die Vertriebsaufgaben?',right:'Funktionserf\u00fcllung'},{left:'Wie breit ist das Produkt erh\u00e4ltlich?',right:'Distributionsgrad'},{left:'Kann das System mitwachsen?',right:'Entwicklungsm\u00f6glichkeit'},{left:'Wie stark kann man den Vertrieb steuern?',right:'Beeinflussbarkeit'}], options:['Funktionserf\u00fcllung','Distributionsgrad','Entwicklungsm\u00f6glichkeit','Beeinflussbarkeit']};
+
+exercises[75] = {type:'open', title:'Minicase: Moonshine E-Commerce', q:'Ein Unternehmer l\u00e4sst seine Website bei Moonshine betreiben. Als privater Kunde m\u00f6chte er mehr Speicher f\u00fcr seine E-Mails. Der Callcenter-Mitarbeiter sagt, das sei nicht m\u00f6glich. Welche Problematik ergibt sich in der Distribution?', keywords:['gesch\u00e4ft','privat','trennung','service','zufrieden','callcenter'], tip:['Was passiert, wenn Gesch\u00e4fts- und Privatkundenbetreuung nicht koordiniert sind?'], reveal:['Die Problematik: Fehlende Koordination zwischen Gesch\u00e4fts- und Privatkunden-Service. Der Callcenter-Mitarbeiter h\u00e4tte erkennen m\u00fcssen, dass der Kunde auch Gesch\u00e4ftskunde ist, und flexibel reagieren sollen.']};
+
+// Chapter 13: Kommunikationsmix (S.210-211)
+exercises[76] = {type:'open', title:'Kommunikationsinstrumente nach Reichweite', q:'Listen Sie die sechs Kommunikationsinstrumente Online-Kommunikation, pers\u00f6nlicher Verkauf, Direktmarketing, Werbung, PR und Verkaufsf\u00f6rderung in der Reihenfolge ihrer Reichweite auf.', keywords:['werbung','pr','online','verkauf','direkt','f\u00f6rderung'], tip:['Welches Instrument erreicht die meisten Menschen auf einmal?'], reveal:['1. Online-Kommunikation (potenziell unbegrenzt)','2. Werbung (Massenmedien)','3. PR (breite \u00d6ffentlichkeit)','4. Verkaufsf\u00f6rderung (punktuell breit)','5. Direktmarketing (zielgerichtet)','6. Pers\u00f6nlicher Verkauf (1:1)']};
+
+exercises[77] = {type:'match', title:'Medientypen', q:'Ordnen Sie die Beispiele den Medientypen zu.', pairs:[{left:'Kundenbewertung auf Google',right:'Earned'},{left:'Eigene Website',right:'Owned'},{left:'Facebook-Post eines Nutzers \u00fcber die Marke',right:'Shared'},{left:'Bannerwerbung auf 20min.ch',right:'Paid'}], options:['Paid','Owned','Earned','Shared']};
+
+exercises[78] = {type:'open', title:'Push vs. Pull', q:'Der Haustierzubeh\u00f6rh\u00e4ndler \u00abNager & Co.\u00bb betreibt eine eigene Website mit informativen Rubriken und nutzt SEO mit regionalen Keywords. Handelt es sich um eine Pull- oder eine Push-Strategie?', keywords:['pull','kunde','sucht','findet','inhalt','seo'], tip:['Pull: Kunden kommen zum Anbieter. Push: Anbieter dr\u00e4ngt zum Kunden.'], reveal:['Pull-Strategie: Der Kunde sucht aktiv nach Informationen und findet das Unternehmen \u00fcber SEO. Die Website zieht Kunden an, statt sie zu \u00abpushen\u00bb.']};
+
+exercises[79] = {type:'tf', title:'Online vs. Offline Kommunikation', statements:[{text:'Offline-Kommunikationsinstrumente umfassen Werbung, Verkaufsf\u00f6rderung, pers\u00f6nlichen Verkauf, Direktmarketing und PR.',correct:true,feedback:'Richtig \u2013 das sind die klassischen Offline-Instrumente.'},{text:'Influencer Marketing geh\u00f6rt zu den Offline-Instrumenten.',correct:false,feedback:'Falsch \u2013 Influencer Marketing ist ein Online-Kommunikationsinstrument.'},{text:'Bei der Push-Strategie folgt der Kommunikationsfluss dem Warenfluss.',correct:true,feedback:'Richtig: Produzent \u2192 Handel \u2192 Endkonsument.'}]};
+
+exercises[80] = {type:'open', title:'Vor- und Nachteile Medientypen', q:'Nennen Sie je einen Vorteil und einen Nachteil von Paid, Owned, Earned und Shared Media.', keywords:['kontrolle','kosten','glaubw\u00fcrdig','reichweite','viral','negativ'], tip:['Paid: Kontrolle vs. Kosten. Owned: volle Kontrolle vs. begrenzte Reichweite. Earned: Glaubw\u00fcrdigkeit vs. kein Einfluss. Shared: ViralIt\u00e4t vs. negativer Content m\u00f6glich.'], reveal:['Paid: + kontrollierbar, \u2013 kostenintensiv','Owned: + volle Kontrolle, \u2013 begrenzte Reichweite','Earned: + hohe Glaubw\u00fcrdigkeit, \u2013 kein direkter Einfluss','Shared: + Viral-Potenzial, \u2013 auch negative Inhalte m\u00f6glich']};
+
+// Chapter 14: Marketingbudget und -kontrolle (S.227)
+exercises[81] = {type:'open', title:'Top-down vs. Bottom-up', q:'Was macht in der Praxis Sinn: eine reine Top-down-Budgetierung, eine reine Bottom-up-Budgetierung oder eine Kombination davon?', keywords:['kombination','gegenstrom','top','bottom','realistisch','praxis'], tip:['Reine Top-down ignoriert operative Realit\u00e4t. Reine Bottom-up kann die strategischen Ziele verfehlen.'], reveal:['In der Praxis ist eine Kombination (Gegenstromverfahren) am sinnvollsten: Top-down gibt den strategischen Rahmen vor, Bottom-up sorgt f\u00fcr realistische Sch\u00e4tzungen aus der operativen Ebene.']};
+
+exercises[82] = {type:'calc', title:'Budgetentscheid: Werbekampagne', q:'F\u00fcr eine Werbekampagne werden zwei Varianten ausgearbeitet:', rows:[{label:'Variante 1',val:'Investition CHF 300\u2019000, Zusatz-DB CHF 440\u2019000'},{label:'Variante 2',val:'Investition CHF 500\u2019000, Zusatz-DB CHF 680\u2019000'}], inputs:[{label:'Netto-DB Variante 1 (CHF)',answer:['140000','140\'000','140 000'],tolerance:0},{label:'Netto-DB Variante 2 (CHF)',answer:['180000','180\'000','180 000'],tolerance:0}], tip:['Netto-DB = Zusatz-DB \u2212 Investition'], reveal:['Variante 1: 440\u2019000 \u2212 300\u2019000 = 140\u2019000','Variante 2: 680\u2019000 \u2212 500\u2019000 = 180\u2019000','Variante 2 ist vorzuziehen (h\u00f6herer Netto-DB).']};
+
+exercises[83] = {type:'table-check', title:'Arten der Marketingkontrolle', q:'Ordnen Sie die Beispiele den vier Arten der Marketingkontrolle zu.', headers:['\u00dcberpr\u00fcfung von','Jahresplankontrolle','Profitabilit\u00e4tskontrolle','Effizienzkontrolle','Strategiekontrolle'], rows:[{label:'R\u00fccklaufquoten einer Coupon-Werbung',correct:2},{label:'Vergleich des DB mit den Kosten einer Coupon-Werbung',correct:1},{label:'SWOT-Profil im Vergleich zu einem neuen Konkurrenten',correct:3},{label:'Positionierung der eigenen Marken mittels Marktforschung',correct:3},{label:'Zielerreichungsgrad des Verkaufsvolumens in der Ostschweiz im Jahr 200x',correct:0}], tip:['Jahresplankontrolle: Ziele erreicht? Profitabilit\u00e4t: Gewinn? Effizienz: Kosten-Nutzen? Strategie: Soll-Soll-Kontrolle.']};
+
+exercises[84] = {type:'tf', title:'Szenarien und Budgets', statements:[{text:'Szenarien sind etwas f\u00fcr Leute, die entweder zu faul oder zu dumm sind, Prognosen zu erstellen.',correct:false,feedback:'Falsch! Szenarien sind ein wichtiges Instrument der strategischen Planung. Sie helfen, verschiedene Zukunftsszenarien durchzuspielen und sich vorzubereiten.'},{text:'Auch kleine Unternehmen sollten ein Marketingbudget erstellen.',correct:true,feedback:'Richtig \u2013 ein Budget hilft bei der Ressourcenallokation und Kontrolle.'}]};
+
+exercises[85] = {type:'match', title:'Kontrollplan-Elemente', q:'Ein Kontrollplan wird anhand der 4 W-Fragen strukturiert. Ordnen Sie zu.', pairs:[{left:'Was? oder Zielobjekt / Zielgr\u00f6sse',right:'Zielinhalt'},{left:'Wie? oder Kontrollmethode',right:'Methode'},{left:'Wer? oder Verantwortlichkeit',right:'Verantwortlicher'},{left:'Wann? oder Zeitpunkt',right:'Zeitplan'}], options:['Zielinhalt','Methode','Verantwortlicher','Zeitplan']};
+
+exercises[86] = {type:'mc', title:'Marketinginformationssystem', q:'Das Marketinginformationssystem (MIS) besteht h\u00e4ufig aus welchen Elementen?', options:['Nur Marktforschung','Internes Rapportwesen, Marktforschung und Marketing-Intelligence','Nur interne Berichte','ERP-System und CRM'], correct:1, tip:['Das MIS kombiniert interne und externe Informationsquellen.']};
+
+// Chapter 15: Qualit\u00e4tsmanagement I (S.244-245)
+exercises[87] = {type:'table-check', title:'Muss-, Soll-, Plus-Faktoren', q:'Sind die folgenden Attribute bei einer Autoreparatur Muss-, Soll- oder Plus-Faktoren?', headers:['Attribut','Muss','Soll','Plus'], rows:[{label:'Testen, ob Profil der Pneus dem Gesetz entspricht',correct:0},{label:'Autositze reinigen',correct:1},{label:'Freundlichkeit des Personals',correct:1},{label:'Shuttleservice zum Arbeitsort',correct:2},{label:'Hinweis auf Ablauf der Autobahnvignette',correct:2}], tip:['Muss: gesetzlich/erwartet. Soll: guter Standard. Plus: \u00dcberraschung.']};
+
+exercises[88] = {type:'tf', title:'Total Quality Management', statements:[{text:'Beim Total Quality Management steht die Produktqualit\u00e4t im Vordergrund.',correct:false,feedback:'TQM ist umfassender: es geht um die Qualit\u00e4t aller Prozesse im gesamten Unternehmen.'},{text:'Das Erreichen von Kostenzielen geh\u00f6rt zu den Zielsetzungen von TQM.',correct:true,feedback:'Richtig \u2013 Qualit\u00e4t und Effizienz geh\u00f6ren zusammen.'},{text:'Qualit\u00e4t ist ein Prozess, der nie zu Ende ist.',correct:true,feedback:'Richtig \u2013 kontinuierliche Verbesserung (KVP) ist ein Grundprinzip.'},{text:'Benchmarking kann auch intern betrieben werden.',correct:true,feedback:'Richtig \u2013 Vergleich verschiedener Gesch\u00e4ftseinheiten innerhalb des Unternehmens.'},{text:'F\u00fcr hervorragende Qualit\u00e4t sind die Kunden bereit, jeden Preis zu bezahlen.',correct:false,feedback:'Falsch \u2013 es gibt immer eine Zahlungsbereitschaft-Grenze.'},{text:'TQM ist ein ganzheitlicher Ansatz, der nur optimale Resultate liefern kann, wenn er von den Mitarbeitenden unterst\u00fctzt wird.',correct:true,feedback:'Richtig \u2013 Mitarbeiterbeteiligung ist essenziell.'}]};
+
+exercises[89] = {type:'mc', title:'QM-Grundsatze', q:'Welche Grunds\u00e4tze sind bei der erfolgreichen Umsetzung eines Qualit\u00e4tsmanagementsystems zu beachten? (Mehrere richtig)', options:['A) Einbezug aller beteiligten Personen','B) Festhalten an der beschlossenen Vorgehensweise','C) Orientierung an Zielen','D) Flexible Anwendung','E) Gen\u00fcgend Ressourcen','F) Anwendung m\u00f6glichst vieler Kennzahlen'], correct:0, tip:['Alle ausser F sind korrekt \u2013 zu viele Kennzahlen schaden.'], reveal:['A bis E sind korrekte Grunds\u00e4tze.','F ist falsch: Es geht um die richtigen (nicht m\u00f6glichst viele) Kennzahlen.']};
+
+exercises[90] = {type:'open', title:'\u00d6kologische Strategien', q:'Welche Strategie zum Umgang mit \u00f6kologischen Themen verfolgen folgende Unternehmen? A) Ein Unternehmen senkt den Energieverbrauch, um Vorreiter zu bleiben. B) Ein Hersteller setzt auf Glasr\u00f6hrchen statt Plastikhalme.', keywords:['defensiv','offensiv','innovativ','pionier','vorreiter','proaktiv'], tip:['Unterscheiden Sie zwischen defensiver, selektiver und offensiver \u00d6kostrategie.'], reveal:['A) Offensive Strategie: aktives Engagement als Vorreiter.','B) Innovative Strategie: neues Material, Pionierrolle in der Branche.']};
+
+exercises[91] = {type:'open', title:'Umweltmassnahmen nach Kategorie', q:'Zeigen Sie je zwei Handlungsanweisungen f\u00fcr die Massnahmenkategorien \u00abVermeiden\u00bb, \u00abVermindern\u00bb, \u00abVerwerten\u00bb und \u00abEntsorgen\u00bb auf.', keywords:['vermeid','verminder','verwert','entsorg','recyc','reduz'], tip:['Von Vermeiden (beste Option) bis Entsorgen (letzte Option).'], reveal:['Vermeiden: z.B. Verpackung weglassen, digitale Rechnungen','Vermindern: z.B. d\u00fcnnere Verpackungen, Energieeffizienz','Verwerten: z.B. Recycling, Upcycling','Entsorgen: z.B. fachgerechte Entsorgung, Sonderm\u00fcll']};
+
+exercises[92] = {type:'mc', title:'\u00d6kologisches Engagement als Chance', q:'Warum sollte das \u00f6kologische Engagement als Chance f\u00fcr das Unternehmen und das Marketing gesehen werden?', options:['Weil es gesetzlich vorgeschrieben ist','Weil es Kosten spart und das Image verbessert, neue Kundengruppen erschliesst und Innovationen f\u00f6rdert','Weil es keine Nachteile hat','Weil die Konkurrenz es auch macht'], correct:1};
+
+// Chapter 16: Qualit\u00e4tsmanagement II: Reklamationswesen (S.251)
+exercises[93] = {type:'mc', title:'Reklamationsmanagement und CRM', q:'Weshalb geh\u00f6rt das Reklamationsmanagement in den Bereich CRM?', options:['Weil CRM-Software Reklamationen verwaltet','Weil Reklamationsmanagement dazu beitr\u00e4gt, Kundenbeziehungen zu pflegen und zu verbessern','Weil es gesetzlich vorgeschrieben ist','Weil Reklamationen nur von der IT bearbeitet werden'], correct:1};
+
+exercises[94] = {type:'open', title:'Umgang mit Reklamationen', q:'Wie gehen Sie mit Reklamationen um? Nennen Sie die wichtigsten Punkte bei der Bearbeitung von Beschwerden.', keywords:['zuh\u00f6ren','verst\u00e4ndnis','l\u00f6sung','schnell','entschuld','dokument'], tip:['Denken Sie an die vier Bausteine eines Antwortschreibens.'], reveal:['1. Zuh\u00f6ren und Verst\u00e4ndnis zeigen.','2. Sich entschuldigen.','3. Schnelle und faire L\u00f6sung anbieten.','4. Dokumentieren und Ursache analysieren.','5. Follow-up: Sicherstellen, dass der Kunde zufrieden ist.']};
+
+exercises[95] = {type:'open', title:'Beschwerdeschreiben: Fluggesellschaft', q:'Frau Gr\u00fcn hat auf ihrem Flug von \u00c4gypten das rechtzeitig bestellte vegetarische Essen nicht erhalten. Entwerfen Sie das Antwortschreiben auf die Beschwerde. Erw\u00e4hnen Sie die vier Bausteine.', keywords:['entschuld','verst\u00e4ndnis','l\u00f6sung','massnahme','bedauer'], tip:['Die vier Bausteine: Bedauern, Erkl\u00e4rung, L\u00f6sung, Pr\u00e4vention.'], reveal:['1. Bedauern ausdr\u00fccken und sich entschuldigen.','2. Erkl\u00e4rung: Was ist schiefgelaufen?','3. Konkrete L\u00f6sung anbieten (z.B. Gutschein, Erm\u00e4ssigung).','4. Pr\u00e4ventionsmassnahme: Was wird verbessert?']};
+
+exercises[96] = {type:'mc', title:'Reklamation als Chance', q:'Wer reklamiert, ist immer ver\u00e4rgert oder entt\u00e4uscht. F\u00fcr einen Verk\u00e4ufer ist aber jede Reklamation auch eine Chance. Warum?', options:['Der Kunde gibt direktes Feedback zur Produkt- und Leistungsoptimierung','Der Kunde ist einfach schwierig','Man kann den Kunden loswerden','Reklamationen haben keine positiven Seiten'], correct:0, tip:['Reklamationen liefern wertvolle Erkenntnisse.'], reveal:['Ein Kunde, der reklamiert, gibt dem Unternehmen die Chance, sich zu verbessern. Ausserdem kann eine gute Reklamationsbehandlung die Kundenbindung sogar st\u00e4rken.']};
+
+exercises[97] = {type:'open', title:'Minicase: Druckerei', q:'Sie sind Product Manager in einer Druckerei in Chur. Bereits zum dritten Mal innerhalb eines Monats erhalten Sie die R\u00fcckmeldung, dass Plakate f\u00fcr Kundenstopper besch\u00e4digt eingetroffen sind. Schildern Sie Ihre Reaktion, um die vier Ziele des Reklamationsmanagements zu erreichen.', keywords:['ursache','qualit\u00e4t','verpackung','prozess','kunde','zufrieden','massnahme'], tip:['Die vier Ziele: Kundenzufriedenheit wiederherstellen, Ursache beheben, Image sch\u00fctzen, Prozess verbessern.'], reveal:['1. Sofortige Kontaktaufnahme mit dem Kunden, Entschuldigung und Ersatzlieferung.','2. Interne Analyse: Verpackung, Versandprozess pr\u00fcfen.','3. Ursache beheben (z.B. stabilere Verpackung, anderer Versanddienstleister).','4. Dokumentation und Monitoring, um Wiederholung zu verhindern.']};
+
+// ======================================================================
+// EXERCISE COMPONENTS
+// ======================================================================
+
+function ExerciseMC(props){
+  var ex=props.ex, done=props.done, onDone=props.onDone;
+  var st=useState(null),sel=st[0],setSel=st[1];
+  var st2=useState(false),checked=st2[0],setChecked=st2[1];
+  function check(){setChecked(true);if(sel===ex.correct)onDone()}
+  return e('div',null,
+    e('p',{style:{fontSize:'.9rem',lineHeight:1.6,marginBottom:16}},ex.q),
+    ex.options.map(function(o,i){
+      var cls='mc-option';
+      if(!checked&&sel===i) cls+=' selected';
+      if(checked&&sel===i&&i===ex.correct) cls+=' correct-sel';
+      if(checked&&sel===i&&i!==ex.correct) cls+=' wrong-sel';
+      if(checked&&i===ex.correct&&sel!==i) cls+=' correct-unsel';
+      return e('div',{key:i,className:cls,onClick:function(){if(!checked)setSel(i)}},
+        e('div',{className:'mc-radio'}),
+        e('span',null,o)
+      );
+    }),
+    ex.tip?e(Tips,{tips:ex.tip}):null,
+    e('div',{className:'btn-row'},
+      e('button',{className:'btn btn-primary',onClick:check,disabled:sel===null||checked},'Pr\u00fcfen'),
+      checked?e('button',{className:'btn btn-secondary',onClick:function(){setSel(null);setChecked(false)}},'Nochmal'):null
+    ),
+    ex.reveal&&checked?e(Reveal,{steps:ex.reveal}):null
+  );
+}
+
+function ExerciseTF(props){
+  var ex=props.ex, done=props.done, onDone=props.onDone;
+  var st=useState({}),ans=st[0],setAns=st[1];
+  var st2=useState(false),checked=st2[0],setChecked=st2[1];
+  function pick(i,v){var n=Object.assign({},ans);n[i]=v;setAns(n)}
+  function check(){setChecked(true);var allOk=ex.statements.every(function(s,i){return ans[i]===s.correct});if(allOk)onDone()}
+  return e('div',null,
+    ex.statements.map(function(s,i){
+      var cls='';
+      if(checked){cls=ans[i]===s.correct?'ok':'nok'}
+      return e('div',{key:i,className:'tf-row'},
+        e('div',{className:'tf-statement'},s.text),
+        e('div',{className:'tf-buttons'},
+          e('button',{className:'tf-btn'+(ans[i]===true?' selected':'')+(checked&&s.correct===true&&ans[i]===true?' correct-sel':'')+(checked&&s.correct===false&&ans[i]===true?' wrong-sel':'')+(checked&&s.correct===true&&ans[i]!==true?' correct-unsel':''),onClick:function(){if(!checked)pick(i,true)}},'Richtig'),
+          e('button',{className:'tf-btn'+(ans[i]===false?' selected':'')+(checked&&s.correct===false&&ans[i]===false?' correct-sel':'')+(checked&&s.correct===true&&ans[i]===false?' wrong-sel':'')+(checked&&s.correct===false&&ans[i]!==false?' correct-unsel':''),onClick:function(){if(!checked)pick(i,false)}},'Falsch')
+        ),
+        checked?e('div',{className:'feedback '+(ans[i]===s.correct?'ok':'nok')},s.feedback):null
+      );
+    }),
+    ex.tip?e(Tips,{tips:ex.tip}):null,
+    e('div',{className:'btn-row'},
+      e('button',{className:'btn btn-primary',onClick:check,disabled:checked},'Pr\u00fcfen'),
+      checked?e('button',{className:'btn btn-secondary',onClick:function(){setAns({});setChecked(false)}},'Nochmal'):null
+    )
+  );
+}
+
+function ExerciseFill(props){
+  var ex=props.ex, done=props.done, onDone=props.onDone;
+  var st=useState({}),ans=st[0],setAns=st[1];
+  var st2=useState(false),checked=st2[0],setChecked=st2[1];
+  function upd(i,v){var n=Object.assign({},ans);n[i]=v;setAns(n)}
+  function check(){setChecked(true);var allOk=ex.parts.every(function(p,i){return matchAnswer(ans[i]||'',p.blank)});if(allOk)onDone()}
+  return e('div',null,
+    e('p',{style:{fontSize:'.9rem',marginBottom:12}},ex.q),
+    ex.parts.map(function(p,i){
+      var ok=checked&&matchAnswer(ans[i]||'',p.blank);
+      var nok=checked&&!matchAnswer(ans[i]||'',p.blank);
+      return e('div',{key:i,className:'blank-text'},
+        p.text,
+        e('input',{className:'blank-input'+(ok?' correct':'')+(nok?' wrong':''),value:ans[i]||'',onChange:function(ev){if(!checked)upd(i,ev.target.value)},placeholder:'...'}),
+        p.after,
+        nok?e('span',{style:{fontSize:'.8rem',color:'var(--red)',marginLeft:8}},p.blank):null
+      );
+    }),
+    ex.tip?e(Tips,{tips:ex.tip}):null,
+    e('div',{className:'btn-row'},
+      e('button',{className:'btn btn-primary',onClick:check,disabled:checked},'Pr\u00fcfen'),
+      checked?e('button',{className:'btn btn-secondary',onClick:function(){setAns({});setChecked(false)}},'Nochmal'):null
+    ),
+    ex.reveal&&checked?e(Reveal,{steps:ex.reveal}):null
+  );
+}
+
+function ExerciseMatch(props){
+  var ex=props.ex, done=props.done, onDone=props.onDone;
+  var st=useState({}),ans=st[0],setAns=st[1];
+  var st2=useState(false),checked=st2[0],setChecked=st2[1];
+  function upd(i,v){var n=Object.assign({},ans);n[i]=v;setAns(n)}
+  function check(){setChecked(true);var allOk=ex.pairs.every(function(p,i){return ans[i]===p.right});if(allOk)onDone()}
+  return e('div',null,
+    e('p',{style:{fontSize:'.9rem',marginBottom:12}},ex.q),
+    ex.pairs.map(function(p,i){
+      var ok=checked&&ans[i]===p.right;
+      var nok=checked&&ans[i]!==p.right;
+      return e('div',{key:i,className:'match-row'},
+        e('div',{className:'match-label'},p.left),
+        e('select',{className:'match-select'+(ok?' correct':'')+(nok?' wrong':''),value:ans[i]||'',onChange:function(ev){if(!checked)upd(i,ev.target.value)}},
+          e('option',{value:''},'-- w\u00e4hlen --'),
+          ex.options.map(function(o,j){return e('option',{key:j,value:o},o)})
+        ),
+        nok?e('span',{style:{fontSize:'.8rem',color:'var(--green)',marginLeft:4}},p.right):null
+      );
+    }),
+    ex.tip?e(Tips,{tips:ex.tip}):null,
+    e('div',{className:'btn-row'},
+      e('button',{className:'btn btn-primary',onClick:check,disabled:checked},'Pr\u00fcfen'),
+      checked?e('button',{className:'btn btn-secondary',onClick:function(){setAns({});setChecked(false)}},'Nochmal'):null
+    ),
+    ex.reveal&&checked?e(Reveal,{steps:ex.reveal}):null
+  );
+}
+
+function ExerciseCalc(props){
+  var ex=props.ex, done=props.done, onDone=props.onDone;
+  var st=useState({}),ans=st[0],setAns=st[1];
+  var st2=useState(false),checked=st2[0],setChecked=st2[1];
+  function upd(i,v){var n=Object.assign({},ans);n[i]=v;setAns(n)}
+  function check(){
+    setChecked(true);
+    var allOk=ex.inputs.every(function(inp,i){
+      var v=(ans[i]||'').replace(/['\s]/g,'').replace(',','.');
+      if(inp.answer){return matchAnswer(ans[i]||'',inp.answer)}
+      return Math.abs(parseFloat(v)-inp.exact)<=inp.tolerance;
+    });
+    if(allOk)onDone();
+  }
+  return e('div',null,
+    e('p',{style:{fontSize:'.9rem',marginBottom:12}},ex.q),
+    ex.rows?ex.rows.map(function(r,i){return e('div',{key:i,className:'calc-row'},e('div',{className:'calc-label'},r.label),e('div',{className:'calc-val'},r.val))}):null,
+    ex.inputs.map(function(inp,i){
+      var v=(ans[i]||'').replace(/['\s]/g,'').replace(',','.');
+      var ok=false,nok=false;
+      if(checked){
+        if(inp.answer){ok=matchAnswer(ans[i]||'',inp.answer);nok=!ok;}
+        else{ok=Math.abs(parseFloat(v)-inp.exact)<=inp.tolerance;nok=!ok;}
+      }
+      return e('div',{key:i,className:'calc-row'},
+        e('div',{className:'calc-label'},inp.label),
+        e('input',{className:'calc-input'+(ok?' correct':'')+(nok?' wrong':''),value:ans[i]||'',onChange:function(ev){if(!checked)upd(i,ev.target.value)},placeholder:'...'}),
+        nok&&inp.answer?e('span',{style:{fontSize:'.8rem',color:'var(--green)',marginLeft:8}},typeof inp.answer==='string'?inp.answer:inp.answer[0]):null
+      );
+    }),
+    ex.tip?e(Tips,{tips:ex.tip}):null,
+    e('div',{className:'btn-row'},
+      e('button',{className:'btn btn-primary',onClick:check,disabled:checked},'Pr\u00fcfen'),
+      checked?e('button',{className:'btn btn-secondary',onClick:function(){setAns({});setChecked(false)}},'Nochmal'):null
+    ),
+    ex.reveal&&checked?e(Reveal,{steps:ex.reveal}):null
+  );
+}
+
+function ExerciseOpen(props){
+  var ex=props.ex, done=props.done, onDone=props.onDone;
+  var st=useState(''),ans=st[0],setAns=st[1];
+  var st2=useState(false),checked=st2[0],setChecked=st2[1];
+  var st3=useState(null),score=st3[0],setScore=st3[1];
+  function check(){
+    setChecked(true);
+    var found=matchKeywords(ans,ex.keywords);
+    var pct=Math.round(found/ex.keywords.length*100);
+    setScore(pct);
+    if(pct>=50)onDone();
+  }
+  return e('div',null,
+    e('p',{style:{fontSize:'.9rem',lineHeight:1.6,marginBottom:12}},ex.q),
+    e('textarea',{className:'text-input',rows:4,value:ans,onChange:function(ev){if(!checked)setAns(ev.target.value)},placeholder:'Ihre Antwort\u2026'}),
+    ex.tip?e(Tips,{tips:ex.tip}):null,
+    e('div',{className:'btn-row'},
+      e('button',{className:'btn btn-primary',onClick:check,disabled:checked||!ans.trim()},'Pr\u00fcfen'),
+      checked?e('button',{className:'btn btn-secondary',onClick:function(){setAns('');setChecked(false);setScore(null)}},'Nochmal'):null,
+      score!==null?e('span',{className:'score-badge '+(score>=50?'good':'bad')},score+'% Schl\u00fcsselw\u00f6rter'):null
+    ),
+    ex.reveal&&checked?e(Reveal,{steps:ex.reveal}):null
+  );
+}
+
+function ExerciseTableCheck(props){
+  var ex=props.ex, done=props.done, onDone=props.onDone;
+  var st=useState({}),ans=st[0],setAns=st[1];
+  var st2=useState(false),checked=st2[0],setChecked=st2[1];
+  function pick(ri,ci){var n=Object.assign({},ans);n[ri]=ci;setAns(n)}
+  function check(){setChecked(true);var allOk=ex.rows.every(function(r,i){return ans[i]===r.correct});if(allOk)onDone()}
+  var numCols=ex.headers.length-1;
+  return e('div',null,
+    e('p',{style:{fontSize:'.9rem',marginBottom:12}},ex.q),
+    e('div',{style:{overflowX:'auto'}},
+      e('table',{className:'check-table'},
+        e('thead',null,e('tr',null,ex.headers.map(function(h,i){return e('th',{key:i},h)}))),
+        e('tbody',null,ex.rows.map(function(r,ri){
+          var cls='';
+          if(checked){cls=ans[ri]===r.correct?'correct-row':'wrong-row'}
+          return e('tr',{key:ri,className:cls},
+            e('td',null,r.label),
+            Array.from({length:numCols}).map(function(_,ci){
+              return e('td',{key:ci},
+                e('input',{type:'radio',name:'tc-'+props.exId+'-'+ri,checked:ans[ri]===ci,onChange:function(){if(!checked)pick(ri,ci)}})
+              );
+            })
+          );
+        }))
+      )
+    ),
+    ex.tip?e(Tips,{tips:ex.tip}):null,
+    e('div',{className:'btn-row'},
+      e('button',{className:'btn btn-primary',onClick:check,disabled:checked},'Pr\u00fcfen'),
+      checked?e('button',{className:'btn btn-secondary',onClick:function(){setAns({});setChecked(false)}},'Nochmal'):null
+    ),
+    ex.reveal&&checked?e(Reveal,{steps:ex.reveal}):null
+  );
+}
+
+function ExerciseRouter(props){
+  var ex=exercises[props.id];
+  if(!ex) return e('div',null,'Aufgabe nicht gefunden');
+  var p={ex:ex,done:props.done,onDone:props.onDone,exId:props.id};
+  if(ex.type==='mc') return e(ExerciseMC,p);
+  if(ex.type==='tf') return e(ExerciseTF,p);
+  if(ex.type==='fill') return e(ExerciseFill,p);
+  if(ex.type==='match') return e(ExerciseMatch,p);
+  if(ex.type==='calc') return e(ExerciseCalc,p);
+  if(ex.type==='open') return e(ExerciseOpen,p);
+  if(ex.type==='table-check') return e(ExerciseTableCheck,p);
+  return e('div',null,'Unbekannter Aufgabentyp');
+}
+
+// ======================================================================
+// LEARNING MODE COMPONENT
+// ======================================================================
+function LearningMode(props){
+  var ch=props.chapter;
+  var data=learningData[ch.id];
+  if(!data) return e('div',{className:'learn-container'},e('p',{style:{color:'var(--text2)',textAlign:'center',padding:40}},'Lernmodus f\u00fcr dieses Kapitel wird in einer zuk\u00fcnftigen Version verf\u00fcgbar sein.'));
+  var progress=props.progress;
+  var lkey='learn-ch-'+ch.id;
+  var isDone=progress[lkey];
+
+  function markDone(){
+    var p=Object.assign({},progress);
+    p[lkey]=true;
+    props.setProgress(p);
+    saveProgress(p);
+  }
+
+  return e('div',{className:'learn-container'},
+    data.sections.map(function(sec,i){
+      if(sec.type==='intro') return e('div',{key:i,className:'learn-section learn-intro'},
+        e('div',{className:'learn-section-header'},e('div',{className:'learn-section-icon'},'\ud83c\udfaf'),e('div',{className:'learn-section-title'},sec.title)),
+        e('div',{className:'learn-section-body'},
+          e('div',{className:'learn-intro-text'},sec.content),
+          e('ul',{className:'learn-intro-list'},sec.items.map(function(it,j){return e('li',{key:j},it)}))
+        )
+      );
+      if(sec.type==='concept') return e('div',{key:i,className:'learn-section learn-concept'},
+        e('div',{className:'learn-section-header'},e('div',{className:'learn-section-icon'},'\ud83d\udcda'),e('div',{className:'learn-section-title'},sec.title)),
+        e('div',{className:'learn-section-body'},
+          e('div',{className:'learn-concept-text'},sec.content),
+          sec.highlight?e('div',{className:'learn-highlight'},sec.highlight):null
+        )
+      );
+      if(sec.type==='table') return e('div',{key:i,className:'learn-section'},
+        e('div',{className:'learn-section-header'},e('div',{className:'learn-section-icon'},'\ud83d\udcca'),e('div',{className:'learn-section-title'},sec.title)),
+        e('div',{className:'learn-section-body'},
+          e('div',{className:'learn-table-wrap'},
+            e('table',{className:'learn-table'},
+              e('thead',null,e('tr',null,sec.headers.map(function(h,j){return e('th',{key:j},h)}))),
+              e('tbody',null,sec.rows.map(function(r,j){return e('tr',{key:j},r.map(function(c,k){return e('td',{key:k,className:k===0?'table-label':''},c)}))}))
+            )
+          )
+        )
+      );
+      if(sec.type==='merke') return e('div',{key:i,className:'learn-section learn-merke'},
+        e('div',{className:'learn-section-header'},e('div',{className:'learn-section-icon'},'\u26a0\ufe0f'),e('div',{className:'learn-section-title'},sec.title)),
+        e('div',{className:'learn-section-body'},
+          e('ul',{className:'learn-merke-list'},sec.items.map(function(it,j){return e('li',{key:j},it)}))
+        )
+      );
+      if(sec.type==='summary') return e('div',{key:i,className:'learn-section learn-summary'},
+        e('div',{className:'learn-section-header'},e('div',{className:'learn-section-icon'},'\ud83d\udccb'),e('div',{className:'learn-section-title'},sec.title)),
+        e('div',{className:'learn-section-body'},
+          e('div',{className:'learn-summary-text'},sec.content.map(function(p,j){return e('p',{key:j,dangerouslySetInnerHTML:{__html:p}})}))
+        )
+      );
+      if(sec.type==='keyterms') return e('div',{key:i,className:'learn-section'},
+        e('div',{className:'learn-section-header'},e('div',{className:'learn-section-icon'},'\ud83d\udd11'),e('div',{className:'learn-section-title'},sec.title)),
+        e('div',{className:'learn-section-body'},
+          e('div',{className:'learn-terms-grid'},sec.terms.map(function(t,j){return e('div',{key:j,className:'learn-term-card'},e('div',{className:'learn-term-name'},t.term),e('div',{className:'learn-term-def'},t.def))}))
+        )
+      );
+      return null;
+    }),
+    e('div',{className:'learn-section'},
+      e('div',{className:'learn-complete-bar'},
+        e('div',{className:'learn-progress-text'},isDone?'Theorie abgeschlossen':'Theorie durchlesen und als gelesen markieren'),
+        e('button',{className:'learn-complete-btn '+(isDone?'done':'ready'),onClick:function(){if(!isDone)markDone()}},isDone?'\u2713 Gelesen':'Als gelesen markieren')
+      )
+    )
+  );
+}
+
+// ======================================================================
+// EXAM MODE COMPONENTS (no tips, no reveal, shuffled)
+// ======================================================================
+function ExamMC(props){
+  var ex=props.ex;
+  var st=useState(null),sel=st[0],setSel=st[1];
+  var indices=useMemo(function(){
+    var arr=ex.options.map(function(_,i){return i});
+    for(var i=arr.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=arr[i];arr[i]=arr[j];arr[j]=t}
+    return arr;
+  },[ex]);
+  useEffect(function(){props.onAnswer(sel===null?null:sel===ex.correct)},[sel]);
+  return e('div',null,
+    e('p',{style:{fontSize:'.9rem',lineHeight:1.6,marginBottom:16}},ex.q),
+    indices.map(function(origIdx,di){
+      var cls='mc-option';
+      if(sel===origIdx) cls+=' selected';
+      return e('div',{key:di,className:cls,onClick:function(){setSel(origIdx)}},
+        e('div',{className:'mc-radio'}),e('span',null,ex.options[origIdx])
+      );
+    })
+  );
+}
+
+function ExamTF(props){
+  var ex=props.ex;
+  var st=useState({}),ans=st[0],setAns=st[1];
+  function pick(i,v){var n=Object.assign({},ans);n[i]=v;setAns(n)}
+  useEffect(function(){
+    var total=ex.statements.length;
+    var answered=Object.keys(ans).length;
+    if(answered<total){props.onAnswer(null);return}
+    var allOk=ex.statements.every(function(s,i){return ans[i]===s.correct});
+    props.onAnswer(allOk);
+  },[ans]);
+  return e('div',null,
+    ex.statements.map(function(s,i){
+      return e('div',{key:i,className:'tf-row'},
+        e('div',{className:'tf-statement'},s.text),
+        e('div',{className:'tf-buttons'},
+          e('button',{className:'tf-btn'+(ans[i]===true?' selected':''),onClick:function(){pick(i,true)}},'Richtig'),
+          e('button',{className:'tf-btn'+(ans[i]===false?' selected':''),onClick:function(){pick(i,false)}},'Falsch')
+        )
+      );
+    })
+  );
+}
+
+function ExamFill(props){
+  var ex=props.ex;
+  var st=useState({}),ans=st[0],setAns=st[1];
+  function upd(i,v){var n=Object.assign({},ans);n[i]=v;setAns(n)}
+  useEffect(function(){
+    var allFilled=ex.parts.every(function(_,i){return (ans[i]||'').trim()});
+    if(!allFilled){props.onAnswer(null);return}
+    var allOk=ex.parts.every(function(p,i){return matchAnswer(ans[i]||'',p.blank)});
+    props.onAnswer(allOk);
+  },[ans]);
+  return e('div',null,
+    e('p',{style:{fontSize:'.9rem',marginBottom:12}},ex.q),
+    ex.parts.map(function(p,i){
+      return e('div',{key:i,className:'blank-text'},
+        p.text,e('input',{className:'blank-input',value:ans[i]||'',onChange:function(ev){upd(i,ev.target.value)},placeholder:'...'}),p.after
+      );
+    })
+  );
+}
+
+function ExamMatch(props){
+  var ex=props.ex;
+  var st=useState({}),ans=st[0],setAns=st[1];
+  var shuffledOpts=useMemo(function(){
+    var arr=ex.options.slice();
+    for(var i=arr.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=arr[i];arr[i]=arr[j];arr[j]=t}
+    return arr;
+  },[ex]);
+  function upd(i,v){var n=Object.assign({},ans);n[i]=v;setAns(n)}
+  useEffect(function(){
+    var allFilled=ex.pairs.every(function(_,i){return ans[i]});
+    if(!allFilled){props.onAnswer(null);return}
+    var allOk=ex.pairs.every(function(p,i){return ans[i]===p.right});
+    props.onAnswer(allOk);
+  },[ans]);
+  return e('div',null,
+    e('p',{style:{fontSize:'.9rem',marginBottom:12}},ex.q),
+    ex.pairs.map(function(p,i){
+      return e('div',{key:i,className:'match-row'},
+        e('div',{className:'match-label'},p.left),
+        e('select',{className:'match-select',value:ans[i]||'',onChange:function(ev){upd(i,ev.target.value)}},
+          e('option',{value:''},'-- wählen --'),
+          shuffledOpts.map(function(o,j){return e('option',{key:j,value:o},o)})
+        )
+      );
+    })
+  );
+}
+
+function ExamCalc(props){
+  var ex=props.ex;
+  var st=useState({}),ans=st[0],setAns=st[1];
+  function upd(i,v){var n=Object.assign({},ans);n[i]=v;setAns(n)}
+  useEffect(function(){
+    var allFilled=ex.inputs.every(function(_,i){return (ans[i]||'').trim()});
+    if(!allFilled){props.onAnswer(null);return}
+    var allOk=ex.inputs.every(function(inp,i){
+      var v=(ans[i]||'').replace(/['\s]/g,'').replace(',','.');
+      if(inp.answer) return matchAnswer(ans[i]||'',inp.answer);
+      return Math.abs(parseFloat(v)-inp.exact)<=inp.tolerance;
+    });
+    props.onAnswer(allOk);
+  },[ans]);
+  return e('div',null,
+    e('p',{style:{fontSize:'.9rem',marginBottom:12}},ex.q),
+    ex.rows?ex.rows.map(function(r,i){return e('div',{key:i,className:'calc-row'},e('div',{className:'calc-label'},r.label),e('div',{className:'calc-val'},r.val))}):null,
+    ex.inputs.map(function(inp,i){
+      return e('div',{key:i,className:'calc-row'},
+        e('div',{className:'calc-label'},inp.label),
+        e('input',{className:'calc-input',value:ans[i]||'',onChange:function(ev){upd(i,ev.target.value)},placeholder:'...'})
+      );
+    })
+  );
+}
+
+function ExamOpen(props){
+  var ex=props.ex;
+  var st=useState(''),ans=st[0],setAns=st[1];
+  useEffect(function(){
+    if(!ans.trim()){props.onAnswer(null);return}
+    var found=matchKeywords(ans,ex.keywords);
+    props.onAnswer(found/ex.keywords.length>=0.5);
+  },[ans]);
+  return e('div',null,
+    e('p',{style:{fontSize:'.9rem',lineHeight:1.6,marginBottom:12}},ex.q),
+    e('textarea',{className:'text-input',rows:4,value:ans,onChange:function(ev){setAns(ev.target.value)},placeholder:'Ihre Antwort\u2026'})
+  );
+}
+
+function ExamTableCheck(props){
+  var ex=props.ex;
+  var st=useState({}),ans=st[0],setAns=st[1];
+  function pick(ri,ci){var n=Object.assign({},ans);n[ri]=ci;setAns(n)}
+  var numCols=ex.headers.length-1;
+  useEffect(function(){
+    var allFilled=ex.rows.every(function(_,i){return ans[i]!==undefined});
+    if(!allFilled){props.onAnswer(null);return}
+    var allOk=ex.rows.every(function(r,i){return ans[i]===r.correct});
+    props.onAnswer(allOk);
+  },[ans]);
+  return e('div',null,
+    e('p',{style:{fontSize:'.9rem',marginBottom:12}},ex.q),
+    e('div',{style:{overflowX:'auto'}},
+      e('table',{className:'check-table'},
+        e('thead',null,e('tr',null,ex.headers.map(function(h,i){return e('th',{key:i},h)}))),
+        e('tbody',null,ex.rows.map(function(r,ri){
+          return e('tr',{key:ri},
+            e('td',null,r.label),
+            Array.from({length:numCols}).map(function(_,ci){
+              return e('td',{key:ci},e('input',{type:'radio',name:'exam-tc-'+props.exId+'-'+ri,checked:ans[ri]===ci,onChange:function(){pick(ri,ci)}}));
+            })
+          );
+        }))
+      )
+    )
+  );
+}
+
+function ExamExerciseRouter(props){
+  var ex=exercises[props.id];
+  if(!ex) return e('div',null,'Aufgabe nicht gefunden');
+  var p={ex:ex,onAnswer:props.onAnswer,exId:props.id};
+  if(ex.type==='mc') return e(ExamMC,p);
+  if(ex.type==='tf') return e(ExamTF,p);
+  if(ex.type==='fill') return e(ExamFill,p);
+  if(ex.type==='match') return e(ExamMatch,p);
+  if(ex.type==='calc') return e(ExamCalc,p);
+  if(ex.type==='open') return e(ExamOpen,p);
+  if(ex.type==='table-check') return e(ExamTableCheck,p);
+  return e('div',null,'Unbekannter Aufgabentyp');
+}
+
+// ======================================================================
+// EXAM MODE WRAPPER
+// ======================================================================
+function ExamMode(props){
+  var ch=props.chapter;
+  var progress=props.progress;
+  var setProgress=props.setProgress;
+  var EXAM_TIME=15*60; // 15 minutes
+
+  var stPhase=useState('setup'),phase=stPhase[0],setPhase=stPhase[1];
+  var stExamExs=useState([]),examExs=stExamExs[0],setExamExs=stExamExs[1];
+  var stTimer=useState(EXAM_TIME),timer=stTimer[0],setTimer=stTimer[1];
+  var stAnswers=useState({}),answers=stAnswers[0],setAnswers=stAnswers[1];
+  var stResult=useState(null),result=stResult[0],setResult=stResult[1];
+  var timerRef=useRef(null);
+
+  // Calculate how many exercises to pick (60-80%)
+  var totalEx=ch.exercises.length;
+  var minEx=Math.max(1,Math.ceil(totalEx*0.6));
+  var maxEx=Math.floor(totalEx*0.8);
+  var examCount=Math.max(minEx,Math.min(maxEx,Math.round(totalEx*0.7)));
+
+  function startExam(){
+    // Shuffle and pick exercises
+    var shuffled=ch.exercises.slice();
+    for(var i=shuffled.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=shuffled[i];shuffled[i]=shuffled[j];shuffled[j]=t}
+    var picked=shuffled.slice(0,examCount);
+    setExamExs(picked);
+    setAnswers({});
+    setTimer(EXAM_TIME);
+    setResult(null);
+    setPhase('running');
+  }
+
+  // Timer
+  useEffect(function(){
+    if(phase==='running'){
+      timerRef.current=setInterval(function(){
+        setTimer(function(t){
+          if(t<=1){
+            clearInterval(timerRef.current);
+            setPhase('finished');
+            return 0;
+          }
+          return t-1;
+        });
+      },1000);
+      return function(){clearInterval(timerRef.current)};
+    }
+  },[phase]);
+
+  // Auto-evaluate when finished
+  useEffect(function(){
+    if(phase==='finished'&&!result){
+      evaluate();
+    }
+  },[phase]);
+
+  function evaluate(){
+    var correct=0;
+    examExs.forEach(function(eid){
+      if(answers[eid]===true) correct++;
+    });
+    var pct=Math.round(correct/examExs.length*100);
+    var passed=pct>=60;
+    var res={correct:correct,total:examExs.length,pct:pct,passed:passed,date:new Date().toLocaleDateString('de-CH')};
+    setResult(res);
+
+    // Save best score
+    var bestKey='exam-best-ch-'+ch.id;
+    var prev=progress[bestKey];
+    if(!prev||pct>prev.pct){
+      var p=Object.assign({},progress);
+      p[bestKey]={pct:pct,correct:correct,total:examExs.length,date:res.date};
+      setProgress(p);
+      saveProgress(p);
+    }
+  }
+
+  function finishExam(){
+    clearInterval(timerRef.current);
+    setPhase('finished');
+  }
+
+  function handleAnswer(eid,isCorrect){
+    setAnswers(function(prev){
+      var n=Object.assign({},prev);
+      n[eid]=isCorrect;
+      return n;
+    });
+  }
+
+  var mm=Math.floor(timer/60),ss=timer%60;
+  var timerStr=(mm<10?'0':'')+mm+':'+(ss<10?'0':'')+ss;
+  var isWarn=timer<120;
+
+  // Best score
+  var bestKey='exam-best-ch-'+ch.id;
+  var bestScore=progress[bestKey];
+
+  // SETUP PHASE
+  if(phase==='setup'){
+    return e('div',{className:'exam-container'},
+      e('div',{className:'exam-setup'},
+        e('div',{className:'exam-setup-title'},'\ud83c\udfaf Pr\u00fcfungsmodus'),
+        e('div',{className:'exam-setup-desc'},
+          'Teste dein Wissen unter Pr\u00fcfungsbedingungen. Keine Tipps, keine L\u00f6sungswege. ',
+          'Die Aufgaben werden zuf\u00e4llig ausgew\u00e4hlt und gemischt.'
+        ),
+        e('div',{className:'exam-setup-info'},
+          e('div',{className:'exam-info-card'},
+            e('div',{className:'info-val'},examCount),
+            e('div',{className:'info-label'},'Aufgaben')
+          ),
+          e('div',{className:'exam-info-card'},
+            e('div',{className:'info-val'},'15:00'),
+            e('div',{className:'info-label'},'Minuten')
+          ),
+          e('div',{className:'exam-info-card'},
+            e('div',{className:'info-val'},'\u226560%'),
+            e('div',{className:'info-label'},'zum Bestehen')
+          )
+        ),
+        bestScore?e('div',{className:'exam-result-best'},
+          '\ud83c\udfc6 Bisheriges Bestergebnis: '+bestScore.pct+'% ('+bestScore.correct+'/'+bestScore.total+') am '+bestScore.date
+        ):null,
+        e('div',{style:{marginTop:24}},
+          e('button',{className:'exam-start-btn',onClick:startExam},'\ud83d\ude80 Pr\u00fcfung starten')
+        )
+      )
+    );
+  }
+
+  // RESULT PHASE
+  if(phase==='finished'&&result){
+    return e('div',{className:'exam-container'},
+      e('div',{className:'exam-result'},
+        e('div',{className:'exam-score-circle '+(result.passed?'pass':'fail')},
+          e('div',{className:'score-pct'},result.pct+'%'),
+          e('div',{className:'score-label'},result.passed?'Bestanden':'Nicht bestanden')
+        ),
+        e('div',{className:'exam-result-title'},result.passed?'\ud83c\udf89 Gratulation!':'\ud83d\udcaa Weiter \u00fcben!'),
+        e('div',{className:'exam-result-detail'},result.correct+' von '+result.total+' Aufgaben richtig'),
+        e('div',{className:'exam-result-detail'},'Ben\u00f6tigte Zeit: '+Math.floor((EXAM_TIME-timer)/60)+':'+(((EXAM_TIME-timer)%60)<10?'0':'')+((EXAM_TIME-timer)%60)+' Minuten'),
+        bestScore?e('div',{className:'exam-result-best'},
+          '\ud83c\udfc6 Bestergebnis: '+bestScore.pct+'% ('+bestScore.correct+'/'+bestScore.total+') am '+bestScore.date
+        ):null,
+        e('div',{className:'exam-result-btns'},
+          e('button',{className:'exam-retry-btn',onClick:function(){setPhase('setup')}},'Nochmal'),
+          e('button',{className:'exam-back-btn',onClick:function(){props.setActiveTab(ch.id,'ueben')}},'\u2190 Zur\u00fcck zum \u00dcben')
+        )
+      )
+    );
+  }
+
+  // RUNNING PHASE
+  var answeredCount=Object.keys(answers).filter(function(k){return answers[k]!==null}).length;
+  return e('div',null,
+    e('div',{className:'exam-timer-bar'},
+      e('div',{className:'exam-timer'+(isWarn?' warn':'')},'\u23f1 ',timerStr),
+      e('div',{className:'exam-progress-text'},answeredCount+' / '+examExs.length+' beantwortet'),
+      e('button',{className:'exam-finish-btn',onClick:finishExam},'Abgeben')
+    ),
+    e('div',{className:'exam-container'},
+      examExs.map(function(eid,idx){
+        var ex=exercises[eid];
+        if(!ex) return null;
+        return e('div',{key:eid,className:'exam-ex-card'},
+          e('div',{className:'exam-ex-title'},
+            e('span',{className:'exam-ex-num'},idx+1),
+            ex.title
+          ),
+          e(ExamExerciseRouter,{id:eid,onAnswer:function(isCorrect){handleAnswer(eid,isCorrect)}})
+        );
+      })
+    )
+  );
+}
+
+// ======================================================================
+// MAIN APP
+// ======================================================================
+function App(){
+  var st=useState(loadProgress()),progress=st[0],setProgress=st[1];
+  var st2=useState(null),openCh=st2[0],setOpenCh=st2[1];
+  var st3=useState({}),openEx=st3[0],setOpenEx=st3[1];
+  var st4=useState(false),dark=st4[0],setDark=st4[1];
+  var st5=useState(false),showCalc=st5[0],setShowCalc=st5[1];
+  var st6=useState(false),showNotes=st6[0],setShowNotes=st6[1];
+  var st7=useState(false),showGloss=st7[0],setShowGloss=st7[1];
+  var st8=useState(''),notes=st8[0],setNotes=st8[1];
+  var st9=useState(0),seconds=st9[0],setSeconds=st9[1];
+  var stTab=useState({}),tabState=stTab[0],setTabState=stTab[1];
+
+  useEffect(function(){
+    var t=setInterval(function(){setSeconds(function(s){return s+1})},1000);
+    return function(){clearInterval(t)};
+  },[]);
+
+  useEffect(function(){
+    if(dark)document.body.classList.add('dark');
+    else document.body.classList.remove('dark');
+  },[dark]);
+
+  function toggleEx(id){var n=Object.assign({},openEx);n[id]=!n[id];setOpenEx(n)}
+  function markDone(id){var p=Object.assign({},progress);p[id]=true;setProgress(p);saveProgress(p)}
+  var doneCount=Object.keys(progress).filter(function(k){return k.match(/^\d+$/)&&progress[k]}).length;
+  var mm=Math.floor(seconds/60),ss=seconds%60;
+  var timerStr=(mm<10?'0':'')+mm+':'+(ss<10?'0':'')+ss;
+
+  function getActiveTab(chId){return tabState[chId]||'ueben'}
+  function setActiveTab(chId,tab){var n=Object.assign({},tabState);n[chId]=tab;setTabState(n)}
+
+  return e('div',null,
+    // Nav
+    e('div',{className:'nav'},
+      e('div',{style:{display:'flex',alignItems:'center',gap:12}},
+        e('a',{href:'../index.html',className:'btn-back'},'\u2190'),
+        e('div',null,
+          e('div',{className:'nav-title'},'Marketingkonzept'),
+          e('div',{className:'nav-sub'},'Friebe, Michel, Portmann, Reber, Schneider \u00b7 Compendio')
+        )
+      ),
+      e('div',{className:'nav-right'},
+        e('div',{className:'timer-display'},timerStr),
+        e('div',{className:'tool-bar'},
+          e('button',{className:'tool-btn'+(showCalc?' active':''),onClick:function(){setShowCalc(!showCalc);setShowNotes(false);setShowGloss(false)}},'\ud83e\uddc2 Rechner'),
+          e('button',{className:'tool-btn'+(showNotes?' active':''),onClick:function(){setShowNotes(!showNotes);setShowCalc(false);setShowGloss(false)}},'\ud83d\udcdd Notizen'),
+          e('button',{className:'tool-btn'+(showGloss?' active':''),onClick:function(){setShowGloss(!showGloss);setShowCalc(false);setShowNotes(false)}},'\ud83d\udcd6 Glossar')
+        ),
+        e('button',{className:'nav-btn',onClick:function(){setDark(!dark)}},dark?'\u2600\ufe0f':'\ud83c\udf19'),
+        e('button',{className:'nav-btn btn-reset',onClick:function(){if(confirm('Fortschritt zur\u00fccksetzen?')){setProgress({});saveProgress({})}}},'\u21bb Reset')
+      )
+    ),
+
+    // Panels
+    showCalc?e(CalcPanel,{onClose:function(){setShowCalc(false)}}):null,
+    showNotes?e(NotesPanel,{notes:notes,setNotes:setNotes,onClose:function(){setShowNotes(false)}}):null,
+    showGloss?e(GlossaryPanel,{onClose:function(){setShowGloss(false)}}):null,
+
+    // Content
+    e('div',{className:'container'},
+      e('div',{style:{marginBottom:24}},
+        e('div',{style:{fontSize:'.85rem',color:'var(--text2)',marginBottom:8}},doneCount+' / '+TOTAL_EX+' Aufgaben gel\u00f6st'),
+        e('div',{className:'progress-bar',style:{maxWidth:'100%'}},
+          e('div',{className:'progress-fill',style:{width:Math.round(doneCount/TOTAL_EX*100)+'%'}})
+        )
+      ),
+
+      chapters.map(function(ch){
+        var isOpen=openCh===ch.id;
+        var chDone=ch.exercises.filter(function(eid){return progress[eid]}).length;
+        var chTotal=ch.exercises.length;
+        var hasLearning=!!learningData[ch.id];
+        var activeTab=getActiveTab(ch.id);
+        var learnKey='learn-ch-'+ch.id;
+        var learnDone=progress[learnKey];
+        var bestKey='exam-best-ch-'+ch.id;
+        var bestScore=progress[bestKey];
+
+        // Build chapter meta string
+        var metaParts=[];
+        metaParts.push(chDone+'/'+chTotal+' \u00dcbungen');
+        if(hasLearning) metaParts.push(learnDone?'\u2713 Theorie':'Theorie verf\u00fcgbar');
+        if(bestScore) metaParts.push('\ud83c\udfaf '+bestScore.pct+'%');
+
+        return e('div',{key:ch.id,className:'chapter-card'},
+          e('div',{className:'chapter-header',onClick:function(){setOpenCh(isOpen?null:ch.id)}},
+            e('div',{className:'ch-info'},
+              e('div',{className:'ch-num'},'Teil '+ch.teil+' \u2013 Kapitel '+ch.id),
+              e('div',{className:'ch-title'},ch.title),
+              e('div',{className:'ch-meta'},metaParts.join(' \u00b7 ')),
+              e('div',{className:'progress-bar'},e('div',{className:'progress-fill',style:{width:Math.round(chDone/chTotal*100)+'%'}}))
+            ),
+            e('div',{className:'ch-arrow'+(isOpen?' open':'')},'\u25bc')
+          ),
+          isOpen?e('div',null,
+            // 3-Mode Tabs
+            e('div',{className:'mode-tabs'},
+              e('button',{className:'mode-tab'+(activeTab==='lernen'?' active':''),onClick:function(){setActiveTab(ch.id,'lernen')}},
+                '\ud83d\udcd6 Lernen',
+                learnDone?e('span',{className:'mode-badge learn-badge'},'\u2713'):null
+              ),
+              e('button',{className:'mode-tab'+(activeTab==='ueben'?' active':''),onClick:function(){setActiveTab(ch.id,'ueben')}},
+                '\u270d\ufe0f \u00dcben',
+                chDone>0?e('span',{className:'mode-badge ueben-badge'},chDone+'/'+chTotal):null
+              ),
+              e('button',{className:'mode-tab'+(activeTab==='pruefung'?' active':''),onClick:function(){setActiveTab(ch.id,'pruefung')}},
+                '\ud83c\udfaf Pr\u00fcfung',
+                bestScore?e('span',{className:'mode-badge exam-badge'},bestScore.pct+'%'):null
+              )
+            ),
+            // Tab content
+            activeTab==='lernen'?(
+              hasLearning?e(LearningMode,{chapter:ch,progress:progress,setProgress:setProgress}):
+              e('div',{className:'learn-container'},e('div',{style:{textAlign:'center',padding:'40px 20px',color:'var(--text2)'}},
+                e('div',{style:{fontSize:'2rem',marginBottom:12}},'\ud83d\udcd6'),
+                e('p',{style:{fontSize:'.95rem',fontWeight:600,marginBottom:8}},'Theorie wird bald erg\u00e4nzt'),
+                e('p',{style:{fontSize:'.85rem'}},'Die Lerninhalte f\u00fcr dieses Kapitel werden in einer zuk\u00fcnftigen Version verf\u00fcgbar sein.')
+              ))
+            ):
+            activeTab==='pruefung'?e(ExamMode,{chapter:ch,progress:progress,setProgress:setProgress,setActiveTab:setActiveTab}):
+            // Default: Üben mode
+            e('div',{className:'exercise-list'},
+              ch.exercises.map(function(eid){
+                var ex=exercises[eid];
+                if(!ex) return null;
+                var isDone=progress[eid];
+                var isExOpen=openEx[eid];
+                var typeLabel={mc:'Multiple Choice',tf:'Richtig/Falsch',fill:'L\u00fcckentext',match:'Zuordnung',calc:'Berechnung',open:'Offene Frage','table-check':'Tabelle'}[ex.type]||ex.type;
+                return e('div',{key:eid,className:'ex-card'},
+                  e('div',{className:'ex-header',onClick:function(){toggleEx(eid)}},
+                    e('div',{className:'ex-num'+(isDone?' done':'')},eid),
+                    e('div',{className:'ex-title-wrap'},
+                      e('div',{className:'ex-title'},ex.title),
+                      e('div',{className:'ex-type'},typeLabel+(isDone?' \u2713':''))
+                    ),
+                    e('div',{className:'ch-arrow'+(isExOpen?' open':'')},'\u25bc')
+                  ),
+                  isExOpen?e('div',{className:'ex-body'},
+                    e(ExerciseRouter,{id:eid,done:isDone,onDone:function(){markDone(eid)}})
+                  ):null
+                );
+              })
+            )
+          ):null
+        );
+      }),
+
+      e('div',{className:'footer'},'Marketingkonzept, Marktanalyse und Marktleistung \u00b7 Lern-App \u00b7 Friebe, Michel, Portmann, Reber, Schneider \u00b7 Compendio 2022')
+    )
+  );
+}
+
+ReactDOM.render(e(App), document.getElementById('root'));
+</script>
+</body>
+</html>
