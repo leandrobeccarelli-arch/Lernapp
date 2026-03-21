@@ -8,7 +8,7 @@
 <meta http-equiv="Expires" content="0">
 <title>Lernplattform – Berufsprüfung Marketing & Verkauf</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=041">
+<link rel="stylesheet" href="css/style.css?v=042">
 <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 </head>
@@ -22,7 +22,7 @@ const {useState, useEffect} = React;
    Bücher-Katalog
    ══════════════════════════════════════════════════════════ */
 const BOOKS = [
-  {id:'rechnungswesen-uebungen',file:'rechnungswesen-uebungen.html',title:'Rechnungswesen – Aufgaben und Übungen',author:'Compendio-Autorenteam',year:2017,pages:280,color:'#3b82f6',chapters:16,exercises:110},
+  {id:'rechnungswesen-uebungen',file:'rechnungswesen-uebungen.html',title:'Rechnungswesen – Aufgaben und Übungen',author:'Compendio-Autorenteam',year:2017,pages:280,color:'#3b82f6',chapters:16,exercises:159},
   {id:'rechnungswesen',file:'rechnungswesen.html',title:'Rechnungswesen für Marketing- und Verkaufsverantwortliche',author:'Robert Baumann',year:2017,pages:323,color:'#059669',chapters:15,exercises:191},
   {id:'selbstmanagement',file:'selbstmanagement.html',title:'Selbstmanagement für Marketing- und Verkaufsverantwortliche',author:'Geiger, Jäggi, Messi, Züger, Pifko',year:2017,pages:228,color:'#8b5cf6',chapters:15,exercises:87},
   {id:'projektmanagement',file:'projektmanagement.html',title:'Projektmanagement für Marketing- und Verkaufsverantwortliche',author:'Führer, Züger',year:2017,pages:142,color:'#d97706',chapters:15,exercises:43},
@@ -69,8 +69,8 @@ function App(){
         e('div',{style:{fontSize:'.65rem',fontWeight:600,letterSpacing:'.25em',color:'rgba(255,255,255,.25)',textTransform:'uppercase',marginBottom:8}},'Berufsprüfung · Marketing & Verkauf'),
         e('h1',{className:'hero-title'},'Lernplattform'),
         e('p',{className:'hero-sub'},'Kompetenzorientiertes Wissen mit interaktiven Übungen'),
-        e('div',{style:{display:'inline-block',marginTop:8,padding:'3px 10px',borderRadius:20,fontSize:'.65rem',fontWeight:600,letterSpacing:'.05em',background:'rgba(255,255,255,.1)',color:'rgba(255,255,255,.45)',border:'1px solid rgba(255,255,255,.08)'}},'v0.4.8-beta'),
-        e('div',{style:{marginTop:6,fontSize:'.6rem',color:'rgba(255,255,255,.3)',maxWidth:340,lineHeight:1.4}},'Neu: Sortier-Übungen, Übungsfilter, Warum-Erklärungen bei allen Lösungen, erweiterte Kapitel'),
+        e('div',{style:{display:'inline-block',marginTop:8,padding:'3px 10px',borderRadius:20,fontSize:'.65rem',fontWeight:600,letterSpacing:'.05em',background:'rgba(255,255,255,.1)',color:'rgba(255,255,255,.45)',border:'1px solid rgba(255,255,255,.08)'}},'v0.4.9-beta'),
+        e('div',{style:{marginTop:6,fontSize:'.6rem',color:'rgba(255,255,255,.3)',maxWidth:340,lineHeight:1.4}},'Neu: RW-Übungen komplett überarbeitet (159 Aufgaben), Reveal-Bug gefixt, Warum-Erklärungen'),
         e('div',{className:'hero-stats'},
           e('div',{className:'hero-stat'},
             e('div',{className:'hero-stat-val'},booksReady+'/'+booksTotal),

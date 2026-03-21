@@ -143,8 +143,9 @@ function Reveal(props) {
 
   return e('div', { className: 'reveal-box' },
     items.slice(0, shown).map(function(s, i) {
+      var content = typeof s === 'string' ? s : (s && s.label ? s.label + ': ' + s.val : (s && s.val ? s.val : String(s)));
       return e('div', { key: i, className: 'reveal-step' },
-        e('strong', null, 'Schritt ' + (i + 1) + ': '), s
+        e('strong', null, 'Schritt ' + (i + 1) + ': '), content
       );
     }),
     shown < items.length ? e('div', {
