@@ -641,13 +641,35 @@ function ExerciseCard(props) {
 
 function formatText(text) {
   if (!text) return null;
-  // Split on patterns like " - ", "\n- ", "\n\n"
-  // Check if text contains list-like patterns
-  var hasListDashes = /(?:^|\n)\s*-\s/.test(text) || /:\s+-\s/.test(text);
+  // Check for numbered lists (1., 2., 3.)
+  var hasNumberedList = /(?:^|\n)\d+\.\s/.test(text);
+  if (hasNumberedList) {
+    var nlParts = text.split(/(?:^|\n)(?=\d+\.\s)/);
+    var nlIntro = nlParts[0] && !/^\d+\.\s/.test(nlParts[0].trim()) ? nlParts.shift() : '';
+    var nlItems = nlParts.filter(function(s) { return s && s.trim().length > 0; });
+    if (nlItems.length > 0) {
+      var nlElements = [];
+      if (nlIntro && nlIntro.trim()) {
+        nlElements.push(e('p', { key: 'intro', style: { marginBottom: 12, lineHeight: 1.7 } }, nlIntro.trim()));
+      }
+      nlElements.push(e('ol', { key: 'list', style: { paddingLeft: 20, margin: '8px 0' } },
+        nlItems.map(function(item, i) {
+          return e('li', { key: i, style: { marginBottom: 6, lineHeight: 1.6, fontSize: '.88rem' } }, item.replace(/^\d+\.\s*/, '').trim());
+        })
+      ));
+      return e('div', null, nlElements);
+    }
+  }
+  // Check for dash list patterns (only at line starts or after colon)
+  var hasListDashes = /(?:^|\n)\s*-\s/.test(text) || /(?<=[\.:])(\s*\n|\s{2,})-\s/.test(text);
   if (hasListDashes) {
-    // Split into intro text and list items
-    var parts = text.split(/(?:^|\n)\s*-\s|(?<=:)\s+-\s/);
-    var intro = parts[0] ? parts[0].replace(/:\s*$/, '') : '';
+    // Split only on dashes that appear at line start (not mid-sentence dashes)
+    var parts = text.split(/\n\s*-\s|(?<=[\.:])(?:\s*\n|\s{2,})-\s/);
+    // Also handle text starting with "- "
+    if (/^\s*-\s/.test(text)) {
+      parts = text.split(/(?:^|\n)\s*-\s/);
+    }
+    var intro = parts[0] ? parts[0].replace(/[:\s]*$/, '') : '';
     var items = parts.slice(1).filter(function(s) { return s.trim().length > 0; });
     if (items.length > 0) {
       var elements = [];
@@ -815,9 +837,9 @@ function LearningRenderer(props) {
           e('span', { className: 'learn-section-title' }, section.title)
         ),
         e('div', { className: 'learn-section-body' },
-          e('ul', { className: 'learn-merke-list' },
-            (section.items || (section.text ? section.text.split(/\n\n|\n-\s|(?<=\.)\s+-\s/) : [])).filter(function(s) { return s && s.trim(); }).map(function(item, i) { return e('li', { key: i }, item.trim()); })
-          )
+          section.items ? e('ul', { className: 'learn-merke-list' },
+            section.items.filter(function(s) { return s && s.trim(); }).map(function(item, i) { return e('li', { key: i }, item.trim()); })
+          ) : formatText(section.content || section.text || '')
         )
       );
     }
