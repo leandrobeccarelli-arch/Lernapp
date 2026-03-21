@@ -103,14 +103,20 @@ function saveLearnStatus(bookId, s) {
 var TYPE_LABELS = {
   mc: 'Multiple Choice', tf: 'Richtig/Falsch', fill: 'Lückentext',
   match: 'Zuordnung', check: 'Zuordnung (Tabelle)', calc: 'Berechnung',
-  text: 'Freitext', table: 'Tabelle', sort: 'Reihenfolge'
+  text: 'Freitext', table: 'Tabelle', sort: 'Reihenfolge',
+  scenario: 'Szenario', errorfind: 'Fehler finden', decision: 'Entscheidung'
 };
 
 var TYPE_ICONS = {
   mc: '\uD83D\uDD18', tf: '\u2714\uFE0F', fill: '\u270D\uFE0F',
   match: '\uD83D\uDD17', check: '\u2611\uFE0F', calc: '\uD83E\uDDEE',
-  text: '\uD83D\uDCDD', table: '\uD83D\uDCCA', sort: '\uD83D\uDD22'
+  text: '\uD83D\uDCDD', table: '\uD83D\uDCCA', sort: '\uD83D\uDD22',
+  scenario: '\uD83C\uDFED', errorfind: '\uD83D\uDD0D', decision: '\u2696\uFE0F'
 };
+
+// Exercise categories: trainieren vs anwenden
+var TRAIN_TYPES = ['mc', 'tf', 'fill', 'match', 'check', 'calc', 'sort', 'table'];
+var APPLY_TYPES = ['scenario', 'errorfind', 'decision'];
 
 // ─── Tips Component ─────────────────────────────────────────────────────────
 
@@ -624,6 +630,208 @@ function TableExercise(props) {
   );
 }
 
+// ─── Scenario Exercise (Szenario-Analyse) ──────────────────────────────────
+
+function ScenarioExercise(props) {
+  var ex = props.ex, onDone = props.onDone, examMode = props.examMode;
+  var fields = ex.fields || [];
+  var st = useState(function() { return fields.map(function() { return ''; }); });
+  var answers = st[0], setAnswers = st[1];
+  var st2 = useState(false), checked = st2[0], setChecked = st2[1];
+
+  function update(idx, val) {
+    setAnswers(function(prev) {
+      var n = prev.slice();
+      n[idx] = val;
+      return n;
+    });
+  }
+
+  function check() {
+    setChecked(true);
+    var score = 0;
+    fields.forEach(function(field, i) {
+      var userVal = (answers[i] || '').toLowerCase();
+      var matched = 0;
+      (field.keywords || []).forEach(function(kw) {
+        if (userVal.indexOf(kw.toLowerCase()) >= 0) matched++;
+      });
+      var minKw = field.minKeywords || 1;
+      if (matched >= minKw) score++;
+    });
+    if (onDone) onDone(Math.round(score / fields.length * 100));
+  }
+
+  function reset() {
+    setAnswers(fields.map(function() { return ''; }));
+    setChecked(false);
+  }
+
+  return e('div', null,
+    e('div', { className: 'scenario-box', style: { background: 'linear-gradient(135deg, rgba(79,70,229,.06), rgba(99,102,241,.04))', border: '1px solid rgba(79,70,229,.15)', borderRadius: 10, padding: '16px 18px', marginBottom: 16, fontSize: '.88rem', lineHeight: 1.7 } },
+      e('div', { style: { fontWeight: 600, marginBottom: 8, color: 'var(--accent)', fontSize: '.78rem', textTransform: 'uppercase', letterSpacing: '.04em' } }, '\uD83C\uDFED Szenario'),
+      e('div', null, ex.scenario)
+    ),
+    ex.q ? e('div', { className: 'ex-instruction', style: { fontWeight: 600, marginBottom: 12 } }, ex.q) : null,
+    fields.map(function(field, i) {
+      return e('div', { key: i, style: { marginBottom: 14 } },
+        e('label', { style: { display: 'block', fontWeight: 600, fontSize: '.82rem', marginBottom: 4, color: 'var(--text)' } }, field.label),
+        e('textarea', {
+          value: answers[i],
+          onChange: function(ev) { update(i, ev.target.value); },
+          disabled: checked,
+          placeholder: field.placeholder || 'Ihre Antwort...',
+          rows: 2,
+          style: { width: '100%', padding: '8px 12px', borderRadius: 8, border: '1px solid var(--border)', background: 'var(--card)', color: 'var(--text)', fontSize: '.85rem', resize: 'vertical', fontFamily: 'inherit' }
+        }),
+        checked && !examMode ? e('div', { style: { marginTop: 6, padding: '8px 12px', borderRadius: 6, background: 'rgba(34,197,94,.08)', border: '1px solid rgba(34,197,94,.2)', fontSize: '.82rem', color: 'var(--green)' } },
+          e('strong', null, 'Musterantwort: '), field.solution
+        ) : null
+      );
+    }),
+    e('div', { className: 'btn-row' },
+      !checked ? e('button', { className: 'btn btn-primary', onClick: check }, 'Pr\u00FCfen') : null,
+      !examMode && checked ? e('button', { className: 'btn btn-secondary', onClick: reset }, 'Nochmal') : null
+    ),
+    !examMode && ex.tips ? e(Tips, { tips: ex.tips }) : null,
+    !examMode && checked && ex.reveal ? e(Reveal, { items: ex.reveal }) : null
+  );
+}
+
+// ─── Error Find Exercise (Fehler finden) ───────────────────────────────────
+
+function ErrorFindExercise(props) {
+  var ex = props.ex, onDone = props.onDone, examMode = props.examMode;
+  var errors = ex.errors || [];
+  var st = useState(function() { return errors.map(function() { return ''; }); });
+  var corrections = st[0], setCorrections = st[1];
+  var st2 = useState(false), checked = st2[0], setChecked = st2[1];
+
+  function update(idx, val) {
+    setCorrections(function(prev) {
+      var n = prev.slice();
+      n[idx] = val;
+      return n;
+    });
+  }
+
+  function check() {
+    setChecked(true);
+    var score = 0;
+    errors.forEach(function(err, i) {
+      var userVal = (corrections[i] || '').toLowerCase().trim();
+      var accepted = (err.accept || [err.correction]).map(function(a) { return a.toLowerCase(); });
+      if (accepted.some(function(a) { return userVal.indexOf(a) >= 0; })) score++;
+    });
+    if (onDone) onDone(Math.round(score / errors.length * 100));
+  }
+
+  function reset() {
+    setCorrections(errors.map(function() { return ''; }));
+    setChecked(false);
+  }
+
+  return e('div', null,
+    e('div', { style: { fontWeight: 600, marginBottom: 8, fontSize: '.82rem', color: 'var(--accent)' } }, '\uD83D\uDD0D ' + errors.length + ' Fehler sind im folgenden Text versteckt:'),
+    e('div', { style: { background: 'rgba(239,68,68,.05)', border: '1px solid rgba(239,68,68,.15)', borderRadius: 10, padding: '16px 18px', marginBottom: 16, fontSize: '.88rem', lineHeight: 1.8 } }, ex.errorText),
+    errors.map(function(err, i) {
+      var isCorrect = checked && (err.accept || [err.correction]).map(function(a) { return a.toLowerCase(); }).some(function(a) { return (corrections[i] || '').toLowerCase().indexOf(a) >= 0; });
+      return e('div', { key: i, style: { marginBottom: 12, padding: '10px 14px', borderRadius: 8, background: checked ? (isCorrect ? 'rgba(34,197,94,.06)' : 'rgba(239,68,68,.06)') : 'var(--bg)', border: '1px solid ' + (checked ? (isCorrect ? 'var(--green)' : 'var(--red)') : 'var(--border)') } },
+        e('div', { style: { fontSize: '.78rem', fontWeight: 600, color: 'var(--text2)', marginBottom: 4 } }, 'Fehler ' + (i + 1) + ': "' + err.wrong + '"'),
+        e('input', {
+          value: corrections[i],
+          onChange: function(ev) { update(i, ev.target.value); },
+          disabled: checked,
+          placeholder: 'Korrektur...',
+          style: { width: '100%', padding: '6px 10px', borderRadius: 6, border: '1px solid var(--border)', background: 'var(--card)', color: 'var(--text)', fontSize: '.85rem' }
+        }),
+        checked && !isCorrect && !examMode ? e('div', { style: { fontSize: '.78rem', color: 'var(--green)', marginTop: 4 } }, '\u2192 ' + err.correction) : null,
+        checked && !examMode && err.explanation ? e('div', { style: { fontSize: '.78rem', color: 'var(--text2)', marginTop: 2, fontStyle: 'italic' } }, err.explanation) : null
+      );
+    }),
+    e('div', { className: 'btn-row' },
+      !checked ? e('button', { className: 'btn btn-primary', onClick: check }, 'Pr\u00FCfen') : null,
+      !examMode && checked ? e('button', { className: 'btn btn-secondary', onClick: reset }, 'Nochmal') : null
+    ),
+    !examMode && ex.tips ? e(Tips, { tips: ex.tips }) : null,
+    !examMode && checked && ex.reveal ? e(Reveal, { items: ex.reveal }) : null
+  );
+}
+
+// ─── Decision Exercise (Entscheidungsfrage mit Trade-off) ──────────────────
+
+function DecisionExercise(props) {
+  var ex = props.ex, onDone = props.onDone, examMode = props.examMode;
+  var options = ex.options || [];
+  var st = useState(null), chosen = st[0], setChosen = st[1];
+  var st2 = useState(''), reasoning = st2[0], setReasoning = st2[1];
+  var st3 = useState(false), checked = st3[0], setChecked = st3[1];
+
+  function check() {
+    setChecked(true);
+    // Score based on reasoning keywords
+    var score = 50; // Base score for making a choice
+    var userVal = reasoning.toLowerCase();
+    (ex.reasoningKeywords || []).forEach(function(kw) {
+      if (userVal.indexOf(kw.toLowerCase()) >= 0) score += 10;
+    });
+    if (onDone) onDone(Math.min(100, score));
+  }
+
+  function reset() {
+    setChosen(null);
+    setReasoning('');
+    setChecked(false);
+  }
+
+  return e('div', null,
+    e('div', { className: 'scenario-box', style: { background: 'linear-gradient(135deg, rgba(79,70,229,.06), rgba(99,102,241,.04))', border: '1px solid rgba(79,70,229,.15)', borderRadius: 10, padding: '16px 18px', marginBottom: 16, fontSize: '.88rem', lineHeight: 1.7 } },
+      e('div', { style: { fontWeight: 600, marginBottom: 8, color: 'var(--accent)', fontSize: '.78rem', textTransform: 'uppercase', letterSpacing: '.04em' } }, '\u2696\uFE0F Entscheidung'),
+      e('div', null, ex.situation)
+    ),
+    ex.q ? e('div', { className: 'ex-instruction', style: { fontWeight: 600, marginBottom: 12 } }, ex.q) : null,
+    e('div', { style: { display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 14 } },
+      options.map(function(opt, i) {
+        var isChosen = chosen === i;
+        return e('button', {
+          key: i,
+          onClick: function() { if (!checked) setChosen(i); },
+          disabled: checked,
+          style: { padding: '12px 16px', borderRadius: 10, border: '2px solid ' + (isChosen ? 'var(--accent)' : 'var(--border)'), background: isChosen ? 'rgba(79,70,229,.08)' : 'var(--card)', cursor: checked ? 'default' : 'pointer', textAlign: 'left', fontSize: '.86rem', lineHeight: 1.5, color: 'var(--text)' }
+        },
+          e('strong', { style: { color: isChosen ? 'var(--accent)' : 'var(--text)' } }, String.fromCharCode(65 + i) + ') '),
+          opt.text
+        );
+      })
+    ),
+    chosen !== null ? e('div', { style: { marginBottom: 14 } },
+      e('label', { style: { display: 'block', fontWeight: 600, fontSize: '.82rem', marginBottom: 4 } }, 'Begr\u00FCndung: Warum diese Option?'),
+      e('textarea', {
+        value: reasoning,
+        onChange: function(ev) { setReasoning(ev.target.value); },
+        disabled: checked,
+        placeholder: 'Erkl\u00E4ren Sie Ihre Entscheidung...',
+        rows: 3,
+        style: { width: '100%', padding: '8px 12px', borderRadius: 8, border: '1px solid var(--border)', background: 'var(--card)', color: 'var(--text)', fontSize: '.85rem', resize: 'vertical', fontFamily: 'inherit' }
+      })
+    ) : null,
+    e('div', { className: 'btn-row' },
+      !checked && chosen !== null && reasoning.length >= 10 ? e('button', { className: 'btn btn-primary', onClick: check }, 'Pr\u00FCfen') : null,
+      !examMode && checked ? e('button', { className: 'btn btn-secondary', onClick: reset }, 'Nochmal') : null
+    ),
+    checked && !examMode ? e('div', { style: { marginTop: 12 } },
+      options.map(function(opt, i) {
+        return e('div', { key: i, style: { padding: '10px 14px', marginBottom: 8, borderRadius: 8, background: 'rgba(34,197,94,.06)', border: '1px solid rgba(34,197,94,.15)', fontSize: '.83rem', lineHeight: 1.6 } },
+          e('strong', null, String.fromCharCode(65 + i) + ') '),
+          opt.analysis
+        );
+      })
+    ) : null,
+    !examMode && ex.tips ? e(Tips, { tips: ex.tips }) : null,
+    !examMode && checked && ex.reveal ? e(Reveal, { items: ex.reveal }) : null
+  );
+}
+
 // ─── Sort Exercise (Reihenfolge) ───────────────────────────────────────────
 
 function SortExercise(props) {
@@ -714,6 +922,9 @@ function ExerciseCard(props) {
     case 'text': return e(TextExercise, exerciseProps);
     case 'table': return e(TableExercise, exerciseProps);
     case 'sort': return e(SortExercise, exerciseProps);
+    case 'scenario': return e(ScenarioExercise, exerciseProps);
+    case 'errorfind': return e(ErrorFindExercise, exerciseProps);
+    case 'decision': return e(DecisionExercise, exerciseProps);
     default: return e('div', { style: { color: 'var(--text2)', fontStyle: 'italic' } }, 'Unbekannter Aufgabentyp: ' + ex.type);
   }
 }
@@ -1384,18 +1595,13 @@ function Kontenrahmen(props) {
 function ModeTabs(props) {
   var mode = props.mode, setMode = props.setMode;
   var chProgress = props.chProgress;
+  var applyProgress = props.applyProgress;
   var bestExam = props.bestExam;
   var learnRead = props.learnRead;
   var hasLearningData = props.hasLearningData;
+  var hasApplyExercises = props.hasApplyExercises;
 
   return e('div', { className: 'mode-tabs' },
-    e('button', {
-      className: 'mode-tab' + (mode === 'ueben' ? ' active-ueben' : ''),
-      onClick: function() { setMode('ueben'); }
-    },
-      e('span', { className: 'mode-tab-icon' }, '\u270D\uFE0F'), ' \u00DCben',
-      chProgress ? e('span', { className: 'mode-badge' }, chProgress.done + '/' + chProgress.total) : null
-    ),
     hasLearningData ? e('button', {
       className: 'mode-tab' + (mode === 'lernen' ? ' active-lernen' : ''),
       onClick: function() { setMode('lernen'); }
@@ -1404,10 +1610,24 @@ function ModeTabs(props) {
       learnRead ? e('span', { className: 'mode-badge' }, '\u2713') : null
     ) : null,
     e('button', {
+      className: 'mode-tab' + (mode === 'trainieren' ? ' active-ueben' : ''),
+      onClick: function() { setMode('trainieren'); }
+    },
+      e('span', { className: 'mode-tab-icon' }, '\u270D\uFE0F'), ' Trainieren',
+      chProgress ? e('span', { className: 'mode-badge' }, chProgress.done + '/' + chProgress.total) : null
+    ),
+    hasApplyExercises ? e('button', {
+      className: 'mode-tab' + (mode === 'anwenden' ? ' active-anwenden' : ''),
+      onClick: function() { setMode('anwenden'); }
+    },
+      e('span', { className: 'mode-tab-icon' }, '\uD83C\uDFAF'), ' Anwenden',
+      applyProgress ? e('span', { className: 'mode-badge' }, applyProgress.done + '/' + applyProgress.total) : null
+    ) : null,
+    e('button', {
       className: 'mode-tab' + (mode === 'pruefung' ? ' active-pruefung' : ''),
       onClick: function() { setMode('pruefung'); }
     },
-      e('span', { className: 'mode-tab-icon' }, '\uD83C\uDFAF'), ' Pr\u00FCfung',
+      e('span', { className: 'mode-tab-icon' }, '\uD83C\uDF93'), ' Pr\u00FCfung',
       bestExam ? e('span', { className: 'mode-badge' }, bestExam.pct + '%') : null
     )
   );
@@ -1419,7 +1639,7 @@ function ChapterCard(props) {
   var chapter = props.chapter, bookData = props.bookData, progress = props.progress, markDone = props.markDone;
   var st = useState(false), isOpen = st[0], setIsOpen = st[1];
   var st2 = useState(null), openEx = st2[0], setOpenEx = st2[1];
-  var st3 = useState('ueben'), mode = st3[0], setMode = st3[1];
+  var st3 = useState('lernen'), mode = st3[0], setMode = st3[1];
   var st4 = useState(0), examRetry = st4[0], setExamRetry = st4[1];
   var st6 = useState(false), showFilter = st6[0], setShowFilter = st6[1];
   var st7 = useState(function() {
@@ -1443,10 +1663,14 @@ function ChapterCard(props) {
     });
   }
 
-  var exercises = chapter.exercises || [];
-  var done = exercises.filter(function(ex) { return progress[ex.id] && progress[ex.id].done; }).length;
-  var total = exercises.length;
+  var allExercises = chapter.exercises || [];
+  var trainExercises = allExercises.filter(function(ex) { return APPLY_TYPES.indexOf(ex.type) === -1; });
+  var applyExercises = allExercises.filter(function(ex) { return APPLY_TYPES.indexOf(ex.type) !== -1; });
+  var exercises = trainExercises; // backwards compat for progress counting
+  var done = trainExercises.filter(function(ex) { return progress[ex.id] && progress[ex.id].done; }).length;
+  var total = trainExercises.length;
   var pct = total > 0 ? Math.round(done / total * 100) : 0;
+  var applyDone = applyExercises.filter(function(ex) { return progress[ex.id] && progress[ex.id].done; }).length;
 
   var examScores = useMemo(function() { return loadExamScores(bookData.id); }, [mode, examRetry]);
   var bestExam = examScores[chapter.id];
@@ -1470,9 +1694,11 @@ function ChapterCard(props) {
         mode: mode,
         setMode: setMode,
         chProgress: { done: done, total: total },
+        applyProgress: applyExercises.length > 0 ? { done: applyDone, total: applyExercises.length } : null,
         bestExam: bestExam,
         learnRead: learnRead,
-        hasLearningData: !!(chapter.learningData)
+        hasLearningData: !!(chapter.learningData),
+        hasApplyExercises: applyExercises.length > 0
       }),
 
       // Lernen
@@ -1483,8 +1709,8 @@ function ChapterCard(props) {
         onLearnRead: function() { setLearnRead(true); }
       }) : null,
 
-      // Ueben
-      mode === 'ueben' ? e('div', { className: 'exercise-list' },
+      // Trainieren
+      mode === 'trainieren' ? e('div', { className: 'exercise-list' },
         // Filter Bar
         e('div', { style: { display: 'flex', alignItems: 'center', gap: 8, marginBottom: 12, flexWrap: 'wrap' } },
           e('button', {
@@ -1498,8 +1724,8 @@ function ChapterCard(props) {
         ),
         showFilter ? e('div', { style: { display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 16, padding: '12px 14px', borderRadius: 10, background: 'var(--bg)', border: '1px solid var(--border)' } },
           Object.keys(TYPE_LABELS).map(function(type) {
-            var hasExercises = exercises.some(function(ex) { return ex.type === type; });
-            if (!hasExercises) return null;
+            var hasExercises = trainExercises.some(function(ex) { return ex.type === type; });
+            if (!hasExercises || APPLY_TYPES.indexOf(type) !== -1) return null;
             var isOn = !typeFilter || typeFilter[type] !== false;
             return e('button', {
               key: type,
@@ -1510,7 +1736,7 @@ function ChapterCard(props) {
         ) : null,
         // Filtered exercises
         (function() {
-          var filtered = typeFilter ? exercises.filter(function(ex) { return typeFilter[ex.type] !== false; }) : exercises;
+          var filtered = typeFilter ? trainExercises.filter(function(ex) { return typeFilter[ex.type] !== false; }) : trainExercises;
           if (filtered.length === 0) return e('div', { style: { padding: 20, textAlign: 'center', color: 'var(--text2)', fontSize: '.85rem' } }, 'Keine \u00DCbungen f\u00FCr den gew\u00E4hlten Filter.');
           return filtered.map(function(ex) {
             var isDone = progress[ex.id] && progress[ex.id].done;
@@ -1537,12 +1763,42 @@ function ChapterCard(props) {
         })()
       ) : null,
 
+      // Anwenden
+      mode === 'anwenden' ? e('div', { className: 'exercise-list' },
+        e('div', { style: { padding: '12px 16px', marginBottom: 16, borderRadius: 10, background: 'linear-gradient(135deg, rgba(79,70,229,.06), rgba(99,102,241,.04))', border: '1px solid rgba(79,70,229,.12)', fontSize: '.83rem', lineHeight: 1.6, color: 'var(--text2)' } },
+          e('strong', { style: { color: 'var(--accent)' } }, '\uD83C\uDFAF Anwenden'), ' \u2014 Hier wendest du dein Wissen auf realistische Szenarien an. Denke wie ein Marketingfachmann.'
+        ),
+        applyExercises.map(function(ex) {
+          var isDone = progress[ex.id] && progress[ex.id].done;
+          var isExOpen = openEx === ex.id;
+          return e('div', { key: ex.id, className: 'ex-card' },
+            e('div', { className: 'ex-header', onClick: function() { setOpenEx(isExOpen ? null : ex.id); } },
+              e('span', { className: 'ex-num' + (isDone ? ' done' : '') }, ex.id),
+              e('div', { className: 'ex-title-wrap' },
+                e('div', { className: 'ex-title' }, ex.q ? ex.q.substring(0, 80) : 'Aufgabe ' + ex.id),
+                e('div', { className: 'ex-type' }, (TYPE_ICONS[ex.type] || '') + ' ' + (TYPE_LABELS[ex.type] || ex.type)),
+                isDone ? e('span', { className: 'score-badge good' }, 'Erledigt') : null
+              ),
+              e('span', { className: 'ch-arrow' + (isExOpen ? ' open' : '') }, '\u25BC')
+            ),
+            isExOpen ? e('div', { className: 'ex-body' },
+              e(ExerciseCard, {
+                ex: ex,
+                examMode: false,
+                onDone: function(score) { markDone(ex.id, score); }
+              })
+            ) : null
+          );
+        }),
+        applyExercises.length === 0 ? e('div', { style: { padding: 20, textAlign: 'center', color: 'var(--text2)', fontSize: '.85rem' } }, 'Noch keine Anwenden-\u00DCbungen f\u00FCr dieses Kapitel.') : null
+      ) : null,
+
       // Pruefung
       mode === 'pruefung' ? e(ExamMode, {
         key: 'exam-' + chapter.id + '-' + examRetry,
         chapter: chapter,
         bookId: bookData.id,
-        onBack: function() { setMode('ueben'); },
+        onBack: function() { setMode('trainieren'); },
         onRetry: function() { setExamRetry(examRetry + 1); }
       }) : null
     ) : null

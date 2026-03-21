@@ -133,6 +133,59 @@ window.BOOK_DATA = {
           options: ['Unternehmensziel','Marketingziel','Verkaufsziel'],
           tips: ['Unternehmensziele sind die übergeordneten, strategischen Ziele.','Marketingziele leiten sich aus den Unternehmenszielen ab.','Verkaufsziele sind die operativsten und konkretesten.'],
           reveal: ['Marktführerschaft und Gewinnmaximierung = Unternehmensziele.','Umsatzsteigerung und Kundenzufriedenheit = Marketingziele.','20 Neukunden pro Quartal = konkretes Verkaufsziel.']
+        },
+        {
+          id: 93,
+          type: 'scenario',
+          q: 'Formulieren Sie das Verkaufsziel der Geschäftsführerin anhand der 6 W.',
+          scenario: 'Die Luzerner Bio-Schokoladenmanufaktur «Alpengold» will den Deutschschweizer Detailhandel erschliessen. Die Geschäftsführerin sagt: "Unser Ziel ist, möglichst viel Umsatz zu machen." Der Verkaufsleiter soll daraus ein operationalisiertes Verkaufsziel formulieren.',
+          fields: [
+            {label: 'Was (Zielinhalt)', placeholder: 'Welches Verkaufsziel?', keywords: ['umsatz','schokolade','detailhandel','bio'], minKeywords: 1, solution: 'Umsatz mit Bio-Schokolade im Detailhandel'},
+            {label: 'Wie viel (Quantifizierung)', placeholder: 'Konkreter Wert?', keywords: ['chf','000','500','franken'], minKeywords: 1, solution: 'CHF 500\'000 (realistisch für KMU-Markteintritt)'},
+            {label: 'Wem (Zielsegment)', placeholder: 'Welche Zielgruppe/Kunden?', keywords: ['detailhändler','coop','migros','handel','kunden'], minKeywords: 1, solution: 'Detailhändler Deutschschweiz (Coop, Migros, Spar, Volg)'},
+            {label: 'Wann (Zielperiode)', placeholder: 'Bis wann?', keywords: ['2027','2026','dezember','jahr','quartal','12'], minKeywords: 1, solution: 'Bis 31.12.2027'},
+            {label: 'Wo (Zielmarkt)', placeholder: 'Geografischer Markt?', keywords: ['deutschschweiz','schweiz','zürich','bern','luzern'], minKeywords: 1, solution: 'Deutschschweiz'},
+            {label: 'Wer (Verantwortung)', placeholder: 'Wer ist verantwortlich?', keywords: ['verkaufsleiter','leiter','chef','verantwortlich'], minKeywords: 1, solution: 'Verkaufsleiter'}
+          ],
+          tips: ['Die Geschäftsführerin gibt nur ein vages Ziel vor — genau das ist das Problem.','Identifizieren Sie zuerst, welche W bereits im Szenario enthalten sind.','Ein operationalisiertes Ziel muss SMART sein.'],
+          reveal: ['"Möglichst viel Umsatz" ist KEIN operationalisiertes Ziel — es fehlen Quantifizierung, Termin und Verantwortung.','Erst mit allen 6 W wird das Ziel messbar und kontrollierbar.','An der Prüfung: Ziele immer in Tabellenform mit den 6 W operationalisieren.']
+        },
+        {
+          id: 94,
+          type: 'errorfind',
+          q: 'Finden und korrigieren Sie die 3 Fehler im folgenden Text.',
+          errorText: 'Verkaufsziele werden Bottom-up von den Mitarbeiterzielen abgeleitet und bilden die Grundlage für Marketingziele. Es gibt zwei zeitliche Zielarten: Strategische Ziele (kurzfristig, bis 1 Jahr) und operative Ziele (langfristig, 3-5 Jahre). Ökonomische Ziele wie Image und Kundenzufriedenheit sind per Statistik jederzeit messbar.',
+          errors: [
+            {wrong: 'Bottom-up von den Mitarbeiterzielen abgeleitet', correction: 'Top-down von Unternehmenszielen abgeleitet', accept: ['top-down','top down','unternehmenszielen','oben nach unten'], explanation: 'Ziele werden Top-down abgeleitet: Unternehmensziele → Marketingziele → Verkaufsziele.'},
+            {wrong: 'Strategische Ziele (kurzfristig, bis 1 Jahr)', correction: 'Strategische Ziele sind langfristig (3-5 Jahre), taktische sind kurzfristig', accept: ['langfristig','3-5','3 bis 5','taktisch'], explanation: 'Strategisch = langfristig (3-5 J.), operativ = mittelfristig (2-3 J.), taktisch = kurzfristig (bis 1 J.).'},
+            {wrong: 'Image und Kundenzufriedenheit = ökonomische Ziele', correction: 'Image und Kundenzufriedenheit sind vorökonomische (qualitative) Ziele', accept: ['vorökonomisch','qualitativ','voroekonomisch','voroekon'], explanation: 'Image und Kundenzufriedenheit haben qualitativen Charakter und werden durch Umfragen gemessen, nicht per Statistik.'}
+          ],
+          tips: ['Prüfen Sie die Zielhierarchie: Von oben oder von unten?','Vergleichen Sie die Zeiträume: Was ist strategisch, was taktisch?','Überlegen Sie: Kann man Image mit einer Statistik messen?'],
+          reveal: ['Fehler 1: Zielhierarchie ist Top-down (Unternehmen → Marketing → Verkauf).','Fehler 2: Es gibt DREI zeitliche Zielarten, nicht zwei. Strategisch = 3-5 J., operativ = 2-3 J., taktisch = bis 1 J.','Fehler 3: Image und Kundenzufriedenheit sind vorökonomische Ziele — messbar nur durch Umfragen und Beobachtungen.']
+        },
+        {
+          id: 95,
+          type: 'decision',
+          q: 'Für welche Option entscheiden Sie sich? Begründen Sie.',
+          situation: 'Ein mittelgrosser Sanitärbetrieb in Bern hat im letzten Jahr CHF 2.8 Mio Umsatz gemacht. Der Verkaufsleiter möchte für nächstes Jahr ein ambitioniertes Verkaufsziel setzen. Er hat zwei Optionen erarbeitet.',
+          options: [
+            {text: 'Umsatz um 15% steigern auf CHF 3.22 Mio (rein ökonomisches Ziel)', analysis: 'Option A ist klar messbar und fokussiert. Aber: Ein reines Umsatzziel ignoriert die Qualität der Kundenbeziehungen. 15% Wachstum könnte unrealistisch sein ohne Qualitätsverbesserung.'},
+            {text: 'Kundenzufriedenheit von 7.2 auf 8.5 erhöhen UND Umsatz um 5% steigern (gemischtes Ziel)', analysis: 'Option B ist nachhaltiger: Vorökonomische Ziele (Kundenzufriedenheit) treiben langfristig ökonomische Ziele. In der Sanitärbranche basiert Geschäft stark auf Empfehlungen. 5% Wachstum ist realistischer und durch zufriedene Kunden langfristig steigerbar.'}
+          ],
+          reasoningKeywords: ['nachhaltig','empfehlung','langfristig','vorökonomisch','kundenzufriedenheit','qualität','realistisch','messbar','smart','quantitativ','qualitativ'],
+          tips: ['Es gibt keine "falsche" Antwort — aber gute und schlechte Begründungen.','Denken Sie an den Zusammenhang: Vorökonomische Ziele → ökonomischer Erfolg.','Die Sanitärbranche lebt von Mund-zu-Mund-Empfehlungen.'],
+          reveal: ['Beide Optionen sind vertretbar, aber Option B berücksichtigt den Zusammenhang zwischen vorökonomischen und ökonomischen Zielen.','Gerade im Dienstleistungsbereich: Kundenzufriedenheit → Empfehlungen → Umsatz.','An der Prüfung wird oft nach dem Zusammenhang zwischen den Zielarten gefragt.']
+        },
+        {
+          id: 96,
+          type: 'calc',
+          q: 'Die Firma SportTech AG hat ein strategisches Ziel: Marktanteil von 12% bis 2029.\nGesamtmarkt Schweiz: CHF 50 Mio. Aktueller Umsatz: CHF 4.2 Mio.\nA) Aktueller Marktanteil? B) Wie viel zusätzlicher Umsatz ist nötig?',
+          fields: [
+            {label: 'A) Aktueller Marktanteil (%)', answer: 8.4, tolerance: 0.1},
+            {label: 'B) Zusätzlicher Umsatz (Mio CHF)', answer: 1.8, tolerance: 0.1}
+          ],
+          tips: ['Marktanteil = Eigener Umsatz / Gesamtmarkt × 100.','Ziel-Umsatz = Ziel-Marktanteil × Gesamtmarkt.','Zusätzlicher Umsatz = Ziel-Umsatz − aktueller Umsatz.'],
+          reveal: ['A) 4.2 / 50 × 100 = 8.4% aktueller Marktanteil.','B) Ziel: 12% × 50 Mio = CHF 6.0 Mio. Differenz: 6.0 − 4.2 = CHF 1.8 Mio zusätzlich nötig.']
         }
       ],
       learningData: {
