@@ -639,6 +639,100 @@ function ExerciseCard(props) {
 
 // ─── Text Formatter (converts flat text to structured elements) ──────────────
 
+// Labels that get bold + their comma-lists become sub-bullets
+var LABEL_KEYWORDS = ['Vorteile', 'Nachteile', 'Nachteil', 'Vorteil', 'Pro', 'Kontra', 'Chancen', 'Risiken', 'Stärken', 'Schwächen', 'Herausforderungen', 'Merkmale', 'Funktionen', 'Ziele', 'Ziel', 'Beispiel', 'Beispiele', 'Definition', 'Bedeutung', 'Arten', 'Formen', 'Schritte', 'Phasen', 'Methoden', 'Kriterien', 'Faktoren', 'Elemente', 'Komponenten', 'Kennzahlen', 'Berechnung', 'Formel', 'Merke', 'Grundprinzipien', 'Anforderungen', 'Aufgaben', 'Instrumente', 'Massnahmen', 'Kategorien', 'Bereiche', 'Ebenen', 'Strategie', 'Strategien'];
+// Labels that trigger sub-bullet rendering for comma-separated content
+var SUBBULLET_LABELS = ['Vorteile', 'Nachteile', 'Nachteil', 'Vorteil', 'Chancen', 'Risiken', 'Stärken', 'Schwächen', 'Herausforderungen', 'Merkmale', 'Funktionen', 'Arten', 'Formen', 'Instrumente', 'Massnahmen', 'Kategorien', 'Bereiche', 'Aufgaben', 'Anforderungen'];
+
+// Format a single block of text with bold labels and optional sub-bullets
+function formatRichBlock(text, keyPrefix) {
+  if (!text || !text.trim()) return null;
+  // Check if text contains any known labels
+  var labelPattern = new RegExp('(?:\\. |^)(' + LABEL_KEYWORDS.join('|') + '):\\s');
+  if (!labelPattern.test(text)) {
+    // No labels — return as plain text
+    return e('span', { key: keyPrefix }, text);
+  }
+  // Split text at label boundaries using manual approach for browser compat
+  var segments = [];
+  var labelSplitRegex = new RegExp('(?:\\. |^)(' + LABEL_KEYWORDS.join('|') + '):\\s', 'g');
+  var lastIdx = 0;
+  var match;
+  while ((match = labelSplitRegex.exec(text)) !== null) {
+    var matchStart = match[0].startsWith('. ') ? match.index + 2 : match.index;
+    if (matchStart > lastIdx) {
+      segments.push(text.substring(lastIdx, matchStart).replace(/\.\s*$/, ''));
+    }
+    lastIdx = matchStart;
+  }
+  if (lastIdx < text.length) segments.push(text.substring(lastIdx));
+  segments = segments.filter(function(s) { return s && s.trim(); });
+  if (segments.length <= 1 && !labelPattern.test(segments[0] || '')) {
+    return e('span', { key: keyPrefix }, text);
+  }
+  var result = [];
+  segments.forEach(function(seg, si) {
+    var labelMatch = seg.match(new RegExp('^(' + LABEL_KEYWORDS.join('|') + '):\\s(.*)$', 's'));
+    if (labelMatch) {
+      var label = labelMatch[1];
+      var content = labelMatch[2].replace(/\.\s*$/, '').trim();
+      var isSubbulletLabel = SUBBULLET_LABELS.indexOf(label) !== -1;
+      // Check if content is comma-separated (3+ items suggests a list)
+      var commaItems = content.split(/,\s*/);
+      if (isSubbulletLabel && commaItems.length >= 3) {
+        result.push(e('div', { key: keyPrefix + '-' + si, style: { marginTop: 8 } },
+          e('strong', { style: { color: '#334155', fontSize: '.85rem' } }, label + ':'),
+          e('ul', { style: { paddingLeft: 18, margin: '4px 0 0 0' } },
+            commaItems.map(function(ci, j) {
+              var t = ci.trim().replace(/\.\s*$/, '');
+              return t ? e('li', { key: j, style: { marginBottom: 2, lineHeight: 1.5, fontSize: '.84rem', color: '#475569' } }, t) : null;
+            }).filter(Boolean)
+          )
+        ));
+      } else {
+        // Label with content but not a comma list — bold label, inline content
+        result.push(e('div', { key: keyPrefix + '-' + si, style: { marginTop: 4 } },
+          e('strong', { style: { color: '#334155', fontSize: '.85rem' } }, label + ': '),
+          e('span', { style: { fontSize: '.85rem' } }, content)
+        ));
+      }
+    } else {
+      // Non-label segment (intro text)
+      result.push(e('span', { key: keyPrefix + '-' + si, style: { fontSize: '.85rem' } }, seg.trim()));
+    }
+  });
+  return e('div', { key: keyPrefix }, result);
+}
+
+// Format title:content pattern — first part before colon becomes bold title
+function formatTitledItem(text, keyPrefix) {
+  if (!text) return null;
+  // Check for "Title: rest of content" pattern
+  var titleMatch = text.match(/^([^:]{3,50}):\s(.+)$/s);
+  if (titleMatch) {
+    var title = titleMatch[1].trim();
+    var rest = titleMatch[2].trim();
+    // Check if rest contains sub-labels (Vorteile, Nachteile etc.)
+    var labelPattern = new RegExp('(?:\\. |^)(' + LABEL_KEYWORDS.join('|') + '):\\s');
+    if (labelPattern.test(rest)) {
+      return e('div', { key: keyPrefix },
+        e('strong', { style: { display: 'block', marginBottom: 4, color: '#1e293b', fontSize: '.88rem' } }, title),
+        formatRichBlock(rest, keyPrefix + '-body')
+      );
+    }
+    return e('div', { key: keyPrefix },
+      e('strong', { style: { color: '#1e293b', fontSize: '.88rem' } }, title + ': '),
+      e('span', { style: { fontSize: '.85rem' } }, rest)
+    );
+  }
+  // No title pattern — check for labels in plain text
+  var hasLabels = new RegExp('(?:\\. |^)(' + LABEL_KEYWORDS.join('|') + '):\\s').test(text);
+  if (hasLabels) {
+    return formatRichBlock(text, keyPrefix);
+  }
+  return null;
+}
+
 function formatText(text) {
   if (!text) return null;
   // Check for numbered lists (1., 2., 3.)
@@ -654,7 +748,9 @@ function formatText(text) {
       }
       nlElements.push(e('ol', { key: 'list', style: { paddingLeft: 20, margin: '8px 0' } },
         nlItems.map(function(item, i) {
-          return e('li', { key: i, style: { marginBottom: 6, lineHeight: 1.6, fontSize: '.88rem' } }, item.replace(/^\d+\.\s*/, '').trim());
+          var itemText = item.replace(/^\d+\.\s*/, '').trim();
+          var rich = formatTitledItem(itemText, 'li-' + i);
+          return e('li', { key: i, style: { marginBottom: 12, lineHeight: 1.6 } }, rich || itemText);
         })
       ));
       return e('div', null, nlElements);
@@ -663,9 +759,7 @@ function formatText(text) {
   // Check for dash list patterns (only at line starts or after colon)
   var hasListDashes = /(?:^|\n)\s*-\s/.test(text) || /(?<=[\.:])(\s*\n|\s{2,})-\s/.test(text);
   if (hasListDashes) {
-    // Split only on dashes that appear at line start (not mid-sentence dashes)
     var parts = text.split(/\n\s*-\s|(?<=[\.:])(?:\s*\n|\s{2,})-\s/);
-    // Also handle text starting with "- "
     if (/^\s*-\s/.test(text)) {
       parts = text.split(/(?:^|\n)\s*-\s/);
     }
@@ -678,11 +772,18 @@ function formatText(text) {
       }
       elements.push(e('ul', { key: 'list', style: { paddingLeft: 20, margin: '8px 0' } },
         items.map(function(item, i) {
-          return e('li', { key: i, style: { marginBottom: 6, lineHeight: 1.6, fontSize: '.88rem' } }, item.trim());
+          var rich = formatTitledItem(item.trim(), 'li-' + i);
+          return e('li', { key: i, style: { marginBottom: 6, lineHeight: 1.6, fontSize: '.88rem' } }, rich || item.trim());
         })
       ));
       return e('div', null, elements);
     }
+  }
+  // Check for labels in plain text (e.g., "Description. Vorteile: X, Y, Z. Nachteile: A, B, C.")
+  var hasLabels = new RegExp('(' + LABEL_KEYWORDS.join('|') + '):\\s').test(text);
+  if (hasLabels) {
+    var rich = formatRichBlock(text, 'rich');
+    if (rich) return e('div', { style: { lineHeight: 1.7 } }, rich);
   }
   // Check for paragraph breaks
   if (text.indexOf('\n\n') !== -1) {
