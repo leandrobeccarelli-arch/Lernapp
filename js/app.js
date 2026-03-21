@@ -103,7 +103,13 @@ function saveLearnStatus(bookId, s) {
 var TYPE_LABELS = {
   mc: 'Multiple Choice', tf: 'Richtig/Falsch', fill: 'Lückentext',
   match: 'Zuordnung', check: 'Zuordnung (Tabelle)', calc: 'Berechnung',
-  text: 'Freitext', table: 'Tabelle'
+  text: 'Freitext', table: 'Tabelle', sort: 'Reihenfolge'
+};
+
+var TYPE_ICONS = {
+  mc: '\uD83D\uDD18', tf: '\u2714\uFE0F', fill: '\u270D\uFE0F',
+  match: '\uD83D\uDD17', check: '\u2611\uFE0F', calc: '\uD83E\uDDEE',
+  text: '\uD83D\uDCDD', table: '\uD83D\uDCCA', sort: '\uD83D\uDD22'
 };
 
 // ─── Tips Component ─────────────────────────────────────────────────────────
@@ -618,6 +624,80 @@ function TableExercise(props) {
   );
 }
 
+// ─── Sort Exercise (Reihenfolge) ───────────────────────────────────────────
+
+function SortExercise(props) {
+  var ex = props.ex, onDone = props.onDone, examMode = props.examMode;
+  var correctOrder = ex.items || [];
+  var st = useState(function() { return shuffleArray(correctOrder.slice()); });
+  var items = st[0], setItems = st[1];
+  var st2 = useState(false), checked = st2[0], setChecked = st2[1];
+
+  function move(fromIdx, toIdx) {
+    if (toIdx < 0 || toIdx >= items.length || checked) return;
+    setItems(function(prev) {
+      var arr = prev.slice();
+      var item = arr.splice(fromIdx, 1)[0];
+      arr.splice(toIdx, 0, item);
+      return arr;
+    });
+  }
+
+  function check() {
+    setChecked(true);
+    var correct = 0;
+    items.forEach(function(item, i) {
+      if (item === correctOrder[i]) correct++;
+    });
+    if (onDone) onDone(Math.round(correct / correctOrder.length * 100));
+  }
+
+  function reset() {
+    setItems(shuffleArray(correctOrder.slice()));
+    setChecked(false);
+  }
+
+  return e('div', null,
+    ex.q ? e('div', { className: 'ex-instruction' }, ex.q) : null,
+    e('div', { className: 'sort-list' },
+      items.map(function(item, i) {
+        var isCorrect = checked && item === correctOrder[i];
+        var isWrong = checked && item !== correctOrder[i];
+        return e('div', {
+          key: item + '-' + i,
+          className: 'sort-item' + (isCorrect ? ' sort-correct' : '') + (isWrong ? ' sort-wrong' : ''),
+          style: { display: 'flex', alignItems: 'center', gap: 8, padding: '10px 12px', marginBottom: 6, borderRadius: 8, border: '1px solid ' + (isCorrect ? 'var(--green)' : isWrong ? 'var(--red)' : 'var(--border)'), background: isCorrect ? 'rgba(34,197,94,.08)' : isWrong ? 'rgba(239,68,68,.08)' : 'var(--card)' }
+        },
+          e('span', { style: { fontWeight: 600, color: 'var(--text2)', fontSize: '.8rem', minWidth: 22 } }, (i + 1) + '.'),
+          e('span', { style: { flex: 1, fontSize: '.88rem' } }, item),
+          !checked ? e('div', { style: { display: 'flex', flexDirection: 'column', gap: 2 } },
+            e('button', {
+              className: 'sort-btn',
+              disabled: i === 0,
+              onClick: function() { move(i, i - 1); },
+              style: { padding: '2px 8px', fontSize: '.75rem', border: '1px solid var(--border)', borderRadius: 4, background: 'var(--card)', cursor: i === 0 ? 'default' : 'pointer', opacity: i === 0 ? .3 : 1, color: 'var(--text)' }
+            }, '\u25B2') ,
+            e('button', {
+              className: 'sort-btn',
+              disabled: i === items.length - 1,
+              onClick: function() { move(i, i + 1); },
+              style: { padding: '2px 8px', fontSize: '.75rem', border: '1px solid var(--border)', borderRadius: 4, background: 'var(--card)', cursor: i === items.length - 1 ? 'default' : 'pointer', opacity: i === items.length - 1 ? .3 : 1, color: 'var(--text)' }
+            }, '\u25BC')
+          ) : null,
+          checked && isWrong ? e('span', { style: { fontSize: '.75rem', color: 'var(--green)' } }, '\u2192 ' + (correctOrder.indexOf(item) + 1) + '.') : null
+        );
+      })
+    ),
+    e('div', { className: 'btn-row' },
+      !checked ? e('button', { className: 'btn btn-primary', onClick: check }, 'Pr\u00FCfen') : null,
+      !examMode && checked ? e('button', { className: 'btn btn-secondary', onClick: reset }, 'Nochmal') : null
+    ),
+    examMode && checked ? e('div', { style: { fontSize: '.8rem', color: 'var(--green)', marginTop: 8 } }, '\u2713 Beantwortet') : null,
+    !examMode && ex.tips ? e(Tips, { tips: ex.tips }) : null,
+    !examMode && checked && ex.reveal ? e(Reveal, { items: ex.reveal }) : null
+  );
+}
+
 // ─── Exercise Card (wrapper) ────────────────────────────────────────────────
 
 function ExerciseCard(props) {
@@ -633,6 +713,7 @@ function ExerciseCard(props) {
     case 'calc': return e(CalcExercise, exerciseProps);
     case 'text': return e(TextExercise, exerciseProps);
     case 'table': return e(TableExercise, exerciseProps);
+    case 'sort': return e(SortExercise, exerciseProps);
     default: return e('div', { style: { color: 'var(--text2)', fontStyle: 'italic' } }, 'Unbekannter Aufgabentyp: ' + ex.type);
   }
 }
@@ -1340,6 +1421,27 @@ function ChapterCard(props) {
   var st2 = useState(null), openEx = st2[0], setOpenEx = st2[1];
   var st3 = useState('ueben'), mode = st3[0], setMode = st3[1];
   var st4 = useState(0), examRetry = st4[0], setExamRetry = st4[1];
+  var st6 = useState(false), showFilter = st6[0], setShowFilter = st6[1];
+  var st7 = useState(function() {
+    try { var saved = JSON.parse(localStorage.getItem('lp-type-filter')); return saved || null; } catch(e) { return null; }
+  });
+  var typeFilter = st7[0], setTypeFilter = st7[1];
+
+  function toggleTypeFilter(type) {
+    setTypeFilter(function(prev) {
+      // First time: start with all types enabled
+      var allTypes = {};
+      Object.keys(TYPE_LABELS).forEach(function(t) { allTypes[t] = true; });
+      var current = prev || allTypes;
+      var next = Object.assign({}, current);
+      next[type] = !next[type];
+      // Don't allow disabling ALL types
+      var anyOn = Object.keys(next).some(function(t) { return next[t]; });
+      if (!anyOn) return current;
+      localStorage.setItem('lp-type-filter', JSON.stringify(next));
+      return next;
+    });
+  }
 
   var exercises = chapter.exercises || [];
   var done = exercises.filter(function(ex) { return progress[ex.id] && progress[ex.id].done; }).length;
@@ -1383,28 +1485,56 @@ function ChapterCard(props) {
 
       // Ueben
       mode === 'ueben' ? e('div', { className: 'exercise-list' },
-        exercises.map(function(ex) {
-          var isDone = progress[ex.id] && progress[ex.id].done;
-          var isExOpen = openEx === ex.id;
-          return e('div', { key: ex.id, className: 'ex-card' },
-            e('div', { className: 'ex-header', onClick: function() { setOpenEx(isExOpen ? null : ex.id); } },
-              e('span', { className: 'ex-num' + (isDone ? ' done' : '') }, ex.id),
-              e('div', { className: 'ex-title-wrap' },
-                e('div', { className: 'ex-title' }, ex.q ? ex.q.substring(0, 80) : 'Aufgabe ' + ex.id),
-                e('div', { className: 'ex-type' }, TYPE_LABELS[ex.type] || ex.type),
-                isDone ? e('span', { className: 'score-badge good' }, 'Erledigt') : null
+        // Filter Bar
+        e('div', { style: { display: 'flex', alignItems: 'center', gap: 8, marginBottom: 12, flexWrap: 'wrap' } },
+          e('button', {
+            onClick: function() { setShowFilter(!showFilter); },
+            style: { padding: '6px 14px', fontSize: '.8rem', fontWeight: 600, border: '1px solid var(--border)', borderRadius: 20, background: showFilter ? 'var(--accent)' : 'var(--card)', color: showFilter ? '#fff' : 'var(--text)', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 6 }
+          }, '\u2699\uFE0F', ' Filter'),
+          typeFilter ? e('button', {
+            onClick: function() { setTypeFilter(null); localStorage.removeItem('lp-type-filter'); },
+            style: { padding: '4px 10px', fontSize: '.72rem', border: '1px solid var(--border)', borderRadius: 12, background: 'transparent', color: 'var(--text2)', cursor: 'pointer' }
+          }, 'Alle anzeigen') : null
+        ),
+        showFilter ? e('div', { style: { display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 16, padding: '12px 14px', borderRadius: 10, background: 'var(--bg)', border: '1px solid var(--border)' } },
+          Object.keys(TYPE_LABELS).map(function(type) {
+            var hasExercises = exercises.some(function(ex) { return ex.type === type; });
+            if (!hasExercises) return null;
+            var isOn = !typeFilter || typeFilter[type] !== false;
+            return e('button', {
+              key: type,
+              onClick: function() { toggleTypeFilter(type); },
+              style: { padding: '5px 12px', fontSize: '.76rem', fontWeight: 500, border: '1px solid ' + (isOn ? 'var(--accent)' : 'var(--border)'), borderRadius: 16, background: isOn ? 'var(--accent)' : 'transparent', color: isOn ? '#fff' : 'var(--text2)', cursor: 'pointer', opacity: isOn ? 1 : .5 }
+            }, (TYPE_ICONS[type] || '') + ' ' + TYPE_LABELS[type]);
+          })
+        ) : null,
+        // Filtered exercises
+        (function() {
+          var filtered = typeFilter ? exercises.filter(function(ex) { return typeFilter[ex.type] !== false; }) : exercises;
+          if (filtered.length === 0) return e('div', { style: { padding: 20, textAlign: 'center', color: 'var(--text2)', fontSize: '.85rem' } }, 'Keine \u00DCbungen f\u00FCr den gew\u00E4hlten Filter.');
+          return filtered.map(function(ex) {
+            var isDone = progress[ex.id] && progress[ex.id].done;
+            var isExOpen = openEx === ex.id;
+            return e('div', { key: ex.id, className: 'ex-card' },
+              e('div', { className: 'ex-header', onClick: function() { setOpenEx(isExOpen ? null : ex.id); } },
+                e('span', { className: 'ex-num' + (isDone ? ' done' : '') }, ex.id),
+                e('div', { className: 'ex-title-wrap' },
+                  e('div', { className: 'ex-title' }, ex.q ? ex.q.substring(0, 80) : 'Aufgabe ' + ex.id),
+                  e('div', { className: 'ex-type' }, (TYPE_ICONS[ex.type] || '') + ' ' + (TYPE_LABELS[ex.type] || ex.type)),
+                  isDone ? e('span', { className: 'score-badge good' }, 'Erledigt') : null
+                ),
+                e('span', { className: 'ch-arrow' + (isExOpen ? ' open' : '') }, '\u25BC')
               ),
-              e('span', { className: 'ch-arrow' + (isExOpen ? ' open' : '') }, '\u25BC')
-            ),
-            isExOpen ? e('div', { className: 'ex-body' },
-              e(ExerciseCard, {
-                ex: ex,
-                examMode: false,
-                onDone: function(score) { markDone(ex.id, score); }
-              })
-            ) : null
-          );
-        })
+              isExOpen ? e('div', { className: 'ex-body' },
+                e(ExerciseCard, {
+                  ex: ex,
+                  examMode: false,
+                  onDone: function(score) { markDone(ex.id, score); }
+                })
+              ) : null
+            );
+          });
+        })()
       ) : null,
 
       // Pruefung

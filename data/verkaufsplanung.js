@@ -873,6 +873,14 @@ window.BOOK_DATA = {
           answer: 2,
           tips: ['Primär = direkt mit dem Verkauf verbunden.','Sekundär = organisatorische und infrastrukturelle Voraussetzungen.','Umsatz/Absatz und Einsatz sind primär.'],
           reveal: ['Die primäre Verkaufsplanung umfasst Umsatz-/Absatzpläne und Einsatzpläne.','Verkaufsorganisation, Personal und Hilfsmittel gehören zur sekundären VP.']
+        },
+        {
+          id: 88,
+          type: 'sort',
+          q: 'Ordnen Sie die Schritte des Verkaufsstufenplans in die korrekte Reihenfolge.',
+          items: ['Analyse der Ausgangslage', 'Planung und Konzeption', 'Produktion von Hilfsmitteln', 'Versand eines Mailings', 'Rücklauf bearbeiten', 'Telefonische Nachfassaktion', 'Erstbesuche', 'Nachbearbeitung', 'Nachfassen', 'Zweitbesuche', 'Abschluss und Schlussbesprechung'],
+          tips: ['Der Plan beginnt immer mit einer Analyse.','Nach dem Mailing folgen Rücklauf und Telefon.','Erst- und Zweitbesuche kommen nach der telefonischen Kontaktaufnahme.'],
+          reveal: ['Der Verkaufsstufenplan beschreibt 11 systematische Schritte von der Analyse bis zum Abschluss.','Er stellt sicher, dass Verkaufsaktivitäten geplant und koordiniert ablaufen.']
         }
       ],
       learningData: {
@@ -1285,6 +1293,22 @@ window.BOOK_DATA = {
           ],
           tips: ['Employer Branding = Arbeitgebermarke stärken.','Ausbildungskonzept folgt dem 6-Schritte-Raster.','Hilfsmittel unterstützen den Verkaufskontakt.'],
           reveal: ['Aussage 1: Richtig – Definition EB.','Aussage 2: Falsch – 6 Schritte, nicht 4.','Aussage 3: Richtig.']
+        },
+        {
+          id: 89,
+          type: 'sort',
+          q: 'Ordnen Sie die Stufen der Maslowschen Bedürfnispyramide von unten (Grundbedürfnisse) nach oben (Selbstverwirklichung).',
+          items: ['Körperliche Grundbedürfnisse (Essen, Trinken, Schlaf)', 'Sicherheitsbedürfnisse (Wohnung, Arbeitsplatz)', 'Soziale Beziehungen (Freundschaft, Liebe)', 'Soziale Anerkennung (Status, Karriere)', 'Selbstverwirklichung (Talententfaltung)'],
+          tips: ['Die Pyramide baut von unten nach oben auf.','Erst wenn eine Stufe befriedigt ist, wird die nächste relevant.','Sicherheit kommt vor sozialen Bedürfnissen.'],
+          reveal: ['Die Bedürfnispyramide nach Maslow hat 5 Stufen.','Verkäufer nutzen dieses Modell, um die Kaufmotivation von Kunden besser zu verstehen.']
+        },
+        {
+          id: 90,
+          type: 'sort',
+          q: 'Ordnen Sie die sechs Schritte des Ausbildungskonzepts in die richtige Reihenfolge.',
+          items: ['Analyse der Ist-Situation', 'Setzen der Ausbildungsziele', 'Entwicklung der Strategie', 'Planung der Massnahmen', 'Zusammenstellen des Budgets', 'Erarbeitung der Kontrollpläne'],
+          tips: ['Das Konzept folgt dem bekannten 6-Schritte-Raster.','Zuerst analysieren, dann Ziele setzen.','Das Budget kommt vor der Kontrolle.'],
+          reveal: ['Das Ausbildungskonzept folgt dem gleichen 6-Schritte-Konzeptraster wie andere Planungsinstrumente.','Von der Analyse über Ziele, Strategie, Massnahmen und Budget bis zur Kontrolle.']
         }
       ],
       learningData: {
@@ -1642,6 +1666,14 @@ window.BOOK_DATA = {
           answer: 1,
           tips: ['Der Kontrollplan hat 6 Elemente.','Er folgt den W-Fragen.','Budget und Kosten gehören zum Verkaufskostenbudget.'],
           reveal: ['Der Kontrollplan gliedert sich in: Zielinhalt, Quantifizierung, Methode, Zeitpunkt, Korrekturmassnahmen und Verantwortlicher.']
+        },
+        {
+          id: 91,
+          type: 'sort',
+          q: 'Ordnen Sie die fünf Phasen des Kontrollprozesses in die richtige Reihenfolge.',
+          items: ['Definition der Kontrollobjekte', 'Durchführung der Kontrollmassnahmen', 'Überwachung der Ausführung', 'Bewertung der Ergebnisse', 'Analyse und Feedback'],
+          tips: ['Zuerst muss definiert werden, was kontrolliert wird.','Die Durchführung kommt vor der Überwachung.','Am Ende steht immer das Feedback.'],
+          reveal: ['Der Kontrollprozess ist ein systematischer 5-Phasen-Ablauf.','Er stellt sicher, dass Kontrolle nicht willkürlich, sondern strukturiert erfolgt.']
         }
       ],
       learningData: {
@@ -1837,6 +1869,14 @@ window.BOOK_DATA = {
           answer: 2,
           tips: ['Die Bedarfsanalyse erfordert ein Gespräch mit dem Kunden.','Sie ist Teil der inhaltlichen Verhandlung.','In dieser Phase wird auch präsentiert und argumentiert.'],
           reveal: ['Die Bedarfsanalyse findet in der Phase "Angebot und Argumentation" statt.','Hier werden Bedürfnisse ermittelt, das Angebot präsentiert und verhandelt.']
+        },
+        {
+          id: 92,
+          type: 'sort',
+          q: 'Ordnen Sie die sechs Phasen des Verkaufsgesprächs in die korrekte Reihenfolge.',
+          items: ['Vorbereitung', 'Eröffnung', 'Angebot und Argumentation', 'Abschluss', 'Verabschiedung', 'After-Sales-Service'],
+          tips: ['Das Gespräch beginnt schon vor dem Treffen mit dem Kunden.','Die Eröffnung schafft Atmosphäre und Vertrauen.','After-Sales kommt ganz am Ende — nach dem Abschluss und der Verabschiedung.'],
+          reveal: ['Die 6 Phasen: 1. Vorbereitung, 2. Eröffnung, 3. Angebot/Argumentation, 4. Abschluss, 5. Verabschiedung, 6. After-Sales-Service.','Jede Phase hat spezifische Aufgaben und Techniken.']
         }
       ],
       learningData: {
