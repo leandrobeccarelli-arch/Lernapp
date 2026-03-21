@@ -1087,19 +1087,19 @@ function ModeTabs(props) {
 
   return e('div', { className: 'mode-tabs' },
     e('button', {
-      className: 'mode-tab' + (mode === 'lernen' ? ' active-lernen' : ''),
-      onClick: function() { setMode('lernen'); }
-    },
-      e('span', { className: 'mode-tab-icon' }, '\uD83D\uDCD6'), ' Lernen',
-      learnRead ? e('span', { className: 'mode-badge' }, '\u2713') : null
-    ),
-    e('button', {
       className: 'mode-tab' + (mode === 'ueben' ? ' active-ueben' : ''),
       onClick: function() { setMode('ueben'); }
     },
       e('span', { className: 'mode-tab-icon' }, '\u270D\uFE0F'), ' \u00DCben',
       chProgress ? e('span', { className: 'mode-badge' }, chProgress.done + '/' + chProgress.total) : null
     ),
+    hasLearningData ? e('button', {
+      className: 'mode-tab' + (mode === 'lernen' ? ' active-lernen' : ''),
+      onClick: function() { setMode('lernen'); }
+    },
+      e('span', { className: 'mode-tab-icon' }, '\uD83D\uDCD6'), ' Lernen',
+      learnRead ? e('span', { className: 'mode-badge' }, '\u2713') : null
+    ) : null,
     e('button', {
       className: 'mode-tab' + (mode === 'pruefung' ? ' active-pruefung' : ''),
       onClick: function() { setMode('pruefung'); }
