@@ -135,7 +135,7 @@ window.BOOK_DATA = {
           reveal: ['Marktführerschaft und Gewinnmaximierung = Unternehmensziele.','Umsatzsteigerung und Kundenzufriedenheit = Marketingziele.','20 Neukunden pro Quartal = konkretes Verkaufsziel.']
         },
         {
-          id: 93,
+          id: 10,
           type: 'sort',
           q: 'Ordnen Sie die Zielpyramide von oben (strategisch) nach unten (operativ).',
           items: ['Vision / Leitbild', 'Unternehmensziele', 'Marketingziele', 'Verkaufsziele', 'Massnahmenziele'],
@@ -143,7 +143,7 @@ window.BOOK_DATA = {
           reveal: ['Die Zielpyramide: Vision → Unternehmensziele → Marketingziele → Verkaufsziele → Massnahmenziele.','Ziele werden Top-down abgeleitet: Je weiter unten, desto konkreter und operativer.']
         },
         {
-          id: 94,
+          id: 11,
           type: 'match',
           q: 'Ordnen Sie die 6 W der Operationalisierung der richtigen Bedeutung zu.',
           pairs: [
@@ -159,7 +159,7 @@ window.BOOK_DATA = {
           reveal: ['Was: Zielinhalt — Welches Verkaufsziel soll erreicht werden?','Wie viel: Zielquantifizierung — Welcher Wert soll erreicht werden?','Wem: Zielsegment — Welche Zielgruppe?','Wann: Zielperiode — Bis wann?','Wo: Zielmarkt — In welchem Markt?','Wer: Zielverantwortung — Wer ist verantwortlich?']
         },
         {
-          id: 95,
+          id: 12,
           type: 'fill',
           q: 'Ergänzen Sie die SMART-Formel für die Zielformulierung.',
           template: 'Ziele müssen SMART formuliert sein: S = {0}, M = {1}, A = {2}, R = {3}, T = {4}.',
@@ -169,7 +169,7 @@ window.BOOK_DATA = {
           reveal: ['SMART: Spezifisch, Messbar, Attraktiv, Realistisch, Terminiert.','Die SMART-Formel ergänzt das 6-W-Raster und stellt sicher, dass Ziele überprüfbar sind.']
         },
         {
-          id: 96,
+          id: 13,
           type: 'match',
           q: 'Ordnen Sie die 6 Subvariablen der Verkaufsstrategie der richtigen W-Frage zu.',
           pairs: [
@@ -185,7 +185,7 @@ window.BOOK_DATA = {
           reveal: ['Die 6 Subvariablen definieren die Verkaufsstrategie:','Was (Produkt), Wem (Kunden), Wo (Feld), Wie (Qualität), Wie viel (Quantität), Wann (Periodizität).']
         },
         {
-          id: 97,
+          id: 14,
           type: 'mc',
           q: 'Ein Verkaufsziel lautet: "Wir wollen den Umsatz steigern." Was fehlt bei diesem Ziel?',
           options: [
