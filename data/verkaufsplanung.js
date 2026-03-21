@@ -580,10 +580,10 @@ window.BOOK_DATA = {
           q: 'Der AD-Mitarbeiter kann pro Arbeitstag 3 Kunden besuchen und ist 150 Tage im Verkauf tätig. Wie viele AD-MA werden benötigt für 985 Besuche?',
           fields: [
             {label: 'Formel: Besuche / (Tage x Besuche/Tag)', answer: 2.19, tolerance: 0.05},
-            {label: 'Benötigte AD-MA (aufgerundet)', answer: 3, tolerance: 0}
+            {label: 'Benötigte AD-MA (aufgerundet)', answer: 2, tolerance: 0}
           ],
           tips: ['Formel: Anzahl Besuche / (verkaufsaktive Tage x Besuche pro Tag).','985 / (150 x 3) = ?','Es muss aufgerundet werden, da kein halber MA möglich ist.'],
-          reveal: ['985 / (150 x 3) = 985 / 450 = 2.19 AD-MA.','Ein AD-Mitarbeiter reicht nicht, es muss ein zweiter (bzw. dritter) angestellt werden.','Aufgerundet: 3 AD-MA (oder mindestens 2, wobei die restlichen Besuche anders abgedeckt werden).']
+          reveal: ['985 / (150 x 3) = 985 / 450 = 2.18 AD-MA.','Ein AD-Mitarbeiter reicht nicht, es muss ein zweiter angestellt werden.','Die zusätzlichen, noch nicht abgedeckten Besuche werden von der Verkaufsleiterin wahrgenommen. Antwort: 2 AD-MA.']
         },
         {
           id: 20,

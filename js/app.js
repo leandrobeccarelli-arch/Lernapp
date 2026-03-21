@@ -675,7 +675,7 @@ function LearningRenderer(props) {
           e('span', { className: 'learn-section-title' }, section.title)
         ),
         e('div', { className: 'learn-section-body' },
-          section.content ? e('div', { className: 'learn-intro-text' }, section.content) : null,
+          (section.content || section.text) ? e('div', { className: 'learn-intro-text' }, section.content || section.text) : null,
           section.items ? e('ul', { className: 'learn-intro-list' },
             section.items.map(function(item, i) { return e('li', { key: i }, item); })
           ) : null
@@ -692,7 +692,7 @@ function LearningRenderer(props) {
           e('span', { className: 'learn-section-title' }, section.title)
         ),
         e('div', { className: 'learn-section-body' },
-          section.content ? e('div', { className: 'learn-concept-text' }, section.content) : null,
+          (section.content || section.text) ? e('div', { className: 'learn-concept-text' }, section.content || section.text) : null,
           section.highlight ? e('div', { className: 'learn-highlight' }, section.highlight) : null
         )
       );
@@ -773,7 +773,7 @@ function LearningRenderer(props) {
         ),
         e('div', { className: 'learn-section-body' },
           e('ul', { className: 'learn-merke-list' },
-            (section.items || []).map(function(item, i) { return e('li', { key: i }, item); })
+            (section.items || (section.text ? section.text.split('\n\n') : [])).map(function(item, i) { return e('li', { key: i }, item); })
           )
         )
       );
@@ -788,12 +788,12 @@ function LearningRenderer(props) {
           e('span', { className: 'learn-section-title' }, section.title)
         ),
         e('div', { className: 'learn-section-body' },
-          (section.items || []).map(function(item, i) {
+          section.items ? section.items.map(function(item, i) {
             return e('div', { key: i, className: 'learn-method-item' },
               e('div', { className: 'learn-method-q' }, item.q),
               e('div', { className: 'learn-method-a' }, item.a)
             );
-          })
+          }) : section.text ? e('div', { className: 'learn-method-text', style: { whiteSpace: 'pre-line' } }, section.text) : null
         )
       );
     }
@@ -810,7 +810,7 @@ function LearningRenderer(props) {
           e('div', { className: 'learn-summary-text' },
             Array.isArray(section.content)
               ? section.content.map(function(p, i) { return e('p', { key: i, dangerouslySetInnerHTML: { __html: p } }); })
-              : e('p', { dangerouslySetInnerHTML: { __html: section.content || '' } })
+              : e('p', { dangerouslySetInnerHTML: { __html: section.content || section.text || '' } })
           )
         )
       );
@@ -823,7 +823,7 @@ function LearningRenderer(props) {
         e('span', { className: 'learn-section-title' }, section.title || 'Abschnitt')
       ),
       e('div', { className: 'learn-section-body' },
-        e('div', null, section.content || '')
+        e('div', null, section.content || section.text || '')
       )
     );
   }
