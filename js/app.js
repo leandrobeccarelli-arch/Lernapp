@@ -1069,13 +1069,13 @@ function ModeTabs(props) {
   var hasLearningData = props.hasLearningData;
 
   return e('div', { className: 'mode-tabs' },
-    hasLearningData ? e('button', {
+    e('button', {
       className: 'mode-tab' + (mode === 'lernen' ? ' active-lernen' : ''),
       onClick: function() { setMode('lernen'); }
     },
       e('span', { className: 'mode-tab-icon' }, '\uD83D\uDCD6'), ' Lernen',
       learnRead ? e('span', { className: 'mode-badge' }, '\u2713') : null
-    ) : null,
+    ),
     e('button', {
       className: 'mode-tab' + (mode === 'ueben' ? ' active-ueben' : ''),
       onClick: function() { setMode('ueben'); }
