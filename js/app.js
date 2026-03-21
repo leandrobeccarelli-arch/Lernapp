@@ -24,7 +24,7 @@ if (!bookParam) {
 
 // Dynamically inject the data script
 var script = document.createElement('script');
-script.src = 'data/' + bookParam + '.js?v=041';
+script.src = 'data/' + bookParam + '.js?t=' + Date.now();
 script.onload = function() {
   if (window.BOOK_DATA) {
     document.title = window.BOOK_DATA.shortTitle + ' – Lernplattform';
