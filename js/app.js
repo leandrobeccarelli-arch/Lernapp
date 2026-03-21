@@ -159,6 +159,76 @@ function Reveal(props) {
 
 function MCExercise(props) {
   var ex = props.ex, onDone = props.onDone, examMode = props.examMode;
+
+  // Multi-question MC format: questions: [{id, q, options, answer}, ...]
+  if (ex.questions && Array.isArray(ex.questions) && ex.questions.length > 0 && ex.questions[0].options) {
+    var totalQ = ex.questions.length;
+    var mst = useState(function() { return ex.questions.map(function() { return null; }); });
+    var selections = mst[0], setSelections = mst[1];
+    var mst2 = useState(false), mchecked = mst2[0], setMChecked = mst2[1];
+
+    function doMCheck(sels) {
+      setMChecked(true);
+      var correct = 0;
+      ex.questions.forEach(function(q, i) {
+        if (sels[i] === q.answer) correct++;
+      });
+      if (onDone) onDone(Math.round(correct / totalQ * 100));
+    }
+
+    function selectQ(qi, oi) {
+      if (mchecked) return;
+      var newSel = selections.slice();
+      newSel[qi] = oi;
+      setSelections(newSel);
+      if (examMode && newSel.every(function(s) { return s !== null; })) {
+        doMCheck(newSel);
+      }
+    }
+
+    function mcheck() { doMCheck(selections); }
+
+    function mreset() {
+      setSelections(ex.questions.map(function() { return null; }));
+      setMChecked(false);
+    }
+
+    var allAnswered = selections.every(function(s) { return s !== null; });
+
+    return e('div', null,
+      ex.q ? e('div', { className: 'ex-instruction' }, ex.q) : null,
+      ex.questions.map(function(q, qi) {
+        return e('div', { key: qi, style: { marginBottom: 16 } },
+          e('div', { style: { fontWeight: 600, marginBottom: 6, fontSize: '.88rem' } }, (q.id || (qi + 1)) + ') ' + q.q),
+          q.options.map(function(opt, oi) {
+            var cls = 'mc-option';
+            if (mchecked && !examMode) {
+              if (oi === selections[qi] && oi === q.answer) cls += ' correct-sel';
+              else if (oi === selections[qi] && oi !== q.answer) cls += ' wrong-sel';
+              else if (oi === q.answer) cls += ' correct-unsel';
+            } else if (oi === selections[qi]) cls += ' selected';
+            return e('div', {
+              key: oi, className: cls,
+              onClick: mchecked ? null : function() { selectQ(qi, oi); }
+            },
+              e('div', { className: 'mc-radio' }),
+              e('span', null, opt)
+            );
+          })
+        );
+      }),
+      !examMode ? e('div', { className: 'btn-row' },
+        e('button', { className: 'btn btn-primary', onClick: mcheck, disabled: !allAnswered }, 'Pr\u00FCfen'),
+        mchecked ? e('button', { className: 'btn btn-secondary', onClick: mreset }, 'Nochmal') : null
+      ) : null,
+      examMode && !mchecked ? e('div', { style: { fontSize: '.8rem', color: 'var(--text2)', marginTop: 8 } }, 'Beantworte alle Fragen') : null,
+      examMode && mchecked ? e('div', { style: { fontSize: '.8rem', color: 'var(--green)', marginTop: 8 } }, '\u2713 Beantwortet') : null,
+      !examMode && ex.tips ? e(Tips, { tips: ex.tips }) : null,
+      !examMode && mchecked && ex.reveal ? e(Reveal, { items: ex.reveal }) : null
+    );
+  }
+
+  // Single-question MC format
   var st = useState(null), selected = st[0], setSelected = st[1];
   var st2 = useState(false), checked = st2[0], setChecked = st2[1];
 
@@ -179,7 +249,7 @@ function MCExercise(props) {
 
   return e('div', null,
     ex.q ? e('div', { className: 'ex-instruction' }, ex.q) : null,
-    ex.options.map(function(opt, i) {
+    (ex.options || []).map(function(opt, i) {
       var cls = 'mc-option';
       if (checked && !examMode) {
         if (i === selected && i === ex.answer) cls += ' correct-sel';
@@ -269,11 +339,17 @@ function FillExercise(props) {
     setVals(function(prev) { var n = prev.slice(); n[idx] = val; return n; });
   }
 
+  function getAccepted(i) {
+    if (ex.accept && ex.accept[i]) return ex.accept[i];
+    var b = ex.blanks[i];
+    return Array.isArray(b) ? b : [b];
+  }
+
   function check() {
     setChecked(true);
     var correct = 0;
     ex.blanks.forEach(function(b, i) {
-      if (matchAnswer(vals[i], Array.isArray(b) ? b : [b])) correct++;
+      if (matchAnswer(vals[i], getAccepted(i))) correct++;
     });
     if (onDone) onDone(Math.round(correct / ex.blanks.length * 100));
   }
@@ -285,7 +361,7 @@ function FillExercise(props) {
   var rendered = parts.map(function(part, i) {
     if (i % 2 === 1) {
       var idx = parseInt(part, 10);
-      var isCorrect = checked && matchAnswer(vals[idx], Array.isArray(ex.blanks[idx]) ? ex.blanks[idx] : [ex.blanks[idx]]);
+      var isCorrect = checked && matchAnswer(vals[idx], getAccepted(idx));
       var isWrong = checked && !isCorrect;
       return e('input', {
         key: 'b' + idx,
@@ -428,7 +504,8 @@ function CheckExercise(props) {
 
 function CalcExercise(props) {
   var ex = props.ex, onDone = props.onDone, examMode = props.examMode;
-  var st = useState(ex.fields.map(function() { return ''; }));
+  var data = ex.fields || ex.calcs || [];
+  var st = useState(data.map(function() { return ''; }));
   var vals = st[0], setVals = st[1];
   var st2 = useState(false), checked = st2[0], setChecked = st2[1];
 
@@ -439,19 +516,19 @@ function CalcExercise(props) {
   function check() {
     setChecked(true);
     var correct = 0;
-    ex.fields.forEach(function(f, i) {
+    data.forEach(function(f, i) {
       var userVal = parseFloat(vals[i].replace(/[',\s]/g, ''));
       var tol = f.tolerance || 0.01;
       if (!isNaN(userVal) && Math.abs(userVal - f.answer) <= Math.abs(f.answer * tol) + 0.001) correct++;
     });
-    if (onDone) onDone(Math.round(correct / ex.fields.length * 100));
+    if (onDone) onDone(data.length > 0 ? Math.round(correct / data.length * 100) : 100);
   }
 
-  function reset() { setVals(ex.fields.map(function() { return ''; })); setChecked(false); }
+  function reset() { setVals(data.map(function() { return ''; })); setChecked(false); }
 
   return e('div', null,
     ex.q ? e('div', { className: 'ex-instruction' }, ex.q) : null,
-    ex.fields.map(function(f, i) {
+    data.map(function(f, i) {
       var userVal = parseFloat(vals[i].replace(/[',\s]/g, ''));
       var tol = f.tolerance || 0.01;
       var isCorrect = checked && !isNaN(userVal) && Math.abs(userVal - f.answer) <= Math.abs(f.answer * tol) + 0.001;
