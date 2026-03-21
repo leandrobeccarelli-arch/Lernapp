@@ -1664,8 +1664,8 @@ function ChapterCard(props) {
   }
 
   var allExercises = chapter.exercises || [];
-  var trainExercises = allExercises.filter(function(ex) { return APPLY_TYPES.indexOf(ex.type) === -1; });
-  var applyExercises = allExercises.filter(function(ex) { return APPLY_TYPES.indexOf(ex.type) !== -1; });
+  var trainExercises = allExercises.filter(function(ex) { return ex.mode !== 'anwenden' && APPLY_TYPES.indexOf(ex.type) === -1; });
+  var applyExercises = allExercises.filter(function(ex) { return ex.mode === 'anwenden' || APPLY_TYPES.indexOf(ex.type) !== -1; });
   var exercises = trainExercises; // backwards compat for progress counting
   var done = trainExercises.filter(function(ex) { return progress[ex.id] && progress[ex.id].done; }).length;
   var total = trainExercises.length;

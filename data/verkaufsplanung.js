@@ -179,6 +179,7 @@ window.BOOK_DATA = {
         {
           id: 96,
           type: 'calc',
+          mode: 'anwenden',
           q: 'Die Firma SportTech AG hat ein strategisches Ziel: Marktanteil von 12% bis 2029.\nGesamtmarkt Schweiz: CHF 50 Mio. Aktueller Umsatz: CHF 4.2 Mio.\nA) Aktueller Marktanteil? B) Wie viel zusätzlicher Umsatz ist nötig?',
           fields: [
             {label: 'A) Aktueller Marktanteil (%)', answer: 8.4, tolerance: 0.1},
