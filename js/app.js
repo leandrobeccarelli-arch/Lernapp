@@ -706,10 +706,8 @@ function LearningRenderer(props) {
           e('span', { className: 'learn-section-title' }, section.title)
         ),
         e('div', { className: 'learn-section-body' },
-          e('div', { className: 'learn-svg-container' },
-            section.svg ? e('div', { dangerouslySetInnerHTML: { __html: section.svg } }) :
-            e('div', { style: { padding: 20, textAlign: 'center', color: '#94a3b8', fontSize: '.85rem' } }, 'Grafik: ' + (section.id || ''))
-          )
+          section.svg ? e('div', { style: { width: '100%', overflowX: 'auto', padding: '16px 0' }, dangerouslySetInnerHTML: { __html: section.svg.replace('<svg ', '<svg width="100%" ') } }) :
+          e('div', { style: { padding: 20, textAlign: 'center', color: '#94a3b8', fontSize: '.85rem' } }, 'Grafik: ' + (section.id || ''))
         )
       );
     }
