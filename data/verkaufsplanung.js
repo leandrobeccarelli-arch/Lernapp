@@ -140,7 +140,7 @@ window.BOOK_DATA = {
           q: 'Ordnen Sie die Zielpyramide von oben (strategisch) nach unten (operativ).',
           items: ['Vision / Leitbild', 'Unternehmensziele', 'Marketingziele', 'Verkaufsziele', 'Massnahmenziele'],
           tips: ['Ganz oben steht die langfristige Ausrichtung des Unternehmens.','Verkaufsziele werden von Marketingzielen abgeleitet.','Massnahmenziele sind die konkretesten, operativsten Ziele.'],
-          reveal: ['Die Zielpyramide: Vision → Unternehmensziele → Marketingziele → Verkaufsziele → Massnahmenziele.','Ziele werden Top-down abgeleitet: Je weiter unten, desto konkreter und operativer.']
+          reveal: ['Die Zielpyramide: Vision → Unternehmensziele → Marketingziele → Verkaufsziele → Massnahmenziele.','Warum diese Reihenfolge? Ziele werden Top-down abgeleitet — die Vision gibt die Richtung vor, daraus entstehen immer konkretere Ziele bis zur einzelnen Massnahme.','Merke: Die Anzahl der Einzelziele nimmt nach unten zu, aber jedes Ziel muss sich aus der übergeordneten Ebene ableiten lassen.']
         },
         {
           id: 11,
@@ -156,7 +156,7 @@ window.BOOK_DATA = {
           ],
           options: ['Zielinhalt','Zielquantifizierung','Zielsegment','Zielperiode','Zielmarkt','Zielverantwortung'],
           tips: ['Was = welches Ziel, Wie viel = konkreter Wert.','Wem = Zielgruppe/Segment, Wann = Termin.','Wo = Markt/Region, Wer = verantwortliche Person.'],
-          reveal: ['Was: Zielinhalt — Welches Verkaufsziel soll erreicht werden?','Wie viel: Zielquantifizierung — Welcher Wert soll erreicht werden?','Wem: Zielsegment — Welche Zielgruppe?','Wann: Zielperiode — Bis wann?','Wo: Zielmarkt — In welchem Markt?','Wer: Zielverantwortung — Wer ist verantwortlich?']
+          reveal: ['Was: Zielinhalt — Welches Verkaufsziel soll erreicht werden?','Wie viel: Zielquantifizierung — Welcher Wert soll erreicht werden?','Wem: Zielsegment — Welche Zielgruppe?','Wann: Zielperiode — Bis wann?','Wo: Zielmarkt — In welchem Markt?','Wer: Zielverantwortung — Wer ist verantwortlich?','Warum alle 6 W? Fehlt nur eines, ist das Ziel nicht vollständig operationalisiert und kann nicht eindeutig kontrolliert werden. An der Prüfung: Ziele immer in Tabellenform mit allen 6 W darstellen.']
         },
         {
           id: 12,
@@ -166,7 +166,7 @@ window.BOOK_DATA = {
           blanks: ['spezifisch','messbar','attraktiv','realistisch','terminiert'],
           accept: [['spezifisch','spezifische'],['messbar','messbare'],['attraktiv','attraktive','akzeptiert'],['realistisch','realistische','realisierbar'],['terminiert','terminierte','zeitlich']],
           tips: ['S steht für klar und eindeutig formuliert.','M bedeutet: Man kann den Erfolg messen.','T bedeutet: Es gibt einen klaren Endtermin.'],
-          reveal: ['SMART: Spezifisch, Messbar, Attraktiv, Realistisch, Terminiert.','Die SMART-Formel ergänzt das 6-W-Raster und stellt sicher, dass Ziele überprüfbar sind.']
+          reveal: ['SMART: Spezifisch, Messbar, Attraktiv, Realistisch, Terminiert.','Warum SMART? Ein Ziel wie «Umsatz steigern» klingt gut, ist aber weder spezifisch noch messbar. Erst mit SMART wird es kontrollierbar.','Beispiel SMART: «Den Umsatz im Bereich Bio-Produkte um 10% auf CHF 1.1 Mio bis 31.12.2027 in der Deutschschweiz steigern (VL: Max Müller).»','SMART und die 6 W ergänzen sich — zusammen garantieren sie eine vollständige Zieldefinition.']
         },
         {
           id: 13,
@@ -182,7 +182,7 @@ window.BOOK_DATA = {
           ],
           options: ['Was','Wem','Wo','Wie','Wie viel','Wann'],
           tips: ['Produktselektion = welches Produkt verkaufen.','Kundenselektion = an wen verkaufen.','Kontaktperiodizität = wie oft / wann kontaktieren.'],
-          reveal: ['Die 6 Subvariablen definieren die Verkaufsstrategie:','Was (Produkt), Wem (Kunden), Wo (Feld), Wie (Qualität), Wie viel (Quantität), Wann (Periodizität).']
+          reveal: ['Die 6 Subvariablen definieren die Verkaufsstrategie:','Was (Produkt), Wem (Kunden), Wo (Feld), Wie (Qualität), Wie viel (Quantität), Wann (Periodizität).','Warum 6 Subvariablen? Die Strategie beantwortet den «Weg zum Ziel». Jede Variable deckt eine Dimension ab — zusammen ergeben sie den vollständigen Verkaufsansatz.','Prüfungstipp: Die Subvariablen sind bewusst als W-Fragen formuliert, genau wie die 6 W der Operationalisierung — aber verwechsle sie nicht! Die 6 W operationalisieren Ziele, die 6 Subvariablen definieren die Strategie.']
         },
         {
           id: 14,
@@ -196,7 +196,7 @@ window.BOOK_DATA = {
           ],
           answer: 1,
           tips: ['Prüfen Sie das Ziel anhand der 6 W.','Nur "Was" (Umsatz steigern) ist definiert.','Ein operationalisiertes Ziel braucht alle 6 W.'],
-          reveal: ['Das Ziel enthält nur das "Was" (Umsatz steigern).','Es fehlen: Wie viel (konkreter Wert), Wem (Zielgruppe), Wann (Termin), Wo (Markt), Wer (Verantwortung).','Ohne Operationalisierung ist ein Ziel weder messbar noch kontrollierbar.']
+          reveal: ['Antwort B ist korrekt: Es fehlen 5 von 6 W.','Das Ziel enthält nur das «Was» (Umsatz steigern) — alles andere ist offen.','Warum nicht A? Es fehlt nicht nur der Termin, sondern auch Quantifizierung, Segment, Markt und Verantwortung.','Warum nicht C? Eine SWOT-Analyse ist Schritt 1 des Konzeptrasters, hat aber nichts mit der Zielformulierung selbst zu tun.','Warum nicht D? Die Unterscheidung ökonomisch/vorökonomisch beschreibt die Zielart, nicht die Qualität der Formulierung.','Merke: Ein vages Ziel ist das häufigste Problem in der Praxis — die Operationalisierung macht es kontrollierbar.']
         }
       ],
       learningData: {
