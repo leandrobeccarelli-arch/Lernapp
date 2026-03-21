@@ -18,9 +18,8 @@ window.BOOK_DATA = {
           id: 1, type: 'match',
           q: 'Grundbegriffe der Distribution',
           instruction: 'Ordnen Sie die fünf grundsätzlichen Begriffe der Distribution ihrer Bedeutung zu.',
-          items: ['Strategische Distribution','Physische Distribution','Supply Chain Management','Modell der Stufen','Träger der Distribution'],
+          pairs: [{l:'Strategische Distribution',r:'Die Bestimmung des Absatzwegs insgesamt'},{l:'Physische Distribution',r:'Die Festlegung der Infrastruktur in der Logistik'},{l:'Supply Chain Management',r:'Die Steuerung der Wertschöpfungskette'},{l:'Modell der Stufen',r:'Der Vertriebsweg eines Produkts über den Handel'},{l:'Träger der Distribution',r:'Die Abteilungen, die Distributionsaufgaben wahrnehmen'}],
           options: ['Die Bestimmung des Absatzwegs insgesamt','Die Festlegung der Infrastruktur in der Logistik','Die Steuerung der Wertschöpfungskette','Der Vertriebsweg eines Produkts über den Handel','Die Abteilungen, die Distributionsaufgaben wahrnehmen'],
-          correct: ['Die Bestimmung des Absatzwegs insgesamt','Die Festlegung der Infrastruktur in der Logistik','Die Steuerung der Wertschöpfungskette','Der Vertriebsweg eines Produkts über den Handel','Die Abteilungen, die Distributionsaufgaben wahrnehmen'],
           tips: ['Strategische Distribution betrifft den Absatzweg.','Physische Distribution betrifft die Logistik-Infrastruktur.','SCM steuert die gesamte Wertschöpfungskette.'],
           reveal: ['Strategische Distribution = Bestimmung des Absatzwegs insgesamt.','Physische Distribution = Festlegung der Infrastruktur in der Logistik.','Supply Chain Management = Steuerung der Wertschöpfungskette.','Modell der Stufen = Der Vertriebsweg eines Produkts über den Handel.','Träger der Distribution = Die Abteilungen, die Distributionsaufgaben wahrnehmen.']
         },
@@ -38,7 +37,8 @@ window.BOOK_DATA = {
           id: 3, type: 'fill',
           q: 'Drei Instrumente der Distribution',
           instruction: 'Nennen Sie die drei klassischen Instrumente der Distribution.',
-          segments: ['1. ',{blank:true, answer:['Strategische Distribution'], width:220},' | 2. ',{blank:true, answer:['Physische Distribution'], width:220},' | 3. ',{blank:true, answer:['Standortwahl'], width:180}],
+          template: '1. {0} | 2. {1} | 3. {2}',
+          blanks: [['Strategische Distribution'],['Physische Distribution'],['Standortwahl']],
           tips: ['Die drei Instrumente bilden das Distributionssystem.','Ein Instrument befasst sich mit dem Absatzweg.','Ein Instrument befasst sich mit dem Ort der Warenübergabe.'],
           reveal: ['1. Strategische Distribution (Bestimmung des Absatzwegs).','2. Physische Distribution (Festlegung der Logistik-Infrastruktur).','3. Standortwahl (Evaluation des Orts der Warenübergabe).']
         },
@@ -47,9 +47,8 @@ window.BOOK_DATA = {
           id: 4, type: 'match',
           q: 'Dreistufige Distribution',
           instruction: 'Ordnen Sie die Stufen der dreistufigen Distribution am Beispiel eines Weins aus Frankreich zu.',
-          items: ['1. Stufe','2. Stufe','3. Stufe','Endstation'],
+          pairs: [{l:'1. Stufe',r:'Importfirma (in der Schweiz)'},{l:'2. Stufe',r:'Grosshandel'},{l:'3. Stufe',r:'Detailhandel'},{l:'Endstation',r:'Konsument/-in'}],
           options: ['Importfirma (in der Schweiz)','Grosshandel','Detailhandel','Konsument/-in'],
-          correct: ['Importfirma (in der Schweiz)','Grosshandel','Detailhandel','Konsument/-in'],
           tips: ['Die 1. Stufe ist der erste Zwischenhändler nach der Produktion.','Bei einem ausländischen Produkt ist die 1. Stufe oft ein Importeur.','Am Ende der Kette steht immer der Konsument.'],
           reveal: ['Produktion (Weinkeller in Frankreich) -> 1. Stufe: Importfirma -> 2. Stufe: Grosshandel -> 3. Stufe: Detailhandel -> Konsument/-in.','Jede Stufe bedeutet einen Eigentumswechsel.']
         },
@@ -67,10 +66,10 @@ window.BOOK_DATA = {
           id: 6, type: 'tf',
           q: 'Richtig oder Falsch: Grundlagen',
           statements: [
-            {s:'Distribution ist das dritte "P" (Place) im Marketingmix.', correct:true, feedback:'Richtig. Die 4 Ps sind Product, Price, Place, Promotion.'},
-            {s:'Bei einer 0-stufigen Distribution verkauft der Hersteller direkt an den Endkunden.', correct:true, feedback:'0-stufig = kein Zwischenhändler = Direktvertrieb.'},
-            {s:'Der Informationsfluss umfasst nur den Transport der physischen Ware.', correct:false, feedback:'Der Informationsfluss umfasst Anfragen, Offerten, Bestellungen und Rechnungen. Der Warenfluss umfasst den physischen Transport.'},
-            {s:'Supply Chain Management steuert nur die Logistik innerhalb eines Unternehmens.', correct:false, feedback:'SCM steuert die gesamte Wertschöpfungskette von der Rohstoffgewinnung bis zum Endkunden.'}
+            {s:'Distribution ist das dritte "P" (Place) im Marketingmix.', c:true, feedback:'Richtig. Die 4 Ps sind Product, Price, Place, Promotion.'},
+            {s:'Bei einer 0-stufigen Distribution verkauft der Hersteller direkt an den Endkunden.', c:true, feedback:'0-stufig = kein Zwischenhändler = Direktvertrieb.'},
+            {s:'Der Informationsfluss umfasst nur den Transport der physischen Ware.', c:false, feedback:'Der Informationsfluss umfasst Anfragen, Offerten, Bestellungen und Rechnungen. Der Warenfluss umfasst den physischen Transport.'},
+            {s:'Supply Chain Management steuert nur die Logistik innerhalb eines Unternehmens.', c:false, feedback:'SCM steuert die gesamte Wertschöpfungskette von der Rohstoffgewinnung bis zum Endkunden.'}
           ],
           tips: ['Distribution = Place im Marketingmix.','0-stufig = direkt, 1-3 stufig = indirekt.','SCM ist unternehmensübergreifend.'],
           reveal: ['Aussage 1: Richtig.','Aussage 2: Richtig.','Aussage 3: Falsch - Informationsfluss ist nicht der Warenfluss.','Aussage 4: Falsch - SCM ist unternehmensübergreifend.']
@@ -81,7 +80,7 @@ window.BOOK_DATA = {
           q: 'Distributionsflüsse (MC)',
           instruction: 'Welcher der folgenden ist KEIN Distributionsfluss?',
           options: ['Warenfluss','Geldfluss','Personalfluss','Eigentumsfluss'],
-          correct: 2,
+          answer: 2,
           tips: ['Es gibt fünf Distributionsflüsse.','Alle fliessen zwischen Produktion und Konsumation.','Personal gehört nicht zu den Distributionsflüssen.'],
           reveal: ['Die fünf Distributionsflüsse sind: Warenfluss, Geldfluss, Informationsfluss, Eigentumsfluss und Kommunikationsfluss.','Personalfluss ist kein Distributionsfluss.']
         },
@@ -90,7 +89,8 @@ window.BOOK_DATA = {
           id: 8, type: 'fill',
           q: 'Lückentext: Stufenmodell',
           instruction: 'Ergänzen Sie die Lücken zum Stufenmodell der Distribution.',
-          segments: ['Bei der ',{blank:true, answer:['0-stufigen','nullstufigen'], width:140},' Distribution verkauft der Hersteller direkt an den Endkunden (= ',{blank:true, answer:['Direktvertrieb','direkte Distribution'], width:180},'). Bei der indirekten Distribution durchläuft das Produkt ',{blank:true, answer:['1 bis 3','1-3','ein bis drei'], width:100},' Zwischenstufen. Als Stufe gilt, wenn das ',{blank:true, answer:['Eigentum'], width:120},' auf eine Drittfirma wechselt.'],
+          template: 'Bei der {0} Distribution verkauft der Hersteller direkt an den Endkunden (= {1}). Bei der indirekten Distribution durchläuft das Produkt {2} Zwischenstufen. Als Stufe gilt, wenn das {3} auf eine Drittfirma wechselt.',
+          blanks: [['0-stufigen','nullstufigen'],['Direktvertrieb','direkte Distribution'],['1 bis 3','1-3','ein bis drei'],['Eigentum']],
           tips: ['0-stufig = kein Zwischenhändler.','Eine Stufe = ein Eigentumswechsel.','Indirekt kann 1-, 2- oder 3-stufig sein.'],
           reveal: ['0-stufig = Direktvertrieb (Hersteller an Konsument).','Indirekte Distribution = 1 bis 3 Zwischenstufen.','Als Stufe gilt ein Eigentumswechsel an eine Drittfirma (Handel oder Importfirma).']
         },
@@ -209,7 +209,7 @@ window.BOOK_DATA = {
           q: 'Wichtigster strategischer Entscheid',
           instruction: 'Welches ist der wichtigste strategische Entscheid im Rahmen der Distribution?',
           options: ['Die Wahl des Standorts','Die Bestimmung des Distributionswegs','Die Festlegung der Logistik','Die Auswahl der Mitarbeitenden'],
-          correct: 1,
+          answer: 1,
           tips: ['Es geht um den grundsätzlichsten Entscheid.','Direkt, indirekt oder Kombination?','Dies bestimmt alle weiteren Distributionsentscheidungen.'],
           reveal: ['Der wichtigste strategische Entscheid ist die Bestimmung des Distributionswegs.','Zur Wahl stehen: Direktvertrieb, Vertrieb über den Handel oder eine Kombination davon (Multichannel).']
         },
@@ -227,9 +227,8 @@ window.BOOK_DATA = {
           id: 12, type: 'match',
           q: 'Absatzkanäle und Handelskanäle',
           instruction: 'Ordnen Sie die Absatzkanäle den passenden Handelskanälen zu.',
-          items: ['Grossverteiler','Discounter','Online'],
+          pairs: [{l:'Grossverteiler',r:'Migros, Coop'},{l:'Discounter',r:'Denner, Aldi Schweiz, Lidl Schweiz'},{l:'Online',r:'Digitec.ch, Zalando.ch, Bergfreunde.de'}],
           options: ['Migros, Coop','Denner, Aldi Schweiz, Lidl Schweiz','Digitec.ch, Zalando.ch, Bergfreunde.de'],
-          correct: ['Migros, Coop','Denner, Aldi Schweiz, Lidl Schweiz','Digitec.ch, Zalando.ch, Bergfreunde.de'],
           tips: ['Grossverteiler sind die grössten Detailhändler.','Discounter zeichnen sich durch niedrige Preise aus.','Online-Kanäle umfassen E-Commerce-Plattformen.'],
           reveal: ['Grossverteiler: Migros, Coop.','Discounter: Denner, Aldi Schweiz, Lidl Schweiz.','Online: Digitec.ch, Zalando.ch, Bergfreunde.de.']
         },
@@ -247,28 +246,28 @@ window.BOOK_DATA = {
           id: 14, type: 'tf',
           q: 'RF: Strategische Distribution',
           statements: [
-            {s:'Beim Direktvertrieb verkauft der Hersteller ohne Zwischenhändler an den Endkunden.', correct:true, feedback:'Direkt = 0-stufig, kein Zwischenhändler.'},
-            {s:'Multichannel bedeutet, dass nur ein einziger Vertriebskanal genutzt wird.', correct:false, feedback:'Multichannel = mehrere Kanäle gleichzeitig (direkt und indirekt).'},
-            {s:'Die Wahl des Distributionswegs ist der wichtigste strategische Entscheid.', correct:true, feedback:'Dies bestimmt alle weiteren Distributionsentscheide.'},
-            {s:'Duale Distribution und Multichannel sind unterschiedliche Konzepte.', correct:false, feedback:'Duale Distribution wird häufig als Multichanneling bezeichnet.'}
+            {s:'Beim Direktvertrieb verkauft der Hersteller ohne Zwischenhändler an den Endkunden.', c:true, feedback:'Direkt = 0-stufig, kein Zwischenhändler.'},
+            {s:'Multichannel bedeutet, dass nur ein einziger Vertriebskanal genutzt wird.', c:false, feedback:'Multichannel = mehrere Kanäle gleichzeitig (direkt und indirekt).'},
+            {s:'Die Wahl des Distributionswegs ist der wichtigste strategische Entscheid.', c:true, feedback:'Dies bestimmt alle weiteren Distributionsentscheide.'},
+            {s:'Duale Distribution und Multichannel sind unterschiedliche Konzepte.', c:false, feedback:'Duale Distribution wird häufig als Multichanneling bezeichnet.'}
           ],
           tips: ['Direkt = ohne Zwischenhändler.','Multi = mehrere.','Dual = zweifach = Multichannel.'],
           reveal: ['Aussage 1: Richtig.','Aussage 2: Falsch - Multi = mehrere Kanäle.','Aussage 3: Richtig.','Aussage 4: Falsch - gleicher Begriff.']
         },
         // Ex 15 — Distributionswege zuordnen (Tabelle/Check)
         {
-          id: 15, type: 'table',
+          id: 15, type: 'match',
           q: 'Distributionswege zuordnen',
           instruction: 'Ordnen Sie die Beispiele dem richtigen Distributionsweg zu.',
-          headers: ['Direkt','Indirekt','Beispiel'],
-          rows: [
-            {label:'Firmeneigener Onlineshop', correct:0},
-            {label:'Verkauf über Migros', correct:1},
-            {label:'Werksverkauf (Factory Outlet)', correct:0},
-            {label:'Verkauf über Fachhandel', correct:1},
-            {label:'Eigener Aussendienst', correct:0},
-            {label:'Verkauf über Grosshändler', correct:1}
+          pairs: [
+            { l: 'Firmeneigener Onlineshop', r: 'Direkt' },
+            { l: 'Verkauf über Migros', r: 'Indirekt' },
+            { l: 'Werksverkauf (Factory Outlet)', r: 'Direkt' },
+            { l: 'Verkauf über Fachhandel', r: 'Indirekt' },
+            { l: 'Eigener Aussendienst', r: 'Direkt' },
+            { l: 'Verkauf über Grosshändler', r: 'Indirekt' }
           ],
+          options: ['Direkt','Indirekt'],
           tips: ['Direkt = Hersteller verkauft selbst.','Indirekt = über Zwischenhändler.','Online-Shop des Herstellers = direkt.'],
           reveal: ['Direkt: Firmeneigener Onlineshop, Werksverkauf, Eigener Aussendienst.','Indirekt: Migros, Fachhandel, Grosshändler.']
         },
@@ -277,7 +276,8 @@ window.BOOK_DATA = {
           id: 16, type: 'fill',
           q: 'Lückentext: Strategische Distribution',
           instruction: 'Ergänzen Sie die Lücken zur strategischen Distribution.',
-          segments: ['Der wichtigste strategische Entscheid ist die Bestimmung des ',{blank:true, answer:['Distributionswegs','Vertriebswegs'], width:180},'. Zur Wahl stehen: ',{blank:true, answer:['Direktvertrieb'], width:150},', Vertrieb über den ',{blank:true, answer:['Handel'], width:120},' oder eine ',{blank:true, answer:['Kombination'], width:140},' davon (Multichannel).'],
+          template: 'Der wichtigste strategische Entscheid ist die Bestimmung des {0}. Zur Wahl stehen: {1}, Vertrieb über den {2} oder eine {3} davon (Multichannel).',
+          blanks: [['Distributionswegs','Vertriebswegs'],['Direktvertrieb'],['Handel'],['Kombination']],
           tips: ['Es gibt drei Optionen für den Distributionsweg.','Die Kombination heisst auch Multichannel oder duale Distribution.'],
           reveal: ['Der wichtigste Entscheid = Bestimmung des Distributionswegs.','Optionen: Direktvertrieb, Handel (indirekt), Kombination (Multichannel).']
         },
@@ -287,7 +287,7 @@ window.BOOK_DATA = {
           q: 'MC: Strategische Distribution',
           instruction: 'Welche Aussage zur dualen Distribution ist korrekt?',
           options: ['Duale Distribution nutzt ausschliesslich digitale Kanäle.','Duale Distribution bedeutet Bearbeitung der Nachfragenden sowohl direkt als auch indirekt.','Duale Distribution ist ein veraltetes Konzept.','Duale Distribution bezieht sich nur auf den B2B-Bereich.'],
-          correct: 1,
+          answer: 1,
           tips: ['Dual = zweifach.','Es geht um direkte UND indirekte Kanäle.','Der Begriff wird auch als Multichanneling verwendet.'],
           reveal: ['Duale Distribution = Bearbeitung sowohl direkt (eigene Organe) als auch indirekt (über den Handel).','Wird häufig als Multichanneling bezeichnet.']
         }
@@ -306,9 +306,8 @@ window.BOOK_DATA = {
           id: 18, type: 'match',
           q: 'Sechs Schritte des Distributionskonzepts',
           instruction: 'Ordnen Sie die sechs Schritte des Distributionskonzepts den Beschreibungen zu.',
-          items: ['1. Analyse','2. Distributionsziele','3. Strategien','4. Massnahmen','5. Budget','6. Kontrolle'],
+          pairs: [{l:'1. Analyse',r:'Ausgangslage mit Interpretation (Fazit) erstellen'},{l:'2. Distributionsziele',r:'Quantitative und qualitative Soll-Zustände aus Vorgaben ableiten'},{l:'3. Strategien',r:'Grundsätzliche Ausrichtung der Distribution auf den Markt'},{l:'4. Massnahmen',r:'Tätigkeiten zur Zielerreichung bestimmen'},{l:'5. Budget',r:'Potenzielle Kosten aller Aktivitäten errechnen'},{l:'6. Kontrolle',r:'Zielerreichung (Punkte 2 und 3) kontrollieren'}],
           options: ['Ausgangslage mit Interpretation (Fazit) erstellen','Quantitative und qualitative Soll-Zustände aus Vorgaben ableiten','Grundsätzliche Ausrichtung der Distribution auf den Markt','Tätigkeiten zur Zielerreichung bestimmen','Potenzielle Kosten aller Aktivitäten errechnen','Zielerreichung (Punkte 2 und 3) kontrollieren'],
-          correct: ['Ausgangslage mit Interpretation (Fazit) erstellen','Quantitative und qualitative Soll-Zustände aus Vorgaben ableiten','Grundsätzliche Ausrichtung der Distribution auf den Markt','Tätigkeiten zur Zielerreichung bestimmen','Potenzielle Kosten aller Aktivitäten errechnen','Zielerreichung (Punkte 2 und 3) kontrollieren'],
           tips: ['Das Distributionskonzept folgt dem allgemeinen Konzeptraster.','Es beginnt immer mit der Analyse.','Die Kontrolle steht am Ende.'],
           reveal: ['1. Analyse: Ausgangslage mit Fazit.','2. Distributionsziele: Soll-Zustände ableiten.','3. Strategien: Ausrichtung auf den Markt.','4. Massnahmen: Tätigkeiten bestimmen.','5. Budget: Kosten errechnen.','6. Kontrolle: Zielerreichung kontrollieren.']
         },
@@ -317,9 +316,8 @@ window.BOOK_DATA = {
           id: 19, type: 'match',
           q: 'Distributionsorgane und -techniken',
           instruction: 'Ordnen Sie die Beispiele den Kategorien Distributionsorgan oder Distributionstechnik zu.',
-          items: ['Aussendienstmitarbeitende (ADM)','Besuche bei der Kundschaft','Verkaufsmitarbeitende im eigenen Shop (VKM)','Ladenverkauf','Administrative Mitarbeitende IT (IDM)','Onlineshop'],
+          pairs: [{l:'Aussendienstmitarbeitende (ADM)',r:'Distributionsorgan'},{l:'Besuche bei der Kundschaft',r:'Distributionstechnik'},{l:'Verkaufsmitarbeitende im eigenen Shop (VKM)',r:'Distributionsorgan'},{l:'Ladenverkauf',r:'Distributionstechnik'},{l:'Administrative Mitarbeitende IT (IDM)',r:'Distributionsorgan'},{l:'Onlineshop',r:'Distributionstechnik'}],
           options: ['Distributionsorgan','Distributionstechnik'],
-          correct: ['Distributionsorgan','Distributionstechnik','Distributionsorgan','Distributionstechnik','Distributionsorgan','Distributionstechnik'],
           tips: ['Organe sind Personen oder Abteilungen.','Techniken sind die Art und Weise des Verkaufs.','ADM, VKM und IDM sind Organe.'],
           reveal: ['Distributionsorgane: ADM, VKM, IDM (= Personen/Abteilungen).','Distributionstechniken: Besuche bei Kundschaft, Ladenverkauf, Onlineshop (= Verkaufsarten).']
         },
@@ -350,7 +348,7 @@ window.BOOK_DATA = {
           q: 'Distributionsfeld und -differenzierung',
           instruction: 'Was beschreibt die Distributionsdifferenzierung?',
           options: ['Die Wahl zwischen verschiedenen Transportmitteln','Die unterschiedliche Gestaltung der Distribution für verschiedene Marktsegmente','Die Berechnung des Distributionsgrads','Die Auswahl der Distributionsorgane'],
-          correct: 1,
+          answer: 1,
           tips: ['Differenzierung = Unterscheidung/Anpassung.','Es geht um verschiedene Marktsegmente.','Nicht alle Kunden werden gleich bedient.'],
           reveal: ['Distributionsdifferenzierung = Die unterschiedliche Gestaltung der Distribution je nach Marktsegment.','Bei der Distributionsdifferenzierung ist nur eine einzige Entscheidung möglich (exklusiv, selektiv oder intensiv).']
         },
@@ -359,10 +357,10 @@ window.BOOK_DATA = {
           id: 23, type: 'tf',
           q: 'RF: Distributionskonzept',
           statements: [
-            {s:'Das Distributionskonzept umfasst sechs Schritte: Analyse, Ziele, Strategien, Massnahmen, Budget, Kontrolle.', correct:true, feedback:'Dies entspricht dem allgemeinen Konzeptraster.'},
-            {s:'Die numerische Distribution misst die Umsatzbedeutung der Verkaufsstellen.', correct:false, feedback:'Die numerische Distribution misst die Präsenz (Anteil VS). Die gewichtete Distribution misst die Umsatzbedeutung.'},
-            {s:'Ein hoher Distributionsgrad bedeutet, dass das Produkt in vielen Verkaufsstellen erhältlich ist.', correct:true, feedback:'Je höher der numerische Distributionsgrad, desto breiter die Verfügbarkeit.'},
-            {s:'Die Distributionsrationalisierung betrifft nur den Transport.', correct:false, feedback:'Sie umfasst: Auftragswesen, Transportverpackung, Transportpolitik, Lagerpolitik und Entsorgungspolitik.'}
+            {s:'Das Distributionskonzept umfasst sechs Schritte: Analyse, Ziele, Strategien, Massnahmen, Budget, Kontrolle.', c:true, feedback:'Dies entspricht dem allgemeinen Konzeptraster.'},
+            {s:'Die numerische Distribution misst die Umsatzbedeutung der Verkaufsstellen.', c:false, feedback:'Die numerische Distribution misst die Präsenz (Anteil VS). Die gewichtete Distribution misst die Umsatzbedeutung.'},
+            {s:'Ein hoher Distributionsgrad bedeutet, dass das Produkt in vielen Verkaufsstellen erhältlich ist.', c:true, feedback:'Je höher der numerische Distributionsgrad, desto breiter die Verfügbarkeit.'},
+            {s:'Die Distributionsrationalisierung betrifft nur den Transport.', c:false, feedback:'Sie umfasst: Auftragswesen, Transportverpackung, Transportpolitik, Lagerpolitik und Entsorgungspolitik.'}
           ],
           tips: ['ND = Präsenz, GD = Umsatzbedeutung.','Rationalisierung betrifft mehrere Bereiche.','Das Konzept folgt dem 6-Schritte-Raster.'],
           reveal: ['Aussage 1: Richtig.','Aussage 2: Falsch - ND misst Präsenz, GD misst Umsatzbedeutung.','Aussage 3: Richtig.','Aussage 4: Falsch - betrifft mehrere Bereiche.']
@@ -372,9 +370,8 @@ window.BOOK_DATA = {
           id: 24, type: 'match',
           q: 'Konzeptelemente zuordnen',
           instruction: 'Ordnen Sie die Elemente dem richtigen Bereich des Distributionskonzepts zu.',
-          items: ['Distributionsorgane bestimmen','Numerische Distribution festlegen','Distributionsbindung verhandeln','Kanalwahl treffen','Distributionsfeld definieren'],
+          pairs: [{l:'Distributionsorgane bestimmen',r:'Wer verkauft?'},{l:'Numerische Distribution festlegen',r:'Wie breit verteilen?'},{l:'Distributionsbindung verhandeln',r:'Vertragliche Bindung'},{l:'Kanalwahl treffen',r:'Welcher Kanal?'},{l:'Distributionsfeld definieren',r:'Wo verkaufen?'}],
           options: ['Wer verkauft?','Wie breit verteilen?','Vertragliche Bindung','Welcher Kanal?','Wo verkaufen?'],
-          correct: ['Wer verkauft?','Wie breit verteilen?','Vertragliche Bindung','Welcher Kanal?','Wo verkaufen?'],
           tips: ['Organe = Personen, die verkaufen.','Distributionsgrad = Breite der Verteilung.','Bindung = vertragliche Vereinbarungen.'],
           reveal: ['Distributionsorgane = Wer verkauft? (ADM, VKM, IDM).','Numerische Distribution = Wie breit verteilen?','Distributionsbindung = Vertragliche Bindung.','Kanalwahl = Welcher Kanal?','Distributionsfeld = Wo verkaufen?']
         },
@@ -383,7 +380,8 @@ window.BOOK_DATA = {
           id: 25, type: 'fill',
           q: 'Lückentext: Distributionsgrad',
           instruction: 'Ergänzen Sie die Definitionen zum Distributionsgrad.',
-          segments: ['Die ',{blank:true, answer:['numerische','Numerische'], width:140},' Distribution misst die ',{blank:true, answer:['Präsenz'], width:120},' eines Produkts (Anteil der Verkaufsstellen). Die ',{blank:true, answer:['gewichtete','Gewichtete'], width:140},' Distribution misst die ',{blank:true, answer:['Umsatzbedeutung'], width:160},' (Umsatzanteil der VS).'],
+          template: 'Die {0} Distribution misst die {1} eines Produkts (Anteil der Verkaufsstellen). Die {2} Distribution misst die {3} (Umsatzanteil der VS).',
+          blanks: [['numerische','Numerische'],['Präsenz'],['gewichtete','Gewichtete'],['Umsatzbedeutung']],
           tips: ['Numerisch = Anzahl (Präsenz).','Gewichtet = nach Umsatz bewertet.','ND kann tiefer sein als GD, wenn das Produkt in umsatzstarken VS ist.'],
           reveal: ['Numerische Distribution = Präsenz (Anteil VS mit Produkt an Gesamt-VS).','Gewichtete Distribution = Umsatzbedeutung (Umsatzanteil der VS an Gesamtumsatz der Warengruppe).']
         },
@@ -429,7 +427,8 @@ window.BOOK_DATA = {
           id: 29, type: 'fill',
           q: 'Pop-up-Store Eigenheiten',
           instruction: 'Nennen Sie zwei spezifische Eigenheiten eines Pop-up-Stores.',
-          segments: ['Ein Pop-up-Store ist jeweils nur ',{blank:true, answer:['kurzzeitig','zeitlich begrenzt','temporär'], width:160},' an einem bestimmten Ort geöffnet. Neben dem Aspekt Verkauf können ',{blank:true, answer:['Bekanntheit','Bekanntheit und Imagebildung'], width:200},' im Fokus stehen.'],
+          template: 'Ein Pop-up-Store ist jeweils nur {0} an einem bestimmten Ort geöffnet. Neben dem Aspekt Verkauf können {1} im Fokus stehen.',
+          blanks: [['kurzzeitig','zeitlich begrenzt','temporär'],['Bekanntheit','Bekanntheit und Imagebildung']],
           tips: ['Pop-up = taucht auf und verschwindet wieder.','Es geht nicht nur um Verkauf.','Auch Branding ist ein Ziel.'],
           reveal: ['1. Nur kurzzeitig an einem bestimmten Ort geöffnet.','2. Neben dem Aspekt Verkauf können Bekanntheit und Imagebildung im Fokus stehen.']
         },
@@ -447,10 +446,10 @@ window.BOOK_DATA = {
           id: 31, type: 'tf',
           q: 'RF: Direkte und indirekte Distribution',
           statements: [
-            {s:'Beim Grosshandel kauft der Endkonsument direkt ein.', correct:false, feedback:'Der Grosshandel verkauft an den Detailhandel oder gewerbliche Abnehmer, nicht an Endkonsumenten.'},
-            {s:'Merchandising umfasst alle Massnahmen zur Warenpräsentation am POS.', correct:true, feedback:'Merchandising = Warenpräsentation und -pflege am Point of Sale.'},
-            {s:'Franchising ist eine Form der direkten Distribution.', correct:false, feedback:'Franchising ist eine Form der indirekten Distribution (über Franchisenehmer).'},
-            {s:'Der Detailhandel (Einzelhandel) verkauft direkt an den Endkonsumenten.', correct:true, feedback:'Detail = Einzelhandel = Verkauf an Endkonsumenten.'}
+            {s:'Beim Grosshandel kauft der Endkonsument direkt ein.', c:false, feedback:'Der Grosshandel verkauft an den Detailhandel oder gewerbliche Abnehmer, nicht an Endkonsumenten.'},
+            {s:'Merchandising umfasst alle Massnahmen zur Warenpräsentation am POS.', c:true, feedback:'Merchandising = Warenpräsentation und -pflege am Point of Sale.'},
+            {s:'Franchising ist eine Form der direkten Distribution.', c:false, feedback:'Franchising ist eine Form der indirekten Distribution (über Franchisenehmer).'},
+            {s:'Der Detailhandel (Einzelhandel) verkauft direkt an den Endkonsumenten.', c:true, feedback:'Detail = Einzelhandel = Verkauf an Endkonsumenten.'}
           ],
           tips: ['Grosshandel verkauft an Wiederverkäufer.','Merchandising = Warenpräsentation.','Franchising = indirekt, da über Partner.'],
           reveal: ['Aussage 1: Falsch - Grosshandel verkauft an Detailhandel.','Aussage 2: Richtig.','Aussage 3: Falsch - Franchising = indirekt.','Aussage 4: Richtig.']
@@ -460,9 +459,8 @@ window.BOOK_DATA = {
           id: 32, type: 'match',
           q: 'Handelsformen zuordnen',
           instruction: 'Ordnen Sie die Handelsformen der richtigen Kategorie zu.',
-          items: ['Migros','Denner','Digitec.ch','Manor','Landi'],
+          pairs: [{l:'Migros',r:'Grossverteiler'},{l:'Denner',r:'Discounter'},{l:'Digitec.ch',r:'Online-Händler'},{l:'Manor',r:'Warenhaus'},{l:'Landi',r:'Fachmarkt'}],
           options: ['Grossverteiler','Discounter','Online-Händler','Warenhaus','Fachmarkt'],
-          correct: ['Grossverteiler','Discounter','Online-Händler','Warenhaus','Fachmarkt'],
           tips: ['Migros und Coop sind Grossverteiler.','Denner ist ein Discounter.','Manor ist ein Warenhaus.'],
           reveal: ['Migros = Grossverteiler, Denner = Discounter, Digitec.ch = Online-Händler, Manor = Warenhaus, Landi = Fachmarkt.']
         },
@@ -481,7 +479,7 @@ window.BOOK_DATA = {
           q: 'MC: Grosshandel vs. Detailhandel',
           instruction: 'Welche Aussage zum Grosshandel ist korrekt?',
           options: ['Der Grosshandel verkauft ausschliesslich an Endkonsumenten.','Der Grosshandel kauft grosse Mengen ein und verkauft an Detailhändler weiter.','Der Grosshandel ist immer ein Online-Handel.','Der Grosshandel betreibt nur eigene Ladengeschäfte.'],
-          correct: 1,
+          answer: 1,
           tips: ['Gross = grosse Mengen.','Grosshandel ≠ Endkonsument.','Grosshandel = Zwischenhändler.'],
           reveal: ['Der Grosshandel kauft Waren in grossen Mengen ein und verkauft sie an Detailhändler oder gewerbliche Abnehmer weiter.']
         },
@@ -490,7 +488,8 @@ window.BOOK_DATA = {
           id: 35, type: 'fill',
           q: 'Lückentext: Handel',
           instruction: 'Ergänzen Sie die Lücken zum Handel in der Distribution.',
-          segments: ['Der ',{blank:true, answer:['Grosshandel'], width:140},' kauft grosse Mengen ein und verkauft an den ',{blank:true, answer:['Detailhandel','Einzelhandel'], width:150},' weiter. Der Detailhandel verkauft direkt an den ',{blank:true, answer:['Endkonsumenten','Konsumenten'], width:160},'. ',{blank:true, answer:['Franchising'], width:130},' ist ein Vertriebssystem, bei dem ein Franchisegeber einem Franchisenehmer das Recht einräumt, sein Geschäftskonzept zu nutzen.'],
+          template: 'Der {0} kauft grosse Mengen ein und verkauft an den {1} weiter. Der Detailhandel verkauft direkt an den {2}. {3} ist ein Vertriebssystem, bei dem ein Franchisegeber einem Franchisenehmer das Recht einräumt, sein Geschäftskonzept zu nutzen.',
+          blanks: [['Grosshandel'],['Detailhandel','Einzelhandel'],['Endkonsumenten','Konsumenten'],['Franchising']],
           tips: ['Gross = an Wiederverkäufer.','Detail = an Endkonsumenten.','Franchising = Geschäftskonzept-Lizenz.'],
           reveal: ['Grosshandel -> Detailhandel -> Endkonsument.','Franchising = Lizenzierung des Geschäftskonzepts.']
         }
@@ -518,9 +517,8 @@ window.BOOK_DATA = {
           id: 37, type: 'match',
           q: 'Vorteile und Nachteile Outsourcing',
           instruction: 'Ordnen Sie die Aussagen den Kategorien "Vorteil Outsourcing" oder "Nachteil Outsourcing" zu.',
-          items: ['Variable Kosten (Vereinbarung pro Einheit)','Abhängigkeit von externen Stellen','Kleinere Kapitalbindung in der Infrastruktur','Wertschöpfungsverlust (Teil der Gewinnmarge geht verloren)','Entlastung der Infrastruktur von nebensächlichen Tätigkeiten','Kleinere Kontrollmöglichkeit'],
+          pairs: [{l:'Variable Kosten (Vereinbarung pro Einheit)',r:'Vorteil Outsourcing'},{l:'Abhängigkeit von externen Stellen',r:'Nachteil Outsourcing'},{l:'Kleinere Kapitalbindung in der Infrastruktur',r:'Vorteil Outsourcing'},{l:'Wertschöpfungsverlust (Teil der Gewinnmarge geht verloren)',r:'Nachteil Outsourcing'},{l:'Entlastung der Infrastruktur von nebensächlichen Tätigkeiten',r:'Vorteil Outsourcing'},{l:'Kleinere Kontrollmöglichkeit',r:'Nachteil Outsourcing'}],
           options: ['Vorteil Outsourcing','Nachteil Outsourcing'],
-          correct: ['Vorteil Outsourcing','Nachteil Outsourcing','Vorteil Outsourcing','Nachteil Outsourcing','Vorteil Outsourcing','Nachteil Outsourcing'],
           tips: ['Vorteile beziehen sich auf Kostenreduktion und Flexibilität.','Nachteile betreffen Abhängigkeit und Kontrollverlust.','Drei Vorteile und drei Nachteile.'],
           reveal: ['Vorteile: Variable Kosten, kleinere Kapitalbindung, Entlastung von nebensächlichen Tätigkeiten.','Nachteile: Abhängigkeit von Externen, Wertschöpfungsverlust, kleinere Kontrollmöglichkeit.']
         },
@@ -547,10 +545,10 @@ window.BOOK_DATA = {
           id: 40, type: 'tf',
           q: 'RF: Physische Distribution',
           statements: [
-            {s:'Die physische Distribution umfasst Lager, Transport und Informationsfluss.', correct:true, feedback:'Dies sind die drei Hauptbereiche der physischen Distribution.'},
-            {s:'Cross Docking bedeutet, dass Ware im Lager lange gelagert wird.', correct:false, feedback:'Cross Docking bedeutet Umschlag ohne Lagerung: Ware wird direkt vom Wareneingang zum Warenausgang umgeleitet.'},
-            {s:'Just in Time bedeutet Lieferung genau zum benötigten Zeitpunkt.', correct:true, feedback:'JIT = Produktion und Lieferung genau dann, wenn die Ware benötigt wird.'},
-            {s:'Outsourcing der Transportlogistik hat nur Vorteile.', correct:false, feedback:'Es gibt auch Nachteile: Abhängigkeit, Wertschöpfungsverlust, kleinere Kontrollmöglichkeit.'}
+            {s:'Die physische Distribution umfasst Lager, Transport und Informationsfluss.', c:true, feedback:'Dies sind die drei Hauptbereiche der physischen Distribution.'},
+            {s:'Cross Docking bedeutet, dass Ware im Lager lange gelagert wird.', c:false, feedback:'Cross Docking bedeutet Umschlag ohne Lagerung: Ware wird direkt vom Wareneingang zum Warenausgang umgeleitet.'},
+            {s:'Just in Time bedeutet Lieferung genau zum benötigten Zeitpunkt.', c:true, feedback:'JIT = Produktion und Lieferung genau dann, wenn die Ware benötigt wird.'},
+            {s:'Outsourcing der Transportlogistik hat nur Vorteile.', c:false, feedback:'Es gibt auch Nachteile: Abhängigkeit, Wertschöpfungsverlust, kleinere Kontrollmöglichkeit.'}
           ],
           tips: ['Physische Distribution = Lager + Transport + Informationsfluss.','Cross Docking = ohne Lagerung.','JIT = zum richtigen Zeitpunkt.'],
           reveal: ['Aussage 1: Richtig.','Aussage 2: Falsch - Cross Docking = Umschlag ohne Lagerung.','Aussage 3: Richtig.','Aussage 4: Falsch - auch Nachteile.']
@@ -560,9 +558,8 @@ window.BOOK_DATA = {
           id: 41, type: 'match',
           q: 'Logistikbegriffe zuordnen',
           instruction: 'Ordnen Sie die Logistikbegriffe den Beschreibungen zu.',
-          items: ['Cross Docking','Just in Time','Vendor Managed Inventory','Outsourcing','Rückruf'],
+          pairs: [{l:'Cross Docking',r:'Umschlag ohne Lagerung'},{l:'Just in Time',r:'Lieferung genau zum benötigten Zeitpunkt'},{l:'Vendor Managed Inventory',r:'Lieferant verwaltet Kundenbestand'},{l:'Outsourcing',r:'Auslagerung von Tätigkeiten an Dritte'},{l:'Rückruf',r:'Rücknahme fehlerhafter Produkte'}],
           options: ['Umschlag ohne Lagerung','Lieferung genau zum benötigten Zeitpunkt','Lieferant verwaltet Kundenbestand','Auslagerung von Tätigkeiten an Dritte','Rücknahme fehlerhafter Produkte'],
-          correct: ['Umschlag ohne Lagerung','Lieferung genau zum benötigten Zeitpunkt','Lieferant verwaltet Kundenbestand','Auslagerung von Tätigkeiten an Dritte','Rücknahme fehlerhafter Produkte'],
           tips: ['Cross = quer durch (ohne zu lagern).','JIT = just = genau.','VMI = Vendor = Lieferant managed = verwaltet.'],
           reveal: ['Cross Docking = Umschlag ohne Lagerung.','JIT = Lieferung zum benötigten Zeitpunkt.','VMI = Lieferant verwaltet Kundenbestand.','Outsourcing = Auslagerung an Dritte.','Rückruf = Rücknahme fehlerhafter Produkte.']
         },
@@ -571,7 +568,8 @@ window.BOOK_DATA = {
           id: 42, type: 'fill',
           q: 'Bereiche der physischen Distribution',
           instruction: 'Ergänzen Sie die drei Bereiche der physischen Distribution.',
-          segments: ['Die drei Bereiche sind: 1. ',{blank:true, answer:['Lager','Lagerhaltung'], width:150},' (Lagerung der konsumbereiten Produkte), 2. ',{blank:true, answer:['Transport'], width:130},' (Auslieferung an die Kundschaft), 3. ',{blank:true, answer:['Informationsfluss'], width:170},' (Bestimmung der IT in der Logistik).'],
+          template: 'Die drei Bereiche sind: 1. {0} (Lagerung der konsumbereiten Produkte), 2. {1} (Auslieferung an die Kundschaft), 3. {2} (Bestimmung der IT in der Logistik).',
+          blanks: [['Lager','Lagerhaltung'],['Transport'],['Informationsfluss']],
           tips: ['Denken Sie an die drei Säulen der physischen Distribution.','Alle drei sind nötig für die Warenverteilung.'],
           reveal: ['1. Lager (Lagerhaltung der Produkte).','2. Transport (Auslieferung an die Kundschaft).','3. Informationsfluss (IT in der Logistik / Auftragswesen).']
         },
@@ -581,7 +579,7 @@ window.BOOK_DATA = {
           q: 'Entsorgungslogistik',
           instruction: 'Was gehört NICHT zur Entsorgungslogistik?',
           options: ['Recycling von Verpackungsmaterial','Rücknahme defekter Produkte','Neukundenakquisition','Entsorgung von Restbeständen'],
-          correct: 2,
+          answer: 2,
           tips: ['Entsorgungslogistik = Rückwärtslogistik.','Es geht um den Umgang mit Rückläufern und Abfall.','Neukundengewinnung gehört zum Verkauf, nicht zur Logistik.'],
           reveal: ['Neukundenakquisition gehört zum Verkauf, nicht zur Entsorgungslogistik.','Entsorgungslogistik umfasst: Recycling, Rücknahme, Entsorgung von Restbeständen.']
         },
@@ -600,7 +598,7 @@ window.BOOK_DATA = {
           q: 'Kontrolle in der physischen Distribution',
           instruction: 'Was ist das Hauptziel der Kontrolle in der physischen Distribution?',
           options: ['Maximierung der Lagerbestände','Sicherstellung des Serviceniveaus bei optimalen Kosten','Eliminierung aller Zwischenhändler','Ausschliessliche Nutzung eigener Transportmittel'],
-          correct: 1,
+          answer: 1,
           tips: ['Es geht um ein Gleichgewicht.','Serviceniveau und Kosten müssen ausbalanciert werden.','Weder Überbestände noch Lieferengpässe sind erwünscht.'],
           reveal: ['Hauptziel: Sicherstellung des vereinbarten Serviceniveaus bei gleichzeitiger Optimierung der Kosten.']
         }
@@ -655,10 +653,10 @@ window.BOOK_DATA = {
           id: 50, type: 'tf',
           q: 'RF: Digitalisierung',
           statements: [
-            {s:'Affiliate-Marketing erlaubt die Nutzung bestehender Vertriebskanäle anderer Websites.', correct:true, feedback:'Affiliate-Marketing = Vertrieb über Partner-Websites gegen Provision.'},
-            {s:'GTIN-Strichcodes können mehr Informationen speichern als QR-Codes.', correct:false, feedback:'QR-Codes können mehr Informationen speichern als GTIN-Strichcodes.'},
-            {s:'ECR dient der nachfrageorientierten Sortimentsoptimierung am POS.', correct:true, feedback:'ECR wertet Logistikdaten für die Marktforschung aus und optimiert das Sortiment.'},
-            {s:'EDI erfordert einen hohen Anteil an manuellen Eingriffen.', correct:false, feedback:'EDI ermöglicht gerade ein Minimum an manuellen Eingriffen durch Automatisierung.'}
+            {s:'Affiliate-Marketing erlaubt die Nutzung bestehender Vertriebskanäle anderer Websites.', c:true, feedback:'Affiliate-Marketing = Vertrieb über Partner-Websites gegen Provision.'},
+            {s:'GTIN-Strichcodes können mehr Informationen speichern als QR-Codes.', c:false, feedback:'QR-Codes können mehr Informationen speichern als GTIN-Strichcodes.'},
+            {s:'ECR dient der nachfrageorientierten Sortimentsoptimierung am POS.', c:true, feedback:'ECR wertet Logistikdaten für die Marktforschung aus und optimiert das Sortiment.'},
+            {s:'EDI erfordert einen hohen Anteil an manuellen Eingriffen.', c:false, feedback:'EDI ermöglicht gerade ein Minimum an manuellen Eingriffen durch Automatisierung.'}
           ],
           tips: ['Affiliate = Partnerschaft.','QR-Codes sind leistungsfähiger als Strichcodes.','EDI = minimale manuelle Eingriffe.'],
           reveal: ['Aussage 1: Richtig.','Aussage 2: Falsch - QR > GTIN.','Aussage 3: Richtig.','Aussage 4: Falsch - EDI minimiert manuelle Eingriffe.']
@@ -668,9 +666,8 @@ window.BOOK_DATA = {
           id: 51, type: 'match',
           q: 'Digitale Technologien zuordnen',
           instruction: 'Ordnen Sie die Technologien ihrer Beschreibung zu.',
-          items: ['GTIN','QR-Code','RFID','EDI','ECR'],
+          pairs: [{l:'GTIN',r:'Strichcode für Warenkennzeichnung'},{l:'QR-Code',r:'Zweidimensionaler Code mit mehr Informationen'},{l:'RFID',r:'Funk-Chip (Transponder) für Warenerfassung'},{l:'EDI',r:'Elektronischer Datenaustausch zwischen Partnern'},{l:'ECR',r:'Ganzheitliche Wertschöpfungskettenbetrachtung'}],
           options: ['Strichcode für Warenkennzeichnung','Zweidimensionaler Code mit mehr Informationen','Funk-Chip (Transponder) für Warenerfassung','Elektronischer Datenaustausch zwischen Partnern','Ganzheitliche Wertschöpfungskettenbetrachtung'],
-          correct: ['Strichcode für Warenkennzeichnung','Zweidimensionaler Code mit mehr Informationen','Funk-Chip (Transponder) für Warenerfassung','Elektronischer Datenaustausch zwischen Partnern','Ganzheitliche Wertschöpfungskettenbetrachtung'],
           tips: ['GTIN = der bekannte Strichcode.','QR = Quick Response, mehr Daten als Strichcode.','RFID = Radio Frequency Identification.'],
           reveal: ['GTIN = Strichcode.','QR-Code = mehr Informationen als Strichcode.','RFID = Funk-Chip (Transponder).','EDI = elektronischer Datenaustausch.','ECR = ganzheitliche Wertschöpfungskette.']
         },
@@ -680,7 +677,7 @@ window.BOOK_DATA = {
           q: 'Affiliate-Marketing',
           instruction: 'Was ist Affiliate-Marketing?',
           options: ['Direktverkauf über eigene Filialen','Nutzung bestehender Vertriebskanäle anderer Websites für den eigenen Vertrieb','Ausschliesslich Social-Media-Werbung','Verkauf über Grosshändler'],
-          correct: 1,
+          answer: 1,
           tips: ['Affiliate = Partner/Verbundener.','Es geht um die Nutzung fremder Kanäle.','Der Partner erhält eine Provision.'],
           reveal: ['Affiliate-Marketing = Nutzung bestehender Vertriebskanäle anderer Websites für den eigenen Vertrieb. Der Affiliate-Partner erhält eine Provision für vermittelte Verkäufe.']
         },
@@ -689,7 +686,8 @@ window.BOOK_DATA = {
           id: 53, type: 'fill',
           q: 'Lückentext: Digitalisierung',
           instruction: 'Ergänzen Sie die Lücken zur Digitalisierung in der Distribution.',
-          segments: ['Um die Logistikkosten tief zu halten, werden u.a. ',{blank:true, answer:['elektronische Hilfsmittel'], width:200},' eingesetzt. Diese erlauben einen hohen ',{blank:true, answer:['Automatisierungsgrad'], width:200},'. Die Basis bildet der Einsatz von ',{blank:true, answer:['GTIN'], width:100},'-Strichcodes im Lager sowie an der Kasse im Detailhandel.'],
+          template: 'Um die Logistikkosten tief zu halten, werden u.a. {0} eingesetzt. Diese erlauben einen hohen {1}. Die Basis bildet der Einsatz von {2}-Strichcodes im Lager sowie an der Kasse im Detailhandel.',
+          blanks: [['elektronische Hilfsmittel'],['Automatisierungsgrad'],['GTIN']],
           tips: ['Elektronische Hilfsmittel reduzieren manuelle Arbeit.','Automatisierung spart Kosten.','GTIN ist der Standard-Strichcode.'],
           reveal: ['Elektronische Hilfsmittel ermöglichen hohen Automatisierungsgrad.','GTIN-Strichcodes sind die Basis im Lager und an der Kasse.']
         }
@@ -735,10 +733,10 @@ window.BOOK_DATA = {
           id: 57, type: 'tf',
           q: 'RF: Standortwahl',
           statements: [
-            {s:'Die Wahl eines Logistikstandorts hat unmittelbare Auswirkung auf das ganze Unternehmen.', correct:true, feedback:'Standortentscheide sind langfristig und betreffen das ganze Unternehmen.'},
-            {s:'Standortqualität wird ausschliesslich aus Kundensicht beurteilt.', correct:false, feedback:'Standortqualität wird sowohl aus Kundensicht als auch unter Berücksichtigung anderer Faktoren (Steuern, Infrastruktur etc.) beurteilt.'},
-            {s:'Die 10-10-10-Methode eignet sich gut für strategische Standortentscheidungen.', correct:true, feedback:'Die Methode betrachtet Auswirkungen nach 10 Minuten, 10 Monaten und 10 Jahren.'},
-            {s:'Psychologische Marktnähe bezieht sich auf die geografische Distanz zum Kunden.', correct:false, feedback:'Psychologische Marktnähe bezieht sich auf das Gefühl der Nähe (Sprache, Kultur, Verständnis).'}
+            {s:'Die Wahl eines Logistikstandorts hat unmittelbare Auswirkung auf das ganze Unternehmen.', c:true, feedback:'Standortentscheide sind langfristig und betreffen das ganze Unternehmen.'},
+            {s:'Standortqualität wird ausschliesslich aus Kundensicht beurteilt.', c:false, feedback:'Standortqualität wird sowohl aus Kundensicht als auch unter Berücksichtigung anderer Faktoren (Steuern, Infrastruktur etc.) beurteilt.'},
+            {s:'Die 10-10-10-Methode eignet sich gut für strategische Standortentscheidungen.', c:true, feedback:'Die Methode betrachtet Auswirkungen nach 10 Minuten, 10 Monaten und 10 Jahren.'},
+            {s:'Psychologische Marktnähe bezieht sich auf die geografische Distanz zum Kunden.', c:false, feedback:'Psychologische Marktnähe bezieht sich auf das Gefühl der Nähe (Sprache, Kultur, Verständnis).'}
           ],
           tips: ['Standort = langfristige, ganzheitliche Entscheidung.','10-10-10 = drei Zeithorizonte.','Psychologisch ≠ geografisch.'],
           reveal: ['Aussage 1: Richtig.','Aussage 2: Falsch - auch andere Faktoren.','Aussage 3: Richtig.','Aussage 4: Falsch - psychologisch ≠ geografisch.']
@@ -749,7 +747,7 @@ window.BOOK_DATA = {
           q: 'MC: Standortfaktoren',
           instruction: 'Welcher Faktor ist KEIN typisches Standortkriterium?',
           options: ['Verkehrsanbindung','Mietkosten','Lieblingsfarbe des Geschäftsführers','Kundenfrequenz'],
-          correct: 2,
+          answer: 2,
           tips: ['Standortkriterien sind objektiv messbar oder bewertbar.','Persönliche Vorlieben sind keine Standortkriterien.'],
           reveal: ['Die Lieblingsfarbe des Geschäftsführers ist kein relevantes Standortkriterium.','Relevante Kriterien: Verkehrsanbindung, Mietkosten, Kundenfrequenz, Sichtbarkeit etc.']
         },
@@ -758,9 +756,8 @@ window.BOOK_DATA = {
           id: 59, type: 'match',
           q: 'Standorttypen',
           instruction: 'Ordnen Sie die Standorttypen ihrer Beschreibung zu.',
-          items: ['Verkaufsstelle','Auslieferungslager','Zentrallager','Showroom'],
+          pairs: [{l:'Verkaufsstelle',r:'Ort, wo Endkunden direkt kaufen'},{l:'Auslieferungslager',r:'Lager nahe beim Kunden für schnelle Lieferung'},{l:'Zentrallager',r:'Hauptlager mit grosser Kapazität'},{l:'Showroom',r:'Ausstellungsraum ohne direkten Verkauf'}],
           options: ['Ort, wo Endkunden direkt kaufen','Lager nahe beim Kunden für schnelle Lieferung','Hauptlager mit grosser Kapazität','Ausstellungsraum ohne direkten Verkauf'],
-          correct: ['Ort, wo Endkunden direkt kaufen','Lager nahe beim Kunden für schnelle Lieferung','Hauptlager mit grosser Kapazität','Ausstellungsraum ohne direkten Verkauf'],
           tips: ['VS = Point of Sale.','Auslieferungslager = nahe beim Kunden.','Showroom = nur Ausstellung, kein Verkauf.'],
           reveal: ['Verkaufsstelle = Endkunden kaufen direkt.','Auslieferungslager = nahe beim Kunden.','Zentrallager = grosse Kapazität.','Showroom = Ausstellung ohne direkten Verkauf.']
         },
@@ -769,7 +766,8 @@ window.BOOK_DATA = {
           id: 60, type: 'fill',
           q: 'Lückentext: Standort',
           instruction: 'Ergänzen Sie die Lücken zur Standortwahl.',
-          segments: ['Die Standortbewertung kann sowohl aus ',{blank:true, answer:['subjektiver','qualitativer'], width:150},' (qualitativer) wie auch aus ',{blank:true, answer:['finanzieller','quantitativer'], width:150},' (quantitativer) Sicht erfolgen. Insbesondere die Wahl aus Sicht des Marketings beeinflusst die ',{blank:true, answer:['Standortqualität'], width:160},' aus Kundensicht.'],
+          template: 'Die Standortbewertung kann sowohl aus {0} (qualitativer) wie auch aus {1} (quantitativer) Sicht erfolgen. Insbesondere die Wahl aus Sicht des Marketings beeinflusst die {2} aus Kundensicht.',
+          blanks: [['subjektiver','qualitativer'],['finanzieller','quantitativer'],['Standortqualität']],
           tips: ['Zwei Perspektiven: qualitativ und quantitativ.','Marketing = qualitative/subjektive Sicht.','Finanzen = quantitative/finanzielle Sicht.'],
           reveal: ['Subjektive (qualitative) und finanzielle (quantitative) Sicht.','Marketing beeinflusst die Standortqualität aus Kundensicht.']
         }
@@ -815,10 +813,10 @@ window.BOOK_DATA = {
           id: 64, type: 'tf',
           q: 'RF: Export',
           statements: [
-            {s:'Beim direkten Export wechselt das Eigentum nach der Grenze.', correct:true, feedback:'Direkt = Fakturierung an Kunden im Ausland, Eigentum nach der Grenze.'},
-            {s:'Der Export kann nur direkt erfolgen.', correct:false, feedback:'Export kann sowohl direkt als auch indirekt vorgenommen werden.'},
-            {s:'Im Export tragen die Organe teilweise eigene Namen wie Exportkommissionäre oder Distributoren.', correct:true, feedback:'Im Export gibt es spezielle Organe wie Tochtergesellschaft, Exportkommissionäre/-makler, Distributoren.'},
-            {s:'Deutschland ist der grösste Handelspartner der Schweiz.', correct:true, feedback:'Dies ist korrekt.'}
+            {s:'Beim direkten Export wechselt das Eigentum nach der Grenze.', c:true, feedback:'Direkt = Fakturierung an Kunden im Ausland, Eigentum nach der Grenze.'},
+            {s:'Der Export kann nur direkt erfolgen.', c:false, feedback:'Export kann sowohl direkt als auch indirekt vorgenommen werden.'},
+            {s:'Im Export tragen die Organe teilweise eigene Namen wie Exportkommissionäre oder Distributoren.', c:true, feedback:'Im Export gibt es spezielle Organe wie Tochtergesellschaft, Exportkommissionäre/-makler, Distributoren.'},
+            {s:'Deutschland ist der grösste Handelspartner der Schweiz.', c:true, feedback:'Dies ist korrekt.'}
           ],
           tips: ['Direkt = nach der Grenze.','Export = direkt oder indirekt.','Spezielle Export-Organe existieren.'],
           reveal: ['Aussage 1: Richtig.','Aussage 2: Falsch - auch indirekt möglich.','Aussage 3: Richtig.','Aussage 4: Richtig.']
@@ -837,9 +835,8 @@ window.BOOK_DATA = {
           id: 66, type: 'match',
           q: 'Export-Organe zuordnen',
           instruction: 'Ordnen Sie die Export-Organe der richtigen Kategorie zu.',
-          items: ['Tochtergesellschaft','Exportkommissionär','Lokaler Distributor','Eigene Niederlassung'],
-          options: ['Eigenes Organ im Ausland','Externer Vermittler','Externer Händler im Zielmarkt','Eigenes Organ im Ausland'],
-          correct: ['Eigenes Organ im Ausland','Externer Vermittler','Externer Händler im Zielmarkt','Eigenes Organ im Ausland'],
+          pairs: [{l:'Tochtergesellschaft',r:'Eigenes Organ im Ausland'},{l:'Exportkommissionär',r:'Externer Vermittler'},{l:'Lokaler Distributor',r:'Externer Händler im Zielmarkt'},{l:'Eigene Niederlassung',r:'Eigenes Organ im Ausland'}],
+          options: ['Eigenes Organ im Ausland','Externer Vermittler','Externer Händler im Zielmarkt'],
           tips: ['Tochtergesellschaft und Niederlassung = eigene Organe.','Kommissionäre und Makler = externe Vermittler.','Distributoren = externe Händler.'],
           reveal: ['Eigene Organe: Tochtergesellschaft, Niederlassung.','Externe: Exportkommissionär (Vermittler), Distributor (Händler im Zielmarkt).']
         },
@@ -849,7 +846,7 @@ window.BOOK_DATA = {
           q: 'MC: Export',
           instruction: 'Welche Aussage zum indirekten Export ist korrekt?',
           options: ['Das Eigentum wechselt nach der Landesgrenze.','Der Anbieter fakturiert auf einen Kunden im Inland und das Eigentum wechselt vor der Grenze.','Es gibt keine Zolldeklarationen.','Der Anbieter muss immer eine Tochtergesellschaft gründen.'],
-          correct: 1,
+          answer: 1,
           tips: ['Indirekt = vor der Grenze.','Der Abnehmer im Inland übernimmt den Export.','Tochtergesellschaft = direkt.'],
           reveal: ['Indirekter Export: Fakturierung auf Kunden im Inland, Eigentum wechselt vor der Grenze. Der Abnehmer im Inland exportiert die Ware selbst.']
         }
@@ -886,24 +883,25 @@ window.BOOK_DATA = {
           id: 70, type: 'fill',
           q: 'Drei Güterarten',
           instruction: 'Ergänzen Sie die drei Güterarten.',
-          segments: ['In der Volkswirtschaft spricht man von drei Güterarten: 1. ',{blank:true, answer:['Konsumgüter'], width:150},' (Gebrauch und Verbrauch werden von Privatpersonen konsumiert), 2. ',{blank:true, answer:['Investitionsgüter'], width:170},' (Gebrauch und Verbrauch werden von Firmen für eine weitere Verwendung gekauft), 3. ',{blank:true, answer:['Dienstleistungen'], width:170},' (persönlich oder unpersönlich, werden von Privaten wie auch von Firmen bezogen).'],
+          template: 'In der Volkswirtschaft spricht man von drei Güterarten: 1. {0} (Gebrauch und Verbrauch werden von Privatpersonen konsumiert), 2. {1} (Gebrauch und Verbrauch werden von Firmen für eine weitere Verwendung gekauft), 3. {2} (persönlich oder unpersönlich, werden von Privaten wie auch von Firmen bezogen).',
+          blanks: [['Konsumgüter'],['Investitionsgüter'],['Dienstleistungen']],
           tips: ['Konsumgüter = für Privatpersonen.','Investitionsgüter = für Firmen/Unternehmen.','Dienstleistungen = für beide.'],
           reveal: ['1. Konsumgüter (Privatpersonen).','2. Investitionsgüter (Firmen, weitere Verwendung).','3. Dienstleistungen (Private und Firmen).']
         },
         // Ex 71
         {
-          id: 71, type: 'table',
+          id: 71, type: 'match',
           q: 'Tabelle: IG vs. DL Distribution',
           instruction: 'Ordnen Sie die Merkmale den Güterarten zu (Investitionsgüter vs. Dienstleistungen).',
-          headers: ['Investitionsgüter','Dienstleistungen','Merkmal'],
-          rows: [
-            {label:'Langfristiger Kaufentscheid', correct:0},
-            {label:'Relativ spontaner Kaufentscheid', correct:1},
-            {label:'Sachliche Ansprache', correct:0},
-            {label:'Emotional beeinflusste Kommunikation', correct:1},
-            {label:'Grosses Volumen pro Auftrag', correct:0},
-            {label:'Klein bis gross je nach Auftrag', correct:1}
+          pairs: [
+            { l: 'Langfristiger Kaufentscheid', r: 'Investitionsgüter' },
+            { l: 'Relativ spontaner Kaufentscheid', r: 'Dienstleistungen' },
+            { l: 'Sachliche Ansprache', r: 'Investitionsgüter' },
+            { l: 'Emotional beeinflusste Kommunikation', r: 'Dienstleistungen' },
+            { l: 'Grosses Volumen pro Auftrag', r: 'Investitionsgüter' },
+            { l: 'Klein bis gross je nach Auftrag', r: 'Dienstleistungen' }
           ],
+          options: ['Investitionsgüter','Dienstleistungen'],
           tips: ['IG = sachlich, langfristig, grosse Aufträge.','DL = spontaner, emotional, variabel.','Denken Sie an den Kaufprozess.'],
           reveal: ['IG: Langfristiger Kaufentscheid, sachliche Ansprache, grosses Volumen.','DL: Spontaner Kaufentscheid, emotionale Kommunikation, variables Volumen.']
         },
@@ -912,10 +910,10 @@ window.BOOK_DATA = {
           id: 72, type: 'tf',
           q: 'RF: Güterarten',
           statements: [
-            {s:'Konsumgüter werden i.d.R. indirekt über den Handel vertrieben.', correct:true, feedback:'Konsumgüter = Massengeschäft = indirekt über den Handel.'},
-            {s:'Investitionsgüter werden meist direkt vertrieben.', correct:true, feedback:'IG = wenige grosse Kunden = direkter Vertrieb.'},
-            {s:'Dienstleistungen sind materielle Güter.', correct:false, feedback:'Dienstleistungen sind immaterielle Güter (nicht fassbar).'},
-            {s:'Formulardruck (Lieferscheine auf Papier) ist ein Investitionsgut.', correct:true, feedback:'Es ist ein materielles Gut, das von Firmen für eine weitere Verwendung gekauft wird (wirtschaftliches, materielles Investitionsgut, Verbrauchsgut).'}
+            {s:'Konsumgüter werden i.d.R. indirekt über den Handel vertrieben.', c:true, feedback:'Konsumgüter = Massengeschäft = indirekt über den Handel.'},
+            {s:'Investitionsgüter werden meist direkt vertrieben.', c:true, feedback:'IG = wenige grosse Kunden = direkter Vertrieb.'},
+            {s:'Dienstleistungen sind materielle Güter.', c:false, feedback:'Dienstleistungen sind immaterielle Güter (nicht fassbar).'},
+            {s:'Formulardruck (Lieferscheine auf Papier) ist ein Investitionsgut.', c:true, feedback:'Es ist ein materielles Gut, das von Firmen für eine weitere Verwendung gekauft wird (wirtschaftliches, materielles Investitionsgut, Verbrauchsgut).'}
           ],
           tips: ['KG = indirekt, IG = direkt, DL = häufig direkt.','Dienstleistungen = immateriell.','Formulardruck = materiell, für Firmen.'],
           reveal: ['Aussage 1: Richtig.','Aussage 2: Richtig.','Aussage 3: Falsch - immateriell.','Aussage 4: Richtig.']
@@ -926,7 +924,7 @@ window.BOOK_DATA = {
           q: 'MC: Gütervertrieb',
           instruction: 'Welches Kriterium unterscheidet Investitionsgüter am stärksten von Konsumgütern in der Distribution?',
           options: ['Die Farbe der Verpackung','Der hohe Beratungsaufwand und die Bedeutung einzelner Kunden','Die Transportkosten','Die Werbemassnahmen'],
-          correct: 1,
+          answer: 1,
           tips: ['IG = wenige, grosse Kunden.','Die Beziehung zum einzelnen Kunden ist zentral.','Beratung ist bei IG viel intensiver.'],
           reveal: ['Bei Investitionsgütern ist der Beratungsaufwand im Vertrieb und die Bedeutung einzelner Kunden viel grösser als bei Konsumgütern.']
         },
@@ -935,9 +933,8 @@ window.BOOK_DATA = {
           id: 74, type: 'match',
           q: 'Kriterien der Differenzierung',
           instruction: 'Ordnen Sie die Beschreibungen den richtigen Güterarten zu.',
-          items: ['Viele kleine Kunden, Massengeschäft','Wenige grosse Kunden, hoher Beratungsaufwand','Immateriell, persönlich oder unpersönlich'],
+          pairs: [{l:'Viele kleine Kunden, Massengeschäft',r:'Konsumgüter'},{l:'Wenige grosse Kunden, hoher Beratungsaufwand',r:'Investitionsgüter'},{l:'Immateriell, persönlich oder unpersönlich',r:'Dienstleistungen'}],
           options: ['Konsumgüter','Investitionsgüter','Dienstleistungen'],
-          correct: ['Konsumgüter','Investitionsgüter','Dienstleistungen'],
           tips: ['KG = Masse.','IG = Einzelkunden, Beratung.','DL = immateriell.'],
           reveal: ['Konsumgüter = viele kleine Kunden, Masse.','Investitionsgüter = wenige grosse Kunden, Beratung.','Dienstleistungen = immateriell.']
         }
@@ -965,9 +962,17 @@ window.BOOK_DATA = {
           id: 76, type: 'match',
           q: 'Detailhandelspanel',
           instruction: 'Ordnen Sie die Kanäle den Kategorien "Im Detailhandelspanel enthalten" oder "Nicht enthalten" zu.',
-          items: ['Coop','Migros','Denner','Volg','Aldi','Lidl','Otto\'s','Landi'],
+          pairs: [
+            { l: 'Coop', r: 'Enthalten' },
+            { l: 'Migros', r: 'Enthalten' },
+            { l: 'Denner', r: 'Enthalten' },
+            { l: 'Volg', r: 'Enthalten' },
+            { l: 'Aldi', r: 'Nicht enthalten' },
+            { l: 'Lidl', r: 'Nicht enthalten' },
+            { l: 'Otto\'s', r: 'Nicht enthalten' },
+            { l: 'Landi', r: 'Nicht enthalten' }
+          ],
           options: ['Enthalten','Nicht enthalten'],
-          correct: ['Enthalten','Enthalten','Enthalten','Enthalten','Nicht enthalten','Nicht enthalten','Nicht enthalten','Nicht enthalten'],
           tips: ['Schweizer Traditionsdetailhändler sind meist enthalten.','Internationale Discounter und Spezialhändler oft nicht.','Coop, Migros, Denner, Volg = enthalten.'],
           reveal: ['Enthalten: Coop, Migros, Denner, Volg.','Nicht enthalten: Aldi, Lidl, Otto\'s, Landi.']
         },
@@ -985,10 +990,10 @@ window.BOOK_DATA = {
           id: 78, type: 'tf',
           q: 'RF: Spezialgebiete',
           statements: [
-            {s:'Category Management ist die strategische Steuerung von Warengruppen als eigenständige Geschäftseinheiten.', correct:true, feedback:'CM optimiert Warengruppen als eigenständige Business Units.'},
-            {s:'Die LSVA fördert den Strassentransport.', correct:false, feedback:'Die LSVA fördert die Verlagerung des Güterverkehrs auf die Bahn, nicht den Strassentransport.'},
-            {s:'Alternative Vertriebsformen unterscheiden sich vom klassischen Detailhandel.', correct:true, feedback:'Sie sind für Konsumenten nachvollziehbar anders als der klassische Einkaufsakt.'},
-            {s:'Im Detailhandelspanel sind alle Kanäle der Schweiz enthalten.', correct:false, feedback:'Nicht alle Kanäle sind enthalten - z.B. fehlen Aldi, Lidl, Otto\'s und Landi.'}
+            {s:'Category Management ist die strategische Steuerung von Warengruppen als eigenständige Geschäftseinheiten.', c:true, feedback:'CM optimiert Warengruppen als eigenständige Business Units.'},
+            {s:'Die LSVA fördert den Strassentransport.', c:false, feedback:'Die LSVA fördert die Verlagerung des Güterverkehrs auf die Bahn, nicht den Strassentransport.'},
+            {s:'Alternative Vertriebsformen unterscheiden sich vom klassischen Detailhandel.', c:true, feedback:'Sie sind für Konsumenten nachvollziehbar anders als der klassische Einkaufsakt.'},
+            {s:'Im Detailhandelspanel sind alle Kanäle der Schweiz enthalten.', c:false, feedback:'Nicht alle Kanäle sind enthalten - z.B. fehlen Aldi, Lidl, Otto\'s und Landi.'}
           ],
           tips: ['CM = Warengruppen als Business Units.','LSVA = Verlagerung auf Schiene.','Detailhandelspanel ≠ alle Kanäle.'],
           reveal: ['Aussage 1: Richtig.','Aussage 2: Falsch - fördert Verlagerung auf Bahn.','Aussage 3: Richtig.','Aussage 4: Falsch - nicht alle Kanäle enthalten.']
@@ -999,7 +1004,7 @@ window.BOOK_DATA = {
           q: 'Zukunft der Distribution',
           instruction: 'Welcher Trend wird die Distribution in Zukunft am stärksten prägen?',
           options: ['Rückkehr zum reinen Ladenverkauf','Zunehmende Digitalisierung und Omnichannel-Strategien','Abschaffung aller Zwischenhändler','Nur noch B2B-Distribution'],
-          correct: 1,
+          answer: 1,
           tips: ['Die Digitalisierung verändert alles.','Omnichannel = alle Kanäle verknüpft.','Der Trend geht zu mehr Kanälen, nicht weniger.'],
           reveal: ['Die zunehmende Digitalisierung und Omnichannel-Strategien werden die Distribution am stärksten prägen.','Kunden erwarten nahtlose Erlebnisse über alle Kanäle hinweg.']
         },

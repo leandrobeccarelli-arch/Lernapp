@@ -234,7 +234,7 @@ window.BOOK_DATA = {
           id: 20, type: 'mc', title: 'Oberste Verantwortung in der Projektorganisation',
           q: 'Wer in der Projektorganisation trägt die oberste Verantwortung für die Projektergebnisse?',
           options: ['Der Projektleiter', 'Der Teilprojektleiter', 'Der Auftraggeber', 'Das Projektteam'],
-          correct: 2,
+          answer: 2,
           explanation: 'Der Auftraggeber trägt die Gesamtverantwortung für das Projekt und somit auch für die Projektergebnisse.',
           tips: [], reveal: []
         },
@@ -242,7 +242,7 @@ window.BOOK_DATA = {
           id: 21, type: 'mc', title: 'Organisationsform wählen',
           q: 'Über ein Projekt ist Folgendes bekannt: Das Projekt ist für das Gesamtunternehmen wichtig und imagefoerdernd. Die Unternehmensleitung als Auftraggeberin wünscht deshalb, dass es zentral gesteuert wird. Verschiedene Unternehmensbereiche sind betroffen, die optimal zusammenarbeiten müssen. Eine autonome Projektorganisation ist nicht notwendig, die Mitglieder des Projektteams sollten jedoch durchschnittlich mindestens zehn Stunden pro Woche für das Projekt aufwenden können. Der Zeitdruck ist mittel bis hoch und das Projekt wird voraussichtlich in rund einem Jahr abgeschlossen sein. Welche Organisationsform passt am besten?',
           options: ['Reine Projektorganisation', 'Matrix-Projektorganisation', 'Stabs-Projektorganisation', 'Keine der genannten'],
-          correct: 1,
+          answer: 1,
           explanation: 'Für die Matrix-Projektorganisation sprechen die folgenden Kriterien: Grosse Bedeutung für das Unternehmen; Teilzeitmitarbeitereinsatz erforderlich; Verschiedene Unternehmensbereiche sind zu koordinieren (mittlerer bis hoher Komplexitätsgrad); Bedürfnis des Auftraggebers nach einer zentralen Steuerung; Mittelfristige Projektdauer. Eine reine Projektorganisation einzurichten wäre zu aufwendig, und für eine Stabs-Projektorganisation ist das Vorhaben zu bedeutungsvoll und zu umfangreich.',
           tips: [], reveal: []
         }

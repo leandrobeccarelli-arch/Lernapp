@@ -25,9 +25,8 @@ window.BOOK_DATA = {
         {
           id: 2, type: 'match', q: 'Funktionen der Werbung',
           instruction: 'Nennen Sie 4 Funktionen der Werbung und ordnen Sie sie einem Beispiel zu. (Rep 2, S.33)',
-          items: ['Bekanntmachung','Informieren','Image aufbauen','Ersatzbeschaffung sichern'],
+          pairs: [{l:'Bekanntmachung',r:'Neue Zahnpasta für Kinder wird durch Werbung bekannt gemacht.'},{l:'Informieren',r:'Konsument wird über Merkmale, Eignung für Kinder, Preis und Verkaufsstellen informiert.'},{l:'Image aufbauen',r:'Image einer Zahnschmelz-aufbauenden und für Kinder geeigneten Zahnpasta wird gefördert.'},{l:'Ersatzbeschaffung sichern',r:'Bestehende Kunden werden erinnert und zum erneuten Kauf animiert.'}],
           options: ['Neue Zahnpasta für Kinder wird durch Werbung bekannt gemacht.','Konsument wird über Merkmale, Eignung für Kinder, Preis und Verkaufsstellen informiert.','Image einer Zahnschmelz-aufbauenden und für Kinder geeigneten Zahnpasta wird gefördert.','Bestehende Kunden werden erinnert und zum erneuten Kauf animiert.'],
-          correct: ['Neue Zahnpasta für Kinder wird durch Werbung bekannt gemacht.','Konsument wird über Merkmale, Eignung für Kinder, Preis und Verkaufsstellen informiert.','Image einer Zahnschmelz-aufbauenden und für Kinder geeigneten Zahnpasta wird gefördert.','Bestehende Kunden werden erinnert und zum erneuten Kauf animiert.'],
           tips: ['Bekanntmachung = etwas Neues bekanntmachen.','Informieren = Details über Merkmale, Preis etc.','Image = Positionierung und Imageaufbau.','Ersatzbeschaffung = Wiederkauf sichern.'],
           reveal: ['Bekanntmachung: Neue Zahnpasta wird bekannt gemacht.','Informieren: Konsument erhält Infos über Merkmale und Preis.','Image: Zahnschmelz-Image wird aufgebaut.','Ersatzbeschaffung: Bestehende Kunden werden erinnert.']
         },
@@ -43,9 +42,8 @@ window.BOOK_DATA = {
         {
           id: 4, type: 'match', q: 'Fachbegriffe Mediawerbung zuordnen',
           instruction: 'Ordnen Sie den Beschreibungen die zutreffenden Begriffe zu. (Rep 4, S.34)',
-          items: ['Individuelle werbliche Kommunikation zwischen Anbietern und Nachfragern, meist in schriftlicher Form','Unternehmen mit verschiedenen Leistungsbereichen und gleichen Zielgruppen machen gemeinsame Werbung','Städte, Länder oder Regionen werden in einem Film gezeigt','Marketingform, die soziale Netzwerke ausnutzt, sodass sich Nachrichten epidemisch verbreiten'],
+          pairs: [{l:'Individuelle werbliche Kommunikation zwischen Anbietern und Nachfragern, meist in schriftlicher Form',r:'Direktwerbung'},{l:'Unternehmen mit verschiedenen Leistungsbereichen und gleichen Zielgruppen machen gemeinsame Werbung',r:'Cross-Marketing'},{l:'Städte, Länder oder Regionen werden in einem Film gezeigt',r:'Country oder Location Placement'},{l:'Marketingform, die soziale Netzwerke ausnutzt, sodass sich Nachrichten epidemisch verbreiten',r:'Virales Marketing'}],
           options: ['Direktwerbung','Cross-Marketing','Country oder Location Placement','Virales Marketing'],
-          correct: ['Direktwerbung','Cross-Marketing','Country oder Location Placement','Virales Marketing'],
           tips: ['Direktwerbung = persönlich, schriftlich.','Cross-Marketing = gemeinsame Werbung verschiedener Unternehmen.','Placement = Platzierung in Filmen.','Viral = epidemische Verbreitung.'],
           reveal: ['Individuelle werbliche Kommunikation = Direktwerbung.','Gemeinsame Werbung = Cross-Marketing.','In Filmen gezeigt = Country oder Location Placement.','Epidemische Verbreitung = Virales Marketing.']
         },
@@ -61,10 +59,10 @@ window.BOOK_DATA = {
         {
           id: 6, type: 'tf', q: 'Richtig oder Falsch: Mediawerbung',
           statements: [
-            {s: 'Mediawerbung ist das bekannteste und am breitesten wirkende Kommunikationsinstrument.', correct: true, feedback: 'Die klassische Werbung nimmt bei vielen Unternehmen den Grossteil des Budgets in Anspruch.'},
-            {s: 'Die grössten Zuwachsraten verzeichnet der digitale Werbemarkt.', correct: true, feedback: 'Die digitale Werbung wächst am stärksten, während Printmedien rückläufig sind.'},
-            {s: 'Werbung für Investitionsgüter ist typischerweise emotional und nutzt Massenmedien.', correct: false, feedback: 'Investitionsgüterwerbung ist rational und nutzt Fachzeitschriften/Direct Mails.'},
-            {s: 'Virales Marketing nutzt soziale Netzwerke, sodass sich Nachrichten epidemisch verbreiten.', correct: true, feedback: 'Das ist die korrekte Definition von viralem Marketing.'}
+            {s: 'Mediawerbung ist das bekannteste und am breitesten wirkende Kommunikationsinstrument.', c: true, feedback: 'Die klassische Werbung nimmt bei vielen Unternehmen den Grossteil des Budgets in Anspruch.'},
+            {s: 'Die grössten Zuwachsraten verzeichnet der digitale Werbemarkt.', c: true, feedback: 'Die digitale Werbung wächst am stärksten, während Printmedien rückläufig sind.'},
+            {s: 'Werbung für Investitionsgüter ist typischerweise emotional und nutzt Massenmedien.', c: false, feedback: 'Investitionsgüterwerbung ist rational und nutzt Fachzeitschriften/Direct Mails.'},
+            {s: 'Virales Marketing nutzt soziale Netzwerke, sodass sich Nachrichten epidemisch verbreiten.', c: true, feedback: 'Das ist die korrekte Definition von viralem Marketing.'}
           ],
           tips: ['Mediawerbung ist das sichtbarste Instrument.','Digital wächst, Print schrumpft.','Investitionsgüter = rationale Ansprache.'],
           reveal: ['Aussage 1: Richtig.','Aussage 2: Richtig - digitaler Markt hat die grössten Zuwachsraten.','Aussage 3: Falsch - Investitionsgüterwerbung ist rational.','Aussage 4: Richtig - virale Verbreitung.']
@@ -78,23 +76,23 @@ window.BOOK_DATA = {
             'Direkter Verkaufsabschluss am POS',
             'Image aufbauen'
           ],
-          correct: 2,
+          answer: 2,
           tips: ['Der direkte Verkaufsabschluss gehört eher zur Verkaufsförderung.','Werbung arbeitet über Massenmedien, nicht am POS direkt.','Bekanntmachung, Informieren und Image sind klassische Funktionen.'],
           reveal: ['Direkter Verkaufsabschluss am POS ist keine Funktion der Mediawerbung.','Dies gehört zur Verkaufsförderung (VKF).','Mediawerbung fokussiert auf Bekanntheit, Information und Image.']
         },
         {
           id: 8, type: 'fill', q: 'Lückentext: Mediawerbung',
           instruction: 'Ergänzen Sie die Lücken zur Mediawerbung.',
-          segments: ['Werbung wirkt insbesondere bei guter ',{blank: true, answer: ['Zielgruppenkenntnis'], width: 180},', möglichst hoher ',{blank: true, answer: ['Präsenz','Omnipräsenz'], width: 140},', regelmässiger ',{blank: true, answer: ['Wiederholung'], width: 140},' und bei Einbezug von ',{blank: true, answer: ['Emotionen'], width: 140},'.'],
+          template: 'Werbung wirkt insbesondere bei guter {0}, möglichst hoher {1}, regelmässiger {2} und bei Einbezug von {3}.',
+          blanks: [['Zielgruppenkenntnis'],['Präsenz','Omnipräsenz'],['Wiederholung'],['Emotionen']],
           tips: ['Es geht um die vier Erfolgsfaktoren der Werbewirkung.','Denken Sie an Zielgruppe, Sichtbarkeit, Frequenz und Gefühle.'],
           reveal: ['Zielgruppenkenntnis - man muss die Zielgruppe kennen.','Präsenz/Omnipräsenz - möglichst oft sichtbar sein.','Wiederholung - regelmässige Kontakte.','Emotionen - emotionale Ansprache wirkt.']
         },
         {
           id: 9, type: 'match', q: 'Medienarten zuordnen',
           instruction: 'Ordnen Sie die Beschreibungen den richtigen Medienarten zu.',
-          items: ['Hohe Reichweite, emotionale Ansprache durch Bild und Ton, teuer','Hohe Druckqualität, längere Lebensdauer, zielgruppenspezifisch','Plakate, City-Light-Poster, hohe Präsenz im öffentlichen Raum','Präzises Targeting, messbar, Banner und Social Media'],
+          pairs: [{l:'Hohe Reichweite, emotionale Ansprache durch Bild und Ton, teuer',r:'Fernsehen'},{l:'Hohe Druckqualität, längere Lebensdauer, zielgruppenspezifisch',r:'Zeitschriften'},{l:'Plakate, City-Light-Poster, hohe Präsenz im öffentlichen Raum',r:'Aussenwerbung'},{l:'Präzises Targeting, messbar, Banner und Social Media',r:'Digitale Werbung'}],
           options: ['Fernsehen','Zeitschriften','Aussenwerbung','Digitale Werbung'],
-          correct: ['Fernsehen','Zeitschriften','Aussenwerbung','Digitale Werbung'],
           tips: ['TV = Bild und Ton, teuer.','Zeitschriften = hohe Druckqualität.','Aussenwerbung = öffentlicher Raum.','Digital = Targeting und Messbarkeit.'],
           reveal: ['Fernsehen: emotionale Ansprache, grösste Reichweite.','Zeitschriften: hohe Druckqualität, zielgruppenspezifisch.','Aussenwerbung: Plakate, Präsenz im öffentlichen Raum.','Digitale Werbung: präzises Targeting, messbar.']
         }
@@ -208,18 +206,16 @@ window.BOOK_DATA = {
         {
           id: 10, type: 'match', q: 'Segmentierungskriterien der Werbung',
           instruction: 'Nennen Sie drei Segmentierungskriterien und geben Sie je zwei Beispiele. (Rep 6, S.60)',
-          items: ['Demografisch','Sozioökonomisch','Psychologisch'],
+          pairs: [{l:'Demografisch',r:'Alter, Wohnort'},{l:'Sozioökonomisch',r:'Ausbildung, Berufstätigkeit'},{l:'Psychologisch',r:'Meinung über das Produkt, Konsumtyp (sparsam, hedonistisch)'}],
           options: ['Alter, Wohnort','Ausbildung, Berufstätigkeit','Meinung über das Produkt, Konsumtyp (sparsam, hedonistisch)'],
-          correct: ['Alter, Wohnort','Ausbildung, Berufstätigkeit','Meinung über das Produkt, Konsumtyp (sparsam, hedonistisch)'],
           tips: ['Demografisch = persönliche Grunddaten.','Sozioökonomisch = wirtschaftliche/soziale Stellung.','Psychologisch = Einstellungen und Werte.'],
           reveal: ['Demografisch: Alter, Wohnort.','Sozioökonomisch: Ausbildung, Berufstätigkeit.','Psychologisch: Meinung über das Produkt, Konsumtyp.']
         },
         {
           id: 11, type: 'match', q: 'Werbeziele klassifizieren (KOG/AFF/KON)',
           instruction: 'Ordnen Sie die Werbeziele den drei Gruppen zu: KOG (kognitiv), AFF (affektiv), KON (konativ). (Rep 7, S.60)',
-          items: ['Einstellung zu Marken, Produkten und Unternehmen','Kaufabsichten','Kenntnis von Marken, Leistungen und Produkten','Vertrauensbildung','Förderung des Wiederverkaufs','Erinnerung von Markennamen, Preisen, Slogans','Kundenbindung','Emotionales Erleben der Marke'],
+          pairs: [{l:'Einstellung zu Marken, Produkten und Unternehmen',r:'AFF'},{l:'Kaufabsichten',r:'KON'},{l:'Kenntnis von Marken, Leistungen und Produkten',r:'KOG'},{l:'Vertrauensbildung',r:'AFF'},{l:'Förderung des Wiederverkaufs',r:'KON'},{l:'Erinnerung von Markennamen, Preisen, Slogans',r:'KOG'},{l:'Kundenbindung',r:'KON'},{l:'Emotionales Erleben der Marke',r:'AFF'}],
           options: ['AFF','KON','KOG'],
-          correct: ['AFF','KON','KOG','AFF','KON','KOG','KON','AFF'],
           tips: ['KOG = Wissen, Kenntnis, Erinnerung.','AFF = Einstellung, Emotionen, Vertrauen.','KON = Handlung, Kauf, Wiederverkauf, Bindung.'],
           reveal: ['Einstellung = AFF (affektiv).','Kaufabsichten = KON (konativ).','Kenntnis = KOG (kognitiv).','Vertrauensbildung = AFF.','Förderung Wiederverkauf = KON.','Erinnerung = KOG.','Kundenbindung = KON.','Emotionales Erleben = AFF.']
         },
@@ -235,16 +231,16 @@ window.BOOK_DATA = {
         {
           id: 13, type: 'match', q: 'Mediastrategie-Parameter',
           instruction: 'Ordnen Sie den Parametern der Mediastrategie die passende Frage zu. (Rep 9, S.60)',
-          items: ['Reichweite','Kontakte','Intensität','Frequenz','Dominanz','Impact'],
+          pairs: [{l:'Reichweite',r:'Wie viel Prozent der Zielgruppe erreichen wir?'},{l:'Kontakte',r:'Wie oft werden die Zielpersonen erreicht?'},{l:'Intensität',r:'Wie viele Medien und wie häufig werden sie eingesetzt?'},{l:'Frequenz',r:'In welchen zeitlichen Abständen erfolgen wie viele Kontakte?'},{l:'Dominanz',r:'Welche Werbemittel, Grössen, Formate und Spotlängen werden eingesetzt?'},{l:'Impact',r:'Wie sind die Werbemittel gestaltet und wo sind sie platziert?'}],
           options: ['Wie viel Prozent der Zielgruppe erreichen wir?','Wie oft werden die Zielpersonen erreicht?','Wie viele Medien und wie häufig werden sie eingesetzt?','In welchen zeitlichen Abständen erfolgen wie viele Kontakte?','Welche Werbemittel, Grössen, Formate und Spotlängen werden eingesetzt?','Wie sind die Werbemittel gestaltet und wo sind sie platziert?'],
-          correct: ['Wie viel Prozent der Zielgruppe erreichen wir?','Wie oft werden die Zielpersonen erreicht?','Wie viele Medien und wie häufig werden sie eingesetzt?','In welchen zeitlichen Abständen erfolgen wie viele Kontakte?','Welche Werbemittel, Grössen, Formate und Spotlängen werden eingesetzt?','Wie sind die Werbemittel gestaltet und wo sind sie platziert?'],
           tips: ['Reichweite = Prozent der Zielgruppe.','Kontakte = wie oft erreicht.','Intensität = Anzahl Medien und Häufigkeit.','Impact = Gestaltung und Platzierung.'],
           reveal: ['Reichweite: Wie viel Prozent der Zielgruppe erreichen wir?','Kontakte: Wie oft werden die Zielpersonen erreicht?','Intensität: Wie viele Medien und wie häufig?','Frequenz: In welchen zeitlichen Abständen?','Dominanz: Welche Werbemittel, Grössen, Formate?','Impact: Wie sind die Werbemittel gestaltet und platziert?']
         },
         {
           id: 14, type: 'fill', q: 'Werbekonzept 6 Schritte',
           instruction: 'Das Werbekonzept folgt den klassischen 6 Konzeptschritten. Ergänzen Sie.',
-          segments: ['1. ',{blank: true, answer: ['Analyse'], width: 120},': Analyseergebnisse werden auf werbespezifische Aspekte vertieft. 2. ',{blank: true, answer: ['Zielgruppen'], width: 140},': Beschreibung nach demografischen, psychografischen und verhaltensbezogenen Merkmalen. 3. ',{blank: true, answer: ['Werbeziele'], width: 140},': kognitiv, affektiv und konativ. 4. ',{blank: true, answer: ['Werbestrategie'], width: 140},': Copystrategie mit Schlüsselelementen. 5. ',{blank: true, answer: ['Massnahmen'], width: 140},': Mediastrategie und Wahl der Werbemittel. 6. ',{blank: true, answer: ['Realisation, Budget, Kontrolle','Realisation'], width: 180},'.'],
+          template: '1. {0}: Analyseergebnisse werden auf werbespezifische Aspekte vertieft. 2. {1}: Beschreibung nach demografischen, psychografischen und verhaltensbezogenen Merkmalen. 3. {2}: kognitiv, affektiv und konativ. 4. {3}: Copystrategie mit Schlüsselelementen. 5. {4}: Mediastrategie und Wahl der Werbemittel. 6. {5}.',
+          blanks: [['Analyse'],['Zielgruppen'],['Werbeziele'],['Werbestrategie'],['Massnahmen'],['Realisation, Budget, Kontrolle','Realisation']],
           tips: ['Das Werbekonzept folgt dem gleichen 6-Schritte-Raster wie andere Konzepte.','Schritt 1 beginnt immer mit der Analyse.','Die Werbeziele werden in drei Gruppen eingeteilt.'],
           reveal: ['1. Analyse der werbespezifischen Aspekte.','2. Zielgruppen nach Segmentierungskriterien beschreiben.','3. Werbeziele: KOG, AFF, KON.','4. Werbestrategie mit Copystrategie.','5. Massnahmen: Mediastrategie und Werbemittelwahl.','6. Realisation, Budget und Kontrolle.']
         },
@@ -260,10 +256,10 @@ window.BOOK_DATA = {
         {
           id: 16, type: 'tf', q: 'Richtig oder Falsch: Werbekonzept',
           statements: [
-            {s: 'Die Werbestrategie ist eine mittel- bis langfristige Grundsatzentscheidung darüber, wie Werbebotschaften, -instrumente und -massnahmen eingesetzt werden sollen.', correct: true, feedback: 'Exakte Definition der Werbestrategie.'},
-            {s: 'Bei den Werbezielen unterscheidet man kognitive, affektive und exekutive Ziele.', correct: false, feedback: 'Es sind kognitive, affektive und konative Ziele (nicht exekutive).'},
-            {s: 'Basis zur Definition der Strategie stellt die Positionierung dar.', correct: true, feedback: 'Die Positionierung ist die Grundlage für die Strategiedefinition.'},
-            {s: 'Intermedia-Selektion vergleicht verschiedene Werbeträger innerhalb einer Mediengattung.', correct: false, feedback: 'Intermedia-Selektion vergleicht verschiedene Mediengattungen. Intramedia-Selektion vergleicht innerhalb einer Gattung.'}
+            {s: 'Die Werbestrategie ist eine mittel- bis langfristige Grundsatzentscheidung darüber, wie Werbebotschaften, -instrumente und -massnahmen eingesetzt werden sollen.', c: true, feedback: 'Exakte Definition der Werbestrategie.'},
+            {s: 'Bei den Werbezielen unterscheidet man kognitive, affektive und exekutive Ziele.', c: false, feedback: 'Es sind kognitive, affektive und konative Ziele (nicht exekutive).'},
+            {s: 'Basis zur Definition der Strategie stellt die Positionierung dar.', c: true, feedback: 'Die Positionierung ist die Grundlage für die Strategiedefinition.'},
+            {s: 'Intermedia-Selektion vergleicht verschiedene Werbeträger innerhalb einer Mediengattung.', c: false, feedback: 'Intermedia-Selektion vergleicht verschiedene Mediengattungen. Intramedia-Selektion vergleicht innerhalb einer Gattung.'}
           ],
           tips: ['Drei Werbeziel-Gruppen: KOG, AFF, KON.','Intermedia = zwischen verschiedenen Mediengattungen.','Intramedia = innerhalb einer Mediengattung.'],
           reveal: ['Aussage 1: Richtig.','Aussage 2: Falsch - konativ, nicht exekutiv.','Aussage 3: Richtig.','Aussage 4: Falsch - Intermedia = zwischen Gattungen.']
@@ -286,16 +282,15 @@ window.BOOK_DATA = {
             'Förderung des Wiederverkaufs',
             'Erinnerung von Markennamen und Slogans'
           ],
-          correct: 2,
+          answer: 2,
           tips: ['Konativ = handlungsbezogen.','Kenntnis und Erinnerung = kognitiv.','Einstellung = affektiv.','Wiederverkauf = Handlung = konativ.'],
           reveal: ['Förderung des Wiederverkaufs ist konativ (handlungsbezogen).','Kenntnis und Erinnerung sind kognitiv (wissensbezogen).','Einstellung ist affektiv (gefühlsbezogen).']
         },
         {
           id: 19, type: 'match', q: 'Intermedia vs. Intramedia',
           instruction: 'Ordnen Sie die Beschreibungen dem richtigen Selektionsverfahren zu.',
-          items: ['Vergleich zwischen verschiedenen Mediengattungen (z.B. TV vs. Print)','Vergleich innerhalb einer Mediengattung (z.B. Blick vs. 20 Minuten)'],
+          pairs: [{l:'Vergleich zwischen verschiedenen Mediengattungen (z.B. TV vs. Print)',r:'Intermedia-Selektion'},{l:'Vergleich innerhalb einer Mediengattung (z.B. Blick vs. 20 Minuten)',r:'Intramedia-Selektion'}],
           options: ['Intermedia-Selektion','Intramedia-Selektion'],
-          correct: ['Intermedia-Selektion','Intramedia-Selektion'],
           tips: ['Inter = zwischen verschiedenen Gattungen.','Intra = innerhalb einer Gattung.'],
           reveal: ['Intermedia-Selektion: Vergleich zwischen verschiedenen Mediengattungen.','Intramedia-Selektion: Vergleich innerhalb einer Mediengattung.']
         }
@@ -327,7 +322,7 @@ window.BOOK_DATA = {
             'Primär ein Push-Instrument, wird aber meist mit Pull-Instrumenten kombiniert',
             'Weder Push noch Pull'
           ],
-          correct: 2,
+          answer: 2,
           tips: ['VKF ist primär Push - Produkte schnell in den Markt einführen.','Meist werden aber zusätzlich Pull-Massnahmen eingesetzt.','Z.B. Mediawerbung oder PR als Pull-Instrumente.'],
           reveal: ['Die Verkaufsförderung ist ein Push-Instrument.','Absatzfördernde Massnahmen werden über den Handel an die Konsumenten gerichtet.','Meist werden neben der VKF zusätzlich Pull-Instrumente eingesetzt (z.B. Mediawerbung, PR).']
         },
@@ -343,25 +338,24 @@ window.BOOK_DATA = {
         {
           id: 23, type: 'match', q: 'VKF-Fachbegriffe zuordnen',
           instruction: 'Ordnen Sie den Erklärungen die zutreffenden Fachbegriffe zu. (Rep 13, S.86)',
-          items: ['Zusatznutzen, den die VKF-Kampagne den anvisierten Zielgruppen bieten soll','Die Verpackung kann nach dem Verbrauch der Ware für einen anderen Zweck verwendet werden','Mittel und Massnahmen der Hersteller und des Handels, um den Verkauf am POS zu unterstützen','Zugabe innerhalb der Verpackung','Verbraucher senden nummerierte Warenbestellkarten ein; wenn sie Glück haben, gewinnen sie'],
+          pairs: [{l:'Zusatznutzen, den die VKF-Kampagne den anvisierten Zielgruppen bieten soll',r:'Sales Promotion Benefit'},{l:'Die Verpackung kann nach dem Verbrauch der Ware für einen anderen Zweck verwendet werden',r:'Zweitnutzenpackung'},{l:'Mittel und Massnahmen der Hersteller und des Handels, um den Verkauf am POS zu unterstützen',r:'Merchandising'},{l:'Zugabe innerhalb der Verpackung',r:'In-Pack'},{l:'Verbraucher senden nummerierte Warenbestellkarten ein; wenn sie Glück haben, gewinnen sie',r:'Sales Promotion Flair'}],
           options: ['Sales Promotion Benefit','Zweitnutzenpackung','Merchandising','In-Pack','Sales Promotion Flair'],
-          correct: ['Sales Promotion Benefit','Zweitnutzenpackung','Merchandising','In-Pack','Sales Promotion Flair'],
           tips: ['Benefit = Zusatznutzen.','Zweitnutzen = Verpackung wird wiederverwendet.','Merchandising = POS-Unterstützung.','In-Pack = Zugabe in der Verpackung.'],
           reveal: ['Sales Promotion Benefit: Zusatznutzen der VKF-Kampagne.','Zweitnutzenpackung: Verpackung wird für anderen Zweck wiederverwendet.','Merchandising: Massnahmen am POS zur Verkaufsunterstützung.','In-Pack: Zugabe innerhalb der Verpackung.','Sales Promotion Flair: Nummerierte Warenbestellkarten mit Gewinnchance.']
         },
         {
           id: 24, type: 'match', q: 'Produktlebenszyklus und VKF',
           instruction: 'Ordnen Sie die Aussagen zum Produktlebenszyklus zu. (Rep 14, S.86)',
-          items: ['VKF wird stark eingesetzt','VKF sollte nicht durchgeführt werden'],
+          pairs: [{l:'VKF wird stark eingesetzt',r:'Einführung und Sättigung'},{l:'VKF sollte nicht durchgeführt werden',r:'Entwicklung'}],
           options: ['Einführung und Sättigung','Entwicklung'],
-          correct: ['Einführung und Sättigung','Entwicklung'],
           tips: ['In der Einführungsphase wird VKF stark eingesetzt.','In der Sättigungsphase ebenfalls.','In der Entwicklungsphase ist das Produkt noch nicht am Markt.'],
           reveal: ['VKF wird in der Einführungs- und Sättigungsphase stark eingesetzt.','In der Entwicklungsphase (Produkt ist noch nicht am Markt) sollte keine VKF durchgeführt werden.','Die Phasen des PLZ: Entwicklung, Einführung, Wachstum, Reife, Sättigung, Degeneration, Elimination.']
         },
         {
           id: 25, type: 'fill', q: 'Phasen des Produktlebenszyklus',
           instruction: 'Nennen Sie die sieben Phasen des Produktlebenszyklus.',
-          segments: ['1. ',{blank: true, answer: ['Entwicklung'], width: 120},', 2. ',{blank: true, answer: ['Einführung'], width: 120},', 3. ',{blank: true, answer: ['Wachstum'], width: 120},', 4. ',{blank: true, answer: ['Reife'], width: 100},', 5. ',{blank: true, answer: ['Sättigung'], width: 120},', 6. ',{blank: true, answer: ['Degeneration'], width: 130},', 7. ',{blank: true, answer: ['Elimination'], width: 120}],
+          template: '1. {0}, 2. {1}, 3. {2}, 4. {3}, 5. {4}, 6. {5}, 7. {6}',
+          blanks: [['Entwicklung'],['Einführung'],['Wachstum'],['Reife'],['Sättigung'],['Degeneration'],['Elimination']],
           tips: ['Der PLZ beginnt mit der Entwicklung.','Nach der Einführung folgen Wachstum und Reife.','Am Ende stehen Sättigung, Degeneration und Elimination.'],
           reveal: ['1. Entwicklung - Produktidee wird entwickelt.','2. Einführung - Markteinführung.','3. Wachstum - Umsatz steigt.','4. Reife - Wachstum verlangsamt sich.','5. Sättigung - Markt ist gesättigt.','6. Degeneration - Umsatz sinkt.','7. Elimination - Produkt wird vom Markt genommen.']
         },
@@ -383,17 +377,17 @@ window.BOOK_DATA = {
             'Kontrolle ist bei der VKF nicht möglich',
             'Nur durch externe Berater'
           ],
-          correct: 1,
+          answer: 1,
           tips: ['Die VKF-Kontrolle ist vergleichsweise einfach.','Man misst die Absatzzahlen während der Aktion.','Steigen die Absatzzahlen spürbar, war die Massnahme erfolgreich.'],
           reveal: ['Die Kontrolle der VKF ist relativ einfach.','Die Absatzzahlen müssen während der Aktion spürbar ansteigen.','Andere Ziele können mithilfe von Marktforschung überprüft werden.']
         },
         {
           id: 28, type: 'tf', q: 'VKF Richtig oder Falsch',
           statements: [
-            {s: 'Verkaufsförderung sind zeitlich begrenzte Aktionen mit dem Ziel, durch zusätzliche Anreize Kommunikationsziele zu erreichen.', correct: true, feedback: 'Exakte Definition der VKF (Sales Promotion).'},
-            {s: 'Die Verkaufsförderung ist ein Pull-Instrument.', correct: false, feedback: 'Die VKF ist primär ein Push-Instrument.'},
-            {s: 'Merchandising umfasst Mittel und Massnahmen der Hersteller und des Handels, um den Verkauf am POS zu unterstützen.', correct: true, feedback: 'Korrekte Definition von Merchandising.'},
-            {s: 'Bei der Strategiewahl ist zu beachten, dass die VKF nur positive Auswirkungen auf die Konsumenten haben kann.', correct: false, feedback: 'VKF kann auch negative Auswirkungen haben (z.B. Verlagerung statt Mehrumsatz, Imageschädigung).'}
+            {s: 'Verkaufsförderung sind zeitlich begrenzte Aktionen mit dem Ziel, durch zusätzliche Anreize Kommunikationsziele zu erreichen.', c: true, feedback: 'Exakte Definition der VKF (Sales Promotion).'},
+            {s: 'Die Verkaufsförderung ist ein Pull-Instrument.', c: false, feedback: 'Die VKF ist primär ein Push-Instrument.'},
+            {s: 'Merchandising umfasst Mittel und Massnahmen der Hersteller und des Handels, um den Verkauf am POS zu unterstützen.', c: true, feedback: 'Korrekte Definition von Merchandising.'},
+            {s: 'Bei der Strategiewahl ist zu beachten, dass die VKF nur positive Auswirkungen auf die Konsumenten haben kann.', c: false, feedback: 'VKF kann auch negative Auswirkungen haben (z.B. Verlagerung statt Mehrumsatz, Imageschädigung).'}
           ],
           tips: ['VKF = zeitlich begrenzte Aktionen.','VKF ist ein Push-Instrument.','VKF kann auch negativ wirken.'],
           reveal: ['Aussage 1: Richtig - exakte Definition.','Aussage 2: Falsch - Push, nicht Pull.','Aussage 3: Richtig - Definition Merchandising.','Aussage 4: Falsch - auch negative Auswirkungen möglich.']
@@ -420,34 +414,32 @@ window.BOOK_DATA = {
         {
           id: 30, type: 'match', q: 'Event-Strategie-Typen',
           instruction: 'Ordnen Sie den Beschreibungen die zutreffenden Strategie-Typen zu. (Rep 17, S.103)',
-          items: ['Die Zielgruppen werden alive mit einem Produkt konfrontiert.','Neue, bisher nicht bearbeitete Zielgruppen werden angesprochen.','Eine Marke soll stärker positioniert werden.','Ein neues Produkt wird bei bestimmten Zielgruppen eingeführt.'],
+          pairs: [{l:'Die Zielgruppen werden alive mit einem Produkt konfrontiert.',r:'Erlebnisstrategie'},{l:'Neue, bisher nicht bearbeitete Zielgruppen werden angesprochen.',r:'Zielgruppenerschöpfungsstrategie'},{l:'Eine Marke soll stärker positioniert werden.',r:'Imageprofilierungsstrategie'},{l:'Ein neues Produkt wird bei bestimmten Zielgruppen eingeführt.',r:'Einführungsstrategie'}],
           options: ['Erlebnisstrategie','Zielgruppenerschöpfungsstrategie','Imageprofilierungsstrategie','Einführungsstrategie'],
-          correct: ['Erlebnisstrategie','Zielgruppenerschöpfungsstrategie','Imageprofilierungsstrategie','Einführungsstrategie'],
           tips: ['Erlebnis = alive, direkt erleben.','Zielgruppenerschöpfung = neue Zielgruppen.','Imageprofilierung = Marke stärker positionieren.','Einführung = neues Produkt einführen.'],
           reveal: ['Erlebnisstrategie: Zielgruppen erleben das Produkt live.','Zielgruppenerschöpfungsstrategie: Neue Zielgruppen werden erschlossen.','Imageprofilierungsstrategie: Marke wird stärker positioniert.','Einführungsstrategie: Neues Produkt wird eingeführt.']
         },
         {
           id: 31, type: 'match', q: 'Event-Kostenarten',
           instruction: 'Geben Sie je ein Beispiel für die aufgeführten Kostenarten beim Event-Budget. (Rep 18, S.103)',
-          items: ['Planungskosten','Vorbereitungskosten','Durchführungskosten','Nachbearbeitungskosten','Wirkungsmessungen'],
+          pairs: [{l:'Planungskosten',r:'Personalkosten'},{l:'Vorbereitungskosten',r:'Kosten für Einladungen zum Event'},{l:'Durchführungskosten',r:'Raummiete, Honorar für Referenten'},{l:'Nachbearbeitungskosten',r:'Nachfassaktionen an Leute, die nicht teilnehmen konnten'},{l:'Wirkungsmessungen',r:'Befragungen'}],
           options: ['Personalkosten','Kosten für Einladungen zum Event','Raummiete, Honorar für Referenten','Nachfassaktionen an Leute, die nicht teilnehmen konnten','Befragungen'],
-          correct: ['Personalkosten','Kosten für Einladungen zum Event','Raummiete, Honorar für Referenten','Nachfassaktionen an Leute, die nicht teilnehmen konnten','Befragungen'],
           tips: ['Planungskosten = Personalaufwand für die Planung.','Vorbereitungskosten = Einladungen etc.','Durchführungskosten = Location, Referenten.','Nachbearbeitung = Follow-up.'],
           reveal: ['Planungskosten: Personalkosten für die Eventplanung.','Vorbereitungskosten: Kosten für Einladungen.','Durchführungskosten: Raummiete, Honorar.','Nachbearbeitungskosten: Nachfassaktionen.','Wirkungsmessungen: Befragungen der Teilnehmer.']
         },
         {
           id: 32, type: 'fill', q: 'Event-Marketing Definition',
           instruction: 'Ergänzen Sie die Definition von Event-Marketing.',
-          segments: ['Event-Marketing ist die ',{blank: true, answer: ['zielgerichtete'], width: 140},' und ',{blank: true, answer: ['systematische'], width: 140},' Planung von Veranstaltungen als ',{blank: true, answer: ['absatzpolitisches'], width: 160},' Instrument oder image- und meinungsbildungsfördernde Massnahme zur Durchsetzung der ',{blank: true, answer: ['Unternehmensziele'], width: 170},' im Rahmen der Marketingkommunikation.'],
+          template: 'Event-Marketing ist die {0} und {1} Planung von Veranstaltungen als {2} Instrument oder image- und meinungsbildungsfördernde Massnahme zur Durchsetzung der {3} im Rahmen der Marketingkommunikation.',
+          blanks: [['zielgerichtete'],['systematische'],['absatzpolitisches'],['Unternehmensziele']],
           tips: ['Event-Marketing ist zielgerichtet und systematisch.','Es ist ein absatzpolitisches Instrument.','Es dient der Durchsetzung der Unternehmensziele.'],
           reveal: ['Zielgerichtet: mit klarem Ziel.','Systematisch: nach Plan und Struktur.','Absatzpolitisches Instrument: dient dem Absatz.','Unternehmensziele: im Rahmen der Marketingkommunikation.']
         },
         {
           id: 33, type: 'match', q: 'Event-Arten unterscheiden',
           instruction: 'Ordnen Sie die Event-Arten der richtigen Kategorie zu.',
-          items: ['Produktpräsentation, Hauptversammlung','Gala-Abend, Konzert, Showveranstaltung','Outdoor-Event, Sportveranstaltung, Abenteuer-Event'],
+          pairs: [{l:'Produktpräsentation, Hauptversammlung',r:'Arbeitsorientierte Veranstaltungen'},{l:'Gala-Abend, Konzert, Showveranstaltung',r:'Infotainment-Aktivitäten'},{l:'Outdoor-Event, Sportveranstaltung, Abenteuer-Event',r:'Freizeitorientierte Aktivitäten'}],
           options: ['Arbeitsorientierte Veranstaltungen','Infotainment-Aktivitäten','Freizeitorientierte Aktivitäten'],
-          correct: ['Arbeitsorientierte Veranstaltungen','Infotainment-Aktivitäten','Freizeitorientierte Aktivitäten'],
           tips: ['Events werden in drei Kategorien unterteilt.','Arbeitsorientiert = sachlich, beruflich.','Infotainment = Information + Entertainment.','Freizeitorientiert = Spass und Erlebnis.'],
           reveal: ['Arbeitsorientiert: Produktpräsentationen, Hauptversammlungen.','Infotainment: Gala-Abende, Konzerte, Showveranstaltungen.','Freizeitorientiert: Outdoor-Events, Sportveranstaltungen.']
         },
@@ -469,16 +461,16 @@ window.BOOK_DATA = {
             'Nur Imagebildung, kein Verkauf',
             'Ausschliesslich Mitarbeitermotivation'
           ],
-          correct: 1,
+          answer: 1,
           tips: ['Event-Marketing hat emotionale und informative Ziele.','Schlüsselinformationen werden vermittelt.','Emotionales Erleben und Kundenbindung stehen im Vordergrund.'],
           reveal: ['Ziele des Event-Marketings sind die Vermittlung von Schlüsselinformationen über Produkte.','Emotionales Erleben von Unternehmen, Marken und Produkten.','Festigung der Kundenbindung.']
         },
         {
           id: 36, type: 'tf', q: 'Massnahmenplanung beim Event',
           statements: [
-            {s: 'Die Massnahmenplanung beim Event umfasst Massnahmen vor, während und nach dem Event.', correct: true, feedback: 'Alle drei Phasen müssen geplant werden.'},
-            {s: 'Beim Event-Marketing ist die Nachbearbeitung unwichtig.', correct: false, feedback: 'Die Nachbearbeitung (Follow-up) ist essenziell für den Erfolg.'},
-            {s: 'Events werden in arbeitsorientierte Veranstaltungen, Infotainment und freizeitorientierte Aktivitäten unterteilt.', correct: true, feedback: 'Dies sind die drei Event-Kategorien.'}
+            {s: 'Die Massnahmenplanung beim Event umfasst Massnahmen vor, während und nach dem Event.', c: true, feedback: 'Alle drei Phasen müssen geplant werden.'},
+            {s: 'Beim Event-Marketing ist die Nachbearbeitung unwichtig.', c: false, feedback: 'Die Nachbearbeitung (Follow-up) ist essenziell für den Erfolg.'},
+            {s: 'Events werden in arbeitsorientierte Veranstaltungen, Infotainment und freizeitorientierte Aktivitäten unterteilt.', c: true, feedback: 'Dies sind die drei Event-Kategorien.'}
           ],
           tips: ['Massnahmenplanung = vor, während und nach dem Event.','Nachbearbeitung ist wichtig für den Erfolg.','Drei Event-Kategorien.'],
           reveal: ['Aussage 1: Richtig - drei Phasen.','Aussage 2: Falsch - Nachbearbeitung ist essenziell.','Aussage 3: Richtig - drei Kategorien.']
@@ -532,35 +524,34 @@ window.BOOK_DATA = {
         {
           id: 41, type: 'match', q: 'Messearten unterscheiden',
           instruction: 'Ordnen Sie die Messearten den Kategorien zu.',
-          items: ['Swissbau, Bauma','Comptoir Suisse, BEA','IGEHO, SIHH'],
+          pairs: [{l:'Swissbau, Bauma',r:'Fachmesse'},{l:'Comptoir Suisse, BEA',r:'Publikumsmesse'},{l:'IGEHO, SIHH',r:'Fachmesse (international)'}],
           options: ['Fachmesse','Publikumsmesse','Fachmesse (international)'],
-          correct: ['Fachmesse','Publikumsmesse','Fachmesse (international)'],
           tips: ['Es wird zwischen Publikums- und Fachmessen unterschieden.','Auch regionale vs. internationale Messen.','Fachmessen richten sich an Fachpublikum.'],
           reveal: ['Fachmessen: Swissbau, Bauma - für Fachbesucher.','Publikumsmessen: Comptoir Suisse, BEA - für breites Publikum.','Internationale Fachmessen: IGEHO, SIHH.']
         },
         {
           id: 42, type: 'fill', q: 'Drei Phasen der Ausstelleraktivität',
           instruction: 'Die Ausstelleraktivität lässt sich in drei Phasen unterteilen.',
-          segments: ['Phase 1: ',{blank: true, answer: ['Vorbereiten'], width: 140},' – Phase 2: ',{blank: true, answer: ['Ausstellen'], width: 140},' – Phase 3: ',{blank: true, answer: ['Auswerten'], width: 140},'. Diese drei Phasen beschreiben einen Regelkreis, der Unternehmen mit Menschen und Märkten zusammenführt und verbindet.'],
+          template: 'Phase 1: {0} – Phase 2: {1} – Phase 3: {2}. Diese drei Phasen beschreiben einen Regelkreis, der Unternehmen mit Menschen und Märkten zusammenführt und verbindet.',
+          blanks: [['Vorbereiten'],['Ausstellen'],['Auswerten']],
           tips: ['Die drei Phasen beginnen mit der Vorbereitung.','Die zweite Phase ist die eigentliche Ausstellung.','Die dritte Phase ist die Auswertung.'],
           reveal: ['Phase 1: Vorbereiten - Planung und Standkonzept.','Phase 2: Ausstellen - die eigentliche Messe.','Phase 3: Auswerten - Nachbereitung und Erfolgskontrolle.']
         },
         {
           id: 43, type: 'match', q: 'Messekonzept-Schritte',
           instruction: 'Ein Messekonzept erstellen Sie entlang der bekannten Konzeptschritte. Ordnen Sie die Schritte.',
-          items: ['1.','2.','3.','4.','5.','6.'],
+          pairs: [{l:'1.',r:'Situationsanalyse'},{l:'2.',r:'Zielgruppen'},{l:'3.',r:'Ziele'},{l:'4.',r:'Massnahmen'},{l:'5.',r:'Realisation und Budget'},{l:'6.',r:'Kontrolle'}],
           options: ['Situationsanalyse','Zielgruppen','Ziele','Massnahmen','Realisation und Budget','Kontrolle'],
-          correct: ['Situationsanalyse','Zielgruppen','Ziele','Massnahmen','Realisation und Budget','Kontrolle'],
           tips: ['Das Messekonzept folgt dem gleichen 6-Schritte-Raster.','Es beginnt mit der Situationsanalyse.','Budget und Kontrolle am Schluss.'],
           reveal: ['1. Situationsanalyse.','2. Zielgruppen definieren.','3. Ziele festlegen.','4. Massnahmen planen.','5. Realisation und Budget.','6. Kontrolle.']
         },
         {
           id: 44, type: 'tf', q: 'Messen: Richtig oder Falsch',
           statements: [
-            {s: 'Messen ermöglichen einen direkten Kontakt zu einer Vielzahl potenzieller Kunden innerhalb eines kurzen Zeitraums.', correct: true, feedback: 'Dies ist einer der Hauptvorteile von Messen.'},
-            {s: 'Bei Messen gibt es keine Möglichkeit der Selbstdarstellung.', correct: false, feedback: 'Messen bieten gerade die Möglichkeit der Selbstdarstellung und des direkten Feedbacks.'},
-            {s: 'Es wird zwischen Publikums- und Fachmessen unterschieden.', correct: true, feedback: 'Dies sind die zwei Hauptkategorien von Messen.'},
-            {s: 'Die Nachbearbeitung nach einer Messe ist für den Messeerfolg unwichtig.', correct: false, feedback: 'Die Nachbearbeitung (Phase 3: Auswerten) ist essenziell.'}
+            {s: 'Messen ermöglichen einen direkten Kontakt zu einer Vielzahl potenzieller Kunden innerhalb eines kurzen Zeitraums.', c: true, feedback: 'Dies ist einer der Hauptvorteile von Messen.'},
+            {s: 'Bei Messen gibt es keine Möglichkeit der Selbstdarstellung.', c: false, feedback: 'Messen bieten gerade die Möglichkeit der Selbstdarstellung und des direkten Feedbacks.'},
+            {s: 'Es wird zwischen Publikums- und Fachmessen unterschieden.', c: true, feedback: 'Dies sind die zwei Hauptkategorien von Messen.'},
+            {s: 'Die Nachbearbeitung nach einer Messe ist für den Messeerfolg unwichtig.', c: false, feedback: 'Die Nachbearbeitung (Phase 3: Auswerten) ist essenziell.'}
           ],
           tips: ['Messen = direkter Kontakt, kurzer Zeitraum.','Möglichkeit der Selbstdarstellung ist ein Vorteil.','Nachbearbeitung ist wichtig.'],
           reveal: ['Aussage 1: Richtig.','Aussage 2: Falsch - Selbstdarstellung ist ein Kernvorteil.','Aussage 3: Richtig.','Aussage 4: Falsch - Nachbearbeitung ist essenziell.']
@@ -596,9 +587,8 @@ window.BOOK_DATA = {
         {
           id: 47, type: 'match', q: 'Sponsoringformen und Beispiele',
           instruction: 'Nennen Sie drei Sponsoringformen und geben Sie ein Beispiel dafür. (Rep 25, S.137)',
-          items: ['Sportsponsoring','Kultursponsoring','Umweltsponsoring','Sozialsponsoring','Mediensponsoring'],
+          pairs: [{l:'Sportsponsoring',r:'Förderung von sportlichen Anlässen oder Mannschaften'},{l:'Kultursponsoring',r:'Unterstützung von kulturellen Veranstaltungen, z.B. Konzerten'},{l:'Umweltsponsoring',r:'Unterstützung von Naturschutzorganisationen'},{l:'Sozialsponsoring',r:'Förderung des Gesundheitswesens'},{l:'Mediensponsoring',r:'Unterstützung von TV-Sendungen'}],
           options: ['Förderung von sportlichen Anlässen oder Mannschaften','Unterstützung von kulturellen Veranstaltungen, z.B. Konzerten','Unterstützung von Naturschutzorganisationen','Förderung des Gesundheitswesens','Unterstützung von TV-Sendungen'],
-          correct: ['Förderung von sportlichen Anlässen oder Mannschaften','Unterstützung von kulturellen Veranstaltungen, z.B. Konzerten','Unterstützung von Naturschutzorganisationen','Förderung des Gesundheitswesens','Unterstützung von TV-Sendungen'],
           tips: ['Sportsponsoring ist die bekannteste Form.','Kultursponsoring unterstützt Kunst und Kultur.','Umweltsponsoring fördert Nachhaltigkeit.'],
           reveal: ['Sportsponsoring: Mannschaften, Events.','Kultursponsoring: Konzerte, Ausstellungen.','Umweltsponsoring: Naturschutz.','Sozialsponsoring: Gesundheit, Bildung.','Mediensponsoring: TV, Radio.']
         },
@@ -614,16 +604,16 @@ window.BOOK_DATA = {
         {
           id: 49, type: 'fill', q: 'Sponsoring-Definition',
           instruction: 'Ergänzen Sie die Definition von Sponsoring.',
-          segments: ['Sponsoring ist die Bereitstellung von ',{blank: true, answer: ['Geld'], width: 100},', ',{blank: true, answer: ['Sachmitteln'], width: 130},' oder ',{blank: true, answer: ['Dienstleistungen'], width: 150},' durch ein Unternehmen für eine Person, Gruppe oder Organisation gegen eine ',{blank: true, answer: ['Gegenleistung'], width: 140},'.'],
+          template: 'Sponsoring ist die Bereitstellung von {0}, {1} oder {2} durch ein Unternehmen für eine Person, Gruppe oder Organisation gegen eine {3}.',
+          blanks: [['Geld'],['Sachmitteln'],['Dienstleistungen'],['Gegenleistung']],
           tips: ['Sponsoring basiert auf dem Prinzip von Leistung und Gegenleistung.','Es können Geld, Sachmittel oder Dienstleistungen bereitgestellt werden.','Eine Gegenleistung (z.B. Werbemöglichkeiten) wird erwartet.'],
           reveal: ['Geld: finanzielle Unterstützung.','Sachmittel: z.B. Ausrüstung, Material.','Dienstleistungen: z.B. Know-how, Personal.','Gegenleistung: z.B. Logoplatzierung, Erwähnung.']
         },
         {
           id: 50, type: 'match', q: 'Sponsoring-Ziele klassifizieren',
           instruction: 'Die Sponsoring-Ziele unterteilen sich in drei Kategorien. Ordnen Sie zu.',
-          items: ['Bekanntheit steigern, Image verbessern','Umsatz steigern, neue Märkte erschliessen','Kundenloyalität stärken, Beziehungen pflegen'],
+          pairs: [{l:'Bekanntheit steigern, Image verbessern',r:'Unternehmenskommunikationsziele'},{l:'Umsatz steigern, neue Märkte erschliessen',r:'Produkt-/Markenziele'},{l:'Kundenloyalität stärken, Beziehungen pflegen',r:'Beziehungsziele'}],
           options: ['Unternehmenskommunikationsziele','Produkt-/Markenziele','Beziehungsziele'],
-          correct: ['Unternehmenskommunikationsziele','Produkt-/Markenziele','Beziehungsziele'],
           tips: ['Sponsoring-Ziele: Unternehmenskommunikation, Produkt/Marke, Beziehungen.','Bekanntheit und Image = Kommunikation.','Umsatz = Markenziele.','Loyalität = Beziehungsziele.'],
           reveal: ['Unternehmenskommunikationsziele: Bekanntheit, Image.','Produkt-/Markenziele: Umsatz, neue Märkte.','Beziehungsziele: Kundenloyalität, Beziehungspflege.']
         },
@@ -636,16 +626,16 @@ window.BOOK_DATA = {
             'Das AIDA-Modell',
             'Die Balanced Scorecard'
           ],
-          correct: 0,
+          answer: 0,
           tips: ['Das Affinitätenkonzept hilft, passende Sponsoring-Engagements zu finden.','Es geht um die Übereinstimmung zwischen Sponsor und Gesponsertem.'],
           reveal: ['Das Affinitätenkonzept hilft bei der Definition der Sponsoringstrategie.','Es analysiert die Übereinstimmung (Affinität) zwischen Sponsor und Gesponsertem.']
         },
         {
           id: 52, type: 'tf', q: 'Sponsoring: Richtig oder Falsch',
           statements: [
-            {s: 'Sponsoringmassnahmen werden idealerweise immer durch Massnahmen der Mediawerbung, Verkaufsförderung und Public Relations ergänzt.', correct: true, feedback: 'Sponsoring allein reicht nicht aus, es braucht flankierende Massnahmen.'},
-            {s: 'Bei der Realisation des Sponsoring gilt es insbesondere rechtliche Bestimmungen zu berücksichtigen.', correct: true, feedback: 'Rechtliche Aspekte (Verträge, Markenrechte) sind wichtig.'},
-            {s: 'Die Kontrolle beim Sponsoring misst nur die Umsatzwirkung.', correct: false, feedback: 'Kontrolliert werden auch Erinnerung, Imagewirkung und Verhaltenswirkung.'}
+            {s: 'Sponsoringmassnahmen werden idealerweise immer durch Massnahmen der Mediawerbung, Verkaufsförderung und Public Relations ergänzt.', c: true, feedback: 'Sponsoring allein reicht nicht aus, es braucht flankierende Massnahmen.'},
+            {s: 'Bei der Realisation des Sponsoring gilt es insbesondere rechtliche Bestimmungen zu berücksichtigen.', c: true, feedback: 'Rechtliche Aspekte (Verträge, Markenrechte) sind wichtig.'},
+            {s: 'Die Kontrolle beim Sponsoring misst nur die Umsatzwirkung.', c: false, feedback: 'Kontrolliert werden auch Erinnerung, Imagewirkung und Verhaltenswirkung.'}
           ],
           tips: ['Sponsoring braucht flankierende Massnahmen.','Rechtliche Bestimmungen sind wichtig.','Kontrolle misst verschiedene Wirkungen.'],
           reveal: ['Aussage 1: Richtig - Sponsoring braucht Ergänzung.','Aussage 2: Richtig - rechtliche Aspekte beachten.','Aussage 3: Falsch - auch Erinnerung, Image, Verhalten werden gemessen.']
@@ -690,25 +680,24 @@ window.BOOK_DATA = {
         {
           id: 56, type: 'match', q: 'Dialogmarketing-Datenbank',
           instruction: 'Eine Dialogmarketing-Datenbank enthält vier Datenarten. Ordnen Sie die Kriterien den Datenarten zu. (Rep 29, S.147)',
-          items: ['Bedarfsmenge, Bedarfszeitpunkte','Datum der letzten Bestellung, Kauffrequenz','Art des ersten Kontakts, Datum des ersten Interesses','Aktuelle Adressdaten','Kundenwert, Kundenpotenzial','Soziodemografische Daten','Durchschnittlicher Bestellwert, Beschwerden'],
+          pairs: [{l:'Bedarfsmenge, Bedarfszeitpunkte',r:'Potenzialdaten'},{l:'Datum der letzten Bestellung, Kauffrequenz',r:'Reaktionsdaten'},{l:'Art des ersten Kontakts, Datum des ersten Interesses',r:'Aktionsdaten'},{l:'Aktuelle Adressdaten',r:'Grunddaten'},{l:'Kundenwert, Kundenpotenzial',r:'Potenzialdaten'},{l:'Soziodemografische Daten',r:'Grunddaten'},{l:'Durchschnittlicher Bestellwert, Beschwerden',r:'Reaktionsdaten'}],
           options: ['Potenzialdaten','Reaktionsdaten','Aktionsdaten','Grunddaten'],
-          correct: ['Potenzialdaten','Reaktionsdaten','Aktionsdaten','Grunddaten','Potenzialdaten','Grunddaten','Reaktionsdaten'],
           tips: ['Grunddaten = Basisdaten wie Adresse, Demografie.','Aktionsdaten = Informationen über eigene Aktionen.','Reaktionsdaten = Kundenreaktionen und Kaufverhalten.','Potenzialdaten = Kundenwert und -potenzial.'],
           reveal: ['Bedarfsmenge/Bedarfszeitpunkte = Potenzialdaten.','Datum letzte Bestellung/Kauffrequenz = Reaktionsdaten.','Art/Datum des ersten Kontakts = Aktionsdaten.','Aktuelle Adressdaten = Grunddaten.','Kundenwert/Kundenpotenzial = Potenzialdaten.','Soziodemografische Daten = Grunddaten.','Durchschn. Bestellwert/Beschwerden = Reaktionsdaten.']
         },
         {
           id: 57, type: 'fill', q: 'Dialogmarketing Definition',
           instruction: 'Ergänzen Sie die Definition des Dialogmarketings.',
-          segments: ['Dialogmarketing ist eine Kommunikationsform mit dem Ziel, eine ',{blank: true, answer: ['interaktive'], width: 120},' Beziehung zum ',{blank: true, answer: ['Kunden'], width: 100},' aufzubauen und zu pflegen. Es ermöglicht eine ',{blank: true, answer: ['individuelle','persönliche'], width: 130},' Ansprache und den Aufbau einer ',{blank: true, answer: ['Datenbank'], width: 120},'.'],
+          template: 'Dialogmarketing ist eine Kommunikationsform mit dem Ziel, eine {0} Beziehung zum {1} aufzubauen und zu pflegen. Es ermöglicht eine {2} Ansprache und den Aufbau einer {3}.',
+          blanks: [['interaktive'],['Kunden'],['individuelle','persönliche'],['Datenbank']],
           tips: ['Dialogmarketing = interaktive Beziehung.','Individuelle Ansprache ist ein Kernmerkmal.','Datenbanken sind das Herzstück.'],
           reveal: ['Interaktive Beziehung zum Kunden.','Individuelle/persönliche Ansprache.','Aufbau und Pflege einer Datenbank.']
         },
         {
           id: 58, type: 'match', q: 'Strategien des Dialogmarketings',
           instruction: 'Ordnen Sie die Beschreibungen den Dialogmarketing-Strategien zu.',
-          items: ['Neue Kunden gewinnen','Bestehende Kunden binden und Mehrwert bieten','Verlorene Kunden zurückgewinnen'],
+          pairs: [{l:'Neue Kunden gewinnen',r:'Akquisitionsstrategie'},{l:'Bestehende Kunden binden und Mehrwert bieten',r:'Bindungsstrategie'},{l:'Verlorene Kunden zurückgewinnen',r:'Rückgewinnungsstrategie'}],
           options: ['Akquisitionsstrategie','Bindungsstrategie','Rückgewinnungsstrategie'],
-          correct: ['Akquisitionsstrategie','Bindungsstrategie','Rückgewinnungsstrategie'],
           tips: ['Akquisition = neue Kunden.','Bindung = bestehende Kunden.','Rückgewinnung = verlorene Kunden.'],
           reveal: ['Akquisitionsstrategie: Neue Kunden gewinnen.','Bindungsstrategie: Bestehende Kunden binden.','Rückgewinnungsstrategie: Verlorene Kunden zurückgewinnen.']
         },
@@ -721,17 +710,17 @@ window.BOOK_DATA = {
             'TV-Spot zur Primetime',
             'Telefonmarketing'
           ],
-          correct: 2,
+          answer: 2,
           tips: ['Dialogmarketing = individuelle, persönliche Kommunikation.','TV-Spots sind Massenwerbung, kein Dialog.','Direct Mail, E-Mail und Telefon sind typische DM-Instrumente.'],
           reveal: ['TV-Spot zur Primetime ist Massenwerbung (Mediawerbung), kein Dialogmarketing.','Direct Mail, E-Mail-Marketing und Telefonmarketing sind klassische DM-Massnahmen.']
         },
         {
           id: 60, type: 'tf', q: 'Dialogmarketing: Richtig oder Falsch',
           statements: [
-            {s: 'Beim Dialogmarketing steht die individuelle, persönliche Ansprache im Vordergrund.', correct: true, feedback: 'Dies ist das Kernmerkmal des Dialogmarketings.'},
-            {s: 'Eine Dialogmarketing-Datenbank enthält nur Adressdaten.', correct: false, feedback: 'Sie enthält Grunddaten, Aktionsdaten, Reaktionsdaten und Potenzialdaten.'},
-            {s: 'Die Stopp-Kleber liegen gesamtschweizerisch bei ca. 45%.', correct: true, feedback: 'Ca. 45% der Briefkästen haben Stopp-Kleber.'},
-            {s: 'Dialogmarketing hat keine rechtlichen Einschränkungen.', correct: false, feedback: 'Das Datenschutzgesetz stellt eine wichtige Einschränkung dar.'}
+            {s: 'Beim Dialogmarketing steht die individuelle, persönliche Ansprache im Vordergrund.', c: true, feedback: 'Dies ist das Kernmerkmal des Dialogmarketings.'},
+            {s: 'Eine Dialogmarketing-Datenbank enthält nur Adressdaten.', c: false, feedback: 'Sie enthält Grunddaten, Aktionsdaten, Reaktionsdaten und Potenzialdaten.'},
+            {s: 'Die Stopp-Kleber liegen gesamtschweizerisch bei ca. 45%.', c: true, feedback: 'Ca. 45% der Briefkästen haben Stopp-Kleber.'},
+            {s: 'Dialogmarketing hat keine rechtlichen Einschränkungen.', c: false, feedback: 'Das Datenschutzgesetz stellt eine wichtige Einschränkung dar.'}
           ],
           tips: ['Individuelle Ansprache = Kernmerkmal.','Datenbank = vier Datenarten.','Datenschutz = wichtige Einschränkung.'],
           reveal: ['Aussage 1: Richtig.','Aussage 2: Falsch - vier Datenarten.','Aussage 3: Richtig.','Aussage 4: Falsch - Datenschutzgesetz.']
@@ -754,7 +743,7 @@ window.BOOK_DATA = {
             'Das Image des Unternehmens in der Öffentlichkeit zu verbessern',
             'Möglichst günstig zu werben'
           ],
-          correct: 1,
+          answer: 1,
           tips: ['Dialog = interaktiver Austausch.','Es geht um Beziehungsaufbau, nicht um Massenreichweite.'],
           reveal: ['Das primäre Ziel des Dialogmarketings ist der Aufbau einer interaktiven Beziehung zum Kunden.','Es geht nicht um Massenreichweite (das wäre Mediawerbung).']
         }
@@ -771,9 +760,8 @@ window.BOOK_DATA = {
         {
           id: 63, type: 'match', q: 'Vor- und Nachteile von Online-Medien',
           instruction: 'Ordnen Sie die Aussagen den Vor- oder Nachteilen von Online-Medien zu. (Rep 30, S.159)',
-          items: ['Hohe Reichweite','Hohe Aufmerksamkeit, wenn richtig eingesetzt','Tiefe Kosten, wenn richtig eingesetzt','Funktionsweise ist nicht immer transparent','Hohe Kosten ohne Werbeeffekt, wenn falsch eingesetzt'],
+          pairs: [{l:'Hohe Reichweite',r:'Vorteil'},{l:'Hohe Aufmerksamkeit, wenn richtig eingesetzt',r:'Vorteil'},{l:'Tiefe Kosten, wenn richtig eingesetzt',r:'Vorteil'},{l:'Funktionsweise ist nicht immer transparent',r:'Nachteil'},{l:'Hohe Kosten ohne Werbeeffekt, wenn falsch eingesetzt',r:'Nachteil'}],
           options: ['Vorteil','Nachteil'],
-          correct: ['Vorteil','Vorteil','Vorteil','Nachteil','Nachteil'],
           tips: ['Online-Medien bieten hohe Reichweite und Aufmerksamkeit.','Kosten können tief sein, aber auch hoch bei falscher Nutzung.','Transparenz ist nicht immer gegeben.'],
           reveal: ['Vorteile: Hohe Reichweite, hohe Aufmerksamkeit, tiefe Kosten (wenn richtig).','Nachteile: Funktionsweise nicht immer transparent, hohe Kosten ohne Effekt bei falscher Nutzung.']
         },
@@ -789,7 +777,8 @@ window.BOOK_DATA = {
         {
           id: 65, type: 'fill', q: 'Formen der digitalen Kommunikation',
           instruction: 'Die gängigen Formen der digitalen Kommunikation sind:',
-          segments: ['1. Eigene ',{blank: true, answer: ['Website'], width: 120},', 2. ',{blank: true, answer: ['Suchmaschinenmarketing'], width: 200},' (SEO und SEA), 3. ',{blank: true, answer: ['Social-Media-Kommunikation','Social Media'], width: 200},', 4. ',{blank: true, answer: ['E-Mail-Marketing'], width: 160},', 5. ',{blank: true, answer: ['Newsletter'], width: 120},', 6. Banner-Werbung (',{blank: true, answer: ['Display-Werbung','Display'], width: 150},').'],
+          template: '1. Eigene {0}, 2. {1} (SEO und SEA), 3. {2}, 4. {3}, 5. {4}, 6. Banner-Werbung ({5}).',
+          blanks: [['Website'],['Suchmaschinenmarketing'],['Social-Media-Kommunikation','Social Media'],['E-Mail-Marketing'],['Newsletter'],['Display-Werbung','Display']],
           tips: ['Es gibt sechs gängige Formen.','Die Website ist die Basis.','Suchmaschinenmarketing, Social Media und E-Mail sind zentral.'],
           reveal: ['1. Eigene Website.','2. Suchmaschinenmarketing SEO und SEA.','3. Social-Media-Kommunikation.','4. E-Mail-Marketing.','5. Newsletter.','6. Banner-Werbung (Display-Werbung).']
         },
@@ -820,7 +809,7 @@ window.BOOK_DATA = {
             'Ein Tool für die Mediaplanung',
             'Ein Instrument der Marktforschung'
           ],
-          correct: 1,
+          answer: 1,
           tips: ['CMS = Content Management System.','Es dient der Erstellung und Verwaltung von Inhalten.','Open-Source-CMS können kostenlos genutzt werden.'],
           reveal: ['Ein CMS ist eine Software zur Erstellung und Verwaltung von Website-Inhalten.','Es kann als Open-Source-Software kostenlos genutzt werden.','Beispiele: WordPress, Joomla, Drupal.']
         },
@@ -836,10 +825,10 @@ window.BOOK_DATA = {
         {
           id: 70, type: 'tf', q: 'Online-Medien: Richtig oder Falsch',
           statements: [
-            {s: 'Die Bedeutung der herkömmlichen Medien nimmt zugunsten der Online-Medien ab.', correct: true, feedback: 'Online-Massnahmen werden für Unternehmen immer wichtiger.'},
-            {s: 'Online-Kommunikation gehört zu den teuersten Kommunikationsformen.', correct: false, feedback: 'Online-Kommunikation ist eher günstig, aber zeitintensiv.'},
-            {s: 'Google Analytics ist ein kostenloses Tool zur Messung der Online-Aktivitäten.', correct: true, feedback: 'Die Grundversion von Google Analytics ist kostenlos.'},
-            {s: 'Cookies sind für das Targeting irrelevant.', correct: false, feedback: 'Cookies werden für die Kontrolle der Werbung und das Targeting verwendet.'}
+            {s: 'Die Bedeutung der herkömmlichen Medien nimmt zugunsten der Online-Medien ab.', c: true, feedback: 'Online-Massnahmen werden für Unternehmen immer wichtiger.'},
+            {s: 'Online-Kommunikation gehört zu den teuersten Kommunikationsformen.', c: false, feedback: 'Online-Kommunikation ist eher günstig, aber zeitintensiv.'},
+            {s: 'Google Analytics ist ein kostenloses Tool zur Messung der Online-Aktivitäten.', c: true, feedback: 'Die Grundversion von Google Analytics ist kostenlos.'},
+            {s: 'Cookies sind für das Targeting irrelevant.', c: false, feedback: 'Cookies werden für die Kontrolle der Werbung und das Targeting verwendet.'}
           ],
           tips: ['Online wächst, herkömmlich schrumpft.','Online-Kommunikation ist günstig aber zeitintensiv.','Google Analytics ist kostenlos.'],
           reveal: ['Aussage 1: Richtig.','Aussage 2: Falsch - günstig, aber zeitintensiv.','Aussage 3: Richtig.','Aussage 4: Falsch - Cookies sind wichtig fürs Targeting.']
@@ -847,9 +836,8 @@ window.BOOK_DATA = {
         {
           id: 71, type: 'match', q: 'Social-Media-Kanäle',
           instruction: 'Ordnen Sie die Beschreibungen den Social-Media-Kanälen zu.',
-          items: ['Kurze Textnachrichten, Echtzeitkommunikation, 280 Zeichen','Foto- und Video-Sharing, visueller Content, Stories','Berufliches Netzwerk, B2B-Kommunikation','Grösstes soziales Netzwerk, breite Zielgruppe'],
+          pairs: [{l:'Kurze Textnachrichten, Echtzeitkommunikation, 280 Zeichen',r:'Twitter/X'},{l:'Foto- und Video-Sharing, visueller Content, Stories',r:'Instagram'},{l:'Berufliches Netzwerk, B2B-Kommunikation',r:'LinkedIn'},{l:'Grösstes soziales Netzwerk, breite Zielgruppe',r:'Facebook'}],
           options: ['Twitter/X','Instagram','LinkedIn','Facebook'],
-          correct: ['Twitter/X','Instagram','LinkedIn','Facebook'],
           tips: ['Twitter/X = kurze Texte.','Instagram = visueller Content.','LinkedIn = beruflich/B2B.','Facebook = breiteste Zielgruppe.'],
           reveal: ['Twitter/X: Kurze Nachrichten, Echtzeit.','Instagram: Fotos, Videos, Stories.','LinkedIn: B2B, berufliches Netzwerk.','Facebook: Grösstes Netzwerk, breite Zielgruppe.']
         }
@@ -875,9 +863,8 @@ window.BOOK_DATA = {
         {
           id: 73, type: 'match', q: 'Kommunikationswirkungsmessverfahren zuordnen',
           instruction: 'Ordnen Sie die Begriffe dem entsprechenden Kommunikationswirkungsmessungsverfahren zu. (Rep 34, S.179)',
-          items: ['Anzeige oder Packungsabbildungen in Sekundenbruchteile aufgelöst','Wiederholte Befragung gleichartiger, aber nicht identischer Zielgruppen','Beurteilung und Überprüfung der Erinnerungswerte (Posttest)','Liefert Indikatoren für die Einschätzung der Anzeigen-Wirkungsvoraussetzungen','Kontrolle des Lernerfolgs','Beurteilung unterschiedlicher Anzeigenentwürfe','Vergleich unterschiedlicher Spotkonzepte bzw. Spotlängen','Messung der Anzeigenerinnerung, Markenerinnerung, Bildelemente, Texterinnerung'],
+          pairs: [{l:'Anzeige oder Packungsabbildungen in Sekundenbruchteile aufgelöst',r:'Tachistoskop-Test'},{l:'Wiederholte Befragung gleichartiger, aber nicht identischer Zielgruppen',r:'Trackingstudie'},{l:'Beurteilung und Überprüfung der Erinnerungswerte (Posttest)',r:'Folder Test'},{l:'Liefert Indikatoren für die Einschätzung der Anzeigen-Wirkungsvoraussetzungen',r:'Copy Test'},{l:'Kontrolle des Lernerfolgs',r:'Trackingstudie'},{l:'Beurteilung unterschiedlicher Anzeigenentwürfe',r:'Folder Test'},{l:'Vergleich unterschiedlicher Spotkonzepte bzw. Spotlängen',r:'Studiotest'},{l:'Messung der Anzeigenerinnerung, Markenerinnerung, Bildelemente, Texterinnerung',r:'Folder Test'}],
           options: ['Tachistoskop-Test','Trackingstudie','Folder Test','Copy Test','Studiotest'],
-          correct: ['Tachistoskop-Test','Trackingstudie','Folder Test','Copy Test','Trackingstudie','Folder Test','Studiotest','Folder Test'],
           tips: ['Tachistoskop = Sekundenbruchteile.','Trackingstudie = wiederholte Befragung.','Folder Test = Erinnerungswerte, Anzeigenbeurteilung.','Copy Test = Wirkungsvoraussetzungen.'],
           reveal: ['Tachistoskop-Test: Sekundenbruchteile.','Trackingstudie: Wiederholte Befragung nicht-identischer Zielgruppen.','Folder Test: Erinnerungswerte (Posttest) und Anzeigenbeurteilung.','Copy Test: Indikatoren für Wirkungsvoraussetzungen.','Studiotest: Vergleich von Spotkonzepten.']
         },
@@ -893,16 +880,16 @@ window.BOOK_DATA = {
         {
           id: 75, type: 'match', q: 'Pre-Test vs. Post-Test',
           instruction: 'Ordnen Sie die Beschreibungen dem richtigen Verfahren zu.',
-          items: ['Wird vor der Lancierung einer Kampagne durchgeführt','Wird nach der Durchführung einer Kampagne durchgeführt','Dient der Optimierung der Werbemittel','Dient der Erfolgskontrolle'],
+          pairs: [{l:'Wird vor der Lancierung einer Kampagne durchgeführt',r:'Pre-Test (Vortest)'},{l:'Wird nach der Durchführung einer Kampagne durchgeführt',r:'Post-Test (Nachtest)'},{l:'Dient der Optimierung der Werbemittel',r:'Pre-Test (Vortest)'},{l:'Dient der Erfolgskontrolle',r:'Post-Test (Nachtest)'}],
           options: ['Pre-Test (Vortest)','Post-Test (Nachtest)'],
-          correct: ['Pre-Test (Vortest)','Post-Test (Nachtest)','Pre-Test (Vortest)','Post-Test (Nachtest)'],
           tips: ['Pre-Test = vor der Lancierung.','Post-Test = nach der Durchführung.','Pre-Test optimiert, Post-Test kontrolliert.'],
           reveal: ['Pre-Test: Vor der Lancierung, dient der Optimierung.','Post-Test: Nach der Durchführung, dient der Erfolgskontrolle.']
         },
         {
           id: 76, type: 'fill', q: 'Prozess der Kommunikationsforschung',
           instruction: 'Ergänzen Sie die Schritte im Prozess der Kommunikationsforschung.',
-          segments: ['1. Festlegung der ',{blank: true, answer: ['Forschungsziele','Ziele'], width: 160},'. 2. Bestimmung der ',{blank: true, answer: ['Methode','Forschungsmethode'], width: 140},'. 3. ',{blank: true, answer: ['Datenerhebung'], width: 140},'. 4. ',{blank: true, answer: ['Datenanalyse','Auswertung'], width: 140},'. 5. Präsentation der ',{blank: true, answer: ['Ergebnisse','Resultate'], width: 140},'.'],
+          template: '1. Festlegung der {0}. 2. Bestimmung der {1}. 3. {2}. 4. {3}. 5. Präsentation der {4}.',
+          blanks: [['Forschungsziele','Ziele'],['Methode','Forschungsmethode'],['Datenerhebung'],['Datenanalyse','Auswertung'],['Ergebnisse','Resultate']],
           tips: ['Der Prozess beginnt mit der Festlegung der Forschungsziele.','Danach wird die Methode bestimmt.','Datenerhebung, -analyse und Präsentation folgen.'],
           reveal: ['1. Forschungsziele festlegen.','2. Methode bestimmen.','3. Datenerhebung durchführen.','4. Datenanalyse/Auswertung.','5. Präsentation der Ergebnisse.']
         },
@@ -915,17 +902,17 @@ window.BOOK_DATA = {
             'Nielsen',
             'Comscore'
           ],
-          correct: 1,
+          answer: 1,
           tips: ['WEMF = Werbemedienforschung.','MACH = Media Analysis CH.','WEMF/MACH misst die Mediennutzung in der Schweiz.'],
           reveal: ['WEMF/MACH (Media Analysis CH) misst die Mediennutzung der Schweizer Bevölkerung.','MACH Basic, MACH Consumer, MA Leader sind die wichtigsten Studien.']
         },
         {
           id: 78, type: 'tf', q: 'Kommunikationsforschung: Richtig oder Falsch',
           statements: [
-            {s: 'Der Effizienznachweis des Kommunikationsbudgets spielt angesichts knapper werdender Budgets eine immer grössere Rolle.', correct: true, feedback: 'Die Werbewirkungs- und Werbeerfolgskontrolle wird immer wichtiger.'},
-            {s: 'Pre-Tests werden nach der Durchführung einer Kampagne eingesetzt.', correct: false, feedback: 'Pre-Tests werden VOR der Lancierung eingesetzt. Post-Tests nach der Durchführung.'},
-            {s: 'Tachistoskop-Tests zeigen Anzeigen oder Packungsabbildungen in Sekundenbruchteilen.', correct: true, feedback: 'Der Tachistoskop-Test ist ein klassisches Verfahren.'},
-            {s: 'Trackingstudien befragen immer die gleichen Personen.', correct: false, feedback: 'Trackingstudien befragen gleichartige, aber NICHT identische Zielgruppen (wiederholte Befragung).'}
+            {s: 'Der Effizienznachweis des Kommunikationsbudgets spielt angesichts knapper werdender Budgets eine immer grössere Rolle.', c: true, feedback: 'Die Werbewirkungs- und Werbeerfolgskontrolle wird immer wichtiger.'},
+            {s: 'Pre-Tests werden nach der Durchführung einer Kampagne eingesetzt.', c: false, feedback: 'Pre-Tests werden VOR der Lancierung eingesetzt. Post-Tests nach der Durchführung.'},
+            {s: 'Tachistoskop-Tests zeigen Anzeigen oder Packungsabbildungen in Sekundenbruchteilen.', c: true, feedback: 'Der Tachistoskop-Test ist ein klassisches Verfahren.'},
+            {s: 'Trackingstudien befragen immer die gleichen Personen.', c: false, feedback: 'Trackingstudien befragen gleichartige, aber NICHT identische Zielgruppen (wiederholte Befragung).'}
           ],
           tips: ['Effizienznachweis wird immer wichtiger.','Pre-Test = vor, Post-Test = nach der Kampagne.','Trackingstudien = nicht-identische Zielgruppen.'],
           reveal: ['Aussage 1: Richtig.','Aussage 2: Falsch - Pre-Tests = vor der Lancierung.','Aussage 3: Richtig.','Aussage 4: Falsch - nicht identische, sondern gleichartige Zielgruppen.']
@@ -933,9 +920,8 @@ window.BOOK_DATA = {
         {
           id: 79, type: 'match', q: 'Messfaktoren der Kommunikationswirkung',
           instruction: 'Ordnen Sie die Messfaktoren den richtigen Beschreibungen zu.',
-          items: ['Fähigkeit der Werbung, Aufmerksamkeit zu erzeugen','Fähigkeit der Werbung, Informationen zu vermitteln','Fähigkeit der Werbung, Einstellungen und Verhalten zu beeinflussen'],
+          pairs: [{l:'Fähigkeit der Werbung, Aufmerksamkeit zu erzeugen',r:'Stimulationsleistung'},{l:'Fähigkeit der Werbung, Informationen zu vermitteln',r:'Informationsleistung'},{l:'Fähigkeit der Werbung, Einstellungen und Verhalten zu beeinflussen',r:'Persuasionsleistung'}],
           options: ['Stimulationsleistung','Informationsleistung','Persuasionsleistung'],
-          correct: ['Stimulationsleistung','Informationsleistung','Persuasionsleistung'],
           tips: ['Stimulation = Aufmerksamkeit.','Information = Wissensvermittlung.','Persuasion = Überzeugung und Verhaltensänderung.'],
           reveal: ['Stimulationsleistung: Aufmerksamkeit erzeugen.','Informationsleistung: Informationen vermitteln.','Persuasionsleistung: Einstellungen und Verhalten beeinflussen.']
         },

@@ -19,7 +19,7 @@ window.BOOK_DATA = {
           title: 'Gefahren zurückhaltender Informationspolitik',
           q: 'Zu wenig Informationen sind für ein Unternehmen genauso schlecht wie eine Überschwemmung mit Informationen. Was ist eine mögliche Gefahr einer zurückhaltenden Informationspolitik?',
           options: ['Frustration der Mitarbeitenden', 'Zu hohe Druckkosten', 'Mehr Kreativität im Team', 'Weniger Sitzungen'],
-          correct: 0,
+          answer: 0,
           explanation: 'Wer nicht ausreichend informiert ist, fühlt sich weniger integriert. Zudem entstehen Informationslücken, die zu Doppelspurigkeiten und Pattstellungen führen.',
           tips: [],
           reveal: []
@@ -47,7 +47,7 @@ window.BOOK_DATA = {
           title: 'Holschuld oder Bringschuld',
           q: 'Im Führungsprozess gelten Informationen grundsätzlich als:',
           options: ['Holschuld', 'Bringschuld', 'Weder noch', 'Beides gleichermassen'],
-          correct: 1,
+          answer: 1,
           explanation: 'Die Führungsperson hat dafür zu sorgen, dass die Mitarbeitenden alle notwendigen Informationen erhalten (Bringschuld). Von selbstständigen Mitarbeitenden darf eine Holschuld erwartet werden.',
           tips: [],
           reveal: []
@@ -94,7 +94,7 @@ window.BOOK_DATA = {
             'Austausch zwischen verschiedenen Branchen',
             'Kommunikation über Social Media'
           ],
-          correct: 0,
+          answer: 0,
           explanation: 'Interne Kommunikation: Kommunikation innerhalb des Unternehmens. Externe Kommunikation: Kommunikation gegen aussen (mit Kunden, Lieferanten, Öffentlichkeit).',
           tips: [],
           reveal: []
@@ -234,7 +234,7 @@ window.BOOK_DATA = {
             'Weil sie lauter sind',
             'Weil sie mehr Informationen enthalten'
           ],
-          correct: 1,
+          answer: 1,
           explanation: 'Die verbale Kommunikation können wir direkt beeinflussen. Die nonverbale Kommunikation ist auf Dauer weniger gut steuerbar, sie geschieht automatisch und unreflektiert. Nonverbale Signale gelten deshalb als verlässlicher.',
           tips: [],
           reveal: []
@@ -250,7 +250,7 @@ window.BOOK_DATA = {
             'Kommunikation erfolgt digital und analog',
             'Kommunikation verläuft symmetrisch oder komplementär'
           ],
-          correct: 1,
+          answer: 1,
           explanation: 'Das zweite Axiom: Jede Kommunikation hat eine Sach- und eine Beziehungsebene. Meist ist das Wie bzw. die Botschaft auf der Beziehungsebene ausschlaggebend.',
           tips: [],
           reveal: []
@@ -312,7 +312,7 @@ window.BOOK_DATA = {
             'Sie sind formeller',
             'Sie sind leichter zu formulieren'
           ],
-          correct: 1,
+          answer: 1,
           explanation: 'Ich-Botschaften beschreiben die eigene Wahrnehmung und Gefühle, ohne den Gegenüber anzugreifen. Du-Botschaften wirken oft als Vorwurf und führen zu Abwehrreaktionen.',
           tips: [],
           reveal: []
@@ -328,7 +328,7 @@ window.BOOK_DATA = {
             'Offene Fragen stellen',
             'Zusammenfassen'
           ],
-          correct: 1,
+          answer: 1,
           explanation: 'Befehlen, Drohen und Warnen zählen zu den Kommunikationssperren. Sie blockieren das Gespräch und führen zu Widerstand beim Gegenüber.',
           tips: [],
           reveal: []
@@ -367,7 +367,7 @@ window.BOOK_DATA = {
             'Sie ist persönlicher',
             'Sie ermöglicht sofortige Rückmeldung'
           ],
-          correct: 1,
+          answer: 1,
           explanation: 'Schriftliche Kommunikation ist verbindlicher, dauerhafter, relevanter; sie ermöglicht eine durchdachte Formulierung und ist auch geeignet für einen grösseren Adressatenkreis.',
           tips: [],
           reveal: []
@@ -398,7 +398,7 @@ window.BOOK_DATA = {
             'Nach dem Referat besichtigen wir die Fertigungsanlage.',
             'Ich brauche Bedenkzeit, bevor ich diese Frage beantworten kann.'
           ],
-          correct: 2,
+          answer: 2,
           explanation: 'Aktive Formulierungen verwenden das Aktiv statt des Passivs und sprechen den Leser direkt an.',
           tips: [],
           reveal: []
@@ -430,7 +430,7 @@ window.BOOK_DATA = {
             'Nur Wer und Wo',
             'Was, Wie viel, Wem'
           ],
-          correct: 0,
+          answer: 0,
           explanation: 'Die 6 W-Fragen (Was? Wer? Wozu? Wann? Wie? Wo?) helfen, die Vollständigkeit einer Information zu überprüfen.',
           tips: [],
           reveal: []
@@ -446,7 +446,7 @@ window.BOOK_DATA = {
             'Ein Modell für mündliche Kommunikation',
             'Eine Methode zur Ideenfindung'
           ],
-          correct: 1,
+          answer: 1,
           explanation: 'Sofern kein Aufbau vorgegeben ist, sollen die wichtigsten Botschaften an den Anfang gestellt werden. So sieht es der sogenannte Nachrichtentrichter vor.',
           tips: [],
           reveal: []
@@ -471,7 +471,7 @@ window.BOOK_DATA = {
             'Sie hat keinen Einfluss',
             'Sie bestimmt, wer zuerst spricht'
           ],
-          correct: 1,
+          answer: 1,
           explanation: 'Die Sitzordnung beeinflusst den Gesprächsverlauf. Alle Gesprächspartner brauchen genügend Bewegungsraum und direkten Blickkontakt.',
           tips: [],
           reveal: []
@@ -497,7 +497,7 @@ window.BOOK_DATA = {
             'Schnelle Kompromisse eingehen',
             'Emotionen ignorieren'
           ],
-          correct: 1,
+          answer: 1,
           explanation: 'Die Berücksichtigung der Interessen setzt voraus, dass beide Verhandlungspartner als gleichwertige Partner betrachtet werden. Dies ist die Basis für Win-Win-Lösungen.',
           tips: [],
           reveal: []
@@ -523,7 +523,7 @@ window.BOOK_DATA = {
             'Man spart Zeit',
             'Man muss weniger vorbereiten'
           ],
-          correct: 1,
+          answer: 1,
           explanation: 'Sich in den Verhandlungspartner zu versetzen bringt unter anderem: Der Partner wird besser fassbar, seine Argumente können besser nachvollzogen werden, mehr Sachlichkeit und Objektivität, mögliche Gegenargumente können vorbereitet werden.',
           tips: [],
           reveal: []
@@ -539,7 +539,7 @@ window.BOOK_DATA = {
             'Schriftlicher Austausch',
             'Passives Zuhören'
           ],
-          correct: 1,
+          answer: 1,
           explanation: 'Interaktion bezeichnet die gegenseitige Beeinflussung und Wechselwirkung zwischen den Gesprächspartnern.',
           tips: [],
           reveal: []
@@ -555,7 +555,7 @@ window.BOOK_DATA = {
             'Konflikte vermeiden',
             'Leistungen bewerten'
           ],
-          correct: 1,
+          answer: 1,
           explanation: 'Das Führungsgespräch ist ein wichtiges Instrument, um Mitarbeitende zur Verhaltensänderung oder Zielerreichung zu führen.',
           tips: [],
           reveal: []
@@ -600,7 +600,7 @@ window.BOOK_DATA = {
             'Kulturelle Rituale',
             'Kommunikationsregeln'
           ],
-          correct: 1,
+          answer: 1,
           explanation: 'Stereotype sind meist negative Vorurteile, die den Angehörigen einer Gruppe als Eigenschaft zugeschrieben werden (z.B. alle X sind faul und korrupt). Sie werden nicht überprüft.',
           tips: [],
           reveal: []
@@ -645,7 +645,7 @@ window.BOOK_DATA = {
             'Auf die Länge der Präsentation',
             'Auf die Raumtemperatur'
           ],
-          correct: 1,
+          answer: 1,
           explanation: 'Der Produktionsleiter ist sich nicht bewusst, dass neue Mitarbeitende weder über Herstellungskenntnisse verfügen noch sich für technische Details interessieren. Er vergass, sich auf das Zielpublikum einzustellen.',
           tips: [],
           reveal: []
@@ -753,7 +753,7 @@ window.BOOK_DATA = {
             'Die Kreativität steigt',
             'Nichts Besonderes'
           ],
-          correct: 1,
+          answer: 1,
           explanation: 'Wenn sich die Individualrollen häufen, kann das ein Anzeichen für grössere Probleme im Teamklima sein, die früher oder später die Arbeitsfähigkeit stark beeinträchtigen.',
           tips: [],
           reveal: []
@@ -831,7 +831,7 @@ window.BOOK_DATA = {
             'Damit man verhindern kann, dass zum Schluss wichtige offene Punkte noch hätten geklärt werden müssen',
             'Aus Tradition'
           ],
-          correct: 2,
+          answer: 2,
           explanation: 'Wenn Sie die wichtigsten Traktanden zuerst behandeln, verhindern Sie, dass zum Schluss der Sitzung noch wichtige offene Punkte hätten geklärt werden müssen.',
           tips: [],
           reveal: []
@@ -847,7 +847,7 @@ window.BOOK_DATA = {
             'Nur schriftlich mitteilen',
             'Strafen androhen'
           ],
-          correct: 1,
+          answer: 1,
           explanation: 'Legen Sie gemeinsam mit den Teilnehmenden die Verhaltensregeln schon zu Beginn der Sitzung fest und weisen Sie auf die Einhaltung ausdrücklich hin. Bei Verstössen konsequent ansprechen und nötigenfalls sanktionieren.',
           tips: [],
           reveal: []
@@ -872,7 +872,7 @@ window.BOOK_DATA = {
             'Die Kosten pro Arbeitstag',
             'Die Zufriedenheit am Arbeitsplatz'
           ],
-          correct: 1,
+          answer: 1,
           explanation: 'Die menschliche Leistungsbereitschaft schwankt über den Tag hinweg. Die persönliche Leistungskurve zeigt leistungsstarke und leistungsschwache Phasen.',
           tips: [],
           reveal: []
@@ -888,7 +888,7 @@ window.BOOK_DATA = {
             'Um den Vorgesetzten zu beeindrucken',
             'Um weniger arbeiten zu müssen'
           ],
-          correct: 1,
+          answer: 1,
           explanation: 'Die Analyse der eigenen Arbeitsgewohnheiten hilft, Zeitfresser zu identifizieren und die persönliche Effizienz zu steigern.',
           tips: [],
           reveal: []
@@ -904,7 +904,7 @@ window.BOOK_DATA = {
             'Er ist günstiger',
             'Er hat keinen Einfluss auf das Zeitmanagement'
           ],
-          correct: 1,
+          answer: 1,
           explanation: 'Unordnung und mangelnde Arbeitsorganisation zählen zu den typischen Zeitfallen, die eine realistische Zeitplanung verhindern.',
           tips: [],
           reveal: []
@@ -959,7 +959,7 @@ window.BOOK_DATA = {
             'Weil man so weniger arbeiten muss',
             'Weil es gesetzlich vorgeschrieben ist'
           ],
-          correct: 1,
+          answer: 1,
           explanation: 'Der Tag ist der am besten überschaubare Planungshorizont. Die Tagesplanung haben Sie schnell erledigt: Sie brauchen gewöhnlich nicht mehr als rund 10 Minuten.',
           tips: [],
           reveal: []
@@ -975,7 +975,7 @@ window.BOOK_DATA = {
             '\u00abAb dem 1.3.20xx führe ich mein Zeitplanbuch vollständig, d.h. inklusive Aktivitätenliste und Prioritätenbildung.\u00bb',
             '\u00abIch werde besser.\u00bb'
           ],
-          correct: 2,
+          answer: 2,
           explanation: 'Nur die dritte Aussage ist SMART: spezifisch (Zeitplanbuch), messbar (vollständig inkl. Aktivitätenliste), attraktiv, realistisch und terminiert (ab dem 1.3.20xx).',
           tips: [],
           reveal: []
@@ -1008,7 +1008,7 @@ window.BOOK_DATA = {
             'Es ist schneller als im Kopf planen',
             'Es braucht weniger Energie'
           ],
-          correct: 1,
+          answer: 1,
           explanation: 'Mehr Verbindlichkeit: Wenn Sie schriftlich planen, machen Sie gleichzeitig einen Vertrag mit sich selbst. Zudem: Mehr Denkkapazitäten für Wichtiges und mehr Selbstmotivation.',
           tips: [],
           reveal: []
@@ -1024,7 +1024,7 @@ window.BOOK_DATA = {
             'Private und geschäftliche',
             'Tägliche und wöchentliche'
           ],
-          correct: 1,
+          answer: 1,
           explanation: 'Manuelle Planungsinstrumente: Terminkalender und Zeitplanbuch. Digitale Planungsinstrumente: Software und Smartphone.',
           tips: [],
           reveal: []
@@ -1049,7 +1049,7 @@ window.BOOK_DATA = {
             'Alle Aufgaben sind gleich wichtig',
             '80% der Zeit wird verschwendet'
           ],
-          correct: 1,
+          answer: 1,
           explanation: 'Das Pareto-Prinzip (80/20-Regel): In 20% der aufgewendeten Zeit werden 80% der Ergebnisse erreicht. Umgekehrt: In den übrigen 80% der Zeit werden nur 20% der Ergebnisse erreicht.',
           tips: [],
           reveal: []
@@ -1065,7 +1065,7 @@ window.BOOK_DATA = {
             'Aufgaben nach Grösse ordnen',
             'Aufgaben nach Kosten sortieren'
           ],
-          correct: 1,
+          answer: 1,
           explanation: 'Die ABC-Analyse hilft bei der Entscheidung über die Wichtigkeit von Aufgaben: A-Aufgaben sind sehr wichtig, B-Aufgaben weniger wichtig und C-Aufgaben unwichtig.',
           tips: [],
           reveal: []
@@ -1081,7 +1081,7 @@ window.BOOK_DATA = {
             '50% / 30% / 20%',
             'Keine feste Verteilung'
           ],
-          correct: 1,
+          answer: 1,
           explanation: 'Erfahrungsgemäss: 15% aller Aufgaben sind A-Aufgaben (65% der Arbeitszeit), 20% sind B-Aufgaben (20% der Arbeitszeit), 65% sind C-Aufgaben (15% der Arbeitszeit).',
           tips: [],
           reveal: []
@@ -1097,7 +1097,7 @@ window.BOOK_DATA = {
             'In den Papierkorb',
             'Terminieren und später erledigen'
           ],
-          correct: 1,
+          answer: 1,
           explanation: 'Dringende/wenig wichtige Aufgaben: Wahrscheinlich sind Sie versucht, diese Aufgaben selbst zu erledigen, weil sie dringend sind. Sie können solche Aufgaben aber problemlos delegieren.',
           tips: [],
           reveal: []
@@ -1162,7 +1162,7 @@ window.BOOK_DATA = {
             'Eustress ist körperlich, Distress psychisch',
             'Eustress ist kurz, Distress lang'
           ],
-          correct: 1,
+          answer: 1,
           explanation: 'Eustress ist positiver Stress, den Sie bei einer Arbeit in einem bestimmten Moment erleben; er beflügelt zu aussergewöhnlichen Leistungen. Distress ist negativer Stress, der zu körperlichen Beschwerden oder psychischen Beeinträchtigungen führen kann.',
           tips: [],
           reveal: []
@@ -1192,7 +1192,7 @@ window.BOOK_DATA = {
             'Man muss keine E-Mails beantworten',
             'Man kann früher nach Hause gehen'
           ],
-          correct: 1,
+          answer: 1,
           explanation: 'Die menschliche Leistungsbereitschaft schwankt über den Tag hinweg. Um möglichst effizient zu arbeiten, empfiehlt es sich, während eines persönlichen Leistungshochs ungestört zu arbeiten.',
           tips: [],
           reveal: []
@@ -1218,7 +1218,7 @@ window.BOOK_DATA = {
             'Es ist gesetzlich vorgeschrieben',
             'Es hat keinen Einfluss'
           ],
-          correct: 1,
+          answer: 1,
           explanation: 'Ein gutes Ablagesystem verhindert Zeitverlust durch Suchen und sorgt dafür, dass Sie jederzeit schnell auf die benötigten Informationen zugreifen können.',
           tips: [],
           reveal: []
@@ -1234,7 +1234,7 @@ window.BOOK_DATA = {
             'Mehr Kaffee trinken',
             'Mehr Sitzungen einberufen'
           ],
-          correct: 1,
+          answer: 1,
           explanation: 'Zu den Massnahmen gehören: gesunde Ernährung, regelmässige Bewegung und Körpertraining, genügend Schlaf, Entspannungstechniken und Pausen.',
           tips: [],
           reveal: []
@@ -1264,7 +1264,7 @@ window.BOOK_DATA = {
             'Nur bei Führungskräften',
             'Nur in Grossraumbüros'
           ],
-          correct: 1,
+          answer: 1,
           explanation: 'Eine schlechte Arbeitsplatzgestaltung mit Lärm, schlechter Beleuchtung, unergonomischen Möbeln und Unordnung kann zusätzlichen Stress verursachen.',
           tips: [],
           reveal: []
@@ -1289,7 +1289,7 @@ window.BOOK_DATA = {
             'Theorie und Praxis',
             'Hard Skills und Soft Skills'
           ],
-          correct: 1,
+          answer: 1,
           explanation: 'Kompetenz umfasst: 1) Alle Kenntnisse, Fähigkeiten und Fertigkeiten, die einer Person zur Verfügung stehen, sowie die Bereitschaft, sie einzusetzen. 2) Die Rechte und Pflichten eines Funktionsträgers in einer Organisation.',
           tips: [],
           reveal: []
@@ -1305,7 +1305,7 @@ window.BOOK_DATA = {
             'Qualifikation',
             'Karriereplanung'
           ],
-          correct: 1,
+          answer: 1,
           explanation: 'Diese Fähigkeit wird Employability bzw. Beschäftigungs- oder Arbeitsmarktfähigkeit genannt. Sie ist wichtig, weil sich die Arbeitsnachfrage rasch ändern kann.',
           tips: [],
           reveal: []
@@ -1338,7 +1338,7 @@ window.BOOK_DATA = {
             'Computerkompetenzen',
             'Sprachkompetenzen'
           ],
-          correct: 1,
+          answer: 1,
           explanation: 'Informell gelernt wird auch informell, d.h. ohne klar definierte Lernziele und ihre Überprüfung. Man spricht hier von informellen Kompetenzen. Informelles Lernen erfolgt z.B. durch Vereinstätigkeit, Hobbys oder Ehrenämter.',
           tips: [],
           reveal: []
@@ -1364,7 +1364,7 @@ window.BOOK_DATA = {
             'Um weniger lernen zu müssen',
             'Es ist nicht wichtig'
           ],
-          correct: 1,
+          answer: 1,
           explanation: 'Durch die Priorisierung der Kompetenzen können Sie gezielt die Bereiche weiterentwickeln, die für Ihre berufliche Laufbahn am relevantesten sind.',
           tips: [],
           reveal: []
@@ -1389,7 +1389,7 @@ window.BOOK_DATA = {
             'Wenn wir keine Lösung finden',
             'Wenn der Chef unzufrieden ist'
           ],
-          correct: 1,
+          answer: 1,
           explanation: 'Ein Problem ist demnach die Differenz zwischen dem Soll-Zustand und dem Ist-Zustand. Unzufrieden sind wir, weil der Ist-Zustand vom Soll abweicht.',
           tips: [],
           reveal: []
@@ -1435,7 +1435,7 @@ window.BOOK_DATA = {
             'Logisches Denken',
             'Schnelles Denken'
           ],
-          correct: 1,
+          answer: 1,
           explanation: 'Vernetztes Denken bedeutet, Probleme aus verschiedenen Perspektiven zu betrachten und die Wechselwirkungen zwischen verschiedenen Einflussfaktoren zu erkennen.',
           tips: [],
           reveal: []
@@ -1451,7 +1451,7 @@ window.BOOK_DATA = {
             'Fünf',
             'Sieben'
           ],
-          correct: 1,
+          answer: 1,
           explanation: 'Das Problemnetzwerk umfasst drei Vorgehensschritte: 1) Problem konkretisieren und Einflussfaktoren ermitteln. 2) Vernetzung ermitteln (Art der Beziehungen, Dynamik). 3) Veränderungsmöglichkeiten erfassen (Szenarien).',
           tips: [],
           reveal: []
@@ -1467,7 +1467,7 @@ window.BOOK_DATA = {
             'Um den Vorgesetzten zu beeindrucken',
             'Es ist nicht wichtig'
           ],
-          correct: 1,
+          answer: 1,
           explanation: 'Oft liegen die Ursachen bei komplexen Problemen im Dunkeln, sodass man sich weniger auf Fakten als auf persönliche Interpretationen stützen kann. Darum ist es wichtig, eine einseitige Sichtweise zu vermeiden und das Problem aus vielen verschiedenen Blickwinkeln zu beleuchten.',
           tips: [],
           reveal: []
@@ -1483,7 +1483,7 @@ window.BOOK_DATA = {
             'Es kostet weniger',
             'Es ist einfacher'
           ],
-          correct: 1,
+          answer: 1,
           explanation: 'Der Problemlösungsprozess und das vernetzte Denken unterstützen das strukturierte Vorgehen bei anspruchsvollen Problemlösungen, anstatt nur spontan zu reagieren.',
           tips: [],
           reveal: []

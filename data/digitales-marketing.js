@@ -97,14 +97,13 @@ window.BOOK_DATA = {
           id: 5, type: 'match',
           q: 'Vorteile der digitalen Transformation',
           instruction: 'Ordnen Sie die vier Hauptvorteile der digitalen Transformation den richtigen Beschreibungen zu.',
-          items: ['Datenauswertung', 'Interaktivität', 'Personalisierung', 'Automatisierung'],
-          options: [
-            'Systematische Auswertung grosser Datenmengen und Optimierung der Marketingmassnahmen',
-            'Stärkere Möglichkeiten der Kundenbindung durch wechselseitige Kommunikation',
-            'Höhere Akzeptanz der Botschaften bei den Zielgruppen durch individuelle Ansprache',
-            'Effizienzsteigerung und Kostenreduktion durch automatisierte Prozesse'
+          pairs: [
+            { l: 'Datenauswertung', r: 'Systematische Auswertung grosser Datenmengen und Optimierung der Marketingmassnahmen' },
+            { l: 'Interaktivität', r: 'Stärkere Möglichkeiten der Kundenbindung durch wechselseitige Kommunikation' },
+            { l: 'Personalisierung', r: 'Höhere Akzeptanz der Botschaften bei den Zielgruppen durch individuelle Ansprache' },
+            { l: 'Automatisierung', r: 'Effizienzsteigerung und Kostenreduktion durch automatisierte Prozesse' }
           ],
-          correct: [
+          options: [
             'Systematische Auswertung grosser Datenmengen und Optimierung der Marketingmassnahmen',
             'Stärkere Möglichkeiten der Kundenbindung durch wechselseitige Kommunikation',
             'Höhere Akzeptanz der Botschaften bei den Zielgruppen durch individuelle Ansprache',
@@ -125,13 +124,12 @@ window.BOOK_DATA = {
           id: 6, type: 'match',
           q: 'Grundlegende Begriffe abgrenzen',
           instruction: 'Ordnen Sie die Begriffe den richtigen Definitionen zu.',
-          items: ['Digitales Marketing', 'E-Commerce', 'Web 2.0'],
-          options: [
-            'Teildisziplin des klassischen Marketings, ergänzt um digitale Technologien',
-            'Elektronischer Handel - technische Systeme für den Online-Verkauf',
-            'Das veränderte Internet, bei dem User auch selbst Inhalte produzieren können'
+          pairs: [
+            { l: 'Digitales Marketing', r: 'Teildisziplin des klassischen Marketings, ergänzt um digitale Technologien' },
+            { l: 'E-Commerce', r: 'Elektronischer Handel - technische Systeme für den Online-Verkauf' },
+            { l: 'Web 2.0', r: 'Das veränderte Internet, bei dem User auch selbst Inhalte produzieren können' }
           ],
-          correct: [
+          options: [
             'Teildisziplin des klassischen Marketings, ergänzt um digitale Technologien',
             'Elektronischer Handel - technische Systeme für den Online-Verkauf',
             'Das veränderte Internet, bei dem User auch selbst Inhalte produzieren können'
@@ -151,11 +149,11 @@ window.BOOK_DATA = {
           q: 'Digitale vs. klassische Massnahmen',
           instruction: 'Sind die folgenden Aussagen zu digitalen Massnahmen richtig oder falsch?',
           statements: [
-            { text: 'Digitale Massnahmen haben kürzere Planungshorizonte als klassische.', correct: true },
-            { text: 'Die Kundenbeziehungen im digitalen Marketing sind weniger vielfältig als im klassischen Marketing.', correct: false },
-            { text: 'Die Reaktionszeiten im digitalen Marketing sind schneller als im klassischen Marketing.', correct: true },
-            { text: 'Digitales Marketing nutzt grundlegend andere Konzepte als klassisches Marketing.', correct: false },
-            { text: 'Die Instrumente im digitalen Marketing sind vielfältiger als im klassischen Marketing.', correct: true }
+            { s: 'Digitale Massnahmen haben kürzere Planungshorizonte als klassische.', c: true },
+            { s: 'Die Kundenbeziehungen im digitalen Marketing sind weniger vielfältig als im klassischen Marketing.', c: false },
+            { s: 'Die Reaktionszeiten im digitalen Marketing sind schneller als im klassischen Marketing.', c: true },
+            { s: 'Digitales Marketing nutzt grundlegend andere Konzepte als klassisches Marketing.', c: false },
+            { s: 'Die Instrumente im digitalen Marketing sind vielfältiger als im klassischen Marketing.', c: true }
           ],
           tips: [
             'Digitales Marketing ist eine Erweiterung, kein Ersatz.',
@@ -174,11 +172,11 @@ window.BOOK_DATA = {
           q: 'Bereitschaft für digitales Marketing',
           instruction: 'Welche Aussagen zur Bereitschaft für digitales Marketing sind korrekt?',
           statements: [
-            { text: 'Es muss Aktivitäten und Initiativen im Unternehmen zum Thema digitale Transformation geben.', correct: true },
-            { text: 'Digitales Marketing kann unabhängig vom klassischen Marketing betrieben werden.', correct: false },
-            { text: 'Das Unternehmen sollte Technologien nutzen, um sich online mit Kunden auszutauschen.', correct: true },
-            { text: 'Eine Kundendatenbank mit guter Datenqualität ist hilfreich für zielgerichtete Massnahmen.', correct: true },
-            { text: 'Es reicht, eine Website zu haben - weitere digitale Präsenz ist nicht nötig.', correct: false }
+            { s: 'Es muss Aktivitäten und Initiativen im Unternehmen zum Thema digitale Transformation geben.', c: true },
+            { s: 'Digitales Marketing kann unabhängig vom klassischen Marketing betrieben werden.', c: false },
+            { s: 'Das Unternehmen sollte Technologien nutzen, um sich online mit Kunden auszutauschen.', c: true },
+            { s: 'Eine Kundendatenbank mit guter Datenqualität ist hilfreich für zielgerichtete Massnahmen.', c: true },
+            { s: 'Es reicht, eine Website zu haben - weitere digitale Präsenz ist nicht nötig.', c: false }
           ],
           tips: [
             'Digitales Marketing muss in die Unternehmensstrategie eingebettet sein.',
@@ -214,9 +212,13 @@ window.BOOK_DATA = {
           id: 10, type: 'match',
           q: 'Chancen und Risiken des digitalen Marketings',
           instruction: 'Ordnen Sie die Aussagen als Chancen oder Risiken des digitalen Marketings zu.',
-          items: ['Neue Märkte erschliessen', 'Negative Bewertungen verbreiten sich schnell', 'Personalisierte Kundenansprache', 'Datenschutz-Anforderungen steigen'],
-          options: ['Chance', 'Risiko', 'Chance', 'Risiko'],
-          correct: ['Chance', 'Risiko', 'Chance', 'Risiko'],
+          pairs: [
+            { l: 'Neue Märkte erschliessen', r: 'Chance' },
+            { l: 'Negative Bewertungen verbreiten sich schnell', r: 'Risiko' },
+            { l: 'Personalisierte Kundenansprache', r: 'Chance' },
+            { l: 'Datenschutz-Anforderungen steigen', r: 'Risiko' }
+          ],
+          options: ['Chance', 'Risiko'],
           tips: [
             'Chancen eröffnen neue Möglichkeiten.',
             'Risiken stellen Herausforderungen dar.'
@@ -332,13 +334,14 @@ window.BOOK_DATA = {
           id: 12, type: 'fill',
           q: 'Sechs Schritte des Marketingkonzepts',
           instruction: 'Aus welchen sechs Schritten besteht ein digitales Marketingkonzept?',
-          segments: [
-            '1. ', { blank: true, answer: ['Analyse', 'Situationsanalyse'], width: 180 },
-            ', 2. ', { blank: true, answer: ['Ziele'], width: 120 },
-            ', 3. ', { blank: true, answer: ['Strategien', 'Strategie'], width: 160 },
-            ', 4. ', { blank: true, answer: ['Instrumente', 'Marketingmix', 'Taktik'], width: 180 },
-            ', 5. ', { blank: true, answer: ['Budget und Realisation', 'Budget', 'Realisation'], width: 200 },
-            ', 6. ', { blank: true, answer: ['Kontrolle'], width: 140 }
+          template: '1. {0}, 2. {1}, 3. {2}, 4. {3}, 5. {4}, 6. {5}',
+          blanks: [
+            ['Analyse', 'Situationsanalyse'],
+            ['Ziele'],
+            ['Strategien', 'Strategie'],
+            ['Instrumente', 'Marketingmix', 'Taktik'],
+            ['Budget und Realisation', 'Budget', 'Realisation'],
+            ['Kontrolle']
           ],
           tips: [
             'Das Konzept folgt einer logischen Reihenfolge.',
@@ -392,14 +395,13 @@ window.BOOK_DATA = {
           id: 15, type: 'match',
           q: 'POST-Methode erklären',
           instruction: 'Ordnen Sie die Buchstaben der POST-Methode den richtigen Beschreibungen zu.',
-          items: ['P - People', 'O - Objectives', 'S - Strategy', 'T - Technology'],
-          options: [
-            'Definition der Zielgruppe und deren Web-Verhalten',
-            'Definition der Ziele und Intensität der Interaktion mit der Zielgruppe',
-            'Festlegung, wie das Unternehmen agieren sollte, um die Ziele zu erreichen',
-            'Auswahl der passenden Instrumente und Technologien'
+          pairs: [
+            { l: 'P - People', r: 'Definition der Zielgruppe und deren Web-Verhalten' },
+            { l: 'O - Objectives', r: 'Definition der Ziele und Intensität der Interaktion mit der Zielgruppe' },
+            { l: 'S - Strategy', r: 'Festlegung, wie das Unternehmen agieren sollte, um die Ziele zu erreichen' },
+            { l: 'T - Technology', r: 'Auswahl der passenden Instrumente und Technologien' }
           ],
-          correct: [
+          options: [
             'Definition der Zielgruppe und deren Web-Verhalten',
             'Definition der Ziele und Intensität der Interaktion mit der Zielgruppe',
             'Festlegung, wie das Unternehmen agieren sollte, um die Ziele zu erreichen',
@@ -422,10 +424,10 @@ window.BOOK_DATA = {
           q: 'Klassisches Konzept vs. POST-Methode',
           instruction: 'Sind die folgenden Aussagen korrekt?',
           statements: [
-            { text: 'Das klassische Marketingkonzept besteht aus sechs Schritten.', correct: true },
-            { text: 'Die POST-Methode ist eine Alternative zum klassischen Marketingkonzept.', correct: true },
-            { text: 'Bei der POST-Methode wird die Technologie als Erstes gewählt.', correct: false },
-            { text: 'Digitales Marketing kann in jeder Phase des klassischen Marketingkonzepts integriert werden.', correct: true }
+            { s: 'Das klassische Marketingkonzept besteht aus sechs Schritten.', c: true },
+            { s: 'Die POST-Methode ist eine Alternative zum klassischen Marketingkonzept.', c: true },
+            { s: 'Bei der POST-Methode wird die Technologie als Erstes gewählt.', c: false },
+            { s: 'Digitales Marketing kann in jeder Phase des klassischen Marketingkonzepts integriert werden.', c: true }
           ],
           tips: [
             'Die POST-Methode stellt People (Zielgruppe) an den Anfang.',
@@ -463,14 +465,13 @@ window.BOOK_DATA = {
           id: 18, type: 'match',
           q: 'Struktur des digitalen Marketingkonzepts',
           instruction: 'Ordnen Sie die Phasen des Marketingkonzepts den richtigen Fragen zu.',
-          items: ['Analyse', 'Ziele', 'Strategien', 'Instrumente'],
-          options: [
-            'Wo stehen wir heute? (Ist-Zustand)',
-            'Wo wollen wir hin? (Soll-Zustand)',
-            'Wie kommen wir dorthin? (Weg zum Ziel)',
-            'Was setzen wir konkret ein? (Marketingmix)'
+          pairs: [
+            { l: 'Analyse', r: 'Wo stehen wir heute? (Ist-Zustand)' },
+            { l: 'Ziele', r: 'Wo wollen wir hin? (Soll-Zustand)' },
+            { l: 'Strategien', r: 'Wie kommen wir dorthin? (Weg zum Ziel)' },
+            { l: 'Instrumente', r: 'Was setzen wir konkret ein? (Marketingmix)' }
           ],
-          correct: [
+          options: [
             'Wo stehen wir heute? (Ist-Zustand)',
             'Wo wollen wir hin? (Soll-Zustand)',
             'Wie kommen wir dorthin? (Weg zum Ziel)',
@@ -590,15 +591,14 @@ window.BOOK_DATA = {
           id: 24, type: 'match',
           q: 'Analyse-Begriffe zuordnen',
           instruction: 'Ordnen Sie die Begriffe den richtigen Beschreibungen zu.',
-          items: ['Customer Journey', 'Sekundäre Marktforschung', 'Zielgruppenanalyse', 'Google Analytics', 'Primäre Marktforschung'],
-          options: [
-            'Phasen des Kaufentscheidungsprozesses',
-            'Marktforschung aufgrund von schon bestehenden Daten',
-            'Analyse der Zielgruppen, mit denen das Unternehmen heute kommuniziert',
-            'Software zur Datenverkehrsanalyse von Websites',
-            'Marktforschung aufgrund der Erkenntnisse aus der Untersuchung der Marktteilnehmer'
+          pairs: [
+            { l: 'Customer Journey', r: 'Phasen des Kaufentscheidungsprozesses' },
+            { l: 'Sekundäre Marktforschung', r: 'Marktforschung aufgrund von schon bestehenden Daten' },
+            { l: 'Zielgruppenanalyse', r: 'Analyse der Zielgruppen, mit denen das Unternehmen heute kommuniziert' },
+            { l: 'Google Analytics', r: 'Software zur Datenverkehrsanalyse von Websites' },
+            { l: 'Primäre Marktforschung', r: 'Marktforschung aufgrund der Erkenntnisse aus der Untersuchung der Marktteilnehmer' }
           ],
-          correct: [
+          options: [
             'Phasen des Kaufentscheidungsprozesses',
             'Marktforschung aufgrund von schon bestehenden Daten',
             'Analyse der Zielgruppen, mit denen das Unternehmen heute kommuniziert',
@@ -642,11 +642,11 @@ window.BOOK_DATA = {
           q: 'Primäre vs. Sekundäre Marktforschung',
           instruction: 'Ordnen Sie die Aussagen als richtig oder falsch ein.',
           statements: [
-            { text: 'Primäre Marktforschung nutzt bereits vorhandene Daten.', correct: false },
-            { text: 'Google Analytics ist ein Tool für sekundäre Marktforschung.', correct: false },
-            { text: 'Interviews und Umfragen sind Methoden der primären Marktforschung.', correct: true },
-            { text: 'Die Customer Journey beschreibt die Phasen des Kaufentscheidungsprozesses.', correct: true },
-            { text: 'Eine Zielgruppenanalyse ist nur bei B2C-Unternehmen relevant.', correct: false }
+            { s: 'Primäre Marktforschung nutzt bereits vorhandene Daten.', c: false },
+            { s: 'Google Analytics ist ein Tool für sekundäre Marktforschung.', c: false },
+            { s: 'Interviews und Umfragen sind Methoden der primären Marktforschung.', c: true },
+            { s: 'Die Customer Journey beschreibt die Phasen des Kaufentscheidungsprozesses.', c: true },
+            { s: 'Eine Zielgruppenanalyse ist nur bei B2C-Unternehmen relevant.', c: false }
           ],
           tips: [
             'Primär = eigene Erhebung, Sekundär = bestehende Daten.',
@@ -665,9 +665,13 @@ window.BOOK_DATA = {
           id: 27, type: 'match',
           q: 'SWOT-Analyse Elemente zuordnen',
           instruction: 'Ordnen Sie die SWOT-Elemente der richtigen Kategorie zu.',
-          items: ['Strengths (Stärken)', 'Weaknesses (Schwächen)', 'Opportunities (Chancen)', 'Threats (Risiken)'],
+          pairs: [
+            { l: 'Strengths (Stärken)', r: 'Interne Analyse - positiv' },
+            { l: 'Weaknesses (Schwächen)', r: 'Interne Analyse - negativ' },
+            { l: 'Opportunities (Chancen)', r: 'Externe Analyse - positiv' },
+            { l: 'Threats (Risiken)', r: 'Externe Analyse - negativ' }
+          ],
           options: ['Interne Analyse - positiv', 'Interne Analyse - negativ', 'Externe Analyse - positiv', 'Externe Analyse - negativ'],
-          correct: ['Interne Analyse - positiv', 'Interne Analyse - negativ', 'Externe Analyse - positiv', 'Externe Analyse - negativ'],
           tips: [
             'S und W gehören zur internen Analyse.',
             'O und T gehören zur externen Analyse.'
@@ -780,16 +784,15 @@ window.BOOK_DATA = {
           ]
         },
         {
-          id: 33, type: 'table',
+          id: 33, type: 'check',
           q: 'Aussagen zum Content Marketing',
           instruction: 'Sind die folgenden Aussagen zum Content Marketing korrekt?',
-          headers: ['Richtig', 'Falsch', 'Aussage'],
-          rows: [
-            { label: 'Reine Produktinformationen des Unternehmens dürfen nicht im Mittelpunkt stehen.', correct: 0 },
-            { label: 'Im Content Marketing sollte man nur über das Unternehmen sprechen.', correct: 1 },
-            { label: 'Die Kunden und Anwender müssen beim Content Marketing miteinbezogen werden.', correct: 0 },
-            { label: 'Im Content Marketing sollte man authentisch bleiben.', correct: 0 },
-            { label: 'Wenn jemand etwas Unwahres postet, verliert er das Vertrauen der User.', correct: 0 }
+          statements: [
+            { s: 'Reine Produktinformationen des Unternehmens dürfen nicht im Mittelpunkt stehen.', c: true },
+            { s: 'Im Content Marketing sollte man nur über das Unternehmen sprechen.', c: false },
+            { s: 'Die Kunden und Anwender müssen beim Content Marketing miteinbezogen werden.', c: true },
+            { s: 'Im Content Marketing sollte man authentisch bleiben.', c: true },
+            { s: 'Wenn jemand etwas Unwahres postet, verliert er das Vertrauen der User.', c: true }
           ],
           tips: [
             'Content Marketing stellt den Kunden in den Mittelpunkt, nicht das Unternehmen.',
@@ -808,13 +811,12 @@ window.BOOK_DATA = {
           id: 34, type: 'match',
           q: 'Elemente der digitalen Marketingstrategie',
           instruction: 'Ordnen Sie die drei Strategie-Überlegungen den richtigen Beschreibungen zu.',
-          items: ['Markenstrategie', 'Content-Strategie', 'Kommunikationsstrategie'],
-          options: [
-            'Welche übergeordneten Vorgaben gibt es für Sprache, Bild, Tonalität und Qualität?',
-            'Wie können die Produkte des Unternehmens in spannende Geschichten verpackt werden?',
-            'Welche Instrumente passen zum Unternehmen und unterstützen die Ziele?'
+          pairs: [
+            { l: 'Markenstrategie', r: 'Welche übergeordneten Vorgaben gibt es für Sprache, Bild, Tonalität und Qualität?' },
+            { l: 'Content-Strategie', r: 'Wie können die Produkte des Unternehmens in spannende Geschichten verpackt werden?' },
+            { l: 'Kommunikationsstrategie', r: 'Welche Instrumente passen zum Unternehmen und unterstützen die Ziele?' }
           ],
-          correct: [
+          options: [
             'Welche übergeordneten Vorgaben gibt es für Sprache, Bild, Tonalität und Qualität?',
             'Wie können die Produkte des Unternehmens in spannende Geschichten verpackt werden?',
             'Welche Instrumente passen zum Unternehmen und unterstützen die Ziele?'
@@ -835,10 +837,10 @@ window.BOOK_DATA = {
           q: 'Zielgruppen im digitalen Marketing',
           instruction: 'Sind die folgenden Aussagen richtig oder falsch?',
           statements: [
-            { text: 'Zielgruppen im digitalen Marketing entsprechen den Zielgruppen im klassischen Marketing.', correct: true },
-            { text: 'Dank digitaler Tools können Zielgruppen detaillierter definiert werden.', correct: true },
-            { text: 'Personas sind reale Kunden des Unternehmens.', correct: false },
-            { text: 'Neben Zielgruppen werden im digitalen Marketing oft Personas erstellt.', correct: true }
+            { s: 'Zielgruppen im digitalen Marketing entsprechen den Zielgruppen im klassischen Marketing.', c: true },
+            { s: 'Dank digitaler Tools können Zielgruppen detaillierter definiert werden.', c: true },
+            { s: 'Personas sind reale Kunden des Unternehmens.', c: false },
+            { s: 'Neben Zielgruppen werden im digitalen Marketing oft Personas erstellt.', c: true }
           ],
           tips: [
             'Zielgruppen sind im Prinzip die gleichen, aber digitale Tools ermöglichen mehr.',
@@ -977,15 +979,14 @@ window.BOOK_DATA = {
           id: 42, type: 'match',
           q: 'Google Ads Prozess - Reihenfolge',
           instruction: 'Bringen Sie die Schritte des Google Ads Prozesses in die richtige Reihenfolge.',
-          items: ['Schritt 1', 'Schritt 2', 'Schritt 3', 'Schritt 4', 'Schritt 5'],
-          options: [
-            'Festlegung, ob die Schaltung im Suchnetzwerk erfolgen soll',
-            'Auswahl der Endgeräte, auf denen die Werbung angezeigt werden soll',
-            'Festlegung des Tagesbudgets',
-            'Erfassung des Anzeigentexts',
-            'Erfassung der Zahlungsmodalitäten'
+          pairs: [
+            { l: 'Schritt 1', r: 'Festlegung, ob die Schaltung im Suchnetzwerk erfolgen soll' },
+            { l: 'Schritt 2', r: 'Auswahl der Endgeräte, auf denen die Werbung angezeigt werden soll' },
+            { l: 'Schritt 3', r: 'Festlegung des Tagesbudgets' },
+            { l: 'Schritt 4', r: 'Erfassung des Anzeigentexts' },
+            { l: 'Schritt 5', r: 'Erfassung der Zahlungsmodalitäten' }
           ],
-          correct: [
+          options: [
             'Festlegung, ob die Schaltung im Suchnetzwerk erfolgen soll',
             'Auswahl der Endgeräte, auf denen die Werbung angezeigt werden soll',
             'Festlegung des Tagesbudgets',
@@ -1008,14 +1009,13 @@ window.BOOK_DATA = {
           id: 43, type: 'match',
           q: 'Digitaler Marketingmix (4 P)',
           instruction: 'Ordnen Sie die 4 P des digitalen Marketingmix den richtigen Beschreibungen zu.',
-          items: ['Product', 'Price', 'Place', 'Promotion'],
-          options: [
-            'Produkt- und Sortimentsgestaltung im digitalen Kontext',
-            'Preisgestaltung und Online-Preismodelle',
-            'Distribution und Verfügbarkeit über digitale Kanäle',
-            'Kommunikation und Werbung über digitale Instrumente'
+          pairs: [
+            { l: 'Product', r: 'Produkt- und Sortimentsgestaltung im digitalen Kontext' },
+            { l: 'Price', r: 'Preisgestaltung und Online-Preismodelle' },
+            { l: 'Place', r: 'Distribution und Verfügbarkeit über digitale Kanäle' },
+            { l: 'Promotion', r: 'Kommunikation und Werbung über digitale Instrumente' }
           ],
-          correct: [
+          options: [
             'Produkt- und Sortimentsgestaltung im digitalen Kontext',
             'Preisgestaltung und Online-Preismodelle',
             'Distribution und Verfügbarkeit über digitale Kanäle',
@@ -1037,11 +1037,11 @@ window.BOOK_DATA = {
           q: 'SEO vs. SEA unterscheiden',
           instruction: 'Sind die folgenden Aussagen richtig oder falsch?',
           statements: [
-            { text: 'SEO steht für Search Engine Optimization und ist eine bezahlte Massnahme.', correct: false },
-            { text: 'SEA steht für Search Engine Advertising und umfasst bezahlte Anzeigen.', correct: true },
-            { text: 'SEM ist der Oberbegriff für SEO und SEA.', correct: true },
-            { text: 'Bei SEA zahlt man pro Einblendung der Anzeige.', correct: false },
-            { text: 'SEO-Massnahmen wirken langfristig, während SEA kurzfristig wirkt.', correct: true }
+            { s: 'SEO steht für Search Engine Optimization und ist eine bezahlte Massnahme.', c: false },
+            { s: 'SEA steht für Search Engine Advertising und umfasst bezahlte Anzeigen.', c: true },
+            { s: 'SEM ist der Oberbegriff für SEO und SEA.', c: true },
+            { s: 'Bei SEA zahlt man pro Einblendung der Anzeige.', c: false },
+            { s: 'SEO-Massnahmen wirken langfristig, während SEA kurzfristig wirkt.', c: true }
           ],
           tips: [
             'SEO ist organisch (unbezahlt), SEA ist bezahlt.',
@@ -1112,14 +1112,13 @@ window.BOOK_DATA = {
           id: 47, type: 'match',
           q: 'Erscheinungsformen einer Website',
           instruction: 'Ordnen Sie die Erscheinungsformen einer Website den richtigen Beschreibungen zu.',
-          items: ['Corporate Website', 'Onlineshop', 'Microsite', 'Portal'],
-          options: [
-            'Seite mit allen relevanten Informationen rund um das Unternehmen und dessen Produkte',
-            'E-Commerce-Website für den Online-Verkauf von Produkten und Dienstleistungen',
-            'Projekt- oder themenbezogene Seite, oft im Zusammenhang mit Kampagnen',
-            'Seite, die Informationen und Angebote bündelt (z.B. Reiseportal)'
+          pairs: [
+            { l: 'Corporate Website', r: 'Seite mit allen relevanten Informationen rund um das Unternehmen und dessen Produkte' },
+            { l: 'Onlineshop', r: 'E-Commerce-Website für den Online-Verkauf von Produkten und Dienstleistungen' },
+            { l: 'Microsite', r: 'Projekt- oder themenbezogene Seite, oft im Zusammenhang mit Kampagnen' },
+            { l: 'Portal', r: 'Seite, die Informationen und Angebote bündelt (z.B. Reiseportal)' }
           ],
-          correct: [
+          options: [
             'Seite mit allen relevanten Informationen rund um das Unternehmen und dessen Produkte',
             'E-Commerce-Website für den Online-Verkauf von Produkten und Dienstleistungen',
             'Projekt- oder themenbezogene Seite, oft im Zusammenhang mit Kampagnen',
@@ -1191,14 +1190,13 @@ window.BOOK_DATA = {
           ]
         },
         {
-          id: 51, type: 'table',
+          id: 51, type: 'check',
           q: 'Aussagen zum Influencer Marketing',
           instruction: 'Kreuzen Sie die zutreffenden Aussagen zum Influencer Marketing an.',
-          headers: ['Trifft zu', 'Trifft nicht zu', 'Aussage'],
-          rows: [
-            { label: 'Influencer sind Personen, die andere über die Online-Kanäle beeinflussen können.', correct: 0 },
-            { label: 'Das Ziel des Influencer Marketings ist, möglichst viele Personen zu erreichen.', correct: 1 },
-            { label: 'Es ist einfach für Unternehmen, gute Influencer zu finden.', correct: 1 }
+          statements: [
+            { s: 'Influencer sind Personen, die andere über die Online-Kanäle beeinflussen können.', c: true },
+            { s: 'Das Ziel des Influencer Marketings ist, möglichst viele Personen zu erreichen.', c: false },
+            { s: 'Es ist einfach für Unternehmen, gute Influencer zu finden.', c: false }
           ],
           tips: [
             'Influencer haben Einfluss über Online-Kanäle.',
@@ -1235,10 +1233,10 @@ window.BOOK_DATA = {
           q: 'E-Mail-Marketing Grundlagen',
           instruction: 'Sind die folgenden Aussagen zum E-Mail-Marketing richtig oder falsch?',
           statements: [
-            { text: 'E-Mail-Marketing umfasst den strategischen Einsatz von E-Mail, um Empfänger auf eine Online-Präsenz zu lenken.', correct: true },
-            { text: 'Für E-Mail-Marketing braucht man kein Einverständnis der Empfänger.', correct: false },
-            { text: 'Ein Newsletter sollte immer einen Call-to-Action enthalten.', correct: true },
-            { text: 'Die Öffnungsrate ist eine wichtige Kennzahl im E-Mail-Marketing.', correct: true }
+            { s: 'E-Mail-Marketing umfasst den strategischen Einsatz von E-Mail, um Empfänger auf eine Online-Präsenz zu lenken.', c: true },
+            { s: 'Für E-Mail-Marketing braucht man kein Einverständnis der Empfänger.', c: false },
+            { s: 'Ein Newsletter sollte immer einen Call-to-Action enthalten.', c: true },
+            { s: 'Die Öffnungsrate ist eine wichtige Kennzahl im E-Mail-Marketing.', c: true }
           ],
           tips: [
             'E-Mail-Marketing muss rechtlich konform sein (Double-Opt-in).',
@@ -1293,10 +1291,10 @@ window.BOOK_DATA = {
           q: 'Online PR erklären',
           instruction: 'Sind die folgenden Aussagen zur Online PR richtig oder falsch?',
           statements: [
-            { text: 'Bei der Online PR werden Kunden und Interessenten direkt adressiert.', correct: false },
-            { text: 'Online PR versucht, Aufmerksamkeit und Bekanntheit über die Zusammenarbeit mit Medien zu steigern.', correct: true },
-            { text: 'Online PR richtet sich an das Umfeld des Unternehmens.', correct: true },
-            { text: 'Online PR und Online-Werbung sind dasselbe.', correct: false }
+            { s: 'Bei der Online PR werden Kunden und Interessenten direkt adressiert.', c: false },
+            { s: 'Online PR versucht, Aufmerksamkeit und Bekanntheit über die Zusammenarbeit mit Medien zu steigern.', c: true },
+            { s: 'Online PR richtet sich an das Umfeld des Unternehmens.', c: true },
+            { s: 'Online PR und Online-Werbung sind dasselbe.', c: false }
           ],
           tips: [
             'PR adressiert nicht direkt die Kunden.',
@@ -1323,13 +1321,12 @@ window.BOOK_DATA = {
           id: 57, type: 'match',
           q: 'Preismodelle im digitalen Marketing',
           instruction: 'Ordnen Sie die Preismodelle den richtigen Beschreibungen zu.',
-          items: ['TKP / CPM', 'CPC', 'CPL'],
-          options: [
-            'Tausender-Kontakt-Preis: Abrechnung pro 1000 ausgelieferte Bannereinblendungen',
-            'Cost per Click: Abrechnung nach Anzahl Klicks auf die Werbung',
-            'Cost per Lead: Abrechnung pro konkreter, vereinbarter Interaktion (z.B. Formularausfüllung)'
+          pairs: [
+            { l: 'TKP / CPM', r: 'Tausender-Kontakt-Preis: Abrechnung pro 1000 ausgelieferte Bannereinblendungen' },
+            { l: 'CPC', r: 'Cost per Click: Abrechnung nach Anzahl Klicks auf die Werbung' },
+            { l: 'CPL', r: 'Cost per Lead: Abrechnung pro konkreter, vereinbarter Interaktion (z.B. Formularausfüllung)' }
           ],
-          correct: [
+          options: [
             'Tausender-Kontakt-Preis: Abrechnung pro 1000 ausgelieferte Bannereinblendungen',
             'Cost per Click: Abrechnung nach Anzahl Klicks auf die Werbung',
             'Cost per Lead: Abrechnung pro konkreter, vereinbarter Interaktion (z.B. Formularausfüllung)'
@@ -1382,11 +1379,12 @@ window.BOOK_DATA = {
           id: 60, type: 'fill',
           q: 'Phasen der Realisation',
           instruction: 'Nennen Sie die typischen Phasen in der Realisation.',
-          segments: [
-            'Die vier Phasen der Realisation sind: 1. ', { blank: true, answer: ['Ideenfindung'], width: 160 },
-            ', 2. ', { blank: true, answer: ['Skizzierung und Planung', 'Skizzierung'], width: 200 },
-            ', 3. ', { blank: true, answer: ['Durchführung'], width: 160 },
-            ', 4. ', { blank: true, answer: ['Umsetzung'], width: 160 }
+          template: 'Die vier Phasen der Realisation sind: 1. {0}, 2. {1}, 3. {2}, 4. {3}',
+          blanks: [
+            ['Ideenfindung'],
+            ['Skizzierung und Planung', 'Skizzierung'],
+            ['Durchführung'],
+            ['Umsetzung']
           ],
           tips: [
             'Die Realisation folgt einem logischen Ablauf.',
@@ -1450,10 +1448,10 @@ window.BOOK_DATA = {
           q: 'Zusammenarbeit mit Agenturen',
           instruction: 'Sind die folgenden Aussagen zur Zusammenarbeit mit Agenturen richtig oder falsch?',
           statements: [
-            { text: 'Ein durchdachtes, ausführliches Briefing ist wichtig für die Zusammenarbeit.', correct: true },
-            { text: 'Die Überprüfung der gelieferten Arbeiten ist nicht nötig, wenn man eine gute Agentur hat.', correct: false },
-            { text: 'Langfristige Beziehungen mit Agenturen sind effizienter als häufige Wechsel.', correct: true },
-            { text: 'Agenturen sind kein bedeutender Kostenfaktor.', correct: false }
+            { s: 'Ein durchdachtes, ausführliches Briefing ist wichtig für die Zusammenarbeit.', c: true },
+            { s: 'Die Überprüfung der gelieferten Arbeiten ist nicht nötig, wenn man eine gute Agentur hat.', c: false },
+            { s: 'Langfristige Beziehungen mit Agenturen sind effizienter als häufige Wechsel.', c: true },
+            { s: 'Agenturen sind kein bedeutender Kostenfaktor.', c: false }
           ],
           tips: [
             'Briefing, Überprüfung und Rückmeldung sind wichtig.',
@@ -1471,9 +1469,13 @@ window.BOOK_DATA = {
           id: 65, type: 'match',
           q: 'Budgetstruktur für digitales Marketing',
           instruction: 'Ordnen Sie die Kostenarten den richtigen Kategorien zu.',
-          items: ['Lohn und Weiterbildung', 'SEO-Projekt, Google Ads', 'Social-Media-Management-Tools', 'Content Marketing und Instagram-Betreuung'],
+          pairs: [
+            { l: 'Lohn und Weiterbildung', r: 'Personalkosten' },
+            { l: 'SEO-Projekt, Google Ads', r: 'Kosten Online Advertising' },
+            { l: 'Social-Media-Management-Tools', r: 'Kosten Social Media Marketing' },
+            { l: 'Content Marketing und Instagram-Betreuung', r: 'Agenturkosten' }
+          ],
           options: ['Personalkosten', 'Kosten Online Advertising', 'Kosten Social Media Marketing', 'Agenturkosten'],
-          correct: ['Personalkosten', 'Kosten Online Advertising', 'Kosten Social Media Marketing', 'Agenturkosten'],
           tips: [
             'Die Budgetstruktur umfasst verschiedene Kostenkategorien.',
             'Jede Aktivität gehört zu einer bestimmten Kategorie.'
@@ -1571,15 +1573,14 @@ window.BOOK_DATA = {
           id: 70, type: 'match',
           q: 'Kontroll-Begriffe zuordnen',
           instruction: 'Ordnen Sie die Begriffe den richtigen Beschreibungen zu.',
-          items: ['KPIs', 'Conversions', 'Cookies', 'Performance Marketing', 'Klicks'],
-          options: [
-            'Key Performance Indicators, Erfolgsfaktoren',
-            'Anzahl der Website-Besucher, die eine gewünschte Transaktion durchgeführt haben',
-            'Daten der Besucher einer Website, die gespeichert werden, um Seitenaufrufe zuzuordnen',
-            'Einsatz von Online-Marketing-Instrumenten mit dem Ziel, eine messbare Reaktion zu erzielen',
-            'Anzahl der Besucher, die auf ein Werbemittel geklickt haben'
+          pairs: [
+            { l: 'KPIs', r: 'Key Performance Indicators, Erfolgsfaktoren' },
+            { l: 'Conversions', r: 'Anzahl der Website-Besucher, die eine gewünschte Transaktion durchgeführt haben' },
+            { l: 'Cookies', r: 'Daten der Besucher einer Website, die gespeichert werden, um Seitenaufrufe zuzuordnen' },
+            { l: 'Performance Marketing', r: 'Einsatz von Online-Marketing-Instrumenten mit dem Ziel, eine messbare Reaktion zu erzielen' },
+            { l: 'Klicks', r: 'Anzahl der Besucher, die auf ein Werbemittel geklickt haben' }
           ],
-          correct: [
+          options: [
             'Key Performance Indicators, Erfolgsfaktoren',
             'Anzahl der Website-Besucher, die eine gewünschte Transaktion durchgeführt haben',
             'Daten der Besucher einer Website, die gespeichert werden, um Seitenaufrufe zuzuordnen',
@@ -1622,10 +1623,10 @@ window.BOOK_DATA = {
           q: 'Social Media Monitoring',
           instruction: 'Sind die folgenden Aussagen zum Social Media Monitoring richtig oder falsch?',
           statements: [
-            { text: 'Social Media Monitoring liefert Informationen darüber, was in Social-Media-Plattformen über das Unternehmen gesagt wird.', correct: true },
-            { text: 'Social Media Monitoring ist nur für grosse Unternehmen relevant.', correct: false },
-            { text: 'Es gibt Tools, die den Prozess des Monitorings vereinfachen.', correct: true },
-            { text: 'Social Media Monitoring umfasst auch allgemeine Informationen im Internet.', correct: true }
+            { s: 'Social Media Monitoring liefert Informationen darüber, was in Social-Media-Plattformen über das Unternehmen gesagt wird.', c: true },
+            { s: 'Social Media Monitoring ist nur für grosse Unternehmen relevant.', c: false },
+            { s: 'Es gibt Tools, die den Prozess des Monitorings vereinfachen.', c: true },
+            { s: 'Social Media Monitoring umfasst auch allgemeine Informationen im Internet.', c: true }
           ],
           tips: [
             'Monitoring ist für alle Unternehmensgrösssen relevant.',
@@ -1680,14 +1681,13 @@ window.BOOK_DATA = {
           id: 75, type: 'match',
           q: 'Website Analytics Kennzahlen',
           instruction: 'Ordnen Sie die Kennzahlen den richtigen Beschreibungen zu.',
-          items: ['Bounce Rate', 'CTR', 'Conversion Rate', 'Page Impressions'],
-          options: [
-            'Anteil der Besucher, die die Website nach nur einer Seite verlassen',
-            'Verhältnis zwischen Einblendungen und Klicks auf eine Anzeige',
-            'Prozentsatz der Besucher, die eine gewünschte Aktion durchführen',
-            'Anzahl der Seitenaufrufe auf einer Website'
+          pairs: [
+            { l: 'Bounce Rate', r: 'Anteil der Besucher, die die Website nach nur einer Seite verlassen' },
+            { l: 'CTR', r: 'Verhältnis zwischen Einblendungen und Klicks auf eine Anzeige' },
+            { l: 'Conversion Rate', r: 'Prozentsatz der Besucher, die eine gewünschte Aktion durchführen' },
+            { l: 'Page Impressions', r: 'Anzahl der Seitenaufrufe auf einer Website' }
           ],
-          correct: [
+          options: [
             'Anteil der Besucher, die die Website nach nur einer Seite verlassen',
             'Verhältnis zwischen Einblendungen und Klicks auf eine Anzeige',
             'Prozentsatz der Besucher, die eine gewünschte Aktion durchführen',

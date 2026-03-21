@@ -34,7 +34,7 @@ window.BOOK_DATA = {
           title: 'Dokumentation im Rechnungswesen',
           q: 'Zwei Stichworte, die zusammen mit dem Rechnungswesen fallen, sind Dokumentation und F\u00fchrung. Zu welchem Hauptbereich passt wohl eher die Dokumentation?',
           options: ['Zum betrieblichen Rechnungswesen','Zum finanziellen Rechnungswesen','Zu beiden gleichermassen','Zu keinem von beiden'],
-          correct: 1,
+          answer: 1,
           explanation: 'Das finanzielle Rechnungswesen ist prim\u00e4r auf Dokumentation ausgerichtet, w\u00e4hrend das betriebliche Rechnungswesen vor allem f\u00fcr F\u00fchrungsaufgaben ben\u00f6tigt wird.',
           tips: [], reveal: []
         }
@@ -91,7 +91,7 @@ window.BOOK_DATA = {
           title: 'Bilanzgliederung bei Elektrizit\u00e4tsunternehmen',
           q: 'Die Bilanz eines Elektrizit\u00e4tsunternehmens weist Anlageverm\u00f6gen vor Umlaufverm\u00f6gen und Eigenkapital vor lang- und kurzfristigem Fremdkapital aus. Verst\u00f6sst das Unternehmen damit gegen gesetzliche Gliederungsvorschriften?',
           options: ['Ja, das ist ein Verstoss','Nein, bei sogenannten anlageintensiven Unternehmen ist diese Anordnung regelm\u00e4ssig anzutreffen','Ja, aber nur bei AG','Nein, es gibt keine Gliederungsvorschriften'],
-          correct: 1,
+          answer: 1,
           explanation: 'Nein. Bei sogenannten anlageintensiven Unternehmen ist diese Anordnung regelm\u00e4ssig anzutreffen. Sie folgt dem Gedanken: \u00abWas uns lang erhalten bleibt, kommt zuerst.\u00bb',
           tips: [], reveal: []
         },
@@ -167,7 +167,7 @@ window.BOOK_DATA = {
           title: 'Was passt nicht zum Rest?',
           q: 'Was passt nicht zum Rest? (1) Gewinn, (2) Verlust, (3) Ertrag, (4) Erfolg.',
           options: ['Gewinn','Verlust','Ertrag','Erfolg'],
-          correct: 2,
+          answer: 2,
           explanation: 'Ertrag (3). Ertrag bezeichnet einen erfolgswirksamen Vorgang. Die anderen drei Punkte sind Bezeichnungen f\u00fcr das Ergebnis der Erfolgsrechnung (Erfolg als Oberbegriff bzw. Gewinn oder Verlust im konkreten Fall).',
           tips: [], reveal: []
         },
@@ -297,7 +297,7 @@ window.BOOK_DATA = {
           title: 'Schlussbilanz I zu Schlussbilanz II',
           q: 'Welcher Schritt f\u00fchrt von der Schlussbilanz I zur Schlussbilanz II?',
           options: ['Die Bewertung der Aktiven','Die Gewinnverwendung','Die Er\u00f6ffnung der neuen Periode','Die Abschreibungen'],
-          correct: 1,
+          answer: 1,
           explanation: 'Die Gewinnverwendung (oder Verlustdeckung) f\u00fchrt von der Schlussbilanz I (vor Gewinnverwendung) zur Schlussbilanz II (nach Gewinnverwendung).',
           tips: [], reveal: []
         },
@@ -363,7 +363,7 @@ window.BOOK_DATA = {
           title: 'Was passt nicht zum Rest? (Buchf\u00fchrung)',
           q: '(Single Choice, jeweils eine Option pro Zeile ist zu w\u00e4hlen.) Was passt nicht zum Rest?\nZeile 1: (A) Umlaufverm\u00f6gen, (B) Anlageverm\u00f6gen, (C) Aufwand, (D) Eigenkapital \u2013 welches passt nicht?',
           options: ['A: Umlaufverm\u00f6gen','B: Anlageverm\u00f6gen','C: Aufwand','D: Eigenkapital'],
-          correct: 2,
+          answer: 2,
           explanation: 'C: Aufwand passt nicht zum Rest. Umlaufverm\u00f6gen, Anlageverm\u00f6gen und Eigenkapital sind Bilanzpositionen. Aufwand geh\u00f6rt zur Erfolgsrechnung.',
           tips: [], reveal: []
         },
@@ -388,7 +388,7 @@ window.BOOK_DATA = {
           title: 'Bestand als Saldo',
           q: 'Bei welchen Konten ist der Saldo ein Bestand?',
           options: ['Bei den Erfolgskonten','Bei den Bestandskonten (Bilanzkonten)','Bei allen Konten','Bei keinem Konto'],
-          correct: 1,
+          answer: 1,
           explanation: 'Bei den Bestandskonten (Bilanzkonten) ist der Saldo ein Bestand. Bei Erfolgskonten zeigt der Saldo den \u00dcberschuss der Aufwands- bzw. Ertragszunahmen.',
           tips: [], reveal: []
         },
@@ -593,7 +593,7 @@ window.BOOK_DATA = {
           title: 'Indirekte Abschreibung: Buchwert ermitteln?',
           q: 'Ist es m\u00f6glich, bei indirekter Abschreibung der Buchwert aus den Konten zu ermitteln?',
           options: ['Nein, das ist nicht m\u00f6glich','Ja, der Buchwert ergibt sich als Differenz aus dem Anlagekonto und dem Wertberichtigungskonto','Ja, aber nur am Jahresende','Nur bei linearer Abschreibung'],
-          correct: 1,
+          answer: 1,
           explanation: 'Ja. Bei der indirekten Abschreibung ergibt sich der Buchwert als Differenz zwischen dem Anlagekonto (zeigt Anschaffungskosten) und dem Konto Wertberichtigung (zeigt kumulierte Abschreibungen).',
           tips: [], reveal: []
         },
@@ -602,7 +602,7 @@ window.BOOK_DATA = {
           title: 'Direkte Abschreibung: Anschaffungskosten ermitteln?',
           q: 'Ist es m\u00f6glich, bei direkter Abschreibung die Anschaffungskosten aus den Konten zu ermitteln?',
           options: ['Ja, das ist leicht m\u00f6glich','Nein, bei direkter Abschreibung zeigt das Konto nur den Buchwert, nicht die Anschaffungskosten','Ja, aber nur im ersten Jahr','Nur bei degressiver Abschreibung'],
-          correct: 1,
+          answer: 1,
           explanation: 'Nein. Bei der direkten Abschreibung wird der Abschreibungsbetrag direkt vom Anlagekonto abgezogen. Das Konto zeigt nur noch den Buchwert, nicht die urspr\u00fcnglichen Anschaffungskosten.',
           tips: [], reveal: []
         },
@@ -777,7 +777,7 @@ window.BOOK_DATA = {
           title: 'Stille Reserven durch \u00dcberbewertung?',
           q: 'Stille Reserven entstehen durch \u00dcberbewertung von Aktiven bzw. Unterbewertung von Fremdkapital. Stimmt diese Aussage?',
           options: ['Ja, genau so ist es','Nein, es ist umgekehrt: durch Unterbewertung von Aktiven bzw. \u00dcberbewertung von Fremdkapital','Stille Reserven entstehen nur bei Aktiven','Stille Reserven entstehen nur bei Passiven'],
-          correct: 1,
+          answer: 1,
           explanation: 'Nein, es ist umgekehrt. Stille Reserven entstehen durch Unterbewertung von Aktiven und/oder \u00dcberbewertung von Fremdkapital.',
           tips: [], reveal: []
         },
@@ -1093,7 +1093,7 @@ window.BOOK_DATA = {
           title: 'Kalkulation eines Liefervertrags',
           q: 'Vor der Anpassung des Liefervertrags von 400 auf 640 Maschinen war bei einer Liefermenge von 400 Maschinen der Preis pro Maschine ...',
           options: ['gleich hoch, n\u00e4mlich CHF 7 937.50','niedriger, n\u00e4mlich CHF 5 500.\u2013','niedriger, n\u00e4mlich CHF 7 900.\u2013','h\u00f6her, n\u00e4mlich CHF 8 500.\u2013','h\u00f6her, n\u00e4mlich CHF 12 700.\u2013'],
-          correct: 3,
+          answer: 3,
           explanation: 'H\u00f6her, n\u00e4mlich CHF 8 500.\u2013. Bei gr\u00f6sserer Liefermenge k\u00f6nnen die Fixkosten auf mehr Einheiten verteilt werden, was den St\u00fcckpreis senkt.',
           tips: [], reveal: []
         },
@@ -1269,7 +1269,7 @@ window.BOOK_DATA = {
           title: 'Erl\u00f6sverhalten bei festgelegtem Preis',
           q: 'Mit welchem Erl\u00f6sverhalten ist bei einem festgelegten Preis zu rechnen?',
           options: ['Progressiv steigend','Konstant','Proportional (linear steigend)','Degressiv'],
-          correct: 2,
+          answer: 2,
           explanation: 'Bei einem festgelegten Preis verh\u00e4lt sich der Erl\u00f6s proportional (linear): Erl\u00f6s = Preis \u00d7 Menge.',
           tips: [], reveal: []
         },
@@ -1473,7 +1473,7 @@ window.BOOK_DATA = {
           title: 'Technisch vs. wirtschaftlich bedingtes Nutzungsende',
           q: 'In welchen F\u00e4llen ergibt sich das technisch bedingte Nutzungsende sp\u00e4ter als das wirtschaftlich bedingte Nutzungsende einer Anlage?',
           options: ['Wenn die Anlage schlecht gewartet wird','Wenn die Anlage technisch noch funktionsf\u00e4hig ist, aber wirtschaftlich nicht mehr rentabel betrieben werden kann','Wenn es keine Alternative gibt','Nie'],
-          correct: 1,
+          answer: 1,
           explanation: 'In den meisten F\u00e4llen kann eine Anlage technisch l\u00e4nger genutzt werden, als es wirtschaftlich sinnvoll ist (z. B. wegen h\u00f6herer Wartungskosten, Energieverbrauch oder veralteter Technologie).',
           tips: [], reveal: []
         },

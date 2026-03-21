@@ -22,7 +22,7 @@ window.BOOK_DATA = {
             'Ja, ein Konzept ist nur f\u00fcr grosse Unternehmen n\u00f6tig',
             'Nein, ein Marketingkonzept ist gesetzlich vorgeschrieben'
           ],
-          correct: 1,
+          answer: 1,
           tips: [
             'Denken Sie an Unternehmen, die von Einzelpersonen gef\u00fchrt werden.',
             'Es gibt Unternehmen, die intuitiv richtig handeln.'
@@ -35,14 +35,8 @@ window.BOOK_DATA = {
         {
           id: 2, type: 'fill', title: 'Die 6 Schritte des Marketingkonzepts',
           q: 'Erg\u00e4nzen Sie die 6 Schritte des Marketingkonzepts:',
-          parts: [
-            { text: '1. Die ', blank: 'Analyse', after: '' },
-            { text: '2. Die ', blank: 'Zielsetzung', after: ' (Ziele)' },
-            { text: '3. Die ', blank: 'Strategien', after: '' },
-            { text: '4. Die ', blank: 'Instrumente', after: ' (Marketing-Mix)' },
-            { text: '5. Das ', blank: 'Budget', after: ' und die Realisation' },
-            { text: '6. Die ', blank: 'Kontrolle', after: '' }
-          ],
+          template: '1. Die {0}, 2. Die {1} (Ziele), 3. Die {2}, 4. Die {3} (Marketing-Mix), 5. Das {4} und die Realisation, 6. Die {5}',
+          blanks: [['Analyse'],['Zielsetzung'],['Strategien'],['Instrumente'],['Budget'],['Kontrolle']],
           tips: ['Denken Sie an die logische Reihenfolge eines Planungsprozesses.'],
           reveal: ['Die 6 Schritte: Analyse, Zielsetzung, Strategien, Instrumente, Budget/Realisation, Kontrolle.']
         },
@@ -55,7 +49,7 @@ window.BOOK_DATA = {
             'C) Marketing heisst, mit Werbung den Brand optimal zu positionieren.',
             'D) Marketing ist Planung, Koordination und Kontrolle aller auf die aktuellen und potenziellen M\u00e4rkte ausgerichteten Unternehmensaktivit\u00e4ten.'
           ],
-          correct: 2,
+          answer: 2,
           tips: ['Welche Definition beschr\u00e4nkt sich nur auf Werbung?'],
           reveal: [
             'C ist nicht allgemeing\u00fcltig \u2013 Marketing ist viel mehr als nur Werbung.',
@@ -71,16 +65,16 @@ window.BOOK_DATA = {
             'Konzept auf Marktleistungsebene',
             'Konzept auf Abteilungsebene'
           ],
-          correct: 2,
+          answer: 2,
           tips: ['Auf welcher Ebene arbeitet ein Produktmanager typischerweise?'],
           reveal: ['Da es um ein einzelnes Produkt geht, handelt es sich um ein Konzept auf der Ebene Marktleistung.']
         },
         {
           id: 5, type: 'tf', title: 'Iterativer Prozess',
           statements: [
-            { text: 'In der Praxis baut man ein Marketingkonzept streng linear auf.', correct: false, feedback: 'Die Erarbeitung ist ein iterativer Prozess \u2013 die Phasen beeinflussen sich gegenseitig.' },
-            { text: 'Neue Informationen k\u00f6nnen die Analyse und Ziele jederzeit \u00e4ndern.', correct: true, feedback: 'Richtig \u2013 deshalb ist der Prozess iterativ.' },
-            { text: 'In der Pr\u00fcfung wird das Konzept oft linear dargestellt.', correct: true, feedback: 'Aus didaktischen Gr\u00fcnden wird das Konzept in Pr\u00fcfungen oft linear aufgebaut.' }
+            { s: 'In der Praxis baut man ein Marketingkonzept streng linear auf.', c: false, feedback: 'Die Erarbeitung ist ein iterativer Prozess \u2013 die Phasen beeinflussen sich gegenseitig.' },
+            { s: 'Neue Informationen k\u00f6nnen die Analyse und Ziele jederzeit \u00e4ndern.', c: true, feedback: 'Richtig \u2013 deshalb ist der Prozess iterativ.' },
+            { s: 'In der Pr\u00fcfung wird das Konzept oft linear dargestellt.', c: true, feedback: 'Aus didaktischen Gr\u00fcnden wird das Konzept in Pr\u00fcfungen oft linear aufgebaut.' }
           ],
           tips: [],
           reveal: []
@@ -181,15 +175,15 @@ window.BOOK_DATA = {
       id: 'ch2', num: 'Teil A \u2013 Kapitel 2', title: 'Marktdefinition und Abh\u00e4ngigkeiten',
       exercises: [
         {
-          id: 6, type: 'check', title: 'Teilm\u00e4rkte oder Segmente?',
+          id: 6, type: 'match', title: 'Teilm\u00e4rkte oder Segmente?',
           q: 'Handelt es sich bei den folgenden Einteilungen um Teilm\u00e4rkte oder Segmente?',
-          headers: ['Beispiel', 'Teilmarkt', 'Segment'],
-          rows: [
-            { label: 'Studierende an Fachhochschulen, Universit\u00e4ten und ETHs, die B\u00fccher kaufen', correct: 1 },
-            { label: 'Lehrmittel f\u00fcr Fachhochschulen, die von Verlagen produziert werden', correct: 0 },
-            { label: 'Sportliche Fahrer, die BMW, Audi oder Ford Mustang lieben', correct: 1 },
-            { label: 'Die Firma Dow Chemicals beliefert Unternehmen in der Kosmetik- und Automobilbranche mit Silikonen', correct: 0 }
+          pairs: [
+            { l: 'Studierende an Fachhochschulen, Universit\u00e4ten und ETHs, die B\u00fccher kaufen', r: 'Segment' },
+            { l: 'Lehrmittel f\u00fcr Fachhochschulen, die von Verlagen produziert werden', r: 'Teilmarkt' },
+            { l: 'Sportliche Fahrer, die BMW, Audi oder Ford Mustang lieben', r: 'Segment' },
+            { l: 'Die Firma Dow Chemicals beliefert Unternehmen in der Kosmetik- und Automobilbranche mit Silikonen', r: 'Teilmarkt' }
           ],
+          options: ['Teilmarkt', 'Segment'],
           tips: ['Teilm\u00e4rkte werden nach dem Angebot definiert, Segmente nach der Nachfrage (Kundengruppen).'],
           reveal: []
         },
@@ -240,10 +234,10 @@ window.BOOK_DATA = {
           id: 10, type: 'match', title: 'Marktgr\u00f6ssen ordnen',
           q: 'Ordnen Sie die Marktgr\u00f6ssen in aufsteigender Reihenfolge (1=kleinste, 4=gr\u00f6sste).',
           pairs: [
-            { left: 'Marktanteil', right: '1' },
-            { left: 'Marktvolumen', right: '2' },
-            { left: 'Marktpotenzial', right: '3' },
-            { left: 'Marktkapazit\u00e4t', right: '4' }
+            { l: 'Marktanteil', r: '1' },
+            { l: 'Marktvolumen', r: '2' },
+            { l: 'Marktpotenzial', r: '3' },
+            { l: 'Marktkapazit\u00e4t', r: '4' }
           ],
           options: ['1', '2', '3', '4'],
           tips: [],
@@ -280,11 +274,11 @@ window.BOOK_DATA = {
         {
           id: 13, type: 'tf', title: 'Marktanalyse: Richtig oder falsch?',
           statements: [
-            { text: 'Beim Benchmarking vergleicht man sich immer mit dem Branchenleader.', correct: false, feedback: 'Man kann auch internes Benchmarking betreiben oder Best-in-Class aus anderen Branchen.' },
-            { text: 'Bei einer ABC-Analyse generieren A-Kunden \u00fcberdurchschnittlich viel Umsatz.', correct: true, feedback: 'A-Kunden machen ca. 80% des Umsatzes aus.' },
-            { text: 'Ein iPhone ist ein High-Involvement-Produkt f\u00fcr die meisten Jugendlichen.', correct: true, feedback: 'Hoher Preis, emotionale Bindung \u2013 typisch High-Involvement.' },
-            { text: 'In einem Markt, der schnell w\u00e4chst, ist die Rivalit\u00e4t eher gering.', correct: true, feedback: 'Bei Marktwachstum k\u00f6nnen alle Anbieter wachsen, der Wettbewerb ist weniger intensiv.' },
-            { text: 'Je h\u00f6her die Markteintrittsbarrieren, desto h\u00f6her die m\u00f6gliche Rentabilit\u00e4t der etablierten Unternehmen.', correct: true, feedback: 'Hohe Barrieren sch\u00fctzen bestehende Anbieter.' }
+            { s: 'Beim Benchmarking vergleicht man sich immer mit dem Branchenleader.', c: false, feedback: 'Man kann auch internes Benchmarking betreiben oder Best-in-Class aus anderen Branchen.' },
+            { s: 'Bei einer ABC-Analyse generieren A-Kunden \u00fcberdurchschnittlich viel Umsatz.', c: true, feedback: 'A-Kunden machen ca. 80% des Umsatzes aus.' },
+            { s: 'Ein iPhone ist ein High-Involvement-Produkt f\u00fcr die meisten Jugendlichen.', c: true, feedback: 'Hoher Preis, emotionale Bindung \u2013 typisch High-Involvement.' },
+            { s: 'In einem Markt, der schnell w\u00e4chst, ist die Rivalit\u00e4t eher gering.', c: true, feedback: 'Bei Marktwachstum k\u00f6nnen alle Anbieter wachsen, der Wettbewerb ist weniger intensiv.' },
+            { s: 'Je h\u00f6her die Markteintrittsbarrieren, desto h\u00f6her die m\u00f6gliche Rentabilit\u00e4t der etablierten Unternehmen.', c: true, feedback: 'Hohe Barrieren sch\u00fctzen bestehende Anbieter.' }
           ],
           tips: [],
           reveal: []
@@ -298,7 +292,7 @@ window.BOOK_DATA = {
             'Es kommt auf die Situation an',
             'Nur wenn er nicht bei Swisscom angestellt ist'
           ],
-          correct: 1,
+          answer: 1,
           tips: ['Der Verk\u00e4ufer ist Teil des Vertriebskanals, nicht ein externer Beeinflusser.'],
           reveal: [
             'Nein. Der Verk\u00e4ufer ist Teil der Handelskette \u2013 kein externer Beeinflusser.',
@@ -314,7 +308,7 @@ window.BOOK_DATA = {
             'Nein, sie sind interne Beeinflusser',
             'Nur wenn sie bezahlt werden'
           ],
-          correct: 1,
+          answer: 1,
           tips: ['TripAdvisor-Bewertungen beeinflussen die Kaufentscheidung anderer.'],
           reveal: ['Ja. Bewertungen auf Plattformen wie TripAdvisor beeinflussen die Kaufentscheidung Dritter \u2013 das macht die Rezensenten zu externen Beeinflussern.']
         },
@@ -327,28 +321,28 @@ window.BOOK_DATA = {
             'Eine Motivation',
             'Ein Bed\u00fcrfnis'
           ],
-          correct: 1,
+          answer: 1,
           tips: ['Emotionen sind kurzfristige Gef\u00fchle, Einstellungen sind langfristig.'],
           reveal: ['Gl\u00fcck ist eine Emotion \u2013 ein kurzfristiges Gef\u00fchl im Moment des Genusses.']
         },
         {
           id: 17, type: 'tf', title: 'Konkurrenten und Qualit\u00e4t',
           statements: [
-            { text: 'Konkurrenten, die kosteng\u00fcnstig produzieren, sind weniger gef\u00e4hrlich f\u00fcr ein Unternehmen, weil die Qualit\u00e4t der Produkte schlecht ist.', correct: false, feedback: 'Kosteng\u00fcnstige Produktion bedeutet nicht automatisch schlechte Qualit\u00e4t. Kostenf\u00fchrerschaft kann sehr gef\u00e4hrlich sein.' }
+            { s: 'Konkurrenten, die kosteng\u00fcnstig produzieren, sind weniger gef\u00e4hrlich f\u00fcr ein Unternehmen, weil die Qualit\u00e4t der Produkte schlecht ist.', c: false, feedback: 'Kosteng\u00fcnstige Produktion bedeutet nicht automatisch schlechte Qualit\u00e4t. Kostenf\u00fchrerschaft kann sehr gef\u00e4hrlich sein.' }
           ],
           tips: [],
           reveal: []
         },
         {
-          id: 18, type: 'check', title: 'Five Forces: Hyatt-Hotel Z\u00fcrich',
+          id: 18, type: 'match', title: 'Five Forces: Hyatt-Hotel Z\u00fcrich',
           q: 'Ordnen Sie die folgenden Faktoren den f\u00fcnf Wettbewerbskr\u00e4ften nach Porter zu.',
-          headers: ['Faktor', 'Neue Konkurrenten', 'Abnehmer', 'Lieferanten', 'Ersatzprodukte', 'Rivalit\u00e4t'],
-          rows: [
-            { label: 'Airbnb-Vermietungsplattform', correct: 3 },
-            { label: 'Booking.com-Reservationsplattform', correct: 1 },
-            { label: 'Tiefpreispolitik von Hilton in Z\u00fcrich', correct: 4 },
-            { label: 'Fusion der gr\u00f6ssten Konferenz- und Messeveranstalter', correct: 2 }
+          pairs: [
+            { l: 'Airbnb-Vermietungsplattform', r: 'Ersatzprodukte' },
+            { l: 'Booking.com-Reservationsplattform', r: 'Abnehmer' },
+            { l: 'Tiefpreispolitik von Hilton in Z\u00fcrich', r: 'Rivalit\u00e4t' },
+            { l: 'Fusion der gr\u00f6ssten Konferenz- und Messeveranstalter', r: 'Lieferanten' }
           ],
+          options: ['Neue Konkurrenten', 'Abnehmer', 'Lieferanten', 'Ersatzprodukte', 'Rivalit\u00e4t'],
           tips: ['Denken Sie: wer ist Ersatzprodukt, wer verst\u00e4rkt die Verhandlungsmacht?'],
           reveal: []
         },
@@ -371,7 +365,7 @@ window.BOOK_DATA = {
             'IHA-GfK AG',
             'gfs.bern'
           ],
-          correct: 2,
+          answer: 2,
           tips: ['Schauen Sie sich die Tabelle der Forschungsums\u00e4tze an.'],
           reveal: ['IHA-GfK AG (Hergiswil/Lausanne) ist mit Abstand das gr\u00f6sste Schweizer Marktforschungsinstitut.']
         }
@@ -414,7 +408,7 @@ window.BOOK_DATA = {
             'Beides',
             'Keines von beiden'
           ],
-          correct: 1,
+          answer: 1,
           tips: ['KEF gelten f\u00fcr alle in der Branche. SEP sind unternehmensspezifisch.'],
           reveal: [
             'Die Gr\u00f6sse ist ein kritischer Erfolgsfaktor (KEF) \u2013 sie gilt f\u00fcr alle Unternehmen in der \u00d6lbranche.',
@@ -422,32 +416,32 @@ window.BOOK_DATA = {
           ]
         },
         {
-          id: 24, type: 'check', title: 'SWOT-Analyse: MUSKELFIT Fitnesscenter',
+          id: 24, type: 'match', title: 'SWOT-Analyse: MUSKELFIT Fitnesscenter',
           q: 'Ordnen Sie die Aussagen den SWOT-Bereichen zu (S=St\u00e4rke, W=Schw\u00e4che, O=Opportunity/Chance, T=Threat/Gefahr).',
-          headers: ['Aussage', 'S', 'W', 'O', 'T'],
-          rows: [
-            { label: 'Es besteht ein starker Trend zu Outdooraktivit\u00e4ten.', correct: 3 },
-            { label: 'Fitnesscenter hat optimalen Standort.', correct: 0 },
-            { label: 'Wir verf\u00fcgen \u00fcber eine gute Kostenstruktur.', correct: 0 },
-            { label: 'Im Vergleich zur Konkurrenz haben wir eine schlechte Kommunikationspolitik.', correct: 1 },
-            { label: 'Es gibt einen Trend zu Fitness / K\u00f6rperbewusstsein.', correct: 2 },
-            { label: 'Krankenkassen streichen Beitr\u00e4ge f\u00fcr Sport-Abos.', correct: 3 }
+          pairs: [
+            { l: 'Es besteht ein starker Trend zu Outdooraktivit\u00e4ten.', r: 'T' },
+            { l: 'Fitnesscenter hat optimalen Standort.', r: 'S' },
+            { l: 'Wir verf\u00fcgen \u00fcber eine gute Kostenstruktur.', r: 'S' },
+            { l: 'Im Vergleich zur Konkurrenz haben wir eine schlechte Kommunikationspolitik.', r: 'W' },
+            { l: 'Es gibt einen Trend zu Fitness / K\u00f6rperbewusstsein.', r: 'O' },
+            { l: 'Krankenkassen streichen Beitr\u00e4ge f\u00fcr Sport-Abos.', r: 'T' }
           ],
+          options: ['S', 'W', 'O', 'T'],
           tips: ['Intern = St\u00e4rken/Schw\u00e4chen; Extern = Chancen/Gefahren'],
           reveal: []
         },
         {
-          id: 25, type: 'check', title: 'McKinsey: M oder W?',
+          id: 25, type: 'match', title: 'McKinsey: M oder W?',
           q: 'Ordnen Sie die Bewertungskriterien den Dimensionen Marktattraktivit\u00e4t (M) oder Wettbewerbsvorteil (W) zu.',
-          headers: ['Bewertungskriterium', 'M', 'W'],
-          rows: [
-            { label: 'Mengenentwicklung', correct: 0 },
-            { label: 'Ressourcenpotenzial', correct: 1 },
-            { label: 'Marktanteilsentwicklung', correct: 1 },
-            { label: 'Marktwachstumspotenzial', correct: 0 },
-            { label: 'Effizienz der Abwicklungsprozesse', correct: 1 },
-            { label: 'Kundenverhalten', correct: 0 }
+          pairs: [
+            { l: 'Mengenentwicklung', r: 'M' },
+            { l: 'Ressourcenpotenzial', r: 'W' },
+            { l: 'Marktanteilsentwicklung', r: 'W' },
+            { l: 'Marktwachstumspotenzial', r: 'M' },
+            { l: 'Effizienz der Abwicklungsprozesse', r: 'W' },
+            { l: 'Kundenverhalten', r: 'M' }
           ],
+          options: ['M', 'W'],
           tips: ['M betrifft den Markt als Ganzes, W betrifft das eigene Unternehmen.'],
           reveal: []
         },
@@ -475,12 +469,8 @@ window.BOOK_DATA = {
         {
           id: 27, type: 'fill', title: 'Zielhierarchie',
           q: 'Ordnen Sie die Zielebenen in die richtige Reihenfolge (von oben nach unten):',
-          parts: [
-            { text: '1. ', blank: 'Unternehmensziele', after: '' },
-            { text: '2. ', blank: 'Marketingoberziele', after: '' },
-            { text: '3. ', blank: 'Marketingzwischenziele', after: '' },
-            { text: '4. ', blank: 'Marketingunterziele', after: '' }
-          ],
+          template: '1. {0}, 2. {1}, 3. {2}, 4. {3}',
+          blanks: [['Unternehmensziele'],['Marketingoberziele'],['Marketingzwischenziele'],['Marketingunterziele']],
           tips: ['Von der obersten Ebene (Unternehmen) bis zur untersten (Unterziele).'],
           reveal: []
         },
@@ -493,7 +483,7 @@ window.BOOK_DATA = {
             'Mittelfristige Ziele von 2-3 Jahren',
             'Ziele ohne Zeitbezug'
           ],
-          correct: 1,
+          answer: 1,
           tips: ['Strategisch = langfristig, operativ = mittelfristig, taktisch = kurzfristig.'],
           reveal: []
         },
@@ -543,9 +533,9 @@ window.BOOK_DATA = {
           id: 32, type: 'match', title: 'Zielhierarchie ordnen',
           q: 'Bringen Sie die folgenden Ziele in eine Zielhierarchie (1=oberste Ebene, 3=unterste).',
           pairs: [
-            { left: 'Umsatz von Produkt A im Jahr 20xx in der Schweiz: CHF 3.2 Mio.', right: '1' },
-            { left: 'Kosten von Produkt A im Jahr 20xx in der Schweiz: CHF 2.5 Mio.', right: '2' },
-            { left: 'Rendite von Produkt A im Jahr 20xx in der Schweiz: 15%', right: '3' }
+            { l: 'Umsatz von Produkt A im Jahr 20xx in der Schweiz: CHF 3.2 Mio.', r: '1' },
+            { l: 'Kosten von Produkt A im Jahr 20xx in der Schweiz: CHF 2.5 Mio.', r: '2' },
+            { l: 'Rendite von Produkt A im Jahr 20xx in der Schweiz: 15%', r: '3' }
           ],
           options: ['1', '2', '3'],
           tips: ['Rendite = Gewinn/Umsatz. Was leitet sich woraus ab?'],
@@ -556,27 +546,27 @@ window.BOOK_DATA = {
           ]
         },
         {
-          id: 33, type: 'check', title: 'Zielbeziehungen',
+          id: 33, type: 'match', title: 'Zielbeziehungen',
           q: 'Welche Beziehung besteht zwischen folgenden Zielen? Annahmen: 1) Umsatz steigt \u2192 Gewinn steigt, 2) Preis steigt \u2192 Umsatz konstant, 3) Preis steigt \u2192 Kunden unzufrieden, 4) Zuschlagskalkulation.',
-          headers: ['Zielpaar', 'Zielkonflikt', 'Zielkongruenz', 'Zielindifferenz'],
-          rows: [
-            { label: 'Umsatz und Gewinn', correct: 1 },
-            { label: 'Kundenzufriedenheit und Preis', correct: 0 },
-            { label: 'Umsatz und Marge', correct: 2 }
+          pairs: [
+            { l: 'Umsatz und Gewinn', r: 'Zielkongruenz' },
+            { l: 'Kundenzufriedenheit und Preis', r: 'Zielkonflikt' },
+            { l: 'Umsatz und Marge', r: 'Zielindifferenz' }
           ],
+          options: ['Zielkonflikt', 'Zielkongruenz', 'Zielindifferenz'],
           tips: ['Zielkonflikt: Ziele widersprechen sich. Zielkongruenz: Ziele unterst\u00fctzen sich. Zielindifferenz: keine Beziehung.'],
           reveal: []
         },
         {
-          id: 34, type: 'check', title: 'SMART-Formel',
-          q: 'Welche Elemente der SMART-Formel enthalten die folgenden Zielformulierungen?',
-          headers: ['Zielformulierung', 'S', 'M', 'A', 'R', 'T'],
-          rows: [
-            { label: 'Ich will in 2 Wochen 4 Kilo abnehmen.', correct: 4 },
-            { label: 'Mein Konzept f\u00fcr die Umnutzung des Dachgeschosses liegt per 31.05., 9 Uhr zur Verabschiedung vor.', correct: 4 },
-            { label: 'Bis Anfang n\u00e4chster Woche erarbeite ich eine Grossofferte f\u00fcr die Firma Alpa AG.', correct: 3 },
-            { label: 'Bis 15. Dezember 20xx versenden wir die Weihnachtsgeschenke an Firmenkunden.', correct: 4 }
+          id: 34, type: 'match', title: 'SMART-Formel',
+          q: 'Welches Element fehlt in der jeweiligen Zielformulierung (S=spezifisch, M=messbar, A=attraktiv, R=realistisch, T=terminiert)?',
+          pairs: [
+            { l: 'Ich will in 2 Wochen 4 Kilo abnehmen.', r: 'T' },
+            { l: 'Mein Konzept f\u00fcr die Umnutzung des Dachgeschosses liegt per 31.05., 9 Uhr zur Verabschiedung vor.', r: 'T' },
+            { l: 'Bis Anfang n\u00e4chster Woche erarbeite ich eine Grossofferte f\u00fcr die Firma Alpa AG.', r: 'R' },
+            { l: 'Bis 15. Dezember 20xx versenden wir die Weihnachtsgeschenke an Firmenkunden.', r: 'T' }
           ],
+          options: ['S', 'M', 'A', 'R', 'T'],
           tips: ['S=spezifisch, M=messbar, A=attraktiv/akzeptiert, R=realistisch, T=terminiert'],
           reveal: []
         }
@@ -591,15 +581,15 @@ window.BOOK_DATA = {
       id: 'ch6', num: 'Teil A \u2013 Kapitel 6', title: 'Marketingstrategien',
       exercises: [
         {
-          id: 35, type: 'check', title: 'Ansoff-Matrix zuordnen',
+          id: 35, type: 'match', title: 'Ansoff-Matrix zuordnen',
           q: 'Um welche Wachstumsstrategie nach Ansoff handelt es sich?',
-          headers: ['Beispiel', 'Marktpenetration', 'Produkt-/Sortimentsentwicklung', 'Marktentwicklung', 'Diversifikation'],
-          rows: [
-            { label: 'Starbucks betreibt nicht nur Restaurants, sondern verkauft Kaffee in Superm\u00e4rkten.', correct: 2 },
-            { label: 'Lindt-Schokoladen treten mit grossem Aufwand in den amerikanischen Markt ein.', correct: 2 },
-            { label: 'Das Plattenlabel Virgin betreibt eine Fluglinie und stellt Cola her.', correct: 3 },
-            { label: 'Google \u00fcbernimmt YouTube f\u00fcr USD 1.6 Mrd.', correct: 3 }
+          pairs: [
+            { l: 'Starbucks betreibt nicht nur Restaurants, sondern verkauft Kaffee in Superm\u00e4rkten.', r: 'Marktentwicklung' },
+            { l: 'Lindt-Schokoladen treten mit grossem Aufwand in den amerikanischen Markt ein.', r: 'Marktentwicklung' },
+            { l: 'Das Plattenlabel Virgin betreibt eine Fluglinie und stellt Cola her.', r: 'Diversifikation' },
+            { l: 'Google \u00fcbernimmt YouTube f\u00fcr USD 1.6 Mrd.', r: 'Diversifikation' }
           ],
+          options: ['Marktpenetration', 'Produkt-/Sortimentsentwicklung', 'Marktentwicklung', 'Diversifikation'],
           tips: ['Marktpenetration: gleicher Markt, gleiches Produkt. Marktentwicklung: neuer Markt. Produktentwicklung: neues Produkt. Diversifikation: neuer Markt + neues Produkt.'],
           reveal: []
         },
@@ -636,7 +626,7 @@ window.BOOK_DATA = {
             'Wenn das Unternehmen viele Ressourcen hat',
             'Wenn der Markt ges\u00e4ttigt ist'
           ],
-          correct: 1,
+          answer: 1,
           tips: ['Bei homogenen Bed\u00fcrfnissen lohnt sich keine Differenzierung.'],
           reveal: []
         },
@@ -714,7 +704,7 @@ window.BOOK_DATA = {
             'Nur bei Wahlkampf',
             'Nein, Politik hat nichts mit Marketing zu tun'
           ],
-          correct: 1,
+          answer: 1,
           tips: ['Denken Sie an Wahlkampf, Parteiimage, Positionierung.'],
           reveal: ['Ja \u2013 Parteien nutzen Marketinginstrumente: Marktforschung, Zielgruppenansprache, Positionierung, Kommunikationsmix.']
         },
@@ -722,10 +712,10 @@ window.BOOK_DATA = {
           id: 46, type: 'match', title: 'Submix zuordnen',
           q: 'Ordnen Sie die Instrumente dem richtigen Submix zu.',
           pairs: [
-            { left: 'Sortimentspolitik', right: 'Product' },
-            { left: 'Rabattgew\u00e4hrung', right: 'Price' },
-            { left: 'Wahl des Vertriebskanals', right: 'Place' },
-            { left: 'Werbung und PR', right: 'Promotion' }
+            { l: 'Sortimentspolitik', r: 'Product' },
+            { l: 'Rabattgew\u00e4hrung', r: 'Price' },
+            { l: 'Wahl des Vertriebskanals', r: 'Place' },
+            { l: 'Werbung und PR', r: 'Promotion' }
           ],
           options: ['Product', 'Price', 'Place', 'Promotion'],
           tips: [],
@@ -740,16 +730,16 @@ window.BOOK_DATA = {
             'Instrumente mit hoher Absatzbedeutung und geringem Freiheitsgrad',
             'Instrumente mit geringer Absatzbedeutung und geringem Freiheitsgrad'
           ],
-          correct: 1,
+          answer: 1,
           tips: ['Dominant = wichtig UND der Konkurrenz \u00fcberlegen (grosser Freiheitsgrad).'],
           reveal: ['Dominante Instrumente sind wichtig f\u00fcr den Absatz UND bieten Freiheitsgrade zur Differenzierung gegen\u00fcber der Konkurrenz.']
         },
         {
           id: 48, type: 'tf', title: 'Konsumg\u00fctermarketing',
           statements: [
-            { text: 'Beim Konsumg\u00fctermarketing hat sich die Formel mit den 4 P (Product, Price, Place, Promotion) gut bew\u00e4hrt.', correct: true, feedback: 'Richtig. Die 4P sind das klassische Modell f\u00fcr Konsumg\u00fctermarketing.' },
-            { text: 'Bei personalintensiven Dienstleistungen reichen die 4P aus.', correct: false, feedback: 'Falsch. Bei Dienstleistungen kommen 3 zus\u00e4tzliche P hinzu: People, Process, Physical Tangibles.' },
-            { text: 'Investitionsg\u00fctermarketing besteht aus wenigen K\u00e4ufern mit enger Beziehung.', correct: true, feedback: 'Richtig. Wenige K\u00e4ufer, enge Beziehung, Kaufentscheid durch mehrere Personen (Buying Center).' }
+            { s: 'Beim Konsumg\u00fctermarketing hat sich die Formel mit den 4 P (Product, Price, Place, Promotion) gut bew\u00e4hrt.', c: true, feedback: 'Richtig. Die 4P sind das klassische Modell f\u00fcr Konsumg\u00fctermarketing.' },
+            { s: 'Bei personalintensiven Dienstleistungen reichen die 4P aus.', c: false, feedback: 'Falsch. Bei Dienstleistungen kommen 3 zus\u00e4tzliche P hinzu: People, Process, Physical Tangibles.' },
+            { s: 'Investitionsg\u00fctermarketing besteht aus wenigen K\u00e4ufern mit enger Beziehung.', c: true, feedback: 'Richtig. Wenige K\u00e4ufer, enge Beziehung, Kaufentscheid durch mehrere Personen (Buying Center).' }
           ],
           tips: [],
           reveal: []
@@ -765,14 +755,14 @@ window.BOOK_DATA = {
       id: 'ch8', num: 'Teil A \u2013 Kapitel 8', title: 'Produktmix I: das Produkt (Product)',
       exercises: [
         {
-          id: 49, type: 'check', title: 'Kernprodukt, formales oder erweitertes Produkt?',
+          id: 49, type: 'match', title: 'Kernprodukt, formales oder erweitertes Produkt?',
           q: 'Bei einer Stadtrundfahrt: Handelt es sich um das Kernprodukt, das formale Produkt oder das erweiterte Produkt?',
-          headers: ['Beschreibung', 'Kernprodukt', 'Formales Produkt', 'Erweitertes Produkt'],
-          rows: [
-            { label: 'Die Touristen erhalten einen 20%-Rabattcoupon f\u00fcr ein Musical am Broadway.', correct: 2 },
-            { label: 'Die Tageskarte erlaubt, bei jeder Haltestelle auszusteigen. Busse verkehren im Halbstundentakt.', correct: 1 },
-            { label: 'Der Bus stoppt, sodass die Touristen die Freiheitsstatue fotografieren k\u00f6nnen.', correct: 0 }
+          pairs: [
+            { l: 'Die Touristen erhalten einen 20%-Rabattcoupon f\u00fcr ein Musical am Broadway.', r: 'Erweitertes Produkt' },
+            { l: 'Die Tageskarte erlaubt, bei jeder Haltestelle auszusteigen. Busse verkehren im Halbstundentakt.', r: 'Formales Produkt' },
+            { l: 'Der Bus stoppt, sodass die Touristen die Freiheitsstatue fotografieren k\u00f6nnen.', r: 'Kernprodukt' }
           ],
+          options: ['Kernprodukt', 'Formales Produkt', 'Erweitertes Produkt'],
           tips: ['Kernprodukt = Grundnutzen, formales Produkt = konkretes Angebot, erweitertes Produkt = Zusatzleistungen.'],
           reveal: []
         },
@@ -802,12 +792,8 @@ window.BOOK_DATA = {
         {
           id: 52, type: 'fill', title: 'Sortimentsdimensionen',
           q: 'Erg\u00e4nzen Sie die vier Dimensionen der Sortimentspolitik:',
-          parts: [
-            { text: '1. Die ', blank: 'Breite', after: ' (Anzahl Produktlinien)' },
-            { text: '2. Die ', blank: 'L\u00e4nge', after: ' (Anzahl Produkttypen)' },
-            { text: '3. Die ', blank: 'Tiefe', after: ' (Anzahl Varianten pro Produkttyp)' },
-            { text: '4. Die ', blank: 'Geschlossenheit', after: ' (Beziehung zwischen den Artikeln)' }
-          ],
+          template: '1. Die {0} (Anzahl Produktlinien), 2. Die {1} (Anzahl Produkttypen), 3. Die {2} (Anzahl Varianten pro Produkttyp), 4. Die {3} (Beziehung zwischen den Artikeln)',
+          blanks: [['Breite'],['L\u00e4nge'],['Tiefe'],['Geschlossenheit']],
           tips: ['Denken Sie an Breite, L\u00e4nge, Tiefe, Geschlossenheit.'],
           reveal: []
         },
@@ -820,7 +806,7 @@ window.BOOK_DATA = {
             'Zur Bestimmung der Marktgr\u00f6sse',
             'Zur Wettbewerbsanalyse'
           ],
-          correct: 1,
+          answer: 1,
           tips: ['ABC = Klassifizierung nach Wichtigkeit.'],
           reveal: []
         }
@@ -880,12 +866,12 @@ window.BOOK_DATA = {
           id: 57, type: 'match', title: 'Produktentwicklungsphasen',
           q: 'Ordnen Sie die Begriffe den sechs Phasen der Produktentwicklung zu.',
           pairs: [
-            { left: 'Brainstorming', right: 'Ideengewinnung' },
-            { left: 'Eliminierung von schlechten Ideen', right: 'Ideenauswahl' },
-            { left: 'Target Costing', right: 'Wirtschaftlichkeitsanalyse' },
-            { left: 'Marktbeobachtung', right: 'Einf\u00fchrung' },
-            { left: 'Mindmapping', right: 'Ideengewinnung' },
-            { left: 'Testmarkt', right: 'Beta- und Markttest' }
+            { l: 'Brainstorming', r: 'Ideengewinnung' },
+            { l: 'Eliminierung von schlechten Ideen', r: 'Ideenauswahl' },
+            { l: 'Target Costing', r: 'Wirtschaftlichkeitsanalyse' },
+            { l: 'Marktbeobachtung', r: 'Einf\u00fchrung' },
+            { l: 'Mindmapping', r: 'Ideengewinnung' },
+            { l: 'Testmarkt', r: 'Beta- und Markttest' }
           ],
           options: ['Ideengewinnung', 'Ideenauswahl', 'Konzeptentwicklung und -test', 'Wirtschaftlichkeitsanalyse', 'Beta- und Markttest', 'Einf\u00fchrung'],
           tips: [],
@@ -900,7 +886,7 @@ window.BOOK_DATA = {
             'Fr\u00fche Adopter',
             'Sp\u00e4te Mehrheit'
           ],
-          correct: 1,
+          answer: 1,
           tips: ['Der Diffusionsprozess beginnt mit den Innovatoren.'],
           reveal: ['Reihenfolge: 1. Innovatoren, 2. Fr\u00fche Adopter, 3. Fr\u00fche Mehrheit, 4. Sp\u00e4te Mehrheit, 5. Nachz\u00fcgler.']
         }
@@ -916,15 +902,14 @@ window.BOOK_DATA = {
       exercises: [
         {
           id: 59, type: 'check', title: 'Funktionen der Verpackung',
-          q: 'Welche der angegebenen Begriffe ist KEINE Funktion der Verpackung?',
-          headers: ['Begriff', 'Ist Funktion', 'Ist keine Funktion'],
-          rows: [
-            { label: 'Information', correct: 0 },
-            { label: 'Produktdifferenzierung', correct: 0 },
-            { label: 'Dosierfunktion', correct: 0 },
-            { label: 'Kosteng\u00fcnstig', correct: 1 },
-            { label: 'Stapelbarkeit', correct: 0 },
-            { label: 'Verkaufsfunktion', correct: 0 }
+          q: 'Welche der angegebenen Begriffe ist eine Funktion der Verpackung?',
+          statements: [
+            { s: 'Information', c: true },
+            { s: 'Produktdifferenzierung', c: true },
+            { s: 'Dosierfunktion', c: true },
+            { s: 'Kosteng\u00fcnstig', c: false },
+            { s: 'Stapelbarkeit', c: true },
+            { s: 'Verkaufsfunktion', c: true }
           ],
           tips: ['\u00abKosteng\u00fcnstig\u00bb ist eine Anforderung, keine Funktion.'],
           reveal: []
@@ -948,7 +933,7 @@ window.BOOK_DATA = {
             'Recycling-Beh\u00e4lter',
             'Paletten f\u00fcr den Lufttransport'
           ],
-          correct: 1,
+          answer: 1,
           tips: ['EUL dienen der effizienten Logistik.'],
           reveal: []
         },
@@ -956,9 +941,9 @@ window.BOOK_DATA = {
           id: 62, type: 'match', title: 'Verpackungsarten',
           q: 'Ordnen Sie die Verpackungsarten richtig zu.',
           pairs: [
-            { left: 'Steht in direktem Kontakt mit dem Produkt', right: 'Prim\u00e4rverpackung' },
-            { left: 'Dient als Informationstr\u00e4ger und Werbemittel', right: 'Sekund\u00e4rverpackung' },
-            { left: 'Dient als Lager- und Transporthilfsmittel', right: 'Terti\u00e4rverpackung' }
+            { l: 'Steht in direktem Kontakt mit dem Produkt', r: 'Prim\u00e4rverpackung' },
+            { l: 'Dient als Informationstr\u00e4ger und Werbemittel', r: 'Sekund\u00e4rverpackung' },
+            { l: 'Dient als Lager- und Transporthilfsmittel', r: 'Terti\u00e4rverpackung' }
           ],
           options: ['Prim\u00e4rverpackung', 'Sekund\u00e4rverpackung', 'Terti\u00e4rverpackung'],
           tips: [],
@@ -973,7 +958,7 @@ window.BOOK_DATA = {
             'Angabe des Preises',
             'Hinweis auf das Herkunftsland'
           ],
-          correct: 1,
+          answer: 1,
           tips: ['GS1 = Global Standards One.'],
           reveal: []
         }
@@ -1020,7 +1005,7 @@ window.BOOK_DATA = {
             'Preise f\u00fcr alle erh\u00f6hen',
             'Keine Rabatte geben'
           ],
-          correct: 1,
+          answer: 1,
           tips: [],
           reveal: []
         },
@@ -1033,7 +1018,7 @@ window.BOOK_DATA = {
             'Es gibt keine Preiselastizit\u00e4t in der Hotellerie',
             'Kann nicht beurteilt werden'
           ],
-          correct: 1,
+          answer: 1,
           tips: ['Normalerweise: h\u00f6herer Preis = weniger Nachfrage.'],
           reveal: ['Nein, keine \u00abpositive Preiselastizit\u00e4t\u00bb im klassischen Sinne. Die hohe Nachfrage in der Hauptsaison trotz h\u00f6herem Preis ist durch saisonale Faktoren bedingt (Weihnachten, Skiferien), nicht durch den Preis.']
         },
@@ -1046,16 +1031,16 @@ window.BOOK_DATA = {
             'Promotion',
             'Alle drei'
           ],
-          correct: 1,
+          answer: 1,
           tips: ['Rabatte f\u00fcr H\u00e4ndler beeinflussen die Vertriebsstruktur.'],
           reveal: ['Der Submix Place (Distribution) wird tangiert \u2013 Rabatte beeinflussen die Attraktivit\u00e4t des Vertriebskanals f\u00fcr H\u00e4ndler.']
         },
         {
           id: 68, type: 'tf', title: 'Preisgesetz und Regeln',
           statements: [
-            { text: 'In der Schweiz regelt das Preisgesetz (PG), welche Preise erlaubt und welche verboten sind.', correct: true, feedback: 'Richtig. Das Preisgesetz sch\u00fctzt Konsumenten vor \u00fcberh\u00f6hten Preisen.' },
-            { text: 'Die Bundesverfassung verlangt, dass Unternehmen wie die Migros in allen Kantonen f\u00fcr das gleiche Produkt denselben Preis verlangen.', correct: false, feedback: 'Falsch. Es gibt keine solche Pflicht \u2013 regionale Preisunterschiede sind erlaubt.' },
-            { text: 'In der Schweiz darf man grunds\u00e4tzlich Produkte unter den eigenen Kosten verkaufen.', correct: true, feedback: 'Grunds\u00e4tzlich ja, ausser es handelt sich um Missbrauch einer marktbeherrschenden Stellung.' }
+            { s: 'In der Schweiz regelt das Preisgesetz (PG), welche Preise erlaubt und welche verboten sind.', c: true, feedback: 'Richtig. Das Preisgesetz sch\u00fctzt Konsumenten vor \u00fcberh\u00f6hten Preisen.' },
+            { s: 'Die Bundesverfassung verlangt, dass Unternehmen wie die Migros in allen Kantonen f\u00fcr das gleiche Produkt denselben Preis verlangen.', c: false, feedback: 'Falsch. Es gibt keine solche Pflicht \u2013 regionale Preisunterschiede sind erlaubt.' },
+            { s: 'In der Schweiz darf man grunds\u00e4tzlich Produkte unter den eigenen Kosten verkaufen.', c: true, feedback: 'Grunds\u00e4tzlich ja, ausser es handelt sich um Missbrauch einer marktbeherrschenden Stellung.' }
           ],
           tips: [],
           reveal: []
@@ -1080,7 +1065,7 @@ window.BOOK_DATA = {
             'Kaufkraft, Kosten, Konkurrenz, Kontrolle',
             'Kommunikation, Kosten, Kunden, Konkurrenz'
           ],
-          correct: 1,
+          answer: 1,
           tips: ['Die 4 K: Kosten, Konkurrenz, Konsumenten(zahlungsbereitschaft), Kapazit\u00e4t.'],
           reveal: []
         }
@@ -1097,8 +1082,8 @@ window.BOOK_DATA = {
         {
           id: 71, type: 'tf', title: 'Zielkonflikt Reichhaltigkeit/Reichweite',
           statements: [
-            { text: 'Bei traditionellen Kan\u00e4len besteht ein Zielkonflikt zwischen Reichhaltigkeit und Reichweite.', correct: true, feedback: 'Richtig. E-Commerce l\u00f6st diesen Konflikt teilweise auf.' },
-            { text: 'E-Government-L\u00f6sungen haben denselben Zielkonflikt.', correct: false, feedback: 'Nein \u2013 E-Government kann beides bieten: breite Reichweite und detaillierte Informationen.' }
+            { s: 'Bei traditionellen Kan\u00e4len besteht ein Zielkonflikt zwischen Reichhaltigkeit und Reichweite.', c: true, feedback: 'Richtig. E-Commerce l\u00f6st diesen Konflikt teilweise auf.' },
+            { s: 'E-Government-L\u00f6sungen haben denselben Zielkonflikt.', c: false, feedback: 'Nein \u2013 E-Government kann beides bieten: breite Reichweite und detaillierte Informationen.' }
           ],
           tips: [],
           reveal: []
@@ -1122,7 +1107,7 @@ window.BOOK_DATA = {
             'Weil es keine Alternativen gibt',
             'Weil B\u00fcromaterialien emotional gekauft werden'
           ],
-          correct: 1,
+          answer: 1,
           tips: ['E-Commerce eignet sich besonders f\u00fcr standardisierte, regelm\u00e4ssig bestellte Produkte.'],
           reveal: []
         },
@@ -1130,10 +1115,10 @@ window.BOOK_DATA = {
           id: 74, type: 'match', title: 'Vertriebssystem-Kriterien',
           q: 'Ordnen Sie die Kriterien f\u00fcr die Wahl des Vertriebssystems richtig zu.',
           pairs: [
-            { left: 'Wie gut erf\u00fcllt das System die Vertriebsaufgaben?', right: 'Funktionserf\u00fcllung' },
-            { left: 'Wie breit ist das Produkt erh\u00e4ltlich?', right: 'Distributionsgrad' },
-            { left: 'Kann das System mitwachsen?', right: 'Entwicklungsm\u00f6glichkeit' },
-            { left: 'Wie stark kann man den Vertrieb steuern?', right: 'Beeinflussbarkeit' }
+            { l: 'Wie gut erf\u00fcllt das System die Vertriebsaufgaben?', r: 'Funktionserf\u00fcllung' },
+            { l: 'Wie breit ist das Produkt erh\u00e4ltlich?', r: 'Distributionsgrad' },
+            { l: 'Kann das System mitwachsen?', r: 'Entwicklungsm\u00f6glichkeit' },
+            { l: 'Wie stark kann man den Vertrieb steuern?', r: 'Beeinflussbarkeit' }
           ],
           options: ['Funktionserf\u00fcllung', 'Distributionsgrad', 'Entwicklungsm\u00f6glichkeit', 'Beeinflussbarkeit'],
           tips: [],
@@ -1174,10 +1159,10 @@ window.BOOK_DATA = {
           id: 77, type: 'match', title: 'Medientypen',
           q: 'Ordnen Sie die Beispiele den Medientypen zu.',
           pairs: [
-            { left: 'Kundenbewertung auf Google', right: 'Earned' },
-            { left: 'Eigene Website', right: 'Owned' },
-            { left: 'Facebook-Post eines Nutzers \u00fcber die Marke', right: 'Shared' },
-            { left: 'Bannerwerbung auf 20min.ch', right: 'Paid' }
+            { l: 'Kundenbewertung auf Google', r: 'Earned' },
+            { l: 'Eigene Website', r: 'Owned' },
+            { l: 'Facebook-Post eines Nutzers \u00fcber die Marke', r: 'Shared' },
+            { l: 'Bannerwerbung auf 20min.ch', r: 'Paid' }
           ],
           options: ['Paid', 'Owned', 'Earned', 'Shared'],
           tips: [],
@@ -1193,9 +1178,9 @@ window.BOOK_DATA = {
         {
           id: 79, type: 'tf', title: 'Online vs. Offline Kommunikation',
           statements: [
-            { text: 'Offline-Kommunikationsinstrumente umfassen Werbung, Verkaufsf\u00f6rderung, pers\u00f6nlichen Verkauf, Direktmarketing und PR.', correct: true, feedback: 'Richtig \u2013 das sind die klassischen Offline-Instrumente.' },
-            { text: 'Influencer Marketing geh\u00f6rt zu den Offline-Instrumenten.', correct: false, feedback: 'Falsch \u2013 Influencer Marketing ist ein Online-Kommunikationsinstrument.' },
-            { text: 'Bei der Push-Strategie folgt der Kommunikationsfluss dem Warenfluss.', correct: true, feedback: 'Richtig: Produzent \u2192 Handel \u2192 Endkonsument.' }
+            { s: 'Offline-Kommunikationsinstrumente umfassen Werbung, Verkaufsf\u00f6rderung, pers\u00f6nlichen Verkauf, Direktmarketing und PR.', c: true, feedback: 'Richtig \u2013 das sind die klassischen Offline-Instrumente.' },
+            { s: 'Influencer Marketing geh\u00f6rt zu den Offline-Instrumenten.', c: false, feedback: 'Falsch \u2013 Influencer Marketing ist ein Online-Kommunikationsinstrument.' },
+            { s: 'Bei der Push-Strategie folgt der Kommunikationsfluss dem Warenfluss.', c: true, feedback: 'Richtig: Produzent \u2192 Handel \u2192 Endkonsument.' }
           ],
           tips: [],
           reveal: []
@@ -1248,24 +1233,24 @@ window.BOOK_DATA = {
           ]
         },
         {
-          id: 83, type: 'check', title: 'Arten der Marketingkontrolle',
+          id: 83, type: 'match', title: 'Arten der Marketingkontrolle',
           q: 'Ordnen Sie die Beispiele den vier Arten der Marketingkontrolle zu.',
-          headers: ['\u00dcberpr\u00fcfung von', 'Jahresplankontrolle', 'Profitabilit\u00e4tskontrolle', 'Effizienzkontrolle', 'Strategiekontrolle'],
-          rows: [
-            { label: 'R\u00fccklaufquoten einer Coupon-Werbung', correct: 2 },
-            { label: 'Vergleich des DB mit den Kosten einer Coupon-Werbung', correct: 1 },
-            { label: 'SWOT-Profil im Vergleich zu einem neuen Konkurrenten', correct: 3 },
-            { label: 'Positionierung der eigenen Marken mittels Marktforschung', correct: 3 },
-            { label: 'Zielerreichungsgrad des Verkaufsvolumens in der Ostschweiz im Jahr 200x', correct: 0 }
+          pairs: [
+            { l: 'R\u00fccklaufquoten einer Coupon-Werbung', r: 'Effizienzkontrolle' },
+            { l: 'Vergleich des DB mit den Kosten einer Coupon-Werbung', r: 'Profitabilit\u00e4tskontrolle' },
+            { l: 'SWOT-Profil im Vergleich zu einem neuen Konkurrenten', r: 'Strategiekontrolle' },
+            { l: 'Positionierung der eigenen Marken mittels Marktforschung', r: 'Strategiekontrolle' },
+            { l: 'Zielerreichungsgrad des Verkaufsvolumens in der Ostschweiz im Jahr 200x', r: 'Jahresplankontrolle' }
           ],
+          options: ['Jahresplankontrolle', 'Profitabilit\u00e4tskontrolle', 'Effizienzkontrolle', 'Strategiekontrolle'],
           tips: ['Jahresplankontrolle: Ziele erreicht? Profitabilit\u00e4t: Gewinn? Effizienz: Kosten-Nutzen? Strategie: Soll-Soll-Kontrolle.'],
           reveal: []
         },
         {
           id: 84, type: 'tf', title: 'Szenarien und Budgets',
           statements: [
-            { text: 'Szenarien sind etwas f\u00fcr Leute, die entweder zu faul oder zu dumm sind, Prognosen zu erstellen.', correct: false, feedback: 'Falsch! Szenarien sind ein wichtiges Instrument der strategischen Planung. Sie helfen, verschiedene Zukunftsszenarien durchzuspielen und sich vorzubereiten.' },
-            { text: 'Auch kleine Unternehmen sollten ein Marketingbudget erstellen.', correct: true, feedback: 'Richtig \u2013 ein Budget hilft bei der Ressourcenallokation und Kontrolle.' }
+            { s: 'Szenarien sind etwas f\u00fcr Leute, die entweder zu faul oder zu dumm sind, Prognosen zu erstellen.', c: false, feedback: 'Falsch! Szenarien sind ein wichtiges Instrument der strategischen Planung. Sie helfen, verschiedene Zukunftsszenarien durchzuspielen und sich vorzubereiten.' },
+            { s: 'Auch kleine Unternehmen sollten ein Marketingbudget erstellen.', c: true, feedback: 'Richtig \u2013 ein Budget hilft bei der Ressourcenallokation und Kontrolle.' }
           ],
           tips: [],
           reveal: []
@@ -1274,10 +1259,10 @@ window.BOOK_DATA = {
           id: 85, type: 'match', title: 'Kontrollplan-Elemente',
           q: 'Ein Kontrollplan wird anhand der 4 W-Fragen strukturiert. Ordnen Sie zu.',
           pairs: [
-            { left: 'Was? oder Zielobjekt / Zielgr\u00f6sse', right: 'Zielinhalt' },
-            { left: 'Wie? oder Kontrollmethode', right: 'Methode' },
-            { left: 'Wer? oder Verantwortlichkeit', right: 'Verantwortlicher' },
-            { left: 'Wann? oder Zeitpunkt', right: 'Zeitplan' }
+            { l: 'Was? oder Zielobjekt / Zielgr\u00f6sse', r: 'Zielinhalt' },
+            { l: 'Wie? oder Kontrollmethode', r: 'Methode' },
+            { l: 'Wer? oder Verantwortlichkeit', r: 'Verantwortlicher' },
+            { l: 'Wann? oder Zeitpunkt', r: 'Zeitplan' }
           ],
           options: ['Zielinhalt', 'Methode', 'Verantwortlicher', 'Zeitplan'],
           tips: [],
@@ -1292,7 +1277,7 @@ window.BOOK_DATA = {
             'Nur interne Berichte',
             'ERP-System und CRM'
           ],
-          correct: 1,
+          answer: 1,
           tips: ['Das MIS kombiniert interne und externe Informationsquellen.'],
           reveal: []
         }
@@ -1307,28 +1292,28 @@ window.BOOK_DATA = {
       id: 'ch15', num: 'Teil B \u2013 Kapitel 15', title: 'Qualit\u00e4tsmanagement I: Grundlagen und \u00d6kologie',
       exercises: [
         {
-          id: 87, type: 'check', title: 'Muss-, Soll-, Plus-Faktoren',
+          id: 87, type: 'match', title: 'Muss-, Soll-, Plus-Faktoren',
           q: 'Sind die folgenden Attribute bei einer Autoreparatur Muss-, Soll- oder Plus-Faktoren?',
-          headers: ['Attribut', 'Muss', 'Soll', 'Plus'],
-          rows: [
-            { label: 'Testen, ob Profil der Pneus dem Gesetz entspricht', correct: 0 },
-            { label: 'Autositze reinigen', correct: 1 },
-            { label: 'Freundlichkeit des Personals', correct: 1 },
-            { label: 'Shuttleservice zum Arbeitsort', correct: 2 },
-            { label: 'Hinweis auf Ablauf der Autobahnvignette', correct: 2 }
+          pairs: [
+            { l: 'Testen, ob Profil der Pneus dem Gesetz entspricht', r: 'Muss' },
+            { l: 'Autositze reinigen', r: 'Soll' },
+            { l: 'Freundlichkeit des Personals', r: 'Soll' },
+            { l: 'Shuttleservice zum Arbeitsort', r: 'Plus' },
+            { l: 'Hinweis auf Ablauf der Autobahnvignette', r: 'Plus' }
           ],
+          options: ['Muss', 'Soll', 'Plus'],
           tips: ['Muss: gesetzlich/erwartet. Soll: guter Standard. Plus: \u00dcberraschung.'],
           reveal: []
         },
         {
           id: 88, type: 'tf', title: 'Total Quality Management',
           statements: [
-            { text: 'Beim Total Quality Management steht die Produktqualit\u00e4t im Vordergrund.', correct: false, feedback: 'TQM ist umfassender: es geht um die Qualit\u00e4t aller Prozesse im gesamten Unternehmen.' },
-            { text: 'Das Erreichen von Kostenzielen geh\u00f6rt zu den Zielsetzungen von TQM.', correct: true, feedback: 'Richtig \u2013 Qualit\u00e4t und Effizienz geh\u00f6ren zusammen.' },
-            { text: 'Qualit\u00e4t ist ein Prozess, der nie zu Ende ist.', correct: true, feedback: 'Richtig \u2013 kontinuierliche Verbesserung (KVP) ist ein Grundprinzip.' },
-            { text: 'Benchmarking kann auch intern betrieben werden.', correct: true, feedback: 'Richtig \u2013 Vergleich verschiedener Gesch\u00e4ftseinheiten innerhalb des Unternehmens.' },
-            { text: 'F\u00fcr hervorragende Qualit\u00e4t sind die Kunden bereit, jeden Preis zu bezahlen.', correct: false, feedback: 'Falsch \u2013 es gibt immer eine Zahlungsbereitschaft-Grenze.' },
-            { text: 'TQM ist ein ganzheitlicher Ansatz, der nur optimale Resultate liefern kann, wenn er von den Mitarbeitenden unterst\u00fctzt wird.', correct: true, feedback: 'Richtig \u2013 Mitarbeiterbeteiligung ist essenziell.' }
+            { s: 'Beim Total Quality Management steht die Produktqualit\u00e4t im Vordergrund.', c: false, feedback: 'TQM ist umfassender: es geht um die Qualit\u00e4t aller Prozesse im gesamten Unternehmen.' },
+            { s: 'Das Erreichen von Kostenzielen geh\u00f6rt zu den Zielsetzungen von TQM.', c: true, feedback: 'Richtig \u2013 Qualit\u00e4t und Effizienz geh\u00f6ren zusammen.' },
+            { s: 'Qualit\u00e4t ist ein Prozess, der nie zu Ende ist.', c: true, feedback: 'Richtig \u2013 kontinuierliche Verbesserung (KVP) ist ein Grundprinzip.' },
+            { s: 'Benchmarking kann auch intern betrieben werden.', c: true, feedback: 'Richtig \u2013 Vergleich verschiedener Gesch\u00e4ftseinheiten innerhalb des Unternehmens.' },
+            { s: 'F\u00fcr hervorragende Qualit\u00e4t sind die Kunden bereit, jeden Preis zu bezahlen.', c: false, feedback: 'Falsch \u2013 es gibt immer eine Zahlungsbereitschaft-Grenze.' },
+            { s: 'TQM ist ein ganzheitlicher Ansatz, der nur optimale Resultate liefern kann, wenn er von den Mitarbeitenden unterst\u00fctzt wird.', c: true, feedback: 'Richtig \u2013 Mitarbeiterbeteiligung ist essenziell.' }
           ],
           tips: [],
           reveal: []
@@ -1344,7 +1329,7 @@ window.BOOK_DATA = {
             'E) Gen\u00fcgend Ressourcen',
             'F) Anwendung m\u00f6glichst vieler Kennzahlen'
           ],
-          correct: 0,
+          answer: 0,
           tips: ['Alle ausser F sind korrekt \u2013 zu viele Kennzahlen schaden.'],
           reveal: [
             'A bis E sind korrekte Grunds\u00e4tze.',
@@ -1382,7 +1367,7 @@ window.BOOK_DATA = {
             'Weil es keine Nachteile hat',
             'Weil die Konkurrenz es auch macht'
           ],
-          correct: 1,
+          answer: 1,
           tips: [],
           reveal: []
         }
@@ -1405,7 +1390,7 @@ window.BOOK_DATA = {
             'Weil es gesetzlich vorgeschrieben ist',
             'Weil Reklamationen nur von der IT bearbeitet werden'
           ],
-          correct: 1,
+          answer: 1,
           tips: [],
           reveal: []
         },
@@ -1443,7 +1428,7 @@ window.BOOK_DATA = {
             'Man kann den Kunden loswerden',
             'Reklamationen haben keine positiven Seiten'
           ],
-          correct: 0,
+          answer: 0,
           tips: ['Reklamationen liefern wertvolle Erkenntnisse.'],
           reveal: ['Ein Kunde, der reklamiert, gibt dem Unternehmen die Chance, sich zu verbessern. Ausserdem kann eine gute Reklamationsbehandlung die Kundenbindung sogar st\u00e4rken.']
         },

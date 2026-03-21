@@ -42,18 +42,17 @@ window.BOOK_DATA = {
           id: 3,
           type: 'check',
           q: 'Sind die folgenden Verkaufsziele ökonomische oder vorökonomische Verkaufsziele?',
-          headers: ['Vorökonomisch','Oekonomisch','Ziel'],
-          rows: [
-            {label: 'Distributionsgrad', correct: 1},
-            {label: 'Mitarbeiterzufriedenheit', correct: 0},
-            {label: 'Absatz', correct: 1},
-            {label: 'Bekanntheitsgrad', correct: 0},
-            {label: 'Kosten', correct: 1},
-            {label: 'Kontaktqualität', correct: 0},
-            {label: 'Umsatz', correct: 1},
-            {label: 'Kundenempfehlungsrate', correct: 0},
-            {label: 'Image', correct: 0},
-            {label: 'Servicequalität', correct: 0}
+          statements: [
+            {s: 'Distributionsgrad ist ein ökonomisches Verkaufsziel.', c: true},
+            {s: 'Mitarbeiterzufriedenheit ist ein ökonomisches Verkaufsziel.', c: false},
+            {s: 'Absatz ist ein ökonomisches Verkaufsziel.', c: true},
+            {s: 'Bekanntheitsgrad ist ein ökonomisches Verkaufsziel.', c: false},
+            {s: 'Kosten ist ein ökonomisches Verkaufsziel.', c: true},
+            {s: 'Kontaktqualität ist ein ökonomisches Verkaufsziel.', c: false},
+            {s: 'Umsatz ist ein ökonomisches Verkaufsziel.', c: true},
+            {s: 'Kundenempfehlungsrate ist ein ökonomisches Verkaufsziel.', c: false},
+            {s: 'Image ist ein ökonomisches Verkaufsziel.', c: false},
+            {s: 'Servicequalität ist ein ökonomisches Verkaufsziel.', c: false}
           ],
           tips: ['Ökonomische Ziele sind quantitativ messbar (Zahlen, Geld).','Vorökonomische Ziele sind qualitativer Natur.','Beispiele ökonomisch: Umsatz, Absatz, Kosten, Distributionsgrad.'],
           reveal: ['Vorökonomisch: Mitarbeiterzufriedenheit, Bekanntheitsgrad, Kontaktqualität, Kundenempfehlungsrate, Image, Servicequalität.','Ökonomisch: Distributionsgrad, Absatz, Kosten, Umsatz.','Vorökonomische Ziele werden durch Umfragen, Tests und Beobachtungen überprüft.']
@@ -359,30 +358,19 @@ window.BOOK_DATA = {
         },
         {
           id: 13,
-          type: 'check',
+          type: 'match',
           q: 'Ordnen Sie die Segmentationskriterien der Kundengruppe zu (B2C und/oder B2B).',
-          headers: ['B2C','B2B','Segmentationskriterien'],
-          rows: [
-            {label: 'Geografische Kriterien', correct: 2},
-            {label: 'Soziodemografische Kriterien', correct: 0},
-            {label: 'Organisatorische Kriterien', correct: 1},
-            {label: 'Ökonomische Kriterien', correct: 1},
-            {label: 'Psychografische Kriterien', correct: 0},
-            {label: 'Informations- und Kaufverhalten', correct: 2},
-            {label: 'Entscheidungsbezogene Kriterien', correct: 1},
-            {label: 'Unternehmenskultur', correct: 1}
+          pairs: [
+            {l: 'Geografische Kriterien', r: 'Beide (B2C und B2B)'},
+            {l: 'Soziodemografische Kriterien', r: 'B2C'},
+            {l: 'Organisatorische Kriterien', r: 'B2B'},
+            {l: 'Ökonomische Kriterien', r: 'B2B'},
+            {l: 'Psychografische Kriterien', r: 'B2C'},
+            {l: 'Informations- und Kaufverhalten', r: 'Beide (B2C und B2B)'},
+            {l: 'Entscheidungsbezogene Kriterien', r: 'B2B'},
+            {l: 'Unternehmenskultur', r: 'B2B'}
           ],
-          multiCheck: true,
-          correctChecks: [
-            [true,true],
-            [true,false],
-            [false,true],
-            [false,true],
-            [true,false],
-            [true,false],
-            [false,true],
-            [false,true]
-          ],
+          options: ['B2C','B2B','Beide (B2C und B2B)'],
           tips: ['Geografische Kriterien gelten für beide Kundengruppen.','Soziodemografisch und psychografisch sind typisch B2C.','Organisatorische Kriterien und Unternehmenskultur sind B2B-spezifisch.'],
           reveal: ['Beide: Geografische Kriterien, Informations-/Kaufverhalten.','Nur B2C: Soziodemografische Kriterien, Psychografische Kriterien.','Nur B2B: Organisatorische Kriterien, Ökonomische Kriterien, Entscheidungsbezogene Kriterien, Unternehmenskultur.']
         },
@@ -715,15 +703,14 @@ window.BOOK_DATA = {
           id: 38,
           type: 'check',
           q: 'Kreuzen Sie an, ob die Hilfsmittel der Verkaufsorganisation zur Aufbau- oder Ablauforganisation gehören.',
-          headers: ['Aufbau','Ablauf','Hilfsmittel'],
-          rows: [
-            {label: 'Tourenplan', correct: 1},
-            {label: 'Organigramm', correct: 0},
-            {label: 'Verkaufsstufenplan', correct: 1},
-            {label: 'Stellenbeschreibung', correct: 0},
-            {label: 'Anforderungsprofil', correct: 0},
-            {label: 'Aktionspläne', correct: 1},
-            {label: 'Telefonskripte', correct: 1}
+          statements: [
+            {s: 'Tourenplan gehört zur Ablauforganisation.', c: true},
+            {s: 'Organigramm gehört zur Ablauforganisation.', c: false},
+            {s: 'Verkaufsstufenplan gehört zur Ablauforganisation.', c: true},
+            {s: 'Stellenbeschreibung gehört zur Ablauforganisation.', c: false},
+            {s: 'Anforderungsprofil gehört zur Ablauforganisation.', c: false},
+            {s: 'Aktionspläne gehören zur Ablauforganisation.', c: true},
+            {s: 'Telefonskripte gehören zur Ablauforganisation.', c: true}
           ],
           tips: ['Aufbauorganisation = hierarchisches Gerüst (Organigramm, Stellen).','Ablauforganisation = Prozesse und Abläufe.','Tourenplanung und Aktionspläne sind Abläufe.'],
           reveal: ['Aufbauorganisation: Organigramm, Stellenbeschreibung, Anforderungsprofil.','Ablauforganisation: Tourenplan, Verkaufsstufenplan, Aktionspläne, Telefonskripte.']
@@ -811,18 +798,18 @@ window.BOOK_DATA = {
         },
         {
           id: 45,
-          type: 'check',
+          type: 'match',
           q: 'Handelt es sich bei den aufgeführten Beispielen um direkt finanzielle, indirekt finanzielle oder nichtfinanzielle Anreize?',
-          headers: ['Direkt fin.','Indirekt fin.','Nichtfin.','Beispiel'],
-          rows: [
-            {label: 'Ausbildungszuschuss', correct: 1},
-            {label: 'Spesenvergütung', correct: 0},
-            {label: 'Auszeichnung', correct: 2},
-            {label: 'Verkaufsprämie', correct: 0},
-            {label: 'Zusätzliche Verantwortung', correct: 2},
-            {label: 'Geschäftswagen', correct: 1},
-            {label: 'Beteiligungszulage', correct: 0}
+          pairs: [
+            {l: 'Ausbildungszuschuss', r: 'Indirekt finanziell'},
+            {l: 'Spesenvergütung', r: 'Direkt finanziell'},
+            {l: 'Auszeichnung', r: 'Nichtfinanziell'},
+            {l: 'Verkaufsprämie', r: 'Direkt finanziell'},
+            {l: 'Zusätzliche Verantwortung', r: 'Nichtfinanziell'},
+            {l: 'Geschäftswagen', r: 'Indirekt finanziell'},
+            {l: 'Beteiligungszulage', r: 'Direkt finanziell'}
           ],
+          options: ['Direkt finanziell','Indirekt finanziell','Nichtfinanziell'],
           tips: ['Direkt finanziell = Geld.','Indirekt finanziell = Geldwert, aber nicht ausbezahlt.','Nichtfinanziell = kein monetärer Wert.'],
           reveal: ['Direkt finanziell: Spesenvergütung, Verkaufsprämie, Beteiligungszulage.','Indirekt finanziell: Ausbildungszuschuss, Geschäftswagen.','Nichtfinanziell: Auszeichnung, Zusätzliche Verantwortung.']
         },

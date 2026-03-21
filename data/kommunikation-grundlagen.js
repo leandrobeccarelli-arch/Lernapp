@@ -24,17 +24,16 @@ window.BOOK_DATA = {
           reveal: ['Die Beziehung eines Unternehmens mit seinen Mitarbeitenden.','Die Beziehung eines Unternehmens mit seinen Kunden.','Die Beziehung der Mitarbeitenden eines Unternehmens mit dessen Kunden.']
         },
         {
-          id: 2, type: 'table',
+          id: 2, type: 'check',
           q: 'Kommunikationsinstrumente: einseitig vs. Dialog',
           instruction: 'Rep. 2 (S. 26): Ordnen Sie zu, ob die Kommunikationsinstrumente einseitig oder auf Dialog ausgerichtet sind.',
-          headers: ['Einseitig','Dialog','Instrument'],
-          rows: [
-            { label: 'Mediawerbung', correct: 0 },
-            { label: 'Persönlicher Verkauf', correct: 1 },
-            { label: 'Verkaufsförderung', correct: 0 },
-            { label: 'Event-Marketing', correct: 1 },
-            { label: 'Mitarbeitendenkommunikation', correct: 1 },
-            { label: 'Sponsoring', correct: 0 }
+          statements: [
+            { s: 'Mediawerbung: Dialog', c: false },
+            { s: 'Persönlicher Verkauf: Dialog', c: true },
+            { s: 'Verkaufsförderung: Dialog', c: false },
+            { s: 'Event-Marketing: Dialog', c: true },
+            { s: 'Mitarbeitendenkommunikation: Dialog', c: true },
+            { s: 'Sponsoring: Dialog', c: false }
           ],
           tips: ['Einseitig = keine direkte Rückmeldung möglich.','Dialog = direkte Interaktion mit der Zielgruppe.','Mediawerbung ist typisch einseitig, persönlicher Verkauf immer auf Dialog.'],
           reveal: ['Mediawerbung: Einseitig (Massenkommunikation).','Persönlicher Verkauf: Dialog (immer zweiseitig).','Verkaufsförderung: Einseitig (selten auf Dialog).','Event-Marketing: Dialog (meistens zweiseitig).','Mitarbeitendenkommunikation: Dialog (immer zweiseitig).','Sponsoring: Einseitig (meistens).']
@@ -63,18 +62,13 @@ window.BOOK_DATA = {
           id: 5, type: 'fill',
           q: 'Kommunikationsinstrumente nennen',
           instruction: 'Ergänzen Sie die wichtigsten Kommunikationsinstrumente.',
-          segments: [
-            'Die wichtigsten Kommunikationsinstrumente sind: Persönliche Kommunikation, ',
-            { blank: true, answer: ['Mitarbeitendenkommunikation'], width: 220 },
-            ', Verkaufsförderung, ',
-            { blank: true, answer: ['Event-Marketing','Event Marketing'], width: 160 },
-            ', Messen und Ausstellungen, ',
-            { blank: true, answer: ['Mediawerbung'], width: 150 },
-            ', ',
-            { blank: true, answer: ['Public Relations','PR'], width: 160 },
-            ', Dialogmarketing, ',
-            { blank: true, answer: ['Sponsoring'], width: 140 },
-            ', Social-Media-Kommunikation.'
+          template: 'Die wichtigsten Kommunikationsinstrumente sind: Persönliche Kommunikation, {0}, Verkaufsförderung, {1}, Messen und Ausstellungen, {2}, {3}, Dialogmarketing, {4}, Social-Media-Kommunikation.',
+          blanks: [
+            ['Mitarbeitendenkommunikation'],
+            ['Event-Marketing','Event Marketing'],
+            ['Mediawerbung'],
+            ['Public Relations','PR'],
+            ['Sponsoring']
           ],
           tips: ['Es gibt 10 wichtige Kommunikationsinstrumente.','Denken Sie an interne und externe Instrumente.','Sponsoring ist die Förderung von Personen/Organisationen gegen Gegenleistungen.'],
           reveal: ['Mitarbeitendenkommunikation (intern).','Event-Marketing (Veranstaltungen).','Mediawerbung (TV, Print, Online etc.).','Public Relations (Öffentlichkeitsarbeit).','Sponsoring (Förderung gegen Gegenleistungen).']
@@ -83,10 +77,10 @@ window.BOOK_DATA = {
           id: 6, type: 'tf',
           q: 'Push- vs. Pull-Strategie',
           statements: [
-            { s: 'Bei der Push-Strategie wird das Produkt über den Handel zum Endkunden gedrängt.', correct: true, feedback: 'Push = Hersteller \u2192 Handel \u2192 Endkunde.' },
-            { s: 'Bei der Pull-Strategie kommuniziert das Unternehmen direkt an den Endkunden.', correct: true, feedback: 'Pull = Endkunde fragt Produkt beim Handel nach.' },
-            { s: 'Mediawerbung ist ein typisches Instrument der Push-Strategie.', correct: false, feedback: 'Mediawerbung ist typisch für die Pull-Strategie (direkte Ansprache des Endkunden).' },
-            { s: 'Verkaufsförderung am POS ist ein typisches Instrument der Push-Strategie.', correct: true, feedback: 'VKF am POS unterstützt den Abverkauf im Handel (Push).' }
+            { s: 'Bei der Push-Strategie wird das Produkt über den Handel zum Endkunden gedrängt.', c: true, feedback: 'Push = Hersteller \u2192 Handel \u2192 Endkunde.' },
+            { s: 'Bei der Pull-Strategie kommuniziert das Unternehmen direkt an den Endkunden.', c: true, feedback: 'Pull = Endkunde fragt Produkt beim Handel nach.' },
+            { s: 'Mediawerbung ist ein typisches Instrument der Push-Strategie.', c: false, feedback: 'Mediawerbung ist typisch für die Pull-Strategie (direkte Ansprache des Endkunden).' },
+            { s: 'Verkaufsförderung am POS ist ein typisches Instrument der Push-Strategie.', c: true, feedback: 'VKF am POS unterstützt den Abverkauf im Handel (Push).' }
           ],
           tips: ['Push = Produkt wird in den Markt gedrängt (via Handel).','Pull = Nachfrage wird beim Endkunden erzeugt.','Mediawerbung erzeugt Nachfrage beim Konsumenten (Pull).'],
           reveal: ['Push-Strategie: Kommunikation über den Handel (VKF, Handelsrabatte).','Pull-Strategie: Kommunikation direkt an den Endkunden (Mediawerbung, PR).','Aussage 3 ist falsch: Mediawerbung = Pull.','In der Praxis werden oft beide Strategien kombiniert.']
@@ -96,7 +90,7 @@ window.BOOK_DATA = {
           q: 'Kommunikation im Marketing-Mix (MC)',
           instruction: 'Welches P im Marketing-Mix steht für die Kommunikationspolitik?',
           options: ['Product','Price','Place','Promotion'],
-          correct: 3,
+          answer: 3,
           tips: ['Die 7 P sind: Product, Price, Place, Promotion, People, Process, Physical Evidence.','Kommunikation = Werbung, PR, VKF etc.','Promotion umfasst alle kommunikativen Aktivitäten.'],
           reveal: ['Promotion steht für die Kommunikationspolitik.','Sie umfasst alle Massnahmen zur Darstellung des Unternehmens und seiner Leistungen.','Dies ist eines der 7 P im erweiterten Marketing-Mix.']
         },
@@ -104,9 +98,13 @@ window.BOOK_DATA = {
           id: 8, type: 'match',
           q: 'Kommunikation in verschiedenen Märkten',
           instruction: 'Ordnen Sie die Aussagen dem richtigen Markttyp zu.',
-          items: ['Differenzierung durch Kommunikation zentral','Vertrauen, Qualität und Service im Vordergrund','Testimonials und Kundenbewertungen schaffen Vertrauen','Massenkommunikation mit einfachen, funktionalen Ständen'],
+          pairs: [
+            { l: 'Differenzierung durch Kommunikation zentral', r: 'Konsumgüter (B2C)' },
+            { l: 'Vertrauen, Qualität und Service im Vordergrund', r: 'Investitionsgüter (B2B)' },
+            { l: 'Testimonials und Kundenbewertungen schaffen Vertrauen', r: 'Dienstleistungen' },
+            { l: 'Massenkommunikation mit einfachen, funktionalen Ständen', r: 'Konsumgüter (B2C)' }
+          ],
           options: ['Konsumgüter (B2C)','Investitionsgüter (B2B)','Dienstleistungen'],
-          correct: ['Konsumgüter (B2C)','Investitionsgüter (B2B)','Dienstleistungen','Konsumgüter (B2C)'],
           tips: ['B2C = grosse Zielgruppen, starker Wettbewerb.','B2B = individuelle Lösungen, wenige Kunden.','Dienstleistungen = immateriell, schwer greifbar.'],
           reveal: ['Konsumgüter: Massenkommunikation, Differenzierung durch Kommunikation.','Investitionsgüter: Vertrauen, Qualität, Service.','Dienstleistungen: Testimonials, Kundenbewertungen.']
         }
@@ -222,9 +220,13 @@ window.BOOK_DATA = {
           id: 10, type: 'match',
           q: 'Kommunikationsebenen',
           instruction: 'Rep. 5 (S. 38): Ordnen Sie die Entscheide der richtigen Ebene zu.',
-          items: ['Strategische Zielsetzungen des Gesamtunternehmens inkl. Positionierung','Einzusetzende Kommunikationsinstrumente','Strategieplanung des entsprechenden Kommunikationsinstruments','Massnahmenplanung / Disposition'],
+          pairs: [
+            { l: 'Strategische Zielsetzungen des Gesamtunternehmens inkl. Positionierung', r: 'Gesamtkommunikation' },
+            { l: 'Einzusetzende Kommunikationsinstrumente', r: 'Gesamtkommunikation' },
+            { l: 'Strategieplanung des entsprechenden Kommunikationsinstruments', r: 'Fachabteilung' },
+            { l: 'Massnahmenplanung / Disposition', r: 'Fachabteilung' }
+          ],
           options: ['Gesamtkommunikation','Fachabteilung'],
-          correct: ['Gesamtkommunikation','Gesamtkommunikation','Fachabteilung','Fachabteilung'],
           tips: ['Gesamtkommunikation = strategische Ebene, das ganze Unternehmen betreffend.','Fachabteilung = operative Ebene, instrumentenspezifisch.','Positionierung ist immer eine strategische Entscheidung.'],
           reveal: ['Gesamtkommunikation: Strategische Zielsetzungen, Positionierung, einzusetzende Instrumente.','Fachabteilung: Strategieplanung des Instruments, Massnahmenplanung.']
         },
@@ -252,9 +254,12 @@ window.BOOK_DATA = {
           id: 13, type: 'match',
           q: 'Integrationsformen der Kommunikation',
           instruction: 'Ordnen Sie die Integrationsformen der richtigen Beschreibung zu.',
-          items: ['Einheitliche Botschaften und Argumente über alle Instrumente','Einheitliches Erscheinungsbild (Logo, Farben, Schriften)','Abstimmung der zeitlichen Abfolge der Kommunikation'],
+          pairs: [
+            { l: 'Einheitliche Botschaften und Argumente über alle Instrumente', r: 'Inhaltliche Integration' },
+            { l: 'Einheitliches Erscheinungsbild (Logo, Farben, Schriften)', r: 'Formale Integration' },
+            { l: 'Abstimmung der zeitlichen Abfolge der Kommunikation', r: 'Zeitliche Integration' }
+          ],
           options: ['Inhaltliche Integration','Formale Integration','Zeitliche Integration'],
-          correct: ['Inhaltliche Integration','Formale Integration','Zeitliche Integration'],
           tips: ['Es gibt drei Formen der Integration.','Inhaltlich = WAS kommuniziert wird.','Formal = WIE es aussieht. Zeitlich = WANN kommuniziert wird.'],
           reveal: ['Inhaltliche Integration: einheitliche Botschaften und Argumente.','Formale Integration: einheitliches visuelles Erscheinungsbild.','Zeitliche Integration: abgestimmte zeitliche Abfolge der Massnahmen.']
         },
@@ -262,10 +267,10 @@ window.BOOK_DATA = {
           id: 14, type: 'tf',
           q: 'Richtig oder Falsch: Unternehmenskommunikation',
           statements: [
-            { s: 'Auf der Ebene der Gesamtkommunikation werden Entscheide über den Einsatz der Kommunikationsinstrumente gefällt.', correct: true, feedback: 'Die Gesamtkommunikation betrifft strategische Entscheide des ganzen Unternehmens.' },
-            { s: 'Inhaltliche, formale und zeitliche Integration sind die drei Formen der integrierten Kommunikation.', correct: true, feedback: 'Diese drei Formen sorgen für ein einheitliches, authentisches Bild.' },
-            { s: 'Die Fachabteilung entscheidet über die Positionierung des Unternehmens.', correct: false, feedback: 'Die Positionierung ist eine strategische Entscheidung auf Ebene der Gesamtkommunikation.' },
-            { s: 'Das 5-Schritte-Kommunikationskonzept beginnt mit der Kontrolle.', correct: false, feedback: 'Es beginnt mit der Analyse (Situationsanalyse), gefolgt von Strategie, Realisation/Budgetierung und Kontrolle.' }
+            { s: 'Auf der Ebene der Gesamtkommunikation werden Entscheide über den Einsatz der Kommunikationsinstrumente gefällt.', c: true, feedback: 'Die Gesamtkommunikation betrifft strategische Entscheide des ganzen Unternehmens.' },
+            { s: 'Inhaltliche, formale und zeitliche Integration sind die drei Formen der integrierten Kommunikation.', c: true, feedback: 'Diese drei Formen sorgen für ein einheitliches, authentisches Bild.' },
+            { s: 'Die Fachabteilung entscheidet über die Positionierung des Unternehmens.', c: false, feedback: 'Die Positionierung ist eine strategische Entscheidung auf Ebene der Gesamtkommunikation.' },
+            { s: 'Das 5-Schritte-Kommunikationskonzept beginnt mit der Kontrolle.', c: false, feedback: 'Es beginnt mit der Analyse (Situationsanalyse), gefolgt von Strategie, Realisation/Budgetierung und Kontrolle.' }
           ],
           tips: ['Gesamtkommunikation = strategisch, Fachabteilung = operativ.','Es gibt drei Integrationsformen: inhaltlich, formal, zeitlich.','Das Kommunikationskonzept folgt dem klassischen Planungsprozess.'],
           reveal: ['Aussage 1: Richtig \u2013 strategische Entscheide auf Gesamtebene.','Aussage 2: Richtig \u2013 inhaltliche, formale, zeitliche Integration.','Aussage 3: Falsch \u2013 Positionierung = Gesamtkommunikation.','Aussage 4: Falsch \u2013 Beginn mit Analyse/Situationsanalyse.']
@@ -274,9 +279,14 @@ window.BOOK_DATA = {
           id: 15, type: 'match',
           q: 'Kommunikationskonzept: 5 Schritte',
           instruction: 'Ordnen Sie die 5 Schritte des Kommunikationskonzepts in die richtige Reihenfolge.',
-          items: ['1.','2.','3.','4.','5.'],
+          pairs: [
+            { l: '1.', r: 'Analyse (Situationsanalyse)' },
+            { l: '2.', r: 'Kommunikationsstrategie' },
+            { l: '3.', r: 'Kreative Umsetzung' },
+            { l: '4.', r: 'Realisation / Budgetierung' },
+            { l: '5.', r: 'Kontrolle (Controlling)' }
+          ],
           options: ['Analyse (Situationsanalyse)','Kommunikationsstrategie','Kreative Umsetzung','Realisation / Budgetierung','Kontrolle (Controlling)'],
-          correct: ['Analyse (Situationsanalyse)','Kommunikationsstrategie','Kreative Umsetzung','Realisation / Budgetierung','Kontrolle (Controlling)'],
           tips: ['Jedes Konzept beginnt mit einer Analyse.','Die Strategie folgt auf die Analyse.','Kontrolle ist der letzte Schritt.'],
           reveal: ['1. Analyse (Situationsanalyse) \u2013 Wo stehen wir?','2. Kommunikationsstrategie \u2013 Wo wollen wir hin?','3. Kreative Umsetzung \u2013 Wie setzen wir es um?','4. Realisation / Budgetierung \u2013 Was kostet es?','5. Kontrolle (Controlling) \u2013 Haben wir die Ziele erreicht?']
         },
@@ -284,9 +294,12 @@ window.BOOK_DATA = {
           id: 16, type: 'match',
           q: 'Kontrolle: Prozess-, Wirkungs-, Effizienzanalyse',
           instruction: 'Ordnen Sie die Kontrollarten der richtigen Beschreibung zu.',
-          items: ['Ob und in welcher Form das Projekt im zeitlichen Ablauf durchgeführt wurde','Kognitive, affektive und konative Reaktionen der Zielgruppen','Kosten-Nutzen-Vergleich der Kommunikationsaktivitäten'],
+          pairs: [
+            { l: 'Ob und in welcher Form das Projekt im zeitlichen Ablauf durchgeführt wurde', r: 'Prozessanalyse' },
+            { l: 'Kognitive, affektive und konative Reaktionen der Zielgruppen', r: 'Wirkungsanalyse' },
+            { l: 'Kosten-Nutzen-Vergleich der Kommunikationsaktivitäten', r: 'Effizienzanalyse' }
+          ],
           options: ['Prozessanalyse','Wirkungsanalyse','Effizienzanalyse'],
-          correct: ['Prozessanalyse','Wirkungsanalyse','Effizienzanalyse'],
           tips: ['Prozess = zeitlicher Ablauf.','Wirkung = Reaktionen der Zielgruppen.','Effizienz = Kosten-Nutzen-Verhältnis.'],
           reveal: ['Prozessanalyse: Durchführung des Projekts im zeitlichen Ablauf.','Wirkungsanalyse: Reaktionen der Zielgruppen (kognitiv, affektiv, konativ).','Effizienzanalyse: Kosten-Nutzen-Vergleich.']
         }
@@ -334,16 +347,12 @@ window.BOOK_DATA = {
           id: 20, type: 'fill',
           q: 'Elemente des Corporate Designs',
           instruction: 'Rep. 11 (S. 44): Nennen Sie mindestens vier Elemente des Corporate Designs.',
-          segments: [
-            'Die Elemente des Corporate Designs sind: ',
-            { blank: true, answer: ['Logo','Logo / Signet'], width: 120 },
-            ', ',
-            { blank: true, answer: ['Farbsystem','einprägsames Farbsystem'], width: 150 },
-            ', ',
-            { blank: true, answer: ['Bildsprache','treffende Bildsprache'], width: 150 },
-            ', ',
-            { blank: true, answer: ['Layout-System','verbindliches Layout-System'], width: 160 },
-            '.'
+          template: 'Die Elemente des Corporate Designs sind: {0}, {1}, {2}, {3}.',
+          blanks: [
+            ['Logo','Logo / Signet'],
+            ['Farbsystem','einprägsames Farbsystem'],
+            ['Bildsprache','treffende Bildsprache'],
+            ['Layout-System','verbindliches Layout-System']
           ],
           tips: ['CD = das visuelle Erscheinungsbild.','Denken Sie an alles, was man SEHEN kann.','Es gibt mindestens 5 Elemente: Logo/Signet, guter Name, Bildsprache, Farbsystem, Layout-System.'],
           reveal: ['Logo / Signet.','Guter Name.','Treffende Bildsprache.','Einprägsames Farbsystem.','Verbindliches Layout-System.']
@@ -362,9 +371,14 @@ window.BOOK_DATA = {
           id: 22, type: 'match',
           q: 'CI-Elemente zuordnen',
           instruction: 'Ordnen Sie die Definitionen den richtigen CI-Elementen zu.',
-          items: ['Alle Werte, Normen und Handlungsweisen, die den Charakter prägen','Gesamtheit der formalen Kommunikationsprozesse','Das wirkliche, gelebte Verhalten des Unternehmens','Das definierte visuelle Erscheinungsbild','Marktleistung des Unternehmens'],
+          pairs: [
+            { l: 'Alle Werte, Normen und Handlungsweisen, die den Charakter prägen', r: 'Corporate Culture' },
+            { l: 'Gesamtheit der formalen Kommunikationsprozesse', r: 'Corporate Communication' },
+            { l: 'Das wirkliche, gelebte Verhalten des Unternehmens', r: 'Corporate Behaviour' },
+            { l: 'Das definierte visuelle Erscheinungsbild', r: 'Corporate Design' },
+            { l: 'Marktleistung des Unternehmens', r: 'Corporate Performance' }
+          ],
           options: ['Corporate Culture','Corporate Communication','Corporate Behaviour','Corporate Design','Corporate Performance'],
-          correct: ['Corporate Culture','Corporate Communication','Corporate Behaviour','Corporate Design','Corporate Performance'],
           tips: ['Culture = Werte und Normen.','Communication = formale Kommunikation.','Behaviour = gelebtes Verhalten.','Design = visuelles Erscheinungsbild.','Performance = Marktleistung.'],
           reveal: ['Corporate Culture: Werte, Normen, Handlungsweisen.','Corporate Communication: formale Kommunikationsprozesse.','Corporate Behaviour: gelebtes Verhalten.','Corporate Design: visuelles Erscheinungsbild.','Corporate Performance: Marktleistung.']
         },
@@ -372,10 +386,10 @@ window.BOOK_DATA = {
           id: 23, type: 'tf',
           q: 'Richtig oder Falsch: CI',
           statements: [
-            { s: 'Die Corporate Identity ist das Fremdbild des Unternehmens.', correct: false, feedback: 'CI ist das Selbstbild. Das Fremdbild ist das Corporate Image.' },
-            { s: 'Corporate Design umfasst Logo, Farbsystem, Bildsprache und Layout-System.', correct: true, feedback: 'Dies sind die visuellen Elemente des CD.' },
-            { s: 'Corporate Behaviour beschreibt nur das Verhalten gegenüber Kunden.', correct: false, feedback: 'CB umfasst das Verhalten gegenüber allen Anspruchsgruppen.' },
-            { s: 'Im Idealfall stimmen Corporate Identity und Corporate Image überein.', correct: true, feedback: 'Selbstbild und Fremdbild sollten deckungsgleich sein.' }
+            { s: 'Die Corporate Identity ist das Fremdbild des Unternehmens.', c: false, feedback: 'CI ist das Selbstbild. Das Fremdbild ist das Corporate Image.' },
+            { s: 'Corporate Design umfasst Logo, Farbsystem, Bildsprache und Layout-System.', c: true, feedback: 'Dies sind die visuellen Elemente des CD.' },
+            { s: 'Corporate Behaviour beschreibt nur das Verhalten gegenüber Kunden.', c: false, feedback: 'CB umfasst das Verhalten gegenüber allen Anspruchsgruppen.' },
+            { s: 'Im Idealfall stimmen Corporate Identity und Corporate Image überein.', c: true, feedback: 'Selbstbild und Fremdbild sollten deckungsgleich sein.' }
           ],
           tips: ['CI = Selbstbild, Image = Fremdbild.','CD umfasst visuelle Elemente.','CB = gelebtes Verhalten gegenüber ALLEN Anspruchsgruppen.'],
           reveal: ['Aussage 1: Falsch \u2013 CI = Selbstbild.','Aussage 2: Richtig \u2013 visuelle CD-Elemente.','Aussage 3: Falsch \u2013 CB gegenüber allen Anspruchsgruppen.','Aussage 4: Richtig \u2013 Idealfall = deckungsgleich.']
@@ -394,11 +408,11 @@ window.BOOK_DATA = {
           id: 24, type: 'tf',
           q: 'PR: Richtig oder Falsch',
           statements: [
-            { s: 'Public Relations und Unternehmenskommunikation sind synonym gebrauchte Begriffe.', correct: true, feedback: 'Beide Begriffe werden oft synonym verwendet.' },
-            { s: 'Gemeinnützige Organisationen brauchen keine PR.', correct: false, feedback: 'PR sind für gemeinnützige Organisationen sehr wichtig, da sie mit geringen finanziellen Mitteln Aufmerksamkeit und Goodwill schaffen müssen.' },
-            { s: 'PR umfassen nur Aktivitäten eines Unternehmens auf Gebieten, in denen Marketing direkt aktiv ist.', correct: false, feedback: 'PR umfassen auch Aktivitäten in Bereichen, in denen Marketing nicht direkt aktiv ist (z.B. Finanzen, Personalwesen).' },
-            { s: 'Auch öffentliche Verwaltungen versuchen mit PR das Verständnis und das Vertrauen der Bevölkerung zu gewinnen.', correct: true, feedback: 'Auch nicht-kommerzielle Organisationen betreiben PR.' },
-            { s: 'Die obersten Repräsentanten der Unternehmen sind für PR verantwortlich.', correct: true, feedback: 'PR ist Chefsache \u2013 die oberste Führungsebene trägt die Verantwortung.' }
+            { s: 'Public Relations und Unternehmenskommunikation sind synonym gebrauchte Begriffe.', c: true, feedback: 'Beide Begriffe werden oft synonym verwendet.' },
+            { s: 'Gemeinnützige Organisationen brauchen keine PR.', c: false, feedback: 'PR sind für gemeinnützige Organisationen sehr wichtig, da sie mit geringen finanziellen Mitteln Aufmerksamkeit und Goodwill schaffen müssen.' },
+            { s: 'PR umfassen nur Aktivitäten eines Unternehmens auf Gebieten, in denen Marketing direkt aktiv ist.', c: false, feedback: 'PR umfassen auch Aktivitäten in Bereichen, in denen Marketing nicht direkt aktiv ist (z.B. Finanzen, Personalwesen).' },
+            { s: 'Auch öffentliche Verwaltungen versuchen mit PR das Verständnis und das Vertrauen der Bevölkerung zu gewinnen.', c: true, feedback: 'Auch nicht-kommerzielle Organisationen betreiben PR.' },
+            { s: 'Die obersten Repräsentanten der Unternehmen sind für PR verantwortlich.', c: true, feedback: 'PR ist Chefsache \u2013 die oberste Führungsebene trägt die Verantwortung.' }
           ],
           tips: ['PR = Öffentlichkeitsarbeit, nicht nur Marketing.','Auch Non-Profit-Organisationen brauchen PR.','PR umfasst alle Unternehmensbereiche.'],
           reveal: ['Aussage 1: Richtig \u2013 synonyme Begriffe.','Aussage 2: Falsch \u2013 gemeinnützige Organisationen brauchen PR besonders.','Aussage 3: Falsch \u2013 PR geht über Marketing hinaus.','Aussage 4: Richtig \u2013 auch öffentliche Verwaltungen betreiben PR.','Aussage 5: Richtig \u2013 PR ist Chefsache.']
@@ -407,9 +421,15 @@ window.BOOK_DATA = {
           id: 25, type: 'match',
           q: 'Interne und externe PR-Ziele',
           instruction: 'Rep. 15 (S. 55): Ordnen Sie die PR-Ziele der internen oder externen PR zu.',
-          items: ['Wir-Gefühl fördern','Vertrauen der Aktionäre in die Unternehmensstrategie stärken','Image bei Kunden aufbauen und pflegen','Bei den Behörden Verständnis für Entlassungen schaffen','Akzeptanz für schwierige Managemententscheide schaffen','Ängste und Unsicherheiten abbauen'],
+          pairs: [
+            { l: 'Wir-Gefühl fördern', r: 'Intern' },
+            { l: 'Vertrauen der Aktionäre in die Unternehmensstrategie stärken', r: 'Extern' },
+            { l: 'Image bei Kunden aufbauen und pflegen', r: 'Extern' },
+            { l: 'Bei den Behörden Verständnis für Entlassungen schaffen', r: 'Extern' },
+            { l: 'Akzeptanz für schwierige Managemententscheide schaffen', r: 'Intern' },
+            { l: 'Ängste und Unsicherheiten abbauen', r: 'Intern' }
+          ],
           options: ['Intern','Extern'],
-          correct: ['Intern','Extern','Extern','Extern','Intern','Intern'],
           tips: ['Intern = Mitarbeitende, Führungskräfte.','Extern = Kunden, Aktionäre, Behörden, Öffentlichkeit.','Wir-Gefühl und Akzeptanz betreffen Mitarbeitende (intern).'],
           reveal: ['Intern: Wir-Gefühl fördern, Akzeptanz für schwierige Entscheide schaffen, Ängste und Unsicherheiten abbauen.','Extern: Vertrauen der Aktionäre stärken, Image bei Kunden aufbauen, Verständnis bei Behörden schaffen.']
         },
@@ -417,18 +437,13 @@ window.BOOK_DATA = {
           id: 26, type: 'fill',
           q: 'Funktionen der PR',
           instruction: 'Rep. 16 (S. 55): Nennen Sie die Funktionen der PR.',
-          segments: [
-            'Die Funktionen der PR sind: ',
-            { blank: true, answer: ['Informationsfunktion'], width: 180 },
-            ', ',
-            { blank: true, answer: ['Kontaktfunktion'], width: 160 },
-            ', ',
-            { blank: true, answer: ['Führungsfunktion'], width: 160 },
-            ', Imagefunktion, ',
-            { blank: true, answer: ['Harmonisierungsfunktion'], width: 190 },
-            ', Absatzförderungsfunktion, ',
-            { blank: true, answer: ['Stabilisierungsfunktion'], width: 180 },
-            ', Kontinuitätsfunktion.'
+          template: 'Die Funktionen der PR sind: {0}, {1}, {2}, Imagefunktion, {3}, Absatzförderungsfunktion, {4}, Kontinuitätsfunktion.',
+          blanks: [
+            ['Informationsfunktion'],
+            ['Kontaktfunktion'],
+            ['Führungsfunktion'],
+            ['Harmonisierungsfunktion'],
+            ['Stabilisierungsfunktion']
           ],
           tips: ['Es gibt 8 Funktionen der PR.','Beginnen Sie mit Informations- und Kontaktfunktion.','Die Harmonisierungsfunktion gleicht interne und externe Kommunikation ab.'],
           reveal: ['Informationsfunktion.','Kontaktfunktion.','Führungsfunktion.','Imagefunktion.','Harmonisierungsfunktion.','Absatzförderungsfunktion.','Stabilisierungsfunktion.','Kontinuitätsfunktion.']
@@ -437,9 +452,11 @@ window.BOOK_DATA = {
           id: 27, type: 'match',
           q: 'PR-Massnahmen zuordnen',
           instruction: 'Rep. 17 (S. 69): Welche PR-Massnahmen würden Sie in den folgenden Situationen wählen?',
-          items: ['Ein neues Arbeitsplatzreglement soll allen Mitarbeitenden mitgeteilt werden','Ein neues Produkt soll vorgestellt werden'],
+          pairs: [
+            { l: 'Ein neues Arbeitsplatzreglement soll allen Mitarbeitenden mitgeteilt werden', r: 'Intranet' },
+            { l: 'Ein neues Produkt soll vorgestellt werden', r: 'Medienkonferenz / Plakate' }
+          ],
           options: ['Intranet','Medienkonferenz / Plakate'],
-          correct: ['Intranet','Medienkonferenz / Plakate'],
           tips: ['Intern = Intranet, Mitarbeitendenzeitung.','Extern = Medienkonferenz, Pressemitteilung.','Ein neues Reglement betrifft alle Mitarbeitenden (intern).'],
           reveal: ['Arbeitsplatzreglement: Intranet (interne Kommunikation).','Neues Produkt: Medienkonferenz und/oder Plakate (externe Kommunikation).']
         },
@@ -447,9 +464,11 @@ window.BOOK_DATA = {
           id: 28, type: 'match',
           q: 'PR-Massnahmen bei Krisen',
           instruction: 'Rep. 18 (S. 69): Welche PR-Massnahmen passen zu diesen Situationen?',
-          items: ['Die Stimmung im Unternehmen soll verbessert werden','Die neuesten Unternehmenszahlen sind negativ bzw. der Gewinn ist stark zurückgegangen'],
+          pairs: [
+            { l: 'Die Stimmung im Unternehmen soll verbessert werden', r: 'Betriebsausflug, Briefkasten/Intranetforum für Vorschläge' },
+            { l: 'Die neuesten Unternehmenszahlen sind negativ bzw. der Gewinn ist stark zurückgegangen', r: 'Gespräche mit Lieferanten und Kapitalgebern, Medienmitteilung, Information der Mitarbeitenden' }
+          ],
           options: ['Betriebsausflug, Briefkasten/Intranetforum für Vorschläge','Gespräche mit Lieferanten und Kapitalgebern, Medienmitteilung, Information der Mitarbeitenden'],
-          correct: ['Betriebsausflug, Briefkasten/Intranetforum für Vorschläge','Gespräche mit Lieferanten und Kapitalgebern, Medienmitteilung, Information der Mitarbeitenden'],
           tips: ['Stimmung = interne Massnahmen, die Zusammenhalt fördern.','Negative Zahlen = transparente Kommunikation nach innen und aussen.','Wichtig: Intern vor extern informieren!'],
           reveal: ['Stimmung verbessern: Betriebsausflug, Briefkasten oder Intranetforum für Vorschläge und Beschwerden.','Negative Zahlen: Gespräche mit Lieferanten und Kapitalgebern, Information der Medien durch schriftliche Medienmitteilung, Information der Mitarbeitenden in Versammlung.']
         },
@@ -478,7 +497,7 @@ window.BOOK_DATA = {
           q: 'PR: Grundsatz Intern vor Extern (MC)',
           instruction: 'Welcher Grundsatz gilt für die Publikation von Informationen in der PR?',
           options: ['Extern vor intern','Intern vor extern','Gleichzeitig intern und extern','Nur extern, intern ist nicht relevant'],
-          correct: 1,
+          answer: 1,
           tips: ['Die internen Zielgruppen sollen immer zuerst informiert werden.','Dies ist besonders wichtig bei kritischen Nachrichten.','Mitarbeitende sollten nicht aus den Medien erfahren, was im Unternehmen passiert.'],
           reveal: ['Der Grundsatz lautet: Intern vor extern.','Die internen Zielgruppen werden immer vor den externen Zielgruppen informiert.','Dies ist besonders bei kritischen Nachrichten von Bedeutung.']
         }
@@ -496,20 +515,14 @@ window.BOOK_DATA = {
           id: 32, type: 'fill',
           q: 'PR-Disziplinen nennen',
           instruction: 'Ergänzen Sie die wichtigsten PR-Disziplinen.',
-          segments: [
-            'Die PR-Disziplinen sind: Interne PR / ',
-            { blank: true, answer: ['Human Relations','Mitarbeitendenkommunikation'], width: 200 },
-            ', ',
-            { blank: true, answer: ['Medienarbeit','Media Relations'], width: 160 },
-            ' / Media Relations, ',
-            { blank: true, answer: ['Produkte-PR'], width: 120 },
-            ', ',
-            { blank: true, answer: ['Investor Relations'], width: 160 },
-            ', Public Affairs / Lobbying, Standort-PR / ',
-            { blank: true, answer: ['Community Relations'], width: 160 },
-            ', ',
-            { blank: true, answer: ['Krisen-PR'], width: 120 },
-            '.'
+          template: 'Die PR-Disziplinen sind: Interne PR / {0}, {1} / Media Relations, {2}, {3}, Public Affairs / Lobbying, Standort-PR / {4}, {5}.',
+          blanks: [
+            ['Human Relations','Mitarbeitendenkommunikation'],
+            ['Medienarbeit','Media Relations'],
+            ['Produkte-PR'],
+            ['Investor Relations'],
+            ['Community Relations'],
+            ['Krisen-PR']
           ],
           tips: ['Es gibt 7 PR-Disziplinen.','Media Relations ist die Hauptaufgabe der PR-Abteilung.','Investor Relations richtet sich an Aktionäre und Kapitalgeber.'],
           reveal: ['Interne PR / Human Relations / Mitarbeitendenkommunikation.','Medienarbeit / Media Relations.','Produkte-PR.','Investor Relations.','Public Affairs / Lobbying.','Standort-PR / Community Relations.','Krisen-PR.']
@@ -519,7 +532,7 @@ window.BOOK_DATA = {
           q: 'Media Relations (MC)',
           instruction: 'Was ist die Hauptaufgabe der Media Relations?',
           options: ['Werbeanzeigen in Medien schalten','Die PR-Botschaft in den definierten Medien zu publizieren','Social-Media-Kanäle betreuen','Events für Journalisten organisieren'],
-          correct: 1,
+          answer: 1,
           tips: ['Media Relations = Medienarbeit.','Es geht um die Verbreitung von PR-Botschaften.','Ziel: positive oder objektive Berichterstattung.'],
           reveal: ['Die Hauptaufgabe ist die Publizierung der PR-Botschaft in den definierten Medien.','Ziel ist eine positive und/oder objektive Berichterstattung.','Events für Journalisten sind ein Mittel, nicht die Hauptaufgabe.']
         },
@@ -527,10 +540,10 @@ window.BOOK_DATA = {
           id: 34, type: 'tf',
           q: 'PR-Arbeit leichter machen',
           statements: [
-            { s: 'Warten Sie mit Veröffentlichungen nie zu lange \u2013 die Öffentlichkeit sollte teilweise oder vollständig informiert sein.', correct: true, feedback: 'Proaktive Kommunikation ist wichtig.' },
-            { s: 'Öffentlichkeitsarbeit sollte nur in Krisenzeiten betrieben werden.', correct: false, feedback: 'Kontinuierliche PR-Arbeit ist wichtig. In ruhigen Zeiten wird das Fundament gelegt.' },
-            { s: 'PR sollte für Schleichwerbung oder Haus- und Hofmeldungen missbraucht werden.', correct: false, feedback: 'PR darf nicht für Schleichwerbung missbraucht werden. PR-Leute sind für ihre Aufgaben freizuhalten.' },
-            { s: 'Initiativen von Mitarbeitenden zur Verbesserung der Kommunikation sollten unterstützt werden.', correct: true, feedback: 'Mitarbeitende sollten in die Kommunikation eingebunden und ihre Initiativen gefördert werden.' }
+            { s: 'Warten Sie mit Veröffentlichungen nie zu lange \u2013 die Öffentlichkeit sollte teilweise oder vollständig informiert sein.', c: true, feedback: 'Proaktive Kommunikation ist wichtig.' },
+            { s: 'Öffentlichkeitsarbeit sollte nur in Krisenzeiten betrieben werden.', c: false, feedback: 'Kontinuierliche PR-Arbeit ist wichtig. In ruhigen Zeiten wird das Fundament gelegt.' },
+            { s: 'PR sollte für Schleichwerbung oder Haus- und Hofmeldungen missbraucht werden.', c: false, feedback: 'PR darf nicht für Schleichwerbung missbraucht werden. PR-Leute sind für ihre Aufgaben freizuhalten.' },
+            { s: 'Initiativen von Mitarbeitenden zur Verbesserung der Kommunikation sollten unterstützt werden.', c: true, feedback: 'Mitarbeitende sollten in die Kommunikation eingebunden und ihre Initiativen gefördert werden.' }
           ],
           tips: ['Kontinuierliche Öffentlichkeitsarbeit ist wichtig.','PR wirkt langfristig \u2013 Image kann nur langfristig gebaut werden.','PR-Leute sind keine Feuerwehrleute, sondern Krisenmanager.'],
           reveal: ['Aussage 1: Richtig \u2013 proaktive Kommunikation.','Aussage 2: Falsch \u2013 kontinuierliche PR ist essentiell.','Aussage 3: Falsch \u2013 PR darf nicht missbraucht werden.','Aussage 4: Richtig \u2013 Mitarbeitende einbinden.']
@@ -540,7 +553,7 @@ window.BOOK_DATA = {
           q: 'Produkte-PR vs. Mediawerbung (MC)',
           instruction: 'Was ist ein Kennzeichen der Produkte-PR im Vergleich zur Mediawerbung?',
           options: ['Produkte-PR ist immer bezahlt','Produkte-PR nutzt die gleichen Instrumente wie Unternehmensbezogene PR, richtet sich aber an Marketing-Zielgruppen','Produkte-PR ersetzt die Mediawerbung vollständig','Produkte-PR richtet sich nur an interne Zielgruppen'],
-          correct: 1,
+          answer: 1,
           tips: ['Produkte-PR = verbraucherorientierte Medienarbeit.','Die Instrumente sind gleich wie bei der Unternehmens-PR.','Die Zielgruppen entsprechen denen der Marketing-Kommunikation.'],
           reveal: ['Produkte-PR ist verbraucherorientierte Medienarbeit für Produkte, Marken oder Dienstleistungen.','Sie arbeitet mit den gleichen Instrumenten wie die unternehmensbezogene PR.','Die Zielgruppen entsprechen aber den Marketing-Zielgruppen.']
         },
@@ -558,9 +571,13 @@ window.BOOK_DATA = {
           id: 37, type: 'match',
           q: 'PR-Disziplinen zuordnen',
           instruction: 'Ordnen Sie die Beschreibungen den richtigen PR-Disziplinen zu.',
-          items: ['Kommunikation mit Aktionären und Kapitalgebern','Kontakt zu Behörden und Politikern','Kommunikation bei Unglücken und negativen Ereignissen','Beziehungspflege mit Anwohnern und lokaler Gemeinschaft'],
+          pairs: [
+            { l: 'Kommunikation mit Aktionären und Kapitalgebern', r: 'Investor Relations' },
+            { l: 'Kontakt zu Behörden und Politikern', r: 'Public Affairs / Lobbying' },
+            { l: 'Kommunikation bei Unglücken und negativen Ereignissen', r: 'Krisen-PR' },
+            { l: 'Beziehungspflege mit Anwohnern und lokaler Gemeinschaft', r: 'Standort-PR / Community Relations' }
+          ],
           options: ['Investor Relations','Public Affairs / Lobbying','Krisen-PR','Standort-PR / Community Relations'],
-          correct: ['Investor Relations','Public Affairs / Lobbying','Krisen-PR','Standort-PR / Community Relations'],
           tips: ['Investor Relations = Finanzmarkt.','Public Affairs = Politik und Behörden.','Krisen-PR = Umgang mit negativen Ereignissen.'],
           reveal: ['Investor Relations: Aktionäre und Kapitalgeber.','Public Affairs: Behörden und Politiker (Lobbying).','Krisen-PR: Unglücke, negative Ereignisse.','Standort-PR: lokale Gemeinschaft und Anwohner.']
         },
@@ -568,9 +585,9 @@ window.BOOK_DATA = {
           id: 38, type: 'tf',
           q: 'PR: Richtig oder Falsch (erweitert)',
           statements: [
-            { s: 'Public Relations wirken kurzfristig und sind daher für kurzfristige Kampagnen geeignet.', correct: false, feedback: 'PR wirken langfristig. Image kann nur langfristig gebaut werden.' },
-            { s: 'PR-Experten sind keine Feuerwehrleute \u2013 Image kann nur langfristig gebaut und beurteilt werden.', correct: true, feedback: 'PR ist ein langfristiges Instrument.' },
-            { s: 'Die internen Zielgruppen werden immer vor den externen Zielgruppen informiert.', correct: true, feedback: 'Grundsatz: Intern vor extern.' }
+            { s: 'Public Relations wirken kurzfristig und sind daher für kurzfristige Kampagnen geeignet.', c: false, feedback: 'PR wirken langfristig. Image kann nur langfristig gebaut werden.' },
+            { s: 'PR-Experten sind keine Feuerwehrleute \u2013 Image kann nur langfristig gebaut und beurteilt werden.', c: true, feedback: 'PR ist ein langfristiges Instrument.' },
+            { s: 'Die internen Zielgruppen werden immer vor den externen Zielgruppen informiert.', c: true, feedback: 'Grundsatz: Intern vor extern.' }
           ],
           tips: ['PR = langfristiges Instrument.','Image braucht Zeit zum Aufbau.','Intern vor extern ist ein zentraler PR-Grundsatz.'],
           reveal: ['Aussage 1: Falsch \u2013 PR wirken langfristig.','Aussage 2: Richtig \u2013 Image braucht Zeit.','Aussage 3: Richtig \u2013 Grundsatz intern vor extern.']
@@ -590,7 +607,7 @@ window.BOOK_DATA = {
           q: 'Marke und Gewinn (MC)',
           instruction: 'Rep. 21 (S. 89): Stimmt die Aussage: \u00abJe bekannter die Marke, desto höher der Gewinn\u00bb?',
           options: ['Ja, das stimmt immer','Nein, die Aussage stimmt so sicherlich nicht \u2013 es gibt eine Korrelation, aber keine direkte Kausalität','Ja, Bekanntheit führt automatisch zu höherem Gewinn','Nein, Bekanntheit hat keinen Einfluss auf den Gewinn'],
-          correct: 1,
+          answer: 1,
           tips: ['Bekanntheit und Gewinn korrelieren, aber nicht zwingend kausal.','Beispiel Swissair: sehr bekannte Marke, ging aber in Konkurs.','Finanzstarke Unternehmen können mehr in ihre Marken investieren.'],
           reveal: ['Die Aussage stimmt so sicherlich nicht.','Starke und bekannte Marken korrelieren positiv mit dem Gewinn.','Allerdings kann die Korrelation auch dadurch zustande kommen, dass finanzstarke Unternehmen mehr in ihre Marken investieren.','Beispiel: Swissair war eine sehr bekannte Marke, ging aber in Konkurs.']
         },
@@ -638,9 +655,13 @@ window.BOOK_DATA = {
           id: 44, type: 'match',
           q: 'Markenstrategien zuordnen',
           instruction: 'Ordnen Sie die Markenstrategien der richtigen Beschreibung zu.',
-          items: ['Line Extension','Multibrands','Brand Extension','Markeneinführung'],
+          pairs: [
+            { l: 'Line Extension', r: 'Neue Variante unter bestehender Marke in gleicher Kategorie' },
+            { l: 'Multibrands', r: 'Mehrere Marken in gleicher Produktkategorie' },
+            { l: 'Brand Extension', r: 'Bestehende Marke in neuer Produktkategorie' },
+            { l: 'Markeneinführung', r: 'Völlig neue Marke für neues Produkt' }
+          ],
           options: ['Neue Variante unter bestehender Marke in gleicher Kategorie','Mehrere Marken in gleicher Produktkategorie','Bestehende Marke in neuer Produktkategorie','Völlig neue Marke für neues Produkt'],
-          correct: ['Neue Variante unter bestehender Marke in gleicher Kategorie','Mehrere Marken in gleicher Produktkategorie','Bestehende Marke in neuer Produktkategorie','Völlig neue Marke für neues Produkt'],
           tips: ['Line Extension = gleiche Kategorie, gleiche Marke.','Brand Extension = neue Kategorie, gleiche Marke.','Multibrands = gleiche Kategorie, verschiedene Marken.'],
           reveal: ['Line Extension (Linienerweiterung): z.B. neuer Geschmack einer bestehenden Marke.','Multibrands (Mehrmarkenstrategie): z.B. P&G mit verschiedenen Waschmittelmarken.','Brand Extension (Markenerweiterung): z.B. Bic von Kugelschreibern zu Feuerzeugen.','Markeneinführung: komplett neue Marke für ein neues Produkt.']
         },
@@ -648,9 +669,13 @@ window.BOOK_DATA = {
           id: 45, type: 'match',
           q: 'Markenbegriffe',
           instruction: 'Ordnen Sie die Markenbegriffe den richtigen Definitionen zu.',
-          items: ['Der Name, den ein Hersteller seinem Produkt gibt','Der Name, unter dem ein Händler Produkte vertreibt','USP des Unternehmens','UCP der Kommunikation'],
+          pairs: [
+            { l: 'Der Name, den ein Hersteller seinem Produkt gibt', r: 'Herstellermarke' },
+            { l: 'Der Name, unter dem ein Händler Produkte vertreibt', r: 'Handelsmarke' },
+            { l: 'USP des Unternehmens', r: 'Unique Selling Proposition' },
+            { l: 'UCP der Kommunikation', r: 'Unique Communication Proposition' }
+          ],
           options: ['Herstellermarke','Handelsmarke','Unique Selling Proposition','Unique Communication Proposition'],
-          correct: ['Herstellermarke','Handelsmarke','Unique Selling Proposition','Unique Communication Proposition'],
           tips: ['Herstellermarke = von Produzent benannt.','Handelsmarke = vom Händler benannt (z.B. Migros Budget).','USP = einzigartiges Verkaufsversprechen.'],
           reveal: ['Herstellermarke: Vom Hersteller benannt und geführt.','Handelsmarke: Vom Händler unter eigenem Namen vertrieben.','USP: Strategische Erfolgsposition \u2013 einmalige Leistung.','UCP: Unique Communication Proposition \u2013 einzigartige Kommunikationsaussage.']
         },
@@ -658,10 +683,10 @@ window.BOOK_DATA = {
           id: 46, type: 'tf',
           q: 'Richtig oder Falsch: Markenpflege',
           statements: [
-            { s: 'Der Markenwert kann aus finanzwirtschaftlicher oder aus Marketing-Perspektive berechnet werden.', correct: true, feedback: 'Finanzwirtschaftlich: künftig generierbare Erträge. Marketing: Wirkung auf Konsumenten.' },
-            { s: 'Bei einer Dachmarke können einzelne Produkte isoliert positioniert werden.', correct: false, feedback: 'Bei einer Dachmarke stehen alle Produkte unter einem Markendach \u2013 isolierte Positionierung ist schwierig.' },
-            { s: 'Positionierung bedeutet, die Wahrnehmung der Kunden in Bezug auf Produkteigenschaften im Vergleich zur Konkurrenz zu steuern.', correct: true, feedback: 'Positionierung = Steuerung der Wahrnehmung relativ zur Konkurrenz.' },
-            { s: 'Eine starke Marke stellt keinen echten Vermögenswert für das Unternehmen dar.', correct: false, feedback: 'Eine gute Marke stellt einen echten Vermögenswert dar und ermöglicht Differenzierung.' }
+            { s: 'Der Markenwert kann aus finanzwirtschaftlicher oder aus Marketing-Perspektive berechnet werden.', c: true, feedback: 'Finanzwirtschaftlich: künftig generierbare Erträge. Marketing: Wirkung auf Konsumenten.' },
+            { s: 'Bei einer Dachmarke können einzelne Produkte isoliert positioniert werden.', c: false, feedback: 'Bei einer Dachmarke stehen alle Produkte unter einem Markendach \u2013 isolierte Positionierung ist schwierig.' },
+            { s: 'Positionierung bedeutet, die Wahrnehmung der Kunden in Bezug auf Produkteigenschaften im Vergleich zur Konkurrenz zu steuern.', c: true, feedback: 'Positionierung = Steuerung der Wahrnehmung relativ zur Konkurrenz.' },
+            { s: 'Eine starke Marke stellt keinen echten Vermögenswert für das Unternehmen dar.', c: false, feedback: 'Eine gute Marke stellt einen echten Vermögenswert dar und ermöglicht Differenzierung.' }
           ],
           tips: ['Markenwert = Vermögenswert.','Dachmarke = alle Produkte unter einer Marke.','Positionierung = Wahrnehmung im Vergleich zur Konkurrenz.'],
           reveal: ['Aussage 1: Richtig \u2013 zwei Perspektiven der Markenwertberechnung.','Aussage 2: Falsch \u2013 Dachmarke = keine isolierte Positionierung.','Aussage 3: Richtig \u2013 Definition der Positionierung.','Aussage 4: Falsch \u2013 Marke = Vermögenswert.']
@@ -680,9 +705,12 @@ window.BOOK_DATA = {
           id: 47, type: 'match',
           q: 'Kundenlebenszyklus',
           instruction: 'Ordnen Sie die Phasen des Kundenlebenszyklus in die richtige Reihenfolge.',
-          items: ['1. Phase','2. Phase','3. Phase'],
+          pairs: [
+            { l: '1. Phase', r: 'Kundenakquisition (Recruitment)' },
+            { l: '2. Phase', r: 'Kundenbindung (Retention)' },
+            { l: '3. Phase', r: 'Kundenrückgewinnung (Recovery)' }
+          ],
           options: ['Kundenakquisition (Recruitment)','Kundenbindung (Retention)','Kundenrückgewinnung (Recovery)'],
-          correct: ['Kundenakquisition (Recruitment)','Kundenbindung (Retention)','Kundenrückgewinnung (Recovery)'],
           tips: ['Zuerst muss ein Kunde gewonnen werden.','Dann wird er gebunden.','Wenn er verloren geht, wird versucht ihn zurückzugewinnen.'],
           reveal: ['1. Kundenakquisition (Recruitment): Neukunden gewinnen.','2. Kundenbindung (Retention): Bestehende Kunden binden.','3. Kundenrückgewinnung (Recovery): Verlorene Kunden zurückgewinnen.']
         },
@@ -700,9 +728,11 @@ window.BOOK_DATA = {
           id: 49, type: 'match',
           q: 'Up-Selling vs. Cross-Selling',
           instruction: 'Rep. 29: Ordnen Sie die Beschreibungen dem richtigen Konzept zu.',
-          items: ['Dem Kunden wird eine höherwertige Marktleistung verkauft','Dem Kunden wird ein Zusatzprodukt angeboten'],
+          pairs: [
+            { l: 'Dem Kunden wird eine höherwertige Marktleistung verkauft', r: 'Up-Selling' },
+            { l: 'Dem Kunden wird ein Zusatzprodukt angeboten', r: 'Cross-Selling' }
+          ],
           options: ['Up-Selling','Cross-Selling'],
-          correct: ['Up-Selling','Cross-Selling'],
           tips: ['Up = nach oben = höherwertig.','Cross = quer = ergänzend/zusätzlich.','Beispiel Up-Selling: grösseres Hotelzimmer. Cross-Selling: Reiseversicherung dazu.'],
           reveal: ['Up-Selling: Dem Kunden wird eine höherwertige Marktleistung verkauft.','Cross-Selling: Dem Kunden werden ergänzende Leistungen/Zusatzprodukte angeboten.']
         },
@@ -711,7 +741,7 @@ window.BOOK_DATA = {
           q: 'Kundenbindungsarten (MC)',
           instruction: 'Rep. 28: Welche der folgenden Aussagen beschreibt die Kundenverbundenheit korrekt?',
           options: ['Kundengebundenheit durch emotionale Verbindung','Kundenverbundenheit durch vertragliche Bindung','Kundenverbundenheit durch emotionale Verbindung, Zufriedenheit und Loyalität','Kundenverbundenheit durch technologische Abhängigkeit'],
-          correct: 2,
+          answer: 2,
           tips: ['Verbundenheit = emotional.','Gebundenheit = vertraglich/technologisch.','Verbundene Kunden sind zufrieden und loyal.'],
           reveal: ['Kundenverbundenheit entsteht durch emotionale Verbindung, Zufriedenheit und Loyalität.','Kundengebundenheit entsteht durch vertragliche oder technologische Bindung (z.B. Nespresso-Kapseln).','Verbundene Kunden sind wertvoller, da sie freiwillig bleiben.']
         },
@@ -726,15 +756,15 @@ window.BOOK_DATA = {
           reveal: ['Relationship Marketing konzentriert sich auf die Etablierung langfristiger Kundenbeziehungen mit bestehenden Kunden.','Kundenzufriedenheit ist Voraussetzung für langfristige Kundenbindung.','Ziel: Marktleistungen zu individualisieren.']
         },
         {
-          id: 52, type: 'table',
+          id: 52, type: 'match',
           q: 'Produktarten einer Stadtrundfahrt',
           instruction: 'Rep. 27 (S. 103): Ordnen Sie die Beispiele der richtigen Produktart zu.',
-          headers: ['Kernprodukt','Formales Produkt','Erweitertes Produkt','Beispiel'],
-          rows: [
-            { label: 'Beförderung der Touristen auf einer bestimmten Route', correct: 0 },
-            { label: 'Führung und Erklärung durch eine kompetente Führerin in einer verständlichen Sprache', correct: 1 },
-            { label: 'Persönliche und empathische Betreuung, allenfalls servierte Erfrischungen oder abgegebene Souvenirs', correct: 2 }
+          pairs: [
+            { l: 'Beförderung der Touristen auf einer bestimmten Route', r: 'Kernprodukt' },
+            { l: 'Führung und Erklärung durch eine kompetente Führerin in einer verständlichen Sprache', r: 'Formales Produkt' },
+            { l: 'Persönliche und empathische Betreuung, allenfalls servierte Erfrischungen oder abgegebene Souvenirs', r: 'Erweitertes Produkt' }
           ],
+          options: ['Kernprodukt','Formales Produkt','Erweitertes Produkt'],
           tips: ['Kernprodukt = die grundlegende Leistung.','Formales Produkt = die Ausgestaltung der Leistung.','Erweitertes Produkt = zusätzliche Services und Extras.'],
           reveal: ['Kernprodukt: Beförderung der Touristen auf einer bestimmten Route.','Formales Produkt: Führung und Erklärung durch kompetente Führerin.','Erweitertes Produkt: Persönliche Betreuung, Erfrischungen, Souvenirs.']
         },
@@ -742,9 +772,13 @@ window.BOOK_DATA = {
           id: 53, type: 'match',
           q: 'CRM-Software Funktionen',
           instruction: 'Rep. 30: Ordnen Sie die CRM-Software-Funktionen den richtigen Beschreibungen zu.',
-          items: ['Detaillierte Adress-/Kontakt- und Kundeninformation','Verwaltung von Kontakten, Aufgaben und Terminen','Integrierte E-Mail-, Newsletter- und Serienbrieffunktion','Einfaches Erstellen von Berichten, Statistiken und Auswertungen'],
+          pairs: [
+            { l: 'Detaillierte Adress-/Kontakt- und Kundeninformation', r: 'Kontaktdaten' },
+            { l: 'Verwaltung von Kontakten, Aufgaben und Terminen', r: 'Kontaktmanagement' },
+            { l: 'Integrierte E-Mail-, Newsletter- und Serienbrieffunktion', r: 'Kommunikation' },
+            { l: 'Einfaches Erstellen von Berichten, Statistiken und Auswertungen', r: 'Reporting' }
+          ],
           options: ['Kontaktdaten','Kontaktmanagement','Kommunikation','Reporting'],
-          correct: ['Kontaktdaten','Kontaktmanagement','Kommunikation','Reporting'],
           tips: ['Kontaktdaten = die gespeicherten Informationen.','Kontaktmanagement = die Verwaltung der Kontakte.','Kommunikation = E-Mail, Newsletter etc.'],
           reveal: ['Kontaktdaten: Adress-, Kontakt- und Kundeninformation.','Kontaktmanagement: Verwaltung von Kontakten, Aufgaben und Terminen.','Kommunikation: E-Mail-, Newsletter- und Serienbrieffunktion.','Reporting: Berichte, Statistiken und Auswertungen.']
         },
@@ -752,10 +786,10 @@ window.BOOK_DATA = {
           id: 54, type: 'tf',
           q: 'Richtig oder Falsch: Relationship Marketing',
           statements: [
-            { s: 'Kundenzufriedenheit entsteht nur durch die Kernleistung.', correct: false, feedback: 'Kundenzufriedenheit entsteht durch die Kern-, formale und erweiterte Leistung.' },
-            { s: 'Cross-Selling bedeutet, dem Kunden höherwertige Produkte zu verkaufen.', correct: false, feedback: 'Cross-Selling = ergänzende Produkte. Up-Selling = höherwertige Produkte.' },
-            { s: 'Der Kundenlebenszyklus besteht aus drei Phasen: Akquisition, Bindung, Rückgewinnung.', correct: true, feedback: 'Recruitment, Retention, Recovery.' },
-            { s: 'CRM integriert alle kundenbezogenen Prozesse.', correct: true, feedback: 'CRM ist ein ganzheitlicher Ansatz für alle kundenbezogenen Prozesse.' }
+            { s: 'Kundenzufriedenheit entsteht nur durch die Kernleistung.', c: false, feedback: 'Kundenzufriedenheit entsteht durch die Kern-, formale und erweiterte Leistung.' },
+            { s: 'Cross-Selling bedeutet, dem Kunden höherwertige Produkte zu verkaufen.', c: false, feedback: 'Cross-Selling = ergänzende Produkte. Up-Selling = höherwertige Produkte.' },
+            { s: 'Der Kundenlebenszyklus besteht aus drei Phasen: Akquisition, Bindung, Rückgewinnung.', c: true, feedback: 'Recruitment, Retention, Recovery.' },
+            { s: 'CRM integriert alle kundenbezogenen Prozesse.', c: true, feedback: 'CRM ist ein ganzheitlicher Ansatz für alle kundenbezogenen Prozesse.' }
           ],
           tips: ['Kundenzufriedenheit = Kern + formale + erweiterte Leistung.','Cross = quer = ergänzend, Up = nach oben = höherwertig.','Kundenlebenszyklus: 3 Phasen.'],
           reveal: ['Aussage 1: Falsch \u2013 auch formale und erweiterte Leistung.','Aussage 2: Falsch \u2013 Cross-Selling = ergänzend.','Aussage 3: Richtig \u2013 drei Phasen.','Aussage 4: Richtig \u2013 ganzheitlicher Ansatz.']
@@ -784,9 +818,14 @@ window.BOOK_DATA = {
           id: 56, type: 'match',
           q: 'Segmentationskriterien B2B-Markt',
           instruction: 'Rep. 32 (S. 115): Ordnen Sie die Kriterien-Arten den Segmentationskriterien für Geschäftskunden zu.',
-          items: ['Wirtschaftsgebiet','Finanzkennzahlen','Unternehmensgrösse','Innovationsfreudigkeit','Lieferantentreue'],
+          pairs: [
+            { l: 'Wirtschaftsgebiet', r: 'Geografische Kriterien' },
+            { l: 'Finanzkennzahlen', r: 'Ökonomische Kriterien' },
+            { l: 'Unternehmensgrösse', r: 'Organisatorische Kriterien' },
+            { l: 'Innovationsfreudigkeit', r: 'Entscheidungsträgerbezogene Kriterien' },
+            { l: 'Lieferantentreue', r: 'Unternehmenskulturelle Kriterien' }
+          ],
           options: ['Geografische Kriterien','Ökonomische Kriterien','Organisatorische Kriterien','Entscheidungsträgerbezogene Kriterien','Unternehmenskulturelle Kriterien'],
-          correct: ['Geografische Kriterien','Ökonomische Kriterien','Organisatorische Kriterien','Entscheidungsträgerbezogene Kriterien','Unternehmenskulturelle Kriterien'],
           tips: ['Geografisch = Standort, Wirtschaftsgebiet.','Okonomisch = Finanzkennzahlen, Umsatz.','Organisatorisch = Grösse, Struktur.'],
           reveal: ['Geografische Kriterien: Wirtschaftsgebiet.','Okonomische Kriterien: Finanzkennzahlen.','Organisatorische Kriterien: Unternehmensgrösse.','Entscheidungsträgerbezogene Kriterien: Innovationsfreudigkeit.','Unternehmenskulturelle Kriterien: Lieferantentreue.']
         },
@@ -795,7 +834,7 @@ window.BOOK_DATA = {
           q: 'Warmakquise (MC)',
           instruction: 'Rep. 33 (S. 115): Welche zwei der Aussagen treffen auf die Akquisitionsart \u00abWarmakquise\u00bb zu?',
           options: ['Telefonmarketing eignet sich hier gut','Diese Art der Akquisition ist weniger kostengünstig','Konzentration auf bestehende Kontakte','Zugehen auf potenzielle Kunden, zu denen bisher kein Kontakt besteht'],
-          correct: 0,
+          answer: 0,
           tips: ['Warmakquise = Kontaktaufnahme mit bestehenden Kontakten.','Kaltakquise = Kontaktaufnahme ohne vorherigen Kontakt.','Telefonmarketing eignet sich gut für Warmakquise.'],
           reveal: ['Warmakquise: Telefonmarketing eignet sich hier gut UND Konzentration auf bestehende Kontakte.','Bei der Warmakquise besteht bereits ein Kontakt zum potenziellen Kunden.','Kaltakquise: Zugehen auf potenzielle Kunden ohne vorherigen Kontakt.']
         },
@@ -803,10 +842,10 @@ window.BOOK_DATA = {
           id: 58, type: 'tf',
           q: 'Passives Telefonmarketing',
           statements: [
-            { s: 'Beim passiven Telefonmarketing geht die Initiative vom Verkäufer aus.', correct: false, feedback: 'Beim passiven Telefonmarketing geht die Initiative vom Kunden aus.' },
-            { s: 'Beim passiven Telefonmarketing geht die Initiative vom Kunden aus.', correct: true, feedback: 'Der Kunde ruft an, z.B. bei einem Service-Center.' },
-            { s: '24/7-Service und Pikettdienste gehören zum passiven Telefonmarketing.', correct: true, feedback: 'Diese Dienste warten auf Anrufe von Kunden.' },
-            { s: 'Das passive Telefonmarketing eignet sich besonders zur Akquisition von Neukunden.', correct: false, feedback: 'Passive Dienste warten auf Kundenanfragen, sie akquirieren nicht aktiv.' }
+            { s: 'Beim passiven Telefonmarketing geht die Initiative vom Verkäufer aus.', c: false, feedback: 'Beim passiven Telefonmarketing geht die Initiative vom Kunden aus.' },
+            { s: 'Beim passiven Telefonmarketing geht die Initiative vom Kunden aus.', c: true, feedback: 'Der Kunde ruft an, z.B. bei einem Service-Center.' },
+            { s: '24/7-Service und Pikettdienste gehören zum passiven Telefonmarketing.', c: true, feedback: 'Diese Dienste warten auf Anrufe von Kunden.' },
+            { s: 'Das passive Telefonmarketing eignet sich besonders zur Akquisition von Neukunden.', c: false, feedback: 'Passive Dienste warten auf Kundenanfragen, sie akquirieren nicht aktiv.' }
           ],
           tips: ['Passiv = der Kunde kommt zum Unternehmen.','Aktiv = das Unternehmen geht zum Kunden.','24/7-Service = wartet auf Anrufe.'],
           reveal: ['Aussage 1: Falsch \u2013 Initiative geht vom Kunden aus.','Aussage 2: Richtig \u2013 Kunde ruft an.','Aussage 3: Richtig \u2013 diese Dienste warten auf Anrufe.','Aussage 4: Falsch \u2013 passiv eignet sich nicht zur aktiven Akquisition.']
@@ -845,10 +884,10 @@ window.BOOK_DATA = {
           id: 62, type: 'tf',
           q: 'Richtig oder Falsch: Persönliche Kommunikation',
           statements: [
-            { s: 'Warmakquise bedeutet, potenzielle Kunden ohne vorherigen Kontakt anzusprechen.', correct: false, feedback: 'Warmakquise = bestehende Kontakte. Kaltakquise = ohne vorherigen Kontakt.' },
-            { s: 'Beim passiven Telefonmarketing geht die Initiative vom Kunden aus.', correct: true, feedback: 'Der Kunde ruft an (z.B. bei einem Service-Center).' },
-            { s: 'Verbundene Kunden sind durch Verträge an das Unternehmen gebunden.', correct: false, feedback: 'Verbundene Kunden = emotional verbunden. Gebundene = vertraglich gebunden.' },
-            { s: 'Die Rückgewinnung verlorener Kunden ist oft kostengünstiger als Neukundenakquisition.', correct: true, feedback: 'Verlorene Kunden kennen das Unternehmen bereits.' }
+            { s: 'Warmakquise bedeutet, potenzielle Kunden ohne vorherigen Kontakt anzusprechen.', c: false, feedback: 'Warmakquise = bestehende Kontakte. Kaltakquise = ohne vorherigen Kontakt.' },
+            { s: 'Beim passiven Telefonmarketing geht die Initiative vom Kunden aus.', c: true, feedback: 'Der Kunde ruft an (z.B. bei einem Service-Center).' },
+            { s: 'Verbundene Kunden sind durch Verträge an das Unternehmen gebunden.', c: false, feedback: 'Verbundene Kunden = emotional verbunden. Gebundene = vertraglich gebunden.' },
+            { s: 'Die Rückgewinnung verlorener Kunden ist oft kostengünstiger als Neukundenakquisition.', c: true, feedback: 'Verlorene Kunden kennen das Unternehmen bereits.' }
           ],
           tips: ['Warm = bestehender Kontakt, Kalt = kein Kontakt.','Passiv = Kunde kommt, Aktiv = Unternehmen geht.','Verbunden = emotional, Gebunden = vertraglich.'],
           reveal: ['Aussage 1: Falsch \u2013 Warmakquise = bestehende Kontakte.','Aussage 2: Richtig \u2013 Kunde ruft an.','Aussage 3: Falsch \u2013 verbunden = emotional.','Aussage 4: Richtig \u2013 Rückgewinnung günstiger.']
@@ -877,18 +916,13 @@ window.BOOK_DATA = {
           id: 64, type: 'fill',
           q: 'Erfolgsfaktoren der Mitarbeitendenkommunikation',
           instruction: 'Rep. 39 (S. 120): Welches sind die zentralen Erfolgsfaktoren der Mitarbeitendenkommunikation?',
-          segments: [
-            'Die zentralen Erfolgsfaktoren sind: ',
-            { blank: true, answer: ['Reichweite'], width: 130 },
-            ', ',
-            { blank: true, answer: ['Echtzeit'], width: 120 },
-            ', ',
-            { blank: true, answer: ['Transparenz'], width: 130 },
-            ', ',
-            { blank: true, answer: ['Interaktion'], width: 130 },
-            ', ',
-            { blank: true, answer: ['Glaubwürdigkeit'], width: 150 },
-            '.'
+          template: 'Die zentralen Erfolgsfaktoren sind: {0}, {1}, {2}, {3}, {4}.',
+          blanks: [
+            ['Reichweite'],
+            ['Echtzeit'],
+            ['Transparenz'],
+            ['Interaktion'],
+            ['Glaubwürdigkeit']
           ],
           tips: ['Es gibt fünf zentrale Erfolgsfaktoren.','Denken Sie daran: Die Kommunikation muss alle erreichen (Reichweite).','Sie muss zeitnah (Echtzeit) und transparent sein.'],
           reveal: ['Reichweite: Alle Mitarbeitenden erreichen.','Echtzeit: Zeitnahe Kommunikation.','Transparenz: Offene und ehrliche Information.','Interaktion: Dialogmöglichkeiten bieten.','Glaubwürdigkeit: Vertrauenswürdige Kommunikation.']
@@ -897,16 +931,12 @@ window.BOOK_DATA = {
           id: 65, type: 'fill',
           q: 'Themenbereiche der Mitarbeitendenkommunikation',
           instruction: 'Rep. 40 (S. 120): Welche vier Themenbereiche müssen durch eine erfolgreiche Mitarbeitendenkommunikation abgedeckt werden?',
-          segments: [
-            'Die vier Themenbereiche sind: ',
-            { blank: true, answer: ['Information'], width: 130 },
-            ', ',
-            { blank: true, answer: ['Wissenstransfer'], width: 150 },
-            ', ',
-            { blank: true, answer: ['Dialog'], width: 120 },
-            ', ',
-            { blank: true, answer: ['Motivation'], width: 130 },
-            '.'
+          template: 'Die vier Themenbereiche sind: {0}, {1}, {2}, {3}.',
+          blanks: [
+            ['Information'],
+            ['Wissenstransfer'],
+            ['Dialog'],
+            ['Motivation']
           ],
           tips: ['Mitarbeitende brauchen Informationen und Wissen.','Dialog ermöglicht Rückmeldungen.','Motivation hält die Mitarbeitenden engagiert.'],
           reveal: ['Information: Mitarbeitende über Unternehmen informieren.','Wissenstransfer: Wissen teilen und weitergeben.','Dialog: Rückmeldungen ermöglichen.','Motivation: Engagement und Einsatzbereitschaft fördern.']
@@ -935,9 +965,9 @@ window.BOOK_DATA = {
           id: 68, type: 'tf',
           q: 'Richtig oder Falsch: Mitarbeitendenkommunikation',
           statements: [
-            { s: 'Die Mitarbeitendenkommunikation ist ein dauerhafter Regelkreis, der ununterbrochen weitergeführt werden muss.', correct: true, feedback: 'Mitarbeitendenkommunikation ist ein kontinuierlicher Prozess.' },
-            { s: 'Bei der direkten Mitarbeitendenkommunikation steht der unmittelbare Informationsaustausch im Vordergrund.', correct: true, feedback: 'Direkte Kommunikation = persönlicher Austausch.' },
-            { s: 'Die indirekte Mitarbeitendenkommunikation nutzt nur digitale Kanäle.', correct: false, feedback: 'Indirekte Kommunikation nutzt Kommunikationsmittel (auch gedruckte) zur Informationsübermittlung.' }
+            { s: 'Die Mitarbeitendenkommunikation ist ein dauerhafter Regelkreis, der ununterbrochen weitergeführt werden muss.', c: true, feedback: 'Mitarbeitendenkommunikation ist ein kontinuierlicher Prozess.' },
+            { s: 'Bei der direkten Mitarbeitendenkommunikation steht der unmittelbare Informationsaustausch im Vordergrund.', c: true, feedback: 'Direkte Kommunikation = persönlicher Austausch.' },
+            { s: 'Die indirekte Mitarbeitendenkommunikation nutzt nur digitale Kanäle.', c: false, feedback: 'Indirekte Kommunikation nutzt Kommunikationsmittel (auch gedruckte) zur Informationsübermittlung.' }
           ],
           tips: ['Mitarbeitendenkommunikation ist ein Regelkreis.','Direkt = persönlich, unmittelbar.','Indirekt = über Kommunikationsmittel (digital und gedruckt).'],
           reveal: ['Aussage 1: Richtig \u2013 dauerhafter Regelkreis.','Aussage 2: Richtig \u2013 unmittelbarer Austausch.','Aussage 3: Falsch \u2013 auch gedruckte Medien (Mitarbeitendenzeitung etc.).']
@@ -956,9 +986,13 @@ window.BOOK_DATA = {
           id: 69, type: 'match',
           q: 'PESO-Modell',
           instruction: 'Ordnen Sie die vier Grundarten von Content dem PESO-Modell zu.',
-          items: ['Bezahlte Werbung und gesponserte Inhalte','Durch Dritte verdiente Medienpräsenz','Von Nutzern geteilte Inhalte in sozialen Medien','Unternehmenseigene Medien wie Website und Blog'],
+          pairs: [
+            { l: 'Bezahlte Werbung und gesponserte Inhalte', r: 'Paid Media' },
+            { l: 'Durch Dritte verdiente Medienpräsenz', r: 'Earned Media' },
+            { l: 'Von Nutzern geteilte Inhalte in sozialen Medien', r: 'Shared Media' },
+            { l: 'Unternehmenseigene Medien wie Website und Blog', r: 'Owned Media' }
+          ],
           options: ['Paid Media','Earned Media','Shared Media','Owned Media'],
-          correct: ['Paid Media','Earned Media','Shared Media','Owned Media'],
           tips: ['P = Paid (bezahlt).','E = Earned (verdient durch Qualität).','S = Shared (geteilt in Social Media).','O = Owned (eigene Medien).'],
           reveal: ['Paid Media: Bezahlte Werbung und gesponserte Inhalte.','Earned Media: Durch Dritte verdiente Medienpräsenz (Presseberichte, Empfehlungen).','Shared Media: Von Nutzern geteilte Inhalte in sozialen Medien.','Owned Media: Unternehmenseigene Medien (Website, Blog, Kundenmagazin).']
         },
@@ -976,9 +1010,12 @@ window.BOOK_DATA = {
           id: 71, type: 'match',
           q: 'Vorteile von Corporate Media',
           instruction: 'Rep. 44 (S. 133): Ordnen Sie die Vorteile den richtigen Corporate-Media-Formen zu.',
-          items: ['Mehr Content auf der eigenen Website = mehr Traffic, mehr Potenzial, von der Zielgruppe gefunden zu werden','Kann die Abhängigkeit von Fachmedien reduzieren','Kann Wertschätzung für Mitarbeitende sein (Motivation nach innen) und Employer Branding stärken'],
+          pairs: [
+            { l: 'Mehr Content auf der eigenen Website = mehr Traffic, mehr Potenzial, von der Zielgruppe gefunden zu werden', r: 'Corporate Blog' },
+            { l: 'Kann die Abhängigkeit von Fachmedien reduzieren', r: 'Kundenmagazin' },
+            { l: 'Kann Wertschätzung für Mitarbeitende sein (Motivation nach innen) und Employer Branding stärken', r: 'Mitarbeitermagazin' }
+          ],
           options: ['Corporate Blog','Kundenmagazin','Mitarbeitermagazin'],
-          correct: ['Corporate Blog','Kundenmagazin','Mitarbeitermagazin'],
           tips: ['Blog = Website-Content, SEO-Vorteile.','Kundenmagazin = Alternative zu Fachmedien.','Mitarbeitermagazin = Motivation und Employer Branding.'],
           reveal: ['Corporate Blog: Mehr Traffic durch mehr Content auf der eigenen Website.','Kundenmagazin: Reduziert Abhängigkeit von Fachmedien.','Mitarbeitermagazin: Wertschätzung und Employer Branding.']
         },
@@ -997,7 +1034,7 @@ window.BOOK_DATA = {
           q: 'Storytelling (MC)',
           instruction: 'Was ist das Ziel von Storytelling in der Unternehmenskommunikation?',
           options: ['Möglichst viele Fakten und Zahlen zu präsentieren','Die Zielgruppe durch erzählerische Vermittlung emotional anzusprechen','Nur interne Mitarbeitende zu informieren','Werbebotschaften möglichst oft zu wiederholen'],
-          correct: 1,
+          answer: 1,
           tips: ['Storytelling = Geschichten erzählen.','Emotionale Ansprache ist der Kern.','Geschichten bleiben besser in Erinnerung als Fakten.'],
           reveal: ['Storytelling zielt auf die emotionale Ansprache der Zielgruppe durch erzählerische Vermittlung.','Geschichten bleiben besser in Erinnerung als reine Fakten.','Storytelling kann für interne und externe Kommunikation genutzt werden.']
         },
@@ -1015,9 +1052,9 @@ window.BOOK_DATA = {
           id: 75, type: 'tf',
           q: 'Richtig oder Falsch: Corporate Media',
           statements: [
-            { s: 'Das PESO-Modell beschreibt vier Grundarten von Content: Paid, Earned, Shared, Owned.', correct: true, feedback: 'P-E-S-O sind die vier Grundarten.' },
-            { s: 'Corporate Publishing hat den Nachteil, dass mittels Owned Media nur wenig zielgerichtet kommuniziert werden kann.', correct: false, feedback: 'Owned Media ermöglicht gerade sehr zielgerichtete Kommunikation, da das Unternehmen die volle Kontrolle hat.' },
-            { s: 'Ein Kundenmagazin kann die Abhängigkeit von Fachmedien reduzieren.', correct: true, feedback: 'Ein eigenes Medium ersetzt teilweise die Abhängigkeit von externen Fachmedien.' }
+            { s: 'Das PESO-Modell beschreibt vier Grundarten von Content: Paid, Earned, Shared, Owned.', c: true, feedback: 'P-E-S-O sind die vier Grundarten.' },
+            { s: 'Corporate Publishing hat den Nachteil, dass mittels Owned Media nur wenig zielgerichtet kommuniziert werden kann.', c: false, feedback: 'Owned Media ermöglicht gerade sehr zielgerichtete Kommunikation, da das Unternehmen die volle Kontrolle hat.' },
+            { s: 'Ein Kundenmagazin kann die Abhängigkeit von Fachmedien reduzieren.', c: true, feedback: 'Ein eigenes Medium ersetzt teilweise die Abhängigkeit von externen Fachmedien.' }
           ],
           tips: ['PESO = Paid, Earned, Shared, Owned.','Owned Media = volle Kontrolle, zielgerichtete Kommunikation.','Kundenmagazin = eigenes Medium.'],
           reveal: ['Aussage 1: Richtig \u2013 PESO-Modell.','Aussage 2: Falsch \u2013 Owned Media = zielgerichtet.','Aussage 3: Richtig \u2013 Kundenmagazin reduziert Abhängigkeit.']
@@ -1036,14 +1073,11 @@ window.BOOK_DATA = {
           id: 76, type: 'fill',
           q: 'Evaluation einer Kommunikationsagentur',
           instruction: 'Rep. 46 (S. 149): Beschreiben Sie die drei Wege zur Evaluation einer Kommunikationsagentur.',
-          segments: [
-            'Die drei Wege sind: 1. ',
-            { blank: true, answer: ['Direkter Weg ohne Evaluationsverfahren','Direkter Weg'], width: 260 },
-            ', 2. ',
-            { blank: true, answer: ['Weg über eine Agenturpräsentation','Agenturpräsentation'], width: 260 },
-            ', 3. ',
-            { blank: true, answer: ['Weg über die Wettbewerbs-/Konkurrenzpräsentation (Pitch)','Pitch'], width: 280 },
-            '.'
+          template: 'Die drei Wege sind: 1. {0}, 2. {1}, 3. {2}.',
+          blanks: [
+            ['Direkter Weg ohne Evaluationsverfahren','Direkter Weg'],
+            ['Weg über eine Agenturpräsentation','Agenturpräsentation'],
+            ['Weg über die Wettbewerbs-/Konkurrenzpräsentation (Pitch)','Pitch']
           ],
           tips: ['Es gibt drei verschiedene Wege, eine Agentur zu evaluieren.','Der einfachste Weg ist die direkte Beauftragung.','Der aufwendigste ist der Pitch (Wettbewerbspräsentation).'],
           reveal: ['1. Direkter Weg ohne Evaluationsverfahren.','2. Weg über eine Agenturpräsentation.','3. Weg über die Wettbewerbs-/Konkurrenzpräsentation (Pitch).']
@@ -1052,9 +1086,12 @@ window.BOOK_DATA = {
           id: 77, type: 'match',
           q: 'Entschädigungsarten für Agenturen',
           instruction: 'Rep. 47 (S. 149): Ordnen Sie die Entschädigungsarten den richtigen Beschreibungen zu.',
-          items: ['Honorar-Pauschale unter präziser Formulierung der zu erbringenden Leistung','Agenturhonorar gem. BSW/ASW: 17,65% von allen Rechnungsbeträgen','Stundenansätze, zusammengesetzt aus Lohnbasis und betriebswirtschaftlichem Faktor'],
+          pairs: [
+            { l: 'Honorar-Pauschale unter präziser Formulierung der zu erbringenden Leistung', r: 'Honorar-Pauschale' },
+            { l: 'Agenturhonorar gem. BSW/ASW: 17,65% von allen Rechnungsbeträgen', r: 'Agenturhonorar Werbung' },
+            { l: 'Stundenansätze, zusammengesetzt aus Lohnbasis und betriebswirtschaftlichem Faktor', r: 'Aufwand / Cost Plus' }
+          ],
           options: ['Honorar-Pauschale','Agenturhonorar Werbung','Aufwand / Cost Plus'],
-          correct: ['Honorar-Pauschale','Agenturhonorar Werbung','Aufwand / Cost Plus'],
           tips: ['Pauschale = fixer Betrag für definierte Leistung.','Agenturhonorar = prozentual (17,65% gem. BSW/ASW).','Cost Plus = Stundenansätze nach Aufwand.'],
           reveal: ['Honorar-Pauschale: Fixer Betrag für definierte Leistung.','Agenturhonorar Werbung: 17,65% von allen Rechnungsbeträgen (BSW/ASW).','Aufwand / Cost Plus: Stundenansätze nach tatsächlichem Aufwand.']
         },
@@ -1062,16 +1099,12 @@ window.BOOK_DATA = {
           id: 78, type: 'fill',
           q: 'Inhalte eines Kommunikationsbriefings',
           instruction: 'Rep. 48 (S. 149): Nennen Sie die wesentlichen Inhalte eines Kommunikationsbriefings.',
-          segments: [
-            'Die wesentlichen Inhalte sind: 1. Vollständige ',
-            { blank: true, answer: ['Auftraggeberadresse','Auftraggeberadresse: Wer sind wir?'], width: 250 },
-            ', 2. ',
-            { blank: true, answer: ['Aufgabe / Rahmenbedingungen','Aufgabe'], width: 250 },
-            ': Was wollen wir von der Agentur?, 3. ',
-            { blank: true, answer: ['Situationsanalyse','Situationsanalyse: Wo steht unser Angebot im Markt?'], width: 250 },
-            ', 4. Ausrichtung (',
-            { blank: true, answer: ['Soll-Positionen'], width: 180 },
-            ').'
+          template: 'Die wesentlichen Inhalte sind: 1. Vollständige {0}, 2. {1}: Was wollen wir von der Agentur?, 3. {2}, 4. Ausrichtung ({3}).',
+          blanks: [
+            ['Auftraggeberadresse','Auftraggeberadresse: Wer sind wir?'],
+            ['Aufgabe / Rahmenbedingungen','Aufgabe'],
+            ['Situationsanalyse','Situationsanalyse: Wo steht unser Angebot im Markt?'],
+            ['Soll-Positionen']
           ],
           tips: ['Ein Briefing ist die Aufgabenbeschreibung an die Agentur.','Es muss klar sein: WER gibt den Auftrag, WAS ist die Aufgabe, WO stehen wir, WOHIN wollen wir.','Die Soll-Positionen beschreiben die Ziele.'],
           reveal: ['1. Auftraggeberadresse: Wer sind wir?','2. Aufgabe / Rahmenbedingungen: Was wollen wir von der Agentur?','3. Situationsanalyse: Wo steht unser Angebot im Markt?','4. Ausrichtung (Soll-Positionen): Wo wollen wir hin?']
@@ -1101,7 +1134,7 @@ window.BOOK_DATA = {
           q: 'Arten von Agenturen (MC)',
           instruction: 'Welche Art von Agentur ist NICHT typisch im Kommunikationsbereich?',
           options: ['Werbeagentur','PR-Agentur','Event-Agentur','Steuerberatungsagentur'],
-          correct: 3,
+          answer: 3,
           tips: ['Kommunikationsagenturen sind spezialisiert auf Kommunikationsaufgaben.','Es gibt Werbe-, PR-, Media-, Online-Kommunikations-, Event- und Sponsoring-Agenturen.','Steuerberatung gehört nicht zur Kommunikation.'],
           reveal: ['Typische Kommunikationsagenturen: Werbe-, PR-, Media-, Online-Kommunikations-, Event- und Sponsoring-Agenturen.','Eine Steuerberatungsagentur ist keine Kommunikationsagentur.']
         },
@@ -1109,10 +1142,10 @@ window.BOOK_DATA = {
           id: 82, type: 'tf',
           q: 'Richtig oder Falsch: Zusammenarbeit mit Agenturen',
           statements: [
-            { s: 'Ein Kommunikationsbriefing enthält Informationen zu Ausgangslage, Zielen, Zielgruppen, Budget und Timing.', correct: true, feedback: 'Das Briefing ist die zentrale Aufgabenbeschreibung an die Agentur.' },
-            { s: 'Die partnerschaftliche Zusammenarbeit zwischen Auftraggeber und Agentur ist weniger wichtig als der Preis.', correct: false, feedback: 'Partnerschaftliche Zusammenarbeit ist entscheidend für den Erfolg.' },
-            { s: 'Es gibt drei Wege zur Evaluation einer Agentur: direkt, Agenturpräsentation und Pitch.', correct: true, feedback: 'Diese drei Wege haben unterschiedliche Aufwands- und Qualitätsstufen.' },
-            { s: 'Beim Agenturhonorar Werbung beträgt der übliche Satz gemäss BSW/ASW 17,65% von allen Rechnungsbeträgen.', correct: true, feedback: 'Dies ist der branchenmässige Satz für Agenturhonorare in der Werbung.' }
+            { s: 'Ein Kommunikationsbriefing enthält Informationen zu Ausgangslage, Zielen, Zielgruppen, Budget und Timing.', c: true, feedback: 'Das Briefing ist die zentrale Aufgabenbeschreibung an die Agentur.' },
+            { s: 'Die partnerschaftliche Zusammenarbeit zwischen Auftraggeber und Agentur ist weniger wichtig als der Preis.', c: false, feedback: 'Partnerschaftliche Zusammenarbeit ist entscheidend für den Erfolg.' },
+            { s: 'Es gibt drei Wege zur Evaluation einer Agentur: direkt, Agenturpräsentation und Pitch.', c: true, feedback: 'Diese drei Wege haben unterschiedliche Aufwands- und Qualitätsstufen.' },
+            { s: 'Beim Agenturhonorar Werbung beträgt der übliche Satz gemäss BSW/ASW 17,65% von allen Rechnungsbeträgen.', c: true, feedback: 'Dies ist der branchenmässige Satz für Agenturhonorare in der Werbung.' }
           ],
           tips: ['Das Briefing ist das zentrale Instrument der Zusammenarbeit.','Partnerschaft > Preis.','17,65% ist der BSW/ASW-Satz.'],
           reveal: ['Aussage 1: Richtig \u2013 Briefing-Inhalte.','Aussage 2: Falsch \u2013 Partnerschaft ist entscheidend.','Aussage 3: Richtig \u2013 drei Evaluationswege.','Aussage 4: Richtig \u2013 17,65% BSW/ASW-Satz.']

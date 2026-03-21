@@ -155,26 +155,33 @@ function MCExercise(props) {
   var st = useState(null), selected = st[0], setSelected = st[1];
   var st2 = useState(false), checked = st2[0], setChecked = st2[1];
 
-  function check() {
+  function doCheck(sel) {
     setChecked(true);
-    var correct = selected === ex.answer;
+    var correct = sel === ex.answer;
     if (onDone) onDone(correct ? 100 : 0);
   }
 
+  function check() { doCheck(selected); }
+
   function reset() { setSelected(null); setChecked(false); }
+
+  function selectOption(i) {
+    setSelected(i);
+    if (examMode) { doCheck(i); }
+  }
 
   return e('div', null,
     ex.q ? e('div', { className: 'ex-instruction' }, ex.q) : null,
     ex.options.map(function(opt, i) {
       var cls = 'mc-option';
-      if (checked) {
+      if (checked && !examMode) {
         if (i === selected && i === ex.answer) cls += ' correct-sel';
         else if (i === selected && i !== ex.answer) cls += ' wrong-sel';
         else if (i === ex.answer) cls += ' correct-unsel';
       } else if (i === selected) cls += ' selected';
       return e('div', {
         key: i, className: cls,
-        onClick: checked ? null : function() { setSelected(i); }
+        onClick: checked ? null : function() { selectOption(i); }
       },
         e('div', { className: 'mc-radio' }),
         e('span', null, opt)
@@ -184,6 +191,8 @@ function MCExercise(props) {
       e('button', { className: 'btn btn-primary', onClick: check, disabled: selected === null }, 'Pr\u00FCfen'),
       checked ? e('button', { className: 'btn btn-secondary', onClick: reset }, 'Nochmal') : null
     ) : null,
+    examMode && !checked ? e('div', { style: { fontSize: '.8rem', color: 'var(--text2)', marginTop: 8 } }, 'W\u00E4hle eine Antwort') : null,
+    examMode && checked ? e('div', { style: { fontSize: '.8rem', color: 'var(--green)', marginTop: 8 } }, '\u2713 Beantwortet') : null,
     !examMode && ex.tips ? e(Tips, { tips: ex.tips }) : null,
     !examMode && checked && ex.reveal ? e(Reveal, { items: ex.reveal }) : null
   );
@@ -218,23 +227,24 @@ function TFExercise(props) {
         e('div', { className: 'tf-statement' }, s.s),
         e('div', { className: 'tf-buttons' },
           e('button', {
-            className: 'tf-btn' + (checked ? (userAns === true ? (s.c === true ? ' correct-sel' : ' wrong-sel') : (s.c === true ? ' correct-unsel' : '')) : (userAns === true ? ' selected' : '')),
+            className: 'tf-btn' + (checked && !examMode ? (userAns === true ? (s.c === true ? ' correct-sel' : ' wrong-sel') : (s.c === true ? ' correct-unsel' : '')) : (userAns === true ? ' selected' : '')),
             onClick: function() { select(i, true); }
           }, 'Richtig'),
           e('button', {
-            className: 'tf-btn' + (checked ? (userAns === false ? (s.c === false ? ' correct-sel' : ' wrong-sel') : (s.c === false ? ' correct-unsel' : '')) : (userAns === false ? ' selected' : '')),
+            className: 'tf-btn' + (checked && !examMode ? (userAns === false ? (s.c === false ? ' correct-sel' : ' wrong-sel') : (s.c === false ? ' correct-unsel' : '')) : (userAns === false ? ' selected' : '')),
             onClick: function() { select(i, false); }
           }, 'Falsch')
         ),
-        checked ? e('div', { className: 'feedback ' + (userAns === s.c ? 'ok' : 'nok') },
+        checked && !examMode ? e('div', { className: 'feedback ' + (userAns === s.c ? 'ok' : 'nok') },
           userAns === s.c ? 'Korrekt' : 'Falsch \u2013 richtig ist: ' + (s.c ? 'Richtig' : 'Falsch')
         ) : null
       );
     }),
-    !examMode ? e('div', { className: 'btn-row' },
-      e('button', { className: 'btn btn-primary', onClick: check }, 'Pr\u00FCfen'),
-      checked ? e('button', { className: 'btn btn-secondary', onClick: reset }, 'Nochmal') : null
-    ) : null,
+    e('div', { className: 'btn-row' },
+      !checked ? e('button', { className: 'btn btn-primary', onClick: check }, 'Pr\u00FCfen') : null,
+      !examMode && checked ? e('button', { className: 'btn btn-secondary', onClick: reset }, 'Nochmal') : null
+    ),
+    examMode && checked ? e('div', { style: { fontSize: '.8rem', color: 'var(--green)', marginTop: 8 } }, '\u2713 Beantwortet') : null,
     !examMode && ex.tips ? e(Tips, { tips: ex.tips }) : null,
     !examMode && checked && ex.reveal ? e(Reveal, { items: ex.reveal }) : null
   );
@@ -272,7 +282,7 @@ function FillExercise(props) {
       var isWrong = checked && !isCorrect;
       return e('input', {
         key: 'b' + idx,
-        className: 'blank-input' + (isCorrect ? ' correct' : '') + (isWrong ? ' wrong' : ''),
+        className: 'blank-input' + (!examMode && isCorrect ? ' correct' : '') + (!examMode && isWrong ? ' wrong' : ''),
         value: vals[idx],
         onChange: function(ev) { update(idx, ev.target.value); },
         disabled: checked,
@@ -285,16 +295,17 @@ function FillExercise(props) {
   return e('div', null,
     ex.q ? e('div', { className: 'ex-instruction' }, ex.q) : null,
     e('div', { className: 'blank-text' }, rendered),
-    checked ? e('div', { className: 'solution-box' },
+    checked && !examMode ? e('div', { className: 'solution-box' },
       e('strong', null, 'L\u00F6sung: '),
       ex.blanks.map(function(b, i) {
         return (i > 0 ? ', ' : '') + (i + 1) + '. ' + (Array.isArray(b) ? b[0] : b);
       })
     ) : null,
-    !examMode ? e('div', { className: 'btn-row' },
-      e('button', { className: 'btn btn-primary', onClick: check }, 'Pr\u00FCfen'),
-      checked ? e('button', { className: 'btn btn-secondary', onClick: reset }, 'Nochmal') : null
-    ) : null,
+    e('div', { className: 'btn-row' },
+      !checked ? e('button', { className: 'btn btn-primary', onClick: check }, 'Pr\u00FCfen') : null,
+      !examMode && checked ? e('button', { className: 'btn btn-secondary', onClick: reset }, 'Nochmal') : null
+    ),
+    examMode && checked ? e('div', { style: { fontSize: '.8rem', color: 'var(--green)', marginTop: 8 } }, '\u2713 Beantwortet') : null,
     !examMode && ex.tips ? e(Tips, { tips: ex.tips }) : null,
     !examMode && checked && ex.reveal ? e(Reveal, { items: ex.reveal }) : null
   );
@@ -329,7 +340,7 @@ function MatchExercise(props) {
       return e('div', { key: i, className: 'match-row' },
         e('span', { className: 'match-label' }, p.l),
         e('select', {
-          className: 'match-select' + (isCorrect ? ' correct' : '') + (isWrong ? ' wrong' : ''),
+          className: 'match-select' + (!examMode && isCorrect ? ' correct' : '') + (!examMode && isWrong ? ' wrong' : ''),
           value: answers[i],
           onChange: function(ev) { update(i, ev.target.value); },
           disabled: checked
@@ -339,13 +350,14 @@ function MatchExercise(props) {
             return e('option', { key: j, value: opt }, opt);
           })
         ),
-        checked && isWrong ? e('span', { style: { fontSize: '.8rem', color: 'var(--green)' } }, '\u2192 ' + p.r) : null
+        checked && isWrong && !examMode ? e('span', { style: { fontSize: '.8rem', color: 'var(--green)' } }, '\u2192 ' + p.r) : null
       );
     }),
-    !examMode ? e('div', { className: 'btn-row' },
-      e('button', { className: 'btn btn-primary', onClick: check }, 'Pr\u00FCfen'),
-      checked ? e('button', { className: 'btn btn-secondary', onClick: reset }, 'Nochmal') : null
-    ) : null,
+    e('div', { className: 'btn-row' },
+      !checked ? e('button', { className: 'btn btn-primary', onClick: check }, 'Pr\u00FCfen') : null,
+      !examMode && checked ? e('button', { className: 'btn btn-secondary', onClick: reset }, 'Nochmal') : null
+    ),
+    examMode && checked ? e('div', { style: { fontSize: '.8rem', color: 'var(--green)', marginTop: 8 } }, '\u2713 Beantwortet') : null,
     !examMode && ex.tips ? e(Tips, { tips: ex.tips }) : null,
     !examMode && checked && ex.reveal ? e(Reveal, { items: ex.reveal }) : null
   );
@@ -377,28 +389,29 @@ function CheckExercise(props) {
     ex.statements.map(function(s, i) {
       var userAns = answers[i];
       var rowClass = '';
-      if (checked) rowClass = userAns === s.c ? ' correct-row' : ' wrong-row';
+      if (checked && !examMode) rowClass = userAns === s.c ? ' correct-row' : ' wrong-row';
       return e('div', { key: i, className: 'tf-row' + rowClass },
         e('div', { className: 'tf-statement' }, s.s),
         e('div', { className: 'tf-buttons' },
           e('button', {
-            className: 'tf-btn' + (checked ? (userAns === true ? (s.c === true ? ' correct-sel' : ' wrong-sel') : (s.c === true ? ' correct-unsel' : '')) : (userAns === true ? ' selected' : '')),
+            className: 'tf-btn' + (checked && !examMode ? (userAns === true ? (s.c === true ? ' correct-sel' : ' wrong-sel') : (s.c === true ? ' correct-unsel' : '')) : (userAns === true ? ' selected' : '')),
             onClick: function() { select(i, true); }
           }, 'Richtig'),
           e('button', {
-            className: 'tf-btn' + (checked ? (userAns === false ? (s.c === false ? ' correct-sel' : ' wrong-sel') : (s.c === false ? ' correct-unsel' : '')) : (userAns === false ? ' selected' : '')),
+            className: 'tf-btn' + (checked && !examMode ? (userAns === false ? (s.c === false ? ' correct-sel' : ' wrong-sel') : (s.c === false ? ' correct-unsel' : '')) : (userAns === false ? ' selected' : '')),
             onClick: function() { select(i, false); }
           }, 'Falsch')
         ),
-        checked ? e('div', { className: 'feedback ' + (userAns === s.c ? 'ok' : 'nok') },
+        checked && !examMode ? e('div', { className: 'feedback ' + (userAns === s.c ? 'ok' : 'nok') },
           userAns === s.c ? 'Korrekt' : 'Falsch'
         ) : null
       );
     }),
-    !examMode ? e('div', { className: 'btn-row' },
-      e('button', { className: 'btn btn-primary', onClick: check }, 'Pr\u00FCfen'),
-      checked ? e('button', { className: 'btn btn-secondary', onClick: reset }, 'Nochmal') : null
-    ) : null,
+    e('div', { className: 'btn-row' },
+      !checked ? e('button', { className: 'btn btn-primary', onClick: check }, 'Pr\u00FCfen') : null,
+      !examMode && checked ? e('button', { className: 'btn btn-secondary', onClick: reset }, 'Nochmal') : null
+    ),
+    examMode && checked ? e('div', { style: { fontSize: '.8rem', color: 'var(--green)', marginTop: 8 } }, '\u2713 Beantwortet') : null,
     !examMode && ex.tips ? e(Tips, { tips: ex.tips }) : null,
     !examMode && checked && ex.reveal ? e(Reveal, { items: ex.reveal }) : null
   );
@@ -439,19 +452,20 @@ function CalcExercise(props) {
       return e('div', { key: i, className: 'calc-row' },
         e('span', { className: 'calc-label' }, f.label),
         e('input', {
-          className: 'calc-input' + (isCorrect ? ' correct' : '') + (isWrong ? ' wrong' : ''),
+          className: 'calc-input' + (!examMode && isCorrect ? ' correct' : '') + (!examMode && isWrong ? ' wrong' : ''),
           value: vals[i],
           onChange: function(ev) { update(i, ev.target.value); },
           disabled: checked,
           placeholder: '0'
         }),
-        checked && isWrong ? e('span', { style: { fontSize: '.8rem', color: 'var(--green)' } }, '\u2192 ' + f.answer) : null
+        checked && isWrong && !examMode ? e('span', { style: { fontSize: '.8rem', color: 'var(--green)' } }, '\u2192 ' + f.answer) : null
       );
     }),
-    !examMode ? e('div', { className: 'btn-row' },
-      e('button', { className: 'btn btn-primary', onClick: check }, 'Pr\u00FCfen'),
-      checked ? e('button', { className: 'btn btn-secondary', onClick: reset }, 'Nochmal') : null
-    ) : null,
+    e('div', { className: 'btn-row' },
+      !checked ? e('button', { className: 'btn btn-primary', onClick: check }, 'Pr\u00FCfen') : null,
+      !examMode && checked ? e('button', { className: 'btn btn-secondary', onClick: reset }, 'Nochmal') : null
+    ),
+    examMode && checked ? e('div', { style: { fontSize: '.8rem', color: 'var(--green)', marginTop: 8 } }, '\u2713 Beantwortet') : null,
     !examMode && ex.tips ? e(Tips, { tips: ex.tips }) : null,
     !examMode && checked && ex.reveal ? e(Reveal, { items: ex.reveal }) : null
   );
@@ -483,19 +497,20 @@ function TextExercise(props) {
       disabled: checked,
       placeholder: 'Ihre Antwort...'
     }),
-    checked && ex.solution ? e('div', { className: 'solution-box' },
+    checked && !examMode && ex.solution ? e('div', { className: 'solution-box' },
       e('strong', null, 'Musterl\u00F6sung: '), ex.solution
     ) : null,
-    checked && ex.keywords && ex.keywords.length > 0 ? e('div', { style: { marginTop: 8, fontSize: '.8rem', color: 'var(--text2)' } },
+    checked && !examMode && ex.keywords && ex.keywords.length > 0 ? e('div', { style: { marginTop: 8, fontSize: '.8rem', color: 'var(--text2)' } },
       'Schl\u00FCsselw\u00F6rter: ' + ex.keywords.map(function(k) {
         var found = (val || '').toLowerCase().indexOf(k.toLowerCase()) >= 0;
         return found ? '\u2713 ' + k : '\u2717 ' + k;
       }).join(', ')
     ) : null,
-    !examMode ? e('div', { className: 'btn-row' },
-      e('button', { className: 'btn btn-primary', onClick: check }, 'Pr\u00FCfen'),
-      checked ? e('button', { className: 'btn btn-secondary', onClick: reset }, 'Nochmal') : null
-    ) : null,
+    e('div', { className: 'btn-row' },
+      !checked ? e('button', { className: 'btn btn-primary', onClick: check }, 'Pr\u00FCfen') : null,
+      !examMode && checked ? e('button', { className: 'btn btn-secondary', onClick: reset }, 'Nochmal') : null
+    ),
+    examMode && checked ? e('div', { style: { fontSize: '.8rem', color: 'var(--green)', marginTop: 8 } }, '\u2713 Beantwortet') : null,
     !examMode && ex.tips ? e(Tips, { tips: ex.tips }) : null,
     !examMode && checked && ex.reveal ? e(Reveal, { items: ex.reveal }) : null
   );
@@ -577,13 +592,13 @@ function TableExercise(props) {
                   }
                   return e('td', { key: ci },
                     e('input', {
-                      className: 'calc-input' + (checked ? (isCorrect ? ' correct' : ' wrong') : ''),
+                      className: 'calc-input' + (checked && !examMode ? (isCorrect ? ' correct' : ' wrong') : ''),
                       value: userVal,
                       onChange: function(ev) { update(ri, ci, ev.target.value); },
                       disabled: checked,
                       style: { width: '100%', textAlign: 'left' }
                     }),
-                    checked && !isCorrect ? e('div', { style: { fontSize: '.75rem', color: 'var(--green)', marginTop: 2 } }, '\u2192 ' + (Array.isArray(expectedVal) ? expectedVal[0] : expectedVal)) : null
+                    checked && !isCorrect && !examMode ? e('div', { style: { fontSize: '.75rem', color: 'var(--green)', marginTop: 2 } }, '\u2192 ' + (Array.isArray(expectedVal) ? expectedVal[0] : expectedVal)) : null
                   );
                 }
                 return e('td', { key: ci }, cell);
@@ -593,10 +608,11 @@ function TableExercise(props) {
         )
       )
     ),
-    !examMode ? e('div', { className: 'btn-row' },
-      e('button', { className: 'btn btn-primary', onClick: check }, 'Pr\u00FCfen'),
-      checked ? e('button', { className: 'btn btn-secondary', onClick: reset }, 'Nochmal') : null
-    ) : null,
+    e('div', { className: 'btn-row' },
+      !checked ? e('button', { className: 'btn btn-primary', onClick: check }, 'Pr\u00FCfen') : null,
+      !examMode && checked ? e('button', { className: 'btn btn-secondary', onClick: reset }, 'Nochmal') : null
+    ),
+    examMode && checked ? e('div', { style: { fontSize: '.8rem', color: 'var(--green)', marginTop: 8 } }, '\u2713 Beantwortet') : null,
     !examMode && ex.tips ? e(Tips, { tips: ex.tips }) : null,
     !examMode && checked && ex.reveal ? e(Reveal, { items: ex.reveal }) : null
   );
@@ -643,6 +659,7 @@ function LearningRenderer(props) {
   function markAsRead() {
     setIsRead(true);
     localStorage.setItem(readKey, '1');
+    if (props.onLearnRead) props.onLearnRead();
   }
 
   function renderSection(section, idx) {
@@ -1109,7 +1126,8 @@ function ChapterCard(props) {
 
   var examScores = useMemo(function() { return loadExamScores(bookData.id); }, [mode, examRetry]);
   var bestExam = examScores[chapter.id];
-  var learnRead = localStorage.getItem('lp-learn-' + bookData.id + '-' + chapter.id) === '1';
+  var st5 = useState(function() { return localStorage.getItem('lp-learn-' + bookData.id + '-' + chapter.id) === '1'; });
+  var learnRead = st5[0], setLearnRead = st5[1];
 
   return e('div', { className: 'chapter-card' },
     e('div', { className: 'chapter-header', onClick: function() { setIsOpen(!isOpen); } },
@@ -1137,7 +1155,8 @@ function ChapterCard(props) {
       mode === 'lernen' ? e(LearningRenderer, {
         data: chapter.learningData,
         bookId: bookData.id,
-        chId: chapter.id
+        chId: chapter.id,
+        onLearnRead: function() { setLearnRead(true); }
       }) : null,
 
       // Ueben
@@ -1199,11 +1218,11 @@ function initApp(bookData) {
     useEffect(function() { saveProgress(bookData.id, progress); }, [progress]);
     useEffect(function() { localStorage.setItem('lp-notes-' + bookData.id, notes); }, [notes]);
     useEffect(function() {
-      if (timerOn && seconds > 0) {
+      if (timerOn) {
         timerRef.current = setInterval(function() { setSeconds(function(s) { return s > 0 ? s - 1 : 0; }); }, 1000);
         return function() { clearInterval(timerRef.current); };
       } else { clearInterval(timerRef.current); }
-    }, [timerOn, seconds]);
+    }, [timerOn]);
 
     function toggleDark() { setDark(function(d) { localStorage.setItem('lp-dark', d ? '0' : '1'); return !d; }); }
     function toggleTimer() { setTimerOn(function(t) { return !t; }); }
