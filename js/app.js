@@ -637,6 +637,51 @@ function ExerciseCard(props) {
   }
 }
 
+// ─── Text Formatter (converts flat text to structured elements) ──────────────
+
+function formatText(text) {
+  if (!text) return null;
+  // Split on patterns like " - ", "\n- ", "\n\n"
+  // Check if text contains list-like patterns
+  var hasListDashes = /(?:^|\n)\s*-\s/.test(text) || /:\s+-\s/.test(text);
+  if (hasListDashes) {
+    // Split into intro text and list items
+    var parts = text.split(/(?:^|\n)\s*-\s|(?<=:)\s+-\s/);
+    var intro = parts[0] ? parts[0].replace(/:\s*$/, '') : '';
+    var items = parts.slice(1).filter(function(s) { return s.trim().length > 0; });
+    if (items.length > 0) {
+      var elements = [];
+      if (intro.trim()) {
+        elements.push(e('p', { key: 'intro', style: { marginBottom: 12, lineHeight: 1.7 } }, intro.trim()));
+      }
+      elements.push(e('ul', { key: 'list', style: { paddingLeft: 20, margin: '8px 0' } },
+        items.map(function(item, i) {
+          return e('li', { key: i, style: { marginBottom: 6, lineHeight: 1.6, fontSize: '.88rem' } }, item.trim());
+        })
+      ));
+      return e('div', null, elements);
+    }
+  }
+  // Check for paragraph breaks
+  if (text.indexOf('\n\n') !== -1) {
+    var paragraphs = text.split('\n\n').filter(function(s) { return s.trim(); });
+    return e('div', null, paragraphs.map(function(p, i) {
+      return e('p', { key: i, style: { marginBottom: 10, lineHeight: 1.7 } }, p.trim());
+    }));
+  }
+  // Check for single line breaks with content
+  if (text.indexOf('\n') !== -1) {
+    var lines = text.split('\n').filter(function(s) { return s.trim(); });
+    if (lines.length > 1) {
+      return e('div', null, lines.map(function(line, i) {
+        return e('p', { key: i, style: { marginBottom: 6, lineHeight: 1.6 } }, line.trim());
+      }));
+    }
+  }
+  // Plain text
+  return e('p', { style: { lineHeight: 1.7 } }, text);
+}
+
 // ─── Learning Renderer ──────────────────────────────────────────────────────
 
 function LearningRenderer(props) {
@@ -675,7 +720,7 @@ function LearningRenderer(props) {
           e('span', { className: 'learn-section-title' }, section.title)
         ),
         e('div', { className: 'learn-section-body' },
-          (section.content || section.text) ? e('div', { className: 'learn-intro-text' }, section.content || section.text) : null,
+          (section.content || section.text) ? e('div', { className: 'learn-intro-text' }, formatText(section.content || section.text)) : null,
           section.items ? e('ul', { className: 'learn-intro-list' },
             section.items.map(function(item, i) { return e('li', { key: i }, item); })
           ) : null
@@ -692,7 +737,7 @@ function LearningRenderer(props) {
           e('span', { className: 'learn-section-title' }, section.title)
         ),
         e('div', { className: 'learn-section-body' },
-          (section.content || section.text) ? e('div', { className: 'learn-concept-text' }, section.content || section.text) : null,
+          (section.content || section.text) ? e('div', { className: 'learn-concept-text' }, formatText(section.content || section.text)) : null,
           section.highlight ? e('div', { className: 'learn-highlight' }, section.highlight) : null
         )
       );
@@ -771,7 +816,7 @@ function LearningRenderer(props) {
         ),
         e('div', { className: 'learn-section-body' },
           e('ul', { className: 'learn-merke-list' },
-            (section.items || (section.text ? section.text.split('\n\n') : [])).map(function(item, i) { return e('li', { key: i }, item); })
+            (section.items || (section.text ? section.text.split(/\n\n|\n-\s|(?<=\.)\s+-\s/) : [])).filter(function(s) { return s && s.trim(); }).map(function(item, i) { return e('li', { key: i }, item.trim()); })
           )
         )
       );
@@ -791,7 +836,7 @@ function LearningRenderer(props) {
               e('div', { className: 'learn-method-q' }, item.q),
               e('div', { className: 'learn-method-a' }, item.a)
             );
-          }) : section.text ? e('div', { className: 'learn-method-text', style: { whiteSpace: 'pre-line' } }, section.text) : null
+          }) : section.text ? e('div', { className: 'learn-method-text' }, formatText(section.text)) : null
         )
       );
     }
@@ -807,8 +852,8 @@ function LearningRenderer(props) {
         e('div', { className: 'learn-section-body' },
           e('div', { className: 'learn-summary-text' },
             Array.isArray(section.content)
-              ? section.content.map(function(p, i) { return e('p', { key: i, dangerouslySetInnerHTML: { __html: p } }); })
-              : e('p', { dangerouslySetInnerHTML: { __html: section.content || section.text || '' } })
+              ? section.content.map(function(p, i) { return e('p', { key: i, style: { marginBottom: 10, lineHeight: 1.7 }, dangerouslySetInnerHTML: { __html: p } }); })
+              : formatText(section.content || section.text || '')
           )
         )
       );
@@ -821,7 +866,7 @@ function LearningRenderer(props) {
         e('span', { className: 'learn-section-title' }, section.title || 'Abschnitt')
       ),
       e('div', { className: 'learn-section-body' },
-        e('div', null, section.content || section.text || '')
+        formatText(section.content || section.text || '')
       )
     );
   }
