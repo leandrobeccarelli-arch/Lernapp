@@ -133,6 +133,70 @@ window.BOOK_DATA = {
           options: ['Unternehmensziel','Marketingziel','Verkaufsziel'],
           tips: ['Unternehmensziele sind die übergeordneten, strategischen Ziele.','Marketingziele leiten sich aus den Unternehmenszielen ab.','Verkaufsziele sind die operativsten und konkretesten.'],
           reveal: ['Marktführerschaft und Gewinnmaximierung = Unternehmensziele.','Umsatzsteigerung und Kundenzufriedenheit = Marketingziele.','20 Neukunden pro Quartal = konkretes Verkaufsziel.']
+        },
+        {
+          id: 93,
+          type: 'sort',
+          q: 'Ordnen Sie die Zielpyramide von oben (strategisch) nach unten (operativ).',
+          items: ['Vision / Leitbild', 'Unternehmensziele', 'Marketingziele', 'Verkaufsziele', 'Massnahmenziele'],
+          tips: ['Ganz oben steht die langfristige Ausrichtung des Unternehmens.','Verkaufsziele werden von Marketingzielen abgeleitet.','Massnahmenziele sind die konkretesten, operativsten Ziele.'],
+          reveal: ['Die Zielpyramide: Vision → Unternehmensziele → Marketingziele → Verkaufsziele → Massnahmenziele.','Ziele werden Top-down abgeleitet: Je weiter unten, desto konkreter und operativer.']
+        },
+        {
+          id: 94,
+          type: 'match',
+          q: 'Ordnen Sie die 6 W der Operationalisierung der richtigen Bedeutung zu.',
+          pairs: [
+            {l: 'Was', r: 'Zielinhalt'},
+            {l: 'Wie viel', r: 'Zielquantifizierung'},
+            {l: 'Wem', r: 'Zielsegment'},
+            {l: 'Wann', r: 'Zielperiode'},
+            {l: 'Wo', r: 'Zielmarkt'},
+            {l: 'Wer', r: 'Zielverantwortung'}
+          ],
+          options: ['Zielinhalt','Zielquantifizierung','Zielsegment','Zielperiode','Zielmarkt','Zielverantwortung'],
+          tips: ['Was = welches Ziel, Wie viel = konkreter Wert.','Wem = Zielgruppe/Segment, Wann = Termin.','Wo = Markt/Region, Wer = verantwortliche Person.'],
+          reveal: ['Was: Zielinhalt — Welches Verkaufsziel soll erreicht werden?','Wie viel: Zielquantifizierung — Welcher Wert soll erreicht werden?','Wem: Zielsegment — Welche Zielgruppe?','Wann: Zielperiode — Bis wann?','Wo: Zielmarkt — In welchem Markt?','Wer: Zielverantwortung — Wer ist verantwortlich?']
+        },
+        {
+          id: 95,
+          type: 'fill',
+          q: 'Ergänzen Sie die SMART-Formel für die Zielformulierung.',
+          template: 'Ziele müssen SMART formuliert sein: S = {0}, M = {1}, A = {2}, R = {3}, T = {4}.',
+          blanks: ['spezifisch','messbar','attraktiv','realistisch','terminiert'],
+          accept: [['spezifisch','spezifische'],['messbar','messbare'],['attraktiv','attraktive','akzeptiert'],['realistisch','realistische','realisierbar'],['terminiert','terminierte','zeitlich']],
+          tips: ['S steht für klar und eindeutig formuliert.','M bedeutet: Man kann den Erfolg messen.','T bedeutet: Es gibt einen klaren Endtermin.'],
+          reveal: ['SMART: Spezifisch, Messbar, Attraktiv, Realistisch, Terminiert.','Die SMART-Formel ergänzt das 6-W-Raster und stellt sicher, dass Ziele überprüfbar sind.']
+        },
+        {
+          id: 96,
+          type: 'match',
+          q: 'Ordnen Sie die 6 Subvariablen der Verkaufsstrategie der richtigen W-Frage zu.',
+          pairs: [
+            {l: 'Produktselektion', r: 'Was'},
+            {l: 'Kundenselektion', r: 'Wem'},
+            {l: 'Feldgrösse', r: 'Wo'},
+            {l: 'Kontaktqualität', r: 'Wie'},
+            {l: 'Kontaktquantität', r: 'Wie viel'},
+            {l: 'Kontaktperiodizität', r: 'Wann'}
+          ],
+          options: ['Was','Wem','Wo','Wie','Wie viel','Wann'],
+          tips: ['Produktselektion = welches Produkt verkaufen.','Kundenselektion = an wen verkaufen.','Kontaktperiodizität = wie oft / wann kontaktieren.'],
+          reveal: ['Die 6 Subvariablen definieren die Verkaufsstrategie:','Was (Produkt), Wem (Kunden), Wo (Feld), Wie (Qualität), Wie viel (Quantität), Wann (Periodizität).']
+        },
+        {
+          id: 97,
+          type: 'mc',
+          q: 'Ein Verkaufsziel lautet: "Wir wollen den Umsatz steigern." Was fehlt bei diesem Ziel?',
+          options: [
+            'Es fehlt nur die Zielperiode (Wann).',
+            'Es fehlen Quantifizierung, Segment, Termin, Markt und Verantwortung — das Ziel ist nicht operationalisiert.',
+            'Es fehlt die SWOT-Analyse als Grundlage.',
+            'Es fehlt die Unterscheidung zwischen ökonomisch und vorökonomisch.'
+          ],
+          answer: 1,
+          tips: ['Prüfen Sie das Ziel anhand der 6 W.','Nur "Was" (Umsatz steigern) ist definiert.','Ein operationalisiertes Ziel braucht alle 6 W.'],
+          reveal: ['Das Ziel enthält nur das "Was" (Umsatz steigern).','Es fehlen: Wie viel (konkreter Wert), Wem (Zielgruppe), Wann (Termin), Wo (Markt), Wer (Verantwortung).','Ohne Operationalisierung ist ein Ziel weder messbar noch kontrollierbar.']
         }
       ],
       learningData: {
