@@ -93,7 +93,8 @@ window.BOOK_DATA = {
             { term: 'Geldflussrechnung', def: 'Zeigt die Herkunft und Verwendung der finanziellen Mittel (dritte Abschlussrechnung).' },
             { term: 'Bilanz- und Erfolgsanalyse', def: 'Auswertung von Abschlussrechnungen mit Kennzahlen.' }
           ]},
-          { type: 'merke', title: 'Merke dir', content: 'Das Rechnungswesen erfüllt im Unternehmen eine wichtige Grundlage für die Planung, Entscheidung, Kontrolle und Führung. Die Buchhaltung erfasst nur zahlenmässig erfassbare Geschäftsvorgänge.' }
+          { type: 'merke', title: 'Merke dir', content: 'Das Rechnungswesen erfüllt im Unternehmen eine wichtige Grundlage für die Planung, Entscheidung, Kontrolle und Führung. Die Buchhaltung erfasst nur zahlenmässig erfassbare Geschäftsvorgänge.' },
+          { type: 'svg', title: 'Uebersicht Rechnungswesen', svg: '<svg viewBox="0 0 720 380" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif"><rect x="5" y="5" width="710" height="370" rx="12" fill="none" stroke="#3b82f6" stroke-width="2"/><text x="360" y="38" text-anchor="middle" font-size="17" font-weight="700" fill="#3b82f6">Bereiche des Rechnungswesens</text><rect x="220" y="50" width="280" height="40" rx="8" fill="#3b82f6" fill-opacity="0.15" stroke="#3b82f6" stroke-width="2"/><text x="360" y="75" text-anchor="middle" font-size="14" font-weight="700" fill="#1e40af">Rechnungswesen</text><line x1="240" y1="90" x2="140" y2="120" stroke="#3b82f6" stroke-width="1.5"/><line x1="360" y1="90" x2="360" y2="120" stroke="#3b82f6" stroke-width="1.5"/><line x1="480" y1="90" x2="580" y2="120" stroke="#3b82f6" stroke-width="1.5"/><rect x="30" y="120" width="210" height="105" rx="8" fill="#3b82f6" fill-opacity="0.08" stroke="#3b82f6" stroke-width="1.5"/><text x="135" y="142" text-anchor="middle" font-size="13" font-weight="700" fill="#1e40af">Finanzbuchhaltung</text><text x="135" y="158" text-anchor="middle" font-size="11" fill="#1e40af">(FIBU – extern)</text><text x="135" y="180" text-anchor="middle" font-size="11" fill="#374151">Bilanz</text><text x="135" y="198" text-anchor="middle" font-size="11" fill="#374151">Erfolgsrechnung</text><text x="135" y="216" text-anchor="middle" font-size="11" fill="#374151">Geldflussrechnung</text><rect x="255" y="120" width="210" height="105" rx="8" fill="#3b82f6" fill-opacity="0.08" stroke="#3b82f6" stroke-width="1.5"/><text x="360" y="142" text-anchor="middle" font-size="13" font-weight="700" fill="#1e40af">Betriebsbuchhaltung</text><text x="360" y="158" text-anchor="middle" font-size="11" fill="#1e40af">(BEBU – intern)</text><text x="360" y="180" text-anchor="middle" font-size="11" fill="#374151">Kostenartenrechnung</text><text x="360" y="198" text-anchor="middle" font-size="11" fill="#374151">Kostenstellenrechnung</text><text x="360" y="216" text-anchor="middle" font-size="11" fill="#374151">Kalkulation</text><rect x="480" y="120" width="210" height="105" rx="8" fill="#3b82f6" fill-opacity="0.08" stroke="#3b82f6" stroke-width="1.5"/><text x="585" y="142" text-anchor="middle" font-size="13" font-weight="700" fill="#1e40af">Planungsrechnung</text><text x="585" y="158" text-anchor="middle" font-size="11" fill="#1e40af">(Controlling)</text><text x="585" y="180" text-anchor="middle" font-size="11" fill="#374151">Budgetierung</text><text x="585" y="198" text-anchor="middle" font-size="11" fill="#374151">Soll-Ist-Vergleich</text><text x="585" y="216" text-anchor="middle" font-size="11" fill="#374151">Investitionsrechnung</text><rect x="30" y="245" width="660" height="50" rx="8" fill="#3b82f6" fill-opacity="0.05" stroke="#3b82f6" stroke-width="1" stroke-dasharray="4,3"/><text x="360" y="267" text-anchor="middle" font-size="13" font-weight="600" fill="#1e40af">Hilfsrechnungen (Nebenbuchhaltungen)</text><text x="360" y="285" text-anchor="middle" font-size="11" fill="#374151">Debitorenbuchhaltung | Kreditorenbuchhaltung | Lohnbuchhaltung | Anlagenbuchhaltung | Lagerbuchhaltung</text><rect x="100" y="315" width="520" height="40" rx="8" fill="#3b82f6" fill-opacity="0.05" stroke="#3b82f6" stroke-width="1" stroke-dasharray="4,3"/><text x="360" y="337" text-anchor="middle" font-size="13" font-weight="600" fill="#1e40af">Auswertung / Ergaenzungen</text><text x="360" y="352" text-anchor="middle" font-size="11" fill="#374151">Bilanz- und Erfolgsanalyse | Kennzahlen | Konzernrechnung | Statistiken</text></svg>' }
         ]
       }
     },
@@ -262,6 +263,7 @@ window.BOOK_DATA = {
             { term: 'Hauptbuch', def: 'Sachliche Ordnung der Buchungen nach Konten.' }
           ]},
           { type: 'merke', title: 'Merke dir', content: 'Die Grundregel der doppelten Buchhaltung: Jeder Geschäftsfall wird auf mindestens zwei Konten gebucht (Soll und Haben). Ohne Beleg keine Buchung! Erfolgskonten haben keinen Anfangsbestand und werden am Periodenende über die ER abgeschlossen.' },
+          { type: 'svg', title: 'Buchungssatz-Schema (Soll an Haben)', svg: '<svg viewBox="0 0 720 420" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif"><defs><marker id="arBS" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#3b82f6"/></marker></defs><rect x="5" y="5" width="710" height="410" rx="12" fill="none" stroke="#3b82f6" stroke-width="2"/><text x="360" y="38" text-anchor="middle" font-size="17" font-weight="700" fill="#3b82f6">Buchungssatz: Soll an Haben</text><rect x="180" y="50" width="360" height="45" rx="8" fill="#3b82f6" fill-opacity="0.15" stroke="#3b82f6" stroke-width="2"/><text x="360" y="70" text-anchor="middle" font-size="15" font-weight="700" fill="#1e40af">Sollkonto / Habenkonto</text><text x="360" y="88" text-anchor="middle" font-size="11" fill="#1e40af">(z.B. Maschinen / Kasse 50 000)</text><rect x="30" y="120" width="300" height="130" rx="10" fill="#3b82f6" fill-opacity="0.06" stroke="#3b82f6" stroke-width="1.5"/><text x="180" y="145" text-anchor="middle" font-size="14" font-weight="700" fill="#1e40af">Aktivkonten</text><line x1="180" y1="155" x2="180" y2="240" stroke="#3b82f6" stroke-width="1"/><line x1="40" y1="158" x2="320" y2="158" stroke="#3b82f6" stroke-width="1"/><text x="110" y="175" text-anchor="middle" font-size="12" font-weight="600" fill="#1e40af">Soll (+)</text><text x="250" y="175" text-anchor="middle" font-size="12" font-weight="600" fill="#1e40af">Haben (−)</text><text x="110" y="200" text-anchor="middle" font-size="11" fill="#374151">Zunahme</text><text x="250" y="200" text-anchor="middle" font-size="11" fill="#374151">Abnahme</text><text x="110" y="220" text-anchor="middle" font-size="10" fill="#6b7280">Anfangsbestand</text><text x="250" y="220" text-anchor="middle" font-size="10" fill="#6b7280">Schlusssaldo</text><rect x="390" y="120" width="300" height="130" rx="10" fill="#3b82f6" fill-opacity="0.06" stroke="#3b82f6" stroke-width="1.5"/><text x="540" y="145" text-anchor="middle" font-size="14" font-weight="700" fill="#1e40af">Passivkonten</text><line x1="540" y1="155" x2="540" y2="240" stroke="#3b82f6" stroke-width="1"/><line x1="400" y1="158" x2="680" y2="158" stroke="#3b82f6" stroke-width="1"/><text x="470" y="175" text-anchor="middle" font-size="12" font-weight="600" fill="#1e40af">Soll (−)</text><text x="610" y="175" text-anchor="middle" font-size="12" font-weight="600" fill="#1e40af">Haben (+)</text><text x="470" y="200" text-anchor="middle" font-size="11" fill="#374151">Abnahme</text><text x="610" y="200" text-anchor="middle" font-size="11" fill="#374151">Zunahme</text><text x="470" y="220" text-anchor="middle" font-size="10" fill="#6b7280">Schlusssaldo</text><text x="610" y="220" text-anchor="middle" font-size="10" fill="#6b7280">Anfangsbestand</text><rect x="30" y="270" width="300" height="55" rx="8" fill="#dc2626" fill-opacity="0.06" stroke="#dc2626" stroke-width="1"/><text x="180" y="292" text-anchor="middle" font-size="13" font-weight="700" fill="#991b1b">Aufwandskonten</text><text x="110" y="315" text-anchor="middle" font-size="11" fill="#374151">Soll (+) Zunahme</text><text x="250" y="315" text-anchor="middle" font-size="11" fill="#6b7280">Haben (−)</text><rect x="390" y="270" width="300" height="55" rx="8" fill="#059669" fill-opacity="0.06" stroke="#059669" stroke-width="1"/><text x="540" y="292" text-anchor="middle" font-size="13" font-weight="700" fill="#065f46">Ertragskonten</text><text x="470" y="315" text-anchor="middle" font-size="11" fill="#6b7280">Soll (−)</text><text x="610" y="315" text-anchor="middle" font-size="11" fill="#374151">Haben (+) Zunahme</text><rect x="100" y="345" width="520" height="55" rx="8" fill="#3b82f6" fill-opacity="0.08"/><text x="360" y="365" text-anchor="middle" font-size="12" font-weight="600" fill="#1e40af">4 Bilanzveraenderungstypen</text><text x="135" y="385" text-anchor="middle" font-size="10" fill="#374151">Aktivtausch (a+/a−)</text><text x="270" y="385" text-anchor="middle" font-size="10" fill="#374151">Passivtausch (p−/p+)</text><text x="440" y="385" text-anchor="middle" font-size="10" fill="#374151">Kapitalbeschaffung (a+/p+)</text><text x="585" y="385" text-anchor="middle" font-size="10" fill="#374151">Kapitalrueckzahlung (a−/p−)</text></svg>' },
           { type: 'summary', title: 'Zusammenfassung', items: [
             'Aktivkonten: Zunahme im Soll, Abnahme im Haben',
             'Passivkonten: Zunahme im Haben, Abnahme im Soll',
@@ -675,7 +677,8 @@ window.BOOK_DATA = {
             { term: 'Selbstkosten', def: 'Herstellkosten + Verwaltungs- und Vertriebsgemeinkosten (VVGK).' },
             { term: 'Reingewinn', def: 'Nettoerlös − Selbstkosten.' }
           ]},
-          { type: 'merke', title: 'Merke dir', content: 'Der Gemeinkostenzuschlag erfolgt auf dem Warenaufwand (Einstand), der Reingewinnzuschlag auf den Selbstkosten. Nettoerlös − Selbstkosten = Reingewinn. Nettoerlös − Warenaufwand = Bruttogewinn.' }
+          { type: 'merke', title: 'Merke dir', content: 'Der Gemeinkostenzuschlag erfolgt auf dem Warenaufwand (Einstand), der Reingewinnzuschlag auf den Selbstkosten. Nettoerlös − Selbstkosten = Reingewinn. Nettoerlös − Warenaufwand = Bruttogewinn.' },
+          { type: 'svg', title: 'Kalkulationsschema (Einkauf und Verkauf)', svg: '<svg viewBox="0 0 720 480" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif"><defs><marker id="arKS" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#3b82f6"/></marker></defs><rect x="5" y="5" width="710" height="470" rx="12" fill="none" stroke="#3b82f6" stroke-width="2"/><text x="360" y="38" text-anchor="middle" font-size="17" font-weight="700" fill="#3b82f6">Kalkulationsschema</text><rect x="30" y="50" width="310" height="400" rx="10" fill="#3b82f6" fill-opacity="0.05" stroke="#3b82f6" stroke-width="1.5"/><text x="185" y="75" text-anchor="middle" font-size="14" font-weight="700" fill="#1e40af">Einkaufskalkulation</text><rect x="50" y="90" width="270" height="30" rx="5" fill="#fff" stroke="#3b82f6" stroke-width="1"/><text x="185" y="110" text-anchor="middle" font-size="12" fill="#374151">Bruttokreditankauf (Listenpreis)</text><text x="50" y="138" font-size="12" fill="#dc2626">− Rabatt</text><rect x="50" y="148" width="270" height="30" rx="5" fill="#fff" stroke="#3b82f6" stroke-width="1"/><text x="185" y="168" text-anchor="middle" font-size="12" fill="#374151">= Nettokreditankauf</text><text x="50" y="196" font-size="12" fill="#dc2626">− Skonto</text><rect x="50" y="206" width="270" height="30" rx="5" fill="#fff" stroke="#3b82f6" stroke-width="1"/><text x="185" y="226" text-anchor="middle" font-size="12" fill="#374151">= Nettobarankauf</text><text x="50" y="254" font-size="12" fill="#059669">+ Bezugskosten</text><rect x="50" y="264" width="270" height="35" rx="6" fill="#3b82f6" fill-opacity="0.15" stroke="#3b82f6" stroke-width="1.5"/><text x="185" y="287" text-anchor="middle" font-size="13" font-weight="700" fill="#1e40af">= Einstand (Einstandspreis)</text><text x="185" y="320" text-anchor="middle" font-size="12" fill="#059669">+ Bruttogewinn</text><rect x="50" y="335" width="270" height="35" rx="6" fill="#3b82f6" fill-opacity="0.1" stroke="#3b82f6" stroke-width="1"/><text x="185" y="358" text-anchor="middle" font-size="13" font-weight="600" fill="#1e40af">= Nettoerloes</text><text x="185" y="395" text-anchor="middle" font-size="11" fill="#6b7280">Bruttogewinnzuschlag =</text><text x="185" y="412" text-anchor="middle" font-size="11" fill="#6b7280">BG × 100 / Einstand</text><text x="185" y="435" text-anchor="middle" font-size="11" fill="#6b7280">Handelsmarge =</text><text x="185" y="448" text-anchor="middle" font-size="11" fill="#6b7280">BG × 100 / Nettoerloes</text><rect x="380" y="50" width="310" height="400" rx="10" fill="#3b82f6" fill-opacity="0.05" stroke="#3b82f6" stroke-width="1.5"/><text x="535" y="75" text-anchor="middle" font-size="14" font-weight="700" fill="#1e40af">Produktionskalkulation</text><rect x="400" y="90" width="270" height="28" rx="5" fill="#fff" stroke="#3b82f6" stroke-width="1"/><text x="535" y="109" text-anchor="middle" font-size="11" fill="#374151">Einzelmaterial</text><text x="400" y="133" font-size="11" fill="#059669">+ Material-GK</text><rect x="400" y="140" width="270" height="28" rx="5" fill="#3b82f6" fill-opacity="0.08" stroke="#3b82f6" stroke-width="1"/><text x="535" y="159" text-anchor="middle" font-size="11" font-weight="600" fill="#1e40af">= Materialkosten</text><rect x="400" y="178" width="270" height="28" rx="5" fill="#fff" stroke="#3b82f6" stroke-width="1"/><text x="535" y="197" text-anchor="middle" font-size="11" fill="#374151">Einzelloehne</text><text x="400" y="221" font-size="11" fill="#059669">+ Fertigungs-GK</text><rect x="400" y="228" width="270" height="28" rx="5" fill="#3b82f6" fill-opacity="0.08" stroke="#3b82f6" stroke-width="1"/><text x="535" y="247" text-anchor="middle" font-size="11" font-weight="600" fill="#1e40af">= Fertigungskosten</text><rect x="400" y="268" width="270" height="32" rx="6" fill="#3b82f6" fill-opacity="0.15" stroke="#3b82f6" stroke-width="1.5"/><text x="535" y="289" text-anchor="middle" font-size="12" font-weight="700" fill="#1e40af">= Herstellkosten (HK)</text><text x="400" y="318" font-size="11" fill="#059669">+ Verwaltungs- und Vertriebs-GK</text><rect x="400" y="328" width="270" height="32" rx="6" fill="#3b82f6" fill-opacity="0.2" stroke="#3b82f6" stroke-width="1.5"/><text x="535" y="349" text-anchor="middle" font-size="12" font-weight="700" fill="#1e40af">= Selbstkosten (SK)</text><text x="400" y="380" font-size="11" fill="#059669">+ Reingewinn</text><rect x="400" y="388" width="270" height="32" rx="6" fill="#3b82f6" fill-opacity="0.25" stroke="#3b82f6" stroke-width="2"/><text x="535" y="409" text-anchor="middle" font-size="13" font-weight="700" fill="#3b82f6">= Nettoerloes</text><text x="535" y="440" text-anchor="middle" font-size="11" fill="#6b7280">Reingewinnzuschlag =</text><text x="535" y="453" text-anchor="middle" font-size="11" fill="#6b7280">RG × 100 / Selbstkosten</text></svg>' }
         ]
       }
     },
@@ -1204,63 +1207,190 @@ window.BOOK_DATA = {
   // ═══════════════════════════════════════════════════════════════════════════
   kontenrahmen: [
     { cls: 1, clsName: 'Aktiven', groups: [
-      { grp: '10', name: 'Umlaufvermögen (UV)', accounts: [
+      { grp: '10', name: 'Flüssige Mittel, Wertschriften, Forderungen', accounts: [
         { nr: '1000', n: 'Kasse' }, { nr: '1010', n: 'Post' }, { nr: '1020', n: 'Bankguthaben' },
-        { nr: '1060', n: 'Wertschriften' }, { nr: '1100', n: 'Forderungen aus L+L' }, { nr: '1109', n: 'WB FLL (Delkredere)' },
-        { nr: '1170', n: 'Vorsteuer MWST' }, { nr: '1176', n: 'Verrechnungssteuer' },
-        { nr: '1200', n: 'Handelswaren' }, { nr: '1210', n: 'Rohstoffe' }, { nr: '1300', n: 'ARA (Transitorische Aktiven)' }
+        { nr: '1040', n: 'Kassenobligationen' }, { nr: '1060', n: 'Wertschriften (kurzfristig)' },
+        { nr: '1100', n: 'Forderungen aus L+L (Debitoren)' }, { nr: '1109', n: 'WB Forderungen (Delkredere)' },
+        { nr: '1140', n: 'Vorschüsse und Darlehen (kurzfr.)' }, { nr: '1170', n: 'Vorsteuer MWST' },
+        { nr: '1176', n: 'Verrechnungssteuer' }, { nr: '1180', n: 'Sonstige kurzfristige Forderungen' }
       ]},
-      { grp: '14', name: 'Anlagevermögen (AV)', accounts: [
-        { nr: '1440', n: 'Wertschriften des AV' }, { nr: '1450', n: 'Darlehen (Aktivdarlehen)' }, { nr: '1480', n: 'Beteiligungen' },
-        { nr: '1500', n: 'Maschinen und Apparate' }, { nr: '1510', n: 'Mobiliar und Einrichtungen' }, { nr: '1520', n: 'Büromaschinen, Informatik' },
-        { nr: '1530', n: 'Fahrzeuge' }, { nr: '1600', n: 'Immobilien' }, { nr: '1700', n: 'Patente, Marken, Lizenzen' }
+      { grp: '12', name: 'Vorräte und nicht fakturierte Dienstleistungen', accounts: [
+        { nr: '1200', n: 'Handelswaren' }, { nr: '1210', n: 'Rohstoffe' },
+        { nr: '1220', n: 'Halbfabrikate' }, { nr: '1230', n: 'Fertigfabrikate' },
+        { nr: '1250', n: 'Nicht fakturierte Dienstleistungen' }, { nr: '1260', n: 'Fertige Erzeugnisse' },
+        { nr: '1280', n: 'WB Vorräte' }
+      ]},
+      { grp: '13', name: 'Aktive Rechnungsabgrenzung', accounts: [
+        { nr: '1300', n: 'ARA (Transitorische Aktiven)' }
+      ]},
+      { grp: '14', name: 'Finanzanlagen', accounts: [
+        { nr: '1440', n: 'Wertschriften des AV' }, { nr: '1450', n: 'Darlehen (Aktivdarlehen)' },
+        { nr: '1460', n: 'Festgelder (langfristig)' }, { nr: '1480', n: 'Beteiligungen' }
+      ]},
+      { grp: '15', name: 'Mobile Sachanlagen', accounts: [
+        { nr: '1500', n: 'Maschinen und Apparate' }, { nr: '1510', n: 'Mobiliar und Einrichtungen' },
+        { nr: '1520', n: 'Büromaschinen, Informatik' }, { nr: '1530', n: 'Fahrzeuge' },
+        { nr: '1540', n: 'Werkzeuge und Geräte' }
+      ]},
+      { grp: '16', name: 'Immobile Sachanlagen', accounts: [
+        { nr: '1600', n: 'Geschäftsliegenschaften' }, { nr: '1610', n: 'Wohnliegenschaften' },
+        { nr: '1680', n: 'WB Immobilien' }
+      ]},
+      { grp: '17', name: 'Immaterielle Anlagen', accounts: [
+        { nr: '1700', n: 'Patente, Marken, Lizenzen' }, { nr: '1770', n: 'Goodwill' },
+        { nr: '1780', n: 'WB immaterielle Anlagen' }
       ]}
     ]},
     { cls: 2, clsName: 'Passiven', groups: [
       { grp: '20', name: 'Kurzfristiges Fremdkapital', accounts: [
-        { nr: '2000', n: 'Verbindlichkeiten aus L+L (Kreditoren)' }, { nr: '2100', n: 'Bankverbindlichkeiten' },
-        { nr: '2200', n: 'Geschuldete MWST' }, { nr: '2300', n: 'PRA (Transitorische Passiven)' }, { nr: '2330', n: 'Kurzfristige Rückstellungen' }
+        { nr: '2000', n: 'Verbindlichkeiten aus L+L (Kreditoren)' },
+        { nr: '2030', n: 'Erhaltene Anzahlungen' }, { nr: '2050', n: 'Kontokorrent-Schulden' },
+        { nr: '2100', n: 'Bankverbindlichkeiten (kurzfr.)' },
+        { nr: '2120', n: 'Verbindlichkeiten Leasing (kurzfr.)' },
+        { nr: '2200', n: 'Geschuldete MWST (Umsatzsteuer)' },
+        { nr: '2206', n: 'Abrechnungskonto MWST' },
+        { nr: '2210', n: 'Übrige geschuldete Steuern' },
+        { nr: '2270', n: 'Quellensteuer' }, { nr: '2280', n: 'Direkte Steuern' }
+      ]},
+      { grp: '23', name: 'Passive Rechnungsabgrenzung und kurzfristige Rückstellungen', accounts: [
+        { nr: '2300', n: 'PRA (Transitorische Passiven)' },
+        { nr: '2330', n: 'Kurzfristige Rückstellungen' }
       ]},
       { grp: '24', name: 'Langfristiges Fremdkapital', accounts: [
-        { nr: '2400', n: 'Bankverbindlichkeiten (langfr.)' }, { nr: '2450', n: 'Darlehen (Passivdarlehen)' }, { nr: '2451', n: 'Hypotheken' },
+        { nr: '2400', n: 'Bankverbindlichkeiten (langfr.)' },
+        { nr: '2420', n: 'Verbindlichkeiten Leasing (langfr.)' },
+        { nr: '2450', n: 'Darlehen (Passivdarlehen)' }, { nr: '2451', n: 'Hypotheken' },
+        { nr: '2500', n: 'Obligationenanleihen' },
         { nr: '2600', n: 'Rückstellungen (langfr.)' }
       ]},
-      { grp: '28', name: 'Eigenkapital (EK)', accounts: [
-        { nr: '2800', n: 'Eigenkapital / Aktienkapital' }, { nr: '2850', n: 'Privat' }, { nr: '2891', n: 'Jahresgewinn oder -verlust' },
-        { nr: '2950', n: 'Gesetzliche Gewinnreserve' }, { nr: '2970', n: 'Gewinn- oder Verlustvortrag' }
+      { grp: '28', name: 'Eigenkapital', accounts: [
+        { nr: '2800', n: 'Aktienkapital / Stammkapital' },
+        { nr: '2810', n: 'Partizipationskapital' },
+        { nr: '2850', n: 'Privat (Einzelunternehmen)' },
+        { nr: '2891', n: 'Jahresgewinn oder -verlust' },
+        { nr: '2900', n: 'Gesetzliche Kapitalreserve (Agio)' },
+        { nr: '2950', n: 'Gesetzliche Gewinnreserve' },
+        { nr: '2960', n: 'Freiwillige Gewinnreserve' },
+        { nr: '2970', n: 'Gewinn- oder Verlustvortrag' },
+        { nr: '2979', n: 'Bilanzgewinn oder -verlust' }
       ]}
     ]},
-    { cls: 3, clsName: 'Betrieblicher Ertrag', groups: [
-      { grp: '3', name: 'Erträge', accounts: [
-        { nr: '3000', n: 'Produktionserlöse' }, { nr: '3200', n: 'Handelserlöse (Warenertrag)' },
-        { nr: '3400', n: 'Dienstleistungserlöse' }, { nr: '3800', n: 'Verluste Forderungen (Debitorenverluste)' }
+    { cls: 3, clsName: 'Betrieblicher Ertrag aus Lieferungen und Leistungen', groups: [
+      { grp: '30', name: 'Produktionserlöse', accounts: [
+        { nr: '3000', n: 'Produktionserlöse' }, { nr: '3010', n: 'Erlöse Nebenprodukte' }
+      ]},
+      { grp: '32', name: 'Handelserlöse', accounts: [
+        { nr: '3200', n: 'Handelserlöse (Warenertrag)' }, { nr: '3210', n: 'Erlöse Handelswaren B' }
+      ]},
+      { grp: '34', name: 'Dienstleistungserlöse', accounts: [
+        { nr: '3400', n: 'Dienstleistungserlöse' }, { nr: '3410', n: 'Honorarertrag' }
+      ]},
+      { grp: '36', name: 'Übrige Erlöse', accounts: [
+        { nr: '3600', n: 'Übrige Erlöse aus L+L' }
+      ]},
+      { grp: '37', name: 'Eigenleistungen und Eigenverbrauch', accounts: [
+        { nr: '3700', n: 'Eigenleistungen' }, { nr: '3710', n: 'Eigenverbrauch' }
+      ]},
+      { grp: '38', name: 'Erlösminderungen', accounts: [
+        { nr: '3800', n: 'Skonti' }, { nr: '3805', n: 'Verluste Forderungen (Debitorenverluste)' },
+        { nr: '3810', n: 'Rabatte, Preisnachlässe' },
+        { nr: '3900', n: 'Bestandesänderungen Halb- und Fertigfabrikate' }
       ]}
     ]},
-    { cls: 4, clsName: 'Aufwand für Material, Handelswaren', groups: [
-      { grp: '4', name: 'Materialaufwand', accounts: [
-        { nr: '4000', n: 'Materialaufwand' }, { nr: '4200', n: 'Handelswarenaufwand (Warenaufwand)' }
+    { cls: 4, clsName: 'Aufwand für Material, Handelswaren, Dienstleistungen', groups: [
+      { grp: '40', name: 'Materialaufwand', accounts: [
+        { nr: '4000', n: 'Materialaufwand' }, { nr: '4070', n: 'Skonti auf Materialaufwand' },
+        { nr: '4080', n: 'Bestandesänderungen Materialvorräte' }
+      ]},
+      { grp: '42', name: 'Handelswarenaufwand', accounts: [
+        { nr: '4200', n: 'Handelswarenaufwand (Warenaufwand)' }, { nr: '4270', n: 'Skonti auf Handelswaren' },
+        { nr: '4280', n: 'Bestandesänderungen Handelswaren' }
+      ]},
+      { grp: '44', name: 'Aufwand für Drittleistungen', accounts: [
+        { nr: '4400', n: 'Aufwand für Drittleistungen' }, { nr: '4500', n: 'Energieaufwand (Produktion)' }
       ]}
     ]},
     { cls: 5, clsName: 'Personalaufwand', groups: [
-      { grp: '5', name: 'Personal', accounts: [
-        { nr: '5000', n: 'Lohnaufwand' }, { nr: '5700', n: 'Sozialversicherungsaufwand' }
+      { grp: '50', name: 'Löhne und Gehälter', accounts: [
+        { nr: '5000', n: 'Lohnaufwand' }, { nr: '5040', n: 'Leistungen Dritter (Temporäre)' },
+        { nr: '5060', n: 'Erfolgsbeteiligungen' }
+      ]},
+      { grp: '52', name: 'Sozialversicherungsaufwand', accounts: [
+        { nr: '5200', n: 'AHV, IV, EO, ALV' }, { nr: '5210', n: 'FAK (Familienausgleichskasse)' },
+        { nr: '5220', n: 'BVG (Pensionskasse)' }, { nr: '5230', n: 'UVG (Unfallversicherung)' },
+        { nr: '5240', n: 'KTG (Krankentaggeld)' }, { nr: '5250', n: 'Quellensteuer' }
+      ]},
+      { grp: '57', name: 'Übriger Personalaufwand', accounts: [
+        { nr: '5700', n: 'Übriger Personalaufwand' }, { nr: '5800', n: 'Ausbildung und Weiterbildung' },
+        { nr: '5810', n: 'Spesen' }, { nr: '5820', n: 'Personalverpflegung' },
+        { nr: '5900', n: 'Leistungen von Sozialversicherungen' }
       ]}
     ]},
-    { cls: 6, clsName: 'Übriger betrieblicher Aufwand', groups: [
-      { grp: '6', name: 'Übriger Aufwand & Finanzen', accounts: [
-        { nr: '6000', n: 'Raumaufwand (Mietaufwand)' }, { nr: '6100', n: 'Unterhalt, Reparaturen, Ersatz' },
-        { nr: '6500', n: 'Verwaltungsaufwand' }, { nr: '6600', n: 'Werbeaufwand' },
-        { nr: '6800', n: 'Abschreibungen' }, { nr: '6900', n: 'Finanzaufwand (Zinsaufwand)' }, { nr: '6950', n: 'Finanzertrag (Zinsertrag)' }
+    { cls: 6, clsName: 'Übriger betrieblicher Aufwand, Abschreibungen, Finanzerfolg', groups: [
+      { grp: '60', name: 'Raumaufwand', accounts: [
+        { nr: '6000', n: 'Raumaufwand (Mietaufwand)' }, { nr: '6010', n: 'Nebenkosten (Heizung, Strom)' },
+        { nr: '6040', n: 'Reinigung' }, { nr: '6050', n: 'Unterhalt Geschäftsräume' }
+      ]},
+      { grp: '61', name: 'Unterhalt und Reparaturen', accounts: [
+        { nr: '6100', n: 'Unterhalt und Reparaturen Maschinen' },
+        { nr: '6110', n: 'Unterhalt und Reparaturen Mobiliar' },
+        { nr: '6120', n: 'Unterhalt und Reparaturen Fahrzeuge' },
+        { nr: '6130', n: 'Leasingaufwand Mobilien' }
+      ]},
+      { grp: '62', name: 'Fahrzeug- und Transportaufwand', accounts: [
+        { nr: '6200', n: 'Fahrzeugaufwand' }, { nr: '6210', n: 'Transportaufwand' },
+        { nr: '6260', n: 'Betriebsversicherungen' }
+      ]},
+      { grp: '63', name: 'Sachversicherungen, Abgaben', accounts: [
+        { nr: '6300', n: 'Sachversicherungen' }, { nr: '6360', n: 'Abgaben, Gebühren, Bewilligungen' }
+      ]},
+      { grp: '65', name: 'Verwaltungsaufwand', accounts: [
+        { nr: '6500', n: 'Büromaterial, Drucksachen' }, { nr: '6503', n: 'Fachliteratur' },
+        { nr: '6510', n: 'Telefon, Internet' }, { nr: '6520', n: 'Beiträge, Spenden' },
+        { nr: '6530', n: 'Buchführung und Beratung' }, { nr: '6570', n: 'Informatikaufwand' },
+        { nr: '6580', n: 'Rechts- und Beratungskosten' }
+      ]},
+      { grp: '66', name: 'Werbeaufwand', accounts: [
+        { nr: '6600', n: 'Werbeaufwand' }, { nr: '6610', n: 'Reiseaufwand, Kundenspesen' },
+        { nr: '6620', n: 'Messeaufwand' }
+      ]},
+      { grp: '68', name: 'Abschreibungen', accounts: [
+        { nr: '6800', n: 'Abschreibungen Maschinen' }, { nr: '6810', n: 'Abschreibungen Mobiliar' },
+        { nr: '6820', n: 'Abschreibungen Büromaschinen/IT' }, { nr: '6830', n: 'Abschreibungen Fahrzeuge' },
+        { nr: '6840', n: 'Abschreibungen Immobilien' }, { nr: '6850', n: 'Abschreibungen immaterielle Anlagen' }
+      ]},
+      { grp: '69', name: 'Finanzaufwand und Finanzertrag', accounts: [
+        { nr: '6900', n: 'Zinsaufwand (Finanzaufwand)' }, { nr: '6910', n: 'Bankspesen' },
+        { nr: '6920', n: 'Kursverluste' }, { nr: '6940', n: 'Wertberichtigungen Finanzanlagen' },
+        { nr: '6950', n: 'Zinsertrag (Finanzertrag)' }, { nr: '6960', n: 'Wertschriftenertrag' },
+        { nr: '6970', n: 'Kursgewinne' }
       ]}
     ]},
-    { cls: 8, clsName: 'Betriebsfremd / Ausserordentlich', groups: [
-      { grp: '8', name: 'Betriebsfremd und ausserordentlich', accounts: [
-        { nr: '8000', n: 'Betriebsfremder Aufwand' }, { nr: '8100', n: 'Betriebsfremder Ertrag' },
-        { nr: '8500', n: 'Ausserordentlicher Aufwand' }, { nr: '8900', n: 'Direkte Steuern' }
+    { cls: 7, clsName: 'Betrieblicher Nebenerfolg', groups: [
+      { grp: '70', name: 'Ertrag Nebenbetrieb', accounts: [
+        { nr: '7000', n: 'Ertrag Nebenbetrieb' }, { nr: '7010', n: 'Aufwand Nebenbetrieb' }
+      ]},
+      { grp: '75', name: 'Ertrag betriebliche Liegenschaften', accounts: [
+        { nr: '7500', n: 'Ertrag betriebliche Liegenschaften' },
+        { nr: '7510', n: 'Aufwand betriebliche Liegenschaften' }
+      ]},
+      { grp: '79', name: 'Erfolg aus Veräusserung von Anlagevermögen', accounts: [
+        { nr: '7900', n: 'Gewinn aus Veräusserung Anlagevermögen' },
+        { nr: '7910', n: 'Verlust aus Veräusserung Anlagevermögen' }
+      ]}
+    ]},
+    { cls: 8, clsName: 'Ausserordentlicher, einmaliger oder periodenfremder Erfolg', groups: [
+      { grp: '80', name: 'Betriebsfremder Erfolg', accounts: [
+        { nr: '8000', n: 'Betriebsfremder Aufwand' }, { nr: '8100', n: 'Betriebsfremder Ertrag' }
+      ]},
+      { grp: '85', name: 'Ausserordentlicher / einmaliger / periodenfremder Erfolg', accounts: [
+        { nr: '8500', n: 'Ausserordentlicher Aufwand' }, { nr: '8510', n: 'Ausserordentlicher Ertrag' },
+        { nr: '8900', n: 'Direkte Steuern' }
       ]}
     ]},
     { cls: 9, clsName: 'Abschluss', groups: [
-      { grp: '9', name: 'Abschluss', accounts: [
+      { grp: '90', name: 'Erfolgsrechnung', accounts: [
+        { nr: '9000', n: 'Eröffnungsbilanz' }, { nr: '9100', n: 'Erfolgsrechnung' },
         { nr: '9200', n: 'Jahresgewinn oder -verlust' }
       ]}
     ]}

@@ -1076,6 +1076,62 @@ function Glossary(props) {
   );
 }
 
+// ─── Kontenrahmen Panel ─────────────────────────────────────────────────────
+
+function Kontenrahmen(props) {
+  var st = useState(''), search = st[0], setSearch = st[1];
+  var st2 = useState(1), activeTab = st2[0], setActiveTab = st2[1];
+  var kontenrahmen = props.kontenrahmen || [];
+
+  var activeCls = kontenrahmen.find(function(c) { return c.cls === activeTab; });
+
+  var filteredGroups = [];
+  if (activeCls) {
+    if (search) {
+      var s = search.toLowerCase();
+      activeCls.groups.forEach(function(g) {
+        var matchedAccounts = g.accounts.filter(function(a) {
+          return a.nr.indexOf(s) >= 0 || a.n.toLowerCase().indexOf(s) >= 0;
+        });
+        if (matchedAccounts.length > 0) {
+          filteredGroups.push({ name: g.name, accounts: matchedAccounts });
+        }
+      });
+    } else {
+      filteredGroups = activeCls.groups;
+    }
+  }
+
+  return e('div', { className: 'panel-overlay kr-panel' },
+    e('div', { className: 'panel-header' }, e('b', null, '\uD83D\uDCCB Kontenrahmen KMU'), e('button', { className: 'panel-close', onClick: props.onClose }, '\u2715')),
+    e('div', { className: 'kr-search' }, e('input', { value: search, onChange: function(ev) { setSearch(ev.target.value); }, placeholder: 'Konto suchen (Nr. oder Name)\u2026' })),
+    e('div', { className: 'kr-tabs' },
+      kontenrahmen.map(function(c) {
+        return e('button', {
+          key: c.cls,
+          className: 'kr-tab' + (activeTab === c.cls ? ' active' : ''),
+          onClick: function() { setActiveTab(c.cls); setSearch(''); }
+        }, String(c.cls));
+      })
+    ),
+    activeCls ? e('div', { className: 'kr-class-header' }, 'Klasse ' + activeCls.cls + ': ' + activeCls.clsName) : null,
+    e('div', { className: 'kr-list' },
+      filteredGroups.map(function(g, gi) {
+        return e('div', { key: gi, className: 'kr-group' },
+          e('div', { className: 'kr-group-title' }, g.name),
+          g.accounts.map(function(a, ai) {
+            return e('div', { key: ai, className: 'kr-account' },
+              e('span', { className: 'kr-num' }, a.nr),
+              e('span', { className: 'kr-name' }, a.n)
+            );
+          })
+        );
+      }),
+      filteredGroups.length === 0 ? e('div', { style: { padding: 16, textAlign: 'center', color: 'var(--text2)', fontSize: '.8rem' } }, 'Keine Konten gefunden.') : null
+    )
+  );
+}
+
 // ─── Mode Tabs ──────────────────────────────────────────────────────────────
 
 function ModeTabs(props) {
@@ -1208,6 +1264,7 @@ function initApp(bookData) {
     var st3 = useState(false), showCalc = st3[0], setShowCalc = st3[1];
     var st4 = useState(false), showNotes = st4[0], setShowNotes = st4[1];
     var st5 = useState(false), showGlossar = st5[0], setShowGlossar = st5[1];
+    var st5b = useState(false), showKR = st5b[0], setShowKR = st5b[1];
     var st6 = useState(function() { return localStorage.getItem('lp-notes-' + bookData.id) || ''; });
     var notes = st6[0], setNotes = st6[1];
     var st7 = useState(false), timerOn = st7[0], setTimerOn = st7[1];
@@ -1261,7 +1318,8 @@ function initApp(bookData) {
           e('div', { className: 'tool-bar' },
             e('button', { className: 'tool-btn' + (showCalc ? ' active' : ''), onClick: function() { setShowCalc(!showCalc); } }, '\uD83E\uDDC2' + (showCalc ? ' \u2715' : ' Rechner')),
             e('button', { className: 'tool-btn' + (showNotes ? ' active' : ''), onClick: function() { setShowNotes(!showNotes); } }, '\uD83D\uDCDD' + (showNotes ? ' \u2715' : ' Notizen')),
-            e('button', { className: 'tool-btn' + (showGlossar ? ' active' : ''), onClick: function() { setShowGlossar(!showGlossar); } }, '\uD83D\uDCD6' + (showGlossar ? ' \u2715' : ' Glossar'))
+            e('button', { className: 'tool-btn' + (showGlossar ? ' active' : ''), onClick: function() { setShowGlossar(!showGlossar); } }, '\uD83D\uDCD6' + (showGlossar ? ' \u2715' : ' Glossar')),
+            bookData.kontenrahmen ? e('button', { className: 'tool-btn' + (showKR ? ' active' : ''), onClick: function() { setShowKR(!showKR); } }, '\uD83D\uDCCB' + (showKR ? ' \u2715' : ' Kontenrahmen')) : null
           ),
           e('span', { className: 'nav-btn', style: { fontSize: '.75rem' } }, totalDone + '/' + totalExercises),
           e('button', { className: 'nav-btn', onClick: toggleDark }, dark ? '\u2600\uFE0F Licht' : '\u263E Dunkel'),
@@ -1286,7 +1344,8 @@ function initApp(bookData) {
       // Panels
       showCalc ? e(Calculator, { onClose: function() { setShowCalc(false); } }) : null,
       showNotes ? e(Notes, { onClose: function() { setShowNotes(false); }, notes: notes, setNotes: setNotes }) : null,
-      showGlossar ? e(Glossary, { onClose: function() { setShowGlossar(false); }, glossary: bookData.glossary }) : null
+      showGlossar ? e(Glossary, { onClose: function() { setShowGlossar(false); }, glossary: bookData.glossary }) : null,
+      showKR && bookData.kontenrahmen ? e(Kontenrahmen, { onClose: function() { setShowKR(false); }, kontenrahmen: bookData.kontenrahmen }) : null
     );
   }
 
