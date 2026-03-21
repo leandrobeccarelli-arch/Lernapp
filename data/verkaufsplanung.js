@@ -26,7 +26,7 @@ window.BOOK_DATA = {
           ],
           options: ['Analyse der Ausgangslage','Definition von Zielen','Entwicklung von Strategien','Erarbeitung von Massnahmen mit Termin, Kosten und Verantwortung','Zusammenstellen des Budgets (mit Reserve)','Erarbeitung der Kontrollpläne'],
           tips: ['Das Konzeptraster umfasst 6 aufeinander aufbauende Schritte.','Es beginnt immer mit der Analyse und endet mit der Kontrolle.','Merkhilfe: A-Z-S-M-B-K'],
-          reveal: ['Schritt 1 ist die Analyse der Ausgangslage.','Schritt 2 definiert die Ziele (qualitativ und quantitativ).','Schritt 3 entwickelt die Strategien (Weg zum Ziel).','Schritt 4 erarbeitet Massnahmen mit Termin, Kosten, Verantwortung.','Schritt 5 stellt das Budget zusammen (mit Reserve).','Schritt 6 erstellt die Kontrollpläne.']
+          reveal: ['Die 6 Schritte: 1) Analyse → 2) Ziele → 3) Strategien → 4) Massnahmen → 5) Budget → 6) Kontrolle.','Warum diese Reihenfolge? Jeder Schritt baut auf dem vorherigen auf: Ohne Analyse kann man keine fundierten Ziele setzen, ohne Ziele keine Strategie ableiten, ohne Strategie keine Massnahmen planen.','Merkhilfe A-Z-S-M-B-K: Das Raster ist universell — es gilt für jedes Konzept im Marketing und Verkauf, nicht nur für die Verkaufsplanung.','Prüfungstipp: An der Prüfung wird oft ein «Teilkonzept» verlangt. Das Raster bildet immer die Grundstruktur — wer es kennt, hat sofort ein Gerüst.']
         },
         {
           id: 2,
@@ -36,7 +36,7 @@ window.BOOK_DATA = {
           blanks: ['Langfristig, 3 bis 5 Jahre','Mittelfristig, 2 bis 3 Jahre','Kurzfristig, bis 1 Jahr'],
           accept: [['Langfristig, 3 bis 5 Jahre','3 bis 5 Jahre','3-5 Jahre','langfristig'],['Mittelfristig, 2 bis 3 Jahre','2 bis 3 Jahre','2-3 Jahre','mittelfristig'],['Kurzfristig, bis 1 Jahr','bis 1 Jahr','kurzfristig']],
           tips: ['Es gibt drei Planungshorizonte: lang-, mittel- und kurzfristig.','Strategische Ziele haben den längsten Zeithorizont.','Taktische Ziele sind die kurzfristigsten.'],
-          reveal: ['Strategische Ziele = langfristig, 3 bis 5 Jahre.','Operative Ziele = mittelfristig, 2 bis 3 Jahre.','Taktische Ziele = kurzfristig, bis 1 Jahr.']
+          reveal: ['Strategische Ziele = langfristig (3–5 Jahre), Operative = mittelfristig (2–3 Jahre), Taktische = kurzfristig (bis 1 Jahr).','Warum diese Abstufung? Die Zeithorizonte spiegeln die Steuerungsebenen: Strategisch gibt die Richtung vor (z.B. «neue Märkte erschliessen»), operativ plant die Umsetzung (z.B. «Vertriebsstruktur aufbauen»), taktisch regelt das Tagesgeschäft (z.B. «20 Kundenbesuche/Woche»).','Häufiger Fehler: Operative und taktische Ziele werden verwechselt. Merke: Operativ = Jahresplanung, Taktisch = Wochen-/Monatsplanung.']
         },
         {
           id: 3,
@@ -55,7 +55,7 @@ window.BOOK_DATA = {
             {s: 'Servicequalität ist ein ökonomisches Verkaufsziel.', c: false}
           ],
           tips: ['Ökonomische Ziele sind quantitativ messbar (Zahlen, Geld).','Vorökonomische Ziele sind qualitativer Natur.','Beispiele ökonomisch: Umsatz, Absatz, Kosten, Distributionsgrad.'],
-          reveal: ['Vorökonomisch: Mitarbeiterzufriedenheit, Bekanntheitsgrad, Kontaktqualität, Kundenempfehlungsrate, Image, Servicequalität.','Ökonomisch: Distributionsgrad, Absatz, Kosten, Umsatz.','Vorökonomische Ziele werden durch Umfragen, Tests und Beobachtungen überprüft.']
+          reveal: ['Ökonomisch: Distributionsgrad, Absatz, Kosten, Umsatz — alles, was man direkt in Franken oder Stückzahlen messen kann.','Vorökonomisch: Mitarbeiterzufriedenheit, Bekanntheitsgrad, Kontaktqualität, Kundenempfehlungsrate, Image, Servicequalität — qualitative Grössen, die nur indirekt (Umfragen, Beobachtungen) messbar sind.','Warum die Unterscheidung? Ökonomische Ziele zeigen das Resultat, vorökonomische Ziele die Ursache. Beispiel: Hohe Servicequalität (vorökonomisch) führt zu mehr Umsatz (ökonomisch).','Knifflig: «Distributionsgrad» klingt qualitativ, ist aber ökonomisch — er wird als Prozentzahl berechnet (z.B. «Produkt in 80% der Verkaufsstellen verfügbar»).']
         },
         {
           id: 4,
@@ -68,7 +68,7 @@ window.BOOK_DATA = {
             {q: 'B) Nennen Sie die 6 W zur Operationalisierung.', keywords: ['was','wie viel','wem','wann','wo','wer'], minKeywords: 4}
           ],
           tips: ['Operationalisierung macht Ziele überprüfbar.','Die 6 W sind ein bewährtes Raster.','Alle 6 W müssen definiert sein, damit ein Ziel operationalisiert ist.'],
-          reveal: ['A) Damit Ziele beurteilt und kontrolliert werden können, müssen sie konkretisiert und definiert werden. Dies wird als Operationalisierung bezeichnet.','B) Was: Zielinhalt, Wie viel: Zielquantifizierung, Wem: Zielsegment, Wann: Zielperiode, Wo: Zielmarkt, Wer: Verantwortlichkeiten.']
+          reveal: ['A) Operationalisierung = Ziele so konkretisieren, dass sie messbar, kontrollierbar und beurteilbar werden.','Warum ist das wichtig? Ein Ziel wie «mehr verkaufen» ist nutzlos — niemand weiss, ob es erreicht wurde. Operationalisierung macht aus einem Wunsch ein kontrollierbares Ziel.','B) Die 6 W: Was (Zielinhalt), Wie viel (Quantifizierung), Wem (Zielsegment), Wann (Zielperiode), Wo (Zielmarkt), Wer (Verantwortung).','Prüfungstipp: Die 6 W sind ein Klassiker an der Prüfung. Wenn ein Ziel «operationalisiert» werden soll, einfach alle 6 W systematisch ausfüllen — fehlt eines, ist das Ziel unvollständig.']
         },
         {
           id: 5,
@@ -80,7 +80,7 @@ window.BOOK_DATA = {
             {q: 'Formulieren Sie das Ziel mit den 6 W (Was, Wie viel, Wem, Wann, Wo, Wer).', keywords: ['umsatz','750','produktlancierung','schweiz','verkaufsleiter','KMU','zielgruppe','dezember'], minKeywords: 3}
           ],
           tips: ['Identifizieren Sie zuerst, welche W bereits im Satz enthalten sind.','Was = Produktlancierung, Wie viel = CHF 750\'000, Wo = Schweiz.','Ergänzen Sie die fehlenden W: Wem, Wann, Wer.'],
-          reveal: ['Was: Umsatz nach Produktlancierung.','Wie viel: CHF 750\'000.','Wem: Definierte Zielgruppe von KMU.','Wann: Bis zum 31.12.20xx.','Wo: Im Verkaufsgebiet A / Schweiz.','Wer: Verkaufsleiter.']
+          reveal: ['Was: Umsatz nach Produktlancierung. Wie viel: CHF 750\'000. Wem: KMU. Wann: Bis 31.12.20xx. Wo: Schweiz. Wer: Verkaufsleiter.','Warum diese Zuordnung? Im Originaltext ist nur «Was» (Umsatz), «Wie viel» (750\'000) und «Wo» (Schweiz) erkennbar. Die übrigen W müssen sinnvoll ergänzt werden — das ist typisch für Prüfungsaufgaben.','Häufiger Fehler: «Wem» und «Wo» werden verwechselt. Wem = Zielgruppe (Personen/Firmen), Wo = geografischer Markt.','Lerneffekt: Operationalisierung heisst, aus einem vagen Satz ein vollständiges Ziel zu machen. In der Praxis fehlen fast immer 2–3 W — genau das übt diese Aufgabe.']
         },
         {
           id: 6,
@@ -94,7 +94,7 @@ window.BOOK_DATA = {
           ],
           answer: 1,
           tips: ['Ökonomische = quantitativ, Vorökonomische = qualitativ.','Strategisch = langfristig, Taktisch = kurzfristig.','Statistiken ermöglichen laufende Messung ökonomischer Ziele.'],
-          reveal: ['Ökonomische Ziele haben quantitativen Charakter.','Sie sind online oder mittels Statistiken praktisch jederzeit und kurzfristig auswertbar.','Dies macht Aussage B korrekt.']
+          reveal: ['Richtig: B — Ökonomische Ziele können mittels Statistiken jederzeit gemessen werden (z.B. Umsatzzahlen aus dem ERP).','Warum nicht A? Vorökonomische Ziele sind gerade NICHT quantitativ messbar — das ist ihr Merkmal. Sie erfordern Umfragen, Beobachtungen oder Tests.','Warum nicht C? Taktische Ziele sind kurzfristig (bis 1 Jahr). 3–5 Jahre = strategisch.','Warum nicht D? Strategische Ziele sind langfristiger Natur — genau das Gegenteil.','Merke: «Ökonomisch = quantitativ = sofort messbar» vs. «Vorökonomisch = qualitativ = aufwändig zu erheben».']
         },
         {
           id: 7,
@@ -107,7 +107,7 @@ window.BOOK_DATA = {
             {s: 'Bei der Operationalisierung reicht es, 3 der 6 W zu definieren.', c: false, feedback: 'Alle 6 W müssen definiert sein, damit ein Ziel korrekt operationalisiert ist.'}
           ],
           tips: ['Die Zielhierarchie: Unternehmensziele > Marketingziele > Verkaufsziele.','Operationalisierung erfordert alle 6 W.','Vorökonomische Ziele werden durch Umfragen/Beobachtungen gemessen.'],
-          reveal: ['Aussage 1: Richtig – exakte Definition.','Aussage 2: Falsch – qualitative Ziele sind schwieriger zu messen.','Aussage 3: Richtig – hierarchische Einordnung.','Aussage 4: Falsch – alle 6 W sind nötig.']
+          reveal: ['Aussage 1: Richtig — Das ist die Lehrbuchdefinition. Ein Konzept ist kein Plan, sondern ein gedanklicher Entwurf, der als Grundlage für konkrete Handlungen dient.','Aussage 2: Falsch — Vorökonomische Ziele (Image, Zufriedenheit) sind schwieriger zu messen, weil man Umfragen oder Beobachtungen braucht. Ökonomische Ziele (Umsatz, Absatz) sind direkt aus Statistiken ablesbar.','Aussage 3: Richtig — Die Zielhierarchie: Unternehmensziele → Marketingziele → Verkaufsziele. Jede Ebene leitet sich aus der übergeordneten ab.','Aussage 4: Falsch — Alle 6 W müssen definiert sein. Fehlt auch nur eines (z.B. «Wer»), ist das Ziel nicht vollständig operationalisiert und kann nicht eindeutig kontrolliert werden.']
         },
         {
           id: 8,
@@ -117,7 +117,7 @@ window.BOOK_DATA = {
           blanks: ['langfristige','operative','kurzfristige','quantitativen','qualitativen'],
           accept: [['langfristige'],['operative'],['kurzfristige'],['quantitativen','quantitative'],['qualitativen','qualitative']],
           tips: ['Strategisch = langfristig, operativ = mittelfristig, taktisch = kurzfristig.','Ökonomisch = quantitativ, vorökonomisch = qualitativ.','Beide Zielarten müssen quantifizierbar sein.'],
-          reveal: ['Langfristige = strategische Ziele (3–5 Jahre).','Operative = mittelfristige Ziele (2–3 Jahre).','Kurzfristige = taktische Ziele (bis 1 Jahr).','Ökonomisch = quantitativ, vorökonomisch = qualitativ.']
+          reveal: ['Langfristig = strategisch (3–5 J.), Operativ = mittelfristig (2–3 J.), Kurzfristig = taktisch (bis 1 J.).','Ökonomisch = quantitativ (in Zahlen messbar), Vorökonomisch = qualitativ (nur indirekt erhebbar).','Warum diese Paarungen? Die Zeitdimension bestimmt den Detailgrad: Strategische Ziele sind bewusst grob gehalten, taktische Ziele maximal konkret. Ähnlich bei den Zielarten: Ökonomische Ziele sind die «harten Fakten», vorökonomische die «weichen Faktoren», die ihnen vorausgehen.','Prüfungstipp: Oft wird nach beiden Dimensionen gleichzeitig gefragt — Zeitdimension UND Zielart. Wer beides sicher zuordnet, holt die Punkte.']
         },
         {
           id: 9,
@@ -132,7 +132,7 @@ window.BOOK_DATA = {
           ],
           options: ['Unternehmensziel','Marketingziel','Verkaufsziel'],
           tips: ['Unternehmensziele sind die übergeordneten, strategischen Ziele.','Marketingziele leiten sich aus den Unternehmenszielen ab.','Verkaufsziele sind die operativsten und konkretesten.'],
-          reveal: ['Marktführerschaft und Gewinnmaximierung = Unternehmensziele.','Umsatzsteigerung und Kundenzufriedenheit = Marketingziele.','20 Neukunden pro Quartal = konkretes Verkaufsziel.']
+          reveal: ['Unternehmensziele: Marktführerschaft, Gewinnmaximierung — übergeordnete, strategische Ausrichtung des gesamten Unternehmens.','Marketingziele: Umsatzsteigerung (+10%), Kundenzufriedenheit — leiten sich aus Unternehmenszielen ab und betreffen den gesamten Marketing-Mix.','Verkaufsziel: 20 Neukunden/Quartal — maximal konkret und operativ, direkt dem Verkaufsteam zuweisbar.','Warum diese Zuordnung? Je konkreter und operativer ein Ziel, desto tiefer in der Hierarchie. «Marktführerschaft» kann man nicht einer Einzelperson zuweisen — das ist strategisch. «20 Neukunden» hingegen ist ein klar messbares Verkaufsziel.','Häufiger Fehler: «Umsatz steigern» wird als Verkaufsziel eingestuft. Aber Umsatz hängt vom gesamten Marketing-Mix ab (Preis, Produkt, Distribution) — deshalb ist es ein Marketingziel.']
         },
         {
           id: 10,
