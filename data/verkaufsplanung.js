@@ -390,7 +390,7 @@ window.BOOK_DATA = {
             {q: 'Verbundene Kunden:', keywords: ['emotional','zufrieden','loyal','verbunden','stammkunden','fans'], minKeywords: 2}
           ],
           tips: ['Gebunden = durch Vertrag oder Technologie.','Verbunden = durch Zufriedenheit und Loyalität.','Beispiel gebunden: Nespresso-Kapseln, Drucker-Patronen.'],
-          reveal: ['Gebundene Kunden sind vertraglich oder technologisch an das Unternehmen gebunden (z.B. Nespresso, Drucker).','Verbundene Kunden sind emotional verbunden, zufrieden mit den Marktleistungen und loyal (z.B. Stammkunden, Fans von Sportvereinen).']
+          reveal: ['Gebunden = vertraglich oder technologisch ans Unternehmen gekettet (z.B. Nespresso-Kapselsystem, Drucker mit proprietären Patronen).','Verbunden = emotional loyal, freiwillig beim Unternehmen (z.B. Stammkunden eines Restaurants, Fans eines Sportvereins).','Warum die Unterscheidung? Gebundene Kunden bleiben, weil sie müssen — sie wechseln, sobald eine Alternative erscheint. Verbundene Kunden bleiben, weil sie wollen — sie sind wertvoller, weil ihre Loyalität belastbarer ist.','Prüfungstipp: Wenn im Aufgabentext «Lock-in» oder «Wechselkosten» steht → gebunden. Wenn «Zufriedenheit» oder «Loyalität» → verbunden.']
         },
         {
           id: 11,
@@ -402,7 +402,7 @@ window.BOOK_DATA = {
             {q: 'Begründung:', keywords: ['kostengünstiger','rückgewinnung','erfahrung','kennen','neukunden','akquisition','individuell','zurückgewinnen'], minKeywords: 2}
           ],
           tips: ['Vergleichen Sie die Kosten: Rückgewinnung vs. Neukundenakquisition.','Verlorene Kunden kennen das Unternehmen bereits.','Denken Sie auch an den Fall, dass es nicht gelingt.'],
-          reveal: ['Es lohnt sich, denn die Rückgewinnung ist kostengünstiger als die Akquisition von Neukunden.','Verlorene Kunden kennen das Unternehmen bereits und haben Erfahrung.','Mit individuellen Massnahmen können sie oft zurückgewonnen werden.','Gelingt dies nicht, kann dem Kunden Wertschätzung entgegengebracht werden.']
+          reveal: ['Ja, es lohnt sich — Rückgewinnung ist 5–7× günstiger als Neukundenakquisition.','Warum? Der verlorene Kunde kennt das Unternehmen bereits, der Aufbau von Vertrauen ist teilweise schon geschehen.','Selbst wenn die Rückgewinnung nicht gelingt, zeigt die Kontaktaufnahme Wertschätzung — das kann Negativmund-zu-Mund-Propaganda verhindern.','Häufiger Denkfehler: «Der Kunde ist weg, also lohnt es sich nicht mehr.» Falsch — ein individuelles Angebot oder eine persönliche Entschuldigung kostet wenig und kann viel bewirken.']
         },
         {
           id: 12,
@@ -414,7 +414,7 @@ window.BOOK_DATA = {
             {q: 'Merkmale und Beispiele:', keywords: ['markt','aussen','innen','organisatorisch','kunden','angebot','produktion'], minKeywords: 3}
           ],
           tips: ['Geschäftsfeld = Marktperspektive (von aussen).','Geschäftseinheit = organisatorische Einheit im Unternehmen (von innen).','Ein SGF wird von aussen durch den Markt definiert.'],
-          reveal: ['Strategisches Geschäftsfeld: eigenständiger Markt, definiert durch Angebot, Kunden und geografischen Markt. Von aussen, vom Markt her definiert.','Strategische Geschäftseinheit: organisatorische Einheit im Unternehmen. Wird von innen, vom Unternehmen her definiert.','Beispiel SGF: Büromöbel für Geschäftskunden.','Beispiel SGE: Produktionsabteilung für Büromöbel.']
+          reveal: ['SGF (Strategisches Geschäftsfeld): Von aussen, vom Markt her definiert — beschreibt einen eigenständigen Teilmarkt (Angebot + Kunden + Geografie).','SGE (Strategische Geschäftseinheit): Von innen, vom Unternehmen her definiert — ist eine organisatorische Einheit, die ein SGF bearbeitet.','Warum die Unterscheidung? Ein SGF existiert unabhängig vom Unternehmen (es ist ein Markt). Eine SGE ist die interne Antwort darauf. Beispiel: Das SGF «Büromöbel für Geschäftskunden in der Deutschschweiz» existiert als Markt — die SGE «Abteilung Office Solutions» bearbeitet diesen Markt.','Prüfungstipp: Frage nach «aussen» oder «innen»? SGF = Marktperspektive, SGE = Organisationsperspektive.']
         },
         {
           id: 13,
@@ -432,7 +432,7 @@ window.BOOK_DATA = {
           ],
           options: ['B2C','B2B','Beide (B2C und B2B)'],
           tips: ['Geografische Kriterien gelten für beide Kundengruppen.','Soziodemografisch und psychografisch sind typisch B2C.','Organisatorische Kriterien und Unternehmenskultur sind B2B-spezifisch.'],
-          reveal: ['Beide: Geografische Kriterien, Informations-/Kaufverhalten.','Nur B2C: Soziodemografische Kriterien, Psychografische Kriterien.','Nur B2B: Organisatorische Kriterien, Ökonomische Kriterien, Entscheidungsbezogene Kriterien, Unternehmenskultur.']
+          reveal: ['Beide: Geografische Kriterien und Informations-/Kaufverhalten — diese gelten universell, egal ob Privatperson oder Firma.','Nur B2C: Soziodemografisch (Alter, Geschlecht, Einkommen) und Psychografisch (Lebensstil, Werte) — beschreiben Einzelpersonen, nicht Firmen.','Nur B2B: Organisatorisch, Ökonomisch, Entscheidungsbezogen, Unternehmenskultur — diese Kriterien gibt es nur bei Unternehmen.','Warum wichtig? Die richtige Segmentierung bestimmt die Verkaufsstrategie. B2B-Verkauf an ein KMU braucht andere Kriterien als B2C-Verkauf an Endkonsumenten.']
         },
         {
           id: 14,
@@ -445,7 +445,7 @@ window.BOOK_DATA = {
             {s: 'Verbundene Kunden sind technologisch an das Unternehmen gebunden.', c: false, feedback: 'Verbundene Kunden sind emotional verbunden. Gebundene Kunden sind technologisch/vertraglich gebunden.'}
           ],
           tips: ['SGF = Marktperspektive (aussen).','ABC-Analyse teilt nach Umsatz ein.','Verbunden = emotional, Gebunden = vertraglich/technologisch.'],
-          reveal: ['Aussage 1: Falsch – SGF = von aussen.','Aussage 2: Richtig.','Aussage 3: Richtig.','Aussage 4: Falsch – verbunden = emotional.']
+          reveal: ['Aussage 1: Falsch — SGF wird von aussen, vom Markt her definiert. Verwechslungsgefahr mit SGE (von innen).','Aussage 2: Richtig — Produktselektion (Was), Kundenselektion (Wem) und Feldgrösse (Wo) definieren zusammen das strategische Geschäftsfeld.','Aussage 3: Richtig — ABC-Analyse: A-Kunden ≈ 20% der Kunden, aber ~80% des Umsatzes (Pareto-Prinzip).','Aussage 4: Falsch — Verbunden = emotional loyal (freiwillig). Gebunden = vertraglich/technologisch (gezwungen). Ein klassischer Prüfungs-Stolperstein.']
         },
         {
           id: 15,
@@ -459,7 +459,55 @@ window.BOOK_DATA = {
           ],
           answer: 1,
           tips: ['Die Subvariablen betreffen Was, Wen und Wo.','Produktselektion = Was verkaufen wir?','Kontaktqualität und -quantität gehören zur Kontaktstrategie.'],
-          reveal: ['Die drei Subvariablen sind: Produktselektion (Was?), Kundenselektion (Wen?), Feldgrösse (Wo?).','Kontaktvariablen gehören zu Kapitel 3.']
+          reveal: ['Richtig: B — Produktselektion (Was), Kundenselektion (Wem), Feldgrösse (Wo).','Warum nicht A? Preisgestaltung und Werbung gehören zum Marketing-Mix, nicht zur Verkaufsstrategie.','Warum nicht C? Marktanalyse ist Schritt 1 des Konzeptrasters (Analyse), nicht eine Subvariable.','Warum nicht D? Kontaktqualität und -quantität sind zwar Subvariablen 4 und 5, aber es fehlt die Kundenselektion — und zusammen bilden sie nicht das SGF.','Merke: Die ersten 3 Subvariablen (Was, Wem, Wo) definieren das strategische Geschäftsfeld. Die letzten 3 (Wie, Wie viel, Wann) definieren die Kontaktstrategie.']
+        },
+        {
+          id: 93,
+          type: 'sort',
+          q: 'Ordnen Sie die 6 Verkaufssubvariablen in der richtigen Reihenfolge.',
+          items: ['Produktselektion (Was)', 'Kundenselektion (Wem)', 'Feldgrösse (Wo)', 'Kontaktqualität (Wie)', 'Kontaktquantität (Wie viel)', 'Kontaktperiodizität (Wann)'],
+          tips: ['Die ersten 3 definieren das strategische Geschäftsfeld.','Die letzten 3 definieren die Kontaktstrategie.','Es beginnt mit dem Produkt und endet mit der Häufigkeit.'],
+          reveal: ['Die 6 Subvariablen: 1. Produktselektion, 2. Kundenselektion, 3. Feldgrösse, 4. Kontaktqualität, 5. Kontaktquantität, 6. Kontaktperiodizität.','Warum diese Reihenfolge? Zuerst muss klar sein, WAS verkauft wird (Produkt), dann an WEN (Kunden) und WO (Feld). Erst danach wird definiert, WIE der Kontakt aussieht, WIE OFT und WANN.','Merke: Subvariablen 1–3 = SGF (strategisch), 4–6 = Kontaktstrategie (operativ).']
+        },
+        {
+          id: 94,
+          type: 'fill',
+          q: 'Ergänzen Sie die Lücken zur ABC-Analyse.',
+          template: 'A-Kunden machen ca. {0}% des Umsatzes aus und bilden ca. {1}% der Kunden. Die ABC-Analyse basiert auf dem {2}.',
+          blanks: ['80','20','Pareto-Prinzip'],
+          accept: [['80'],['20'],['Pareto-Prinzip','Pareto Prinzip','Paretoprinzip']],
+          tips: ['Die ABC-Analyse folgt der 80/20-Regel.','Wenige Kunden machen den meisten Umsatz.','Das Prinzip wurde von Vilfredo Pareto formuliert.'],
+          reveal: ['A-Kunden: ~20% der Kunden, aber ~80% des Umsatzes — sie verdienen die intensivste Betreuung.','Warum das Pareto-Prinzip? Es zeigt, dass die Verteilung fast nie gleichmässig ist. Im Verkauf heisst das: Fokussiere deine Ressourcen auf die wenigen, die den grössten Impact haben.','Häufiger Fehler: C-Kunden werden komplett ignoriert. Aber: C-Kunden von heute können A-Kunden von morgen sein — deshalb nicht vernachlässigen, sondern effizient betreuen.']
+        },
+        {
+          id: 95,
+          type: 'check',
+          q: 'Welche Aussagen zu Verkaufsstrategien sind korrekt?',
+          statements: [
+            {s: 'Die Subvariablen 1–3 definieren zusammen das strategische Geschäftsfeld.', c: true},
+            {s: 'Die Feldgrösse beschreibt die Anzahl der Verkaufsmitarbeitenden.', c: false},
+            {s: 'Die ABC-Analyse hilft bei der Priorisierung von Kunden.', c: true},
+            {s: 'Ein SGF wird von innen, vom Unternehmen her definiert.', c: false},
+            {s: 'Verbundene Kunden sind emotional an das Unternehmen gebunden.', c: true},
+            {s: 'Kundenselektion beantwortet die Frage «Wo?».', c: false}
+          ],
+          tips: ['Subvariablen 1–3: Was, Wem, Wo = SGF.','Feldgrösse = geografischer Zielmarkt.','Kundenselektion = Wem, nicht Wo.'],
+          reveal: ['Korrekt: Subvariablen 1–3 = SGF (Produkt, Kunde, Feld), ABC-Analyse priorisiert Kunden, Verbundene Kunden sind emotional loyal.','Falsch: Feldgrösse ≠ Anzahl MA (= geografischer Markt), SGF ≠ von innen (= von aussen, vom Markt), Kundenselektion = «Wem» (nicht «Wo» — das ist Feldgrösse).','Warum diese Abgrenzung wichtig? An der Prüfung werden SGF/SGE und die W-Zuordnung der Subvariablen gerne als Stolpersteine eingebaut.']
+        },
+        {
+          id: 96,
+          type: 'match',
+          q: 'Ordnen Sie die Kundentypen der richtigen ABC-Kategorie zu.',
+          pairs: [
+            {l: 'Grosskunde mit CHF 2 Mio. Jahresumsatz', r: 'A-Kunde'},
+            {l: 'Gelegentlicher Käufer mit CHF 5\'000/Jahr', r: 'C-Kunde'},
+            {l: 'Regelmässiger Kunde mit CHF 200\'000/Jahr', r: 'B-Kunde'},
+            {l: 'Strategischer Partner mit Rahmenvertrag', r: 'A-Kunde'},
+            {l: 'Einmalkäufer ohne Wiederholungsauftrag', r: 'C-Kunde'}
+          ],
+          options: ['A-Kunde','B-Kunde','C-Kunde'],
+          tips: ['A-Kunden = höchster Umsatz oder strategische Bedeutung.','B-Kunden = solides Mittelfeld mit Potenzial.','C-Kunden = geringer Umsatz oder unregelmässig.'],
+          reveal: ['A-Kunden: Grosskunde (hoher Umsatz) und strategischer Partner (Rahmenvertrag = langfristige Bindung).','B-Kunde: Regelmässig, solider Umsatz, aber nicht dominant.','C-Kunden: Gelegentlicher/Einmal-Käufer mit geringem Umsatz.','Warum ist ein strategischer Partner A-Kunde? Nicht nur der aktuelle Umsatz zählt — auch die strategische Bedeutung (Referenz, Marktzugang, Potenzial) kann einen Kunden zum A-Kunden machen.','Prüfungstipp: Bei der ABC-Zuordnung immer beide Dimensionen prüfen: aktueller Umsatz UND Potenzial/strategische Bedeutung.']
         }
       ],
       learningData: {
@@ -606,7 +654,7 @@ window.BOOK_DATA = {
             {q: 'Passives Telefonmarketing:', keywords: ['käufer','kunde','ruft','verkäufer','an','inbound'], minKeywords: 2}
           ],
           tips: ['Aktiv = der Verkäufer ist der Initiator.','Passiv = der Kunde ist der Initiator.','Andere Begriffe: Outbound Call und Inbound Call.'],
-          reveal: ['Aktiv (Outbound): Der Verkäufer ruft den Kunden an.','Passiv (Inbound): Der Käufer ruft den Verkäufer an.']
+          reveal: ['Aktiv (Outbound): Der Verkäufer ruft den Kunden an — er ist der Initiator des Kontakts.','Passiv (Inbound): Der Käufer ruft den Verkäufer an — der Kunde kommt von selbst.','Warum die Unterscheidung? Die Gesprächsführung ist komplett anders: Bei Outbound muss der Verkäufer Interesse wecken (der Kunde hat nicht darum gebeten). Bei Inbound hat der Kunde bereits Interesse — der Verkäufer muss es nur noch in einen Abschluss umwandeln.','Prüfungstipp: Outbound = aktiv = teurer (mehr Aufwand pro Kontakt). Inbound = passiv = effizienter (Kunde hat bereits Kaufabsicht).']
         },
         {
           id: 17,
@@ -619,7 +667,7 @@ window.BOOK_DATA = {
             {q: 'B) Nicht vernachlässigen:', keywords: ['kleinere','B-Kunden','C-Kunden','wachsen','potenzial','vernachlässigen'], minKeywords: 2}
           ],
           tips: ['A-Kunden haben den höchsten Umsatz.','Die Betreuung sichert die persönliche Beziehung.','Auch kleinere Kunden können wachsen.'],
-          reveal: ['A) A-Kunden werden am intensivsten betreut, da sie den höchsten Umsatz generieren. Die Betreuung sichert die persönliche Beziehung und die Zufriedenheit.','B) Man darf auch kleinere Kunden (B/C) nicht vernachlässigen, denn sie können rasch wachsen und Potenzial entwickeln.']
+          reveal: ['A) A-Kunden werden am intensivsten betreut — sie generieren den Grossteil des Umsatzes (Pareto: ~20% der Kunden = ~80% Umsatz).','B) Kleinere Kunden (B/C) dürfen nicht vernachlässigt werden — ein heutiger C-Kunde kann morgen ein A-Kunde sein.','Warum ist das prüfungsrelevant? Die Ressourcenverteilung im Verkauf ist ein Klassiker: Wer nur A-Kunden betreut, verpasst Wachstumspotenzial. Wer alle gleich betreut, verschwendet Ressourcen.','Merke: Die Kontaktperiodizität (Subvariable 6) regelt, wie oft welcher Kunde besucht wird — A häufiger, C seltener.']
         },
         {
           id: 18,
@@ -636,7 +684,7 @@ window.BOOK_DATA = {
             {label: 'Total zu besuchende Kunden', answer: 985, tolerance: 0}
           ],
           tips: ['Multiplizieren Sie Anzahl Kunden mit der Periodizität.','Bestehende + Neukunden müssen zusammengezählt werden.','Privatkunden ohne Periodizität (-) werden nicht berechnet.'],
-          reveal: ['A: 35x12=420, 15x3=45, 0=0 \u2192 465 Besuche.','B: 20x6=120, 30x4=120, 10x6=60 \u2192 300 Besuche.','C: 10x4=40, 90x2=180, 450x-=0 \u2192 220 Besuche.','Total: 465+300+220 = 985 Besuche.']
+          reveal: ['A: 35×12=420 + 15×3=45 = 465 Besuche.','B: 20×6=120 + 30×4=120 + 10×6=60 = 300 Besuche.','C: 10×4=40 + 90×2=180 = 220 Besuche.','Total: 465 + 300 + 220 = 985 Besuche.','Warum «Periodizität × Anzahl»? Jede Kundengruppe hat eine definierte Besuchshäufigkeit (Kontaktperiodizität). A-Kunden werden z.B. 12× pro Jahr besucht, C-Kunden nur 2×. Diese Berechnung ist die Grundlage für die Personalplanung im Aussendienst.','Achtung: Privatkunden ohne Periodizität (–) fliessen NICHT in die Berechnung ein.']
         },
         {
           id: 19,
@@ -647,7 +695,7 @@ window.BOOK_DATA = {
             {label: 'Benötigte AD-MA (aufgerundet)', answer: 2, tolerance: 0}
           ],
           tips: ['Formel: Anzahl Besuche / (verkaufsaktive Tage x Besuche pro Tag).','985 / (150 x 3) = ?','Es muss aufgerundet werden, da kein halber MA möglich ist.'],
-          reveal: ['985 / (150 x 3) = 985 / 450 = 2.18 AD-MA.','Ein AD-Mitarbeiter reicht nicht, es muss ein zweiter angestellt werden.','Die zusätzlichen, noch nicht abgedeckten Besuche werden von der Verkaufsleiterin wahrgenommen. Antwort: 2 AD-MA.']
+          reveal: ['Formel: 985 Besuche ÷ (150 Tage × 3 Besuche/Tag) = 985 ÷ 450 = 2.19 AD-MA.','Warum aufrunden auf 2? Man kann keinen 0.19 Mitarbeiter anstellen. Die restlichen Besuche übernimmt die Verkaufsleiterin.','Warum diese Berechnung? Sie ist der Kern der Einsatzplanung: Wie viele AD-Mitarbeitende braucht es, um alle geplanten Kundenbesuche abzudecken?','Prüfungstipp: Diese Berechnung kommt oft an der Prüfung. Formel merken: Gesamtbesuche ÷ (verkaufsaktive Tage × Besuche pro Tag) = benötigte AD-MA.']
         },
         {
           id: 20,
@@ -657,7 +705,7 @@ window.BOOK_DATA = {
           blanks: ['Der Kunde kommt zum Verkäufer','zwischenmenschlicher','Mensch zu Mensch','Verkäufer','Vertriebspartner','mobiler Endgeräte'],
           accept: [['Der Kunde kommt zum Verkäufer','Kunde kommt zum Verkäufer'],['zwischenmenschlicher'],['Mensch zu Mensch'],['Verkäufer'],['Vertriebspartner'],['mobiler Endgeräte']],
           tips: ['Platzverkauf = Kunde kommt zum Verkäufer (z.B. im Laden).','Feldverkauf = Aussendienst, Verkäufer besucht Kunden.','Channel Sales = Verkauf über Partner/Vertriebskanäle.'],
-          reveal: ['Platzverkauf: Der Kunde kommt zum Verkäufer.','Unpersönlicher Kontakt: kein zwischenmenschlicher Kontakt.','Persönlicher Kontakt: Mensch zu Mensch.','Feldverkauf: Der Verkäufer geht zum Kunden.','Channel Sales: Vertriebspartner.','Mobile Sales: mobile Endgeräte.']
+          reveal: ['Platzverkauf: Der Kunde kommt zum Verkäufer (z.B. Laden, Showroom).','Feldverkauf: Der Verkäufer geht zum Kunden (= Aussendienst).','Channel Sales: Verkauf über Vertriebspartner (indirekter Verkauf).','Mobile Sales: Verkauf via mobile Endgeräte (Smartphone, Tablet).','Warum die Unterscheidung? Die Kontaktart bestimmt die Kostenstruktur und die Personalplanung: Feldverkauf ist teuer (Reisekosten, Zeit), Platzverkauf günstiger (Kunde kommt selbst).','Persönlich vs. unpersönlich: Persönlicher Kontakt (Mensch zu Mensch) baut Vertrauen auf, ist aber ressourcenintensiv. Unpersönlicher Kontakt (z.B. E-Mail, Webshop) skaliert besser, baut aber weniger Beziehung auf.']
         },
         {
           id: 21,
@@ -670,7 +718,7 @@ window.BOOK_DATA = {
             {q: 'B) Anbieter:', keywords: ['handel','hersteller','professionell','verkaufsorganisation'], minKeywords: 2}
           ],
           tips: ['Konsumgüter sind im Handel gegenständlich vorhanden.','Dienstleistungen sind immateriell.','Bei Investitionsgütern: Hersteller und professionelle Verkaufsorganisation.'],
-          reveal: ['A) Konsumgüter sind beim Kauf im Handel gegenständlich vorhanden. DL sind immateriell, Herstellung und Verbrauch fallen zusammen.','B) Konsumgütern: meist Handel, auch Hersteller. Investitionsgütern: Hersteller und seine professionelle Verkaufsorganisation.']
+          reveal: ['A) Konsumgüter sind gegenständlich vorhanden — man kann sie anfassen, testen, vergleichen. Dienstleistungen sind immateriell — Herstellung und Verbrauch fallen zusammen (z.B. Haarschnitt, Beratung).','B) Konsumgüter: meist über den Handel (z.B. Migros, Coop). Investitionsgüter: direkt vom Hersteller mit professioneller Verkaufsorganisation.','Warum relevant? Der Verkaufsprozess unterscheidet sich fundamental: Konsumgüter verkaufen sich oft «selbst» im Regal, Investitionsgüter erfordern persönliche Beratung, Demos und lange Verhandlungen.']
         },
         {
           id: 22,
@@ -682,7 +730,7 @@ window.BOOK_DATA = {
             {q: 'Antworten für A, B und C:', keywords: ['private','institutionell','individuelle','unternehmensspezifisch','nicht systematisch','systematisch','emotional','rational','kurze','lange','entscheidungszeit'], minKeywords: 4}
           ],
           tips: ['Konsumgüter = private Käufer, individuelle Bedürfnisse.','Investitionsgüter = institutionelle Käufer, unternehmensspezifisch.','Kaufprozess: Konsumgüter = emotional, kurz. Investitionsgüter = rational, lang.'],
-          reveal: ['A) Konsumgüter: private Käufer. Investitionsgüter: institutionelle Käufer. DL: private und institutionelle.','B) Konsumgüter: individuelle Bedürfnisse. Investitionsgüter: unternehmensspezifische Bedürfnisse.','C) Konsumgüter: nicht systematisch, kurze Entscheidungszeit, oft emotional. Investitionsgüter: systematisch, lange Entscheidungszeit.']
+          reveal: ['A) Konsumgüter: private Käufer. Investitionsgüter: institutionelle Käufer. DL: beide.','B) Konsumgüter: individuelle Bedürfnisse (z.B. «schmeckt mir»). Investitionsgüter: unternehmensspezifische Bedürfnisse (z.B. «steigert Produktivität um 15%»).','C) Konsumgüter: nicht systematisch, kurze Entscheidungszeit, oft emotional. Investitionsgüter: systematisch, lange Entscheidungszeit, rational.','Warum? Bei Investitionsgütern entscheidet ein Buying Center (mehrere Personen), der Prozess dauert Wochen bis Monate. Bei Konsumgütern entscheidet oft eine Person in Sekunden am Regal.']
         },
         {
           id: 23,
@@ -694,7 +742,7 @@ window.BOOK_DATA = {
             {q: 'A und B:', keywords: ['immateriell','nicht demonstriert','unsicherheit','einfühlungsvermögen','überzeugungskraft','vertrauen','persönlichkeit'], minKeywords: 3}
           ],
           tips: ['DL können nicht 1:1 demonstriert werden.','Der Kunde hat daher Unsicherheiten.','Der Verkäufer braucht besondere persönliche Eigenschaften.'],
-          reveal: ['A) DL sind immateriell, die jeweilige Leistung kann nicht 1:1 demonstriert werden, was zu Unsicherheiten führt.','B) Man benötigt Einfühlungsvermögen, Überzeugungskraft und eine gewinnende, vertrauenerweckende Persönlichkeit.']
+          reveal: ['A) DL sind immateriell — man kann sie nicht vorführen, nicht anfassen, nicht testen. Das erzeugt beim Kunden Unsicherheit: «Bekomme ich wirklich, was versprochen wird?»','B) Deshalb braucht der Verkäufer: Einfühlungsvermögen (Unsicherheit verstehen), Überzeugungskraft (Vertrauen aufbauen) und eine gewinnende Persönlichkeit (der Verkäufer IST das Produkt).','Warum wichtig? Bei DL kauft der Kunde im Grunde ein Versprechen. Referenzen, Testimonials und persönliche Ausstrahlung sind daher wichtiger als bei Konsumgütern.']
         },
         {
           id: 24,
@@ -706,7 +754,7 @@ window.BOOK_DATA = {
             {q: 'Cross-Selling vs. Up-Selling:', keywords: ['ergänzend','mehrwert','höhere','kosten','leistungen','angeboten','verkauft'], minKeywords: 3}
           ],
           tips: ['Cross = quer, also ergänzende Produkte.','Up = höher, also hochwertigere Produkte.','Beide Strategien zielen auf Mehrumsatz ab.'],
-          reveal: ['Cross-Selling: Dem Kunden werden der Marktleistung ergänzende Leistungen angeboten und verkauft.','Up-Selling: Dem Kunden werden Marktleistungen mit einem Mehrwert und in der Regel zu höheren Kosten verkauft.']
+          reveal: ['Cross-Selling: Ergänzende Produkte anbieten (z.B. Laptop → Tasche, Maus, Versicherung).','Up-Selling: Höherwertige Version anbieten (z.B. Standard → Premium, 128GB → 256GB).','Warum beide Strategien wichtig? Sie steigern den Umsatz pro Kunde ohne zusätzliche Akquisitionskosten. Ein bestehender Kunde, der bereits kauft, ist empfänglicher für Zusatzangebote als ein Neukunde.','Prüfungstipp: Cross = quer (andere Produkte dazu), Up = hoch (teurere Version). Nicht verwechseln! Beides zielt auf Mehrumsatz, aber der Weg ist verschieden.']
         },
         {
           id: 25,
@@ -720,7 +768,7 @@ window.BOOK_DATA = {
           ],
           answer: 1,
           tips: ['Kontaktqualität = Wie wird kontaktiert?','Kontaktquantität = Wie oft?','Kontaktperiodizität = Wie regelmässig?'],
-          reveal: ['Kontaktqualität ist die Schlüsselgrösse der Verkaufssubvariablen.','Sie definiert Art, Vorgehen, Inhalt, Dauer und Häufigkeit der Kontakte.','Antwort B ist korrekt.']
+          reveal: ['Richtig: B — Die Kontaktqualität ist die Schlüsselgrösse der Verkaufssubvariablen (Subvariable 4: «Wie»).','Warum nicht A? Die Anzahl der Kundenbesuche pro Periode ist die Kontaktquantität (Subvariable 5: «Wie viel»).','Warum nicht C? Die zeitliche Regelmässigkeit ist die Kontaktperiodizität (Subvariable 6: «Wann»).','Warum nicht D? Die Kundenzufriedenheit ist ein vorökonomisches Ziel, keine Subvariable.','Merke: Qualität = WIE kontaktiert wird (Inhalt, Dauer, Art). Quantität = WIE OFT. Periodizität = WIE REGELMÄSSIG.']
         }
       ],
       learningData: {
@@ -850,7 +898,7 @@ window.BOOK_DATA = {
             {q: 'Kriterien:', keywords: ['verdienstmöglichkeiten','arbeitslast','vergleichbar','gleich','AD','gebiete'], minKeywords: 2}
           ],
           tips: ['Die Gebiete sollten fair aufgeteilt sein.','Denken Sie an Verdienstmöglichkeiten und Arbeitslast.','Alle AD sollten ähnliche Chancen haben.'],
-          reveal: ['Bei der Aufteilung in Verkaufsgebiete sollen die Verdienstmöglichkeiten und die Arbeitslast für alle AD vergleichbar sein.']
+          reveal: ['Warum vergleichbare Verdienstmöglichkeiten? Weil ungleiche Gebiete zu Frustration und hoher Fluktuation führen – ein AD in einem schwachen Gebiet wird demotiviert, egal wie gut er verkauft.','Warum auch die Arbeitslast? Ein Gebiet mit vielen kleinen Kunden erfordert mehr Fahrten und Besuche als ein Gebiet mit wenigen Grosskunden – beides muss bei der Planung berücksichtigt werden.','Prüfungstipp: Die Frage zielt immer auf ZWEI Kriterien ab – Verdienstmöglichkeiten UND Arbeitslast. Wer nur eines nennt, verliert Punkte.','Häufiger Fehler: Nur an die geografische Grösse denken. Ein kleines Stadtgebiet kann mehr Umsatzpotenzial haben als ein riesiges Landgebiet.']
         },
         {
           id: 27,
@@ -862,7 +910,7 @@ window.BOOK_DATA = {
             {q: 'Erklärung:', keywords: ['gleich','wochentag','region','immer','besucht','tourenplanung'], minKeywords: 2}
           ],
           tips: ['Es geht um die Tourenplanung.','Der Name "Kuchen" deutet auf eine feste Aufteilung hin.','Jeder Wochentag hat eine feste Region.'],
-          reveal: ['Beim Kuchenprinzip besucht der Aussendienstmitarbeitende immer am gleichen Wochentag die gleiche Region.','Das Blattprinzip kann losgelöst oder in Kombination mit dem Kuchenprinzip angewandt werden.']
+          reveal: ['Warum heisst es «Kuchenprinzip»? Das Verkaufsgebiet wird wie ein Kuchen in feste Stücke (Regionen) aufgeteilt – jeder Wochentag hat sein festes «Kuchenstück».','Vorteil: Kunden wissen, wann der AD kommt → planbarer für beide Seiten, schafft Vertrauen und Routine.','Häufiger Fehler: Kuchenprinzip mit Blattprinzip verwechseln. Kuchen = fix (immer gleicher Tag, gleiche Region). Blatt = flexibel (Termine werden laufend angepasst).','Prüfungstipp: Beide Prinzipien werden oft kombiniert – das Kuchenprinzip als Grundstruktur, das Blattprinzip für kurzfristige Anpassungen.']
         },
         {
           id: 28,
@@ -874,7 +922,7 @@ window.BOOK_DATA = {
             {q: 'Drei mögliche Störungen:', keywords: ['krank','absagen','unwetter','stau','verkehr','treffen','verschoben','grund'], minKeywords: 2}
           ],
           tips: ['Denken Sie an Kundenabsagen.','Wetter und Verkehr können die Planung stören.','Auch persönliche Gründe sind möglich.'],
-          reveal: ['1. Der Kunde wird krank oder sagt aus anderem Grund ab.','2. Henrik könnte selbst krank werden (z.B. Grippe).','3. Unwetter (Schnee, Überschwemmungen) können die Anfahrt verzögern oder verunmöglichen.','Ein Verkehrsstau kann die Zeitplanung durcheinanderbringen.']
+          reveal: ['Warum ist diese Frage prüfungsrelevant? Sie zeigt, dass selbst die beste digitale Planung nicht alle Risiken eliminiert – Flexibilität bleibt im AD unverzichtbar.','Drei Hauptstörungen: 1) Kundenabsage (Krankheit, Terminkonflikt) – häufigster Grund. 2) Eigene Krankheit des AD. 3) Externe Faktoren (Unwetter, Stau, Baustellen).','Prüfungstipp: Nennen Sie immer Störungen aus verschiedenen Kategorien (Kunde, eigene Person, Umwelt) – das zeigt strukturiertes Denken.','Häufiger Fehler: Nur «Stau» nennen. Die Prüfung erwartet verschiedenartige Störungen, nicht nur Verkehrsprobleme.']
         },
         {
           id: 29,
@@ -886,7 +934,7 @@ window.BOOK_DATA = {
             {q: 'Drei Kriterien:', keywords: ['produkt','kunden','kundenklassen','kundengruppen','geograf','zeitlich','AD-Gebiete','strategisch','schlüssel'], minKeywords: 2}
           ],
           tips: ['Denken Sie an Produktgruppen, Kundentypen und Geografie.','Auch zeitliche Kriterien sind möglich.','Schlüsselkunden können ein Kriterium sein.'],
-          reveal: ['1. Produktgruppen und/oder Produkte.','2. Kundenklassen, Kundengruppen oder einzelne Kunden (strategische/Schlüsselkunden).','3. Geografische Gebiete / AD-Gebiete.','4. Zeitliche Kriterien (Monat, Quartal, Halbjahr, Jahr).']
+          reveal: ['Warum nach Produktgruppen? Weil verschiedene Produkte unterschiedliches Fachwissen erfordern – ein Spezialist verkauft besser als ein Generalist.','Warum nach Kundenklassen? Grosskunden (Key Accounts) brauchen andere Betreuung als Kleinkunden – die Verkaufsstrategie unterscheidet sich fundamental.','Warum nach Geografie? Um Reisekosten zu minimieren und die Gebietsabdeckung effizient zu gestalten.','Prüfungstipp: Es gibt 4 Kriterien (Produkt, Kunde, Geografie, Zeit). Drei nennen reicht meist, aber wer alle vier kennt, punktet sicher.']
         },
         {
           id: 30,
@@ -900,7 +948,7 @@ window.BOOK_DATA = {
           ],
           options: ['Gehört zur Einsatzplanung','Gehört nicht zur Einsatzplanung'],
           tips: ['Die Einsatzplanung enthält 4 Planungsarten.','Alle genannten Planungen gehören dazu.','Die Einsatzplanung ist Teil der primären Verkaufsplanung.'],
-          reveal: ['Alle vier gehören zur Einsatzplanung: Gliederungsplanung, Zeitplanung, Routen-/Tourenplanung, Verkaufsstufenplan.']
+          reveal: ['Warum gehören alle vier dazu? Die Einsatzplanung beantwortet WER (Gliederung), WANN (Zeit), WO/WIE (Routen) und WAS (Verkaufsstufen) – alle vier Aspekte sind nötig für eine vollständige Planung.','Gliederungsplanung = Aufteilung nach Produkten/Kunden/Gebieten. Zeitplanung = wann welche Kontakte. Tourenplanung = effiziente Routenführung. Verkaufsstufenplan = systematisches Vorgehen.','Prüfungstipp: Alle vier Planungsarten auswendig können – sie werden oft als Aufzählungsfrage geprüft.']
         },
         {
           id: 31,
@@ -910,7 +958,7 @@ window.BOOK_DATA = {
           blanks: ['Ressourcen','Umsatz','Einsatzpläne','Umsatzplanung'],
           accept: [['Ressourcen'],['Umsatz'],['Einsatzpläne'],['Umsatzplanung']],
           tips: ['Primäre VP bereitet Ressourcen vor.','Zwei Planarten: Umsatz-/Absatzpläne und Einsatzpläne.','Die Umsatzplanung delegiert Bereichsziele.'],
-          reveal: ['In den primären Verkaufsplänen werden Ressourcen vorbereitet.','Das sind Umsatz-/Absatzpläne und Einsatzpläne.','In der Umsatzplanung werden Bereichsziele delegiert.']
+          reveal: ['Warum «Ressourcen»? Primäre VP plant die konkreten Verkaufsressourcen (Personal, Zeit, Gebiete) – ohne diese Planung würde der Verkauf unkoordiniert ablaufen.','Warum zwei Planarten? Umsatz-/Absatzpläne legen die ZIELE fest (wie viel verkaufen?), Einsatzpläne legen den WEG fest (wie erreichen wir die Ziele?).','Warum Delegation in der Umsatzplanung? Bereichsziele müssen auf tiefere Ebenen heruntergebrochen werden, damit jeder AD weiss, was sein persönliches Ziel ist.','Prüfungstipp: Die Begriffe «primär» und «sekundär» nicht verwechseln – primär = direkte Verkaufsplanung, sekundär = unterstützende Planung (Organisation, Personal, Hilfsmittel).']
         },
         {
           id: 32,
@@ -922,7 +970,7 @@ window.BOOK_DATA = {
             {s: 'Die Gliederungsplanung kann nach Produktgruppen, Kundengruppen oder Gebieten erfolgen.', c: true, feedback: 'Dies sind typische Gliederungskriterien.'}
           ],
           tips: ['Einsatzplanung = wer, wann, wo, was.','Kuchenprinzip = feste Wochentage pro Region.','Gliederung kann nach verschiedenen Kriterien erfolgen.'],
-          reveal: ['Aussage 1: Richtig.','Aussage 2: Falsch – Blattprinzip ist flexibel, Kuchenprinzip ist fix.','Aussage 3: Richtig.']
+          reveal: ['Aussage 1 RICHTIG: Warum? Die Einsatzplanung ist das operative Herzstück – sie koordiniert alle Kontakte nach dem Prinzip «wer besucht wen, wann, wo». Ohne sie wäre der Aussendienst planlos unterwegs.','Aussage 2 FALSCH: Warum? Hier werden Kuchen- und Blattprinzip absichtlich vertauscht. Das Kuchenprinzip = feste Wochentage pro Region (wie Kuchenstücke). Das Blattprinzip = flexibel, Termine werden laufend angepasst (wie ein loses Blatt). Diese Verwechslung ist eine beliebte Prüfungsfalle!','Aussage 3 RICHTIG: Warum? Die Gliederungsplanung muss flexibel sein, weil jedes Unternehmen andere Schwerpunkte hat – ein Pharma-Unternehmen gliedert nach Produktgruppen, ein Regionaler Anbieter nach Gebieten.']
         },
         {
           id: 33,
@@ -936,7 +984,7 @@ window.BOOK_DATA = {
           ],
           answer: 2,
           tips: ['Primär = direkt mit dem Verkauf verbunden.','Sekundär = organisatorische und infrastrukturelle Voraussetzungen.','Umsatz/Absatz und Einsatz sind primär.'],
-          reveal: ['Die primäre Verkaufsplanung umfasst Umsatz-/Absatzpläne und Einsatzpläne.','Verkaufsorganisation, Personal und Hilfsmittel gehören zur sekundären VP.']
+          reveal: ['Richtige Antwort: Umsatz-/Absatzplanung und Einsatzplanung. Warum? Weil diese Pläne DIREKT den Verkauf betreffen – was wird verkauft und wie wird der Einsatz organisiert.','Warum NICHT Verkaufsorganisationsplanung? Sie schafft die Struktur (Organigramm, Stellen), ist aber eine Voraussetzung, kein direkter Verkaufsplan → sekundär.','Warum NICHT Personalplanung? Mitarbeitende rekrutieren und schulen ist wichtig, aber eine unterstützende Funktion → sekundär.','Warum NICHT Verkaufshilfsmittelplanung? Hilfsmittel (Broschüren, CRM-Tools) unterstützen den Verkauf, sind aber nicht der Verkauf selbst → sekundär.','Prüfungstipp: Merkhilfe: Primär = «Was und Wie viel verkaufen wir?» Sekundär = «Womit und mit wem verkaufen wir?»']
         },
         {
           id: 88,
@@ -944,7 +992,7 @@ window.BOOK_DATA = {
           q: 'Ordnen Sie die Schritte des Verkaufsstufenplans in die korrekte Reihenfolge.',
           items: ['Analyse der Ausgangslage', 'Planung und Konzeption', 'Produktion von Hilfsmitteln', 'Versand eines Mailings', 'Rücklauf bearbeiten', 'Telefonische Nachfassaktion', 'Erstbesuche', 'Nachbearbeitung', 'Nachfassen', 'Zweitbesuche', 'Abschluss und Schlussbesprechung'],
           tips: ['Der Plan beginnt immer mit einer Analyse.','Nach dem Mailing folgen Rücklauf und Telefon.','Erst- und Zweitbesuche kommen nach der telefonischen Kontaktaufnahme.'],
-          reveal: ['Der Verkaufsstufenplan beschreibt 11 systematische Schritte von der Analyse bis zum Abschluss.','Er stellt sicher, dass Verkaufsaktivitäten geplant und koordiniert ablaufen.']
+          reveal: ['Warum diese Reihenfolge? Der Verkaufsstufenplan folgt einer logischen Kette: Zuerst verstehen (Analyse), dann vorbereiten (Planung, Produktion), dann kontaktieren (Mailing, Telefon), dann besuchen (Erst-/Zweitbesuch), dann abschliessen.','Warum kommt das Mailing VOR dem Telefon? Weil der Kunde zuerst schriftlich informiert wird – so hat er beim Telefonanruf bereits einen Bezugspunkt und fühlt sich nicht «kalt» angerufen.','Warum Erst- UND Zweitbesuche? Beim Erstbesuch wird das Angebot vorgestellt, beim Zweitbesuch werden offene Fragen geklärt und der Abschluss angestrebt. Nur selten wird beim ersten Besuch abgeschlossen.','Prüfungstipp: Die 11 Schritte werden häufig als Sortieraufgabe geprüft. Merkhilfe: A-P-P-V-R-T-E-N-N-Z-A (Anfangsbuchstaben).']
         }
       ],
       learningData: {
@@ -1054,7 +1102,7 @@ window.BOOK_DATA = {
             {q: 'Aufgabe der funktionalen Stabsstelle:', keywords: ['spezialisiert','beratung','unterstützung','weisungsbefugnis','funktional','aufgabe'], minKeywords: 2}
           ],
           tips: ['Stabsstellen sind spezialisierte Stellen.','Sie haben beratende Funktion.','Je nach Aufgabe kann ihnen funktionale Weisungsbefugnis übertragen werden.'],
-          reveal: ['Funktionale Stabsstellen sind spezialisierte Stellen (z.B. Qualitätssicherung, Rechtsabteilung).','Je nach Aufgabe kann ihnen funktional Weisungsbefugnis übertragen werden.','Die Linienorganisation bleibt dabei als Grundstruktur bestehen.']
+          reveal: ['Warum «funktionale» Stabsstelle? Weil sie in ihrem Fachgebiet (Funktion) Weisungsbefugnis erhalten kann – im Gegensatz zu einer reinen Stabsstelle, die nur beraten darf.','Beispiel: Die Rechtsabteilung kann anweisen, einen Vertrag NICHT zu unterschreiben – das ist funktionale Weisungsbefugnis in rechtlichen Belangen, obwohl sie hierarchisch keine Linienfunktion hat.','Häufiger Fehler: Stabsstelle mit Linienstelle verwechseln. Stab = Beratung/Unterstützung, Linie = direkte Weisungsbefugnis. Die funktionale Stabsstelle ist ein Hybrid.','Prüfungstipp: Das Wort «funktional» ist der Schlüssel – es bedeutet, dass die Weisungsbefugnis auf ein bestimmtes Fachgebiet beschränkt ist, nicht generell gilt.']
         },
         {
           id: 35,
@@ -1067,7 +1115,7 @@ window.BOOK_DATA = {
             {q: 'Nachteile (3):', keywords: ['konflikt','mehrfachunterstellung','einheit','leitung','kompromisse','keine'], minKeywords: 2}
           ],
           tips: ['Vorteile: kurze Wege, Flexibilität.','Nachteile: Konfliktpotenzial durch doppelte Unterstellung.','Denken Sie an die Einheit der Leitung.'],
-          reveal: ['Vorteile: Mehrdimensionale Koordination, kurze Kommunikationswege, hohe Flexibilität.','Nachteile: Höheres Konfliktpotenzial durch Mehrfachunterstellung, keine Einheit der Leitung, Gefahr vieler schlechter Kompromisse.']
+          reveal: ['Warum mehrdimensionale Koordination als Vorteil? Weil Entscheidungen gleichzeitig aus Produkt- UND Regionalsicht getroffen werden – das verhindert einseitige Entscheide.','Warum Konfliktpotenzial als Nachteil? Ein Mitarbeiter hat ZWEI Vorgesetzte (z.B. Produktmanager + Regionalleiter). Wenn beide unterschiedliche Prioritäten setzen, entsteht ein Loyalitätskonflikt.','Warum «keine Einheit der Leitung»? Das klassische Managementprinzip besagt: Ein Mitarbeiter = ein Chef. Die Matrix bricht dieses Prinzip bewusst – mit allen Konsequenzen.','Prüfungstipp: Immer je 3 Vor- und 3 Nachteile lernen. Die Nachteile hängen alle mit der Mehrfachunterstellung zusammen – das ist der rote Faden.']
         },
         {
           id: 36,
@@ -1079,7 +1127,7 @@ window.BOOK_DATA = {
             {q: 'Welche Kriterien und Spalten enthält ein Anforderungsprofil?', keywords: ['fachlich','charakterlich','persönlich','muss','soll','kann','anforderungen','kriterium'], minKeywords: 3}
           ],
           tips: ['Das Raster hat 3 Kriterienbereiche.','Die Spalten unterscheiden Muss, Soll und Kann.','Fachliche, charakterliche und persönliche Anforderungen.'],
-          reveal: ['Zeilen/Kriterien: Fachliche Anforderungen, Charakterliche Anforderungen, Persönliche Anforderungen.','Spalten: Muss (zwingend), Soll (wünschenswert), Kann (Vorteil).']
+          reveal: ['Warum 3 Kriterienbereiche? Fachlich (kann die Person den Job?), Charakterlich (passt sie ins Team?), Persönlich (bringt sie die nötigen Soft Skills mit?) – alle drei Dimensionen müssen geprüft werden.','Warum Muss/Soll/Kann? Nicht alle Anforderungen sind gleich wichtig. Muss = K.O.-Kriterium (z.B. Führerausweis für AD). Soll = stark gewünscht (z.B. Branchenerfahrung). Kann = Bonus (z.B. Fremdsprachen).','Prüfungstipp: In der Prüfung wird oft nach dem «Raster» gefragt – zeichnen Sie eine Tabelle mit 3 Zeilen (fachlich, charakterlich, persönlich) und 3 Spalten (Muss, Soll, Kann).','Häufiger Fehler: Fachliche und persönliche Anforderungen verwechseln. Fachlich = Ausbildung, Erfahrung. Persönlich = Belastbarkeit, Flexibilität, Auftreten.']
         },
         {
           id: 37,
@@ -1091,7 +1139,7 @@ window.BOOK_DATA = {
             {q: 'Unterschied:', keywords: ['zwingend','erfüllt','ausscheidet','kandidat','vorteil','müssen','nicht zwingend'], minKeywords: 2}
           ],
           tips: ['Muss = zwingend erforderlich.','Soll = wünschenswert, aber nicht zwingend.','Fehlende Muss-Kriterien = Ausschluss.'],
-          reveal: ['Muss-Kriterien müssen zwingend erfüllt sein. Ist dies nicht der Fall, scheidet der Kandidat aus.','Soll-Kriterien können erfüllt sein und sind in der Regel ein Vorteil, sie müssen aber nicht zwingend erfüllt sein.']
+          reveal: ['Warum die Unterscheidung? Ohne klare Trennung würde man Kandidaten mit «Nice-to-have»-Lücken ausschliessen und den Talentpool unnötig einschränken.','Muss-Kriterien = Ausschlusskriterien (K.O.). Beispiel: Ein AD braucht zwingend einen Führerausweis – ohne ihn kann er keine Kunden besuchen, egal wie gut er verkauft.','Soll-Kriterien = Differenzierungskriterien. Beispiel: 5 Jahre Branchenerfahrung ist wünschenswert, aber ein talentierter Quereinsteiger kann das kompensieren.','Prüfungstipp: Es gibt auch «Kann-Kriterien» (Bonus/Vorteil). In der Prüfung wird oft nach dem Unterschied Muss vs. Soll gefragt – das Wort «zwingend» ist der Schlüssel.']
         },
         {
           id: 38,
@@ -1107,7 +1155,7 @@ window.BOOK_DATA = {
             {s: 'Telefonskripte gehören zur Ablauforganisation.', c: true}
           ],
           tips: ['Aufbauorganisation = hierarchisches Gerüst (Organigramm, Stellen).','Ablauforganisation = Prozesse und Abläufe.','Tourenplanung und Aktionspläne sind Abläufe.'],
-          reveal: ['Aufbauorganisation: Organigramm, Stellenbeschreibung, Anforderungsprofil.','Ablauforganisation: Tourenplan, Verkaufsstufenplan, Aktionspläne, Telefonskripte.']
+          reveal: ['Entscheidungsregel: Aufbau = WER macht WAS (Struktur, Hierarchie, Stellen). Ablauf = WIE wird es gemacht (Prozesse, Schritte, zeitliche Abfolge).','Warum Organigramm → Aufbau? Es zeigt die Hierarchie und Struktur – das ändert sich selten und ist langfristig angelegt.','Warum Tourenplan → Ablauf? Er beschreibt einen konkreten Prozess (Route, Zeitplan) – das ändert sich regelmässig und ist operativ.','Häufiger Fehler: Anforderungsprofil wird oft falsch der Ablauforganisation zugeordnet. Es gehört zur Aufbauorganisation, weil es die STELLE definiert, nicht den Prozess.','Prüfungstipp: Fragen Sie sich: «Beschreibt das Hilfsmittel eine Struktur oder einen Prozess?» Struktur = Aufbau, Prozess = Ablauf.']
         },
         {
           id: 39,
@@ -1119,7 +1167,7 @@ window.BOOK_DATA = {
             {q: '5 Entwicklungen:', keywords: ['gesättigt','transparent','digitalisierung','wettbewerb','konkurrenz','internationalisierung','kundschaft','loyalität','vernetzung','technologisch','ressourcen','rationalisierung','fachkräfte'], minKeywords: 3}
           ],
           tips: ['Denken Sie an Marktveränderungen.','Auch technologische und gesellschaftliche Veränderungen.','Wettbewerb und Kundschaft verändern sich.'],
-          reveal: ['Mögliche Entwicklungen: Gesättigte und transparente Märkte, Digitalisierung, intensiverer Wettbewerb und verschärfter Konkurrenzdruck, Beschleunigung der Internationalisierung, anspruchsvollere Kundschaften mit schwindender Loyalität, steigende Vernetzung, rasanter technologischer Wandel, Knappheit der Ressourcen, Rationalisierung und Spezialisierung, verstärkter Wettbewerb um Fachkräfte.']
+          reveal: ['Warum sind diese Entwicklungen relevant? Weil sie zeigen, dass Verkaufsorganisationen sich ständig anpassen müssen – wer sich nicht verändert, verliert Marktanteile.','Kernkategorien: Markt (gesättigt, transparent), Technologie (Digitalisierung, Vernetzung), Wettbewerb (international, verschärft), Kunden (anspruchsvoller, weniger loyal), Ressourcen (Fachkräftemangel).','Prüfungstipp: 5 Entwicklungen nennen reicht. Wählen Sie aus verschiedenen Kategorien – das zeigt, dass Sie das Gesamtbild verstehen, nicht nur einen Aspekt.','Häufiger Fehler: Nur «Digitalisierung» nennen. Die Prüfung erwartet Vielfalt – denken Sie an Markt, Technologie, Wettbewerb, Kunden UND Ressourcen.']
         },
         {
           id: 40,
@@ -1129,7 +1177,7 @@ window.BOOK_DATA = {
           blanks: ['Aufbauorganisation','Ablauforganisation','längerfristig','mittelfristig'],
           accept: [['Aufbauorganisation','Aufbau'],['Ablauforganisation','Ablauf'],['längerfristig'],['mittelfristig']],
           tips: ['Es gibt zwei Organisationsbereiche.','Aufbau = hierarchisches Gerüst.','Ablauf = Prozesse und Arbeitsschritte.'],
-          reveal: ['Aufbauorganisation und Ablauforganisation.','Aufbau = längerfristig, Ablauf = mittelfristig.']
+          reveal: ['Warum längerfristig vs. mittelfristig? Die Aufbauorganisation (Organigramm, Hierarchie) wird selten geändert – Umstrukturierungen sind aufwändig und verunsichern Mitarbeitende.','Die Ablauforganisation (Prozesse, Touren, Aktionspläne) wird regelmässig angepasst, z.B. bei neuen Produkten oder veränderten Marktbedingungen.','Prüfungstipp: «Längerfristig» und «mittelfristig» sind die Schlüsselwörter in der Lücke. Verwechseln Sie nicht: Aufbau ≠ kurzfristig, Ablauf ≠ langfristig.']
         },
         {
           id: 41,
@@ -1142,7 +1190,7 @@ window.BOOK_DATA = {
             {s: 'Die Holokratie ist eine sehr hierarchische Organisationsform.', c: false, feedback: 'Holokratie ist eine alternative, flache Organisationsform ohne klassische Hierarchie.'}
           ],
           tips: ['Einliniensystem = ein Vorgesetzter.','AKV = Aufgaben, Kompetenzen, Verantwortung.','Holokratie = flache, selbstorganisierende Struktur.'],
-          reveal: ['Aussage 1: Richtig.','Aussage 2: Falsch – Einliniensystem = ein Vorgesetzter.','Aussage 3: Richtig – AKV-Prinzip.','Aussage 4: Falsch – Holokratie = flach.']
+          reveal: ['Aussage 1 RICHTIG: Warum? Die Aufbauorganisation bildet das «Skelett» des Unternehmens – sie wird bewusst längerfristig angelegt, weil häufige Umstrukturierungen die Mitarbeitenden verunsichern.','Aussage 2 FALSCH: Warum? Einliniensystem = EIN Vorgesetzter pro Mitarbeiter (klare Befehlskette). MehrFACHunterstellung gibt es im Mehrliniensystem oder der Matrixorganisation. Beliebte Prüfungsfalle!','Aussage 3 RICHTIG: Warum? AKV steht für Aufgaben, Kompetenzen, Verantwortung – diese drei Elemente definieren jede Stelle. Ohne eines der drei Elemente ist die Stelle unvollständig definiert.','Aussage 4 FALSCH: Warum? Holokratie ist das Gegenteil von hierarchisch – sie organisiert sich in selbstständigen «Kreisen» ohne klassische Chefhierarchie. Sie wird oft mit Agilität und Start-ups assoziiert.']
         },
         {
           id: 42,
@@ -1156,7 +1204,7 @@ window.BOOK_DATA = {
           ],
           answer: 2,
           tips: ['Mehrfachunterstellung = mehr als ein Vorgesetzter.','Einlinie = ein Vorgesetzter.','Matrix kombiniert zwei Dimensionen.'],
-          reveal: ['Die Matrixorganisation zeichnet sich durch Mehrfachunterstellung aus.','Mitarbeitende haben sowohl einen funktionalen als auch einen divisionalen Vorgesetzten.']
+          reveal: ['Richtige Antwort: Matrixorganisation. Warum? Weil sie bewusst zwei Dimensionen (z.B. Funktion + Region) kombiniert – jeder Mitarbeiter hat dadurch ZWEI Vorgesetzte.','Warum NICHT Einliniensystem? Es hat genau EINEN Vorgesetzten pro Mitarbeiter – das ist das Gegenteil von Mehrfachunterstellung.','Warum NICHT Stablinienorganisation? Stabsstellen beraten nur, sie haben keine (oder nur funktionale) Weisungsbefugnis – es gibt keine echte Mehrfachunterstellung.','Warum NICHT Holokratie? Sie hat gar keine klassischen Vorgesetzten – sie arbeitet mit Kreisen und Rollen statt mit Hierarchien.','Prüfungstipp: «Mehrfachunterstellung» = Matrixorganisation. Dieser Begriff ist quasi ein Synonym.']
         }
       ],
       learningData: {
@@ -1255,7 +1303,7 @@ window.BOOK_DATA = {
             {q: 'Zwei Fälle:', keywords: ['keine','personalabteilung','überlastet','spezialist','führungskräfte','extern','vorhanden'], minKeywords: 2}
           ],
           tips: ['Denken Sie an die eigene Personalabteilung.','Spezialfälle erfordern externe Hilfe.','Bei Kapazitätsproblemen.'],
-          reveal: ['Eine externe Rekrutierung macht Sinn, wenn: keine eigene Personalabteilung vorhanden ist, die eigene Personalabteilung überlastet ist, Spezialistinnen und Führungskräfte gesucht werden.']
+          reveal: ['Warum extern bei fehlender Personalabteilung? Kleine Unternehmen haben oft kein HR – dann fehlt das Know-how für professionelle Rekrutierung (Stellenausschreibung, Bewerbungsgespräche, Assessment).','Warum extern bei Überlastung? Wenn die HR-Abteilung gleichzeitig viele Stellen besetzen muss, leidet die Qualität – externe Profis entlasten und beschleunigen den Prozess.','Warum extern bei Spezialisten/Führungskräften? Headhunter haben ein Netzwerk und können auch passive Kandidaten (die nicht aktiv suchen) ansprechen – das ist bei Top-Positionen entscheidend.','Prüfungstipp: Die Frage verlangt «zwei Fälle» – nennen Sie die zwei stärksten Argumente und begründen Sie kurz.']
         },
         {
           id: 44,
@@ -1267,7 +1315,7 @@ window.BOOK_DATA = {
             {q: 'Ziele:', keywords: ['wissen','fähigkeiten','verkaufen','erleichtern','umsatz','absatz','zufriedene','motivierte','mitarbeitende','kunden'], minKeywords: 3}
           ],
           tips: ['Schulungen vermitteln Wissen und Fähigkeiten.','Im Zentrum stehen nicht nur Umsatz und Absatz.','Auch Mitarbeiter- und Kundenzufriedenheit.'],
-          reveal: ['In einer Verkaufsschulung sollen den Teilnehmenden Wissen und Fähigkeiten vermittelt werden, die ihnen das Verkaufen erleichtern.','Im Zentrum stehen nicht nur Umsatz, Absatz und Gewinn, sondern zufriedene und motivierte Mitarbeitende und vor allem Kunden.']
+          reveal: ['Warum nicht nur Umsatz und Absatz? Weil kurzfristige Verkaufszahlen ohne Kundenzufriedenheit nicht nachhaltig sind – ein unzufriedener Kunde kauft einmal, ein zufriedener kommt immer wieder.','Warum auch Mitarbeiterzufriedenheit? Motivierte Verkäufer verkaufen besser und bleiben länger im Unternehmen – die Schulung reduziert also auch Fluktuation und Rekrutierungskosten.','Warum «vor allem Kunden»? Der Kunde steht im Zentrum, weil er letztlich den Umsatz generiert. Schulungen sollen befähigen, Kundenbedürfnisse besser zu erkennen und zu erfüllen.','Prüfungstipp: Die Antwort muss BEIDE Aspekte enthalten – Wissen/Fähigkeiten vermitteln UND nicht nur Zahlen, sondern Zufriedenheit aller Beteiligten.']
         },
         {
           id: 45,
@@ -1284,7 +1332,7 @@ window.BOOK_DATA = {
           ],
           options: ['Direkt finanziell','Indirekt finanziell','Nichtfinanziell'],
           tips: ['Direkt finanziell = Geld.','Indirekt finanziell = Geldwert, aber nicht ausbezahlt.','Nichtfinanziell = kein monetärer Wert.'],
-          reveal: ['Direkt finanziell: Spesenvergütung, Verkaufsprämie, Beteiligungszulage.','Indirekt finanziell: Ausbildungszuschuss, Geschäftswagen.','Nichtfinanziell: Auszeichnung, Zusätzliche Verantwortung.']
+          reveal: ['Entscheidungsregel: Direkt finanziell = Geld fliesst direkt auf das Konto (Prämie, Provision, Spesen). Indirekt finanziell = hat Geldwert, wird aber nicht ausbezahlt (Firmenwagen, Ausbildung). Nichtfinanziell = kein Geldwert, aber motivierend (Anerkennung, Verantwortung).','Warum ist der Geschäftswagen indirekt finanziell? Er hat einen klaren Geldwert (Leasing, Benzin), wird aber nicht als Lohn ausbezahlt – der MA spart private Autokosten.','Warum ist «Zusätzliche Verantwortung» nichtfinanziell? Sie bringt kein Geld, aber Wertschätzung und persönliches Wachstum – das motiviert langfristig oft stärker als Geld.','Häufiger Fehler: Spesenvergütung als «indirekt finanziell» einordnen. Spesen werden direkt ausbezahlt → direkt finanziell, auch wenn sie Auslagen erstatten.']
         },
         {
           id: 46,
@@ -1296,7 +1344,7 @@ window.BOOK_DATA = {
             {q: 'Nennen Sie die 6 Phasen und je ein Beispiel:', keywords: ['ist-situation','ausgangslage','zielsetzung','strategie','vorgehen','massnahmen','budget','kontrollen','lernziele'], minKeywords: 4}
           ],
           tips: ['Das Ausbildungskonzept hat 6 Schritte.','Es folgt dem gleichen Raster wie das Konzeptraster.','Von der Analyse bis zur Kontrolle.'],
-          reveal: ['1. Ist-Situation/Ausgangslage: Eigenes Unternehmen, Marktlage, Ausbildungsstand, Budget.','2. Zielsetzungen: Lernziele (Richt-, Grob- und Feinziele).','3. Strategie/Vorgehen: Zielgruppen, Rahmen, Zeitpunkt, Lehrmethoden.','4. Massnahmen: Termin setzen, Lokalität buchen, Programm festlegen.','5. Budget: Lokalität, Unterkunft, Hilfsmittel, Referenten.','6. Kontrollen: Lernkontrollen, Prüfungen, Fragebogen.']
+          reveal: ['Warum 6 Phasen? Das Ausbildungskonzept folgt dem bewährten Konzeptraster (Analyse → Ziele → Strategie → Massnahmen → Budget → Kontrolle). Jede Phase baut auf der vorherigen auf.','Warum mit Ist-Analyse starten? Ohne zu wissen, wo man steht (Ausbildungsstand, Budget), kann man keine sinnvollen Ziele setzen – sonst plant man an der Realität vorbei.','Warum Kontrollen am Schluss? Nur durch Lernkontrollen und Prüfungen weiss man, ob die Schulung gewirkt hat – ohne Kontrolle ist jede Investition ein Blindflug.','Prüfungstipp: Die 6 Schritte entsprechen dem allgemeinen Konzeptraster, das auch in anderen Planungen vorkommt. Wer das Raster einmal versteht, kann es überall anwenden.']
         },
         {
           id: 47,
@@ -1308,7 +1356,7 @@ window.BOOK_DATA = {
             {q: 'Lohnsystem-Vorschlag:', keywords: ['fix','variabel','provision','lohnbestandteil','60','40','prämie','wettbewerb','maschinen'], minKeywords: 2}
           ],
           tips: ['Eine Kombination aus Fix und Variabel ist üblich.','Provisionen motivieren zum Verkaufen.','Wettbewerbe können zusätzlich motivieren.'],
-          reveal: ['Vorschlag: ca. 60% fixer Lohnbestandteil und 40% variable Lohnbestandteile in Form von Provisionen für verkaufte Maschinen.','Zusätzlich: Wettbewerbe für das ganze Team, wobei die Chancen für Innen- und Aussendienst gleich sein sollen.','Die Verkündung der Gewinner erfolgt in feierlichem Rahmen.']
+          reveal: ['Warum 60/40-Aufteilung? Der fixe Anteil (60%) gibt Sicherheit und deckt Grundbedürfnisse. Der variable Anteil (40%) motiviert zum aktiven Verkaufen. Zu viel variabel → Unsicherheit, zu wenig → kein Anreiz.','Warum Provisionen pro Maschine? Weil Lyreco als Distributor direkt an jeder verkauften Maschine verdient – die Provision koppelt den Lohn an den messbaren Verkaufserfolg.','Warum Teamwettbewerbe? Sie fördern den Zusammenhalt und verhindern, dass nur der AD motiviert ist. Der ID (Innendienst) unterstützt den Verkauf massgeblich und soll auch profitieren.','Prüfungstipp: Bei Lohnsystem-Fragen immer begründen, WARUM Sie dieses Verhältnis wählen. Die Prüfung will Argumentation, nicht nur Zahlen.']
         },
         {
           id: 48,
@@ -1320,7 +1368,7 @@ window.BOOK_DATA = {
             {q: 'Drei Möglichkeiten:', keywords: ['direkt finanziell','indirekt finanziell','nichtfinanziell','monetär','geld','leistung','anreiz','immateriell'], minKeywords: 3}
           ],
           tips: ['Die drei Anreizarten unterscheiden sich nach dem monetären Wert.','Direkt finanziell = Geld ausbezahlt.','Nichtfinanziell = kein monetärer Wert, aber trotzdem motivierend.'],
-          reveal: ['1. Direkt finanzielle (materielle) Anreize: monetäre Leistungen, in Geld ausgedrückt.','2. Indirekt finanzielle (indirekt materielle) Anreize: Leistungen, die Geldwerten entsprechen, aber nicht direkt finanziell ausbezahlt werden.','3. Nichtfinanzielle (immaterielle) Anreize: Leistungen oder Anreize ohne monetären Wert; sie wirken trotzdem nachhaltig motivierend.']
+          reveal: ['Warum drei Kategorien? Weil Motivation nicht nur über Geld funktioniert. Studien zeigen: Ab einem gewissen Lohnniveau motivieren immaterielle Anreize stärker als Gehaltserhöhungen.','1. Direkt finanziell: Geld auf dem Konto (Provision, Prämie, Bonus). Wirkt sofort, aber der Effekt nutzt sich ab – die nächste Prämie muss höher sein.','2. Indirekt finanziell: Hat Geldwert, aber kein Cash (Firmenwagen, Weiterbildung, Pensionskassenbeiträge). Vorteil: Der MA profitiert täglich davon, nicht nur einmal.','3. Nichtfinanziell: Anerkennung, Verantwortung, Karrierechancen. Wirkt am nachhaltigsten, weil es die intrinsische Motivation anspricht.','Prüfungstipp: Bei der Erklärung immer ein konkretes Beispiel pro Kategorie nennen – das zeigt Praxisbezug.']
         },
         {
           id: 49,
@@ -1330,7 +1378,7 @@ window.BOOK_DATA = {
           blanks: ['technische','persönliche','Präsentations','immateriell'],
           accept: [['technische'],['persönliche'],['Präsentations'],['immateriell']],
           tips: ['Technische Hilfsmittel sind physisch/digital.','Persönliche Hilfsmittel sind immateriell.','Präsentationshilfen helfen bei der Produktdarstellung.'],
-          reveal: ['Technische und persönliche Verkaufshilfsmittel.','Technisch: Präsentations-, Informations- und Transporthilfen.','Persönliche Hilfsmittel sind immateriell (z.B. Fachwissen, Auftreten).']
+          reveal: ['Warum diese Zweiteilung? Technische Hilfsmittel kann man kaufen/beschaffen (Laptop, Broschüre, Auto). Persönliche Hilfsmittel muss man entwickeln (Fachwissen, Auftreten, Überzeugungskraft).','Warum sind persönliche Hilfsmittel «immateriell»? Weil man sie nicht anfassen kann – aber sie sind oft entscheidender als jede Broschüre. Ein kompetenter Verkäufer überzeugt auch ohne Hochglanz-Präsentation.','Technische Hilfsmittel in 3 Kategorien: Präsentationshilfen (Muster, Demos), Informationshilfen (CRM, Kataloge), Transporthilfen (Firmenwagen, Lieferwagen).','Prüfungstipp: Die Lücke «immateriell» wird oft vergessen. Merkhilfe: Technisch = materiell (anfassbar), Persönlich = immateriell (nicht anfassbar).']
         },
         {
           id: 50,
@@ -1344,7 +1392,7 @@ window.BOOK_DATA = {
           ],
           answer: 2,
           tips: ['Verkaufsberufe sind direkt am Verkaufsprozess beteiligt.','Influencer gelten heute als Verkaufsberuf.','Buchhaltung ist eine Finanzfunktion.'],
-          reveal: ['Buchhalter/in gehört nicht zu den Verkaufsberufen.','Zu den Verkaufsberufen gehören u.a.: VL, KAM, Verkaufsfachleute, AD-Mitarbeitende, Merchandiser, Sachbearbeitende, Telefonverkäufer, Verkaufsagenten, Influencer.']
+          reveal: ['Richtige Antwort: Buchhalter/in. Warum? Buchhaltung gehört zur Finanzabteilung und hat keinen direkten Bezug zum Verkaufsprozess – sie verbucht Ergebnisse, generiert aber keinen Umsatz.','Warum IST Key-Account-Manager ein Verkaufsberuf? KAM betreut die wichtigsten Kunden persönlich und ist direkt für deren Umsatz verantwortlich.','Warum IST Influencer ein Verkaufsberuf? Überraschend, aber korrekt: Influencer bewerben Produkte und generieren direkt Verkäufe – ein moderner Verkaufskanal.','Warum IST Merchandiser ein Verkaufsberuf? Er sorgt für optimale Produktplatzierung am POS (Point of Sale) und beeinflusst damit direkt die Kaufentscheidung.','Prüfungstipp: «Influencer» als Verkaufsberuf ist eine beliebte Fangfrage – viele ordnen ihn fälschlich dem Marketing zu.']
         },
         {
           id: 51,
@@ -1356,7 +1404,7 @@ window.BOOK_DATA = {
             {s: 'Verkaufshilfsmittel erleichtern und unterstützen die Verkaufskontakte.', c: true, feedback: 'Sie werden in technische und persönliche Hilfsmittel unterteilt.'}
           ],
           tips: ['Employer Branding = Arbeitgebermarke stärken.','Ausbildungskonzept folgt dem 6-Schritte-Raster.','Hilfsmittel unterstützen den Verkaufskontakt.'],
-          reveal: ['Aussage 1: Richtig – Definition EB.','Aussage 2: Falsch – 6 Schritte, nicht 4.','Aussage 3: Richtig.']
+          reveal: ['Aussage 1 RICHTIG: Warum? Employer Branding macht das Unternehmen als Arbeitgeber attraktiv – in Zeiten des Fachkräftemangels ist das entscheidend, um die besten Verkaufstalente zu gewinnen.','Aussage 2 FALSCH: Warum? Das Ausbildungskonzept hat 6 Schritte (nicht 4): Analyse, Ziele, Strategie, Massnahmen, Budget, Kontrolle. Die Zahl «4» ist eine bewusste Falle – sie passt zu keinem bekannten Modell.','Aussage 3 RICHTIG: Warum? Verkaufshilfsmittel (Broschüren, CRM, Muster) erleichtern den Kontakt zum Kunden und machen den Verkaufsprozess professioneller und effizienter.','Prüfungstipp: Bei RF-Aufgaben immer die genauen Zahlen prüfen – «4 statt 6 Schritte» ist eine typische Zahlenfalle.']
         },
         {
           id: 89,
@@ -1364,7 +1412,7 @@ window.BOOK_DATA = {
           q: 'Ordnen Sie die Stufen der Maslowschen Bedürfnispyramide von unten (Grundbedürfnisse) nach oben (Selbstverwirklichung).',
           items: ['Körperliche Grundbedürfnisse (Essen, Trinken, Schlaf)', 'Sicherheitsbedürfnisse (Wohnung, Arbeitsplatz)', 'Soziale Beziehungen (Freundschaft, Liebe)', 'Soziale Anerkennung (Status, Karriere)', 'Selbstverwirklichung (Talententfaltung)'],
           tips: ['Die Pyramide baut von unten nach oben auf.','Erst wenn eine Stufe befriedigt ist, wird die nächste relevant.','Sicherheit kommt vor sozialen Bedürfnissen.'],
-          reveal: ['Die Bedürfnispyramide nach Maslow hat 5 Stufen.','Verkäufer nutzen dieses Modell, um die Kaufmotivation von Kunden besser zu verstehen.']
+          reveal: ['Warum diese Reihenfolge? Maslow sagt: Erst wenn eine tiefere Stufe befriedigt ist, wird die nächste relevant. Wer Hunger hat, denkt nicht an Karriere.','Warum von Grundbedürfnissen aufwärts? Essen/Trinken → Sicherheit → Soziales → Anerkennung → Selbstverwirklichung. Jede Stufe baut logisch auf der vorherigen auf.','Relevanz im Verkauf: Ein Verkäufer, der die Bedürfnisstufe seines Kunden erkennt, kann gezielt argumentieren. Beispiel: Sicherheitsbedürfnis → «Unser Produkt schützt Sie vor...»','Häufiger Fehler: Stufen 3 und 4 verwechseln. Soziale Beziehungen (Zugehörigkeit, Liebe) kommen VOR sozialer Anerkennung (Status, Karriere).']
         },
         {
           id: 90,
@@ -1372,7 +1420,7 @@ window.BOOK_DATA = {
           q: 'Ordnen Sie die sechs Schritte des Ausbildungskonzepts in die richtige Reihenfolge.',
           items: ['Analyse der Ist-Situation', 'Setzen der Ausbildungsziele', 'Entwicklung der Strategie', 'Planung der Massnahmen', 'Zusammenstellen des Budgets', 'Erarbeitung der Kontrollpläne'],
           tips: ['Das Konzept folgt dem bekannten 6-Schritte-Raster.','Zuerst analysieren, dann Ziele setzen.','Das Budget kommt vor der Kontrolle.'],
-          reveal: ['Das Ausbildungskonzept folgt dem gleichen 6-Schritte-Konzeptraster wie andere Planungsinstrumente.','Von der Analyse über Ziele, Strategie, Massnahmen und Budget bis zur Kontrolle.']
+          reveal: ['Warum diese Reihenfolge? Man kann keine Ziele setzen, ohne die Ist-Situation zu kennen, und kein Budget planen, ohne die Massnahmen zu kennen – jeder Schritt liefert den Input für den nächsten.','Merkhilfe: A-Z-S-M-B-K (Analyse, Ziele, Strategie, Massnahmen, Budget, Kontrolle). Dieses Raster kommt in vielen Prüfungsfragen vor.','Warum Kontrolle am Schluss? Ohne Erfolgskontrolle weiss niemand, ob die Ausbildung gewirkt hat. Kontrolle schliesst den Kreis und liefert Inputs für die nächste Analyse.','Prüfungstipp: Dieses 6-Schritte-Raster ist identisch mit dem allgemeinen Konzeptraster – wer es einmal beherrscht, kann es auf jede Planungsaufgabe anwenden.']
         }
       ],
       learningData: {
@@ -1465,7 +1513,7 @@ window.BOOK_DATA = {
             {q: 'Beschreibung des BEP:', keywords: ['schnittpunkt','erlös','kosten','nutzschwelle','gewinn','verlust','fixkosten','variable','umsatz'], minKeywords: 3}
           ],
           tips: ['Der BEP ist der Schnittpunkt zweier Kurven.','Unterhalb = Verlust, oberhalb = Gewinn.','Die Fixkosten bilden die Basis.'],
-          reveal: ['Der BEP (Break-even-Point) ist der Schnittpunkt von Erlös- und Kostenkurve.','Unterhalb: Verlust. Oberhalb: Gewinn.','Bei der Nutzschwelle entsteht weder Gewinn noch Verlust, ab deren Überschreiten beginnt die Gewinnzone.']
+          reveal: ['Warum ist der BEP so wichtig? Er zeigt das Mindestverkaufsvolumen, um keine Verluste zu machen – jede Einheit darüber bringt Gewinn, jede darunter kostet Geld.','Warum schneiden sich die Kurven? Weil die Erlöskurve bei 0 startet und linear steigt, während die Kostenkurve bei den Fixkosten startet – irgendwann überholt der Erlös die Kosten.','Grafik-Aufbau: X-Achse = Menge, Y-Achse = CHF. Fixkosten = waagrechte Linie als Basis. Gesamtkosten = Fixkosten + variable Kosten (steigend). Erlös = steigt steiler als variable Kosten.','Prüfungstipp: In der Prüfung wird oft verlangt, den BEP zu ZEICHNEN. Üben Sie die Grafik – beschriften Sie Fixkosten, Gesamtkosten, Erlös, Verlustzone und Gewinnzone.']
         },
         {
           id: 53,
@@ -1477,7 +1525,7 @@ window.BOOK_DATA = {
             {label: 'Wertmässige NS (CHF)', answer: 1866620, tolerance: 200}
           ],
           tips: ['DB = Preis \u2212 variable Kosten.','Mengenmässige NS = Fixkosten / DB pro Stück.','Wertmässige NS = Menge x Preis.'],
-          reveal: ['DB = 140 \u2212 80 = CHF 60/Stück.','Mengenmässige NS = 800\'000 / 60 = 13\'333 Stück.','Wertmässige NS = 13\'333 x 140 = CHF 1\'866\'620.']
+          reveal: ['Schritt 1: DB = Verkaufspreis − variable Kosten = 140 − 80 = CHF 60. Warum? Der DB zeigt, wie viel pro Stück zur Deckung der Fixkosten beiträgt.','Schritt 2: Mengenmässige NS = Fixkosten ÷ DB = 800\'000 ÷ 60 = 13\'333 Stück. Warum dividieren? Weil jedes Stück CHF 60 zur Fixkostendeckung beiträgt – nach 13\'333 Stück sind alle Fixkosten gedeckt.','Schritt 3: Wertmässige NS = Menge × Preis = 13\'333 × 140 = CHF 1\'866\'620. Dies ist der Mindestumsatz in Franken.','Häufiger Fehler: Bei der wertmässigen NS mit dem DB statt dem Verkaufspreis multiplizieren. Richtig ist: Menge × Verkaufspreis (nicht × DB).','Prüfungstipp: Immer zuerst den DB berechnen – er ist die Basis für alles Weitere. Formelkette: DB → Menge NS → Wert NS.']
         },
         {
           id: 54,
@@ -1489,7 +1537,7 @@ window.BOOK_DATA = {
             {q: 'A) Struktur und B) Integration:', keywords: ['aktion','massnahme','kosten','termin','verantwortlichkeit','zwischentotal','reserve','gesamttotal','budget','grundlage'], minKeywords: 3}
           ],
           tips: ['Der Aktionsplan enthält Massnahmen, Kosten, Termine, Verantwortlichkeiten.','Reserve ist ca. 10% der Kosten.','Integration macht Sinn, wenn der Aktionsplan als Budgetgrundlage dient.'],
-          reveal: ['A) Spalten: Aktion/Massnahme, Kosten CHF, Termin, Verantwortlichkeit. Zeilen: Einzelne Massnahmen, Zwischentotal, Reserve (ca. 10%), Gesamttotal.','B) Die Integration macht Sinn, wenn der Aktionsplan als Grundlage für das Budget verwendet wird.']
+          reveal: ['Warum diese 4 Spalten? Jede Massnahme braucht: WAS (Aktion), WIE VIEL (Kosten), WANN (Termin), WER (Verantwortlichkeit) – ohne eines dieser Elemente ist die Planung unvollständig.','Warum eine Reserve von ca. 10%? Weil immer unvorhergesehene Kosten entstehen (z.B. Preiserhöhungen, zusätzliche Materialien). Ohne Reserve wird das Budget bei der kleinsten Abweichung gesprengt.','Warum Integration ins Verkaufskostenbudget? Wenn der Aktionsplan direkt ins Budget fliesst, vermeidet man Doppelspurigkeiten und stellt sicher, dass alle Kosten berücksichtigt sind.','Prüfungstipp: Teil A verlangt die STRUKTUR (Spalten + Zeilen), Teil B die BEGRÜNDUNG für die Integration. Beide Teile beantworten!']
         },
         {
           id: 55,
@@ -1499,7 +1547,7 @@ window.BOOK_DATA = {
           blanks: ['Fixe Kosten','Reserve','Betriebsergebnis'],
           accept: [['Fixe Kosten'],['Reserve'],['Betriebsergebnis']],
           tips: ['Die Kosten werden in fixe und variable aufgeteilt.','Es gibt eine Reserve von ca. 10%.','Die letzte Zeile zeigt das Betriebsergebnis.'],
-          reveal: ['2. Fixe Kosten.','5. Reserve (ca. 10% der Kosten).','7. Betriebsergebnis (Erlös minus alle Kosten).']
+          reveal: ['Warum Fixe Kosten an Position 2? Sie werden zuerst aufgeführt, weil sie unabhängig vom Umsatz anfallen – sie sind die «Grundlast», die immer bezahlt werden muss (Miete, Löhne, Versicherungen).','Warum Reserve an Position 5? Sie kommt NACH dem Kostentotal, weil sie einen Prozentsatz der Gesamtkosten darstellt (ca. 10%). Ohne Reserve ist jedes Budget unrealistisch.','Warum Betriebsergebnis an Position 7? Es ist die «Bottom Line» – Umsatz minus alle Kosten (fix + variabel + Reserve). Es zeigt, ob der Verkauf profitabel ist.','Prüfungstipp: Die Reihenfolge im Budget ist logisch: Umsatz → Kosten (fix, variabel) → Total → Reserve → Summe → Ergebnis. Diese Struktur auswendig lernen!']
         },
         {
           id: 56,
@@ -1512,7 +1560,7 @@ window.BOOK_DATA = {
             {q: 'Fixe Kosten Aussendienst:', keywords: ['löhne','fixer','anteil','kosten','fahrzeug','schulungen','leasing','abschreibung'], minKeywords: 2}
           ],
           tips: ['Fixe Kosten fallen unabhängig vom Umsatz an.','Löhne (fixer Anteil) sind immer dabei.','Denken Sie an räumliche und fahrzeugbezogene Kosten.'],
-          reveal: ['ID: Löhne für alle im Innendienst Tätigen, Mieten für Verkaufsräumlichkeiten, Betriebskosten, kalkulatorische Zinsen und Abschreibungen.','AD: Löhne (fixer Anteil), Kosten für Verkaufsfahrten, regelmässige Schulungen, Leasing und/oder Abschreibungskosten der AD-Fahrzeuge.']
+          reveal: ['Warum sind Löhne «fix»? Weil sie unabhängig vom Umsatz bezahlt werden müssen – ob der AD 100 oder 0 Maschinen verkauft, sein Grundlohn bleibt gleich.','Warum Mieten als fixe Kosten im ID? Büros und Showrooms kosten jeden Monat gleich viel – egal wie viel verkauft wird. Sie sind nicht an den Verkaufserfolg gekoppelt.','Warum AD-Fahrzeuge als fixe Kosten? Leasing-Raten und Abschreibungen fallen monatlich an, unabhängig davon, wie viele Kunden besucht werden. Die Fahrten selbst (Benzin, Kilometer) können variabel sein.','Häufiger Fehler: Provisionen als fixe Kosten einordnen. Provisionen sind VARIABEL, weil sie vom Verkaufserfolg abhängen. Nur der Grundlohn ist fix.','Prüfungstipp: Fixe Kosten erkennt man an der Frage: «Fällt diese Kosten auch an, wenn NICHTS verkauft wird?» Wenn ja → fix.']
         },
         {
           id: 57,
@@ -1525,7 +1573,7 @@ window.BOOK_DATA = {
             {s: 'Die Reserve im Budget beträgt typischerweise ca. 10% der Kosten.', c: true, feedback: 'Ca. 10% Reserve ist üblich.'}
           ],
           tips: ['NS = Break-even = weder Gewinn noch Verlust.','DB = Preis minus variable Kosten.','Das Budget enthält fixe UND variable Kosten.'],
-          reveal: ['Aussage 1: Richtig.','Aussage 2: Falsch – fix + variabel.','Aussage 3: Richtig.','Aussage 4: Richtig.']
+          reveal: ['Aussage 1 RICHTIG: Warum? Die Nutzschwelle (BEP) ist per Definition der Punkt, wo Erlös = Kosten. Darunter Verlust, darüber Gewinn – das ist die Grundlage jeder Wirtschaftlichkeitsrechnung.','Aussage 2 FALSCH: Warum? Ein Budget, das nur variable Kosten enthält, wäre unvollständig und gefährlich. Fixkosten (Miete, Löhne, Versicherungen) fallen IMMER an und müssen zwingend eingeplant werden.','Aussage 3 RICHTIG: Warum? DB = Preis − variable Kosten. Der DB zeigt, wie viel pro verkaufter Einheit zur Deckung der Fixkosten beiträgt. Ohne DB kann man keine Nutzschwelle berechnen.','Aussage 4 RICHTIG: Warum? Die 10%-Reserve ist ein Erfahrungswert aus der Praxis. Sie fängt unvorhergesehene Kosten ab (Preiserhöhungen, Nachbestellungen, Notfallausgaben).']
         },
         {
           id: 58,
@@ -1538,7 +1586,7 @@ window.BOOK_DATA = {
             {q: 'Variable Kosten AD:', keywords: ['provision','verkäuferwettbewerbe','reisekosten','entschädigung','verpflegung','übernachtung','repräsentation','telekommunikation'], minKeywords: 2}
           ],
           tips: ['Variable Kosten hängen vom Umsatz/Leistung ab.','Provisionen sind typisch variabel.','Reise- und Repräsentationskosten sind AD-typisch.'],
-          reveal: ['ID: Prämien für den Innendienst, Ausgaben für sekundäre Marktforschung, externe Beratung.','AD: Löhne (variabler Anteil), Provisionen, Verkäuferwettbewerbe, Reisekosten (Kilometergeld, Verpflegung, Übernachtung), Repräsentationskosten, Telekommunikation.']
+          reveal: ['Warum sind Provisionen variabel? Weil sie direkt an den Verkaufserfolg gekoppelt sind – mehr Verkäufe = mehr Provision. Kein Verkauf = keine Provision.','Warum Reisekosten variabel? Weil sie je nach Anzahl Kundenbesuche schwanken. Ein AD, der 20 Kunden besucht, hat höhere Reisekosten als einer mit 5 Besuchen.','Warum Prämien im ID variabel? Weil sie an Leistungsziele gekoppelt sind (z.B. Anzahl bearbeiteter Aufträge). Ohne Leistung keine Prämie.','Häufiger Fehler: Grundlohn mit variablem Lohnanteil verwechseln. Der Grundlohn ist FIX. Nur der leistungsabhängige Teil (Provision, Prämie) ist variabel.','Prüfungstipp: Variable Kosten erkennt man an der Frage: «Steigt diese Kosten, wenn MEHR verkauft wird?» Wenn ja → variabel.']
         },
         {
           id: 59,
@@ -1552,7 +1600,7 @@ window.BOOK_DATA = {
           ],
           answer: 2,
           tips: ['NS = Fixkosten / DB.','DB = Preis \u2212 variable Kosten.','Die NS gibt an, ab wie vielen Stück kein Verlust mehr entsteht.'],
-          reveal: ['Mengenmässige NS = Fixkosten / DB pro Stück.','Beispiel: 800\'000 / 60 = 13\'333 Stück.']
+          reveal: ['Richtige Antwort: Fixkosten ÷ DB pro Stück. Warum? Weil der DB zeigt, wie viel jedes Stück zur Fixkostendeckung beiträgt. Die Division ergibt, wie viele Stücke nötig sind, um ALLE Fixkosten zu decken.','Warum NICHT Fixkosten ÷ Verkaufspreis? Weil der Verkaufspreis auch die variablen Kosten enthält – die stehen nicht zur Fixkostendeckung zur Verfügung. Nur der DB (Preis minus variable Kosten) deckt Fixkosten.','Warum NICHT Variable Kosten ÷ DB? Weil die variablen Kosten pro Stück irrelevant sind für die Nutzschwelle – es geht darum, die FIXKOSTEN zu decken.','Warum NICHT Umsatz ÷ Fixkosten? Diese Formel ergibt keine sinnvolle Kennzahl. Die NS-Berechnung geht immer von den Fixkosten aus und teilt durch den DB.','Prüfungstipp: Die Formel NS = FK ÷ DB ist die wichtigste Formel im Kapitel Budgetplanung. Den DB immer zuerst berechnen!']
         }
       ],
       learningData: {
@@ -1631,7 +1679,7 @@ window.BOOK_DATA = {
             {q: 'B) Beschreibung:', keywords: ['ökonomisch','markt','umsatz','preis','kosten','qualitativ','handlungsweisen','mitarbeitende'], minKeywords: 3}
           ],
           tips: ['Es gibt Ergebnis- und Ausführungskontrollen.','Ergebnis = quantitativ, ökonomisch.','Ausführung = qualitativ, Verhalten.'],
-          reveal: ['A) Im Verkauf wird grundsätzlich zwischen Ergebnis- und Ausführungskontrollen unterschieden.','B) Ergebniskontrollen sind oft ökonomischer Natur (Markt-, Umsatz-, Preis-, Kostenkontrolle). Ausführungskontrollen sind qualitativer Natur und bewerten Handlungsweisen von Mitarbeitenden.']
+          reveal: ['Warum diese zwei Kontrollarten? Ergebniskontrollen messen quantitative Resultate (Umsatz, Kosten, Marktanteile) – sie zeigen, OB Ziele erreicht wurden. Ausführungskontrollen bewerten qualitativ das WIE (Verhalten, Gesprächsführung).','Prüfungstipp: Verwechsle die beiden nicht – Ergebnis = Zahlen (ökonomisch), Ausführung = Verhalten (qualitativ). Die Prüfung fragt oft nach konkreten Beispielen für beide Arten.','Häufiger Fehler: Nur Umsatzkontrolle nennen. Es gibt viele Ergebniskontrollen: Markt-, Umsatz-, Preis- und Kostenkontrolle.']
         },
         {
           id: 61,
@@ -1643,7 +1691,7 @@ window.BOOK_DATA = {
             {q: 'Spalten des Kontrollplans:', keywords: ['zielinhalt','quantifizierung','methode','zeitpunkt','korrektur','massnahmen','verantwortlich','was','wie viel','wie','wann','welche','wer'], minKeywords: 4}
           ],
           tips: ['Der Kontrollplan hat 6 Spalten.','Er folgt den W-Fragen.','Von Was über Wie bis Wer.'],
-          reveal: ['Kontrollplan-Raster: Zielinhalt (Was), Quantifizierung (Wie viel), Methode (Wie), Zeitpunkt (Wann), Korrekturmassnahmen (Welche), Verantwortlicher (Wer).']
+          reveal: ['Warum genau 6 Spalten? Jede Spalte beantwortet eine zentrale W-Frage: Was (Zielinhalt), Wie viel (Quantifizierung), Wie (Methode), Wann (Zeitpunkt), Welche (Korrekturmassnahmen), Wer (Verantwortlicher).','Prüfungstipp: Merke dir die W-Fragen-Logik – so kannst du die 6 Spalten auch unter Prüfungsdruck herleiten, ohne sie auswendig zu wissen.','Häufiger Fehler: «Budget» oder «Kosten» als Spalte nennen – diese gehören zum Verkaufskostenbudget, nicht zum Kontrollplan.']
         },
         {
           id: 62,
@@ -1655,7 +1703,7 @@ window.BOOK_DATA = {
             {q: 'Erklärung:', keywords: ['verdeckt','kunden','einsatz','überprüfung','service','dienstleistungsqualität','kundenorientierung','testkunden'], minKeywords: 2}
           ],
           tips: ['Mystery = verdeckt, geheim.','Shopping = Einkaufen.','Es geht um Qualitätsprüfung.'],
-          reveal: ['Mystery-Shopping ist der Einsatz von verdeckten Kunden zur Überprüfung der Kundenorientierung sowie der Service- und Dienstleistungsqualität, vornehmlich in der Dienstleistungsbranche.']
+          reveal: ['Warum verdeckt? Nur wenn Mitarbeitende nicht wissen, dass sie getestet werden, zeigt sich ihr echtes Verhalten. Offene Kontrolle würde das Ergebnis verfälschen.','Warum Dienstleistungsbranche? Weil dort die Servicequalität direkt im Kundenkontakt entsteht und nur durch Erleben (nicht durch Zahlen) überprüfbar ist.','Prüfungstipp: Mystery Shopping ist eine Ausführungskontrolle (qualitativ), keine Ergebniskontrolle – wird gerne als Falle in MC-Fragen verwendet.']
         },
         {
           id: 63,
@@ -1668,7 +1716,7 @@ window.BOOK_DATA = {
           ],
           options: ['Beobachtung/Auswertung von Verkaufsgesprächen','Auswertung von Besuchsprotokollen und Beobachtung','Beobachtung/Einsatz von Testkunden (Mystery Shopping)'],
           tips: ['Schulungserfolg wird durch Beobachtung von Gesprächen gemessen.','Messeverhalten durch Besuchsprotokolle.','Servicequalität durch Mystery Shopping.'],
-          reveal: ['Schulungserfolg: Beobachtung und Auswertung von Verkaufsgesprächen/Verhandlungen.','Verhalten an Messeständen: Auswertung von Besuchsprotokollen und Beobachtung.','Servicequalität: Beobachtung, Einsatz von Testkunden (Mystery Shopping).']
+          reveal: ['Warum Schulung → Gesprächsbeobachtung? Weil der Erfolg einer Schulung sich erst im realen Verkaufsgespräch zeigt – nur dort kann man prüfen, ob das Gelernte angewendet wird.','Warum Messe → Besuchsprotokolle? An Messen finden viele Kontakte gleichzeitig statt. Protokolle dokumentieren systematisch, was sonst vergessen ginge. Ergänzend hilft direkte Beobachtung.','Warum Servicequalität → Mystery Shopping? Service ist subjektiv – nur durch reales Erleben als Testkunde kann die tatsächliche Qualität aus Kundensicht beurteilt werden.']
         },
         {
           id: 64,
@@ -1680,7 +1728,7 @@ window.BOOK_DATA = {
             {q: 'Erklärung:', keywords: ['analyse','ausgangslage','über','neuarbeitung','konzept','qualifikation','grundlage','variable','lohnbestandteile'], minKeywords: 2}
           ],
           tips: ['Die Resultate fliessen zurück in die Planung.','Sie sind Basis für die Qualifikation.','Auch die variable Vergütung hängt davon ab.'],
-          reveal: ['Die Resultate der Kontrollen fliessen in die Analyse der Ausgangslage bei der Über- oder Neuarbeitung von Konzepten ein.','Zudem sind sie eine wichtige Basis für die Qualifikation von Mitarbeitenden und können Grundlage für variable Lohnbestandteile sein.']
+          reveal: ['Warum kontrollieren? Kontrolle ist kein Selbstzweck – die Resultate fliessen zurück in die Planung (Analyse der Ausgangslage) und ermöglichen bessere Konzepte beim nächsten Mal.','Warum noch? Kontrollresultate sind Basis für die Mitarbeiter-Qualifikation und können variable Lohnbestandteile (Boni, Provisionen) begründen – das schafft Transparenz und Fairness.','Prüfungstipp: Kontrolle schliesst den Regelkreis (Planen → Umsetzen → Kontrollieren → Anpassen). Ohne Kontrolle fehlt die Grundlage für Verbesserungen.']
         },
         {
           id: 65,
@@ -1692,7 +1740,7 @@ window.BOOK_DATA = {
             {q: 'Methoden und Beispiele:', keywords: ['statistik','erhebung','beobachtung','auswertung','befragung','intern','extern','marktbericht','besuchsbericht','kundenbefragung'], minKeywords: 3}
           ],
           tips: ['Es gibt 5 Hauptmethoden.','Von Statistiken bis Befragungen.','Jede Methode hat spezifische Anwendungen.'],
-          reveal: ['1. Statistiken: interne und externe Auswertungen.','2. Erhebungen: Marktberichte und -untersuchungen aus sekundären Quellen.','3. Beobachtungen: Reise- und Besuchsbegleitungen.','4. Auswertung: Besuchsberichte, Wochenberichte, Messeprotokolle, Spesenabrechnungen.','5. Befragung: Kundenbefragungen, Gespräche mit Mitarbeitenden.']
+          reveal: ['Warum 5 verschiedene Methoden? Jede Methode liefert andere Erkenntnisse: Statistiken = harte Zahlen, Beobachtungen = Verhalten, Befragungen = subjektive Wahrnehmung. Nur die Kombination gibt ein vollständiges Bild.','Die 5 Methoden: 1) Statistiken (intern/extern), 2) Erhebungen (Marktberichte), 3) Beobachtungen (Reisebegleitungen), 4) Auswertung (Besuchsberichte, Messeprotokolle), 5) Befragung (Kunden, Mitarbeitende).','Prüfungstipp: Merke dir zu jeder Methode mindestens ein konkretes Beispiel – die Prüfung verlangt oft «Nennen Sie ein Beispiel».','Häufiger Fehler: Mystery Shopping als eigene Methode aufzählen – es ist ein Beispiel für Beobachtung, keine separate Methode.']
         },
         {
           id: 66,
@@ -1702,7 +1750,7 @@ window.BOOK_DATA = {
           blanks: ['Kontrolle','Soll-Zustand','Abweichung','Stichprobenkontrolle','Fremdkontrolle'],
           accept: [['Kontrolle'],['Soll-Zustand','Soll'],['Abweichung'],['Stichprobenkontrolle'],['Fremdkontrolle']],
           tips: ['Kontrolle = Ist vs. Soll.','Es gibt verschiedene Kontrollmethoden-Paare.','Stichprobe vs. Vollkontrolle.'],
-          reveal: ['Kontrolle: Ist-Soll-Vergleich.','Abweichung ermitteln und Massnahmen einleiten.','Methoden: Voll-/Stichprobenkontrolle, intern/extern, Selbst-/Fremdkontrolle, konstruktiv/destruktiv.']
+          reveal: ['Warum Ist-Soll-Vergleich? Ohne klaren Soll-Zustand (Ziel) kann keine sinnvolle Kontrolle stattfinden – deshalb ist Zieldefinition die Voraussetzung für jede Kontrolle.','Warum Gegensatzpaare bei den Methoden? Voll- vs. Stichprobe (Aufwand), intern vs. extern (Objektivität), Selbst- vs. Fremdkontrolle (Perspektive), konstruktiv vs. destruktiv (Wirkung). Jedes Paar zeigt eine andere Dimension.','Prüfungstipp: Die 4 Gegensatzpaare der Kontrollmethoden sind ein Klassiker in Prüfungen – lerne sie als Paare, nicht einzeln.']
         },
         {
           id: 67,
@@ -1715,7 +1763,7 @@ window.BOOK_DATA = {
             {s: 'Konstruktive Kontrolle zielt auf Verbesserung ab, destruktive auf Fehlersuche.', c: true, feedback: 'Konstruktiv = fördernd, destruktiv = bestrafend/fehlerorientiert.'}
           ],
           tips: ['Quantitative Ziele = einfacher messbar.','Mystery Shopping = Dienstleistungsbranche.','Konstruktiv = positiv, destruktiv = negativ.'],
-          reveal: ['Aussage 1: Richtig.','Aussage 2: Richtig – 5 Phasen.','Aussage 3: Falsch – Dienstleistungsbranche.','Aussage 4: Richtig.']
+          reveal: ['Aussage 1: RICHTIG – Quantitative Ziele (z.B. Umsatz CHF 500\'000) sind direkt messbar. Qualitative Ziele (z.B. Kundenzufriedenheit) erfordern aufwendigere Methoden wie Befragungen.','Aussage 2: RICHTIG – Die 5 Phasen: Definition → Durchführung → Überwachung → Bewertung → Analyse & Feedback. Merke: Der Prozess ist zyklisch, nicht einmalig.','Aussage 3: FALSCH – Mystery Shopping wird in der Dienstleistungsbranche eingesetzt, nicht in der Produktion. Warum? Weil dort die Qualität im direkten Kundenkontakt entsteht und nur durch Erleben prüfbar ist.','Aussage 4: RICHTIG – Konstruktive Kontrolle will fördern und verbessern. Destruktive Kontrolle sucht nur Fehler und wirkt demotivierend. In der Praxis soll Kontrolle immer konstruktiv sein.']
         },
         {
           id: 68,
@@ -1729,7 +1777,7 @@ window.BOOK_DATA = {
           ],
           answer: 1,
           tips: ['Der Kontrollplan hat 6 Elemente.','Er folgt den W-Fragen.','Budget und Kosten gehören zum Verkaufskostenbudget.'],
-          reveal: ['Der Kontrollplan gliedert sich in: Zielinhalt, Quantifizierung, Methode, Zeitpunkt, Korrekturmassnahmen und Verantwortlicher.']
+          reveal: ['Richtig ist B: Der Kontrollplan hat 6 Elemente (Was, Wie viel, Wie, Wann, Welche, Wer). Er deckt den gesamten Kontrollprozess systematisch ab.','Warum A falsch? «Nur Zielinhalt und Methode» greift viel zu kurz – ohne Quantifizierung weisst du nicht, wie viel, ohne Zeitpunkt nicht, wann kontrolliert wird.','Warum C falsch? Budget, Umsatz, Kosten und Gewinn sind Kennzahlen aus dem Verkaufskostenbudget, nicht Elemente eines Kontrollplans.','Warum D falsch? Ergebnis- und Ausführungskontrolle sind Kontrollarten, nicht Elemente eines Kontrollplans – das wird oft verwechselt.']
         },
         {
           id: 91,
@@ -1737,7 +1785,7 @@ window.BOOK_DATA = {
           q: 'Ordnen Sie die fünf Phasen des Kontrollprozesses in die richtige Reihenfolge.',
           items: ['Definition der Kontrollobjekte', 'Durchführung der Kontrollmassnahmen', 'Überwachung der Ausführung', 'Bewertung der Ergebnisse', 'Analyse und Feedback'],
           tips: ['Zuerst muss definiert werden, was kontrolliert wird.','Die Durchführung kommt vor der Überwachung.','Am Ende steht immer das Feedback.'],
-          reveal: ['Der Kontrollprozess ist ein systematischer 5-Phasen-Ablauf.','Er stellt sicher, dass Kontrolle nicht willkürlich, sondern strukturiert erfolgt.']
+          reveal: ['Warum diese Reihenfolge? Man muss zuerst wissen, WAS kontrolliert wird (Definition), bevor man Massnahmen durchführt. Die Überwachung prüft die Umsetzung, die Bewertung interpretiert Ergebnisse, und am Ende steht Feedback als Grundlage für Verbesserungen.','Prüfungstipp: Die Reihenfolge folgt einer logischen Kette – man kann nicht bewerten, was man nicht überwacht hat, und nicht überwachen, was man nicht durchgeführt hat.','Häufiger Fehler: Analyse & Feedback an den Anfang setzen. Die Analyse steht am Ende, weil sie auf den Ergebnissen aller vorherigen Phasen aufbaut.']
         }
       ],
       learningData: {
@@ -1836,7 +1884,7 @@ window.BOOK_DATA = {
           ],
           options: ['Informationsbeschaffung','Persönliche Begrüssung, Atmosphäre schaffen','Bedarfsanalyse, Präsentation, Verhandlung','Kaufbereitschaft herbeiführen, abschliessen','Definition und Absprache des weiteren Vorgehens','Gespräch nachbearbeiten, Beziehung pflegen'],
           tips: ['Das Verkaufsgespräch hat 6 Phasen.','Es beginnt mit der Vorbereitung und endet mit dem After-Sales-Service.','Jede Phase hat spezifische Tätigkeiten.'],
-          reveal: ['1. Vorbereitung: Informationsbeschaffung.','2. Eröffnung: Persönliche Begrüssung, Atmosphäre schaffen.','3. Angebot und Argumentation: Bedarfsanalyse, Präsentation, Verhandlung.','4. Abschluss: Kaufbereitschaft herbeiführen, abschliessen.','5. Verabschiedung: Definition und Absprache des weiteren Vorgehens.','6. After-Sales-Service: Gespräch nachbearbeiten, Beziehung pflegen.']
+          reveal: ['Warum genau diese Reihenfolge? Ohne Vorbereitung (1) fehlt Wissen über den Kunden. Ohne Eröffnung (2) kein Vertrauen. Ohne Bedarfsanalyse (3) kein passendes Angebot. Ohne Abschluss (4) kein Auftrag.','Warum Verabschiedung (5) als eigene Phase? Hier wird das weitere Vorgehen definiert – das zeigt Professionalität und sichert den nächsten Kontakt.','Warum After-Sales (6)? «Nach dem Kauf ist vor dem Kauf» – Kundenbindung und Wiederkauf hängen davon ab. Viele Verkäufer vernachlässigen diese Phase, was Folgegeschäft kostet.','Prüfungstipp: Die 6 Phasen und ihre Zuordnung sind ein Prüfungsklassiker. Merke dir zu jeder Phase die Kernaktivität.']
         },
         {
           id: 70,
@@ -1848,7 +1896,7 @@ window.BOOK_DATA = {
             {q: 'Zwei vorökonomische Ziele:', keywords: ['pflege','kontakt','präsentation','information','beziehung','marktleistung','image','zufriedenheit'], minKeywords: 2}
           ],
           tips: ['Vorökonomisch = nicht direkt umsatzbezogen.','Denken Sie an Beziehungspflege.','Auch Informationsaustausch zählt.'],
-          reveal: ['1. Pflege des Kontakts / der Beziehung.','2. Information und Präsentation einer neuen Marktleistung.']
+          reveal: ['Warum «vorökonomisch»? Diese Ziele bringen keinen direkten Umsatz, schaffen aber die Grundlage dafür – z.B. Beziehungspflege führt langfristig zu Aufträgen.','Beispiele: 1) Pflege des Kontakts/der Beziehung, 2) Information über neue Marktleistung, 3) Image-Aufbau, 4) Kundenzufriedenheit erhöhen.','Häufiger Fehler: Umsatzziele oder Absatzziele als vorökonomisch nennen – diese sind ökonomisch! Vorökonomisch = kein direkter Geldfluss.']
         },
         {
           id: 71,
@@ -1860,7 +1908,7 @@ window.BOOK_DATA = {
             {q: 'Präsentationshilfsmittel:', keywords: ['geschäftsunterlagen','fachartikel','testimonial','muster','modelle','bilder','pläne','skizzen','diagramm','präsentation','video','DVD'], minKeywords: 3}
           ],
           tips: ['Denken Sie an visuelle und haptische Hilfsmittel.','Geschäftsunterlagen und Drucksachen zählen.','Auch digitale Medien sind Hilfsmittel.'],
-          reveal: ['Präsentationshilfsmittel: Geschäftsunterlagen und -drucksachen, Fachartikel/Testimonials, Muster/Modelle/Zeigebuecher/Bilder/Visualisierungen, Pläne/Skizzen/Diagramme, Präsentationen/Videos/DVDs.']
+          reveal: ['Warum Hilfsmittel? Menschen nehmen 80% visuell wahr. Ein Muster in der Hand überzeugt mehr als jede Beschreibung – «Zeigen statt Erzählen».','Kategorien: Geschäftsunterlagen/Drucksachen, Fachartikel/Testimonials, Muster/Modelle/Bilder, Pläne/Skizzen/Diagramme, Präsentationen/Videos.','Prüfungstipp: Nenne mindestens 3 verschiedene Kategorien, nicht nur «PowerPoint». Die Vielfalt zeigt dein Verständnis.','Häufiger Fehler: Nur digitale Hilfsmittel nennen. Physische Muster und Modelle sind im B2B-Verkauf besonders wichtig.']
         },
         {
           id: 72,
@@ -1872,7 +1920,7 @@ window.BOOK_DATA = {
             {q: 'Vorbereitung auf Einwände:', keywords: ['liste','vorfeld','erarbeiten','team','verkaufsteam','produktverantwortlich','vorbereiten','möglichst','viele'], minKeywords: 2}
           ],
           tips: ['Vorbereitung ist der Schlüssel.','Arbeiten Sie nicht alleine, sondern im Team.','Eine Liste aller möglichen Einwände hilft.'],
-          reveal: ['Ich erarbeite im Vorfeld eine Liste. Damit ich mich auf möglichst viele Einwände vorbereiten kann, erarbeiten wir die Liste im Verkaufsteam zusammen mit den Produktverantwortlichen.']
+          reveal: ['Warum im Team erarbeiten? Einzelne Verkäufer kennen nur «ihre» Einwände. Im Team mit Produktverantwortlichen werden mehr Einwände gesammelt, und die besten Antworten können geteilt werden.','Warum eine Liste? Eine vorbereitete Einwandliste gibt Sicherheit im Gespräch. Wer auf einen Einwand sofort souverän reagiert, wirkt kompetent und überzeugend.','Prüfungstipp: Die Antwort muss ZWEI Aspekte enthalten: 1) Liste erarbeiten (Vorbereitung), 2) Im Team mit Produktverantwortlichen (Zusammenarbeit). Beides ist wichtig.']
         },
         {
           id: 73,
@@ -1884,7 +1932,7 @@ window.BOOK_DATA = {
             {q: 'Erklärung:', keywords: ['service','nach','kauf','marketingpolitik','kaufentscheidung','bestätigt','wiederhol','zusatzkauf','kundenzufriedenheit','kundenloyalität','kundenbindung'], minKeywords: 3}
           ],
           tips: ['After = nach, Sales = Verkauf.','Es geht um die Zeit NACH dem Kauf.','Ziel: Kundenzufriedenheit und -bindung.'],
-          reveal: ['After-Sales-Service (auch After-Sales-Management) ist eine serviceorientierte Marketingpolitik, die nach einem Kauf die Kunden in ihrer Kaufentscheidung bestätigt, zu Wiederholungs- und Zusatzkäufen anregt, die Kundenzufriedenheit und Kundenloyalität erhöht und die langfristige Kundenbindung sicherstellt.']
+          reveal: ['Warum After-Sales? Einen Neukunden zu gewinnen ist 5–7x teurer als einen bestehenden Kunden zu halten. After-Sales sichert Wiederkäufe und Weiterempfehlungen.','Die 4 Ziele: 1) Kaufentscheidung bestätigen (kognitive Dissonanz reduzieren), 2) Wiederholungs-/Zusatzkäufe anregen, 3) Kundenzufriedenheit/-loyalität erhöhen, 4) Langfristige Bindung sicherstellen.','Prüfungstipp: After-Sales ist NICHT nur «Reklamationen bearbeiten». Es ist eine proaktive, serviceorientierte Marketingpolitik – dieser Unterschied wird gerne geprüft.']
         },
         {
           id: 74,
@@ -1896,7 +1944,7 @@ window.BOOK_DATA = {
             {q: 'Drei Massnahmen:', keywords: ['vertriebspartner','kontakt','kunden','support','beratung','hotline','reparatur','service','ersatzteil','logistik'], minKeywords: 3}
           ],
           tips: ['Denken Sie an den gesamten Lebenszyklus des Produkts.','Support und Beratung sind wichtig.','Auch Ersatzteilversorgung gehört dazu.'],
-          reveal: ['1. Engagierter Vertriebspartner mit persönlichen Kontakten zu Kunden, systematische Pflege (Zusatz- und Mehrverkauf).','2. Enger persönlicher Kontakt zum Vertrieb, Verbundenheit (Loyalität).','3. Support und Beratung: Hotline für Kunden.','4. 24-h-Reparaturservice bei Ausfall.','5. Rascher Ersatzteildienst: optimale Logistik.']
+          reveal: ['Warum speziell bei Investitionsgütern? Investitionsgüter sind teuer und langlebig – Kunden erwarten umfassenden Service über den gesamten Lebenszyklus. Ein Produktionsausfall kann Tausende kosten.','Kernmassnahmen: 1) Engagierter Vertriebspartner mit persönlichen Kontakten, 2) Support/Beratung via Hotline, 3) 24h-Reparaturservice, 4) Rascher Ersatzteildienst mit optimaler Logistik.','Prüfungstipp: Nenne immer 3 Massnahmen und beschreibe sie kurz. Die Prüfung verlangt «nennen UND beschreiben» – nur Stichworte geben keine volle Punktzahl.','Häufiger Fehler: Nur «Garantie» nennen. Garantie ist eine Pflicht, kein aktiver After-Sales-Service.']
         },
         {
           id: 75,
@@ -1906,7 +1954,7 @@ window.BOOK_DATA = {
           blanks: ['sechs','Vorbereitung','After-Sales-Service','Eröffnung'],
           accept: [['sechs','6'],['Vorbereitung'],['After-Sales-Service'],['Eröffnung']],
           tips: ['6 Phasen von der Vorbereitung bis zum After-Sales.','Die Eröffnung schafft die Atmosphäre.','Der After-Sales-Service pflegt die Beziehung.'],
-          reveal: ['6 Phasen.','Beginnt mit der Vorbereitung.','Endet mit dem After-Sales-Service.','In der Eröffnung wird die Atmosphäre geschaffen.']
+          reveal: ['Warum 6 Phasen? Jede Phase hat eine klare Funktion – Vorbereitung (Wissen sammeln), Eröffnung (Vertrauen aufbauen), Argumentation (Bedarf decken), Abschluss (Entscheidung), Verabschiedung (nächste Schritte), After-Sales (Bindung).','Warum beginnt es mit Vorbereitung? Ohne Vorbereitung fehlt Wissen über den Kunden, seine Branche und seine Bedürfnisse – das Gespräch wäre unprofessionell.','Warum Atmosphäre in der Eröffnung? Vertrauen entsteht in den ersten Minuten. Ohne positive Atmosphäre blockt der Kunde ab und hört gar nicht erst richtig zu.']
         },
         {
           id: 76,
@@ -1918,7 +1966,7 @@ window.BOOK_DATA = {
             {s: 'After-Sales-Service ist nur für Konsumgüter relevant.', c: false, feedback: 'After-Sales ist für alle Produktarten relevant, besonders bei Investitionsgütern.'}
           ],
           tips: ['Vorbereitung = Phase 1.','Abschluss = Kaufbereitschaft herbeiführen.','After-Sales ist universell wichtig.'],
-          reveal: ['Aussage 1: Richtig.','Aussage 2: Falsch – Abschluss = Kaufentscheidung.','Aussage 3: Falsch – gilt für alle Produktarten.']
+          reveal: ['Aussage 1: RICHTIG – Die Vorbereitung ist tatsächlich Phase 1. Warum? Bevor man den Kunden trifft, muss man Informationen beschaffen (Branche, Bedürfnisse, bisherige Kontakte). Ohne Vorbereitung kein professionelles Gespräch.','Aussage 2: FALSCH – Small Talk gehört zur Eröffnungsphase (Phase 2), wo Atmosphäre und Vertrauen aufgebaut werden. In der Abschlussphase (Phase 4) geht es um die Kaufbereitschaft – hier wird die Entscheidung herbeigeführt.','Aussage 3: FALSCH – After-Sales ist für ALLE Produktarten relevant, besonders bei Investitionsgütern (Maschinen, Anlagen). Warum? Weil dort der Service über den gesamten Lebenszyklus entscheidend für die Kundenbindung ist.']
         },
         {
           id: 77,
@@ -1932,7 +1980,7 @@ window.BOOK_DATA = {
           ],
           answer: 2,
           tips: ['Die Bedarfsanalyse erfordert ein Gespräch mit dem Kunden.','Sie ist Teil der inhaltlichen Verhandlung.','In dieser Phase wird auch präsentiert und argumentiert.'],
-          reveal: ['Die Bedarfsanalyse findet in der Phase "Angebot und Argumentation" statt.','Hier werden Bedürfnisse ermittelt, das Angebot präsentiert und verhandelt.']
+          reveal: ['Richtig ist C: Angebot und Argumentation (Phase 3). Die Bedarfsanalyse ist der erste Schritt dieser Phase – erst Bedürfnisse verstehen, dann passend argumentieren und präsentieren.','Warum A falsch? In der Vorbereitung (Phase 1) sammelt man Informationen VOR dem Treffen. Die Bedarfsanalyse findet IM Gespräch mit dem Kunden statt.','Warum B falsch? Die Eröffnung (Phase 2) dient dem Beziehungsaufbau und der Atmosphäre – hier geht man noch nicht auf inhaltliche Bedürfnisse ein.','Warum D falsch? Im Abschluss (Phase 4) ist die Bedarfsanalyse längst abgeschlossen. Hier wird die Kaufentscheidung herbeigeführt.']
         },
         {
           id: 92,
@@ -1940,7 +1988,7 @@ window.BOOK_DATA = {
           q: 'Ordnen Sie die sechs Phasen des Verkaufsgesprächs in die korrekte Reihenfolge.',
           items: ['Vorbereitung', 'Eröffnung', 'Angebot und Argumentation', 'Abschluss', 'Verabschiedung', 'After-Sales-Service'],
           tips: ['Das Gespräch beginnt schon vor dem Treffen mit dem Kunden.','Die Eröffnung schafft Atmosphäre und Vertrauen.','After-Sales kommt ganz am Ende — nach dem Abschluss und der Verabschiedung.'],
-          reveal: ['Die 6 Phasen: 1. Vorbereitung, 2. Eröffnung, 3. Angebot/Argumentation, 4. Abschluss, 5. Verabschiedung, 6. After-Sales-Service.','Jede Phase hat spezifische Aufgaben und Techniken.']
+          reveal: ['Warum diese Reihenfolge? Sie folgt dem natürlichen Gesprächsablauf: Erst vorbereiten, dann begrüssen, dann verhandeln, dann abschliessen, verabschieden und nachbetreuen.','Häufiger Fehler: Verabschiedung und After-Sales verwechseln. Verabschiedung = noch beim Kunden (nächste Schritte besprechen). After-Sales = nach dem Gespräch (Nachbearbeitung, Follow-up).','Prüfungstipp: «Nach dem Kauf ist vor dem Kauf» – der Prozess ist ein Kreislauf. After-Sales führt wieder zur Vorbereitung des nächsten Gesprächs.']
         }
       ],
       learningData: {
@@ -2043,7 +2091,7 @@ window.BOOK_DATA = {
             {q: 'Unterschied:', keywords: ['kurz','klar','beantwortet','raum','antwort','ja','nein','ausführlich','offen','geschlossen'], minKeywords: 3}
           ],
           tips: ['Geschlossene Fragen = Ja/Nein-Antworten.','Offene Fragen = ausführliche Antworten.','Offene Fragen beginnen oft mit W-Wörtern.'],
-          reveal: ['Geschlossene Fragen lassen sich in der Regel kurz und klar beantworten (Ja/Nein).','Offene Fragen lassen Raum für die Antwort und fördern ein ausführliches Gespräch.']
+          reveal: ['Warum offene Fragen im Verkauf bevorzugt? Sie bringen den Kunden zum Reden – je mehr er erzählt, desto besser verstehst du seine Bedürfnisse. Offene Fragen beginnen mit W-Wörtern (Was, Wie, Warum).','Warum auch geschlossene Fragen nützlich? Zum Abschluss («Darf ich den Auftrag notieren?») oder zur Bestätigung («Ist das korrekt?»). Sie lenken und beschleunigen das Gespräch gezielt.','Prüfungstipp: Die Prüfung verlangt oft ein Beispiel pro Frageart – übe dir je 2 Beispiele ein. Häufiger Fehler: Geschlossene Fragen als «schlecht» bezeichnen – sie haben ihren Platz!']
         },
         {
           id: 79,
@@ -2061,7 +2109,7 @@ window.BOOK_DATA = {
           ],
           options: ['Informationen gewinnen','Versuch, das Gegenüber zu beeinflussen','Wahl erleichtern, Abschluss beschleunigen','Reaktion auf Fragen des Gesprächspartners','Grad der Übereinstimmung kontrollieren','Motive und Beweggründe erfahren','Stilmittel, um Aufmerksamkeit zu gewinnen','Geben Antwort auf Fragen, die der Verkäufer nicht direkt stellen kann'],
           tips: ['Jede Frageart hat einen spezifischen Zweck.','Suggestivfragen versuchen zu beeinflussen.','Kontrollfragen prüfen die Übereinstimmung.'],
-          reveal: ['Informationsfragen: Informationen gewinnen.','Suggestivfragen: Gegenüber beeinflussen.','Alternativfragen: Wahl erleichtern, Abschluss beschleunigen.','Gegenfragen: Reaktion auf Fragen.','Kontrollfragen: Übereinstimmung prüfen.','Motivationsfragen: Motive erfahren.','Rhetorische Fragen: Aufmerksamkeit gewinnen.','Fangfragen: Indirekte Antworten erhalten.']
+          reveal: ['Warum so viele Fragearten? Jede Situation im Verkaufsgespräch erfordert eine andere Technik: Bedarfsermittlung (Informations-/Motivationsfragen), Lenkung (Suggestiv-/Alternativfragen), Absicherung (Kontrollfragen).','Häufig verwechselt: Suggestivfragen vs. Rhetorische Fragen. Suggestiv = beeinflusst die Antwort («Sie wollen doch Qualität?»). Rhetorisch = erwartet gar keine Antwort, ist ein Stilmittel («Wer will nicht sparen?»).','Fangfragen sind speziell: Sie liefern Antworten auf Fragen, die man nicht direkt stellen kann. Beispiel: «Was halten Sie von Anbieter X?» verrät indirekt die Kaufkriterien.','Prüfungstipp: Lerne die 8 Fragearten mit je einem Beispiel – die Zuordnung Frageart → Zweck → Beispiel ist ein typisches Prüfungsformat.']
         },
         {
           id: 80,
@@ -2074,7 +2122,7 @@ window.BOOK_DATA = {
             {q: 'B) VERA-Formel:', keywords: ['verständnis','einwand','gegenfrage','repetition','frageform','antworten','VERA'], minKeywords: 3}
           ],
           tips: ['Es gibt echte und unechte Einwände.','Die VERA-Formel hat 4 Schritte.','V-E-R-A ist ein Akronym.'],
-          reveal: ['A) Echte Einwände sind meistens sachlich begründet. Unechte Einwände sind häufig Vorwände des Kunden.','B) VERA: V = Verständnis aufbringen, E = Einwand in Gegenfrage umwandeln, R = Repetition des Einwands in Frageform, A = Antworten.']
+          reveal: ['Warum die Unterscheidung echt/unecht? Bei echten Einwänden (sachlich begründet) muss man inhaltlich argumentieren. Bei unechten (Vorwänden) muss man den wahren Grund herausfinden – verschiedene Strategien für verschiedene Situationen.','Warum VERA funktioniert: V (Verständnis) nimmt dem Kunden den Wind aus den Segeln. E (Gegenfrage) macht den Kunden zum Problemlöser. R (Repetition) zeigt, dass man zuhört. A (Antworten) liefert erst jetzt die Lösung.','Prüfungstipp: VERA muss in der richtigen Reihenfolge angewendet werden. Wer sofort antwortet (A) ohne Verständnis (V), wirkt abwehrend statt empathisch.','Häufiger Fehler: Einwände als Angriff sehen. Einwände zeigen Interesse – ein Kunde, der keine Einwände hat, ist oft einfach nicht interessiert.']
         },
         {
           id: 81,
@@ -2086,7 +2134,7 @@ window.BOOK_DATA = {
             {q: 'Preisangaben:', keywords: ['menge','stück','kilogramm','tonne','zahlungsbedingungen','frist','rabatte','skonto','lieferbedingungen'], minKeywords: 3}
           ],
           tips: ['Preise beziehen sich immer auf Mengen.','Denken Sie an Zahlungs- und Lieferbedingungen.','Auch Rabatte und Skonti gehören dazu.'],
-          reveal: ['Preise sind immer auf Mengen zu beziehen (pro Stück, pro Kilogramm, pro Tonne usw.).','Wichtig sind ferner die Zahlungsbedingungen (Frist), allfällige Rabatte (Skonto) und die Lieferbedingungen.']
+          reveal: ['Warum Preis pro Menge? Ein Preis ohne Mengenbezug ist nicht vergleichbar. «CHF 50» sagt nichts – «CHF 50 pro kg» schon. So kann der Kunde verschiedene Angebote fair vergleichen.','Warum Zahlungs- und Lieferbedingungen? Sie beeinflussen den effektiven Preis massgeblich. 2% Skonto bei Zahlung innert 10 Tagen kann bei grossen Bestellungen viel ausmachen.','Prüfungstipp: Nenne immer alle 4 Angaben: Preis pro Menge, Zahlungsbedingungen (Frist), Rabatte/Skonto, Lieferbedingungen. Unvollständige Antworten geben Punktabzug.']
         },
         {
           id: 82,
@@ -2098,7 +2146,7 @@ window.BOOK_DATA = {
             {q: 'Welche Fragearten verwenden Sie?', keywords: ['offen','informationsfragen','motivationsfragen','kontrollfragen','bedürfnisse','grund','warum','was','wie'], minKeywords: 2}
           ],
           tips: ['Offene Fragen sind besonders geeignet.','Informationsfragen helfen, Bedürfnisse zu verstehen.','Motivationsfragen decken Beweggründe auf.'],
-          reveal: ['Grundsätzlich offene Fragen verwenden.','Speziell: Informationsfragen (Was brauchen Sie?), Motivationsfragen (Warum ist Ihnen das wichtig?), evtl. Kontrollfragen (Habe ich Sie richtig verstanden?).']
+          reveal: ['Warum offene Fragen in der Bedarfsanalyse? Weil der Kunde erzählen soll, nicht nur Ja/Nein antworten. Nur so erfährst du seine wahren Bedürfnisse und Beweggründe.','Warum diese 3 Fragearten? Informationsfragen sammeln Fakten («Was brauchen Sie?»), Motivationsfragen decken Gründe auf («Warum ist Ihnen das wichtig?»), Kontrollfragen sichern das Verständnis ab («Habe ich richtig verstanden?»).','Häufiger Fehler: Suggestivfragen in der Bedarfsanalyse einsetzen – das verfälscht die Ergebnisse. Suggestivfragen gehören eher in die Abschlussphase.','Prüfungstipp: In der Bedarfsanalyse geht es ums Zuhören, nicht ums Verkaufen – die Fragearten müssen das widerspiegeln.']
         },
         {
           id: 83,
@@ -2110,7 +2158,7 @@ window.BOOK_DATA = {
             {q: 'Alternative Formulierung:', keywords: ['gerne','kontakt','nächsten','tagen','aufnehmen','fragen','beantworten','gerät','vorführen','wunsch','freuen'], minKeywords: 2}
           ],
           tips: ['Seien Sie proaktiv, nicht passiv.','Bieten Sie einen konkreten nächsten Schritt an.','Verwenden Sie eine positive, einladende Sprache.'],
-          reveal: ['Mögliche Lösung: "Gerne werden wir in den nächsten Tagen Kontakt mit Ihnen aufnehmen, um noch offene Fragen zu beantworten und Ihnen das Gerät auf Wunsch auch vorzuführen. Wir freuen uns auf diesen Kontakt und grüssen Sie inzwischen freundlich."']
+          reveal: ['Warum ist das Original schlecht? «Bitten wir Sie höflichst» legt die Aktivität auf den Kunden – der Verkäufer wartet passiv. Das signalisiert Desinteresse und ist kein aktiver Verkauf.','Warum die Alternative besser? «Gerne werden WIR Kontakt aufnehmen» zeigt Initiative. Das Unternehmen wird aktiv, bietet eine Vorführung an und gibt dem Kunden ein gutes Gefühl.','Prüfungstipp: Achte auf drei Prinzipien: 1) Proaktiv statt passiv, 2) Konkreter nächster Schritt statt vager Aussage, 3) Positive Sprache statt steifer Floskeln.']
         },
         {
           id: 84,
@@ -2120,7 +2168,7 @@ window.BOOK_DATA = {
           blanks: ['Verständnis aufbringen','Gegenfrage','Repetition','Antworten'],
           accept: [['Verständnis aufbringen','Verständnis'],['Gegenfrage'],['Repetition'],['Antworten']],
           tips: ['VERA ist ein Akronym.','V steht für Verständnis.','Jeder Buchstabe repräsentiert einen Schritt.'],
-          reveal: ['V = Verständnis aufbringen.','E = Einwand in Gegenfrage umwandeln.','R = Repetition des Einwands in Frageform.','A = Antworten.']
+          reveal: ['Warum diese Reihenfolge? Verständnis (V) zuerst, weil der Kunde sich gehört fühlen muss. Die Gegenfrage (E) macht ihn zum Mitdenker. Die Repetition (R) zeigt aktives Zuhören. Erst dann die Antwort (A).','Warum nicht sofort antworten? Wer sofort argumentiert, wirkt defensiv. VERA baut erst eine Brücke zum Kunden, bevor die Lösung kommt – das erhöht die Akzeptanz der Antwort enorm.','Prüfungstipp: VERA ist ein Akronym – jeder Buchstabe muss erklärt werden können. Häufiger Fehler: «R = Reaktion» statt «R = Repetition» – achte auf die genauen Begriffe.']
         },
         {
           id: 85,
@@ -2133,7 +2181,7 @@ window.BOOK_DATA = {
             {s: 'Die VERA-Formel hat 3 Schritte.', c: false, feedback: 'Die VERA-Formel hat 4 Schritte: V-E-R-A.'}
           ],
           tips: ['Offene Fragen = W-Fragen, ausführliche Antworten.','Suggestivfragen = beeinflussend, nicht neutral.','VERA = 4 Schritte.'],
-          reveal: ['Aussage 1: Richtig.','Aussage 2: Falsch – Suggestivfragen beeinflussen.','Aussage 3: Richtig.','Aussage 4: Falsch – 4 Schritte (V-E-R-A).']
+          reveal: ['Aussage 1: RICHTIG – Offene Fragen beginnen mit W-Wörtern (Was, Wie, Warum) und zwingen den Kunden zu ausführlichen Antworten. Das ist in der Bedarfsanalyse entscheidend, weil man Informationen sammeln will.','Aussage 2: FALSCH – Suggestivfragen sind NICHT neutral. Sie versuchen, das Gegenüber zu beeinflussen («Sie wollen doch sicher Qualität?»). Für neutrale Informationen nutzt man Informationsfragen.','Aussage 3: RICHTIG – Echte Einwände haben sachliche Gründe (z.B. «Der Preis ist zu hoch für unser Budget»). Unechte Einwände sind Vorwände – der Kunde will den wahren Grund nicht nennen.','Aussage 4: FALSCH – VERA hat 4 Schritte, nicht 3: Verständnis, Einwand in Gegenfrage, Repetition, Antworten. Häufiger Fehler: Die Repetition (R) vergessen – sie ist aber wichtig, um aktives Zuhören zu zeigen.']
         },
         {
           id: 86,
@@ -2147,7 +2195,7 @@ window.BOOK_DATA = {
           ],
           answer: 2,
           tips: ['Kontrolle = Überprüfung.','Kontrollfragen prüfen das Verständnis.','Informationsfragen sammeln Informationen.'],
-          reveal: ['Kontrollfragen dienen dazu, den Grad der Übereinstimmung zu kontrollieren.','Beispiel: "Habe ich Sie richtig verstanden?"']
+          reveal: ['Richtig ist C: Kontrollfragen. Der Name sagt es bereits – «Kontrolle» der Übereinstimmung. Beispiel: «Habe ich Sie richtig verstanden?» oder «Sind wir uns einig?»','Warum A falsch? Informationsfragen sammeln neue Daten («Was brauchen Sie?»), sie prüfen nicht, ob man sich einig ist.','Warum B falsch? Suggestivfragen beeinflussen die Meinung des Gegenübers («Sie finden doch auch, dass...?»). Sie kontrollieren nicht, sondern lenken.','Warum D falsch? Motivationsfragen erfragen Gründe und Beweggründe («Warum ist Ihnen das wichtig?»). Sie dienen dem Verständnis, nicht der Kontrolle der Übereinstimmung.']
         },
         {
           id: 87,
@@ -2161,7 +2209,7 @@ window.BOOK_DATA = {
           ],
           options: ['Informationsfrage','Alternativfrage','Suggestivfrage','Kontrollfrage'],
           tips: ['Informationsfragen sind offen und sammeln Daten.','Alternativfragen bieten eine Wahl.','Suggestivfragen legen eine Antwort nahe.'],
-          reveal: ['"Was ist Ihnen wichtig?" = Informationsfrage (offen, sammelt Informationen).','"Rot oder blau?" = Alternativfrage (bietet Wahl).','"Stimmen Sie zu?" = Suggestivfrage (legt Antwort nahe).','"Richtig verstanden?" = Kontrollfrage (prüft Übereinstimmung).']
+          reveal: ['Warum «Was ist Ihnen wichtig?» = Informationsfrage? Offene W-Frage, die neutral Informationen sammelt. Der Kunde kann frei antworten – keine Beeinflussung, keine Wahlvorgabe.','Warum «Rot oder blau?» = Alternativfrage? Bietet genau zwei Optionen – der Kunde wählt, aber beide führen zum Kauf. Trick: Die Frage ist nicht «ob», sondern «welches».','Warum «Stimmen Sie mir zu?» = Suggestivfrage? Die gewünschte Antwort («Ja») ist bereits in der Frage enthalten. Der Kunde wird in eine Richtung gelenkt.','Warum «Richtig verstanden?» = Kontrollfrage? Prüft, ob Verkäufer und Kunde auf dem gleichen Stand sind. Wichtig vor dem Abschluss, um Missverständnisse zu vermeiden.']
         }
       ],
       learningData: {
