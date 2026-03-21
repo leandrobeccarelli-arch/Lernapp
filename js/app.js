@@ -197,6 +197,7 @@ function MCExercise(props) {
 
     return e('div', null,
       ex.q ? e('div', { className: 'ex-instruction' }, ex.q) : null,
+    ex.instruction ? e('div', { className: 'ex-instruction', style: { marginTop: 4, fontWeight: 'normal' } }, ex.instruction) : null,
       ex.questions.map(function(q, qi) {
         return e('div', { key: qi, style: { marginBottom: 16 } },
           e('div', { style: { fontWeight: 600, marginBottom: 6, fontSize: '.88rem' } }, (q.id || (qi + 1)) + ') ' + q.q),
@@ -249,6 +250,7 @@ function MCExercise(props) {
 
   return e('div', null,
     ex.q ? e('div', { className: 'ex-instruction' }, ex.q) : null,
+    ex.instruction ? e('div', { className: 'ex-instruction', style: { marginTop: 4, fontWeight: 'normal' } }, ex.instruction) : null,
     (ex.options || []).map(function(opt, i) {
       var cls = 'mc-option';
       if (checked && !examMode) {
@@ -271,6 +273,7 @@ function MCExercise(props) {
     examMode && !checked ? e('div', { style: { fontSize: '.8rem', color: 'var(--text2)', marginTop: 8 } }, 'W\u00E4hle eine Antwort') : null,
     examMode && checked ? e('div', { style: { fontSize: '.8rem', color: 'var(--green)', marginTop: 8 } }, '\u2713 Beantwortet') : null,
     !examMode && ex.tips ? e(Tips, { tips: ex.tips }) : null,
+    !examMode && checked && ex.explanation ? e('div', { className: 'solution-box' }, e('strong', null, 'Erkl\u00E4rung: '), ex.explanation) : null,
     !examMode && checked && ex.reveal ? e(Reveal, { items: ex.reveal }) : null
   );
 }
@@ -298,6 +301,7 @@ function TFExercise(props) {
 
   return e('div', null,
     ex.q ? e('div', { className: 'ex-instruction' }, ex.q) : null,
+    ex.instruction ? e('div', { className: 'ex-instruction', style: { marginTop: 4, fontWeight: 'normal' } }, ex.instruction) : null,
     ex.statements.map(function(s, i) {
       var userAns = answers[i];
       return e('div', { key: i, className: 'tf-row' },
@@ -377,6 +381,7 @@ function FillExercise(props) {
 
   return e('div', null,
     ex.q ? e('div', { className: 'ex-instruction' }, ex.q) : null,
+    ex.instruction ? e('div', { className: 'ex-instruction', style: { marginTop: 4, fontWeight: 'normal' } }, ex.instruction) : null,
     e('div', { className: 'blank-text' }, rendered),
     checked && !examMode ? e('div', { className: 'solution-box' },
       e('strong', null, 'L\u00F6sung: '),
@@ -417,6 +422,7 @@ function MatchExercise(props) {
 
   return e('div', null,
     ex.q ? e('div', { className: 'ex-instruction' }, ex.q) : null,
+    ex.instruction ? e('div', { className: 'ex-instruction', style: { marginTop: 4, fontWeight: 'normal' } }, ex.instruction) : null,
     ex.pairs.map(function(p, i) {
       var isCorrect = checked && answers[i] === p.r;
       var isWrong = checked && answers[i] !== p.r;
@@ -469,6 +475,7 @@ function CheckExercise(props) {
 
   return e('div', null,
     ex.q ? e('div', { className: 'ex-instruction' }, ex.q) : null,
+    ex.instruction ? e('div', { className: 'ex-instruction', style: { marginTop: 4, fontWeight: 'normal' } }, ex.instruction) : null,
     ex.statements.map(function(s, i) {
       var userAns = answers[i];
       var rowClass = '';
@@ -528,6 +535,7 @@ function CalcExercise(props) {
 
   return e('div', null,
     ex.q ? e('div', { className: 'ex-instruction' }, ex.q) : null,
+    ex.instruction ? e('div', { className: 'ex-instruction', style: { marginTop: 4, fontWeight: 'normal' } }, ex.instruction) : null,
     data.map(function(f, i) {
       var userVal = parseFloat(vals[i].replace(/[',\s]/g, ''));
       var tol = f.tolerance || 0.01;
@@ -559,20 +567,41 @@ function CalcExercise(props) {
 
 function TextExercise(props) {
   var ex = props.ex, onDone = props.onDone, examMode = props.examMode;
+
+  // Extract keywords: top-level or from nested questions
+  var allKeywords = ex.keywords || [];
+  if (allKeywords.length === 0 && ex.questions && Array.isArray(ex.questions)) {
+    ex.questions.forEach(function(q) {
+      if (q.keywords) allKeywords = allKeywords.concat(q.keywords);
+    });
+  }
+
   var st = useState(''), val = st[0], setVal = st[1];
   var st2 = useState(false), checked = st2[0], setChecked = st2[1];
 
   function check() {
     setChecked(true);
-    var found = matchKeywords(val, ex.keywords || []);
-    var pct = ex.keywords && ex.keywords.length > 0 ? Math.round(found / ex.keywords.length * 100) : (val.trim().length > 10 ? 100 : 0);
+    var found = matchKeywords(val, allKeywords);
+    var pct = allKeywords.length > 0 ? Math.round(found / allKeywords.length * 100) : (val.trim().length > 10 ? 100 : 0);
     if (onDone) onDone(pct);
   }
 
   function reset() { setVal(''); setChecked(false); }
 
+  // Build sub-question display for nested questions format
+  var subQuestions = (ex.questions && Array.isArray(ex.questions) && ex.questions.length > 0 && ex.questions[0].q) ? ex.questions : null;
+
   return e('div', null,
     ex.q ? e('div', { className: 'ex-instruction' }, ex.q) : null,
+    ex.instruction ? e('div', { className: 'ex-instruction', style: { marginTop: 4, fontWeight: 'normal' } }, ex.instruction) : null,
+    subQuestions ? e('div', { style: { margin: '8px 0', fontSize: '.85rem', color: 'var(--text2)' } },
+      subQuestions.map(function(sq, i) {
+        return e('div', { key: i, style: { marginBottom: 4 } },
+          e('span', { style: { fontWeight: 600 } }, (sq.label || sq.id || (i + 1)) + ') '),
+          sq.q
+        );
+      })
+    ) : null,
     e('textarea', {
       className: 'text-input',
       rows: 4,
@@ -584,8 +613,8 @@ function TextExercise(props) {
     checked && !examMode && ex.solution ? e('div', { className: 'solution-box' },
       e('strong', null, 'Musterl\u00F6sung: '), ex.solution
     ) : null,
-    checked && !examMode && ex.keywords && ex.keywords.length > 0 ? e('div', { style: { marginTop: 8, fontSize: '.8rem', color: 'var(--text2)' } },
-      'Schl\u00FCsselw\u00F6rter: ' + ex.keywords.map(function(k) {
+    checked && !examMode && allKeywords.length > 0 ? e('div', { style: { marginTop: 8, fontSize: '.8rem', color: 'var(--text2)' } },
+      'Schl\u00FCsselw\u00F6rter: ' + allKeywords.map(function(k) {
         var found = (val || '').toLowerCase().indexOf(k.toLowerCase()) >= 0;
         return found ? '\u2713 ' + k : '\u2717 ' + k;
       }).join(', ')
@@ -651,6 +680,7 @@ function TableExercise(props) {
 
   return e('div', null,
     ex.q ? e('div', { className: 'ex-instruction' }, ex.q) : null,
+    ex.instruction ? e('div', { className: 'ex-instruction', style: { marginTop: 4, fontWeight: 'normal' } }, ex.instruction) : null,
     e('div', { style: { overflowX: 'auto' } },
       e('table', { className: 'check-table' },
         ex.headers ? e('thead', null,
@@ -737,6 +767,7 @@ function SortExercise(props) {
 
   return e('div', null,
     ex.q ? e('div', { className: 'ex-instruction' }, ex.q) : null,
+    ex.instruction ? e('div', { className: 'ex-instruction', style: { marginTop: 4, fontWeight: 'normal' } }, ex.instruction) : null,
     e('div', { className: 'sort-list' },
       items.map(function(item, i) {
         var isCorrect = checked && item === correctOrder[i];
