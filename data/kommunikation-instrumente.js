@@ -295,7 +295,129 @@ window.BOOK_DATA = {
           reveal: ['Intermedia-Selektion: Vergleich zwischen verschiedenen Mediengattungen.','Intramedia-Selektion: Vergleich innerhalb einer Mediengattung.']
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Werbekonzept',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels können Sie ...',
+            items: [
+              'ein vollständiges Werbekonzept mit folgenden Punkten entwickeln.',
+              'eine Situationsanalyse der Werbung vornehmen.',
+              'die Zielgruppen und Ziele nennen und darauf aufbauend die umfassende Werbestrategie definieren.',
+              'Werbemassnahmen definieren und die Einsatzmöglichkeiten der wichtigsten Werbemedien und Werbeträger beschreiben.',
+              'einen Werbemitteleinsatzplan sowie die Grobstruktur eines Werbebudgets erstellen.',
+              'Kontrollmassnahmen definieren.'
+            ]
+          },
+          {
+            type: 'concept',
+            title: '2.1 Werbekonzept und Prozess',
+            content: 'Das Werbekonzept beinhaltet die Standardschritte, wie sie auch auf der Ebene der Gesamtkommunikation genutzt werden. Diese werden nun auf der Ebene Kommunikationsabteilung auf die Besonderheiten der Werbung angepasst. Der Prozess umfasst: Analysephase (Situationsanalyse, werbliche Problemstellung), Planungsphase (Positionierung, Werbestrategie, Copy-Strategie, Media-Plattform, Werbemassnahmen, Werbebudget), Implementierungsphase (Realisierung) und Kontrollphase (Kontrolle des Werbeerfolgs).',
+            highlight: 'Das Werbekonzept folgt den klassischen 6 Konzeptschritten: Analyse, Zielgruppen, Werbeziele, Werbestrategie, Massnahmen sowie Realisation/Budget/Kontrolle.'
+          },
+          {
+            type: 'concept',
+            title: '2.2 Situationsanalyse der Werbung',
+            content: 'Die Werbesituationsanalyse umfasst eine Bestandsaufnahme werberelevanter Sachverhalte mit dem Ziel, Chancen und Risiken sowie Stärken und Schwächen offenzulegen und als Grundlage zur Festlegung von Werbezielen zu dienen. Das Ergebnis ist die Herausarbeitung der werblichen Problemstellung eines Produkts, einer Marke bzw. eines Unternehmens.',
+            highlight: 'Im Vordergrund steht die Beurteilung hauptsächlich werbespezifischer Aspekte: Bewusstmachung des eigenen Kommunikationsproblems, Erkennen des Werbeverhaltens der Konkurrenz, Trends im Lebensstil der Zielgruppen.'
+          },
+          {
+            type: 'concept',
+            title: '2.3 Werbezielgruppen',
+            content: 'Die Werbung konzentriert sich meist auf die Abnehmer. Im Wesentlichen werden als Zielgruppen potenzielle und bestehende Abnehmersegmente bearbeitet. Die Beschreibung der Werbezielgruppe erfolgt nach demografischen (inkl. sozioökonomischen) und geografischen Gesichtspunkten, psychologischen Merkmalen (Einstellungsstrukturen, konsumrelevante Faktoren) sowie (kauf-)verhaltensbezogenen Merkmalen (Grad der Motivation, wissensbezogene, verwendungsbezogene, zufriedenheitsbezogene und konsumbezogene Merkmale).',
+            highlight: 'Die Zielgruppe sollte so plastisch und dreidimensional wie möglich beschrieben werden, damit die Kreativen (Art Director, Grafiker, Texter) Consumer Insights entwickeln können.'
+          },
+          {
+            type: 'table',
+            title: '2.4 Werbeziele (KOG/AFF/KON)',
+            headers: ['Zielart', 'Beschreibung'],
+            rows: [
+              ['Kognitiv (KOG)', 'Kenntnis von Marken, Leistungen und Produkten; Erinnerung von Markennamen, Preisen, Slogans.'],
+              ['Affektiv (AFF)', 'Einstellung zu Marken, Produkten und Unternehmen; Vertrauensbildung; emotionales Erleben der Marke.'],
+              ['Konativ (KON)', 'Kaufabsichten; Förderung des Wiederverkaufs; Kundenbindung.']
+            ]
+          },
+          {
+            type: 'table',
+            title: '2.5 Werbestrategien',
+            headers: ['Werbestrategie', 'Beschreibung'],
+            rows: [
+              ['Reklamestrategie', 'Aufmerksamkeit für die Werbebotschaft soll in hohem Mass geschaffen werden. Kaufappelle, Aktionswerbung, Ausverkaufswerbung.'],
+              ['Impact-Strategie', 'Die Bekanntheit eines Produkts, einer Marke oder eines Unternehmens soll aufgebaut werden. Informative Werbung, Nachrichten und Neuigkeiten.'],
+              ['Image-Strategie', 'Eine starke, eigenständige Produktpersönlichkeit soll aufgebaut werden. Idealprofil (Bedürfnisse der Käufergruppe) wird angesprochen.'],
+              ['Motivationsstrategie', 'Starke Verbrauchermotive sollen angesprochen werden. Hohe Erwartungen sollen geweckt und befriedigt werden (z.B. Sicherheit, Lifestyle).'],
+              ['Psychoanalytische Strategie', 'Besonders intensive Motivationsstrategie, die stark auf das Unterbewusste abzielt. Soll eine psychologische Konfliktsituation lösen.']
+            ]
+          },
+          {
+            type: 'concept',
+            title: '2.5.3 Copy-Strategie (Botschaftsstrategie)',
+            content: 'Die Copy-Strategie umfasst sämtliche Entscheidungen, die gesamthaft als Anleitung für die Gestalter von Werbebotschaften gelten. Elemente sind: Kommunikative Leitidee (zentrale Botschaft für alle Medien), Hauptbotschaft (was in erster Linie gesagt werden muss), Nebenbotschaften (Preis, Menge, Distributionsort), Psychologische Achse (welches Bedürfnis angesprochen wird), Consumer Benefit (wesentlicher Nutzen für den Konsumenten), Reason Why (Begründung des Consumer Benefits).',
+            highlight: 'Die wichtigste Regel ist das KISS-Prinzip: Keep it simple and stupid. Kurze und klare Sätze mit höchstens acht Wörtern. Das AIDA-Prinzip (Attention, Interest, Desire, Action) beschreibt die vier Phasen der Werbewirkung.'
+          },
+          {
+            type: 'concept',
+            title: '2.6 Mediastrategie und Mediaselektion',
+            content: 'Die Mediastrategie beschäftigt sich mit Mediazielgruppen, Mediazielen und der Mediastrategie im engeren Sinn. Es gibt sechs verschiedene Parameter: Reichweite (Wie viel Prozent der Zielgruppe erreichen wir?), Kontakte (Wie oft werden die Zielpersonen erreicht?), Intensität (Wie viele Medien werden eingesetzt?), Frequenz (In welchen zeitlichen Abständen?), Dominanz (Welche Werbemittel, Grössen, Formate?), Impact (Wie sind die Werbemittel gestaltet und platziert?).',
+            highlight: 'Intermedia-Selektion vergleicht verschiedene Mediengattungen (z.B. TV vs. Print). Intramedia-Selektion vergleicht innerhalb einer Mediengattung (z.B. Blick vs. 20 Minuten). Optimal: 3 Kontakte in 4 Wochen, 12 Kontakte in 3 Monaten.'
+          },
+          {
+            type: 'table',
+            title: 'Struktur des Werbebudgets',
+            headers: ['Gliederung', 'Richtwerte'],
+            rows: [
+              ['Konzeption', 'CHF 10\'000 - 30\'000'],
+              ['Gestaltung / Kreation', 'CHF 20\'000 - 60\'000'],
+              ['Realisation / Produktion', 'CHF 20\'000 - 60\'000'],
+              ['Umsetzung / Media', 'Entsprechend der Mediawahl und der Umsetzungsform'],
+              ['Agenturhonorar', '7-10% des Kommunikationsbudgets'],
+              ['Kontrolle, Pretests, Posttests, Reserve', 'CHF 20\'000 - 50\'000, Reserve 2-5%']
+            ]
+          },
+          {
+            type: 'merke',
+            title: 'Merke dir!',
+            items: [
+              'Das Werbekonzept folgt 6 Schritten: Analyse, Zielgruppen, Werbeziele, Werbestrategie, Massnahmen, Realisation/Budget/Kontrolle.',
+              'Werbeziele werden in kognitive (KOG), affektive (AFF) und konative (KON) Ziele unterteilt.',
+              'Die Werbestrategie ist eine mittel- bis langfristige Grundsatzentscheidung über den Einsatz von Werbebotschaften und -instrumenten.',
+              'Basis der Strategie ist die Positionierung. Die Copy-Strategie definiert die Botschaft nach dem KISS-Prinzip.',
+              'Die Mediastrategie hat 6 Parameter: Reichweite, Kontakte, Intensität, Frequenz, Dominanz, Impact.',
+              'Intermedia-Selektion = zwischen Mediengattungen. Intramedia-Selektion = innerhalb einer Gattung.',
+              'Pretests prüfen die Werbewirkung vor der Schaltung, Posttests den Werbeerfolg danach.'
+            ]
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              'Das <strong>Werbekonzept</strong> folgt den klassischen 6 Konzeptschritten: Analyse, Zielgruppen, Werbeziele, Werbestrategie, Massnahmen sowie Realisation/Budget/Kontrolle.',
+              'Die <strong>Analyse</strong>ergebnisse werden aus dem Konzept der Gesamtkommunikation übernommen und auf werbespezifische Aspekte vertieft.',
+              'Die <strong>Zielgruppen</strong> der Werbung werden nach demografischen, psychografischen sowie verhaltensbezogenen Merkmalen beschrieben.',
+              'Bei den <strong>Werbezielen</strong> unterscheidet man kognitiv-orientierte, affektiv-orientierte und konativ-orientierte Ziele.',
+              'Die <strong>Werbestrategie</strong> ist eine mittel- bis langfristige Grundsatzentscheidung. Im Rahmen der Werbestrategie wird die Copystrategie mit Schlüsselelementen, Botschaften und Stil/Tonalität entwickelt.',
+              'Die <strong>Massnahmen</strong> werden mittels der Mediastrategie und der Wahl der Werbemittel festgelegt. Die Mediaselektion (Intermedia- und Intramedia-Selektion) bestimmt den Einsatz der Medien.',
+              '<strong>Realisation, Budget, Kontrolle:</strong> Werbemittel-Einsatzplan erstellen, Budget aufteilen (Kreation, Produktion, Media-Disposition, Agenturhonorar) und Pre-/Posttests durchführen.'
+            ]
+          },
+          {
+            type: 'keyterms',
+            title: 'Schlüsselbegriffe',
+            terms: [
+              {term: 'Werbekonzept', def: 'Standardschritte der Werbeplanung, angepasst auf die Besonderheiten der Werbung (6 Konzeptschritte).'},
+              {term: 'Copy-Strategie', def: 'Botschaftsstrategie: definiert Leitidee, Hauptbotschaft, Consumer Benefit, Reason Why, Tonalität und Stil.'},
+              {term: 'KISS-Prinzip', def: 'Keep it simple and stupid - Werbebotschaften sollen einfach und verständlich formuliert sein.'},
+              {term: 'AIDA-Prinzip', def: 'Attention (Aufmerksamkeit), Interest (Interesse), Desire (Verlangen), Action (Handeln) - vier Phasen der Werbewirkung.'},
+              {term: 'Mediastrategie', def: 'Festlegung der Medien, Mediazielgruppen, Mediaziele und der sechs Parameter (Reichweite, Kontakte, Intensität, Frequenz, Dominanz, Impact).'},
+              {term: 'Intermedia-Selektion', def: 'Auswahl zwischen verschiedenen Mediengattungen (z.B. TV vs. Print vs. Digital).'},
+              {term: 'Intramedia-Selektion', def: 'Auswahl innerhalb einer Mediengattung (z.B. Blick vs. 20 Minuten).'},
+              {term: 'Werbebudgetierung', def: 'Festlegung des Etats zur Deckung sämtlicher Werbekosten einer Planungsperiode.'}
+            ]
+          }
+        ]
+      }
     },
 
     // ============================================================
@@ -393,7 +515,111 @@ window.BOOK_DATA = {
           reveal: ['Aussage 1: Richtig - exakte Definition.','Aussage 2: Falsch - Push, nicht Pull.','Aussage 3: Richtig - Definition Merchandising.','Aussage 4: Falsch - auch negative Auswirkungen möglich.']
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Verkaufsförderung',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels können Sie ...',
+            items: [
+              'die wichtigsten Begriffe und Merkmale der Verkaufsförderung erklären.',
+              'die Aufgaben und Ziele der Verkaufsförderung beschreiben.',
+              'die Funktionen der Verkaufsförderung und ihre Einsatzgebiete erläutern.',
+              'ein Verkaufsförderungskonzept entwickeln.'
+            ]
+          },
+          {
+            type: 'concept',
+            title: '3.1 Definition und Merkmale',
+            content: 'Verkaufsförderung (Sales Promotion) ist die Analyse, Planung, Durchführung und Kontrolle meist zeitlich begrenzter Aktionen mit dem Ziel, auf nachgelagerten Vertriebsstufen durch zusätzliche Anreize Kommunikationsziele eines Unternehmens zu erreichen. Sie fördert vor allem den Absatz am Verkaufspunkt (Point of Sale). Sie hat Aktionscharakter und baut meist einen direkten Kontakt zur Zielgruppe auf.',
+            highlight: 'Während Werbung einen Kaufgrund liefert, bietet Verkaufsförderung einen Anreiz, den Kaufakt zu vollziehen oder voranzutreiben. VKF kann an den Aussendienst, den Handel, an externe Beeinflusser und an Verbraucher gerichtet werden.'
+          },
+          {
+            type: 'concept',
+            title: '3.2 Funktionen der Verkaufsförderung',
+            content: 'Verkaufsförderung übt eine stark absatzorientierte Funktion aus. Ihr Erfolg misst sich unmittelbar an der Erreichung ökonomischer Ziele (Absatz und Umsatz). Vorgelagert sind psychologische Funktionen.',
+            highlight: 'Die sechs Hauptfunktionen der VKF sind: Aktivierung und Motivation, Unterstützung, Dynamisierung, Diffusion, Angewöhnung und Ergänzung.'
+          },
+          {
+            type: 'table',
+            title: 'VKF-Elemente im Marketingmix',
+            headers: ['Marketingmix-Bereich', 'VKF-Massnahmen'],
+            rows: [
+              ['Kommunikationspolitik', 'Werbeverträge, Inserate etc.'],
+              ['Preispolitik', 'Aktionen, Couponing etc.'],
+              ['Distributionspolitik', 'Displays, Zweitplatzierungen etc.'],
+              ['Produktpolitik', 'Produktzugaben, Aktionspackungen etc.'],
+              ['Personalpolitik', 'Wissensvermittlung, Kompetenzübertragung, Prämien']
+            ]
+          },
+          {
+            type: 'concept',
+            title: '3.5 Zielgruppen der Verkaufsförderung',
+            content: 'Die Zielgruppen der VKF sind: Eigene Mitarbeitende (Staff Promotion) - Aussendienst, Innendienst, Key Account Manager etc.; Handel (Dealer/Trade Promotion) - Grosshandel, Detailhandel, Fachhandel; Konsumenten/Kunden (Consumer Promotion) - Endverbraucher, Produktkäufer; Externe Beeinflusser und Influencer.',
+            highlight: 'Der Handel wird nach ABC-Analyse unterteilt: A-Zielgruppen (hohe Kooperationsbereitschaft), B-Zielgruppen (niedrige Kooperationsbereitschaft, hohe Akzeptanz), C-Zielgruppen (hohe Kooperationsbereitschaft, geringe Akzeptanz), D-Zielgruppen (Verzicht).'
+          },
+          {
+            type: 'table',
+            title: '3.6 Verkaufsförderungsziele (KOG/AFF/KON)',
+            headers: ['Stufe', 'Kognitiv', 'Affektiv', 'Konativ'],
+            rows: [
+              ['Handelsgerichtet', 'Vermittlung von Produktinfos, Erhöhung der Markenbekanntheit', 'Weckung von Produktinteressen, Formung von Einstellungen und Images', 'Realisierung Produktlistung, Lagerhaltung, Beeinflussung der Produktplatzierung'],
+              ['Konsumentengerichtet', 'Aktivierung, Aufmerksamkeit, Markenbekanntheit, Vermittlung von Produktinfos', 'Weckung von Produktinteressen, Formung von Einstellungen, Emotionales Erleben', 'Initiierung von Erst-/Versuchskäufen, Impulskäufe, Wiederkäufe, Beeinflussung der Kaufmengen']
+            ]
+          },
+          {
+            type: 'concept',
+            title: '3.7 Absatzstrategische Aspekte: Push vs. Pull',
+            content: 'Die Push-Strategie fokussiert ihre Mittel und Massnahmen hauptsächlich auf die Bearbeitung der Absatzmittler mit dem Ziel, die eigenen Produkte in deren Sortiment aufzunehmen. Bei der Verkaufsförderung handelt es sich um ein eigentliches Push-Instrument, das dazu dient, Produkte schnell am Markt einzuführen. Meist werden neben der VKF zusätzliche Pull-Massnahmen (z.B. Mediawerbung, PR, PPR) eingesetzt.',
+            highlight: 'Die Verkaufsförderung ist dem Marketing- bzw. Kommunikationskonzept untergeordnet. Das VKF-Konzept ist zwingend auf übergeordnete Marketing-Entscheide abzustimmen.'
+          },
+          {
+            type: 'concept',
+            title: '3.8 Verkaufsförderungsmassnahmen',
+            content: 'VKF-Massnahmen werden für drei Bereiche unterschieden: Konsumgüter (Staff Promotion, Dealer Promotion, Consumer Promotion), Dienstleistungsbereich und Investitionsgüterbereich. Wichtige Massnahmentypen sind: Packungsbezogene VKF (Multipack, Bundled Offer, Geschenkpackungen, Sortimentspackungen, Zweitnutzenpackungen), Zugaben (On-Pack, In-Pack, Give-away), Verkaufsförderungsaktionen (Preisausschreiben, Coupons, Trade-in, Money Back, Sweepstake, Winner in every store) und Merchandising am POS.',
+            highlight: 'Merchandising umfasst alle Mittel und Massnahmen des Herstellers und des Handels, um den Abverkauf am POS zu unterstützen: optimale Platzierung, Displays, Regalordnung.'
+          },
+          {
+            type: 'merke',
+            title: 'Merke dir!',
+            items: [
+              'Verkaufsförderung (Sales Promotion) sind zeitlich begrenzte Aktionen zur Absatzsteigerung.',
+              'VKF ist ein Push-Instrument - es drückt Produkte über den Handel an die Konsumenten.',
+              '6 Funktionen: Aktivierung, Unterstützung, Dynamisierung, Diffusion, Angewöhnung, Ergänzung.',
+              '4 Zielgruppen: Eigene Mitarbeitende (Staff), Handel (Trade/Dealer), Konsumenten (Consumer), Externe Beeinflusser.',
+              'VKF kann auch negative Auswirkungen haben: nur Kauf bei Promotionen, zeitliche Verlagerung statt Mehrumsatz.',
+              'Kontrolle ist relativ einfach: Steigen die Absatzzahlen während der Aktion, waren die Massnahmen erfolgreich.'
+            ]
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              '<strong>Verkaufsförderung</strong> (Sales Promotion) meint meist zeitlich begrenzte Aktionen mit dem Ziel, auf nachgelagerten Vertriebsstufen durch zusätzliche Anreize Kommunikationsziele zu erreichen.',
+              '<strong>Zielgruppen</strong> der VKF sind eigene Mitarbeitende, Absatzmittler, Endverbraucher und externe Beeinflusser. Zwischen Hersteller und Absatzmittler gibt es Interessenkonflikte in Bezug auf Listing, Pricing, Platzierung und Promotions-Aktivitäten.',
+              'Die <strong>Ziele</strong> der VKF können sein: Kognitiv (Markenbekanntheit steigern), Affektiv (Produktinteresse wecken, Einstellungen formen) und Konativ (Initiierung von Käufen, Beeinflussung der Produktplatzierungen am POS).',
+              'Die VKF ist ein <strong>Push-Instrument</strong>, das dazu dient, Produkte schnell am Markt einzuführen. Meist werden zusätzliche Pull-Massnahmen eingesetzt.',
+              'Die <strong>Massnahmen</strong> sind auf die vier Zielgruppen Mitarbeitende, Absatzmittler, Endverbraucher und externe Beeinflusser ausgerichtet.',
+              'Die <strong>Kontrolle</strong> der VKF ist im Vergleich zu anderen Kommunikationsinstrumenten relativ einfach: Steigen die Absatzzahlen während des Aktionszeitraums, waren die Massnahmen erfolgreich.'
+            ]
+          },
+          {
+            type: 'keyterms',
+            title: 'Schlüsselbegriffe',
+            terms: [
+              {term: 'Sales Promotion', def: 'Englischer Begriff für Verkaufsförderung - zeitlich begrenzte Aktionen zur Absatzsteigerung.'},
+              {term: 'Consumer Promotion', def: 'Konsumentengerichtete Verkaufsförderung, z.B. Gratisproben, Wettbewerbe, Coupons.'},
+              {term: 'Dealer/Trade Promotion', def: 'Handelsgerichtete Verkaufsförderung zur Motivation der Absatzmittler.'},
+              {term: 'Staff Promotion', def: 'VKF-Massnahmen für eigene Mitarbeitende (Schulung, Wettbewerbe, Prämien).'},
+              {term: 'Merchandising', def: 'Mittel und Massnahmen zur Unterstützung des Verkaufs am POS (Displays, Platzierung, Regalordnung).'},
+              {term: 'Push-Strategie', def: 'Absatzfördernde Massnahmen werden über den Handel an die Konsumenten gerichtet (Angebotsdruck).'},
+              {term: 'Sales Promotion Benefit', def: 'Zusatznutzen, den die VKF-Kampagne den anvisierten Zielgruppen bieten soll.'},
+              {term: 'Zweitnutzenpackung', def: 'Verpackung, die nach Verbrauch der Ware für einen anderen Zweck verwendet werden kann.'}
+            ]
+          }
+        ]
+      }
     },
 
     // ============================================================
@@ -485,7 +711,99 @@ window.BOOK_DATA = {
           reveal: ['1. Situationsanalyse.','2. Zielgruppen definieren.','3. Ziele festlegen.','4. Strategie entwickeln.','5. Massnahmen planen.','6. Budget, Realisation und Kontrolle.']
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Event-Marketing',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels können Sie ...',
+            items: [
+              'die wichtigsten Begriffe und Merkmale des Event-Marketings erklären.',
+              'die Aufgaben und Ziele des Event-Marketings beschreiben.',
+              'die Instrumente des Event-Marketings und ihre Einsatzgebiete erläutern.',
+              'Ansätze für ein Konzept des Event-Marketings entwickeln.'
+            ]
+          },
+          {
+            type: 'concept',
+            title: '4.1 Definition und Merkmale von Events',
+            content: 'Unter Marketing-Events versteht man geplante Ereignisse in Form von Veranstaltungen und Aktionen, die den Adressaten firmen- und produktbezogene Kommunikationsinhalte erlebnisorientiert vermitteln sollen. Event-Marketing (auch Live-Communication, Live-Marketing) ist ein Instrument der Kommunikation und bezeichnet die zielgerichtete und systematische Planung von Veranstaltungen (Messen, Aussendienstkonferenzen, Verkaufspräsentationen, Sport- und Kulturveranstaltungen) als absatzpolitisches Instrument zur Durchsetzung der Unternehmensziele.',
+            highlight: 'Das Schlagwort Erlebnisorientierung charakterisiert den Ansatz: Eine Veranstaltung wird gezielt und geplant zu einem emotional ansprechenden Erlebnis für den Besucher.'
+          },
+          {
+            type: 'table',
+            title: 'Arten von Events',
+            headers: ['Event-Art', 'Beschreibung'],
+            rows: [
+              ['Arbeitsorientierte Veranstaltungen', 'Fokus auf Information, z. B. Produktschulung, Verkaufsförderungstrainings.'],
+              ['Infotainment', 'Informationsvermittlung in einem Unterhaltungsprogramm, z. B. multimediale Produktpräsentation mit Show-Teilen.'],
+              ['Unternehmensveranstaltungen', 'Anlässe für direkte Stakeholder: Mitarbeiteranlässe, Mitglieder-Events, Anlegerversammlungen.'],
+              ['Freizeitorientierte Aktivitäten', 'Unterhaltung der Teilnehmer steht im Vordergrund. Hauptziel ist das Erzeugen einer starken emotionalen Wirkung.']
+            ]
+          },
+          {
+            type: 'concept',
+            title: '4.2 Funktionen des Event-Marketings',
+            content: 'Event-Marketing ist heute ein gleichberechtigtes Instrument im Kommunikationsmix. Hintergrund ist die Fragmentierung der Märkte und die Reizüberflutung der Konsumenten durch klassische Werbeformen. Werbung in Zeitung, Radio, Fernsehen oder Internet wird ergänzt oder ersetzt durch eine Aktionsform, die die Zielgruppe direkt erreicht und mit ihr aktiv und emotional interagiert. Das Ziel ist die Vertiefung von Beziehungen zur Zielgruppe.',
+            highlight: 'Wenn es darum geht, starke und nachhaltige Eindrücke zu erzeugen, kann kaum ein Kommunikationsinstrument mit der Kommunikationskraft des Live- bzw. Erlebnismarketings konkurrieren.'
+          },
+          {
+            type: 'table',
+            title: '4.6 Event-Marketing-Ziele',
+            headers: ['Zielkategorie', 'Beispiele'],
+            rows: [
+              ['Kognitiv-orientierte Ziele', 'Bekanntmachung neuer Produkte, Vermittlung von Schlüsselinformationen über Produkte und Informationen.'],
+              ['Affektiv-orientierte Ziele', 'Aktivierung der Wahrnehmung zu Unternehmen/Marken/Produkten, emotionales Erleben, Integration der Marke in die Erlebniswelt, Positionierung durch Emotion.'],
+              ['Konativ-orientierte Ziele', 'Festigung der Kundenbindung (Kontaktpflege, Reaktivierung inaktiver Kunden), Direktverkauf und Verkaufsförderung, Anregung zu positiver Mundpropaganda.']
+            ]
+          },
+          {
+            type: 'concept',
+            title: '4.7 Event-Strategie-Typen',
+            content: 'Üblicherweise entscheiden sich Unternehmen für eine der folgenden Event-Strategie-Typen: Einführungsstrategie (neues Produkt oder Dienstleistung wird bei bestimmten Zielgruppen live eingeführt), Zielgruppenerschliessungsstrategie (neue Zielgruppen werden angesprochen und mit den Produkten vertraut gemacht), Imageprofilierungsstrategie (Produkt oder Marke soll gegenüber den Mitbewerbern stärker positioniert werden), Erlebnisstrategie (Zielgruppen sollen live mit einem Produkt konfrontiert werden, hoher Erlebnis- und Erinnerungswert).',
+            highlight: 'Die Strategiebestimmung darf die Kreation innovativer Event-Konzepte nicht verhindern, denn letztlich dient die Realisierung von Events der Erreichung der strategischen Kommunikationsziele.'
+          },
+          {
+            type: 'concept',
+            title: '4.8 Massnahmen des Event-Marketings',
+            content: 'Die Massnahmenplanung umfasst drei Phasen: Vor dem Event (Programmplanung, Einladungen, Mailings, Werbemittel, Schulung Personal, Infrastruktur), während des Events (Attraktionen, Gästeempfang, VIP-Lounge, Dokumentation, Medienbetreuung, Verpflegung) und nach dem Event (Nachbearbeitung, Wirkungskontrolle, Kontaktaufnahme mit Besuchern, Schlussrechnung, Debriefing).',
+            highlight: 'Die Nachbearbeitung nach dem Event ist essenziell für den Erfolg. Dazu gehören Schlussrechnung, Debriefing und Verbesserungsmöglichkeiten für den nächsten Event.'
+          },
+          {
+            type: 'concept',
+            title: '4.9 Budget und Kontrolle',
+            content: 'Events sind ein kostenintensives Kommunikationsinstrument. Relevante Kostenbestandteile sind: Planungskosten (Personalkosten), Vorbereitungskosten (Einladungen, Ankündigungen), Durchführungskosten (Catering, Raummieten, Technik, Honorare), Nachbearbeitungskosten (Nachfassschreiben, Erinnerungsgeschenke) und Wirkungsmessungen (Befragungen). Die Kontrolle umfasst: Kontrolle vor der Veranstaltung inkl. Timing, Kontrolle während der Veranstaltung, Erfolgskontrolle nach der Veranstaltung und Abschlussbericht.',
+            highlight: 'Die Zufriedenheit der Besucher kann mittels verteilter Antwortkarten, Online-Befragungen oder telefonischer Befragungen nach der Veranstaltung gemessen werden.'
+          },
+          {
+            type: 'merke',
+            title: 'Merke dir!',
+            items: [
+              'Event-Marketing = zielgerichtete, systematische Planung von Veranstaltungen als Kommunikationsinstrument.',
+              'Vier Event-Arten: arbeitsorientiert, Infotainment, Unternehmensveranstaltungen, freizeitorientiert.',
+              'Ziele: kognitiv (Bekanntheit), affektiv (Emotion), konativ (Verhalten/Kauf).',
+              'Strategie-Typen: Einführung, Zielgruppenerschliessung, Imageprofilierung, Erlebnis.',
+              'Massnahmenplanung in drei Phasen: vor, während und nach dem Event.',
+              'Budget: Planungs-, Vorbereitungs-, Durchführungs- und Nachbearbeitungskosten.',
+              'Abgrenzung zum Sponsoring: Event-Marketing = eigenes inszeniertes Ereignis, Sponsoring = Ereignis findet auch ohne Sponsor statt.'
+            ]
+          },
+          {
+            type: 'keyterms',
+            title: 'Schlüsselbegriffe',
+            terms: [
+              {term: 'Event-Marketing', def: 'Zielgerichtete und systematische Planung von Veranstaltungen als Kommunikationsinstrument zur Durchsetzung von Unternehmenszielen.'},
+              {term: 'Marketing-Event', def: 'Geplantes Ereignis in Form einer Veranstaltung, das firmen- und produktbezogene Inhalte erlebnisorientiert vermittelt.'},
+              {term: 'Erlebnisorientierung', def: 'Ansatz, bei dem eine Veranstaltung gezielt zu einem emotionalen Erlebnis für den Besucher gemacht wird.'},
+              {term: 'Infotainment', def: 'Verbindung von Information und Unterhaltung bei einer Veranstaltung.'},
+              {term: 'Event-Controlling', def: 'Kontrolle und Messung des Erfolgs einer Veranstaltung vor, während und nach dem Event.'},
+              {term: 'Einführungsstrategie', def: 'Neues Produkt wird bei bestimmten Zielgruppen live eingeführt.'},
+              {term: 'Erlebnisstrategie', def: 'Zielgruppen werden live mit einem Produkt konfrontiert, hoher Erlebnis- und Erinnerungswert steht im Vordergrund.'}
+            ]
+          }
+        ]
+      }
     },
 
     // ============================================================
@@ -566,7 +884,83 @@ window.BOOK_DATA = {
           reveal: ['Standgestaltung: Design, Grösse, Aufteilung.','Produktpräsentation: Wie werden Produkte präsentiert?','Standaktivitäten: Mini-Events, Degustationen, Vorträge.','Personaleinsatz: Anzahl, Qualifikation, Briefing.']
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Messen und Ausstellungen',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels können Sie ...',
+            items: [
+              'die wichtigsten Merkmale von Messen und Ausstellungen erklären.',
+              'die Funktionen von Messen und Ausstellungen beschreiben.',
+              'die Instrumente und Massnahmen für den Einsatz von Messen und Ausstellungen erläutern.',
+              'ein Messe-Konzept entwickeln.'
+            ]
+          },
+          {
+            type: 'concept',
+            title: '5.1 Definition und Merkmale',
+            content: 'Ausstellungen, Messen, Kongresse unterscheiden sich primär durch das Ziel der Veranstaltung. Bei einer Ausstellung liegt der Schwerpunkt auf der Präsentation von Produkten (Werben und Informieren). Bei einer Messe steht das Handeln und Verkaufen im Vordergrund. Bei einem Kongress geht es um Debatten und Gespräche auf hohem Niveau zu einem bestimmten Thema. Mischformen wie Kongressmessen oder Sonderausstellungen sind ebenfalls üblich.',
+            highlight: 'Messen und Ausstellungen sind ein wichtiges Kommunikationsinstrument und dienen als Plattform, um neue Kunden zu akquirieren oder bestehende Kontakte zu intensivieren.'
+          },
+          {
+            type: 'concept',
+            title: '5.2 Funktionen von Messen und Ausstellungen',
+            content: 'Messen und Ausstellungen bieten entscheidende Vorteile: Direkter Kontakt zu vielen potenziellen Kunden in einem kurzen Zeitraum, Feedback zum Produkt- bzw. Dienstleistungsangebot durch Reaktionen der Besucher, Möglichkeit der Selbstdarstellung durch Auswahl und Präsentation des Ausstellungsprogramms und des Messestands, sportliche Erkundung der Konkurrenz sowie Suche nach potenziellen Mitarbeitenden, Aussendienstleuten, Zulieferanten oder Kooperationspartnern.',
+            highlight: 'Keine andere Marketingaktivität bietet in vergleichbarer Weise die Gelegenheit, innerhalb kurzer Zeit eine so grosse Zahl potenzieller Interessenten anzutreffen.'
+          },
+          {
+            type: 'concept',
+            title: '5.3 Planungsprozess und Messekonzept',
+            content: 'Die Ausstelleraktivität lässt sich in drei Phasen unterteilen: Planung (Festlegung der Messeziele, Strategie, Gestaltung der Massnahmen in den Bereichen Produkt, Preis, Vertrieb, Kommunikation, Prozesse, Ausstattung), Durchführung (Führung Messestand, Aufträge/Stil, separate Kundenveranstaltung, Follow-up) und Nachmessearbeit (Controlling, Ergebnis, Vorbereitung nächste Messe). Diese drei Phasen beschreiben einen Regelkreis.',
+            highlight: 'Die Entscheidung, ob ein Unternehmen sich an Messen und Ausstellungen beteiligt, hängt von vielen Überlegungen ab. Es ist die Entscheidung, auf Dauer am Markt teilzunehmen.'
+          },
+          {
+            type: 'concept',
+            title: '5.7 Durchführung: Dreiminutenerklärung und Gesprächsprotokoll',
+            content: 'Die Dreiminutenerklärung ist ein kurzer, allgemeiner Überblick über Unternehmen und Marktleistungen, um Messebesucher in kurzer Zeit einordnen zu können. Jedes Gespräch mit einem Besucher wird auf einem Formblatt (Gesprächsprotokoll) protokolliert mit Angaben wie: Titel, Name, Funktion, Unternehmen, Branche, konkreter Bedarf, spezielle Anforderungen und Wünsche.',
+            highlight: 'Das Informationsbriefing sollte jeden Morgen ein anderer Standmitarbeiter vorbereiten, damit jeder die Gelegenheit erhält, seine Eindrücke und Beobachtungen darzustellen.'
+          },
+          {
+            type: 'table',
+            title: 'Messebudget - Kostenarten',
+            headers: ['Kostenart', 'Beispiele'],
+            rows: [
+              ['Basiskosten', 'Standmiete, Energiekosten, Ausstellerausweis, Transportkosten, Reisekosten, Personalkosten, Verpflegungskosten, Versicherungskosten.'],
+              ['Standausstattung', 'Konzepterstellung, Planung und Realisation durch Standbau-Unternehmen, Auf- und Abbau, Möbel, Beleuchtung, Technik, Standgestaltung.'],
+              ['Kommunikation', 'Einladungen, Werbegeschenke, Mailings, Pressemappen, Gutscheine, Prospekte, Kataloge.'],
+              ['Sonstige Kosten', 'Schulungen/Trainings, Marktforschung für Planung und/oder Kontrolle.']
+            ]
+          },
+          {
+            type: 'merke',
+            title: 'Merke dir!',
+            items: [
+              'Ausstellung = Präsentation/Werben, Messe = Handeln/Verkaufen, Kongress = Debatten/Austausch.',
+              'Drei Phasen: Planung, Durchführung, Nachmessearbeit.',
+              'Vorteile: direkter Kontakt, Feedback, Selbstdarstellung, Konkurrenzbeobachtung.',
+              'Dreiminutenerklärung = kurzer Überblick für den Erstkontakt.',
+              'Gesprächsprotokoll = systematische Erfassung der Messekontakte.',
+              'Nachbearbeitung ist essenziell: kurzfristig Kontakte aufarbeiten, Ausstellernachbesprechung durchführen.',
+              'Zielgruppen: bestehende und neue Geschäftspartner, Einkäufer, Fach- und Führungskräfte, Kooperationspartner.'
+            ]
+          },
+          {
+            type: 'keyterms',
+            title: 'Schlüsselbegriffe',
+            terms: [
+              {term: 'Messe', def: 'Veranstaltung zum Handeln und Verkaufen, direkter Kontakt zwischen Ausstellern und Fachbesuchern.'},
+              {term: 'Ausstellung', def: 'Veranstaltung mit Schwerpunkt auf Präsentation von Produkten, Werben und Informieren.'},
+              {term: 'Kongress', def: 'Mehrtägige Fachveranstaltung zu einem bestimmten Thema, Austausch über Neuigkeiten.'},
+              {term: 'Dreiminutenerklärung', def: 'Kurzer, allgemeiner Überblick über das Unternehmen und seine Marktleistungen für den Erstkontakt am Messestand.'},
+              {term: 'Gesprächsprotokoll', def: 'Formblatt zur systematischen Erfassung aller Kontaktdaten und Gesprächsinhalte bei Messegesprächen.'},
+              {term: 'Kongressmesse', def: 'Mischform aus Messe und Kongress, bei der eine Messe um einen thematischen Kongress ergänzt wird.'},
+              {term: 'Standkonzept', def: 'Planung der Standgestaltung, Produktpräsentation, Standaktivitäten und Personaleinsatz.'}
+            ]
+          }
+        ]
+      }
     },
 
     // ============================================================
@@ -650,7 +1044,85 @@ window.BOOK_DATA = {
           reveal: ['Exposition der Sponsoring-Botschaft.','Erinnerungs- und Imagewirkung.','Verhaltens- und Umsatzwirkung.']
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Sponsoring',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels können Sie ...',
+            items: [
+              'die wichtigsten Begriffe und Merkmale des Sponsoring erklären.',
+              'die Formen des Sponsoring unterscheiden.',
+              'die Ziele und Zielgruppen des Sponsoring beschreiben.',
+              'geeignete Sponsoringstrategien auswählen.',
+              'die Massnahmen des Sponsoring und deren Einsatzgebiete erläutern.'
+            ]
+          },
+          {
+            type: 'concept',
+            title: '6.1 Definition und Merkmale des Sponsoring',
+            content: 'Sponsoring ist ein Kommunikationsinstrument, bei dem ein Sponsor dem Gesponserten Geld, Sachmittel, Dienstleistungen oder Know-how zur Verfügung stellt. Im Gegenzug erhält der Sponsor als Gegenleistung die kommunikative Nutzung von Rechten an Personen (z. B. Sportler) oder Logonutzungsrechte. Sponsoring basiert auf dem Prinzip von Leistung und Gegenleistung und unterscheidet sich damit vom Mäzenatentum (keine Gegenleistung erwartet).',
+            highlight: 'Sponsoring hat in den letzten Jahren stark an Bedeutung gewonnen: gesellschaftliche Veränderungen, wachsendes Freizeitbewusstsein und die Suche nach neuen Kommunikationswegen haben dazu beigetragen.'
+          },
+          {
+            type: 'table',
+            title: '6.2 Formen des Sponsoring',
+            headers: ['Sponsoringform', 'Beschreibung'],
+            rows: [
+              ['Sportsponsoring', 'Circa 80%: Förderung von sportlichen Veranstaltungen, Einrichtungen, Einzelsportlern und Mannschaften. Besonders geeignet zur Erreichung eines Massenpublikums.'],
+              ['Kultursponsoring', 'Circa 15%: Unterstützung kultureller Leistungen in den Bereichen bildende Kunst, Literatur, Theater, Kino, Oper, Museen, Konzerte. Geeignet für kleinere, ausgewählte Zielgruppen.'],
+              ['Umweltsponsoring', 'Circa 2,5%: Unterstützung von Projekten, die der Umwelt zugutekommen. Der Fördergedanke steht im Vordergrund, z. B. Naturschutzorganisationen.'],
+              ['Soziosponsoring', 'Circa 2,5%: Förderung von Einrichtungen des Gemeinwohls und Aktionen zugunsten der Gesellschaft, meist im Gesundheits- und Sozialwesen.'],
+              ['Medien-/Programmsponsoring', 'Unterstützung von Presse-, Radio- und TV-Sendungen. Möglichkeiten: Programmsponsoring (Nennung im Vor-/Abspann), Programming, Product Placement.']
+            ]
+          },
+          {
+            type: 'concept',
+            title: '6.3 Sponsoring-Konzept',
+            content: 'Das Sponsoring-Konzept umfasst mehrere Schritte: Bestimmung/Überprüfung der Sponsoring-Situation, Analyse der Rahmenbedingungen, Sponsoring-Ziele (Wahrnehmung, Bekanntheit, Image, Mitarbeitermotivation), Sponsoring-Zielgruppen, Sponsoring-Strategie, Sponsoring-Projektierung (Massnahmen und Realisierung), Sponsoring-Realisierung und Sponsoring-Controlling (Expositionsmessung, Wahrnehmung, Erinnerung, Verhalten).',
+            highlight: 'Das Sponsoring-Konzept wird sowohl aus Sicht des Sponsors als auch aus Sicht des Sponsoringnehmers erstellt.'
+          },
+          {
+            type: 'concept',
+            title: '6.5 Ziele des Sponsoring',
+            content: 'Sponsoringziele sind mittelfristig und/oder projektbezogen ausgerichtet. Sie lassen sich unterteilen in: Unternehmenskommunikationsziele (Goodwill, Aufmerksamkeit, Imageverbesserung, Mitarbeitermotivation), Produkt-/Markenziele (Bekanntheit von Produkten, Verkaufsförderung im Umfeld des Events) und Beziehungsziele (Kundenpflege, Kontaktaufbau zu Kulturschaffenden, Sportlern, Medienschaffenden, Förderung des Teamgedankens).',
+            highlight: 'Die Gewichtung der drei Hauptzielsetzungen ist in jedem Unternehmen unterschiedlich und muss sorgfältig auf die angesprochenen Zielgruppen, das Umfeld des Anlasses sowie die erwartete Medienwirkung abgestimmt werden.'
+          },
+          {
+            type: 'concept',
+            title: '6.6 Sponsoringstrategie: Auswahl von Sponsorships',
+            content: 'Die Auswahl erfolgt über eine sorgfältig erarbeitete Ähnlichkeitsanalyse in zwei Schritten: Grobauswahl (geeignete Förderbereiche: Sport, Kultur, Soziales, Umwelt oder Medien) und Feinauswahl (konkrete Sponsoringbereiche: Einzelpersonen, Gruppen, Institutionen, Events). Der Status des Sponsors kann sein: Exklusiv-Sponsor (einziger Sponsor, Ownership-Ansatz), Hauptsponsor (umfangreiche Rechte), Co-Sponsor (geringerer Beitrag, Branchenexklusivrecht) oder Official Supplier.',
+            highlight: 'Die Überprüfung erfolgt über die realisierbare Einbindung in die Unternehmens-, Produkt- oder Markenstrategie. Es muss eine Identifikation der thematischen Zusammenhänge zwischen dem Unternehmen und dem möglichen Förderbereich bestehen.'
+          },
+          {
+            type: 'merke',
+            title: 'Merke dir!',
+            items: [
+              'Sponsoring = Leistung (Geld, Sachmittel) und Gegenleistung (kommunikative Nutzung).',
+              'Wichtigste Formen: Sportsponsoring (80%), Kultursponsoring (15%), Umwelt-/Soziosponsoring.',
+              'Drei Hauptzielsetzungen: Unternehmenskommunikation, Produkt/Marke, Beziehungspflege.',
+              'Sponsor-Status: Exklusiv-Sponsor, Hauptsponsor, Co-Sponsor, Official Supplier.',
+              'Sponsoring braucht flankierende Massnahmen (Integration in Werbe-, VKF-, Distributions- und PR-Aktivitäten).',
+              'Kontrolle misst: Exposition der Botschaft, Erinnerungswirkung, Imagewirkung, Verhaltens- und Umsatzwirkung.',
+              'Abgrenzung zum Mäzenatentum: Mäzen erwartet keine Gegenleistung.'
+            ]
+          },
+          {
+            type: 'keyterms',
+            title: 'Schlüsselbegriffe',
+            terms: [
+              {term: 'Sponsoring', def: 'Kommunikationsinstrument basierend auf Leistung und Gegenleistung: Sponsor stellt Mittel bereit, Gesponserter bietet kommunikative Nutzungsrechte.'},
+              {term: 'Sportsponsoring', def: 'Förderung von sportlichen Veranstaltungen, Einrichtungen und Sportlern durch Sponsoren (ca. 80% aller Sponsoring-Aktivitäten).'},
+              {term: 'Kultursponsoring', def: 'Unterstützung kultureller Leistungen wie Kunst, Literatur, Theater, Konzerte durch Unternehmen.'},
+              {term: 'Exklusiv-Sponsor', def: 'Einziger Sponsor eines Events oder einer Organisation, besitzt den Ownership-Ansatz.'},
+              {term: 'Hauptsponsor', def: 'Sponsor mit umfangreichen Rechten, aber nicht alleiniger Sponsor.'},
+              {term: 'Co-Sponsor', def: 'Subsidiary Sponsor mit geringerem materiellem/finanziellem Beitrag, meist mit Branchenexklusivrecht.'},
+              {term: 'Programmsponsoring', def: 'Nennung des Sponsors im Vor- oder Abspann von Presse-, Radio- und TV-Sendungen.'}
+            ]
+          }
+        ]
+      }
     },
 
     // ============================================================
@@ -748,7 +1220,84 @@ window.BOOK_DATA = {
           reveal: ['Das primäre Ziel des Dialogmarketings ist der Aufbau einer interaktiven Beziehung zum Kunden.','Es geht nicht um Massenreichweite (das wäre Mediawerbung).']
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Dialogmarketing',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels können Sie ...',
+            items: [
+              'die wichtigsten Begriffe und Merkmale des Dialogmarketings, des Direkt- und des Database-Marketings erklären.',
+              'die Zielgruppen und Ziele des Dialogmarketings beschreiben.',
+              'die Massnahmen des Dialogmarketings und ihre Einsatzgebiete erläutern.',
+              'Ansätze für ein Konzept des Dialogmarketings entwickeln.'
+            ]
+          },
+          {
+            type: 'concept',
+            title: '7.1 Definitionen und Merkmale',
+            content: 'Direktmarketing im Sinn von oft unspezifizierten, sprich unadressierten Massenversänden entwickelte sich in den letzten Jahren immer mehr zu einem Instrument des Dialogs mit neuen, bestehenden und auch ehemaligen Kunden, ganz im Sinn eines zielführenden Customer Relationship Management (CRM). Entsprechend wird dieses Kommunikationsinstrument heute nicht mehr Direktmarketing, sondern Dialogmarketing genannt.',
+            highlight: 'Das Dialogmarketing (DM) umfasst sämtliche Kommunikationsmassnahmen, die darauf ausgerichtet sind, durch eine gezielte Einzelansprache einen direkten Kontakt zum Adressaten herzustellen und einen unmittelbaren Dialog zu initiieren.'
+          },
+          {
+            type: 'concept',
+            title: '7.1 Vorteile des Dialogmarketings',
+            content: 'Gegenüber der klassischen Werbung hat Dialogmarketing wesentliche Vorteile: Bekannte Personen können persönlich und individualisiert kontaktiert werden, es wird ein Dialog und eine Beziehung aufgebaut, die Kunden können persönlich ermittelt und in einer Datenbank erfasst werden, Cross-Selling wird ermöglicht, tiefere Streuverluste als bei Mediawerbung. Die individuelle Kontaktansprache vermindert die Streuverluste und führt zu einer Gewinnverbesserung aufgrund von Kostensenkungspotenzialen.',
+            highlight: 'Database-Marketing ist die interne und externe Gewinnung individueller personen- und firmenspezifischer Daten zum Aufbau dauerhafter Kundenbeziehungen.'
+          },
+          {
+            type: 'table',
+            title: 'Dialogmarketing-Datenbank: Vier Datenarten',
+            headers: ['Datenart', 'Beschreibung'],
+            rows: [
+              ['Grunddaten', 'Längerfristig gleichbleibende Kundendaten: aktuelle Adress-, soziodemografische und psychologische Daten.'],
+              ['Aktionsdaten', 'Informationen über kundenbezogene Massnahmen, die bisher realisiert wurden: Art des ersten Kontakts, Datum des ersten Interesses, Kommunikationsgrundlage (Klub, Kataloge), Werbemitteleinsatz.'],
+              ['Reaktionsdaten', 'Informationen über Reaktionen der Kunden auf Aktionen: Datum der letzten Bestellung, Kauffrequenz, durchschnittlicher Bestellwert, Beschwerden.'],
+              ['Potenzialdaten', 'Zukunftsbezogene Daten zum Nachfrageverhalten: Bedarfsmenge, Bedarfszeitpunkte, Nutzung von Konkurrenzprodukten, Kundenwert und Kundenpotenzial.']
+            ]
+          },
+          {
+            type: 'concept',
+            title: '7.3 Ziele des Dialogmarketings',
+            content: 'Es gibt viele Einsatzmöglichkeiten des Dialogmarketings mit folgenden Zielen: Kundengewinnungsfunktion (Recruitment) - Interessentengewinnung, Neukundengewinnung; Kundenbindungsfunktion (Retention) - Kundenaktivierung, Kundenpflege, Kommunikation von Klubaktivitäten; Kundenrückgewinnungsfunktion (Recovery) - Entfachung neuer Begeisterung ehemaliger Kunden, neuer Beziehungsaufbau. Weitere Funktionen: Verkaufsfunktion, Einladungsfunktion, Aufgaben analog zur klassischen Kommunikation.',
+            highlight: 'Es ist ca. siebenmal leichter (bzw. billiger), einen Stammkunden zum Kauf zu bewegen, als einen neuen Kunden für sich zu gewinnen.'
+          },
+          {
+            type: 'concept',
+            title: '7.4 Strategien des Dialogmarketings',
+            content: 'Direct Marketing ist darauf ausgerichtet, einen direkten Kontakt zu den Zielgruppen herzustellen und einen Dialog zu initiieren. Vier Hauptstrategien: Akquisitionsstrategie (Neukundenakquisition, Kontakt herstellen), Informationsstrategie (bestehende Kunden über neue Produkte/Preise informieren), Betreuungsstrategie (Kontakte pflegen, Kundenbindung erhöhen, Cross-Selling-Potenziale realisieren), Abverkaufsstrategie (Kunden unmittelbar zum Kauf bewegen, z. B. personalisierte Kataloge, E-Mail-Newsletter mit Bestell-Option).',
+            highlight: 'Ein besonders häufig genutztes Instrument im Dialogmarketing ist das Callcenter, das deutlich höhere Erfolgsquoten im Vergleich zum klassischen Mailing erzielt.'
+          },
+          {
+            type: 'merke',
+            title: 'Merke dir!',
+            items: [
+              'Dialogmarketing = gezielte Einzelansprache für direkten Kontakt und Dialog.',
+              'Früher Direktmarketing, heute Dialogmarketing im Sinn von CRM.',
+              'Database-Marketing = Gewinnung und Nutzung individueller Kundendaten.',
+              'Vier Datenarten: Grunddaten, Aktionsdaten, Reaktionsdaten, Potenzialdaten.',
+              'Drei Hauptfunktionen: Kundengewinnung (Recruitment), Kundenbindung (Retention), Kundenrückgewinnung (Recovery).',
+              'Vier Strategien: Akquisition, Information, Betreuung, Abverkauf.',
+              'Callcenter = höhere Erfolgsquoten als klassisches Mailing, aber auch höhere Kosten.'
+            ]
+          },
+          {
+            type: 'keyterms',
+            title: 'Schlüsselbegriffe',
+            terms: [
+              {term: 'Dialogmarketing', def: 'Sämtliche Kommunikationsmassnahmen zur gezielten Einzelansprache und zum Aufbau eines direkten Dialogs mit dem Kunden.'},
+              {term: 'Database-Marketing', def: 'Gewinnung individueller personen- und firmenspezifischer Daten zum Aufbau dauerhafter Kundenbeziehungen.'},
+              {term: 'Customer Relationship Management (CRM)', def: 'Zielführendes Management der Kundenbeziehungen über den gesamten Kundenlebenszyklus.'},
+              {term: 'Dialogmarketing-Datenbank', def: 'Zentrale Datenbank mit Grund-, Aktions-, Reaktions- und Potenzialdaten der Kunden.'},
+              {term: 'Direct-Response-Werbung', def: 'Werbung, bei der der Empfänger sein Interesse bekundet und reagiert, wodurch neue Zielgruppen erschlossen werden.'},
+              {term: 'Akquisitionsstrategie', def: 'Strategie zur Neukundengewinnung durch direkten Kontakt und Interessentenansprache.'},
+              {term: 'Betreuungsstrategie', def: 'Strategie zur Pflege bestehender Kontakte, Erhöhung der Kundenbindung und Realisierung von Cross-Selling-Potenzialen.'},
+              {term: 'One-to-one-Marketing', def: 'Hochgradig individualisiertes Marketing, bei dem das Unternehmen nicht eine Zielgruppe, sondern eine Zielperson sucht.'}
+            ]
+          }
+        ]
+      }
     },
 
     // ============================================================
@@ -842,7 +1391,100 @@ window.BOOK_DATA = {
           reveal: ['Twitter/X: Kurze Nachrichten, Echtzeit.','Instagram: Fotos, Videos, Stories.','LinkedIn: B2B, berufliches Netzwerk.','Facebook: Grösstes Netzwerk, breite Zielgruppe.']
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Social Media',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels können Sie ...',
+            items: [
+              'verschiedene Massnahmen der Online-Kommunikation nennen.',
+              'die Begriffe SEO und SEA voneinander unterscheiden.',
+              'das Vorgehen beim Einsatz von Social Media erläutern.',
+              'die wichtigsten Arten von Social-Media-Inhalten beschreiben.',
+              'die wichtigsten Kriterien zum Umsetzen von Newsletter-Marketing erklären.'
+            ]
+          },
+          {
+            type: 'concept',
+            title: '8.1 Massnahmen der digitalen Kommunikation',
+            content: 'Die eigene Website ist der Kern der meisten Online-Marketing-Aktivitäten. Sie dient der Kundenbindung, Neukundenakquisition und Beziehungspflege. Neben der Website sind die zwei wichtigsten Massnahmen im Suchmaschinenmarketing: Suchmaschinenoptimierung (SEO) und Suchmaschinenwerbung (SEA). SEO zielt darauf ab, die Website suchmaschinenfreundlich zu gestalten (Key Words in Titeln, Texten und Bildlegenden). SEA wird eingesetzt, damit die eigene Website in Suchmaschinen auf der Resultatseite angezeigt wird (Adwords, bezahlte Anzeigen).',
+            highlight: 'Die Benutzerfreundlichkeit (Usability) steht bei der Gestaltung der Website im Vordergrund. Neben Text und Bild können auch Videos, Ton, Downloads und Chat-Funktionen integriert werden.'
+          },
+          {
+            type: 'concept',
+            title: '8.2 Social-Media-Kommunikation',
+            content: 'Social-Media-Kommunikation (SMM) ist ein Teil der Online-Kommunikation. Unter Social Media werden alle Plattformen verstanden, die es ihren Nutzern erlauben, Inhalte zu kreieren, auszutauschen und sich gegenseitig zu vernetzen. Zu den bekanntesten gehören Instagram, Facebook, TikTok, LinkedIn, Twitter und YouTube. Das entscheidende Element ist der Austausch zwischen den Usern. Das Unternehmen verliert dabei teilweise die Kontrolle über die Inhalte.',
+            highlight: 'Social Media Content sollte einzigartig gestaltet und speziell für die Plattform angepasst werden, auf der die Inhalte geteilt werden.'
+          },
+          {
+            type: 'table',
+            title: 'Social-Media-Kennzahlen',
+            headers: ['Kennzahl', 'Beschreibung'],
+            rows: [
+              ['Interaktion', 'Klicks, Kommentare, Likes und Antworten auf Social-Media-Beiträge.'],
+              ['Reichweite', 'Anzahl der Personen, die Content auf einer Website oder einem Profil gesehen haben.'],
+              ['Follower', 'Anzahl der Personen, die einem Profil folgen und den Content regelmässig sehen.'],
+              ['Impressionen', 'Anzahl der Aufrufe eines Beitrags, unabhängig davon, ob er angeklickt wird.'],
+              ['Videoaufrufe', 'Anzahl der Aufrufe auf YouTube, Facebook, Snapchat, Instagram etc.'],
+              ['Mentions', 'Anzahl der Erwähnungen eines Profils durch Mitglieder der Zielgruppe.'],
+              ['Shares/Reposts', 'Beiträge, die von Followern in ihrem Netzwerk geteilt oder repostet werden.']
+            ]
+          },
+          {
+            type: 'table',
+            title: 'Anwendungsbereiche von Social Media',
+            headers: ['Plattform', 'Massnahme', 'Beschreibung'],
+            rows: [
+              ['Instagram', 'Influencer-Marketing', 'Werbung für Produkte und Leistungen durch Influencer.'],
+              ['TikTok', 'Influencer-Marketing', 'Werbung für Produkte und Leistungen durch Influencer.'],
+              ['Facebook', 'Kundendienst', 'Online-Support für Kundenfragen und Probleme.'],
+              ['Blog, Twitter', 'Public Relations', 'Fachartikel und Tweets zu Fachthemen, Fachkompetenz unter Beweis stellen.'],
+              ['LinkedIn, Xing', 'Personalmarketing', 'Anwerben von künftigen Mitarbeitenden.'],
+              ['YouTube', 'Kundendienst, Imagepflege', 'Videos zur korrekten Installation oder zum Gebrauch der Produkte, Image- und Werbevideos.']
+            ]
+          },
+          {
+            type: 'methodenbox',
+            title: 'Vorgehen bei der Social-Media-Strategie',
+            text: '1. Strategie definieren mit Zielen und Zielgruppen. 2. Passende Plattform(en) wählen anhand der Zielgruppenkenntnisse. 3. Zuhören, was auf der Plattform geschieht, und lernen. 4. Inhalte erstellen und regelmässig veröffentlichen. 5. Relevanten Inhalt wählen und kreativ sein. 6. Auf Kommentare reagieren und interagieren. 7. Traffic auf dem eigenen Kanal und der Website aufbauen. Nicht blind auf jede Plattform aufspringen, sondern mit einer Strategie und einem klaren Ziel an die Sache herangehen.'
+          },
+          {
+            type: 'concept',
+            title: '8.2.5 Besonderheiten der Social-Media-Kommunikation',
+            content: 'Social-Media-Plattformen leben von User Generated Content und der Interaktion zwischen den Usern. Unternehmen verlieren einen Teil der Kontrolle. Gefürchtet sind Shitstorms, die zu massiven Reputationsschäden führen können. Bei Kritik ist eine transparente, ehrliche und authentische Kommunikation gefragt. Keine Lösung ist das Löschen der Kommentare oder das Schliessen des Kanals. Eine weitere Besonderheit: Jedermann kann gleichberechtigt auf den verschiedenen Kanälen präsent sein und sich eine Community aufbauen.',
+            highlight: 'Der Erfolg in den sozialen Medien hängt ganz vom Erfolg des geposteten Contents ab. Gefragt sind spannende Inhalte, Authentizität und ein echtes Interesse an den Themen.'
+          },
+          {
+            type: 'merke',
+            title: 'Merke dir!',
+            items: [
+              'Website = Kern der Online-Marketing-Aktivitäten, Usability ist entscheidend.',
+              'SEO = Suchmaschinenoptimierung (organisch), SEA = Suchmaschinenwerbung (bezahlt/Adwords).',
+              'Social Media = Plattformen zum Kreieren, Austauschen und Vernetzen von Inhalten.',
+              'Wichtige Kennzahlen: Interaktion, Reichweite, Follower, Impressionen, Mentions, Shares.',
+              'Online-Kommunikation gehört zu den wachsenden Bereichen, Print ist rückläufig.',
+              'Social-Media-Strategie: Ziele definieren, Plattform wählen, zuhören, Inhalte erstellen, interagieren.',
+              'Shitstorms erfordern transparente, ehrliche Kommunikation - nicht löschen oder ignorieren.'
+            ]
+          },
+          {
+            type: 'keyterms',
+            title: 'Schlüsselbegriffe',
+            terms: [
+              {term: 'SEO (Search Engine Optimization)', def: 'Suchmaschinenoptimierung: Website suchmaschinenfreundlich gestalten, damit sie bei relevanten Suchanfragen gefunden wird.'},
+              {term: 'SEA (Search Engine Advertising)', def: 'Suchmaschinenwerbung: Bezahlte Anzeigen (Adwords), die bei bestimmten Suchwörtern geschaltet werden.'},
+              {term: 'Social Media', def: 'Plattformen, die es Nutzern erlauben, Inhalte zu kreieren, auszutauschen und sich zu vernetzen (Instagram, Facebook, TikTok, LinkedIn etc.).'},
+              {term: 'User Generated Content', def: 'Von Nutzern der Plattform erstellte Inhalte, nicht vom Unternehmen selbst.'},
+              {term: 'Influencer-Marketing', def: 'Werbung für Produkte und Leistungen durch Personen mit grosser Reichweite und Glaubwürdigkeit in sozialen Medien.'},
+              {term: 'Shitstorm', def: 'Massive öffentliche Kritik in sozialen Medien, die zu Reputationsschäden und Umsatzeinbussen führen kann.'},
+              {term: 'Usability', def: 'Benutzerfreundlichkeit einer Website oder Anwendung.'},
+              {term: 'Display-Werbung', def: 'Online-Werbung in Form von Bannern, Pop-ups und anderen visuellen Formaten auf Websites.'}
+            ]
+          }
+        ]
+      }
     },
 
     // ============================================================
@@ -935,7 +1577,101 @@ window.BOOK_DATA = {
           reveal: ['Werbewirkung: Kommunikative Wirkung - wie wird die Werbung wahrgenommen, erinnert, wie beeinflusst sie Einstellungen?','Werbeerfolg: Ökonomische Wirkung - wie wirkt sich die Werbung auf Umsatz, Absatz und Marktanteil aus?','Die Werbewirkung ist die Voraussetzung für den Werbeerfolg.']
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Kommunikationsforschung',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels können Sie ...',
+            items: [
+              'die wichtigsten Begriffe und Merkmale der Kommunikationsforschung erklären.',
+              'die Aufgaben und Ziele der Kommunikationsforschung beschreiben.',
+              'die Instrumente der Kommunikationsforschung und ihre Einsatzgebiete erläutern.',
+              'Ansätze für ein Pre- und ein Posttest-Konzept entwickeln.'
+            ]
+          },
+          {
+            type: 'concept',
+            title: '9.1 Möglichkeiten der Kommunikationsforschung',
+            content: 'Die Kommunikation versucht, durch das Senden von Botschaften spezifische Zielgruppen anzusprechen und zu beeinflussen. Ziel ist die Änderung oder Verstärkung von Einstellungen und Verhalten. Der Umgang der Konsumenten mit diesen Informationen lässt sich in vier Phasen unterteilen: Informationsbeschaffung, Informationswahrnehmung, Informationsverarbeitung und Informationsspeicherung. Es gibt zwei grundlegende Möglichkeiten der Kommunikationsforschung: Pretesting (vor dem Medieneinsatz) und Posttesting (nach dem Medieneinsatz).',
+            highlight: 'Wer kommuniziert, will Wirkung mit höchstmöglicher Effizienz. Werbewirkungs- und Werbeerfolgskontrolle liefern die notwendigen Nachweise.'
+          },
+          {
+            type: 'concept',
+            title: '9.1.1 Pretesting und 9.1.2 Posttesting',
+            content: 'Beim Pretesting gibt es sechs Phasen: 1. Ausgangspunkte und Situationsanalyse, 2. Entwicklung und kreatives Brainstorming, 3. Verdichtung und Konkretisierung zu Konzeptboards, 4. Vorentscheid und Ausformulierung (1-2 Varianten), 5. Wahl des Kommunikationskonzepts, 6. Schaltung der Kommunikationsmittel. Beim Posttesting werden die Kommunikationsmassnahmen während und nach ihrer Schaltung überprüft.',
+            highlight: 'Der Prozess der Kommunikationsforschung umfasst: Formulierung des Kommunikationsziels, dann vor der Schaltung (Pretests), während der Schaltung (Tracking-Studien) und nach der Schaltung (Posttests).'
+          },
+          {
+            type: 'concept',
+            title: '9.2.1 Recall und Recognition',
+            content: 'Recall (Erinnerung) und Recognition (Wiedererkennung) werden in der Kommunikationsforschung prioritär untersucht. Recall ist die aktive Erinnerung an Werbekampagnen, Slogans, Anzeigen, Spots etc. ohne Befragungshilfen. Stufen der Erinnerung: Spontane Erinnerung (Spontaneous Recall), nicht unterstützte Erinnerung (Unaided Recall), angestützte Erinnerung (Prompted Recall), gestützte Erinnerung (Aided Recall). Recognition ist das passive Wiedererkennen einer Anzeige, eines Spots etc. durch Vorlage von Originalheften oder Anzeigen.',
+            highlight: 'Recall = aktive Erinnerung ohne Hilfsmittel. Recognition = passives Wiedererkennen bei Vorlage des Originals.'
+          },
+          {
+            type: 'table',
+            title: '9.3 Verfahren der Kommunikationswirkungsmessung',
+            headers: ['Verfahren', 'Beschreibung'],
+            rows: [
+              ['Folder Test', 'Messung der Aufmerksamkeits- und Erinnerungsstärke von Anzeigen. Befragte blättern eine Mappe mit Anzeigen durch und werden zu Erinnerungswerten befragt.'],
+              ['Studiotest', 'Befragung von Probanden unter kontrollierbaren Testbedingungen. Der Interviewer betreut Teilnehmer einzeln und protokolliert spontane Reaktionen.'],
+              ['Tachistoskop-Test', 'Experimentelle Methode: Gegenstände wie Symbole, Logos oder Anzeigen werden in kurzen Zeitintervallen vorgegeben, um spontane Anmutungen zu ermitteln.'],
+              ['Attention Tracking', 'Effizientes Verfahren zur Messung der Werbewirkung von Titelseiten und Anzeigen. Probanden klicken am Bildschirm auf Aufmerksamkeitspunkte.'],
+              ['Copy Test', 'Testverfahren zur Ermittlung der Wiedererkennungswerte unter Verwendung von Originalzeitschriften. Befragte blättern Seite für Seite durch.'],
+              ['Trackingstudien', 'Fortlaufende Befragungen über einen längeren Zeitraum zu Markenbekanntheit, -verwendung und Image. Messung von Werbewirkungsparametern im Zeitverlauf.']
+            ]
+          },
+          {
+            type: 'concept',
+            title: '9.4 Media- und Kommunikationswirkungsstudien',
+            content: 'Unter Mediastudien wird die systematische und wissenschaftliche Erforschung des Beitrags von Kommunikationsmitteln bzw. Kommunikationskanälen zum Werbeerfolg verstanden (Werbeträgerforschung). Die wichtigsten Studien in der Schweiz sind: MACH Basic (Printmedien-Nutzung), Mediapulse TV Data (TV-Nutzung), Mediapulse Radio Data (Radio-Nutzung), MACH Consumer (Konsumverhalten und Mediennutzung), MA Leader (Entscheidungsträger in Wirtschaft und Verwaltung) und weitere.',
+            highlight: 'Mediastudien liefern Informationen für die Mediaplanung und die Mediaselektion - sie untersuchen das Medienkonsumverhalten der Bevölkerung.'
+          },
+          {
+            type: 'table',
+            title: 'Briefing für Pre- und Posttests',
+            headers: ['Schritt', 'Beschreibung'],
+            rows: [
+              ['1. Kurze Schilderung der Ausgangslage', 'Umfeldanalyse der Situation, Überblick der Kommunikationskonzeption und -strategie.'],
+              ['2. Problemdefinition und Ziel der Untersuchung', 'Konkrete Ziele zur Markt-/Meinungsstimmung hinsichtlich Ertrags- und Wirkungsgrundsätze von Kommunikationsmassnahmen.'],
+              ['3. Beschreibung der Erhebungsinhalte', 'Programmfragen werden definiert: Beachtung von Massnahmen, Impact, Persuasion.'],
+              ['4. Angaben zur Forschungstechnik', 'Erhebungsmethode: Befragung, Beobachtung, Experiment, Gruppendiskussion.'],
+              ['5. Zielgruppe = Grundgesamtheit', 'Definition der Personen, über die eine Aussage gemacht werden soll.'],
+              ['6. Stichprobenbildung', 'Angemessene Grösse: Pretests 20-50 Personen, Posttests 400-2000 Personen.'],
+              ['7. Timing der Arbeitsschritte', 'Pretests: 3-6 Wochen. Posttests: 6-8 Wochen.']
+            ]
+          },
+          {
+            type: 'merke',
+            title: 'Merke dir!',
+            items: [
+              'Zwei Grundformen: Pretesting (vor Schaltung) und Posttesting (nach Schaltung).',
+              'Recall = aktive Erinnerung (spontan, ungestützt, angestützt, gestützt).',
+              'Recognition = passives Wiedererkennen durch Vorlage von Originalmaterial.',
+              'Sechs Verfahren: Folder Test, Studiotest, Tachistoskop-Test, Attention Tracking, Copy Test, Trackingstudien.',
+              'Werbewirkung = kommunikative Wirkung (Wahrnehmung, Erinnerung, Einstellung).',
+              'Werbeerfolg = ökonomische Wirkung (Umsatz, Absatz, Marktanteil).',
+              'Mediastudien: MACH Basic (Print), Mediapulse TV/Radio Data, MACH Consumer, MA Leader.'
+            ]
+          },
+          {
+            type: 'keyterms',
+            title: 'Schlüsselbegriffe',
+            terms: [
+              {term: 'Pretesting', def: 'Überprüfung der kommunikativen Leistung eines Werbemittels vor dem endgültigen Einsatz der Werbung.'},
+              {term: 'Posttesting', def: 'Überprüfung der Kommunikationsmassnahmen während und nach ihrer Schaltung.'},
+              {term: 'Recall', def: 'Aktive Erinnerung an Werbekampagnen, Slogans, Anzeigen oder Spots ohne Befragungshilfen.'},
+              {term: 'Recognition', def: 'Passives Wiedererkennen einer Anzeige oder eines Spots durch Vorlage von Originalmaterial.'},
+              {term: 'Folder Test', def: 'Verfahren zur Messung der Aufmerksamkeits- und Erinnerungsstärke von Anzeigen in einer Testmappe.'},
+              {term: 'Tachistoskop-Test', def: 'Experimentelle Methode mit kurzzeitiger Darbietung von Symbolen/Logos zur Ermittlung spontaner Anmutungen.'},
+              {term: 'Attention Tracking', def: 'Verfahren zur Messung der Werbewirkung von Titelseiten und Anzeigen durch Blickverfolgung am Bildschirm.'},
+              {term: 'MACH Basic', def: 'Wichtigste Schweizer Mediastudie zur Printmedien-Nutzung, Grundgesamtheit: CH + FL ab 14 Jahren.'},
+              {term: 'Trackingstudien', def: 'Fortlaufende Befragungen über einen längeren Zeitraum zur Messung von Werbewirkungsparametern und Einstellungsänderungen.'}
+            ]
+          }
+        ]
+      }
     }
   ],
   glossary: [

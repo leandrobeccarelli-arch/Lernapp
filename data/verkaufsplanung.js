@@ -402,7 +402,133 @@ window.BOOK_DATA = {
           reveal: ['Die drei Subvariablen sind: Produktselektion (Was?), Kundenselektion (Wen?), Feldgrösse (Wo?).','Kontaktvariablen gehören zu Kapitel 3.']
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Verkaufsstrategien',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels können Sie ...',
+            items: [
+              'die sechs Verkaufssubvariablen beschreiben.',
+              'das Vorgehen bei der Produktselektion darlegen.',
+              'darstellen, worauf es bei der Kundenselektion ankommt.',
+              'erläutern, was man unter der Feldgrösse versteht.',
+              'Hilfsmittel zur Entscheidungsfindung erklären.'
+            ]
+          },
+          {
+            type: 'concept',
+            title: 'Die Verkaufsstrategie und ihre 6 Subvariablen',
+            content: 'Die Verkaufsstrategie ist ein mittelfristiger Plan, der den groben Weg zur Erreichung der Verkaufsziele umreisst. Sie ist in die strategische Ebene einzuordnen. Bei der Entwicklung der Verkaufsstrategien geht man von sechs Subvariablen aus: 1. Produktselektion (was), 2. Kundenselektion (wem), 3. Feldgrösse (wo), 4. Kontaktqualität (wie), 5. Kontaktquantität (wie viel), 6. Kontaktperiodizität (wann). Die Subvariablen 1–3 definieren zusammen das strategische Geschäftsfeld.',
+            highlight: 'Die 6 Verkaufssubvariablen: Produktselektion (was), Kundenselektion (wem), Feldgrösse (wo), Kontaktqualität (wie), Kontaktquantität (wie viel), Kontaktperiodizität (wann).'
+          },
+          {
+            type: 'table',
+            title: 'Die 6 Verkaufssubvariablen im Überblick',
+            headers: ['Verkaufssubvariable', 'W', 'Kurzbeschreibung'],
+            rows: [
+              ['1. Produktselektion', 'Was', 'Produkt- und/oder Sortimentsstrategie'],
+              ['2. Kundenselektion', 'Wem', 'Zielsegment-/Zielgruppenstrategie'],
+              ['3. Feldgrösse', 'Wo', 'Geografischer Zielmarkt'],
+              ['4. Kontaktqualität', 'Wie', 'Kontaktform und Gestaltung der Verkaufskontakte'],
+              ['5. Kontaktquantität', 'Wie viel', 'Anzahl der Kontakte'],
+              ['6. Kontaktperiodizität', 'Wann', 'Regelmässigkeit der Kontakte']
+            ]
+          },
+          {
+            type: 'concept',
+            title: '2.1 Produktselektion – was',
+            content: 'Mit der Produktselektion wird festgelegt, welche Sortimentsteile den Kunden angeboten werden sollen. Die Produktselektion darf nicht mit der Sortimentspolitik verwechselt werden: Die Sortimentspolitik setzt sich mit Tiefe und Breite des zukünftigen Angebots auseinander (Marketingentscheid), während die Produktselektion Schwerpunkte in der vorgegebenen Sortimentspolitik setzt. Die Sortimentsschwerpunkte werden beeinflusst durch: Kunden (Bedürfnisse, Preisniveau, Image), Umwelteinflüsse (Trends, Konjunktur, Technik) und Unternehmensseite (Umsatzpotenzial, Deckungsbeitrag, Profilierung).',
+            highlight: 'Produktselektion setzt Schwerpunkte im bestehenden Sortiment – sie ist nicht dasselbe wie die Sortimentspolitik.'
+          },
+          {
+            type: 'concept',
+            title: 'SGF vs. SGE',
+            content: 'Ein strategisches Geschäftsfeld (SGF) beschreibt die Kombination aus Markt und Produkten, die mit einer einheitlichen Marketing- oder Vertriebsstrategie bearbeitet werden. Es wird von aussen, also vom Markt her definiert durch das Angebot, die Kunden und den geografischen Markt. Eine strategische Geschäftseinheit (SGE) hingegen ist eine organisatorische Einheit im Unternehmen, die von innen definiert wird. Für jedes SGF wird ein separates Verkaufsplanungskonzept benötigt.',
+            highlight: 'SGF = von aussen, vom Markt her definiert. SGE = von innen, vom Unternehmen her definiert.'
+          },
+          {
+            type: 'concept',
+            title: '2.2 Kundenselektion – wem',
+            content: 'Mit der Kundenselektion wird die Kundschaft (Käuferschaft) bestimmt. Dabei können unter Kunden Endkunden, Produktverwender (B2C), aber auch Vertriebspartner oder Wiederverkäufer (B2B) verstanden werden. Im Verkauf gibt es drei Arten von Kunden: bestehende Kunden, ehemalige Kunden und neue Kunden. Die Pflege bestehender Kunden (Customer Retention) ist günstiger als die Akquisition neuer Kunden.',
+            highlight: '3 Kundenarten: Bestehende Kunden pflegen (Retention), ehemalige Kunden zurückgewinnen (Recovery), neue Kunden akquirieren (Recruitment).'
+          },
+          {
+            type: 'concept',
+            title: 'ABC-Analyse und Pareto-Prinzip',
+            content: 'Die ABC-Analyse ist ein betriebswirtschaftliches Analyseverfahren zur Einteilung von Kunden in die Klassen A, B und C, die nach absteigender Bedeutung geordnet sind. Sie basiert auf dem Pareto-Prinzip (80/20-Regel): Ca. 20% der Kunden machen etwa 80% des Umsatzes aus. In der Praxis werden Kunden in vier Klassen eingeteilt: A-Kunden (5%, 50% Umsatz), B-Kunden (15%, 30% Umsatz), C-Kunden (30%, 15% Umsatz), D-Kunden (50%, 5% Umsatz). Die Beziehungspflege der A- und B-Kunden hat höchste Priorität.',
+            highlight: 'Pareto-Prinzip: 20% der Kunden machen 80% des Umsatzes aus. A-/B-Kunden haben höchste Priorität.'
+          },
+          {
+            type: 'concept',
+            title: 'VUCA und Kundenportfolioanalyse',
+            content: 'VUCA steht für Volatility (Schwankungen), Uncertainty (Unsicherheit), Complexity (Vielschichtigkeit) und Ambiguity (Mehrdeutigkeit). In der VUCA-Welt ist unklar, ob die umsatzstärksten Kunden von heute auch die von morgen sind. Die Kundenportfolioanalyse stellt die heutige und zukünftige Kundenattraktivität in einer Matrix gegenüber. Kunden werden als Stars, Cash Cows, Question Marks oder Dogs klassifiziert. Nicht nur Grosskunden, sondern auch mittlere und kleine Kunden mit Potenzial werden einbezogen.',
+            highlight: 'VUCA = Volatility, Uncertainty, Complexity, Ambiguity. Kundenportfolioanalyse zeigt heutige und zukünftige Attraktivität.'
+          },
+          {
+            type: 'concept',
+            title: '2.3 Key-Account-Management und 2.4 Feldgrösse',
+            content: 'Ein Key-Accounter ist ein Schlüsselkunde, der im Kundenportfolio eine besondere Stellung einnimmt. Im Allgemeinen sind Key-Accounter Kunden, die mindestens 50–60% des Umsatzes oder des Deckungsbeitrags ausmachen. Die Feldgrösse (wo) definiert den zu bearbeitenden, räumlichen oder auch geografischen Markt. Mit der Abgrenzung sollen Streuverluste vermieden werden. Streuverluste bedeuten finanzielle Verluste durch Verkaufs- oder Werbebotschaften an Empfänger ausserhalb der Zielgruppe.',
+            highlight: 'Key-Accounter = Schlüsselkunden mit 50–60% Umsatzanteil. Feldgrösse = geografische Marktabgrenzung zur Vermeidung von Streuverlusten.'
+          },
+          {
+            type: 'merke',
+            title: 'Merke dir!',
+            items: [
+              'Die Verkaufsstrategie umfasst 6 Subvariablen: Produktselektion, Kundenselektion, Feldgrösse, Kontaktqualität, Kontaktquantität, Kontaktperiodizität.',
+              'SGF = von aussen (Markt), SGE = von innen (Organisation). Nicht verwechseln!',
+              'Bestehende Kunden pflegen ist 10-mal günstiger als Neukunden akquirieren.',
+              '4 Typen ehemaliger Kunden: Ehemalige, Kündiger, Schläfer, Reduzierer.',
+              'ABC-Analyse: A-Kunden (5% der Kunden, 50% des Umsatzes) haben höchste Priorität.',
+              'Pareto-Prinzip: 20% Einsatz bewirkt 80% des Erfolgs.',
+              'VUCA: In einer volatilen Welt sind heutige Topkunden nicht automatisch die von morgen.',
+              'Key-Account-Management betreut Kunden mit mindestens 50–60% Umsatzanteil.',
+              'Feldgrösse definiert den geografischen Markt – Streuverluste vermeiden!'
+            ]
+          },
+          {
+            type: 'methodenbox',
+            title: 'Methodenbox: ABC-Analyse – das Pareto-Prinzip: Kundenanalyse',
+            items: [
+              {q: '1. Wann und wofür setzen Sie diese Methode ein?', a: 'Die ABC-Analyse ist ein betriebswirtschaftliches Verfahren, um den Ist-Zustand zu bewerten und Verbesserungen abzuleiten. Die Einteilung in A-, B- und C-Kategorien ermöglicht es, die Planung und die Entscheidungsfindung effizient und wirtschaftlich zu gestalten.'},
+              {q: '2. Was erhalten Sie als Ergebnis?', a: 'Das Ergebnis der ABC-Analyse ist beispielsweise im Verkauf eine Klassifizierung der Kunden in A-, B- und C-Kunden. Kunden können mithilfe der ABC-Analyse nach Umsatz, Zahlungsbilanz oder Einkaufsrhythmus beurteilt werden.'},
+              {q: '3. Was beachten Sie beim Erstellen einer ABC-Kundenanalyse?', a: 'Beim Erstellen ist es wichtig, dass man alle notwendigen Daten sammelt. Anschliessend wird dieser in A-, B- und C-Klassen aufgeteilt. Die Klassengrenzen: Klasse A = ca. 20% der Objekte und 80% des Gesamtwerts, Klasse B = ca. 30% und 15%, Klasse C = ca. 50% und 5%.'}
+            ]
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              'Die <strong>Verkaufsstrategie</strong> ist ein mittelfristiger Plan, der den groben Weg zur Erreichung der Verkaufsziele umreisst. Bei der Entwicklung geht man von <strong>sechs Subvariablen</strong> aus: 1. Produktselektion (was), 2. Kundenselektion (wem), 3. Feldgrösse (wo), 4. Kontaktform und -qualität (wie), 5. Kontaktquantität (wie viel), 6. Kontaktperiodizität (wann).',
+              'Ein <strong>strategisches Geschäftsfeld</strong> (SGF) ist ein eigenständiger «Markt im Markt». Er definiert sich durch das Angebot (was), die Kunden (wem) und den geografischen Markt (wo). Eine <strong>strategische Geschäftseinheit</strong> (SGE) ist eine organisatorische Geschäftseinheit im Unternehmen.',
+              'Mit der <strong>Produktselektion</strong> (was) wird festgelegt, welche Sortimentsteile den Kunden angeboten werden sollen.',
+              'Mit der <strong>Kundenselektion</strong> (wem) wird die Zielgruppe bestimmt. Es gibt folgende Arten von Kunden: Bestehende Kunden, Ehemalige Kunden, Neue Kunden.',
+              'Die <strong>ABC-Analyse</strong> ist ein betriebswirtschaftliches Analyseverfahren zur Einteilung von Kunden in verschiedene Klassen A, B und C, die nach absteigender Bedeutung geordnet sind.',
+              'Die <strong>Feldgrösse</strong> (wo) definiert den zu bearbeitenden geografischen Markt.'
+            ]
+          },
+          {
+            type: 'keyterms',
+            title: 'Schlüsselbegriffe',
+            terms: [
+              {term: 'ABC-Analyse', def: 'Betriebswirtschaftliches Analyseverfahren zur Einteilung von Kunden in die Klassen A, B und C nach absteigender Umsatzbedeutung.'},
+              {term: 'Strategisches Geschäftsfeld (SGF)', def: 'Eigenständiger «Markt im Markt», von aussen definiert durch Angebot, Kunden und geografischen Markt.'},
+              {term: 'Strategische Geschäftseinheit (SGE)', def: 'Organisatorische Einheit im Unternehmen, von innen definiert.'},
+              {term: 'Produktselektion', def: 'Festlegung, welche Sortimentsteile den Kunden angeboten werden (Subvariable «was»).'},
+              {term: 'Kundenselektion', def: 'Bestimmung der Zielgruppe/Käuferschaft (Subvariable «wem»).'},
+              {term: 'Feldgrösse', def: 'Definition des zu bearbeitenden geografischen Zielmarkts (Subvariable «wo»).'},
+              {term: 'Kundenrückgewinnung (Customer Recovery)', def: 'Systematischer Prozess zur Rückgewinnung abgewanderter Kunden: Identifikation, Analyse, Massnahmen, Nachbetreuung.'},
+              {term: 'Kundenwert', def: 'Berechnung: Ø-Umsatz/Kauf × Kaufhäufigkeit × Beziehungsdauer – Akquisitions- und Betreuungskosten.'},
+              {term: 'Marktsegmentierung', def: 'Aufteilung eines heterogenen Gesamtmarkts in homogene Marktsegmente oder Käufergruppen.'},
+              {term: 'Pareto-Prinzip', def: '80/20-Regel: Ca. 20% der Kunden erzeugen ca. 80% des Umsatzes.'},
+              {term: 'VUCA-Prinzip', def: 'Volatility, Uncertainty, Complexity, Ambiguity – beschreibt die Unsicherheiten der modernen Geschäftswelt.'},
+              {term: 'Key-Account-Management', def: 'Betreuung von Schlüsselkunden, die mindestens 50–60% des Umsatzes oder Deckungsbeitrags ausmachen.'},
+              {term: 'Kundenportfolioanalyse', def: 'Matrixdarstellung der heutigen und zukünftigen Kundenattraktivität (Stars, Cash Cows, Question Marks, Dogs).'}
+            ]
+          }
+        ]
+      }
     },
     {
       id: 'ch3',
@@ -537,7 +663,117 @@ window.BOOK_DATA = {
           reveal: ['Kontaktqualität ist die Schlüsselgrösse der Verkaufssubvariablen.','Sie definiert Art, Vorgehen, Inhalt, Dauer und Häufigkeit der Kontakte.','Antwort B ist korrekt.']
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Verkaufsstrategien – Kontaktstrategie',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels können Sie ...',
+            items: [
+              'die verschiedenen Kontaktarten und Verkaufsformen nach verschiedenen Kriterien unterscheiden.',
+              'die Unterschiede im Verkaufsprozess von verschiedenen Marktleistungen beschreiben.',
+              'die Kontaktquantität und die Kontaktperiodizität erklären.',
+              'die Anzahl der Mitarbeitenden im Verkauf berechnen.'
+            ]
+          },
+          {
+            type: 'concept',
+            title: '3.1 Kontaktqualität – wie',
+            content: 'Die Kontaktqualität ist die eigentliche Schlüsselgrösse der Verkaufssubvariablen. Sie definiert Art, Vorgehen, Inhalt, Dauer und Häufigkeit von Verkaufskontakten unabhängig davon, ob die Kontakte persönlich oder unpersönlich, im Aussen- oder im Innenverkauf erfolgen. Bei der Definition der Kontaktqualität kann eine Unterteilung in Kontaktarten und Verkaufsformen vorgenommen werden: nach dem Ort des Verkaufsgesprächs, nach der Art und Form oder nach Marktleistungen/Güterarten.',
+            highlight: 'Kontaktqualität = Schlüsselgrösse. Sie definiert Art, Vorgehen, Inhalt, Dauer und Häufigkeit aller Verkaufskontakte.'
+          },
+          {
+            type: 'concept',
+            title: 'Innen- und Aussenverkauf',
+            content: 'Beim Innenverkauf (Platzverkauf) geht die Initiative vom potenziellen Kunden aus. Dieser kommt an den Standort des Anbieters, um sich über dessen Marktleistungen zu informieren und zu kaufen. Beim Aussenverkauf (Feldverkauf) besucht der Verkäufer den potenziellen Kunden, um ihm seine Produkte persönlich vorzustellen und einen Verkaufsabschluss zu erzielen. Im Verkauf stehen sechs Kontaktmöglichkeiten im Vordergrund.',
+            highlight: 'Platzverkauf = Initiative Kunde. Feldverkauf = Initiative Verkäufer.'
+          },
+          {
+            type: 'table',
+            title: 'Die 6 Kontaktmöglichkeiten im Verkauf',
+            headers: ['Nr.', 'Kontaktmöglichkeit', 'Beschreibung'],
+            rows: [
+              ['1', 'Persönlicher Platzverkauf – Ladenverkauf (Store Sales)', 'Kunde kommt zum Verkäufer (z.B. Laden, Messe)'],
+              ['2', 'Persönlicher Feldverkauf – Besuchsverkauf (Field Sales)', 'Verkäufer besucht den Kunden (Aussendienst)'],
+              ['3', 'Mediengestützter Platz-/Feldverkauf (Tele Sales)', 'Telefonverkauf und Social-Media-Verkauf'],
+              ['4', 'Indirekter persönlicher Verkauf (Channel Sales)', 'Verkauf via Vertriebspartner'],
+              ['5', 'Unpersönlicher Platzverkauf (E-Commerce)', 'Verkaufen via Webshops'],
+              ['6', 'Unpersönlicher Feldverkauf (Media Sales)', 'Mediengestützter Verkauf, Automatisierung']
+            ]
+          },
+          {
+            type: 'concept',
+            title: 'Kundenzufriedenheit und Loyalität',
+            content: 'Die Zufriedenheit der Kundschaft ist eine wichtige Voraussetzung, um Kundenbindung/Kundenloyalität aufzubauen. Sie entsteht dann, wenn die Qualität der Leistung (die subjektiv wahrgenommenen Leistungen) die Erwartungen des Kunden übersteigt. Zufriedene Kunden sind aber nicht automatisch loyal. Ein loyaler Kunde zeichnet sich durch sein Bekenntnis aus, Marktleistungen auch in Zukunft beim selben Anbieter zu kaufen. Rentable loyale Kunden sollten das Ziel jedes Unternehmens sein.',
+            highlight: 'Zufriedene Kunden sind nicht automatisch loyal. Loyale Kunden sind zufrieden, aber zufriedene Kunden sind nicht zwingend loyal.'
+          },
+          {
+            type: 'concept',
+            title: '3.4 Kontaktquantität – wie viel',
+            content: 'Mit der Kontaktquantität wird festgelegt, mit welcher Anzahl von persönlichen Kontakten der Kunde bearbeitet werden soll. Die Grundlagen für die Planung sind: Verkaufskostenbudget, Komplexitätsgrad der Marktleistung, Informationsstand des Kunden und Beziehungsintensität und -pflege. Grundsätzlich wird eine persönliche und nachhaltige Beziehung angestrebt.',
+            highlight: 'Kontaktquantität = Anzahl persönlicher Kontakte. Abhängig von Budget, Komplexität, Informationsstand und Beziehungsintensität.'
+          },
+          {
+            type: 'concept',
+            title: '3.5 Kontaktperiodizität – wann',
+            content: 'Die Kontaktperiodizität legt die zeitlichen Abstände zwischen den einzelnen Verkaufskontakten innerhalb eines bestimmten Verkaufsprozesses fest. Für jede Kundenklasse muss die Kontaktperiodizität in Abhängigkeit von der Kontaktqualität und der Kontaktquantität bestimmt werden. Dabei muss auch eine eventuelle Saisonalität der Marktleistung beachtet werden.',
+            highlight: 'Kontaktperiodizität = zeitliche Abstände zwischen Kontakten. Unterscheidung nach Erst-, Einzel-, Folge- und regelmässigen Abschlüssen.'
+          },
+          {
+            type: 'concept',
+            title: '3.6 Personalaufwand berechnen',
+            content: 'Die Formel zur Berechnung der Anzahl von Aussendienstmitarbeitenden lautet: AD = B / (Bt × Vt). Dabei ist AD = Anzahl AD-Mitarbeiter, B = Anzahl benötigte Besuche, Bt = Anzahl Besuche pro Tag, Vt = Anzahl verkaufsaktiver Tage. International geht man von ca. 180 bis 200 verkaufsaktiven Tagen aus. Im Schnitt sollten es 1888 Kundenbesuche pro Jahr sein, 1500 als absolutes Minimum.',
+            highlight: 'Formel: AD = B / (Bt × Vt). Ca. 200 verkaufsaktive Tage pro Jahr.'
+          },
+          {
+            type: 'merke',
+            title: 'Merke dir!',
+            items: [
+              'Kontaktqualität ist die Schlüsselgrösse – sie definiert Art, Vorgehen, Inhalt, Dauer und Häufigkeit aller Kontakte.',
+              'Es gibt 6 Kontaktmöglichkeiten: Store Sales, Field Sales, Tele Sales, Channel Sales, E-Commerce, Media Sales.',
+              'Platzverkauf = Initiative Kunde, Feldverkauf = Initiative Verkäufer.',
+              'Telefonmarketing: Aktiv (Outbound) = Verkäufer ruft an, Passiv (Inbound) = Kunde ruft an.',
+              'Cross-Selling = ergänzende Produkte verkaufen, Up-Selling = höherwertige Produkte verkaufen.',
+              'Zufriedene Kunden sind nicht automatisch loyal!',
+              'Kontaktquantität hängt ab von: Budget, Komplexität, Informationsstand, Beziehungsintensität.',
+              'Personalberechnung: AD = B / (Bt × Vt), ca. 200 verkaufsaktive Tage/Jahr.'
+            ]
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              'Die drei Subvariablen der <strong>Kontaktstrategie</strong> beinhalten: Kontaktqualität (wie), Kontaktquantität (wie viel), Kontaktperiodizität (wann).',
+              'Die <strong>Kontaktqualität</strong> definiert Art, Vorgehen, Inhalt, Dauer und Häufigkeit von Verkaufskontakten und ist zudem die Grundlage zur Berechnung der benötigten personellen Ressourcen im Aussen- und im Innendienst.',
+              'Beim <strong>Aussenverkauf (Feldverkauf)</strong> besucht die Verkäuferin den potenziellen Kunden. Beim <strong>Innenverkauf (Platzverkauf)</strong> geht die Initiative vom Kunden aus.',
+              '<strong>Telefonmarketing</strong> ist eine flexible und günstige Möglichkeit zur Kommunikation. Aktives Telefonmarketing: Initiative beim Anbieter. Passives Telefonmarketing: Initiative beim Kunden.',
+              'Beim <strong>Cross-Selling</strong> werden dem Kunden zusätzliche Produkte verkauft. Beim <strong>Up-Selling</strong> steht der Verkauf einer höherwertigen Marktleistung im Zentrum.',
+              'Die <strong>Zufriedenheit des Kunden</strong> ist eine wichtige Voraussetzung, um Kundenbindung/Loyalität aufzubauen.',
+              'Mit der <strong>Kontaktquantität</strong> wird festgelegt, mit welcher Anzahl von persönlichen Kontakten der Kunde bearbeitet werden soll.',
+              'Die <strong>Kontaktperiodizität</strong> legt die zeitlichen Abstände zwischen den einzelnen Verkaufskontakten fest.',
+              'Die <strong>Variablen für die Berechnung der Anzahl Mitarbeitenden</strong> im Verkauf sind: Anzahl der verkaufsaktiven Tage, Anzahl benötigte Besuche, Anzahl Besuche pro Tag.'
+            ]
+          },
+          {
+            type: 'keyterms',
+            title: 'Schlüsselbegriffe',
+            terms: [
+              {term: 'Kontaktqualität', def: 'Schlüsselgrösse der Verkaufssubvariablen. Definiert Art, Vorgehen, Inhalt, Dauer und Häufigkeit der Verkaufskontakte.'},
+              {term: 'Kontaktquantität', def: 'Festlegung der Anzahl persönlicher Kontakte zur optimalen Kundenbetreuung.'},
+              {term: 'Kontaktperiodizität', def: 'Zeitliche Abstände zwischen den einzelnen Verkaufskontakten innerhalb eines Verkaufsprozesses.'},
+              {term: 'Innenverkauf (Platzverkauf)', def: 'Initiative geht vom Kunden aus – er kommt an den Standort des Anbieters.'},
+              {term: 'Aussenverkauf (Feldverkauf)', def: 'Initiative geht vom Verkäufer aus – er besucht den Kunden.'},
+              {term: 'Telefonmarketing', def: 'Aktiv (Outbound): Verkäufer ruft an. Passiv (Inbound): Kunde ruft an.'},
+              {term: 'Cross-Selling', def: 'Dem Kunden werden zum eigentlichen Verkauf zusätzliche, ergänzende Produkte oder Dienstleistungen verkauft.'},
+              {term: 'Up-Selling', def: 'Verkauf einer höherwertigen Marktleistung im Vergleich zum ursprünglich gewünschten Produkt.'},
+              {term: 'Kundenloyalität', def: 'Bekenntnis des Kunden, auch in Zukunft beim selben Anbieter zu kaufen.'},
+              {term: 'Personalaufwand', def: 'Berechnung mit der Formel AD = B / (Bt × Vt). Ca. 200 verkaufsaktive Tage pro Jahr.'},
+              {term: 'Verkaufsformen', def: 'Store Sales, Field Sales, Tele Sales, Channel Sales, E-Commerce, Media Sales.'}
+            ]
+          }
+        ]
+      }
     },
     {
       id: 'ch4',
@@ -643,7 +879,97 @@ window.BOOK_DATA = {
           reveal: ['Die primäre Verkaufsplanung umfasst Umsatz-/Absatzpläne und Einsatzpläne.','Verkaufsorganisation, Personal und Hilfsmittel gehören zur sekundären VP.']
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Primäre Verkaufsplanung',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels können Sie ...',
+            items: [
+              'die Teile der primären und der sekundären Verkaufspläne aufzählen.',
+              'eine Umsatzplanung durchführen.',
+              'die einzelnen Möglichkeiten der Einsatzplanung darstellen.'
+            ]
+          },
+          {
+            type: 'concept',
+            title: 'Primäre vs. Sekundäre Verkaufsplanung',
+            content: 'Im Rahmen der primären Verkaufsplanung (Ressourcenplanung) geht es um die konkrete und detaillierte Planung von Absatz, Umsatz und Ertrag sowie um die Planung des Einsatzes der Mitarbeitenden im Verkauf. Anschliessend werden im Rahmen der sekundären Verkaufsplanung Organisation, Personal und Verkaufshilfen geplant, die für die Zielerreichung benötigt werden.',
+            highlight: 'Primäre VP = Umsatz-/Absatzplanung + Einsatzplanung. Sekundäre VP = Organisation + Personal + Verkaufshilfsmittel.'
+          },
+          {
+            type: 'svg',
+            id: 'verkaufsplaene',
+            title: 'Verkaufspläne (Ressourcenplanung) – Abb. 4-1'
+          },
+          {
+            type: 'concept',
+            title: '4.1 Umsatz- und Absatzplanung',
+            content: 'Der Verkaufsbereich eines Unternehmens kann verschiedene strategische Geschäftsfelder bearbeiten. In der Praxis wird ein Verkaufsbereich in Verkaufsabteilungen und Verkaufsgruppen unterteilt. Die Kenngrössen von Bereichszielen werden auf tiefere hierarchische Ebenen delegiert und verplant. Infrage kommt eine Gliederung nach: Produktgruppen und/oder Produkten, Kundenklassen/-gruppen, geografischen Gebieten, Aussendienstgebieten oder zeitlichen Kriterien (Monat, Quartal, Halbjahr, Jahr).',
+            highlight: 'Umsatzplanung: Gliederung nach Produkten, Kunden, Gebieten, Aussendienstgebieten oder zeitlichen Kriterien.'
+          },
+          {
+            type: 'concept',
+            title: '4.2 Einsatzplanung',
+            content: 'Mit der Einsatzplanung wird bestimmt, welche Verkaufskontakte, zu welchem Zeitpunkt, an welchem Ort und zwischen welchen Kontaktpersonen (Verkäufer – Kunde) stattfinden sollen. Die Einsatzplanung umfasst: Gliederungsplanung (Aufteilung der Gebiete), Zeitplanung (zeitliche Organisation), Routen-/Tourenplanung (geografische Optimierung) und den Verkaufsstufenplan (systematische Ablaufplanung).',
+            highlight: 'Einsatzplanung: Welche Kontakte, wann, wo und zwischen wem? Umfasst Gliederung, Zeit, Touren und Verkaufsstufenplan.'
+          },
+          {
+            type: 'concept',
+            title: 'Routen- und Tourenplanung',
+            content: 'Es gibt zwei Grundprinzipien der Tourenplanung: Das Kuchenprinzip (der AD besucht immer am gleichen Wochentag die gleiche Region, z.B. Montag = Nordschweiz) und das Blattprinzip (flexible Planung je nach Kundenbedürfnissen). Moderne CRM-Systeme und Tourenplaner wie portatour unterstützen die Tourenplanung, indem sie Kontakte auf Karten anzeigen und optimale Routen berechnen.',
+            highlight: 'Kuchenprinzip = fixe Tage pro Region. Blattprinzip = flexible Planung. CRM-Tourenplaner optimieren Routen.'
+          },
+          {
+            type: 'concept',
+            title: '4.2.4 Verkaufsstufenpläne',
+            content: 'Im Verkaufsstufenplan werden die einzelnen Stufen des Verkaufs definiert und das Vorgehen wird minuziös geplant. Dies trifft insbesondere auf den Verkauf von Investitionsgütern und kosten- und beratungsintensiven Dienstleistungen im B2B-Bereich zu. Die 11 Schritte umfassen: 1. Analyse der Ausgangslage, 2. Planung und Konzeption, 3. Produktion von Hilfsmitteln, 4. Versand eines Mailings, 5. Rücklauf bearbeiten, 6. Telefonische Nachfassaktion, 7. Erstbesuche, 8. Nachbearbeitung, 9. Nachfassen, 10. Zweitbesuche, 11. Abschluss und Schlussbesprechung.',
+            highlight: 'Verkaufsstufenplan: 11 systematische Schritte von der Analyse bis zum Abschluss – besonders wichtig im B2B-Bereich.'
+          },
+          {
+            type: 'merke',
+            title: 'Merke dir!',
+            items: [
+              'Primäre VP = Umsatz-/Absatzplanung + Einsatzplanung.',
+              'Sekundäre VP = Organisationsplanung + Personalplanung + Verkaufshilfsmittelplanung.',
+              'Umsatzplanung kann nach Produkten, Kunden, Gebieten oder Zeiträumen gegliedert werden.',
+              'Einsatzplanung: Was, Wann, Wo, Wer – umfasst Gliederung, Zeit, Touren, Verkaufsstufenplan.',
+              'Kuchenprinzip = fixe Wochentage für Regionen. Blattprinzip = flexible Tourenplanung.',
+              'CRM-Tourenplaner (z.B. portatour) optimieren Routen und sparen Arbeitszeit.',
+              'Verkaufsstufenplan: 11 Schritte von Analyse bis Abschluss (v.a. B2B).',
+              'Am Schluss jeder Verkaufsaktion steht ein Debriefing zur Optimierung.'
+            ]
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              'Die <strong>primäre Verkaufsplanung</strong> umfasst die Umsatz- und Absatzplanung sowie die Einsatzplanung. Die <strong>sekundäre Verkaufsplanung</strong> umfasst Organisationsplanung, Personalplanung und Verkaufshilfsmittelplanung.',
+              'Bei der <strong>Umsatz- und Absatzplanung</strong> werden die Kenngrössen auf tiefere Ebenen heruntergebrochen: nach Produktgruppen, Kundenklassen, geografischen Gebieten oder zeitlichen Kriterien.',
+              'Die <strong>Einsatzplanung</strong> bestimmt: welche Kontakte, zu welchem Zeitpunkt, an welchem Ort und zwischen welchen Kontaktpersonen stattfinden sollen.',
+              'Die <strong>Tourenplanung</strong> kennt zwei Grundprinzipien: das Kuchenprinzip (fixe Tage pro Region) und das Blattprinzip (flexible Planung).',
+              'Der <strong>Verkaufsstufenplan</strong> definiert das Vorgehen in 11 systematischen Schritten, insbesondere für den Verkauf von Investitionsgütern im B2B-Bereich.'
+            ]
+          },
+          {
+            type: 'keyterms',
+            title: 'Schlüsselbegriffe',
+            terms: [
+              {term: 'Primäre Verkaufsplanung', def: 'Umsatz-/Absatzplanung und Einsatzplanung – direkt mit dem Verkauf verbunden.'},
+              {term: 'Sekundäre Verkaufsplanung', def: 'Organisationsplanung, Personalplanung und Verkaufshilfsmittelplanung.'},
+              {term: 'Umsatzplanung', def: 'Detaillierte Planung von Absatz, Umsatz und Ertrag, gegliedert nach Produkten, Kunden, Gebieten oder Zeiträumen.'},
+              {term: 'Einsatzplanung', def: 'Bestimmt welche Kontakte, wann, wo und zwischen wem stattfinden sollen.'},
+              {term: 'Gliederungsplanung', def: 'Aufteilung der Verkaufsgebiete auf die Mitarbeitenden.'},
+              {term: 'Kuchenprinzip', def: 'AD besucht immer am gleichen Wochentag die gleiche Region.'},
+              {term: 'Blattprinzip', def: 'Flexible Tourenplanung je nach Kundenbedürfnissen.'},
+              {term: 'Routenplanung', def: 'Geografische Optimierung der Besuchsrouten, oft mit CRM-Tourenplanern.'},
+              {term: 'Verkaufsstufenplan', def: 'Systematischer Ablaufplan in 11 Schritten von der Analyse bis zum Abschluss.'},
+              {term: 'Streuverluste', def: 'Verluste durch Verkaufsbemühungen bei Personen ausserhalb der Zielgruppe.'}
+            ]
+          }
+        ]
+      }
     },
     {
       id: 'ch5',
@@ -765,7 +1091,85 @@ window.BOOK_DATA = {
           reveal: ['Die Matrixorganisation zeichnet sich durch Mehrfachunterstellung aus.','Mitarbeitende haben sowohl einen funktionalen als auch einen divisionalen Vorgesetzten.']
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Sekundäre Verkaufsplanung – Verkaufsorganisationsplanung',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            text: 'Nach der Bearbeitung dieses Kapitels können Sie:\n- verschiedene Gliederungsarten und Organisationsformen der Verkaufsorganisation beschreiben\n- Stellenbeschreibungen und Anforderungsprofile erstellen\n- die Ablauforganisation und ihre Hilfsmittel darstellen\n- ein agiles Unternehmen beschreiben\n- die wichtigsten Entwicklungen für Change und Transformation nennen'
+          },
+          {
+            type: 'concept',
+            title: '5.1 Einführung in die Verkaufsorganisationsplanung',
+            text: 'Bei der sekundären Verkaufsplanung geht es um die Frage, welche organisatorischen und infrastrukturellen Voraussetzungen vom Unternehmen geschaffen werden müssen, damit die gesetzten Ziele erreicht werden können. Zentrale Themen sind: Verkaufsorganisationsplanung, Personalplanung und Verkaufshilfsmittelplanung.\n\nBei der organisatorischen Strukturierung von Unternehmen wird zwischen Aufbau- und Ablauforganisation unterschieden. Die Aufbauorganisation definiert den organisatorischen Aufbau des Unternehmens und ist längerfristig ausgelegt. Sie bildet das hierarchische Gerüst einer Organisation. Die Ablauforganisation regelt die Gestaltung der Ablaufprozesse innerhalb der Organisation nach Arbeitsinhalt, Arbeitsschritten und Arbeitszuordnung.'
+          },
+          {
+            type: 'concept',
+            title: '5.2 Aufgaben der Verkaufsorganisation',
+            text: 'Mit der Verkaufsorganisation sollen Voraussetzungen geschaffen werden, dass die Mitarbeitenden im Verkauf ihre Aufgaben bestmöglich und ohne Reibungsverluste erledigen können. Es gilt, klare Strukturen zu schaffen, die folgende Forderungen erfüllen:\n- Optimale Integration der Verkaufsorganisation in die Marketing- und Gesamtorganisation\n- Grösstmögliche Flexibilität im Hinblick auf Marktveränderungen und neue Kundenbedürfnisse\n- Hohe Entwicklungsmöglichkeiten in Bezug auf neue Verkaufstechniken und -hilfsmittel\n- Hohe Effizienz, denn Arbeitsvolumen, Arbeitsanforderungen und Erwartungen an die Verkaufsmitarbeiter steigen stetig'
+          },
+          {
+            type: 'concept',
+            title: '5.3 Gliederung der Verkaufsorganisation',
+            text: 'Im Hinblick auf eine effiziente Verkaufsorganisation bieten sich folgende vier Gliederungskriterien an:\n\n1. Gliederung nach Funktionen: Die Aufteilung erfolgt nach Teilverkaufsfunktionen und -aufgaben (z.B. Produktion, F&E, Marketing und Verkauf, Personal, Administration). Vorteile: Besetzung der Stellen mit Spezialisten, klare Kompetenz- und Verantwortungsbereiche, einfache Koordination und Kontrolle. Nachteile: Ausgeprägtes Ressortdenken, lange Kommunikationswege, wenig Flexibilität.\n\n2. Gliederung nach Gebieten: Das Verkaufsgebiet wird in geografische Teilgebiete gegliedert. Vorteile: Klare Kompetenz- und Verantwortungsbereiche, Eingehen auf Sprach- und Mentalitätsunterschiede, kürzere Reisezeiten. Nachteile: Verzettelung/Verlust einer einheitlichen Verkaufspolitik, lange Kommunikationswege, wenig Flexibilität.\n\n3. Gliederung nach Produkten: Gliederungskriterium ist das Produkt bzw. eine Produktlinie. Vorteile: Spezialisierung der Verkaufsmitarbeitenden, schnelle und gezielte Massnahmen für einzelne Produkte, bessere Umsatz- und Gewinnmöglichkeiten. Nachteile: Ausgeprägtes Spartendenken, Doppelspurigkeiten, doppelte Anzahl an qualifizierten Führungskräften.\n\n4. Gliederung nach Kundengruppen: Bei dieser Organisationsstruktur sind spezialisierte Bereiche für verschiedene Kundensegmente und/oder Kundengruppen zuständig. Vorteile: Kundenbedürfnisse werden erkannt und individuell befriedigt, heterogenes Verkaufsprogramm, bessere Umsatz- und Gewinnmöglichkeiten. Nachteile: Hohe Infrastruktur- und Personalkosten, Doppelspurigkeiten, lange Kommunikationswege.'
+          },
+          {
+            type: 'concept',
+            title: '5.4 Organisationsformen',
+            text: 'Bei allen Organisationskonzepten stellt sich zunächst die Grundfrage, wie der Aufbau der Instanzen vollzogen werden soll. Grundsätzlich stehen einander zwei verschiedene Konzepte gegenüber: Einliniensysteme und Mehrliniensysteme.\n\nEinliniensystem: Jeder Mitarbeiter ist nur einem Vorgesetzten unterstellt, was klare Kompetenzabgrenzungen und eindeutige Unterstellungsverhältnisse schafft. Die reinen Linienorganisationen wurden in der Praxis weitgehend durch Stablinienorganisationen abgelöst, bei denen spezialisierte Stabsstellen ohne Weisungsbefugnis die Linieninstanzen unterstützen.\n\nMehrliniensystem: Die Mitarbeiterin untersteht in fachtechnischer Hinsicht mehreren Vorgesetzten. Diese Leitungsstruktur wird beispielsweise in Matrix- und in Projektorganisationen realisiert. Der Vorteil liegt in der fachlichen Spezialisierung und in der Verkürzung der Anordnungs- und Kommunikationswege.\n\nKontroll- und Leitungsspanne: Unter Kontroll- und Leitungsspanne wird die Anzahl der Mitarbeitenden, die einem Vorgesetzten direkt unterstellt sind, verstanden. Nach den gängigen Organisationsprinzipien sollte ein Chef fünf bis sieben Direktunterstellte haben.'
+          },
+          {
+            type: 'concept',
+            title: '5.4.4 Agile Unternehmen – Holokratie',
+            text: 'Holokratie (engl.: Holacracy) ist ein Führungsstil, der Führung ganz ohne Chef möglich machen soll. Holokratie setzt auf Prinzipien der Selbstorganisation, der Kybernetik, des agilen Projektmanagements und der kollektiven Intelligenz der Mitarbeitenden.\n\nIn der Holokratie gibt es ein Regel-Set, das für alle Mitarbeitenden gilt (inkl. des CEO). Entscheidungen werden gemeinschaftlich getroffen und die Unternehmensspitze «entmachtet». Die vier Säulen der Holokratie sind:\n1. Doppelte Verbindung (Double-Linking) – Kommunikation und Informationsaustausch zwischen Kreisen\n2. Trennung von operativen und Steuerungstreffen – Tagesgeschäft vs. Weiterentwicklung\n3. Zuständigkeiten und Rollenverteilung – klare Verteilung der Rollen\n4. Dynamische Steuerung – brauchbare und korrigierbare Entscheidungsfindung\n\nVorteile der Holokratie: Schnellere Entscheidungsfindung, höhere Agilität, alle Mitarbeitenden gleichberechtigt einbezogen, höhere Selbstbestimmung, transparente Prozesse, höhere Arbeitseffizienz, bessere Kommunikation, höhere Innovationskraft.'
+          },
+          {
+            type: 'concept',
+            title: '5.5 Hilfsmittel der Organisation',
+            text: 'Die fünf wichtigsten organisatorischen Hilfsmittel sind:\n\n1. Organigramm: Grafische Darstellung, mit der die Aufbauorganisation eines Unternehmens aufgezeigt wird. Rechtecke = Instanzen, Kreise = ausführende Stellen, Dreiecke = Stabsstellen.\n\n2. Stellenbeschreibungen: Verbindliche Dokumente, um die organisatorische Einordnung, Aufgabe, Kompetenz, Verantwortung (AKV) und Informationsbeziehungen von Stellen festzulegen. Sie bestehen aus drei Teilen: organisatorische Einordnung, Arbeitsgebiet in Stichworten, Anforderungen an den Stelleninhaber.\n\n3. Anforderungsprofil: Grundlage für die Stellenausschreibung. Unterscheidet zwischen Muss-Kriterien (erfolgsentscheidend, max. 7), Soll-Kriterien (wünschenswert) und Kann-Kriterien (förderlich).\n\n4. Funktionsdiagramm: Matrixförmige Gegenüberstellung von Aufgaben und Stellen.\n\n5. Organisationshandbücher: Dokumente der Ablauf- und Aufbauorganisation.'
+          },
+          {
+            type: 'concept',
+            title: '5.6 Ablauforganisation',
+            text: 'Die Ablauforganisation regelt die Gestaltung der Ablaufprozesse innerhalb der Organisation nach Arbeitsinhalt, Arbeitsschritten und Arbeitszuordnung. Sie legt die produktionstechnischen Verfahren und Prozesse und die damit verbundenen administrativen Abläufe und Informationsflüsse fest.\n\nMögliche Darstellungen der Ablauforganisation sind:\n- Diagramme (Fluss-/Ablauf-, Balkendiagramme)\n- Pläne (Stufen- und Netzpläne etc.)\n\nMit Flussdiagrammen können komplexe Geschäftsprozesse oder auch Abläufe einfach verständlich und nachvollziehbar grafisch dargestellt werden.'
+          },
+          {
+            type: 'concept',
+            title: '5.7 Reorganisation – Change und Transformation',
+            text: 'Unter Reorganisation versteht man die Änderung einer bestehenden Organisationsstruktur innerhalb der Aufbau- oder der Ablauforganisation.\n\nDurch die Veränderungen in der Arbeitswelt sind Unternehmen gefordert, sich an die neue Situation anzupassen. Aktuelle Entwicklungen: Gesättigte und transparente Märkte, Digitalisierung, intensiverer Wettbewerb, Beschleunigung der Internationalisierung, anspruchsvollere Kunden, steigende Vernetzung, rasanter technologischer Wandel.\n\nWährend der Begriff «Change» auf eine einmalige Veränderung mit einem Anfang und einem Ende bezieht, beschreibt «Transformation» einen Prozess, der – einmal angestossen – nicht mehr zum Stillstand kommt. Es geht um einen fundamentalen und dauerhaften Wandel, bei dem ein Unternehmen sein Geschäftsmodell, seine Vision, Kultur wie auch Struktur und Arbeitsweise verändert.'
+          },
+          {
+            type: 'merke',
+            title: 'Merke dir!',
+            text: 'Die Aufbauorganisation definiert den organisatorischen Aufbau des Unternehmens und ist längerfristig ausgelegt. Die Ablauforganisation regelt die Gestaltung der Ablaufprozesse und ist eher mittelfristig ausgelegt.\n\nBeim Einliniensystem ist jeder Mitarbeiter nur einem Vorgesetzten unterstellt. Beim Mehrliniensystem untersteht der Mitarbeiter in fachtechnischer Hinsicht mehreren Vorgesetzten.\n\nStellenbeschreibungen sind verbindliche Dokumente zur Festlegung der organisatorischen Einordnung, AKV und Informationsbeziehungen von Stellen.\n\nDas Anforderungsprofil ist die Grundlage für die Stellenausschreibung mit Muss-, Soll- und Kann-Kriterien.\n\nReorganisation ist die Änderung einer bestehenden Organisationsstruktur. Change ist eine einmalige Veränderung, Transformation ein fortlaufender Prozess.'
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            text: 'Die Aufbauorganisation definiert den organisatorischen Aufbau des Unternehmens und ist längerfristig ausgelegt. Die Ablauforganisation regelt die Gestaltung der Ablaufprozesse innerhalb der Organisation nach Arbeitsinhalt, Arbeitsschritten und Arbeitszuordnung.\n\nBeim Einliniensystem ist jeder Mitarbeiter nur einem Vorgesetzten unterstellt. Beim Mehrliniensystem untersteht der Mitarbeiter in fachtechnischer Hinsicht mehreren Vorgesetzten. Unter Kontroll- und Leitungsspanne wird die Anzahl der Mitarbeitenden, die einem Vorgesetzten direkt unterstellt sind, verstanden.\n\nStellenbeschreibungen sind verbindliche Dokumente, mit denen die organisatorische Einordnung, Aufgabe, Kompetenz, Verantwortung sowie die Informationsbeziehungen von Stellen festgelegt und gegenüber anderen Stellen abgegrenzt werden.\n\nDas Anforderungsprofil ist die Grundlage für die Stellenausschreibung.\n\nDas Funktionsdiagramm ist eine matrixförmige Gegenüberstellung von Aufgaben und Stellen.\n\nReorganisation ist die Änderung einer bestehenden Organisationsstruktur innerhalb der Aufbau- oder der Ablauforganisation.\n\nAgile Führung (Holokratie) setzt auf Prinzipien Selbstorganisation, Kybernetik, agiles Projektmanagement und kollektive Intelligenz der Mitarbeitenden.\n\nBei Veränderungsprozessen sind Change und Transformation zwei voneinander abzugrenzende Phänomene.'
+          },
+          {
+            type: 'keyterms',
+            title: 'Schlüsselbegriffe',
+            terms: [
+              {term: 'Aufbauorganisation', def: 'Definiert den organisatorischen Aufbau eines Unternehmens und bildet dessen hierarchisches Gerüst. Ist längerfristig ausgelegt.'},
+              {term: 'Ablauforganisation', def: 'Regelt die Gestaltung der Ablaufprozesse innerhalb der Organisation nach Arbeitsinhalt, Arbeitsschritten und Arbeitszuordnung.'},
+              {term: 'Einliniensystem', def: 'Organisationsform, bei der jeder Mitarbeiter nur einem Vorgesetzten unterstellt ist.'},
+              {term: 'Mehrliniensystem', def: 'Organisationsform, bei der Mitarbeitende in fachtechnischer Hinsicht mehreren Vorgesetzten unterstehen (z.B. Matrix- oder Projektorganisation).'},
+              {term: 'Kontroll- und Leitungsspanne', def: 'Anzahl der Mitarbeitenden, die einem Vorgesetzten direkt unterstellt sind. Optimal: 5 bis 7 Direktunterstellte.'},
+              {term: 'Stellenbeschreibung', def: 'Verbindliches Dokument zur organisatorischen Einordnung, Aufgabe, Kompetenz, Verantwortung (AKV) und Informationsbeziehungen einer Stelle.'},
+              {term: 'Anforderungsprofil', def: 'Grundlage für die Stellenausschreibung mit Muss-, Soll- und Kann-Kriterien.'},
+              {term: 'Organigramm', def: 'Grafische Darstellung der Aufbauorganisation eines Unternehmens.'},
+              {term: 'Funktionsdiagramm', def: 'Matrixförmige Gegenüberstellung von Aufgaben und Stellen.'},
+              {term: 'Holokratie', def: 'Führungsstil ohne klassische Hierarchie, basierend auf Selbstorganisation, Kybernetik und kollektiver Intelligenz.'},
+              {term: 'Reorganisation', def: 'Änderung einer bestehenden Organisationsstruktur innerhalb der Aufbau- oder der Ablauforganisation.'},
+              {term: 'Change', def: 'Einmalige Veränderung mit einem Anfang und einem Ende.'},
+              {term: 'Transformation', def: 'Fortlaufender Prozess der fundamentalen und dauerhaften Veränderung eines Unternehmens.'}
+            ]
+          }
+        ]
+      }
     },
     {
       id: 'ch6',
@@ -886,7 +1290,79 @@ window.BOOK_DATA = {
           reveal: ['Aussage 1: Richtig – Definition EB.','Aussage 2: Falsch – 6 Schritte, nicht 4.','Aussage 3: Richtig.']
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Sekundäre Verkaufsplanung – Personal und Verkaufshilfsmittel',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            text: 'Nach der Bearbeitung dieses Kapitels können Sie:\n- die Personalauswahl von Verkaufsmitarbeitern und die Einführung von neuen Mitarbeitenden beschreiben\n- erklären, wie Verkaufsmitarbeiter motiviert werden können\n- darlegen, worauf bei der Ausbildung von Verkaufsmitarbeitern geachtet werden muss\n- die technischen und persönlichen Verkaufshilfsmittel unterscheiden\n- die verschiedenen Berufe im Verkauf und die besonderen Auftragsverhältnisse aufzählen'
+          },
+          {
+            type: 'concept',
+            title: '6.1 Auswahl von Verkaufsmitarbeitenden',
+            text: 'Die Auswahl oder die Selektion der im Verkauf tätigen Mitarbeitenden kann in vier Schritte unterteilt werden:\n\n1. Ausarbeitung der Anforderungen: Die Anforderungen ergeben sich aus der Stellenbeschreibung und dem darin integrierten Anforderungs- und Leistungsprofil (berufliche, charakterliche und persönliche Anforderungen).\n\n2. Rekrutierungsmöglichkeiten und Auswahlverfahren definieren: Es gibt grundsätzlich zwei Möglichkeiten: zentrale und dezentrale Rekrutierung sowie interne oder externe Rekrutierung. Interne Rekrutierung umfasst z.B. interne Ausschreibungen via Intranet, Nachwuchsförderung, Talententwicklung, Versetzung. Externe Rekrutierung umfasst z.B. Stellenausschreibungen auf Job- und Social-Media-Plattformen, Suche via Personalvermittler/Headhunter, Arbeitsämter, Job- und Berufsmessen.\n\n3. Entscheid der Rekrutierung.\n\n4. Erfolgskontrolle: Anhand der Verkaufskosten und der erzielten Umsätze wird die Produktivität der Mitarbeitenden laufend überprüft und beurteilt.'
+          },
+          {
+            type: 'concept',
+            title: '6.2 Einführung von neuen Mitarbeitenden',
+            text: 'Mit der Unterzeichnung des Arbeitsvertrags ist der Vorgang der Personalsuche und -beschaffung noch nicht abgeschlossen. Die neuen Mitarbeitenden müssen rasch eingearbeitet und an das Unternehmen gebunden werden. Loyalität dem Unternehmen gegenüber ist das höchste Ziel.\n\nEine Bezugsperson (Gotte/Götti) soll bestimmt werden, die dem neuen Mitarbeitenden dabei hilft, sich fachlich und sozial in den Betrieb zu integrieren. Die Gotte oder der Götti ist auch seine Ansprechperson bei fachlichen Schwierigkeiten oder zwischenmenschlichen Problemen.'
+          },
+          {
+            type: 'concept',
+            title: '6.3 Motivation im Verkauf',
+            text: 'Die Motivationsplanung legt fest, wie die Verkaufsmitarbeitenden dazu motiviert werden können, ihre Aufgaben zu erfüllen. Es gibt drei Arten von Systemen für die Entlohnung:\n- 100% fixe Entlohnung\n- 100% variable Entlohnung\n- Kombination der fixen und der variablen Entlohnung\n\nFür die prinzipielle Darstellung von Bedürfnissen wird häufig das Modell von Maslow verwendet (Maslowsche Bedürfnispyramide):\n1. Körperliche Grundbedürfnisse (Atmung, Wärme, Trinken, Essen, Schlaf)\n2. Sicherheit (Wohnung, fester Arbeitsplatz, Gesetze, Versicherungen, Gesundheit)\n3. Soziale Beziehungen (Freundeskreis, Partnerschaft, Liebe, Kommunikation)\n4. Soziale Anerkennung (Status, Wohlstand, Gold, Macht, Karriere)\n5. Selbstverwirklichung (Individualität, Talententfaltung, Kunst, Philosophie)\n\nEs ist wichtig, dass externe Motivation allein möglicherweise nicht ausreicht. Interne Motivationsfaktoren wie intrinsische Motivation, die aus persönlichem Interesse an der Arbeit resultiert, spielen ebenfalls eine entscheidende Rolle bei der Entwicklung von Loyalität.'
+          },
+          {
+            type: 'concept',
+            title: '6.4 Ausbildung der Mitarbeitenden im Verkauf',
+            text: 'Ziel der Ausbildung sind die Erhöhung der Qualität der Verkaufspersonen und das Schliessen von Lücken zwischen Anforderungen und Fähigkeiten des Verkaufspersonals im Innen- und im Aussendienst.\n\nDie in der Ausbildung zu behandelnden Themen lassen sich in vier Bereiche unterteilen:\n1. Unternehmen\n2. Produkte\n3. Markt\n4. Fähigkeiten\n\nDas Ausbildungskonzept wird in sechs Schritten erarbeitet:\n1. Analyse der Ist-Situationen – Stand der Fähigkeiten und Kenntnisse\n2. Setzen der Ausbildungsziele bezogen auf Zielgruppen – Was soll erreicht werden?\n3. Entwicklung der Strategie – Wie wollen wir vorgehen?\n4. Planung der Massnahmen – Welche Massnahmen planen wir?\n5. Zusammenstellen des Budgets – Was wird es kosten?\n6. Erarbeitung der Kontrollpläne – Wie wird der Erfolg kontrolliert?'
+          },
+          {
+            type: 'concept',
+            title: '6.5 Planung der Verkaufshilfsmittel',
+            text: 'Verkaufshilfsmittel erleichtern und unterstützen die Verkaufskontakte. Sie können grob in die beiden Kategorien «technische Hilfsmittel» und «persönliche Hilfsmittel» unterteilt werden.\n\nZu den technischen Hilfsmitteln gehören:\n- Präsentationshilfen: Unterstützen Demonstrationen und Illustrationen, visualisieren und erklären Marktleistungen\n- Informationshilfen: Ermöglichen den Austausch von Informationen zwischen Kunden und Verkäufern. Ein wichtiges Hilfsmittel dabei sind CRM-Systeme (Customer-Relationship-Management-Systeme)\n- Transporthilfen: Dienen zum Transport der Mitarbeitenden im Aussendienst\n\nPersönliche Hilfsmittel sind immateriell. Bei ihnen handelt es sich um Fähigkeiten, Wissen, Techniken usw., die zur Persönlichkeit und zum Charisma der Person gehören oder die speziell erlernt oder antrainiert werden können.'
+          },
+          {
+            type: 'concept',
+            title: '6.6 Fachkräftemangel – Employer Branding',
+            text: 'Employer Branding beschreibt alle Massnahmen, die ein Unternehmen ergreifen kann, um die eigene Marke zu stärken und sich gegenüber potenziellen Bewerbern als passender und attraktiver Arbeitgeber darzustellen. Das Ziel von Employer Branding ist, im Markt als attraktiver Arbeitgeber wahrgenommen zu werden und die besten Mitarbeitenden für eine Anstellung gewinnen zu können.\n\nUm das Unternehmen als attraktiven Arbeitgeber zu positionieren, ist es wichtig, die Karrierewebsite der Marke hervorzuheben. Die besten Botschafter der Marke sind dabei die eigenen Mitarbeitenden.'
+          },
+          {
+            type: 'concept',
+            title: '6.7 Berufe im Verkauf',
+            text: 'Die wichtigsten Berufe im Verkauf:\n\n- Verkaufsleiter/in: Verantwortlich für verschiedene absatzorientierte Funktionen, von der Grosskundenbetreuung bis zur Leitung von ganzen Absatzorganisationen. Konzipierung, Planung und Führung der Verkaufs- und Vertriebsorganisation.\n\n- Key-Account-Manager/in (KAM): Spielt bei der Marktbearbeitung eine wichtige Rolle. Verfügt über Fach- und Sozialkompetenz, betriebswirtschaftliches Know-how und ist auf der permanenten Suche nach optimalen Individuallösungen für seine Kunden.\n\n- Verkaufsfachleute: Personen mit umfassenden Kenntnissen und Fähigkeiten im Bereich des Verkaufs. Sie spielen eine entscheidende Rolle für Unternehmen, da sie massgeblich zum Umsatzwachstum und zur Kundengewinnung beitragen.\n\n- Influencer: Personen, die durch ihre Präsenz in sozialen Medien wie Instagram, Youtube, TikTok eine grosse Anzahl von Followern und Fans haben. Unternehmen nutzen häufig Influencer-Marketing, um ihre Produkte oder Dienstleistungen zu bewerben und ihre Reichweite zu nutzen.'
+          },
+          {
+            type: 'merke',
+            title: 'Merke dir!',
+            text: 'Die Auswahl der im Verkauf tätigen Mitarbeitenden kann in vier Schritte unterteilt werden: 1. Ausarbeitung der Anforderungen, 2. Rekrutierungsmöglichkeiten und Personalauswahlverfahren abklären, 3. Entscheid der Rekrutierung, 4. Erfolgskontrolle.\n\nNeue Mitarbeitende sollen schnell eingearbeitet werden. Ziel ist, dass diese dem Unternehmen gegenüber loyal sind. Eine Bezugsperson (Gotte/Götti) hilft bei der fachlichen und sozialen Integration.\n\nDie Motivationsplanung legt fest, wie die Verkaufsmitarbeitenden motiviert werden können. Es gibt drei Entlohnungssysteme: 100% fix, 100% variabel, oder Kombination.\n\nVerkaufshilfsmittel werden in technische (Präsentations-, Informations-, Transporthilfen) und persönliche Hilfsmittel unterteilt.'
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            text: 'Die Auswahl der im Verkauf tätigen Mitarbeitenden kann in vier Schritte unterteilt werden: Ausarbeitung der Anforderungen, Rekrutierungsmöglichkeiten und Personalauswahlverfahren abklären, Entscheid der Rekrutierung und Erfolgskontrolle.\n\nNeue Mitarbeitende sollen schnell eingearbeitet werden. Eine Bezugsperson (Gotte/Götti) soll bestimmt werden, die dem neuen Mitarbeitenden hilft, sich fachlich und sozial in den Betrieb zu integrieren.\n\nDie Motivationsplanung legt fest, wie die Verkaufsmitarbeitenden dazu motiviert werden können, ihre Aufgaben zu erfüllen. Es gibt drei Arten von Systemen für die Entlohnung: 100% fixe Entlohnung, 100% variable Entlohnung, Kombination der fixen und der variablen Entlohnung.\n\nVerkaufshilfsmittel erleichtern und unterstützen die Verkaufskontakte und werden in technische und persönliche Hilfsmittel unterteilt.\n\nEmployer Branding beschreibt alle Massnahmen, um die eigene Arbeitgebermarke zu stärken und die besten Mitarbeitenden zu gewinnen.'
+          },
+          {
+            type: 'keyterms',
+            title: 'Schlüsselbegriffe',
+            terms: [
+              {term: 'Personalauswahl', def: 'Vier-Schritte-Prozess: Anforderungen ausarbeiten, Rekrutierungsmöglichkeiten definieren, Entscheid treffen, Erfolgskontrolle durchführen.'},
+              {term: 'Interne Rekrutierung', def: 'Besetzung von Stellen mit Mitarbeitenden aus dem eigenen Unternehmen (z.B. via Intranet, Nachwuchsförderung, Versetzung).'},
+              {term: 'Externe Rekrutierung', def: 'Suche nach Kandidaten ausserhalb des Unternehmens (z.B. Job-Plattformen, Headhunter, Jobmessen).'},
+              {term: 'Bezugsperson (Gotte/Götti)', def: 'Person, die neuen Mitarbeitenden bei der fachlichen und sozialen Integration in den Betrieb hilft.'},
+              {term: 'Motivation', def: 'Die Differenz zwischen einem angestrebten Soll-Zustand und dem gegenwärtigen Ist-Zustand. Intrinsische und extrinsische Faktoren.'},
+              {term: 'Bedürfnispyramide (Maslow)', def: 'Modell mit 5 Stufen: Grundbedürfnisse, Sicherheit, Soziale Beziehungen, Soziale Anerkennung, Selbstverwirklichung.'},
+              {term: 'Vergütungssystem', def: 'System der Entlohnung im Verkauf. Muss transparent, gerecht, leistungsorientiert, flexibel und motivierend sein.'},
+              {term: 'Ausbildungskonzept', def: 'Wird in 6 Schritten erarbeitet: Analyse, Ziele, Strategie, Massnahmen, Budget, Kontrollpläne.'},
+              {term: 'Verkaufshilfsmittel', def: 'Technische (Präsentations-, Informations-, Transporthilfen) und persönliche Hilfsmittel (Fähigkeiten, Wissen, Charisma).'},
+              {term: 'CRM-System', def: 'Customer-Relationship-Management-System zur Verwaltung von Kundenbeziehungen und Informationsaustausch.'},
+              {term: 'Employer Branding', def: 'Massnahmen, um die eigene Marke als Arbeitgeber zu stärken und sich als attraktiver Arbeitgeber zu positionieren.'},
+              {term: 'Influencer', def: 'Personen mit grosser Reichweite in sozialen Medien, die Meinungen und Kaufentscheidungen beeinflussen können.'}
+            ]
+          }
+        ]
+      }
     },
     {
       id: 'ch7',
@@ -993,7 +1469,64 @@ window.BOOK_DATA = {
           reveal: ['Mengenmässige NS = Fixkosten / DB pro Stück.','Beispiel: 800\'000 / 60 = 13\'333 Stück.']
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Verkaufskosten- und Budgetplanung',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            text: 'Nach der Bearbeitung dieses Kapitels können Sie:\n- fixe und variable Kosten unterscheiden\n- den Deckungsbeitrag und den Break-even-Point berechnen\n- beschreiben, wie ein Verkaufsbudget aufgebaut sein soll'
+          },
+          {
+            type: 'concept',
+            title: '7.1 Kostenarten',
+            text: 'In allen vorgängig geplanten Schritten, von der Analyse der Ausgangslage, der Festlegung der Ziele, der Entwicklung der Verkaufsstrategien bis zur Planung ihrer Umsetzung, fallen Kosten an. Diese Kosten werden im Verkaufskostenbudget zusammengefasst und übersichtlich und strukturiert dargestellt.\n\nGrundsätzlich spricht man von:\n- Fixen und variablen Kosten\n- Kosten im Verkaufsbereich\n\n7.1.1 Fixe und variable Kosten:\nFixkosten sind Kosten, die in konstanter Höhe anfallen, unabhängig davon, welche Menge von einem Produkt hergestellt wird. Beispiele: Miete, Zinsen, Löhne etc. Fixkosten sind Kosten, die nicht oder nur sehr begrenzt zu beeinflussen sind.\n\nVariable Kosten sind veränderliche Kosten, deren Höhe vom Geschäfts- und Auftragseingang abhängt. Die variablen Kosten tendieren daher auch gegen null, wenn die Produktion unterbrochen wird. Beispiele: Erfolgsprämien, Spesen, Material etc.\n\nGesamtkosten sind die Summe der fixen Kosten und der variablen Kosten.'
+          },
+          {
+            type: 'concept',
+            title: '7.2 Verkaufskostenplanung',
+            text: 'Die mittelfristige Planung der Verkaufskosten ist eher als Grobplanung zu betrachten. Sie zeigt die Marschrichtung für die kommenden Jahre an und bildet die Basis für die detaillierte Budgetierung der Kosten.\n\nDie Grundlagen für die Verkaufskostenplanung bilden:\n- Vom Unternehmen vorgegebene Budgetierungsrichtlinien\n- Grösse der Verkaufsorganisation (Anzahl Mitarbeitende im Innen- und Aussendienst, Büroräumlichkeiten)\n- Art und Anzahl der Verkaufsaktivitäten\n- Umsatz und Gewinn aus realisiertem Umsatz\n\nThemen der Verkaufskostenplanung:\n- Deckungsbeitragsrechnung\n- Break-even-Point\n- Lohnkosten im Verkauf'
+          },
+          {
+            type: 'concept',
+            title: '7.2.1 Deckungsbeitragsrechnung',
+            text: 'Der Deckungsbeitrag ist die Differenz in der Kosten- und Leistungsrechnung zwischen den erzielten Erlösen (Umsatz) und den variablen Kosten. Es handelt sich also um den Betrag, der zur Deckung der Fixkosten zur Verfügung steht.\n\nDie Zusammenhänge zwischen den einzelnen Kostenarten:\n- Erlös/Umsatz = variable Kosten + fixe Kosten + Gewinn\n- Selbstkosten = variable Kosten + fixe Kosten\n- Deckungsbeitrag = fixe Kosten + Gewinn'
+          },
+          {
+            type: 'concept',
+            title: '7.2.2 Break-even-Point',
+            text: 'Der Break-even-Point (BEP) ist der Punkt, bei dem sowohl die fixen wie auch die variablen Kosten gedeckt sind, bei dem es weder einen Gewinn noch einen Verlust gibt. Gleichbedeutende oder deutsche Ausdrücke für den BEP sind: Nutzschwelle, Gewinnschwelle, Toter Punkt, Punkt der vollen Kostendeckung.\n\nBerechnung des mengenmässigen BEP:\n1. Schritt: Deckungsbeitrag pro Stück = Erlös pro Einheit − variable Kosten\n2. Schritt: BEP in Stück = gesamte Fixkosten / Deckungsbeitrag pro Einheit\n\nBeispiel: Erlös pro Einheit CHF 20, variable Kosten CHF 8 = DB pro Stück CHF 12. Bei Fixkosten von CHF 150\'000: BEP = 150\'000 / 12 = 12\'500 Stück.\n\nDer wertmässige BEP = BEP in Stück × Erlös pro Einheit = 12\'500 × CHF 20 = CHF 250\'000.\n\nAnwendungsgebiete: Kontrolle der Kosten im Verhältnis zum Absatz, Analyse des Erfolgs, Budgetierung und Gewinnplanung, Entscheidung ob Eigen- oder Fremdfertigung (Outsourcing), Sortimentsplanung.'
+          },
+          {
+            type: 'concept',
+            title: '7.3 Verkaufskostenbudget',
+            text: 'Das Verkaufskostenbudget umfasst die Erlöse und die Kosten, die im Verkaufsbereich anfallen. Grundsätzlich werden vom budgetierten Umsatz oder vom Erlös die fixen und die variablen Kosten abgezogen; daraus ergibt sich das Betriebs- oder Bereichsergebnis.\n\nIn der Praxis hat es sich bewährt, zum Total der budgetierten Kosten ca. 10% für Unvorhergesehenes einzurechnen. Das kann beispielsweise sein:\n- Kurzfristige, den Verkauf flankierende Aktionen (z.B. Social-Media-Postings, Radiospots)\n- Zusätzliche Verkaufshilfsmittel\n- Höhere Auslagen für die Produktion von Verkaufshilfsmitteln, Porto, Repräsentationskosten und Reisespesen'
+          },
+          {
+            type: 'merke',
+            title: 'Merke dir!',
+            text: 'Fixkosten sind Kosten, die in konstanter Höhe anfallen, unabhängig davon, welche Menge von einem Produkt erbracht wird.\n\nVariable Kosten dagegen sind veränderliche Kosten, deren Höhe vom Geschäfts- und Auftragseingang abhängt.\n\nDer Deckungsbeitrag ist die Differenz zwischen den erzielten Erlösen (Umsatz) und den variablen Kosten.\n\nDer Break-even-Point (BEP) ist der Punkt, bei dem sowohl die fixen wie auch die variablen Kosten gedeckt sind. BEP = Fixkosten / Deckungsbeitrag pro Stück.\n\nDas Verkaufskostenbudget sollte immer eine Reserve in der Höhe von ca. 10% für Unvorhergesehenes eingerechnet werden.'
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            text: 'Fixkosten sind Kosten, die in konstanter Höhe anfallen, unabhängig davon, welche Menge von einem Produkt erbracht wird.\n\nDie variablen Kosten dagegen sind veränderliche Kosten, deren Höhe vom Geschäfts- und Auftragseingang abhängt.\n\nDer Deckungsbeitrag ist die Differenz in der Kosten- und Leistungsrechnung zwischen den erzielten Erlösen (Umsatz) und den variablen Kosten.\n\nDer Break-even-Point (BEP) oder auf Deutsch die Nutzschwelle ist der Punkt, bei dem sowohl die fixen wie auch die variablen Kosten gedeckt sind, bei dem sich weder ein Gewinn noch ein Verlust ergibt.\n\nDie Lohnkosten sind ein wichtiger Bestandteil des Verkaufskostenbudgets. Die Löhne können je nach Branche und Unternehmensgrösse unterschiedlich ausfallen und berechnet werden. Zusätzlich müssen noch ca. 25% für Sozialleistungen dazugerechnet werden.\n\nDas Verkaufskostenbudget umfasst die Erlöse und die Kosten, die im Verkaufsbereich anfallen. Grundsätzlich werden vom budgetierten Umsatz die fixen und variablen Kosten subtrahiert. Daraus ergibt sich das Betriebs- oder Bereichsergebnis. Es sollte immer eine Reserve in der Höhe von ca. 10% für Unvorhergesehenes eingerechnet werden.'
+          },
+          {
+            type: 'keyterms',
+            title: 'Schlüsselbegriffe',
+            terms: [
+              {term: 'Fixkosten', def: 'Kosten, die in konstanter Höhe anfallen, unabhängig von der produzierten Menge. Beispiele: Miete, Zinsen, Löhne.'},
+              {term: 'Variable Kosten', def: 'Veränderliche Kosten, deren Höhe vom Geschäfts- und Auftragseingang abhängt. Beispiele: Erfolgsprämien, Spesen, Material.'},
+              {term: 'Deckungsbeitrag', def: 'Differenz zwischen den erzielten Erlösen (Umsatz) und den variablen Kosten. Steht zur Deckung der Fixkosten zur Verfügung.'},
+              {term: 'Break-even-Point (BEP)', def: 'Der Punkt, bei dem sowohl die fixen wie auch die variablen Kosten gedeckt sind (Nutzschwelle/Gewinnschwelle). BEP = Fixkosten / DB pro Stück.'},
+              {term: 'Verkaufskostenbudget', def: 'Umfasst alle Erlöse und Kosten im Verkaufsbereich. Vom budgetierten Umsatz werden fixe und variable Kosten abgezogen = Betriebs-/Bereichsergebnis.'},
+              {term: 'Verkaufskostenplanung', def: 'Mittelfristige Grobplanung der Verkaufskosten als Basis für die detaillierte Budgetierung.'},
+              {term: 'Lohnkosten im Verkauf', def: 'Wichtiger Bestandteil des Verkaufskostenbudgets. Zusätzlich ca. 25% für Sozialleistungen (AHV, ALV, NBU, PK, Ferien).'}
+            ]
+          }
+        ]
+      }
     },
     {
       id: 'ch8',
@@ -1112,7 +1645,82 @@ window.BOOK_DATA = {
           reveal: ['Der Kontrollplan gliedert sich in: Zielinhalt, Quantifizierung, Methode, Zeitpunkt, Korrekturmassnahmen und Verantwortlicher.']
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Kontrollplanung im Verkauf',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            text: 'Nach der Bearbeitung dieses Kapitels können Sie:\n- den Begriff «Kontrolle» erklären\n- die Kontrollmethoden und Kontrollarten aufzählen\n- den Kontrollprozess beschreiben\n- darlegen, wie die Verkaufskontrolle durchgeführt wird'
+          },
+          {
+            type: 'concept',
+            title: '8.1 Was bedeutet Kontrolle?',
+            text: 'Das Setzen von Zielen macht nur dann Sinn, wenn die Zielerreichung und die Zielerfüllung auch kontrolliert werden. Nur so können aus den Resultaten Konsequenzen für neue Ziele und Massnahmen gezogen werden.\n\nKontrolle bedeutet:\n- einen gegebenen Ist-Zustand mit einem gewünschten Soll-Zustand zu vergleichen\n- das Ausmass der Abweichung zu ermitteln\n- die Ursachen der Abweichung zu analysieren\n- allfällige korrektive Massnahmen zur Optimierung dieses Zustands einzuleiten\n\nIm engeren Sinn bedeutet Kontrollieren: Überwachen, Prüfen, Inspizieren, Testen, Untersuchen sowie Messen und Vergleichen.\nIm weiteren Sinn gehören auch dazu: Informieren, Aktivieren, Werten und Richtigstellen.'
+          },
+          {
+            type: 'concept',
+            title: '8.1.1 Kontrolle als Führungsfunktion',
+            text: 'Kontrolle ist eine nicht delegierbare Aufgabe von Führungskräften. Sie umfasst sowohl das Feststellen der Differenz von Soll- (Plan-) und Ist-Werten (Soll-Ist-Vergleich) als auch das Bestimmen von Korrekturmassnahmen.\n\nEin konstruktives Feedback der Vorgesetzten auf Resultate von Kontrollen wirkt sich positiv und motivierend auf Mitarbeitende aus. Kontrollmassnahmen dienen dazu, Aufgaben zu erleichtern, Prozesse zu optimieren und die Kundenzufriedenheit zu erhöhen.'
+          },
+          {
+            type: 'concept',
+            title: '8.1.2 Kontrollmethoden',
+            text: 'Als Kontrollmethoden eignen sich beispielsweise folgende Mittel:\n- Statistiken: interne und externe\n- Erhebungen: Marktberichte und -untersuchungen aus sekundären Quellen\n- Beobachtungen: Reise- und Besuchsbegleitungen\n- Auswertung: Besuchsberichte, Wochenberichte, Messprotokolle, Spesenab­rechnungen, Korrespondenz\n- Befragung: Kundenbefragungen, Gespräche mit Mitarbeitenden'
+          },
+          {
+            type: 'concept',
+            title: '8.1.3 Kontrollarten',
+            text: 'Die wichtigsten Kontrollarten sind:\n- Voll- oder Stichprobenkontrolle: Bei der Vollkontrolle wird jeder einzelne Artikel, Prozess oder jede Transaktion überprüft und kontrolliert (z.B. Finanzprüfungen, Sicherheitskontrollen). Bei der Stichprobenkontrolle werden nur ausgewählte Proben oder Teilmengen überprüft (z.B. Qualitätskontrolle, statistische Analyse, Audits).\n- Interne oder externe Kontrolle: Interne Kontrollen werden innerhalb der Organisation implementiert. Externe Kontrollen werden von unabhängigen, organisationsfremden Instanzen durchgeführt.\n- Selbst- oder Fremdkontrolle: Selbstkontrolle wird eigenständig durchgeführt. Fremdkontrolle wird von externen Instanzen oder Personen durchgeführt.\n- Konstruktive oder destruktive Kontrolle: Konstruktive Kontrolle zielt auf Verbesserung und Optimierung ab. Destruktive Kontrolle kann demotivierend wirken.'
+          },
+          {
+            type: 'concept',
+            title: '8.1.4 Kontrollprozess',
+            text: 'Der Kontrollprozess umfasst fünf Schritte:\n\n1. Definition der Kontrollobjekte: Gemäss den gesetzten ökonomischen und psychologischen Zielen werden die Kontrollobjekte sowie deren untere und obere Toleranzwerte bestimmt.\n\n2. Durchführung der Kontrollmassnahmen: Bei der Durchführung werden die einzelnen Kontrollobjekte und ihre Ist-Werte während und am Ende des Prozesses erfasst.\n\n3. Überwachung der Ausführung der Kontrollmassnahmen: Kontrolle ist gut, Vertrauen ist besser. Die verantwortliche Person überwacht, ob die vorgesehenen Kontrollen und Korrekturmassnahmen wie geplant durchgeführt werden.\n\n4. Bewertung der Ergebnisse: Die Ergebnisse werden ausgewertet und die Resultate bewertet. Ziel ist festzustellen, ob die vorgesehenen Massnahmen wirksam, zielorientiert und budgetkonform sind.\n\n5. Analyse und Feedback: Die Resultate werden analysiert, ob eine positive oder negative Abweichung zum Sollwert vorliegt. Die Analyse dient als Grundlage für konstruktives Feedback und zur Optimierung.'
+          },
+          {
+            type: 'concept',
+            title: '8.2 Verkaufskontrolle',
+            text: 'Bei der Verkaufskontrolle gilt als besondere Herausforderung, dass ihre Wirkung nicht isoliert von den anderen Marketinginstrumenten betrachtet werden kann. Trotzdem lassen sich die Verkaufsziele sehr wohl getrennt betrachten und kontrollieren.\n\nHauptarten von Kontrollen:\nErgebniskontrollen:\n- Marktkontrolle: Markttrends, Marktkennzahlen, Mitbewerber\n- Umsatzkontrolle: bezogen auf Kunde, Produktgruppe, Vertreter, Gebiet etc.\n- Preiskontrolle: Preis- und Rabatthöhe, bezogen auf z.B. Kundengruppen\n- Gewinnkontrolle: Margen-, Gewinn- und Deckungsbeitragskontrolle\n- Kostenkontrolle: Vergleiche mit dem Budget und/oder Vorgaben\n\nAusführungskontrollen werden häufig im Personalbereich angewendet. Dabei werden Handlungsabläufe und Handlungsweisen bewertet.\n\nQuantitative oder ökonomische Ziele sind in der Regel einfacher und mit geringerem Aufwand zu kontrollieren als qualitative oder psychologische Ziele.'
+          },
+          {
+            type: 'concept',
+            title: '8.2.3 Kontrollplan',
+            text: 'Ein Kontrollplan ist ein Dokument oder eine Anleitung, die detaillierte Schritte und Massnahmen enthält, um die Durchführung und Überwachung bestimmter Prozesse oder Aktivitäten zu gewährleisten.\n\nEin Kontrollplan umfasst normalerweise folgende Elemente:\n- Zielsetzung: Legt das Ziel fest, das erreicht werden soll\n- Kontrollmassnahmen: Beschreibt die konkreten Massnahmen (Inspektionen, Überprüfungen, Tests, Messungen)\n- Prüfkriterien: Legt die Kriterien fest, anhand derer die Kontrolle erfolgt\n- Kontrollpunkte: Identifiziert die Punkte oder Phasen, an denen die Kontrolle durchgeführt werden soll\n- Häufigkeit der Kontrolle / Kontrolltermin: Gibt an, wie oft die Kontrolle durchgeführt werden soll\n- Verantwortlichkeiten: Weist bestimmten Personen oder Abteilungen die Verantwortung zu'
+          },
+          {
+            type: 'methodenbox',
+            title: 'Mystery-Shopping: Qualitätssicherung im Verkauf',
+            text: '1. Wann und wofür setzen Sie diese Methode ein?\nMystery Shopping wird eingesetzt, um die Qualität des Kundenservice und der Verkaufsprozesse zu überprüfen, indem verdeckte Testkäufer als potenzielle Kunden auftreten und ihre Erfahrungen bewerten.\n\n2. Was erhalten Sie als Ergebnis?\nMystery-Shopping liefert Ergebnisse und Einsichten über die Kundenerfahrung, den Kundenservice und die Einhaltung der Qualitätsstandards eines Unternehmens aus Sicht eines Kunden.\n\n3. Was beachten Sie beim Mystery-Shopping?\nBei Mystery-Shopping ist es wichtig, klare Ziele und Kriterien festzulegen, um die gewünschten Aspekte zu bewerten. Zudem sollten die Testkäufer professionell geschult und instruiert werden, um eine objektive und zuverlässige Bewertung sicherzustellen.'
+          },
+          {
+            type: 'merke',
+            title: 'Merke dir!',
+            text: 'Kontrolle bedeutet, einen Ist-Zustand mit einem gewünschten Soll-Zustand zu vergleichen, das Ausmass der Abweichung zu ermitteln, die Ursachen zu analysieren und allfällige korrektive Massnahmen einzuleiten.\n\nDie Kontrollplanung ist der letzte Schritt bei der Erarbeitung eines Verkaufsplanungskonzepts. Auf der Basis der erzielten Kontrollresultate ergibt sich eine neue oder geänderte Ausgangslage, die den gesamten Regelkreis der Verkaufsplanung erneut anstösst.\n\nDer Kontrollplan gliedert sich in: Zielinhalt, Quantifizierung, Methode, Zeitpunkt, Korrekturmassnahmen und Verantwortlichkeit.'
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            text: 'Kontrolle bedeutet, einen Ist-Zustand mit einem gewünschten Soll-Zustand zu vergleichen, das Ausmass der Abweichung zu ermitteln, die Ursachen der Abweichung zu analysieren und allfällige korrektive Massnahmen zur Optimierung dieses Zustands einzuleiten.\n\nKontrollmethoden und -arten sind: Voll- und Stichprobenkontrolle, Interne und externe Kontrolle, Selbst- und Fremdkontrolle, Konstruktive und destruktive Kontrolle.\n\nQuantitative oder ökonomische Ziele sind in der Regel einfacher und mit geringerem Aufwand zu kontrollieren als qualitative oder psychologische Ziele.\n\nDer Kontrollprozess hat folgende Phasen: Definition des Kontrollobjekts, Durchführung der Kontrollmassnahmen, Überwachung der Ausführung der Kontrollmassnahmen, Bewertung der Ergebnisse, Analyse und Feedback.\n\nDer Kontrollplan gliedert sich in: Zielinhalt, Quantifizierung, Methode, Zeitpunkt, Korrekturmassnahmen und Verantwortlichkeit.'
+          },
+          {
+            type: 'keyterms',
+            title: 'Schlüsselbegriffe',
+            terms: [
+              {term: 'Kontrolle', def: 'Vergleich eines Ist-Zustands mit einem Soll-Zustand, Ermittlung der Abweichung, Analyse der Ursachen und Einleitung von Korrekturmassnahmen.'},
+              {term: 'Kontrolle als Führungsfunktion', def: 'Nicht delegierbare Aufgabe von Führungskräften, umfasst Soll-Ist-Vergleich und Bestimmung von Korrekturmassnahmen.'},
+              {term: 'Kontrollmethoden', def: 'Mittel zur Durchführung von Kontrollen: Statistiken, Erhebungen, Beobachtungen, Auswertungen, Befragungen.'},
+              {term: 'Kontrollarten', def: 'Voll-/Stichprobenkontrolle, Interne/externe Kontrolle, Selbst-/Fremdkontrolle, Konstruktive/destruktive Kontrolle.'},
+              {term: 'Kontrollprozess', def: 'Fünf Phasen: Kontrollobjekte definieren, Kontrollmassnahmen durchführen, Ausführung überwachen, Ergebnisse bewerten, Analyse und Feedback.'},
+              {term: 'Ergebniskontrolle', def: 'Umfasst Markt-, Umsatz-, Preis-, Gewinn- und Kostenkontrolle.'},
+              {term: 'Ausführungskontrolle', def: 'Bewertung von Handlungsabläufen und Handlungsweisen, häufig im Personalbereich angewendet.'},
+              {term: 'Kontrollplan', def: 'Dokument mit Zielsetzung, Kontrollmassnahmen, Prüfkriterien, Kontrollpunkten, Häufigkeit und Verantwortlichkeiten.'},
+              {term: 'Mystery-Shopping', def: 'Verdeckte Testkäufer überprüfen die Qualität des Kundenservice und der Verkaufsprozesse.'},
+              {term: 'Verkaufskontrolle', def: 'Überprüfung der Verkaufsziele. Wirkung kann nicht isoliert von anderen Marketinginstrumenten betrachtet werden.'}
+            ]
+          }
+        ]
+      }
     },
     {
       id: 'ch9',
@@ -1232,7 +1840,89 @@ window.BOOK_DATA = {
           reveal: ['Die Bedarfsanalyse findet in der Phase "Angebot und Argumentation" statt.','Hier werden Bedürfnisse ermittelt, das Angebot präsentiert und verhandelt.']
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Verkaufsgespräch',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            text: 'Nach der Bearbeitung dieses Kapitels können Sie:\n- die sechs Phasen des Verkaufsgesprächs beschreiben\n- verschiedene Abschlusstechniken aufzählen\n- erklären, worauf es beim Aftersales-Service ankommt'
+          },
+          {
+            type: 'concept',
+            title: '9.1 Aufbau von nachhaltigen Kundenbeziehungen',
+            text: 'Im Verkauf bezieht sich der Begriff «Beziehung» auf die Verbindung zwischen einer Verkaufsperson und seiner Kundin oder seinem Kunden, die Kundenbeziehung. Es geht darum, eine langfristige und vertrauensvolle Verbindung aufzubauen, bei der die Verkaufsperson die Bedürfnisse und Anforderungen der Kundschaft versteht und darauf eingeht.\n\nEine gute Beziehung im Verkauf beinhaltet mehr als nur den Austausch von Produkten oder Dienstleistungen gegen Geld. Sie basiert auf Kommunikation, Vertrauen, Zuverlässigkeit und der Bereitschaft des Verkäufers, den Kunden zu unterstützen und ihm Mehrwert zu bieten.\n\nUnter einer Beziehung versteht man eine auf gegenseitigem Vertrauen basierende persönliche Verbindung. Die zentralen Punkte dabei sind: Gegenseitiges Vertrauen und Gegenseitiger Nutzen.\n\nGeschäftsbeziehungen entstehen und entwickeln sich nicht von allein. Sie müssen systematisch gepflegt werden.'
+          },
+          {
+            type: 'concept',
+            title: '9.2 Sechs Phasen des Verkaufsgesprächs',
+            text: 'Ein Verkaufsgespräch ist immer in etwa gleichen Phasen aufgebaut und gegliedert. Die sechs Phasen eines Verkaufsgesprächs sind:\n\n1. Vorbereitungsphase: Informationsbeschaffung, Social-Media-Profil anschauen, Gesprächsziele festlegen, Gesprächsstrategie und -verlauf planen, Kundennutzen erkennen, Einsatz von Hilfsmitteln, Aktives und passives Zuhören, Auftreten und Erscheinung, Zeit- und Routenplanung, Storechecks.\n\n2. Eröffnungsphase: Persönliche Begrüssung, Atmosphäre schaffen, Vorstellung des Unternehmens, Vorstellung der Verkaufsperson, Gesprächseinstieg.\n\n3. Angebots- und Argumentationsphase: Bedarfsanalyse, Präsentation und Beratung, Argumentation, Sandwichtechnik, Referenzen und Empfehlungen, Einwandbehandlung, Preisverhandlungen, Umgang mit Mitbewerbern, Einsatz von Fragebogen.\n\n4. Abschlussphase: Kaufbereitschaft herbeiführen, Abschluss, Bestätigung.\n\n5. Verabschiedung: Vereinbarung des weiteren Vorgehens, Dank.\n\n6. Aftersales-Service (Nachbearbeitung): Nach dem Kauf ist vor dem Kauf, Kontakte pflegen und nutzen.'
+          },
+          {
+            type: 'concept',
+            title: '9.3 Vorbereitungsphase',
+            text: 'In der Vorbereitungsphase wird der Ablauf des Gesprächs von A bis Z geplant. Dabei soll immer der Kundennutzen im Vordergrund stehen.\n\nBei der Informationsbeschaffung geht es darum, sich von der Kundschaft und allenfalls auch von den Mitbewerbern ein möglichst abgerundetes Bild zu machen und die Ausgangslage/die Ist-Situation genau zu analysieren.\n\nKleidung und Erscheinungsbild: Die Kleidung ist ein Hilfsmittel für die Präsentation des Verkäufers. Saubere, gepflegte Kleidung ist ein Muss, um einen positiven Eindruck zu hinterlassen.\n\nBesuchs- und Zeitplanung: Nichts ist unangenehmer, als zu spät zu einem Gesprächstermin mit einem Kunden zu kommen. Ein zeitlicher Puffer ist auf jeden Fall einzuplanen.'
+          },
+          {
+            type: 'concept',
+            title: '9.4 Eröffnungsphase',
+            text: 'In der Eröffnungsphase geht es vor allem um das Schaffen einer angenehmen Atmosphäre.\n\nPersönliche Begrüssung: Nichts ist persönlicher als der Name. Der Verkaufende sollte den Kunden, die Kundin daher immer mit dem Namen ansprechen und begrüssen. Visitenkarten sollten ausgetauscht werden.\n\nAtmosphäre schaffen: Dazu gehört ein vorbereitetes, aufgeräumtes und sauberes Sitzungszimmer. Ein aufmerksamer Gastgeber bietet zumindest einen Kaffee oder Tee an.\n\nGesprächseinstieg: Durch eine geschickte Überleitung wird die Aufmerksamkeit auf den Gegenstand des Fach- oder Verkaufsgesprächs gelenkt. Der geübte Verkäufer achtet auf persönliche Eigenheiten des Gegenübers und merkt sich diese für künftige Gespräche.'
+          },
+          {
+            type: 'concept',
+            title: '9.5 Angebots- und Argumentationsphase',
+            text: 'In der Angebots- und Argumentationsphase wird der Bedarf des Kunden abgeklärt und es werden die Verkaufsverhandlungen geführt.\n\nBedarfsanalyse: In dieser Phase geht es darum, den Bedarf des Kunden genau zu erkennen. Es ist das Herzstück des Verkaufs. Dabei helfen der gezielte Einsatz von Fragetechniken (insbesondere offene Fragen), die Technik des aktiven Zuhörens sowie Befragungen.\n\nEinsatz von Fragebogen: Bei der Analyse der Bedürfnisse kann es im Verkaufsgespräch von Vorteil sein, vorbereitete Fragen einzusetzen, um Bedürfnisse oder den Bedarf von potenzieller Kundschaft gezielt zu ermitteln.'
+          },
+          {
+            type: 'concept',
+            title: '9.6 Abschlussphase',
+            text: 'In keinem anderen Beruf liegen Erfolg und Misserfolg so nahe beieinander wie in dem des Verkaufenden. Misserfolge gehören zum Berufsalltag.\n\nKaufsignale: Der optimale Zeitpunkt für den Abschluss kündigt sich an, wenn die Kundin, der Kunde für einen Abschluss bereit ist. Signale: begründet konkretes Interesse am Produkt, beginnt die Preisdiskussion, stellt Fragen zur Lieferung, spricht über Serviceaspekte.\n\nDrei mögliche Ergebnisse eines Verkaufsgesprächs:\n1. Kundschaft kauft – der Verkauf war erfolgreich\n2. Kundschaft sagt «vielleicht» – mittels Alternativfragen zum Entscheid führen\n3. Kundschaft ist ablehnend – die Beweggründe für das Nein in Erfahrung bringen und den nächsten Kontakttermin vereinbaren'
+          },
+          {
+            type: 'concept',
+            title: '9.7 Verabschiedung und 9.8 Aftersales-Service',
+            text: 'Verabschiedung: Die Verabschiedung nach einem Verkaufsgespräch ist fast genauso wichtig wie die Begrüssung. Es gilt, dem Kaufenden seinen Entscheid und das gute Gefühl zu bestätigen. Ein Wort, das Wunder wirkt, ist: «Danke.» Die Verabschiedung erfolgt nach ein paar persönlichen Worten – speditiv und freundlich.\n\nAftersales-Service (Nachbearbeitung): Das Aftersales-Management ist ein Teilschritt des Verkaufsprozesses, der idealerweise in eine neue Verkaufsphase mündet. Der Aftersales-Service ist ein Teilbereich des Customer Relationship Managements (CRM), also der Pflege sämtlicher Kundenbeziehungen. Darüber hinaus ist er ein Teilschritt des Verkaufsprozesses, der idealerweise in eine erneute Pre-Sales-Phase mündet, die zu zusätzlichen Verkäufen und erhöhter Kundenloyalität führt.\n\nIm Online-Handel stärkt ein guter Aftersales-Service das Vertrauen der Kundschaft und ist für den Kaufentscheid von zentraler Bedeutung.'
+          },
+          {
+            type: 'concept',
+            title: '9.9 Partnerschaft zwischen Einkauf und Verkauf',
+            text: 'In vielen Unternehmen spielen Einkaufsleiter und Einkäuferinnen eine zentrale Rolle, denn durch ihre Arbeit bestimmen sie wesentlich Qualität, Verfügbarkeit und Kosten der jeweiligen Produkte. Aus Sicht des Verkäufers ergibt sich daraus eine Art Machtposition.\n\nDie Hauptaufgaben eines Einkäufers sind: Aufbau und Pflege von stabilen Lieferantenbeziehungen, um so optimale Einkaufskonditionen zu erarbeiten. Er ist dafür verantwortlich, dass die richtige Ware zum besten Preis in einer optimalen Qualität, just in time am gewünschten Ort verfügbar ist.\n\nIm modernen Einkauf basieren die Beziehungen auf partnerschaftlicher Zusammenarbeit. Einkauf und Verkauf arbeiten grundsätzlich mit den gleichen Methoden und Techniken und verfolgen das gleiche Ziel: den nachhaltigen Unternehmenserfolg.'
+          },
+          {
+            type: 'methodenbox',
+            title: 'Aktives und passives Zuhören: Verkaufsgespräch',
+            text: '1. Wann und wofür setzen Sie diese Methode ein?\nAktives Zuhören: wenn man eine effektive Kommunikation und ein tieferes Verständnis erreichen möchte. Es wird angewendet, um dem Gesprächspartner Aufmerksamkeit zu schenken, seine Aussagen zu verstehen, Rückfragen zu stellen, Empathie zu zeigen und eine konstruktive Antwort zu geben.\nPassives Zuhören: wenn man Informationen aufnehmen und verstehen möchte, ohne aktiv in das Gespräch eingreifen zu müssen.\n\n2. Was erhalten Sie als Ergebnis?\nAktives Zuhören macht Gespräche interessanter, menschlicher. Es signalisiert dem Gegenüber (Kunden) Interesse, Respekt und Wertschätzung.\nPassives Zuhören führt nicht zu einem Austausch zwischen Kunden und Verkaufenden.\n\n3. Was beachten Sie beim aktiven und beim passiven Zuhören?\nAktives Zuhören: Aktiv sein, Augenkontakt halten, dem Gegenüber mit Mimik und Gestik zeigen, dass man aktiv dabei ist und zuhört und interessiert ist.\nPassives Zuhören: Die Worte fliessen am Empfänger vorbei, er nimmt nicht aktiv am Gespräch teil.'
+          },
+          {
+            type: 'merke',
+            title: 'Merke dir!',
+            text: 'Die sechs Phasen des Verkaufsgesprächs sind: Vorbereitungsphase, Eröffnungsphase, Angebots- und Argumentationsphase, Abschlussphase, Verabschiedung und Aftersales-Service.\n\nDie Kundschaft kauft einen Nutzen und ist bereit, dafür einen Preis zu bezahlen. Dabei muss ihr der Nutzen höher erscheinen als der verlangte Preis.\n\nReferenzen und Empfehlungen erleichtern dem Kunden die Wahl des Unternehmens.\n\nDer Aftersales-Service ist ein Teilbereich des Customer Relationship Managements (CRM). Er ist ein Teilschritt des Verkaufsprozesses, der idealerweise in eine erneute Pre-Sales-Phase mündet.'
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            text: 'Die sechs Phasen des Verkaufsgesprächs sind:\n1. Die Vorbereitungsphase\n2. Die Eröffnungsphase\n3. Die Angebots- und Argumentationsphase\n4. Die Abschlussphase\n5. Verabschiedung\n6. Aftersales-Service (Nachbearbeitung)\n\nReferenzen und Empfehlungen erleichtern dem Kunden die Wahl des Unternehmens, bei dem er Produkte und Dienstleistungen kauft.\n\nDie Kundschaft kauft einen Nutzen und ist bereit, dafür einen Preis zu bezahlen. Dabei muss ihr der Nutzen höher erscheinen als der verlangte Preis.\n\nDer Aftersales-Service ist ein Teilbereich des Customer Relationship Managements (CRM), also der Pflege sämtlicher Kundenbeziehungen. Darüber hinaus ist er ein Teilschritt des Verkaufsprozesses, der idealerweise in eine erneute Pre-Sales-Phase mündet, die zu zusätzlichen Verkäufen und erhöhter Kundenloyalität führt.\n\nIm Online-Handel stärkt ein guter Aftersales-Service das Vertrauen der Kundschaft und ist für den Kaufentscheid von zentraler Bedeutung.'
+          },
+          {
+            type: 'keyterms',
+            title: 'Schlüsselbegriffe',
+            terms: [
+              {term: 'Kundenbeziehung', def: 'Langfristige, vertrauensvolle Verbindung zwischen Verkaufsperson und Kunde, basierend auf gegenseitigem Vertrauen und gegenseitigem Nutzen.'},
+              {term: 'Phasen des Verkaufsgesprächs', def: 'Sechs Phasen: Vorbereitung, Eröffnung, Angebot und Argumentation, Abschluss, Verabschiedung, Aftersales-Service.'},
+              {term: 'Vorbereitungsphase', def: 'Phase, in der der Ablauf des Gesprächs geplant wird. Informationsbeschaffung, Gesprächsziele festlegen, Kundennutzen erkennen.'},
+              {term: 'Eröffnungsphase', def: 'Phase zum Schaffen einer angenehmen Atmosphäre. Persönliche Begrüssung, Visitenkartenaustausch, Gesprächseinstieg.'},
+              {term: 'Bedarfsanalyse', def: 'Herzstück des Verkaufs. Ermittlung des Kundenbedarfs durch Fragetechniken, aktives Zuhören und Befragungen.'},
+              {term: 'Sandwichtechnik', def: 'Argumentationstechnik, bei der der Preis zwischen zwei nutzenorientierten Argumenten «verpackt» wird.'},
+              {term: 'Kaufsignale', def: 'Zeichen, dass die Kundschaft für einen Abschluss bereit ist: konkretes Interesse, Preisdiskussion, Lieferfragen.'},
+              {term: 'Aftersales-Service', def: 'Nachbearbeitung und Teilbereich des CRM. Idealerweise mündet er in eine erneute Pre-Sales-Phase mit zusätzlichen Verkäufen.'},
+              {term: 'CRM (Customer Relationship Management)', def: 'Pflege sämtlicher Kundenbeziehungen über den gesamten Verkaufszyklus hinweg.'},
+              {term: 'Aktives Zuhören', def: 'Aufmerksam sein, Augenkontakt halten, Rückfragen stellen, Empathie zeigen. Signalisiert Interesse, Respekt und Wertschätzung.'},
+              {term: 'Passives Zuhören', def: 'Informationen aufnehmen ohne aktive Beteiligung am Gespräch. Kein echter Austausch.'},
+              {term: 'Empfehlungsmarketing', def: 'Nutzung von Referenzen und Empfehlungen zufriedener Kunden zur Neukundengewinnung.'}
+            ]
+          }
+        ]
+      }
     },
     {
       id: 'ch10',
@@ -1370,7 +2060,86 @@ window.BOOK_DATA = {
           reveal: ['"Was ist Ihnen wichtig?" = Informationsfrage (offen, sammelt Informationen).','"Rot oder blau?" = Alternativfrage (bietet Wahl).','"Stimmen Sie zu?" = Suggestivfrage (legt Antwort nahe).','"Richtig verstanden?" = Kontrollfrage (prüft Übereinstimmung).']
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Verkaufstechnik',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            text: 'Nach der Bearbeitung dieses Kapitels können Sie:\n- die verschiedenen Fragearten und deren Einsatz beschreiben\n- kritische Situationen im Verkauf meistern\n- mit Einwänden von Kunden umgehen\n- attraktive Angebote erstellen, beurteilen und entscheiden'
+          },
+          {
+            type: 'concept',
+            title: '10.1 Fragetechnik',
+            text: 'Eine gute Verkaufstechnik besteht darin, möglichst die Antworten zu provozieren, die man haben möchte. «Wer fragt, der führt, und wer führt, der gewinnt.»\n\nMit der richtigen Fragestellung gibt die Verkaufsperson ihrem Gegenüber zudem das Gefühl, dass sie ihm zuhört. Das erleichtert es ihr, die Richtung des Gesprächs zu beeinflussen und zu bestimmen.\n\nDie Ziele der Fragetechnik sind:\n- Vertrautheit und Vertrauen aufbauen\n- Eine positive Grundstimmung erzielen\n- Die Wünsche und konkreten Bedürfnisse des Kunden erfahren\n- Ein kundschafts- und bedürfnisorientiertes Angebot präsentieren\n- Argumente gezielt auf Gegenargumente aufbauen\n- Den Gesprächsverlauf diplomatisch korrigieren und beeinflussen\n- Zeit gewinnen, um die nächsten Gedanken formulieren zu können\n- Übereinstimmung und einen Abschluss erzielen oder dann die Grundlage für ein weiteres Gespräch legen'
+          },
+          {
+            type: 'concept',
+            title: '10.1.1 Offene und geschlossene Fragen',
+            text: 'Geschlossene Fragen sind Fragen, die mit einer kurzen, spezifischen Antwort beantwortet werden können. Sie begrenzen die Antwortmöglichkeiten und erfordern normalerweise nur ein «Ja» oder «Nein» oder eine bestimmte Antwortoption.\nBeispiele: «Können Sie sich eine Zusammenarbeit vorstellen?», «Darf ich Ihren Auftrag notieren?»\nGeschlossene Fragen sind nützlich, wenn man präzise Antworten benötigt oder bestimmte Aspekte klären möchte.\n\nOffene Fragen lassen Raum für die Antwort. Das Gegenüber soll die Frage mit einem Satz beantworten und Informationen preisgeben. Offene Fragen beginnen mit einem «W». Deshalb wird oft von W-Fragen (wer, wie, wann, was, wo, wie oft, weshalb, wofür, wie viel usw.) gesprochen.'
+          },
+          {
+            type: 'concept',
+            title: 'Weitere Fragearten',
+            text: 'Es gibt folgende weitere Fragearten:\n- Informationsfragen: Offene Fragen, die gezielt Informationen sammeln. «Was ist Ihnen wichtig?»\n- Suggestivfragen: Fragen, die eine bestimmte Antwort nahelegen. «Sie stimmen doch zu, dass ...?»\n- Alternativfragen: Bieten eine Auswahl zwischen zwei oder mehr Optionen. «Rot oder blau?»\n- Gegenfragen: Antwort auf eine Frage mit einer Gegenfrage. Können als unhöflich empfunden werden.\n- Kontrollfragen: Prüfen, ob das Gesagte richtig verstanden wurde. «Habe ich Sie richtig verstanden?»\n- Motivationsfragen: Motivieren den Gesprächspartner. «Was gefällt Ihnen besonders?»\n- Rhetorische Fragen: Fragen, auf die keine Antwort erwartet wird. Dienen der Betonung.\n- Fangfragen: Können die Kundschaft in eine unangenehme Lage bringen und sollten im Verkauf vermieden werden.'
+          },
+          {
+            type: 'concept',
+            title: '10.2 Zehn Praxistipps zum Meistern von kritischen Situationen im Verkauf',
+            text: 'Kritische Situationen im Verkauf erfordern Führungsstärke und Souveränität. Man sollte nicht allein in ein heikles Gespräch gehen, sondern beispielsweise den Vorgesetzten, eine interne Fachperson oder einen kompetenten Kollegen zuziehen.\n\nDie 10 Praxistipps:\n1. Verkürzung des Meetings – z.B. Hinweis auf bereits erfolgte Reservierung\n2. Ein bisschen Verwirrung stiften – zunächst über andere Themen sprechen\n3. Unterbrechungen erreichen – das Wort übernehmen, nachfragen\n4. Zuspielen der Bälle – Anwesenheit der Fachperson nutzen\n5. Gegenseitige Unterstützung – Ablenkung durch Fragen der Kollegen\n6. Bekundung von Gemeinsamkeiten – positive gemeinsame Erfahrungen betonen\n7. Fragetechnik – Gegenfragen stellen, um Handlungsvollmacht zu klären\n8. Verhandlungstechnik – vorbereitet sein, mit Gegenvorschlägen reagieren\n9. Kompromissbereitschaft zeigen – Lösungen suchen, die für beide Seiten funktionieren\n10. Ruhe bewahren – souverän und professionell bleiben'
+          },
+          {
+            type: 'concept',
+            title: '10.3 Einwandbehandlung',
+            text: 'Die Kundschaft hat oft Einwände, mit denen sie erklärt, warum sie nicht auf Anhieb die vorgeschlagene Ware kaufen möchte. Wir können drei Gruppen von Ursachen für Einwände nennen:\n1. Die Einwände liegen bei den Kunden\n2. Die Einwände liegen bei den Marktleistungen\n3. Die Einwände liegen beim Verkaufsmitarbeitenden\n\nEchte Einwände sind meistens sachlich begründet. Unechte Einwände sind häufig Vorwände der Kunden.\n\nDie VERA-Formel zum Überwinden von Einwänden:\nV = Verständnis aufbringen\nE = Einwand in Frage umwandeln\nR = Repetition des Einwands in Frageform\nA = Antworten'
+          },
+          {
+            type: 'concept',
+            title: '10.4 Angebote erstellen, beurteilen und entscheiden',
+            text: 'Angebote müssen einerseits die Bedürfnisse der Kundschaft abdecken, andererseits klar, präzise und eindeutig formuliert sein. Ein Angebot ist ein rechtlich bindender Vorschlag, der von einer Person oder einem Unternehmen gemacht wird, um bestimmte Waren oder Dienstleistungen zu bestimmten Bedingungen anzubieten.\n\nEin Angebot sollte grundsätzlich erst dann erstellt werden, wenn folgende Informationen zum Projekt vorhanden sind:\n- Die Bedürfnisse, Anforderungen und Erwartungen der Kundschaft sind klar\n- Das Budget ist vorhanden\n- Die am Entscheidungsprozess beteiligten Personen sind bekannt\n- Der Entscheidungsprozess ist bekannt\n\nDas Angebot besteht aus einem sachlichen und einem werbenden Teil. Der sachliche Teil enthält: genaue Angaben zum Produkt/Dienstleistung, Preis und allfällige Rabatte, Liefer- und Zahlungsbedingungen. Der werbende Teil hat das Ziel, das Kaufinteresse des Anfragenden zu stärken und sein Vertrauen zu gewinnen.'
+          },
+          {
+            type: 'concept',
+            title: '10.5 Die Angebotsformen und -arten / Social Selling',
+            text: 'Ein Angebot kann mündlich, schriftlich oder elektronisch abgegeben werden, je nach den geltenden gesetzlichen Anforderungen und der Art des Geschäfts. Verbreitet ist die schriftliche Form.\n\nSocial Selling ist eine ganzheitliche Strategie zur Unterstützung des Verkaufsprozesses. Der im Netz veröffentlichte Content schafft Struktur, die dafür sorgt, den Kunden in jedem Stadium der Customer Journey durch den persönlichen Kontakt in der digitalen Welt zu erreichen.'
+          },
+          {
+            type: 'methodenbox',
+            title: 'Nutzwertanalyse und Entscheidungsmatrix: Angebotsentscheidung',
+            text: 'Nutzwertanalyse: Angebotsentscheidung\n1. Wann und wofür setzen Sie diese Methode ein?\nDie Nutzwertanalyse ist ein Instrument zur Bewertung von Alternativen. Mit ihr werden Entscheidungsalternativen aufgrund von quantitativen und/oder qualitativen Kriterien miteinander verglichen und bewertet.\n\n2. Was erhalten Sie als Ergebnis?\nDas Ergebnis der Nutzwertanalyse ist die Alternative mit dem höchsten Nutzwert.\n\n3. Was beachten Sie speziell?\nFür eine Angebotsentscheidung ist es wichtig, dass die Bewertungskriterien und deren Gewichtung sorgfältig ausgewählt werden.\n\nEntscheidungsmatrix: Angebotsentscheidung\n1. Wann und wofür setzen Sie diese Methode ein?\nDie Entscheidungsmatrix ist ein Verfahren zur Bewertung von Alternativen und zur Entscheidungsfindung. Im Gegensatz zur Nutzwertanalyse werden bei der Entscheidungsmatrix alle Kriterien gleich behandelt.\n\n2. Was erhalten Sie als Ergebnis?\nDie Auswahl der besten Alternative aus verschiedenen Optionen unter Berücksichtigung definierter Kriterien.\n\n3. Was beachten Sie speziell?\nDie Kriterien müssen klar definiert und gewichtet sein, und die Entscheidungsmatrix sollte nicht zu viele Alternativen enthalten.'
+          },
+          {
+            type: 'merke',
+            title: 'Merke dir!',
+            text: 'Mit der richtigen Fragestellung gibt der Verkaufende seinem Gegenüber das Gefühl, dass er ihm zuhört. Das erleichtert es ihm, die Richtung des Gesprächs zu beeinflussen und zu bestimmen.\n\nGeschlossene Fragen lassen sich in der Regel kurz und klar beantworten. Offene Fragen dagegen lassen Raum für die Antwort.\n\nEs gibt folgende Fragearten: Informationsfragen, Suggestivfragen, Alternativfragen, Gegenfragen, Kontrollfragen, Motivationsfragen, rhetorische Fragen, Fangfragen.\n\nEchte Einwände sind meistens sachlich begründet. Unechte Einwände sind häufig Vorwände der Kunden.\n\nDie VERA-Formel: V = Verständnis aufbringen, E = Einwand in Frage umwandeln, R = Repetition des Einwands in Frageform, A = Antworten.\n\nDas Angebot besteht aus einem sachlichen und einem werbenden Teil.'
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            text: 'Mit der richtigen Fragestellung gibt der Verkaufende seinem Gegenüber das Gefühl, dass er ihm zuhört. Das erleichtert es ihm, die Richtung des Gesprächs zu beeinflussen und zu bestimmen.\n\nGeschlossene Fragen lassen sich in der Regel kurz und klar beantworten. Offene Fragen dagegen lassen Raum für die Antwort.\n\nEs gibt folgende Fragearten: Informationsfragen, Suggestivfragen, Alternativfragen, Gegenfragen, Kontrollfragen, Motivationsfragen, rhetorische Fragen, Fangfragen.\n\nDie Kundschaft hat oft Einwände, mit denen sie erklärt, warum sie nicht auf Anhieb die vorgeschlagene Ware kaufen möchte. Wir können drei Gruppen von Ursachen für Einwände nennen: 1. Die Einwände liegen bei den Kunden, 2. Die Einwände liegen bei den Marktleistungen, 3. Die Einwände liegen beim Verkaufsmitarbeitenden.\n\nEchte Einwände sind meistens sachlich begründet. Unechte Einwände sind häufig Vorwände der Kunden.\n\nAngebote müssen attraktiv gestaltet werden, um die Aufmerksamkeit des Empfängers zu erhalten. Bei der Beurteilung von Angeboten unterscheidet man die formale Prüfung und die Wirtschaftlichkeitsprüfung.\n\nDas Angebot enthält die Informationen, die benötigt werden, um eine Bestellung aufzugeben. Es besteht aus einem sachlichen und einem werbenden Teil.\n\nUm über Angebote zu entscheiden, gibt es verschiedene Methoden zur rationalen Entscheidungsfindung: Nutzwertanalyse, Entscheidungsmatrix, Kosten-Nutzen-Analyse, Entscheidungsbaum, SWOT-Analyse, Pareto-Analyse, Entscheidungsregeln.'
+          },
+          {
+            type: 'keyterms',
+            title: 'Schlüsselbegriffe',
+            terms: [
+              {term: 'Fragetechnik', def: 'Kunst der richtigen Fragestellung im Verkauf. «Wer fragt, der führt, und wer führt, der gewinnt.»'},
+              {term: 'Geschlossene Fragen', def: 'Fragen, die mit einer kurzen, spezifischen Antwort beantwortet werden können (Ja/Nein oder bestimmte Antwortoption).'},
+              {term: 'Offene Fragen', def: 'Fragen, die Raum für die Antwort lassen. Beginnen mit einem «W» (W-Fragen: wer, wie, wann, was, wo...).'},
+              {term: 'Informationsfragen', def: 'Offene Fragen, die gezielt Informationen über Bedürfnisse und Wünsche sammeln.'},
+              {term: 'Suggestivfragen', def: 'Fragen, die eine bestimmte Antwort nahelegen.'},
+              {term: 'Alternativfragen', def: 'Fragen, die eine Auswahl zwischen zwei oder mehr Optionen bieten.'},
+              {term: 'Kontrollfragen', def: 'Fragen, die prüfen, ob das Gesagte richtig verstanden wurde.'},
+              {term: 'Echte Einwände', def: 'Sachlich begründete Einwände der Kundschaft gegen ein Produkt oder eine Dienstleistung.'},
+              {term: 'Unechte Einwände', def: 'Vorwände der Kunden, die nicht die eigentlichen Gründe für die Ablehnung widerspiegeln.'},
+              {term: 'VERA-Formel', def: 'Methode zur Einwandbehandlung: V = Verständnis aufbringen, E = Einwand in Frage umwandeln, R = Repetition in Frageform, A = Antworten.'},
+              {term: 'Angebot', def: 'Rechtlich bindender Vorschlag mit sachlichem Teil (Produkt, Preis, Bedingungen) und werbendem Teil (Kaufinteresse stärken).'},
+              {term: 'Nutzwertanalyse', def: 'Instrument zur Bewertung von Alternativen anhand quantitativer und qualitativer Kriterien mit Gewichtung.'},
+              {term: 'Entscheidungsmatrix', def: 'Verfahren zur Bewertung von Alternativen, bei dem alle Kriterien gleich behandelt werden.'},
+              {term: 'Social Selling', def: 'Ganzheitliche Strategie zur Unterstützung des Verkaufsprozesses über digitale Kanäle und sozialen Medien.'}
+            ]
+          }
+        ]
+      }
     }
   ],
   glossary: [

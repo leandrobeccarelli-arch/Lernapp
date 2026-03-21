@@ -255,7 +255,103 @@ window.BOOK_DATA = {
           ]
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Marktdefinition und Abhängigkeiten',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels können Sie ...',
+            items: [
+              'den Begriff «Markt» erklären.',
+              'Segmente und Teilmärkte darstellen und voneinander abgrenzen.',
+              'die Marktgrössen unterscheiden und berechnen.',
+              'den Markt als System darstellen.',
+              'das Marktsystem für Konsumgüter, Investitionsgüter und personalintensive Dienstleistungen beschreiben.'
+            ]
+          },
+          {
+            type: 'concept',
+            title: 'Marktdefinition und Marktabgrenzung',
+            content: 'Die Marktdefinition ist ein wichtiges Fundament für ein stimmiges Marketingkonzept. Bei der Marktdefinition und -abgrenzung müssen wir uns nicht an den traditionellen Branchen orientieren, sondern herausfinden, was aus Sicht der Kunden ein Markt ist. Konkurrenten sind alle Anbieter, die das gleiche Kundenbedürfnis befriedigen.',
+            highlight: 'Bevor wir mit einem Marketingkonzept beginnen, müssen wir uns einen Überblick über den Markt verschaffen, in dem wir agieren.'
+          },
+          {
+            type: 'table',
+            title: 'Begriffe der Marktdefinition',
+            headers: ['Begriff', 'Beschreibung'],
+            rows: [
+              ['Grobmarktwahl', 'Die Marktwahl unterteilt den Markt in strategische Geschäftsfelder (SGF).'],
+              ['Segmentierung', 'Die Segmentierung unterteilt ein SGF in Segmente und Teilmärkte.'],
+              ['Teilmarkt', 'Wenn ein SGF nach der Art des Angebots unterteilt wird. (Lernhilfe: Angebot → TeilmArkt)'],
+              ['Marktsegment', 'Wenn ein SGF nach der Art der Nachfrager (Kunden) unterteilt wird. (Lernhilfe: Nachfrage → SegmeNt)'],
+              ['Strategisches Geschäftsfeld (SGF)', 'Ein «Markt im Markt» – wird von aussen durch unterschiedliche Kunden, Konkurrenten und Angebote definiert.'],
+              ['Strategische Geschäftseinheit (SGE)', 'Eine organisatorische Einheit im Unternehmen, die bestimmte strategische Geschäftsfelder bearbeitet. Von innen definiert.']
+            ]
+          },
+          {
+            type: 'concept',
+            title: 'Marktgrössen und Marktkennzahlen',
+            content: 'Die Marktgrössen helfen bei der Analyse des Markts. Es gibt eine klare Hierarchie: Marktkapazität > Marktpotenzial > Marktvolumen > Marktanteil. Der Sättigungsgrad ergibt sich aus dem Verhältnis von Marktvolumen zu Marktpotenzial. In nicht gesättigten Märkten (< 80%) lohnt sich ein Neueintritt, bei gesättigten Märkten können Marktanteile nur auf Kosten der Konkurrenz gewonnen werden.',
+            highlight: 'Marktkapazität > Marktpotenzial > Marktvolumen > Marktanteil. Sättigungsgrad = Marktvolumen / Marktpotenzial × 100.'
+          },
+          {
+            type: 'table',
+            title: 'Hierarchie der Marktgrössen',
+            headers: ['Marktgrösse', 'Beschreibung'],
+            rows: [
+              ['Marktkapazität', 'Maximale Menge einer bestimmten Marktleistung, die zum Preis 0 in einem bestimmten Zeitraum im relevanten Markt abgesetzt werden könnte.'],
+              ['Marktpotenzial', 'Gesamter Umsatz oder Absatz aller Anbieter einer bestimmten Marktleistung, der unter optimalem Einsatz der Marketinginstrumente bei heutiger Kaufkraft erzielt werden könnte.'],
+              ['Marktvolumen', 'Gesamter von allen Anbietern effektiv realisierter Umsatz oder Absatz einer Marktleistung in einem bestimmten Zeitraum im relevanten Markt.'],
+              ['Marktanteil', 'Prozentualer Umsatz- oder Absatzanteil von Anbieter X am Marktvolumen des relevanten Markts in einem bestimmten Zeitraum.'],
+              ['Marktsättigungsgrad', 'Prozentualer Anteil des Marktvolumens am Marktpotenzial in einem bestimmten Zeitraum.']
+            ]
+          },
+          {
+            type: 'concept',
+            title: 'Markt als System',
+            content: 'Das Marktsystem nach R. Kühn bietet einen Gedankenrahmen, der hilft, die Beziehungen zwischen den verschiedenen Akteuren darzustellen. Beim Marktsystem für Konsumgüter sind die folgenden Akteure relevant: das eigene Unternehmen, Konkurrenz, Zwischenhandel, externe Beeinflusser, Endkunden/Käufer und interne Beeinflusser. Jedes Marktsystem wird von Umfeldfaktoren beeinflusst: Politik, Wirtschaft, Gesellschaft, Technologie, Ökologie und Recht.',
+            highlight: 'Akteure im Marktsystem: Unternehmen, Konkurrenz, Zwischenhandel, externe Beeinflusser, Endkunden. Umfeld: Politik, Wirtschaft, Gesellschaft, Technologie, Ökologie, Recht.'
+          },
+          {
+            type: 'concept',
+            title: 'Marktsystem für Investitionsgüter',
+            content: 'Im Gegensatz zum Konsumgütermarketing besteht beim Investitionsgütermarketing meistens ein direkter und intensiver Kundenkontakt. Beim Kauf von Investitionsgütern ist die Vielzahl der involvierten Personen bedeutend. Diese Gruppenentscheidung wird Buying Center genannt und umfasst fünf verschiedene Rollen: Benutzer, Einkäufer, Beeinflusser, Entscheider und Informationsselektierer (Gatekeeper).',
+            highlight: 'Buying Center: Benutzer, Einkäufer, Beeinflusser, Entscheider, Gatekeeper.'
+          },
+          {
+            type: 'concept',
+            title: 'Marktsystem für personalintensive Dienstleistungen',
+            content: 'Bei personalintensiven Dienstleistungen (z.B. Unternehmensberatung, Aus- und Weiterbildung, Gesundheitswesen) spielen die Mitarbeitenden eine entscheidende Rolle. Wir können hier drei Arten von Marketing unterscheiden: das externe Marketing (zwischen Unternehmen und Kunden), das interne Marketing (zwischen Unternehmen und Mitarbeitenden) und das interaktive Marketing (zwischen Mitarbeitenden und Kunden).',
+            highlight: 'Drei Arten von Marketing bei Dienstleistungen: externes, internes und interaktives Marketing.'
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              'In einem ersten Schritt der <strong>Marktabgrenzung</strong> wird der Markt definiert und von den anderen Märkten abgegrenzt.',
+              'Der Markt wird weiter in <strong>strategische Geschäftsfelder</strong> (SGF) unterteilt, die anschliessend in <strong>Marktsegmente</strong> und <strong>Teilmärkte</strong> gegliedert werden.',
+              'Um Ressourcen zu bündeln, fassen Unternehmen verschiedene ähnliche SGF zu einer <strong>strategischen Geschäftseinheit</strong> (SGE) zusammen.',
+              'Die <strong>Marktgrössen</strong> helfen bei der Analyse: Marktkapazität, Marktpotenzial, Marktvolumen, Marktanteil, Marktsättigungsgrad.',
+              'Das <strong>Marktsystem</strong> nach R. Kühn dient als Hilfe, um das eigene Marktsystem vereinfacht darzustellen.'
+            ]
+          },
+          {
+            type: 'keyterms',
+            title: 'Schlüsselbegriffe',
+            terms: [
+              { term: 'Grobmarktwahl', def: 'Unterteilung des Markts in strategische Geschäftsfelder (SGF).' },
+              { term: 'Segmentierung', def: 'Unterteilung eines SGF in Segmente (nach Nachfragern) und Teilmärkte (nach Angebot).' },
+              { term: 'SGF (Strategisches Geschäftsfeld)', def: 'Ein «Markt im Markt» – von aussen definiert durch unterschiedliche Kunden, Konkurrenten und Angebote.' },
+              { term: 'SGE (Strategische Geschäftseinheit)', def: 'Organisatorische Einheit im Unternehmen, die bestimmte SGF bearbeitet – von innen definiert.' },
+              { term: 'Marktpotenzial', def: 'Maximal erzielbarer Umsatz/Absatz unter optimalem Einsatz aller Marketinginstrumente.' },
+              { term: 'Marktvolumen', def: 'Tatsächlich realisierter Umsatz/Absatz aller Anbieter im relevanten Markt.' },
+              { term: 'Sättigungsgrad', def: 'Verhältnis von Marktvolumen zu Marktpotenzial (in Prozent).' },
+              { term: 'Buying Center', def: 'Gruppe von Personen, die beim Kauf von Investitionsgütern involviert sind: Benutzer, Einkäufer, Beeinflusser, Entscheider, Gatekeeper.' }
+            ]
+          }
+        ]
+      }
     },
 
     // ================================================================
@@ -370,7 +466,135 @@ window.BOOK_DATA = {
           reveal: ['IHA-GfK AG (Hergiswil/Lausanne) ist mit Abstand das gr\u00f6sste Schweizer Marktforschungsinstitut.']
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Analyse I: Marktanalyse',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels können Sie ...',
+            items: [
+              'als Basis für Marketingüberlegungen eine Marktanalyse entlang aller Akteure aus dem Marktsystem erstellen.',
+              'mit verschiedenen Methoden eine Kundenanalyse durchführen.',
+              'das Verhalten der Konsumenten erklären.',
+              'erläutern, welche Elemente zur Beurteilung der Vertriebskanäle und des Handels bedeutsam sind.',
+              'die Bedeutung von internen und externen Beeinflussern analysieren.',
+              'anhand der Five Forces eine Wettbewerbsanalyse durchführen und das Verhalten der Konkurrenz aufzeigen.',
+              'erklären, was man unter Benchmarks versteht, und Benchmarks erstellen.'
+            ]
+          },
+          {
+            type: 'concept',
+            title: 'Kundenanalyse',
+            content: 'In den allermeisten Unternehmen sind nicht alle Kunden gleich rentabel. Einige Kunden generieren viel mehr Erträge als andere. Es ist deshalb für die Analyse wichtig, zu erkennen, welche Kunden rentabel sind und welche nicht. Dazu beginnen wir mit zwei klassischen Kundenbewertungsmodellen, der ABC-Analyse und den Scoringmodellen. Anschliessend behandeln wir die Idee des Customer Lifetime Value (CLV).',
+            highlight: 'Die Kundenanalyse hilft, die rentabelsten Kunden zu identifizieren und gezielt zu bearbeiten.'
+          },
+          {
+            type: 'table',
+            title: 'ABC-Analyse nach Umsatz',
+            headers: ['Kategorie', 'Anteil Kundenstamm', 'Anteil Umsatz'],
+            rows: [
+              ['A-Kunden', '10–20%', 'ca. 60%'],
+              ['B-Kunden', '25–40%', 'ca. 30%'],
+              ['C-Kunden', '40–65%', 'ca. 10%']
+            ]
+          },
+          {
+            type: 'concept',
+            title: 'Scoringmodelle',
+            content: 'Eine weitere klassische Form der Kundenanalyse sind die Scoringmodelle, bei denen für jeden Kunden eine Punktzahl (Score) berechnet wird. Je höher der Score ausfällt, desto attraktiver ist der Kunde für ein Unternehmen. Faktoren wie letztes Transaktionsdatum, Anzahl Transaktionen, Erlöse, Kundenkontakte und Marketingaktionen fliessen in die Bewertung ein.',
+            highlight: 'Je höher der Score, desto attraktiver ist der Kunde für das Unternehmen.'
+          },
+          {
+            type: 'concept',
+            title: 'Customer Lifetime Value (CLV)',
+            content: 'Die Gewinnformel im Marketing lautet: Absatz × Preis = Umsatz, Umsatz – Kosten = Gewinn. Der wesentliche Unterschied der CLV-Betrachtung besteht darin, dass nicht die einzelne Transaktion eines Kunden isoliert betrachtet wird, sondern sämtliche Geldströme des Kunden während der gesamten Beziehung abgeschätzt werden. Im einfachsten Fall: Ø Preis × Häufigkeit × Beziehungsdauer = Kundenwert.',
+            highlight: 'Der CLV betrachtet sämtliche Geldströme des Kunden während der gesamten Beziehung.'
+          },
+          {
+            type: 'concept',
+            title: 'Konsumentenforschung: Individualpsychologie',
+            content: 'Die Individualpsychologie fokussiert auf das Verhalten Einzelner. Die psychischen Prozesse können grob unterteilt werden in: Erregende Vorgänge (aktivierend: Emotionen, Motivation, Einstellungen) und Gedankliche Vorgänge (kognitiv: Informationsaufnahme, Wahrnehmen, Lernen und Gedächtnis). Die Motivationspyramide von Maslow zeigt die Hierarchie der Bedürfnisse von physiologischen Bedürfnissen bis zur Selbstverwirklichung.',
+            highlight: 'Psychische Prozesse unterteilen sich in aktivierende (Emotionen, Motivation, Einstellungen) und kognitive (Informationsaufnahme, Wahrnehmen, Lernen) Vorgänge.'
+          },
+          {
+            type: 'table',
+            title: 'Involvement und Kaufverhalten',
+            headers: ['Involvement (Gedanklich / Gefühlsmässig)', 'Kaufverhalten', 'Bedeutung fürs Marketing'],
+            rows: [
+              ['Hoch / Hoch', 'Extensive Kaufentscheidung', 'Hohe Bedeutung von Fakten, Produktinformationen, Qualitätsmerkmalen, Testberichten, Konkurrenzvergleichen'],
+              ['Hoch / Tief', 'Limitierte Kaufentscheidung', 'Hohe Bedeutung von bisherigen Kauferfahrungen, Kundenbeziehung'],
+              ['Tief / Hoch', 'Impulsives Verhalten', 'Hohe Bedeutung von Farben, Atmosphäre, Produktplatzierung am POS, Sonderangeboten, Probeaktionen'],
+              ['Tief / Tief', 'Zufallsauswahl, habituelles Verhalten', 'Hohe Bedeutung von Marken und Image']
+            ]
+          },
+          {
+            type: 'concept',
+            title: 'Sozialpsychologie',
+            content: 'Die Sozialpsychologie fokussiert darauf, wie das Verhalten anderer auf das Verhalten eines Individuums auswirkt. Innerhalb der Familie gibt es eine kulturell geprägte Rollenstruktur (Tätigkeitsaufteilung) und eine Beziehungsstruktur, die alle Mitglieder miteinander verbindet. Der Einfluss der Familie auf die Kaufentscheidung ist gross. Neben der Familie beeinflussen auch Bezugsgruppen und die weitere kulturelle Umwelt das Verhalten.',
+            highlight: 'Verschiedene Kulturen zeichnen sich durch verschiedene Lebensstile aus – für Marketingleute sind Sprache und Lebensstil besonders relevant.'
+          },
+          {
+            type: 'concept',
+            title: 'Distributionsanalyse (Vertriebskanäle und Handel)',
+            content: 'Bei der Distributionsanalyse steht die Frage im Vordergrund, welche Vertriebskanäle (direkter Vertrieb, indirekter Vertrieb, Mischformen) ein Unternehmen generell einsetzt und ob es damit den optimalen Umsatz erzielt. Die wichtigste Entscheidung ist die Frage nach direkten oder indirekten Vertriebskanälen. Die Vertriebskanäle übernehmen fünf verschiedene Funktionen: Information, Absatzförderung, Kontakte, Bestellungen und Verhandlungen.',
+            highlight: 'Die Vertriebskanäle übernehmen fünf Funktionen: Information, Absatzförderung, Kontakte, Bestellungen und Verhandlungen.'
+          },
+          {
+            type: 'table',
+            title: 'Vor- und Nachteile der Vertriebsarten',
+            headers: ['Vertriebsart', 'Vorteile', 'Nachteile'],
+            rows: [
+              ['Direkter Vertrieb', 'Hohe Beratungsqualität, direkte Steuerung der Vertriebskanäle, direkter Kundenkontakt', 'Hohe Kosten für Aufbau eines Distributionssystems, je nach Produkt mangelnde Akzeptanz der Kunden'],
+              ['Indirekter Vertrieb', 'Schneller Markteintritt möglich, Händler übernehmen Teil des Debitorenrisikos sowie Lagerfunktion, Absatz grosser Mengen möglich', 'Tiefere Marge, kein direkter Kundenkontakt, wenig Einfluss auf die Beratungsqualität, Händler können Verkaufspreise und Rabatte selbst festlegen']
+            ]
+          },
+          {
+            type: 'concept',
+            title: 'Analyse der internen und externen Beeinflusser',
+            content: 'Ein Beeinflusser ist eine Person, die einen Kaufentscheid beeinflusst, jedoch weder Käufer noch Händler noch Verkäufer ist. Interne Beeinflusser sind Personen in Unternehmen und privaten Haushalten, die einen Kaufentscheid beeinflussen, jedoch nicht über den Kauf entscheiden. Externe Beeinflusser sind Marktteilnehmer, die Kaufempfehlungen abgeben, ohne selbst an der Transaktion teilzunehmen (z. B. Ärzte, Architekten, Journalisten).',
+            highlight: 'Beeinflusser sind weder Käufer noch Händler, üben aber Einfluss auf den Kaufentscheid aus.'
+          },
+          {
+            type: 'concept',
+            title: 'Wettbewerbsanalyse (Five Forces nach Porter)',
+            content: 'Im strategischen Marketing analysiert man die Konkurrenz anhand der fünf Wettbewerbskräfte von Porter: 1. Rivalität unter den bestehenden Unternehmen, 2. Bedrohung durch neue Anbieter, 3. Bedrohung durch Ersatzprodukte/-dienstleistungen, 4. Verhandlungsmacht der Kunden, 5. Verhandlungsmacht der Lieferanten. Starke Wettbewerbskräfte heizen den Wettbewerb an. Schwache Wettbewerbskräfte bedeuten höhere Gewinnmöglichkeiten.',
+            highlight: 'Aus der Wettbewerbsanalyse lassen sich Schlüsse für die strategische Unternehmens- und Marketingplanung ableiten.'
+          },
+          {
+            type: 'concept',
+            title: 'Benchmarking',
+            content: 'Benchmarking ist ein Konkurrenzvergleich: Man vergleicht das eigene Unternehmen, die eigenen Prozesse und Produkte. Man unterscheidet internes Benchmarking (Vergleiche innerhalb des Unternehmens), Konkurrenz- oder Branchenbenchmarking (Vergleiche mit direkten Konkurrenten) oder Best-in-Class (Vergleiche mit dem Besten überhaupt, auch ausserhalb der eigenen Branche). Die acht Marketing-Kernprozesse für Wettbewerbsvorteile sind: Preisgestaltung, Produktentwicklung, Distributionsmanagement, Marketingkommunikation, Verkauf, Marketinginformationsmanagement, Marketingplanung und Marketingumsetzung.',
+            highlight: 'Benchmarking identifiziert Methoden für Effizienzsteigerung, besseres Produktdesign und erkennt die eigene Kostenposition.'
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              '<strong>Der Kunde:</strong> Die Kundenanalyse geschieht mittels ABC-Analyse, Scoringmodellen und Customer-Lifetime-Value-Berechnungen. Verständnis über das Kundenverhalten erhalten Sie aus Erkenntnissen der Konsumentenforschung.',
+              '<strong>Der Handel:</strong> Die Analyse des Handels unterscheidet zwischen direktem und indirektem Vertrieb, wobei die Vertriebskanäle bei Konsumgütern, Dienstleistungen und Investitionsgütern sehr unterschiedlich sind.',
+              '<strong>Die Beeinflusser:</strong> Die internen und externen Beeinflusser unterscheiden sich von den Handelspartnern dadurch, dass sie nicht in die eigentliche Kauftransaktion involviert sind, sondern bei der Kaufentscheidung von ausserhalb (externe Beeinflusser) oder innerhalb der Käuferschaft (interne Beeinflusser) Einfluss geltend machen.',
+              '<strong>Die Konkurrenz:</strong> Die Stärke der Konkurrenz und weiterer Wettbewerbskräfte lässt sich anhand von fünf Wettbewerbskräften messen (Five Forces von Porter). Beim Benchmarking wird das Unternehmen verglichen – intern, mit Konkurrenten oder Best-in-Class.'
+            ]
+          },
+          {
+            type: 'keyterms',
+            title: 'Schlüsselbegriffe',
+            terms: [
+              { term: 'ABC-Analyse', def: 'Kundenbewertungsmodell, das Kunden nach Umsatz in A- (Top 10–20%), B- (25–40%) und C-Kunden (40–65%) einteilt.' },
+              { term: 'Customer Lifetime Value (CLV)', def: 'Kundenwert über die gesamte Beziehungsdauer: Ø Preis × Häufigkeit × Beziehungsdauer.' },
+              { term: 'Scoringmodell', def: 'Bewertungssystem, bei dem für jeden Kunden eine Punktzahl berechnet wird, um die Attraktivität zu messen.' },
+              { term: 'Konsumentenforschung', def: 'Erforschung der Faktoren, die das Kaufverhalten der Konsumenten beeinflussen (Individual- und Sozialpsychologie).' },
+              { term: 'Involvement', def: 'Inneres Engagement, mit dem sich jemand einem Gegenstand oder einer Aktivität zuwendet – beeinflusst das Kaufverhalten.' },
+              { term: 'Distributionsanalyse', def: 'Analyse der eingesetzten Vertriebskanäle (direkt/indirekt) und deren Eignung für den optimalen Umsatz.' },
+              { term: 'Five Forces (Porter)', def: 'Modell zur Wettbewerbsanalyse mit fünf Kräften: Rivalität, neue Anbieter, Substitute, Verhandlungsmacht der Kunden und der Lieferanten.' },
+              { term: 'Benchmarking', def: 'Konkurrenzvergleich: internes Benchmarking, Branchenbenchmarking oder Best-in-Class – Ziel ist die eigene Verbesserung.' },
+              { term: 'Beeinflusser', def: 'Person, die einen Kaufentscheid beeinflusst, ohne selbst Käufer, Händler oder Verkäufer zu sein (intern oder extern).' },
+              { term: 'Motivation (Maslow)', def: 'Hierarchie der Bedürfnisse von physiologischen Grundbedürfnissen bis zur Selbstverwirklichung.' }
+            ]
+          }
+        ]
+      }
     },
 
     // ================================================================
@@ -457,7 +681,137 @@ window.BOOK_DATA = {
           ]
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Analyse II: Unternehmens- und Umfeldanalyse',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels können Sie ...',
+            items: [
+              'die Methoden der Unternehmensanalyse beschreiben.',
+              'eine Stärken-Schwächen-Analyse durchführen.',
+              'die Umfeldanalyse, PESTEL, erklären.',
+              'eine SWOT-Analyse erstellen.',
+              'aufgrund der Markt-, Unternehmens- und Umfeldanalyse eine Diagnose über die kritischen Erfolgsfaktoren und die relevanten strategischen Erfolgspositionen machen.'
+            ]
+          },
+          {
+            type: 'concept',
+            title: 'Unternehmensanalyse',
+            content: 'Die Unternehmensanalyse fördert die unternehmenseigenen Stärken und Schwächen zutage. Sie umfasst einerseits die Analyse der Wertkette, andererseits geht es darum, die verschiedenen Produkte und strategischen Geschäftseinheiten in einem Portfolio darzustellen. Die Erkenntnisse werden in einer Stärken-Schwächen-Analyse verdichtet.',
+            highlight: 'Die Unternehmensanalyse fördert die eigenen Stärken und Schwächen zutage.'
+          },
+          {
+            type: 'concept',
+            title: 'Wertkettenanalyse (nach Porter)',
+            content: 'Die Wertkette identifiziert neun Bereiche, die Werte für den Kunden schaffen. Die fünf unteren Bereiche sind primäre Aktivitäten (Eingangslogistik, Operationen, Marketing und Vertrieb, Ausgangslogistik, Kundendienst), weil sie direkt produktiv sind. Die vier oberen Bereiche sind unterstützende Aktivitäten (Unternehmensinfrastruktur, Personalwirtschaft, Technologieentwicklung, Beschaffung). Die Gewinnspanne zeigt, dass der generierte Kundennutzen grösser ist als die generierten Kosten.',
+            highlight: 'Die Wertkette ist ein Analyseinstrument, das dem Management helfen soll, Kosten und Nutzen aller Aktivitäten zu überprüfen.'
+          },
+          {
+            type: 'table',
+            title: 'BCG-Matrix: Vier Felder',
+            headers: ['Feld', 'Marktwachstum', 'Relativer Marktanteil', 'Beschreibung'],
+            rows: [
+              ['Question Marks', 'Hoch', 'Niedrig', 'Hohe Investitionen nötig, um im Wachstumsmarkt mitzuhalten. Fragezeichen, ob weiter investiert werden soll.'],
+              ['Stars', 'Hoch', 'Hoch', 'Erfolgreiche Produkte mit viel Umsatz, kosten aber viel Geld, um Marktanteile zu halten und den Markt weiterzuentwickeln.'],
+              ['Cash Cows', 'Niedrig', 'Hoch', 'Marktwachstum verlangsamt sich. Keine hohen Investitionen mehr nötig. SGE liefern dem Unternehmen Geld (Cash Cow).'],
+              ['Dogs', 'Niedrig', 'Niedrig', 'Sowohl Marktanteil als auch Marktwachstum niedrig. SGE sollten in ein anderes Feld überführt oder aufgelöst werden.']
+            ]
+          },
+          {
+            type: 'table',
+            title: 'Vergleich BCG- und McKinsey-Matrix',
+            headers: ['Kriterium', 'BCG-Matrix (4-Felder)', 'McKinsey-Matrix (9-Felder)'],
+            rows: [
+              ['Analyseeinheit', 'Vor allem Produkte, teilweise auch SGE', 'Vor allem SGE und ganze Unternehmen'],
+              ['Stufe im Marketingkonzept', 'Teil der Unternehmensanalyse', 'Teil der Diagnose, basierend auf Unternehmens-, Markt- und Umfeldanalyse'],
+              ['Dimensionen', 'Eindimensionale Achsen (relativer Marktanteil und Marktwachstum)', 'Mehrdimensionale Achsen (Wettbewerbsvorteil und Marktattraktivität)'],
+              ['Betrachtungszeit', 'Ist-Zustand', 'Zukunftsbetrachtung, da Wettbewerbsvorteile und Marktattraktivität zukunftsgerichtet definiert sind']
+            ]
+          },
+          {
+            type: 'concept',
+            title: 'Stärken- und Schwächen-Analyse',
+            content: 'Für die erfolgreiche Ausarbeitung eines Marketingkonzepts müssen die Stärken und Schwächen des eigenen Unternehmens bekannt sein. Die Struktur mit sieben Dimensionen hat sich in der Praxis bewährt: 1. Kunden (Kundentreue, Zufriedenheit), 2. Produkte und Dienstleistungen (Produktvorteile, Marktanteile), 3. Distribution (Vertriebskanäle, Standortvorteile), 4. Kommunikation (Dialog, Reputation), 5. Preise und Kosten (Beschaffungskosten, Marketingkosten, Flexibilität), 6. Management (Unternehmenskultur, Organisation, Führungsstil), 7. Finanzen und Infrastruktur (Gewinn, Bilanzstruktur, Liquidität).',
+            highlight: 'Häufige Darstellungsformen sind Kreuztabelle, Profil und Spinne.'
+          },
+          {
+            type: 'concept',
+            title: 'Umfeldanalyse (PESTEL)',
+            content: 'Das Umfeld besteht aus mehreren Sphären. International hat sich die Abkürzung PESTEL durchgesetzt: P = Political (politische Aspekte), E = Economical (wirtschaftliche Konditionen), S = Social (gesellschaftliche Kräfte und Trends), T = Technology (technische Entwicklungen), E = Ecological (ökologische Anliegen), L = Legal (rechtliche Rahmenbedingungen). Anhand der Analyse der Entwicklungen in diesen Sphären lassen sich wichtige Schlüsse zu möglichen Chancen und Gefahren ziehen.',
+            highlight: 'PESTEL beschreibt sechs verschiedene Sphären aus dem Marktsystem, die Chancen und Gefahren aufzeigen.'
+          },
+          {
+            type: 'table',
+            title: 'PESTEL-Faktoren',
+            headers: ['Abk.', 'Sphäre', 'Indikatoren', 'Beispiel'],
+            rows: [
+              ['P', 'Politisch', 'Innenpolitik, Gewerkschaften, Steuern, Zölle', 'Eine Steuer auf Alcopops senkt den Konsum von Alcopops.'],
+              ['E', 'Wirtschaftlich', 'Inflation, Arbeitslosigkeit, Preisniveau, Zugang zu Rohstoffen', 'Ein tiefes Zinsniveau führt zu einer erhöhten Nachfrage nach Wohneigentum.'],
+              ['S', 'Sozial, kulturell', 'Ausbildung, Zuwanderung, Religion, Demografie, Lebensstile', 'Das lebenslange Lernen löst die einmalige Berufsausbildung ab.'],
+              ['T', 'Technisch', 'Erfindungen, neue Produkte, neue Rohstoffe', 'Die Miniaturisierung von Telefonen und neue Übertragungstechniken lösen einen Mobiltelefonboom aus.'],
+              ['E', 'Ökologisch', 'CO₂-Reduktion wird mittels Appellen und Steuern angestrebt', 'Die Nachfrage nach Hybridautos und Autos mit weniger Benzinverbrauch nimmt zu.'],
+              ['L', 'Rechtlich', 'Die Buchpreisbindung in der Schweiz wird aufgehoben', 'Der Buchhandel ist frei in der Preisfestsetzung.']
+            ]
+          },
+          {
+            type: 'concept',
+            title: 'SWOT-Analyse',
+            content: 'Die Erkenntnisse aus der Umweltanalyse und der Marktanalyse (externe Chancen und Gefahren) werden mit den Ergebnissen aus der Unternehmensanalyse (interne Stärken und Schwächen) zusammengeführt. SWOT steht für: S = Strengths (Stärken), W = Weaknesses (Schwächen), O = Opportunities (Chancen), T = Threats (Gefahren). Chancen und Gefahren beziehen sich auf Entwicklungen in der Zukunft und kommen von aussen. Stärken und Schwächen sind intern und können vom Unternehmen direkt gesteuert werden.',
+            highlight: 'Aus der Kombination der Stärken und Schwächen mit den Chancen und Gefahren ergeben sich vier SWOT-Strategien: SO, ST, WO, WT.'
+          },
+          {
+            type: 'table',
+            title: 'SWOT-Strategien',
+            headers: ['Strategie', 'Kombination', 'Handlung'],
+            rows: [
+              ['SO-Strategien', 'Stärke trifft auf Chance', 'Stärken einsetzen, um Chancen zu nutzen und zu multiplizieren.'],
+              ['WO-Strategien', 'Schwäche trifft auf Chance', 'Schwächen minimieren, um Chancen zu nutzen. Grösstes Verbesserungspotenzial.'],
+              ['ST-Strategien', 'Stärke trifft auf Gefahr', 'Stärken einsetzen, um Gefahren zu verringern.'],
+              ['WT-Strategien', 'Schwäche trifft auf Gefahr', 'Schwächen minimieren, um Gefahren abzuwenden. Keine Vorteile vorhanden.']
+            ]
+          },
+          {
+            type: 'concept',
+            title: 'Diagnose: Kritische Erfolgsfaktoren (KEF)',
+            content: 'Kritische Erfolgsfaktoren sind unbedingt notwendige Faktoren, damit ein Unternehmen in einer Branche am Markt überleben kann. Um Erfolgsfaktoren zu identifizieren, sollte sich das Unternehmen fragen: Welche Entwicklungen finden in der Umwelt statt? Welche Wettbewerbskräfte herrschen in der Branche? Für welche Eigenschaften des Produkts sind die Kunden bereit, einen Preis zu bezahlen? Erfolgsfaktoren können sich über die Jahre ändern.',
+            highlight: 'Beherrscht ein Unternehmen einen Erfolgsfaktor, bietet er ein Nutzenpotenzial – eine Chance. Beherrscht es ihn nicht, wird er zur Gefahr.'
+          },
+          {
+            type: 'concept',
+            title: 'Strategische Erfolgspositionen (SEP) und Kernkompetenzen',
+            content: 'Eine strategische Erfolgsposition (SEP) ist eine bewusst geschaffene Position der Stärke, die dem Unternehmen langfristig einen Vorsprung gegenüber der Konkurrenz sichert (Wettbewerbsvorteil). Das Unternehmen möchte mit der SWOT-Analyse Nutzenpotenziale entdecken. Nutzenpotenziale liegen nicht nur im Markt, sondern auch in den Leistungen und Unternehmensfunktionen. Kernkompetenzen sichern ein langfristiges Überleben des Unternehmens, weil sie Quellen für SEP darstellen, einzigartig und nachhaltig sind und vielfältig einsetzbar sind.',
+            highlight: 'Kernkompetenzen sichern ein langfristiges Überleben, weil sie einzigartig, nachhaltig und schwer zu imitieren sind.'
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              '<strong>Unternehmensanalyse:</strong> Bei der Unternehmensanalyse geht es einerseits um die Analyse der Wertkette, andererseits muss das Unternehmen seine Produkte und strategischen Geschäftseinheiten als Gesamtheit betrachten (BCG-Portfolio, McKinsey-Portfolio).',
+              '<strong>Stärken-Schwächen-Analyse:</strong> Die Stärken und Schwächen werden in sieben Dimensionen (Kunden, Produkte, Distribution, Kommunikation, Preise/Kosten, Management, Finanzen) analysiert und mit der Konkurrenz verglichen.',
+              '<strong>PESTEL:</strong> Die Umfeldanalyse umfasst sechs Bereiche (P, E, S, T, E, L). Sie wird zusammen mit Erkenntnissen aus der Marktanalyse zu einer Chancen-Gefahren-Analyse verarbeitet.',
+              '<strong>SWOT-Analyse:</strong> Die Resultate aus den unterschiedlichen Analysen werden in einer SWOT-Matrix zusammengeführt. Durch Kombination der Stärken/Schwächen mit den Chancen/Gefahren ergeben sich vier SWOT-Strategien: SO, ST, WO, WT.',
+              '<strong>Diagnose:</strong> Der letzte Schritt ist die Interpretation der Analysedaten. Das Unternehmen möchte mit der SWOT-Analyse kritische Erfolgsfaktoren sowie Nutzenpotenziale identifizieren, die zu strategischen Erfolgspositionen (SEP) führen. Kernkompetenzen sichern ein langfristiges Überleben.'
+            ]
+          },
+          {
+            type: 'keyterms',
+            title: 'Schlüsselbegriffe',
+            terms: [
+              { term: 'Wertkette (Porter)', def: 'Analyseinstrument mit neun Bereichen (5 primäre, 4 unterstützende Aktivitäten), das Kosten und Nutzen aller Aktivitäten überprüft.' },
+              { term: 'Boston-Consulting-Group-Matrix', def: 'Portfolioanalyse mit vier Feldern (Stars, Cash Cows, Question Marks, Dogs) basierend auf Marktwachstum und relativem Marktanteil.' },
+              { term: 'McKinsey-Matrix', def: '9-Felder-Matrix basierend auf Marktattraktivität und Wettbewerbsvorteil, zukunftsgerichtet und mehrdimensional.' },
+              { term: 'Stärken-Schwächen-Analyse', def: 'Analyse in sieben Dimensionen (Kunden, Produkte, Distribution, Kommunikation, Preise/Kosten, Management, Finanzen) mit Vergleich zur Konkurrenz.' },
+              { term: 'PESTEL', def: 'Umfeldanalyse mit sechs Sphären: Political, Economical, Social, Technological, Ecological, Legal.' },
+              { term: 'SWOT-Analyse', def: 'Kombination von Stärken/Schwächen (intern) mit Chancen/Gefahren (extern) zu vier Strategien: SO, ST, WO, WT.' },
+              { term: 'Kritische Erfolgsfaktoren (KEF)', def: 'Notwendige Faktoren, damit ein Unternehmen in einer Branche am Markt überleben kann.' },
+              { term: 'Strategische Erfolgsposition (SEP)', def: 'Bewusst geschaffene Position der Stärke, die langfristig einen Wettbewerbsvorteil sichert.' },
+              { term: 'Kernkompetenzen', def: 'Einzigartige, nachhaltige und vielfältig einsetzbare Fähigkeiten, die Quellen für SEP darstellen und schwer zu imitieren sind.' }
+            ]
+          }
+        ]
+      }
     },
 
     // ================================================================
@@ -571,7 +925,92 @@ window.BOOK_DATA = {
           reveal: []
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Marketingziele',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels k\u00f6nnen Sie ...',
+            items: [
+              'die verschiedenen Zielarten unterscheiden.',
+              'mithilfe der 5 W und der SMART-Formel \u00fcberpr\u00fcfbare Ziele formulieren.',
+              'die Beziehungen der Ziele zueinander beschreiben.'
+            ]
+          },
+          {
+            type: 'concept',
+            title: 'Ziel und Zielgruppe',
+            content: 'Unter einem Ziel verstehen wir einen erstrebenswerten Zustand in der Zukunft. Marketing umfasst viele m\u00e4chtige Instrumente, die den Erfolg oder den Niedergang eines Unternehmens massgeblich mitpr\u00e4gen k\u00f6nnen. Deshalb m\u00fcssen Marketing- und Verkaufsverantwortliche Zielgruppen definieren und Ziele formulieren. Nur so kann \u00fcberpr\u00fcft werden, ob die Strategien und Massnahmen erfolgreich sind.',
+            highlight: 'Zielgruppen: Produktverwender, Zwischenhandel, externe Beeinflusser, eigene Mitarbeitende.'
+          },
+          {
+            type: 'concept',
+            title: 'Zielarten / Zielhierarchie',
+            content: 'Eine Zielhierarchie liegt vor, wenn einzelne Ziele anderen Zielen unter- oder \u00fcbergeordnet werden k\u00f6nnen. Aufgrund der Zielhierarchie kann man die Ziele nach verschiedenen Kriterien einteilen: nach Ebenen, nach Konkretisierungsgrad, nach Zeithorizont und nach Beobachtbarkeit.',
+            highlight: 'Ziele lassen sich nach 4 Kriterien gliedern: Ebenen, Konkretisierungsgrad, Zeithorizont, Beobachtbarkeit.'
+          },
+          {
+            type: 'table',
+            title: 'Zielarten nach Ebenen',
+            headers: ['Stufe', 'Zielart', 'Beispiel'],
+            rows: [
+              ['1. Stufe', 'Unternehmensziele', 'Marketingziele, Produktionsziele, Beschaffungsziele usw.'],
+              ['2. Stufe', 'Marketingoberziele', 'Ziele f\u00fcr die SGE 1, SGE 2 usw.'],
+              ['3. Stufe', 'Marketingzwischenziele', 'Ziele pro Marketingsubmix, z.B. Ziele f\u00fcr die Kommunikation'],
+              ['4. Stufe', 'Marketingunterziele', 'Ziele der einzelnen konkreten Massnahmen, z.B. Werbeziele, Verkaufsziele']
+            ]
+          },
+          {
+            type: 'concept',
+            title: 'Ziele nach Konkretisierungsgrad',
+            content: 'Es gibt strategische, operative und taktische Ziele. Strategische Marketingziele beziehen sich auf das Gesamtunternehmen und sind langfristig ausgelegt. Operative Marketingziele konkretisieren die strategischen Ziele mittelfristig. Taktische Marketingziele beinhalten die konkreten Aktivit\u00e4ten, um die \u00fcbergeordneten operativen Ziele zu erreichen.',
+            highlight: 'Strategische Ziele = langfristig, operative Ziele = mittelfristig, taktische Ziele = kurzfristige Massnahmen.'
+          },
+          {
+            type: 'concept',
+            title: 'Qualitative und quantitative Ziele',
+            content: 'Marketingziele werden in qualitative und quantitative Ziele unterteilt. Vor\u00f6konomische (qualitative) Ziele sind oft theoretische Konstrukte, die nicht direkt beobachtbar sind (z.B. Image, Zufriedenheit). \u00d6konomische (quantitative) Ziele haben einen direkten Einfluss auf den Unternehmenserfolg und lassen sich einfach messen (z.B. Umsatz, Gewinn). Die Service-Gewinn-Kette postuliert: Je besser die Produkt- und Servicequalit\u00e4t, desto zufriedener die Kunden, was sich positiv auf Umsatz, Marktanteil und Profitabilit\u00e4t auswirkt.',
+            highlight: 'Qualitative Ziele = vor\u00f6konomisch (Image, Zufriedenheit). Quantitative Ziele = \u00f6konomisch (Umsatz, Gewinn).'
+          },
+          {
+            type: 'concept',
+            title: 'Operationalisierung von Zielen (5 W und SMART)',
+            content: 'Die 5 W helfen bei der Zieloperationalisierung: 1. Was? (Zielinhalt), 2. Wie viel? (Zielquantifizierung), 3. Wem? (Zielsegment), 4. Wann? (Zielperiode), 5. Wo? (Zielmarkt). Damit die Ziele SMART sind, m\u00fcssen sie: (S) spezifisch/konkret, (M) messbar, (A) realistischerweise erreichbar, (R) ergebnisorientiert und (T) termingebunden sein.',
+            highlight: '5 W: Was, Wie viel, Wem, Wann, Wo. SMART: Spezifisch, Messbar, Attraktiv, Realistisch, Terminiert.'
+          },
+          {
+            type: 'concept',
+            title: 'Beziehungen zwischen Zielen',
+            content: 'Da in der Marketingpraxis selten nur ein einziges Ziel verfolgt wird, ist es wichtig, die Beziehungen zwischen den verschiedenen Zielen zu verstehen. Zielkongruenz: Ziele erg\u00e4nzen und verst\u00e4rken sich gegenseitig. Zielkonflikt: Die Erreichung eines Ziels steht im Konflikt mit der Erreichung eines anderen. Zielindifferenz: Zwei Ziele tangieren sich nicht.',
+            highlight: 'Zielkongruenz = Ziele f\u00f6rdern sich. Zielkonflikt = Ziele behindern sich. Zielindifferenz = Ziele sind unabh\u00e4ngig.'
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              'Ein <strong>Ziel</strong> ist ein erstrebenswerter Zustand in der Zukunft. Eine <strong>Zielhierarchie</strong> besteht aus \u00fcber- und untergeordneten Zielen.',
+              'Ziele lassen sich nach verschiedenen Kriterien gliedern: <strong>Ebenen</strong> (Unternehmens- bis Marketingunterziele), <strong>Konkretisierungsgrad</strong> (strategisch, operativ, taktisch), <strong>Zeithorizont</strong> (lang-, mittel-, kurzfristig), <strong>Beobachtbarkeit</strong> (qualitativ/vor\u00f6konomisch vs. quantitativ/\u00f6konomisch).',
+              'Ziele sind \u00fcberpr\u00fcfbar, wenn sie einen eindeutigen <strong>Zielinhalt</strong> beschreiben (was?), <strong>messbar</strong> sind (wie viel?), die <strong>Zielgruppe</strong> bezeichnen (wem?) und sowohl den zeitlichen (wann?) als auch den r\u00e4umlichen Bezug (wo?) angeben.',
+              'Ziele stehen in vielf\u00e4ltigen Beziehungen zueinander: <strong>Zielkonflikt</strong>, <strong>Zielkongruenz</strong> oder <strong>Zielindifferenz</strong>.'
+            ]
+          },
+          {
+            type: 'keyterms',
+            title: 'Schl\u00fcsselbegriffe',
+            terms: [
+              { term: 'Marketingziele', def: 'Erstrebenswerte Zust\u00e4nde, die durch Marketingaktivit\u00e4ten erreicht werden sollen.' },
+              { term: 'Zielhierarchie', def: 'Hierarchische Ordnung von Zielen auf verschiedenen Ebenen.' },
+              { term: 'SMART-Formel', def: 'Kriterien f\u00fcr gute Ziele: Spezifisch, Messbar, Attraktiv, Realistisch, Terminiert.' },
+              { term: '5 W', def: 'Die f\u00fcnf Fragen zur Operationalisierung: Was, Wie viel, Wem, Wann, Wo.' },
+              { term: 'Zielkonflikt', def: 'Situation, in der die Erreichung eines Ziels die Erreichung eines anderen behindert.' },
+              { term: 'Zielkongruenz', def: 'Situation, in der sich Ziele gegenseitig f\u00f6rdern und verst\u00e4rken.' },
+              { term: 'Vor\u00f6konomische Ziele', def: 'Qualitative Ziele wie Image, Zufriedenheit \u2013 nicht direkt messbar.' },
+              { term: '\u00d6konomische Ziele', def: 'Quantitative Ziele wie Umsatz, Gewinn \u2013 direkt messbar.' }
+            ]
+          }
+        ]
+      }
     },
 
     // ================================================================
@@ -650,7 +1089,92 @@ window.BOOK_DATA = {
           ]
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Marketingstrategien',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels k\u00f6nnen Sie ...',
+            items: [
+              'die verschiedenen Marketingstrategien beschreiben.',
+              'die 4 Wachstumsstrategien nach Ansoff erkl\u00e4ren.',
+              'erl\u00e4utern, warum eine Segmentierung oft erfolgversprechender ist als Massenmarketing.',
+              'erkl\u00e4ren, wie eine Marke, ein Produkt oder ein Unternehmen positioniert wird.',
+              'verschiedene Strategien hinsichtlich der Marke nennen.',
+              'Synergien bei der Evaluation und der Kombination von Marketingstrategien erkennen.'
+            ]
+          },
+          {
+            type: 'concept',
+            title: 'Strategiemix',
+            content: 'Die Idee des Marketingmix ist die optimale Kombination (= Mix) verschiedener Marketinginstrumente. Analog dazu gibt es einen Strategiemix. In der Praxis stellt sich n\u00e4mlich nicht die Frage, ob man eine Wachstumsstrategie, eine Positionierungsstrategie oder eine Markenstrategie w\u00e4hlt. Die Aufgabe besteht darin, eine optimale Kombination der Strategien zu finden. Kriterien: kritische Erfolgsfaktoren, strategische Erfolgspositionen, Strategiekombination f\u00fcr Synergien.',
+            highlight: 'Der Strategiemix kombiniert verschiedene strategische Ans\u00e4tze optimal miteinander.'
+          },
+          {
+            type: 'concept',
+            title: 'Wachstumsstrategien nach Ansoff',
+            content: 'Die Ansoff-Matrix zeigt vier Wachstumsstrategien basierend auf zwei Dimensionen (Markt und Produkt): Marktpenetration (bestehende Produkte in bestehenden M\u00e4rkten, \u00abmehr vom selben\u00bb), Produkt-/Sortimentsentwicklung (neue Produkte f\u00fcr bestehende Kunden), Marktentwicklung (bestehende Produkte in neuen M\u00e4rkten/Segmenten), Diversifikation (neue Produkte in neuen M\u00e4rkten). Die strategische L\u00fccke (Gap-Analyse) zeigt die Differenz zwischen gew\u00fcnschter und erwarteter Umsatzentwicklung.',
+            highlight: 'Ansoff-Matrix: Marktpenetration, Produktentwicklung, Marktentwicklung, Diversifikation.'
+          },
+          {
+            type: 'concept',
+            title: 'Diversifikation',
+            content: 'Bei der Diversifikation werden neue M\u00e4rkte oder Segmente mit neuen Produkten und Dienstleistungen bearbeitet. Man unterscheidet drei Arten: Horizontale Diversifikation (neue Produkte mit Synergien zu bestehenden Produktlinien), Vertikale Diversifikation (Einstieg in vor- oder nachgelagerte Branchen, z.B. Vorw\u00e4rts- oder R\u00fckw\u00e4rtsintegration) und Laterale Diversifikation (v\u00f6llig neue Gesch\u00e4ftsfelder ohne Bezug zum bisherigen Gesch\u00e4ft).',
+            highlight: 'Diversifikation: horizontal (verwandte Produkte), vertikal (Wertsch\u00f6pfungskette), lateral (branchenfremd).'
+          },
+          {
+            type: 'concept',
+            title: 'Internationale Strategien',
+            content: 'Bei der Marktentwicklung steht die Internationalisierung der M\u00e4rkte im Vordergrund. Formen der Internationalisierung: Export, Lizenzvergabe, Franchising, Joint Venture und eigene Tochtergesellschaften. Eine wichtige Frage ist die Standardisierung vs. Differenzierung: Bei Standardisierung wird auf der ganzen Welt das Gleiche angeboten, bei Differenzierung wird \u00fcberall etwas anderes angeboten. Voraussetzungen f\u00fcr globale M\u00e4rkte: \u00e4hnliche Marktbed\u00fcrfnisse und \u00e4hnliche Marktressourcen.',
+            highlight: 'Internationalisierungsformen: Export, Lizenzvergabe, Franchising, Joint Venture, Tochtergesellschaft.'
+          },
+          {
+            type: 'concept',
+            title: 'Segmentierungsstrategien',
+            content: 'Die Segmentierung ber\u00fccksichtigt, dass Kunden unterschiedliche Bed\u00fcrfnisse haben. Bei der Segmentierung werden \u00e4hnliche Kunden in Segmenten zusammengefasst. Bei Privatkunden werden 4 Segmentierungskriterien unterschieden: geografische, demografische, psychografische und kaufverhaltensbezogene Kriterien. Die Spannweite reicht vom Massenmarketing (\u00abeine Gr\u00f6sse f\u00fcr alle\u00bb) bis zum Individualmarketing (massgeschneidert). F\u00fcr die Umsetzung von Individualmarketing werden die Instrumente des Customer Relationship Management (CRM) genutzt.',
+            highlight: 'Segmentierung: geografisch, demografisch, psychografisch, kaufverhaltensbezogen.'
+          },
+          {
+            type: 'concept',
+            title: 'Positionierungsstrategien',
+            content: 'Positionierung beschreibt, wie sich eine Marke, ein Produkt oder ein Unternehmen gegen\u00fcber der Konkurrenz unterscheidet. Entscheidend ist die Wahrnehmung der Kunden. Die Differenzierung kann \u00fcber einen h\u00f6heren Nutzen oder weniger Kosten erfolgen. Ziele der Positionierung: Abheben durch Wahl der SGF (Grobpositionierung), Abheben mittels differenziertem Angebot (Feinpositionierung), auf Positionierung abgestimmte Marketingkommunikation (Markierung/Branding).',
+            highlight: 'Positionierung = wie sich ein Angebot in der Kundenwahrnehmung von der Konkurrenz unterscheidet.'
+          },
+          {
+            type: 'concept',
+            title: 'Strategien hinsichtlich der Marke',
+            content: 'Eine Marke signalisiert die Herkunft eines Produkts und dient der Identifizierung und Differenzierung. Markenstrategien: Herstellermarkenstrategie (Hersteller positioniert als Markenartikel), Handelsmarkenstrategie (z.B. Eigenmarken wie M-Budget), No-Name-Strategie und Me-too-Strategie. Markenentwicklungsstrategien: Sortimentserweiterung (Line Extension), Markenerweiterung (Brand Extension), Multimarken und Neue Marke.',
+            highlight: 'Markenstrategien: Herstellermarke, Handelsmarke, No-Name, Me-too. Entwicklung: Line/Brand Extension, Multimarken.'
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              'Beim <strong>Strategiemix</strong> geht es darum, die richtigen strategischen Ans\u00e4tze miteinander zu kombinieren basierend auf Erfolgsfaktoren und Zielen.',
+              '<strong>Wachstumsstrategien</strong> nach Ansoff: Marktpenetration, Produktentwicklung, Marktentwicklung, Diversifikation. Solche L\u00fccken werden mit der <strong>Gap-Analyse</strong> erkannt.',
+              'Bei der <strong>Internationalisierung</strong> gibt es verschiedene Formen: Export, Lizenzvergabe, Franchising, Joint Venture und Tochtergesellschaften. Wichtig: Standardisierung vs. Differenzierung.',
+              'Die <strong>Segmentierung</strong> ber\u00fccksichtigt, dass Kunden unterschiedliche Bed\u00fcrfnisse haben. 4 Kriterien: geografisch, demografisch, psychografisch, kaufverhaltensbezogen.',
+              '<strong>Positionierung</strong> zeigt, wie sich ein Unternehmen von der Konkurrenz abhebt. Sie ist eng mit der <strong>Marke</strong> verbunden.'
+            ]
+          },
+          {
+            type: 'keyterms',
+            title: 'Schl\u00fcsselbegriffe',
+            terms: [
+              { term: 'Strategiemix', def: 'Optimale Kombination verschiedener Marketingstrategien.' },
+              { term: 'Ansoff-Matrix', def: '4-Felder-Matrix mit den Wachstumsstrategien: Marktpenetration, Produktentwicklung, Marktentwicklung, Diversifikation.' },
+              { term: 'Gap-Analyse', def: 'Analyse der Wachstumsl\u00fccke zwischen gew\u00fcnschter und erwarteter Umsatzentwicklung.' },
+              { term: 'Marktpenetration', def: 'Wachstum durch \u00abmehr vom selben\u00bb \u2013 bestehende Produkte in bestehenden M\u00e4rkten.' },
+              { term: 'Diversifikation', def: 'Wachstum durch neue Produkte in neuen M\u00e4rkten (horizontal, vertikal, lateral).' },
+              { term: 'Segmentierung', def: 'Zusammenfassung von Kunden mit \u00e4hnlichen Bed\u00fcrfnissen in Segmente.' },
+              { term: 'Positionierung', def: 'Wahrnehmung eines Angebots gegen\u00fcber der Konkurrenz aus Kundensicht.' },
+              { term: 'CRM', def: 'Customer Relationship Management \u2013 Instrumente f\u00fcr Individualmarketing und Kundenbindung.' },
+              { term: 'Markenstrategie', def: 'Strategische Entscheidung zur Markenf\u00fchrung (Hersteller-, Handelsmarke, No-Name, Me-too).' }
+            ]
+          }
+        ]
+      }
     },
 
     // ================================================================
@@ -745,7 +1269,75 @@ window.BOOK_DATA = {
           reveal: []
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Marketingmix',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels k\u00f6nnen Sie ...',
+            items: [
+              'die Begriffe \u00abMarketingmix\u00bb, \u00abTeilmix\u00bb und \u00abSubmix\u00bb erkl\u00e4ren.',
+              'das Standard-Dominanz-Modell beschreiben.',
+              'den Produktlebenszyklus darstellen.',
+              'die Besonderheiten des internationalen Marketingmix erl\u00e4utern.',
+              'Branchenunterschiede bei der Gestaltung des Marketingmix auff\u00fchren.'
+            ]
+          },
+          {
+            type: 'concept',
+            title: 'Begriffsdefinition',
+            content: 'Als Marketingmix bezeichnen wir die Kombination aller Marketinginstrumente zur Umsetzung der Marketingstrategie. Der Marketingmix wird aus der Strategie abgeleitet und besteht aus verschiedenen Submixen: den 4 P (Product, Price, Place, Promotion). Die Submixe fassen verschiedene Marketinginstrumente zusammen. Die Instrumente werden durch Marketingmassnahmen konkretisiert.',
+            highlight: 'Marketingmix = Kombination aller Marketinginstrumente. Submixe: Product, Price, Place, Promotion (4P).'
+          },
+          {
+            type: 'concept',
+            title: 'Ziele des Marketingmix',
+            content: 'Das qualitative Ziel bei der Gestaltung des optimalen Marketingmix lautet: Die Marketinginstrumente sind so eingesetzt, dass sie den strategischen Vorgaben entsprechen und sich gegenseitig erg\u00e4nzen. Das quantitative Ziel lautet: Die Marketingziele werden mit minimalem Mitteleinsatz (Finanzen, Personal etc.) erreicht. Neben dem Teilmix \u00abKunden\u00bb gibt es je nach Situation auch die Teilmixe \u00abHandel\u00bb und \u00abexterne Beeinflusser\u00bb.',
+            highlight: 'Qualitatives Ziel: optimale Abstimmung. Quantitatives Ziel: minimaler Mitteleinsatz f\u00fcr maximale Wirkung.'
+          },
+          {
+            type: 'concept',
+            title: 'Standard-Dominanz-Modell',
+            content: 'Die Marketinginstrumente lassen sich mithilfe des Standard-Dominanz-Modells anhand von zwei Dimensionen kategorisieren: Absatzbedeutung und Freiheitsgrad. Dominante Instrumente haben hohe Absatzbedeutung und grossen Freiheitsgrad \u2013 sie erhalten h\u00f6chste Priorit\u00e4t. Standardinstrumente haben hohe Absatzbedeutung aber wenig Freiheitsgrad. Komplement\u00e4re Instrumente sind auf beiden Dimensionen nur mittelstark ausgepr\u00e4gt. Marginale Instrumente werden kaum eingesetzt.',
+            highlight: '4 Kategorien: Dominante (wichtig + frei), Standard (wichtig + wenig frei), Komplement\u00e4re, Marginale Instrumente.'
+          },
+          {
+            type: 'concept',
+            title: 'Produktlebenszyklus (PLZ)',
+            content: 'Der Produktlebenszyklus beschreibt eine typische Entwicklung \u00fcber sechs Phasen: Entwicklung, Einf\u00fchrung, Wachstum, Reife, S\u00e4ttigung und R\u00fcckgang. Der Marketingmix muss den Gegebenheiten der jeweiligen Phase dynamisch angepasst werden. F\u00fcr die Erstellung eines Marketingkonzepts ist es z.B. von grosser Bedeutung, ob ein Produkt neu auf den Markt eingef\u00fchrt wird oder ob es bereits zu den bekannten Produkten geh\u00f6rt.',
+            highlight: 'PLZ-Phasen: Entwicklung, Einf\u00fchrung, Wachstum, Reife, S\u00e4ttigung, R\u00fcckgang.'
+          },
+          {
+            type: 'concept',
+            title: 'Internationaler Marketingmix und Branchenunterschiede',
+            content: 'Beim internationalen Marketingmix geht es um die Frage: Standardisierung oder Differenzierung? Bei einer kommunikativen Anpassung wird nur die Kommunikation angepasst (z.B. Markennamen, Werbebotschaften). Bei einer Anpassung der Marktleistung wird auch das Produkt l\u00e4nderspezifisch angepasst. Die Gestaltung des Marketingmix ist zudem abh\u00e4ngig von der Branche: Konsumg\u00fctermarketing (viele kleine Kunden, standardisiert), Investitionsg\u00fctermarketing (wenige grosse Kunden, komplex) und Dienstleistungsmarketing (nicht greifbar, pers\u00f6nlicher Kontakt).',
+            highlight: 'International: Standardisierung vs. Differenzierung. Branchen: Konsum-, Investitionsg\u00fcter-, Dienstleistungsmarketing.'
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              'Als <strong>Marketingmix</strong> bezeichnen wir die Kombination aller Marketinginstrumente zur Umsetzung der Marketingstrategie. Er besteht aus den <strong>4 P</strong> (Product, Price, Place, Promotion).',
+              'Die Marketinginstrumente lassen sich mithilfe des <strong>Standard-Dominanz-Modells</strong> nach Absatzbedeutung und Freiheitsgrad kategorisieren und priorisieren.',
+              'Der <strong>Produktlebenszyklus</strong> (PLZ) beschreibt sechs Phasen: Entwicklung, Einf\u00fchrung, Wachstum, Reife, S\u00e4ttigung und R\u00fcckgang. Der Marketingmix muss dynamisch angepasst werden.',
+              'Beim internationalen Marketingmix geht es um die <strong>Standardisierung</strong> bzw. <strong>Differenzierung</strong> von Leistungen und Prozessen.'
+            ]
+          },
+          {
+            type: 'keyterms',
+            title: 'Schl\u00fcsselbegriffe',
+            terms: [
+              { term: 'Marketingmix', def: 'Kombination aller Marketinginstrumente (4P) zur Umsetzung der Strategie.' },
+              { term: 'Submix', def: 'Einzelner Bereich des Marketingmix: Product, Price, Place oder Promotion.' },
+              { term: 'Standard-Dominanz-Modell', def: 'Modell zur Priorisierung von Instrumenten nach Absatzbedeutung und Freiheitsgrad.' },
+              { term: 'Produktlebenszyklus', def: 'Typische Entwicklung eines Produkts \u00fcber 6 Phasen von der Entwicklung bis zum R\u00fcckgang.' },
+              { term: 'Standardisierung', def: 'Einheitliches Marketing weltweit \u2013 gleiche Leistungen und Prozesse.' },
+              { term: 'Differenzierung', def: 'Anpassung des Marketingmix an l\u00e4nderspezifische Gegebenheiten.' }
+            ]
+          }
+        ]
+      }
     },
 
     // ================================================================
@@ -811,7 +1403,68 @@ window.BOOK_DATA = {
           reveal: []
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Produktmix I: das Produkt (Product)',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels k\u00f6nnen Sie ...',
+            items: [
+              'erkl\u00e4ren, was man unter Marktleistung versteht.',
+              'die Formen der Marktleistung beschreiben.',
+              'die Dimensionen des Sortiments erl\u00e4utern.'
+            ]
+          },
+          {
+            type: 'concept',
+            title: 'Formen der Marktleistung',
+            content: 'Unter dem Begriff \u00abMarktleistung\u00bb fassen wir alle Produkte, Dienstleistungen und Ideen zusammen, die Konsumenten und Organisationen erwerben k\u00f6nnen. Ein Produkt ist alles, was im Markt angeboten werden kann, um Kundenw\u00fcnsche zu befriedigen. Eine Dienstleistung umfasst jede Handlung oder jeden Nutzen, der nicht greifbar ist. Die meisten angebotenen Leistungen sind heute eine Kombination von Produkten und Dienstleistungen.',
+            highlight: 'Marktleistung = Produkte + Dienstleistungen + Ideen. Reine Produkte und reine Dienstleistungen sind selten.'
+          },
+          {
+            type: 'concept',
+            title: 'Entwicklung von Marktleistungen',
+            content: 'Viele Unternehmen entwickeln ihre Marktleistungen vom reinen Produkt hin zu Dienstleistungen, L\u00f6sungen/Solutions oder sogar Plattformen. Es gibt vier Entwicklungsstufen: Produkt (einfache Verkaufstransaktion), Dienstleistung (erbringt eine Leistung, h\u00e4ufig in Kombination mit einem Produkt), L\u00f6sung/Solution (Kombination von Produkten und Dienstleistungen, die in den Leistungsprozess des Kunden integriert sind) und Plattform (f\u00fchrt Anbieter mit Nachfragern zusammen).',
+            highlight: '4 Stufen: Produkt \u2192 Dienstleistung \u2192 L\u00f6sung/Solution \u2192 Plattform.'
+          },
+          {
+            type: 'concept',
+            title: 'Produktebenen',
+            content: 'Die Definition des Produkts umfasst drei Ebenen: Das Kernprodukt (was ist der Kundennutzen?), das formale Produkt (welche Eigenschaften muss das Produkt zwingend besitzen?) und das erweiterte Produkt (welche Eigenschaften w\u00fcrden den Nutzen des Produkts steigern, \u00fcber das Kernprodukt hinaus?). Es muss auch definiert werden, inwieweit die Marktleistung standardisiert oder individualisiert wird und ob M\u00f6glichkeiten zur Mass Customization bestehen.',
+            highlight: 'Produktebenen: Kernprodukt (Nutzen), formales Produkt (Eigenschaften), erweitertes Produkt (Zusatznutzen).'
+          },
+          {
+            type: 'concept',
+            title: 'Sortiment',
+            content: 'Unter Sortiment versteht man die Summe aller Marktleistungen, die ein Unternehmen anbietet. Bei der Sortimentspolitik werden vier Dimensionen definiert: die Breite (Anzahl Produktlinien), die L\u00e4nge (Anzahl Produkttypen), die Tiefe (Anzahl Varianten pro Produkttyp) und die Geschlossenheit (Beziehung zwischen den Artikeln). Die ABC-Analyse gruppiert Produkte anhand von Kennzahlen wie Umsatz, Deckungsbeitrag oder Rentabilit\u00e4t.',
+            highlight: 'Sortimentsdimensionen: Breite, L\u00e4nge, Tiefe, Geschlossenheit. ABC-Analyse zur Priorisierung.'
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              'Im <strong>Submix Produkte</strong> werden alle Entscheidungen zusammengefasst, die die Marktleistung (Produkte und Dienstleistungen) betreffen.',
+              'Die <strong>Definition des Produkts</strong> umfasst drei Ebenen: Kernprodukt (Kundennutzen), formales Produkt (zwingende Eigenschaften) und erweitertes Produkt (\u00fcber das Kernprodukt hinaus).',
+              'Bei der <strong>Sortimentspolitik</strong> werden Breite, L\u00e4nge, Tiefe und Geschlossenheit des Sortiments definiert.',
+              'Die <strong>ABC-Analyse</strong> gruppiert Produkte anhand von Kennzahlen wie Umsatz, Deckungsbeitrag oder Rentabilit\u00e4t.'
+            ]
+          },
+          {
+            type: 'keyterms',
+            title: 'Schl\u00fcsselbegriffe',
+            terms: [
+              { term: 'Marktleistung', def: 'Alle Produkte, Dienstleistungen und Ideen, die ein Unternehmen am Markt anbietet.' },
+              { term: 'Kernprodukt', def: 'Der grundlegende Kundennutzen eines Produkts.' },
+              { term: 'Formales Produkt', def: 'Die zwingend notwendigen Eigenschaften eines Produkts.' },
+              { term: 'Erweitertes Produkt', def: 'Zus\u00e4tzliche Eigenschaften, die den Nutzen \u00fcber das Kernprodukt hinaus steigern.' },
+              { term: 'Sortiment', def: 'Summe aller Marktleistungen eines Unternehmens.' },
+              { term: 'ABC-Analyse', def: 'Instrument zur Klassifizierung von Produkten nach Umsatz, Deckungsbeitrag oder Rentabilit\u00e4t.' },
+              { term: 'Mass Customization', def: 'Individuelle Anpassung von Produkten bei gleichzeitiger Massenproduktion.' }
+            ]
+          }
+        ]
+      }
     },
 
     // ================================================================
@@ -891,7 +1544,69 @@ window.BOOK_DATA = {
           reveal: ['Reihenfolge: 1. Innovatoren, 2. Fr\u00fche Adopter, 3. Fr\u00fche Mehrheit, 4. Sp\u00e4te Mehrheit, 5. Nachz\u00fcgler.']
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Produktmix II: die Produktentwicklung',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels k\u00f6nnen Sie ...',
+            items: [
+              'erl\u00e4utern, wie neue Produkte und Dienstleistungen entwickelt werden.',
+              'erkl\u00e4ren, wie mithilfe der Kreativit\u00e4tstechniken Ideen f\u00fcr neue Marktleistungen gewonnen werden.',
+              'den Prozess der Ideenauswahl, der Konzeptentwicklung sowie Testverfahren und Wirtschaftlichkeitsanalysen beschreiben.'
+            ]
+          },
+          {
+            type: 'concept',
+            title: 'Innovationsprozess',
+            content: 'Die Entwicklung von neuen Produkten und Dienstleistungen vollzieht sich h\u00e4ufig in sechs Phasen: 1. Ideengewinnung, 2. Ideenauswahl, 3. Konzeptentwicklung und -test, 4. Wirtschaftlichkeitsanalyse, 5. Beta-Test und Markttest, 6. Markteinf\u00fchrung. In jeder Phase scheiden einige Ideen aus. Das Scheitern in einer sp\u00e4ten Phase ist teurer als in einer fr\u00fchen. Der Prozess wird als Ideen- und Innovationstrichter dargestellt.',
+            highlight: '6 Phasen: Ideengewinnung \u2192 Ideenauswahl \u2192 Konzeptentwicklung \u2192 Wirtschaftlichkeitsanalyse \u2192 Beta-/Markttest \u2192 Markteinf\u00fchrung.'
+          },
+          {
+            type: 'concept',
+            title: 'Ideengewinnung und Kreativit\u00e4tstechniken',
+            content: 'Die Suche nach Ideen sollte nicht dem Zufall \u00fcberlassen, sondern systematisch gesteuert werden. Es gibt verschiedene Ideenquellen und Kreativit\u00e4tstechniken: Brainstorming (m\u00fcndliche Ideensammlung in der Gruppe, keine Kritik erlaubt), Brainwriting (schriftliche Variante, z.B. 6-3-5-Methode), Mindmapping und weitere Techniken. Neben Eigenentwicklung k\u00f6nnen neue Produkte auch durch Akquisitionen eingekauft werden (Kauf ganzer Unternehmen, Lizenzen, Kooperationsvertr\u00e4ge).',
+            highlight: 'Kreativit\u00e4tstechniken: Brainstorming (m\u00fcndlich), Brainwriting (schriftlich), Mindmapping.'
+          },
+          {
+            type: 'concept',
+            title: 'Wirtschaftlichkeitsanalyse und Tests',
+            content: 'Bei der Wirtschaftlichkeitsanalyse wird gepr\u00fcft, ob die Produktidee auch wirtschaftlich tragbar ist (Break-even-Berechnung). Beim Beta-Test und Markttest werden die verbleibenden Ideen intern und im Markt getestet. Ein Testmarkt ist ein geografisch begrenztes Gebiet f\u00fcr einen Markttest. Nachteile: Kosten und Zeitaufwand, Konkurrenz kann die Strategie beobachten.',
+            highlight: 'Wirtschaftlichkeitsanalyse = Break-even. Testmarkt = geografisch begrenzter Markttest.'
+          },
+          {
+            type: 'concept',
+            title: 'Markteinf\u00fchrung und Diffusion',
+            content: 'Bei der Markteinf\u00fchrung muss ber\u00fccksichtigt werden, dass sich Kunden in ihrer Innovationsneigung unterscheiden. Folgende Segmente k\u00f6nnen unterschieden werden: Innovatoren (die Ersten, ca. 2.5%), fr\u00fche Adopter (Meinungsf\u00fchrer, ca. 13.5%), fr\u00fche Mehrheit (ca. 34%), sp\u00e4te Mehrheit (ca. 34%) und Nachz\u00fcgler (ca. 16%).',
+            highlight: 'Diffusion: Innovatoren \u2192 Fr\u00fche Adopter \u2192 Fr\u00fche Mehrheit \u2192 Sp\u00e4te Mehrheit \u2192 Nachz\u00fcgler.'
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              'Die <strong>Entwicklung von neuen Produkten und Dienstleistungen</strong> vollzieht sich h\u00e4ufig in sechs Phasen.',
+              'Nach der <strong>Ideengewinnung</strong> folgt die <strong>Ideenauswahl</strong>, bei der Erfolg versprechende Ideen identifiziert werden.',
+              'Diese Ideen durchlaufen die <strong>Konzeptentwicklung</strong> und den <strong>Konzepttest</strong>. Es folgt eine <strong>Wirtschaftlichkeitsanalyse</strong>, die im positiven Fall zu einem <strong>Beta- und Markttest</strong> f\u00fchrt.',
+              'Bei der <strong>Markteinf\u00fchrung</strong> muss die Innovationsneigung der Kunden ber\u00fccksichtigt werden: Innovatoren, fr\u00fche Adopter, fr\u00fche und sp\u00e4te Mehrheit und die Nachz\u00fcgler.'
+            ]
+          },
+          {
+            type: 'keyterms',
+            title: 'Schl\u00fcsselbegriffe',
+            terms: [
+              { term: 'Innovationstrichter', def: 'Modell, das zeigt, wie aus vielen Ideen wenige Produkte am Markt resultieren.' },
+              { term: 'Brainstorming', def: 'M\u00fcndliche Kreativit\u00e4tstechnik zur Ideensammlung in der Gruppe.' },
+              { term: 'Brainwriting', def: 'Schriftliche Kreativit\u00e4tstechnik, z.B. 6-3-5-Methode.' },
+              { term: 'Konzeptentwicklung', def: 'Phase, in der aus Ideen konkrete Produktkonzepte entwickelt werden.' },
+              { term: 'Wirtschaftlichkeitsanalyse', def: 'Pr\u00fcfung der wirtschaftlichen Tragbarkeit (z.B. Break-even).' },
+              { term: 'Testmarkt', def: 'Geografisch begrenztes Gebiet f\u00fcr einen Markttest vor der Einf\u00fchrung.' },
+              { term: 'Markteinf\u00fchrung', def: 'Die Lancierung eines neuen Produkts auf dem Markt.' },
+              { term: 'Innovatoren', def: 'Erste Gruppe, die eine Innovation \u00fcbernimmt (ca. 2.5% der K\u00e4ufer).' }
+            ]
+          }
+        ]
+      }
     },
 
     // ================================================================
@@ -963,7 +1678,69 @@ window.BOOK_DATA = {
           reveal: []
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Produktmix III: Verpackung',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels k\u00f6nnen Sie ...',
+            items: [
+              'die Funktionen der Verpackung nennen.',
+              'die Ziele der Verpackungsgestaltung darstellen.',
+              'die Verpackungsarten aufz\u00e4hlen und erkl\u00e4ren.',
+              'die \u00f6kologische Dimension der Verpackung beschreiben.',
+              'rechtliche / gesetzliche Grundlagen der Verpackung nennen.'
+            ]
+          },
+          {
+            type: 'concept',
+            title: 'Funktionen der Verpackung',
+            content: 'Die Verpackung und das optische Auftreten eines Produkts haben sowohl eine funktionale als auch eine strategische Bedeutung. Die Verpackung hat folgende Funktionen: Schutz, Information, Verkaufsfunktion, Dosierfunktion, Werbefunktion, Produktdifferenzierung, Stapelbarkeit und Identifikationsfunktion. Die Bed\u00fcrfnisse des Markts machen f\u00fcr dasselbe Produkt unterschiedliche Verpackungsarten n\u00f6tig.',
+            highlight: 'Verpackungsfunktionen: Schutz, Information, Verkauf, Dosierung, Werbung, Differenzierung, Stapelbarkeit.'
+          },
+          {
+            type: 'concept',
+            title: 'Verpackungsarten',
+            content: 'Es gibt Einweg- und Mehrwegverpackungen. Je nach Einsatz unterscheidet man Verkaufs-, Sammel- und Transportverpackungen. Prim\u00e4rverpackungen stehen in direktem Kontakt mit dem verpackten Gegenstand und erf\u00fcllen hohe hygienische Anforderungen. Sekund\u00e4rverpackungen dienen als M\u00f6glichkeit f\u00fcr Zusatzinformationen. Terti\u00e4rverpackungen dienen als Lager- und Transporthilfsmittel.',
+            highlight: 'Prim\u00e4r = direkter Kontakt. Sekund\u00e4r = Informationstr\u00e4ger. Terti\u00e4r = Lager/Transport.'
+          },
+          {
+            type: 'concept',
+            title: 'GS1-Strichcode und gesetzliche Grundlagen',
+            content: 'Auf der Verpackung findet sich der GS1-Strichcode, mit dem das Produkt identifiziert werden kann. Effiziente Ladeeinheiten (EUL) sind die Zusammenfassung von Einzeleinheiten zu gr\u00f6sseren Einheiten mit dem Ziel, die Effizienz in der Logistikkette zu steigern. Die gesetzlichen Vorschriften f\u00fcr die Verpackung sind je Produkt verschieden und m\u00fcssen bei der Verpackungsgestaltung ber\u00fccksichtigt werden (u.a. Angabe der Zutaten, Hinweise auf allergene Stoffe, Angabe des Herkunftslands).',
+            highlight: 'GS1-Strichcode zur Produktidentifikation. EUL f\u00fcr effiziente Logistik.'
+          },
+          {
+            type: 'concept',
+            title: 'Verpackung und \u00d6kologie',
+            content: 'Bei der Wahl der Verpackungsart ist auf \u00f6kologische, hygienische und logistische Aspekte zu achten. Nachhaltige Verpackungsl\u00f6sungen gewinnen zunehmend an Bedeutung: Verwendung von recycelbaren oder biologisch abbaubaren Materialien, Reduktion des Verpackungsmaterials und Vermeidung unn\u00f6tiger Verpackungen.',
+            highlight: '\u00d6kologische Verpackung: recycelbar, biologisch abbaubar, Material reduzieren.'
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              'Die <strong>Verpackung</strong> hat viele Aufgaben: Schutz-, Informations- und Werbefunktion.',
+              'Es gibt <strong>Einweg- und Mehrwegverpackungen</strong>. Je nach Einsatz: Verkaufs-, Sammel- und Transportverpackungen.',
+              '<strong>Prim\u00e4rverpackungen</strong> stehen in direktem Kontakt mit dem Produkt. <strong>Sekund\u00e4rverpackungen</strong> dienen als Informationstr\u00e4ger. <strong>Terti\u00e4rverpackungen</strong> als Lager- und Transporthilfsmittel.',
+              'Auf der Verpackung findet sich der <strong>GS1-Strichcode</strong>. Die <strong>gesetzlichen Vorschriften</strong> sind je Produkt verschieden.'
+            ]
+          },
+          {
+            type: 'keyterms',
+            title: 'Schl\u00fcsselbegriffe',
+            terms: [
+              { term: 'Prim\u00e4rverpackung', def: 'Verpackung in direktem Kontakt mit dem Produkt (z.B. Flasche).' },
+              { term: 'Sekund\u00e4rverpackung', def: 'Umverpackung f\u00fcr Zusatzinformationen und Werbung.' },
+              { term: 'Terti\u00e4rverpackung', def: 'Lager- und Transportverpackung (z.B. Palette).' },
+              { term: 'GS1-Strichcode', def: 'Standardisierter Code zur Identifikation von Produkten.' },
+              { term: 'EUL', def: 'Effiziente Ladeeinheiten \u2013 Zusammenfassung zu gr\u00f6sseren Einheiten f\u00fcr die Logistik.' },
+              { term: 'Verpackungs\u00f6kologie', def: '\u00d6kologische Aspekte bei der Wahl und Gestaltung von Verpackungen.' }
+            ]
+          }
+        ]
+      }
     },
 
     // ================================================================
@@ -1070,7 +1847,76 @@ window.BOOK_DATA = {
           reveal: []
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Preismix (Price)',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels k\u00f6nnen Sie ...',
+            items: [
+              'die Ziele der Preispolitik nennen.',
+              'die Modelle der Preistheorie beschreiben.',
+              'erkl\u00e4ren, wie die Preisbestimmung erfolgt.',
+              'die Rabatt- und Konditionenpolitik erl\u00e4utern.',
+              'die gesetzlichen Grundlagen des Preismix darstellen.'
+            ]
+          },
+          {
+            type: 'concept',
+            title: 'Preispolitik',
+            content: 'Der Preismix oder die Preispolitik ist eines der m\u00e4chtigsten Instrumente im Marketing, das ganze Marktstrukturen ver\u00e4ndern kann. Im Marketingmix ist das P f\u00fcr Price der einzige Bereich, der Einnahmen f\u00fcr das Unternehmen generiert \u2013 die \u00fcbrigen 3 P haben vor allem Kosten zur Folge. Die Unternehmen streben mit der Preisfestsetzung oft das Ziel der Gewinnmaximierung an. Dabei gilt: Wenn der Preis steigt, sinkt die nachgefragte Menge.',
+            highlight: 'Price ist der einzige Submix, der Einnahmen generiert. Ziel: optimaler Preis zwischen Gewinnmaximierung und Absatzmenge.'
+          },
+          {
+            type: 'concept',
+            title: 'Preistheorie und Preiselastizit\u00e4t',
+            content: 'Wenn der Gewinn maximiert werden soll, m\u00fcssen die variablen Kosten und die Nachfragekurve bekannt sein. Der Preis wird dann so festgelegt, dass der Deckungsbeitrag (Preis \u2013 variable Kosten) maximal ist. Eine wichtige Gr\u00f6sse ist die Preiselastizit\u00e4t der Nachfrage: das Verh\u00e4ltnis einer relativen Nachfrage\u00e4nderung zu einer relativen Preis\u00e4nderung. Unelastische Nachfrage: grosse Preis\u00e4nderung hat wenig Einfluss. Elastische Nachfrage: kleine Preis\u00e4nderungen wirken sich stark auf die Nachfrage aus.',
+            highlight: 'Preiselastizit\u00e4t: unelastisch = Preis\u00e4nderung hat wenig Wirkung. Elastisch = starke Wirkung auf Nachfrage.'
+          },
+          {
+            type: 'concept',
+            title: 'Preisbestimmung mit den 4 K',
+            content: 'In der Praxis ist die genaue Berechnung des optimalen Preises oft schwierig. Praktiker bestimmen den Preis h\u00e4ufig \u00fcber die 4 K: Kosten (eigene Kostenstruktur), Konkurrenz (Preise der Wettbewerber), Konsumenten (Zahlungsbereitschaft der Kunden) und Kapazit\u00e4t (verf\u00fcgbare Kapazit\u00e4ten des Unternehmens).',
+            highlight: '4 K der Preisbestimmung: Kosten, Konkurrenz, Konsumenten(zahlungsbereitschaft), Kapazit\u00e4t.'
+          },
+          {
+            type: 'concept',
+            title: 'Preisdifferenzierung und Rabatte',
+            content: 'Ein wichtiges Instrument der Preispolitik ist die Preisdifferenzierung: f\u00fcr mehr oder weniger dasselbe Produkt werden unterschiedliche Preise verlangt. Dies funktioniert, wenn es Segmente gibt, die bereit sind, mehr zu bezahlen. In der Anwendung wird oft umgedreht: Segmenten mit geringerer Zahlungsbereitschaft werden Rabatte gew\u00e4hrt (z.B. Studenten, Senioren, Gruppentouristen). Zum Preismix z\u00e4hlen verschiedene Funktions-, Mengen-, Zeit-, Aktions- oder Treue-Rabatte sowie Konditionen.',
+            highlight: 'Preisdifferenzierung: verschiedene Preise f\u00fcr das gleiche Produkt je nach Segment. Rabatte als Instrument.'
+          },
+          {
+            type: 'concept',
+            title: 'Gesetzliche Grundlagen',
+            content: 'Die gesetzlichen Grundlagen des Preismix sind in verschiedenen Gesetzen geregelt. Sie sch\u00fctzen die Konsumenten vor Benachteiligungen durch m\u00e4chtige Unternehmen: Gesetz gegen den unlauteren Wettbewerb (UWG), Kartellgesetz (KG), Verordnung \u00fcber die Bekanntgabe von Preisen (PVB) und Preis\u00fcberwachungsgesetz (P\u00fcG).',
+            highlight: 'Preisgesetze: UWG, Kartellgesetz, Preisbekanntgabeverordnung, Preis\u00fcberwachungsgesetz.'
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              'In der \u00f6konomischen Theorie ist das Ziel der Preisbildung die <strong>Gewinnmaximierung</strong>. In der Praxis verfolgen Unternehmen jedoch auch andere Ziele.',
+              'Eine wichtige Gr\u00f6sse ist die <strong>Preiselastizit\u00e4t</strong> der Nachfrage. In der Praxis wird der Preis h\u00e4ufig \u00fcber die <strong>4 K</strong> bestimmt: Kosten, Konkurrenz, Konsumenten, Kapazit\u00e4t.',
+              'Ein wichtiges Instrument ist die <strong>Preisdifferenzierung</strong>. Zum Preismix z\u00e4hlen auch verschiedene <strong>Rabatte</strong> und <strong>Konditionen</strong>.',
+              'Die <strong>gesetzlichen Grundlagen</strong> finden sich im UWG, Kartellgesetz, der PVB und dem P\u00fcG.'
+            ]
+          },
+          {
+            type: 'keyterms',
+            title: 'Schl\u00fcsselbegriffe',
+            terms: [
+              { term: 'Preispolitik', def: 'Alle Entscheidungen rund um die Preisgestaltung im Marketingmix.' },
+              { term: 'Preiselastizit\u00e4t', def: 'Verh\u00e4ltnis der Nachfrage\u00e4nderung zur Preis\u00e4nderung.' },
+              { term: '4 K', def: 'Kosten, Konkurrenz, Konsumenten(zahlungsbereitschaft), Kapazit\u00e4t.' },
+              { term: 'Preisdifferenzierung', def: 'Unterschiedliche Preise f\u00fcr das gleiche Produkt nach Segmenten.' },
+              { term: 'Deckungsbeitrag', def: 'Verkaufspreis minus variable Kosten.' },
+              { term: 'Rabatte', def: 'Preisnachl\u00e4sse (Funktions-, Mengen-, Zeit-, Aktions-, Treuerabatte).' },
+              { term: 'Kartellgesetz', def: 'Gesetz zur Verhinderung von Wettbewerbsbeschr\u00e4nkungen und Preisabsprachen.' }
+            ]
+          }
+        ]
+      }
     },
 
     // ================================================================
@@ -1132,7 +1978,64 @@ window.BOOK_DATA = {
           reveal: ['Die Problematik: Fehlende Koordination zwischen Gesch\u00e4fts- und Privatkunden-Service. Der Callcenter-Mitarbeiter h\u00e4tte erkennen m\u00fcssen, dass der Kunde auch Gesch\u00e4ftskunde ist, und flexibel reagieren sollen.']
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Distributionsmix (Place)',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels k\u00f6nnen Sie ...',
+            items: [
+              'die Instrumente des Distributionsmix erl\u00e4utern.',
+              'erkl\u00e4ren, welche Faktoren die Auswahl der Distributionspartner bestimmen.',
+              'die Kriterien zur Wahl des geeigneten Vertriebssystems beschreiben.',
+              'Vor- und Nachteile von E-Commerce-L\u00f6sungen erkl\u00e4ren.',
+              'die Vertriebsarten im E-Commerce beschreiben.'
+            ]
+          },
+          {
+            type: 'concept',
+            title: 'Distributionsmix',
+            content: 'Mit dem Distributionsmix werden alle Instrumente aufeinander abgestimmt, die f\u00fcr die Organisation und die physische Durchf\u00fchrung des Verkaufs und der Verteilung notwendig sind. Der Distributionsmix sorgt daf\u00fcr, dass die Kunden die Marktleistung dann und dort kaufen k\u00f6nnen, wenn sie sie ben\u00f6tigen. Das Resultat einer guten Verkaufsorganisation sind kurze Wege zum Verk\u00e4ufer, kompetente und freundliche Kundenberatung, jederzeitige Bestellm\u00f6glichkeiten und jederzeit abrufbare Liefertermine.',
+            highlight: 'Distributionsmix = Organisation der Vertriebswege zum Kunden. Ziel: Marktleistung dort verf\u00fcgbar, wo Kunden sie brauchen.'
+          },
+          {
+            type: 'concept',
+            title: 'Direkter und indirekter Vertrieb',
+            content: 'Der direkte Vertrieb wird durch unternehmenseigene Vertriebskan\u00e4le organisiert. Der indirekte Vertrieb erfolgt durch unternehmensfremde Vertriebskan\u00e4le. Diese generelle Entscheidung wird auf strategischer Ebene gef\u00e4llt. Auf operativer Ebene m\u00fcssen die Distributionspartner ausgew\u00e4hlt, die konkreten Absatzkan\u00e4le definiert und miteinander kombiniert werden (inkl. Multichanneling) sowie E-Commerce-M\u00f6glichkeiten ausgelotet werden.',
+            highlight: 'Direkter Vertrieb = eigene Kan\u00e4le. Indirekter Vertrieb = fremde Kan\u00e4le (H\u00e4ndler, Absatzmittler).'
+          },
+          {
+            type: 'concept',
+            title: 'Multichanneling und E-Commerce',
+            content: 'W\u00e4hlt ein Produzent f\u00fcr den Absatz seines Produkts unterschiedliche Vertriebskan\u00e4le f\u00fcr die einzelnen Zielkundensegmente, spricht man von Multichanneling (Mehrkanaldistribution). Im E-Commerce unterscheidet man zwischen E-Commerce-Sites (eigene Kontrolle \u00fcber Customer Experience, Aufbau einer Kundenbindung) und Marktpl\u00e4tzen (schnellerer Markteintritt, geringe Investitionen, aber weniger Differenzierungsm\u00f6glichkeiten).',
+            highlight: 'Multichanneling = verschiedene Vertriebskan\u00e4le. E-Commerce: eigene Site vs. Marktplatz (z.B. Amazon, Ebay).'
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              'Bei der <strong>Distribution</strong> geht es um die Gestaltung der Vertriebswege zum Kunden. Es wird zwischen <strong>direkten</strong> und <strong>indirekten Vertriebskan\u00e4len</strong> unterschieden.',
+              'Die Vertriebskan\u00e4le sind f\u00fcr den Weg vom Hersteller bis zum Verbraucher verantwortlich. Bei <strong>Multichanneling</strong> werden verschiedene Vertriebskan\u00e4le kombiniert.',
+              'Unter <strong>Distributionspartner</strong> versteht man eine Organisation oder Person, die das Unternehmen bei der Distribution unterst\u00fctzt.',
+              'Im <strong>E-Commerce</strong> unterscheidet man zwischen eigenen E-Commerce-Sites und Marktpl\u00e4tzen.'
+            ]
+          },
+          {
+            type: 'keyterms',
+            title: 'Schl\u00fcsselbegriffe',
+            terms: [
+              { term: 'Distributionsmix', def: 'Alle Instrumente f\u00fcr Organisation und Durchf\u00fchrung von Verkauf und Verteilung.' },
+              { term: 'Direkter Vertrieb', def: 'Vertrieb \u00fcber unternehmenseigene Kan\u00e4le (z.B. eigene Filialen, Webshop).' },
+              { term: 'Indirekter Vertrieb', def: 'Vertrieb \u00fcber unternehmensfremde Kan\u00e4le (z.B. H\u00e4ndler, Absatzmittler).' },
+              { term: 'Distributionsgrad', def: 'Mass f\u00fcr die Erh\u00e4ltlichkeit eines Produkts im Markt.' },
+              { term: 'Multichanneling', def: 'Mehrkanaldistribution \u2013 verschiedene Vertriebskan\u00e4le f\u00fcr verschiedene Segmente.' },
+              { term: 'E-Commerce', def: 'Elektronischer Handel \u00fcber eigene Sites oder Marktpl\u00e4tze.' },
+              { term: 'Distributionspartner', def: 'Organisation oder Person, die bei der Distribution unterst\u00fctzt (z.B. Grossh\u00e4ndler).' }
+            ]
+          }
+        ]
+      }
     },
 
     // ================================================================
@@ -1198,7 +2101,65 @@ window.BOOK_DATA = {
           ]
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Kommunikationsmix (Promotion)',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels k\u00f6nnen Sie ...',
+            items: [
+              'die wichtigsten Offline-Kommunikationsinstrumente nennen und erkl\u00e4ren.',
+              'die wichtigsten Online-Kommunikationsinstrumente nennen und erkl\u00e4ren.',
+              'Push-Strategie und Pull-Strategie in der Kommunikation unterscheiden.'
+            ]
+          },
+          {
+            type: 'concept',
+            title: 'Offline-Kommunikationsinstrumente',
+            content: 'Unternehmen stehen eine Vielzahl an Instrumenten zur Verf\u00fcgung, um mit ihren Zielgruppen zu kommunizieren. Offline-Kommunikationsinstrumente umfassen: Werbung (unpers\u00f6nliche Einweg-Kommunikation, sehr grosse Reichweite), Verkaufsf\u00f6rderung (alle Kommunikationsarten auf verschiedenen Stufen), Pers\u00f6nlicher Verkauf (pers\u00f6nliche Zweiwegkommunikation), Direktmarketing (unpers\u00f6nliche Zweiwegkommunikation, z.B. Mail, E-Mail) und Public Relations (Einwegkommunikation, grosse Reichweite).',
+            highlight: 'Offline-Instrumente: Werbung, Verkaufsf\u00f6rderung, Pers\u00f6nlicher Verkauf, Direktmarketing, Public Relations.'
+          },
+          {
+            type: 'concept',
+            title: 'Online-Kommunikationsinstrumente',
+            content: 'Die Instrumente der Online-Kommunikation erg\u00e4nzen bei den meisten Unternehmen die Instrumente der Offline-Kommunikation. Online-Kommunikationsinstrumente umfassen: Eigene Website, Onlinewerbung, E-Mail-Marketing, Social Media Marketing, Influencer Marketing und Mobile Marketing. Das erweiterte Medientypenmodell teilt die Kommunikationsinstrumente in Paid (bezahlte Werbung), Shared (geteilte Inhalte auf Social Media), Earned (verdiente Medienpr\u00e4senz) und Owned Media (eigene Kan\u00e4le) ein.',
+            highlight: 'Online-Instrumente: Website, Onlinewerbung, E-Mail, Social Media, Influencer, Mobile. Medientypen: Paid, Shared, Earned, Owned.'
+          },
+          {
+            type: 'concept',
+            title: 'Push- und Pull-Strategie',
+            content: 'Bez\u00fcglich der Wirkungsrichtung unterscheiden wir zwischen Push-Strategie und Pull-Strategie. Bei der Push-Strategie folgt der Kommunikationsfluss dem Warenfluss: vom Produzenten zum Handel und zum Endkonsumenten. Bei der Pull-Strategie wird versucht, die Kundenpr\u00e4ferenzen aufzubauen und Kundentreue zu erreichen \u2013 der Kunde sucht aktiv nach dem Produkt.',
+            highlight: 'Push = Anbieter dr\u00e4ngt zum Kunden (Warenfluss). Pull = Kunde sucht aktiv den Anbieter.'
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              'Den Unternehmen stehen eine Vielzahl an Instrumenten zur Verf\u00fcgung, um mit ihren Zielgruppen zu kommunizieren.',
+              '<strong>Offline-Kommunikationsinstrumente</strong>: Werbung, Verkaufsf\u00f6rderung, Pers\u00f6nlicher Verkauf, Direktmarketing, Public Relations.',
+              '<strong>Online-Kommunikationsinstrumente</strong>: Eigene Website, Onlinewerbung, E-Mail-Marketing, Social Media Marketing, Influencer Marketing, Mobile Marketing.',
+              'Das erweiterte <strong>Medientypenmodell</strong> teilt die Instrumente in Paid, Shared, Earned und Owned Media ein.',
+              'Bez\u00fcglich der Wirkungsrichtung: <strong>Push-Strategie</strong> (Produzent \u2192 Handel \u2192 Endkunde) vs. <strong>Pull-Strategie</strong> (Kunde sucht Anbieter).'
+            ]
+          },
+          {
+            type: 'keyterms',
+            title: 'Schl\u00fcsselbegriffe',
+            terms: [
+              { term: 'Werbung', def: 'Unpers\u00f6nliche Einwegkommunikation mit sehr grosser Reichweite.' },
+              { term: 'Verkaufsf\u00f6rderung', def: 'Alle Kommunikationsarten auf verschiedenen Stufen (z.B. Produktproben, Merchandising).' },
+              { term: 'Pers\u00f6nlicher Verkauf', def: 'Pers\u00f6nliche Zweiwegkommunikation zwischen Verk\u00e4ufer und Kunde.' },
+              { term: 'Public Relations', def: 'Pflege der Beziehungen zur \u00d6ffentlichkeit (Pressemitteilungen, Events, Sponsoring).' },
+              { term: 'Paid Media', def: 'Bezahlte Werbung (z.B. Anzeigen, Bannerwerbung).' },
+              { term: 'Owned Media', def: 'Eigene Kan\u00e4le (z.B. Website, Blog, Newsletter).' },
+              { term: 'Earned Media', def: 'Verdiente Medienpr\u00e4senz (z.B. Presseberichte, Kundenbewertungen).' },
+              { term: 'Push-Strategie', def: 'Kommunikationsfluss folgt dem Warenfluss vom Produzenten zum Endkunden.' },
+              { term: 'Pull-Strategie', def: 'Kunde sucht aktiv nach dem Produkt \u2013 Kundenpr\u00e4ferenzen werden aufgebaut.' }
+            ]
+          }
+        ]
+      }
     },
 
     // ================================================================
@@ -1282,7 +2243,70 @@ window.BOOK_DATA = {
           reveal: []
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Marketingbudget und -kontrolle',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels k\u00f6nnen Sie ...',
+            items: [
+              'erkl\u00e4ren, mit welchen Methoden ein Marketingbudget erstellt wird.',
+              'den typischen Aufbau eines Budgets aufzeigen.',
+              'ein einfaches Marketingbudget erstellen.',
+              'verschiedene Arten der Marketingkontrolle erkl\u00e4ren und einen Kontrollplan aufstellen.'
+            ]
+          },
+          {
+            type: 'concept',
+            title: 'Budgetierung',
+            content: 'Marketingaktivit\u00e4ten kosten Geld. Dieses Budget wird idealerweise im Voraus beantragt. Es gibt zwei verbreitete Ans\u00e4tze: Bei der Top-down-Budgetierung wird das Budget von der Gesch\u00e4ftsleitung vorgegeben und auf die einzelnen Abteilungen heruntergebrochen. Bei der Bottom-up-Budgetierung stellen die Abteilungen die ben\u00f6tigten Mittel aufgrund der geplanten Aktivit\u00e4ten zusammen. In der Praxis findet ein laufender Abgleichungsprozess statt.',
+            highlight: 'Top-down = Budget wird von oben vorgegeben. Bottom-up = Budget wird von unten zusammengestellt.'
+          },
+          {
+            type: 'concept',
+            title: 'Ad-hoc-Budgetierung und Budgetszenarien',
+            content: 'Neben der kontinuierlichen Budgetierung wird auch ad hoc budgetiert, d.h. bei konkreten Ereignissen (z.B. Markteintritt, Event, Lancierung einer Kundentreuekarte). Wird dem Aufwand ein Ertrag gegen\u00fcbergestellt, lassen sich Nettodeckungsbeitrag und Marketing-ROI berechnen. Da das Budget auf Annahmen und Prognosen beruht, macht es h\u00e4ufig Sinn, verschiedene m\u00f6gliche Budgetszenarien (Best-Case, erwartetes Szenario, Worst-Case) auszuarbeiten.',
+            highlight: 'Budgetszenarien: Best-Case, erwartetes Szenario, Worst-Case. Ad-hoc-Budgetierung bei konkreten Projekten.'
+          },
+          {
+            type: 'concept',
+            title: 'Marketingkontrolle',
+            content: 'Der letzte Schritt bei der Umsetzung eines Marketingkonzepts ist die Kontrolle. Es gibt vier Arten: Die Jahresplankontrolle soll sicherstellen, dass die Jahresziele erreicht werden. Die Profitabilit\u00e4tskontrolle fragt, wo das Unternehmen Gewinne bzw. Verluste macht. Die Effizienzkontrolle untersucht die Wirkungen der einzelnen Marketinginstrumente. Die Strategiekontrolle ist eine eigentliche Soll-Soll-Kontrolle.',
+            highlight: '4 Kontrollarten: Jahresplankontrolle, Profitabilit\u00e4tskontrolle, Effizienzkontrolle, Strategiekontrolle.'
+          },
+          {
+            type: 'concept',
+            title: 'Kontrollplan und Marketinginformationssystem',
+            content: 'Der Kontrollplan beinhaltet die Informationen, welches Zielobjekt mit welcher Erhebungsmethode durch wen und wann kontrolliert wird (4 W: Was, Wie, Wer, Wann). Das Marketinginformationssystem (MIS) besteht h\u00e4ufig aus drei Elementen: internes Rapportwesen, Marktforschung und Marketing-Intelligence. Es liefert die Informationsgrundlage f\u00fcr Marketingentscheidungen.',
+            highlight: 'Kontrollplan: Was, Wie, Wer, Wann. MIS = Rapportwesen + Marktforschung + Marketing-Intelligence.'
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              'Das <strong>Budget</strong> ist die Konkretisierung eines Plans im Hinblick auf die finanziellen Konsequenzen. Die Budgetierung kann <strong>top down</strong> oder <strong>bottom up</strong> vorgenommen werden.',
+              'Wir unterscheiden: <strong>Top-down-Budgetierung</strong>, <strong>Bottom-up-Budgetierung</strong>, <strong>Ad-hoc-Budgetierung</strong> und <strong>Budgetszenarien</strong>.',
+              'Bei der <strong>Kontrolle</strong> werden vier Arten unterschieden: Jahresplankontrolle, Profitabilit\u00e4tskontrolle, Effizienzkontrolle, Strategiekontrolle.',
+              'Das <strong>Marketinginformationssystem</strong> (MIS) liefert die Grundlage f\u00fcr Marketingentscheidungen.'
+            ]
+          },
+          {
+            type: 'keyterms',
+            title: 'Schl\u00fcsselbegriffe',
+            terms: [
+              { term: 'Marketingbudget', def: 'Finanzplan f\u00fcr alle geplanten Marketingaktivit\u00e4ten.' },
+              { term: 'Top-down-Budgetierung', def: 'Budget wird von der Gesch\u00e4ftsleitung vorgegeben und heruntergebrochen.' },
+              { term: 'Bottom-up-Budgetierung', def: 'Budget wird von den Abteilungen aufgrund geplanter Aktivit\u00e4ten erstellt.' },
+              { term: 'Budgetszenarien', def: 'Verschiedene Zukunftsszenarien (Best-, Expected-, Worst-Case) f\u00fcr die Budgetplanung.' },
+              { term: 'Jahresplankontrolle', def: 'Kontrolle, ob die gesetzten Jahresziele erreicht werden.' },
+              { term: 'Effizienzkontrolle', def: 'Analyse der Wirkung einzelner Marketinginstrumente unter Ber\u00fccksichtigung der Kosten.' },
+              { term: 'Kontrollplan', def: 'Plan mit Was (Zielobjekt), Wie (Methode), Wer (Verantwortlicher), Wann (Zeitpunkt).' },
+              { term: 'MIS', def: 'Marketinginformationssystem \u2013 internes Rapportwesen, Marktforschung, Marketing-Intelligence.' }
+            ]
+          }
+        ]
+      }
     },
 
     // ================================================================
@@ -1372,7 +2396,77 @@ window.BOOK_DATA = {
           reveal: []
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Qualit\u00e4tsmanagement I: Grundlagen und \u00d6kologie',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels k\u00f6nnen Sie ...',
+            items: [
+              'erkl\u00e4ren, was man unter Qualit\u00e4t und Qualit\u00e4tsmanagement versteht.',
+              'die Bedeutung des Kano-Modells mit Muss-, Soll- und Plus-Faktoren f\u00fcr das Qualit\u00e4tsmanagement beschreiben.',
+              'die Aufgabenbereiche des Qualit\u00e4tsmanagements erl\u00e4utern.',
+              'anhand der ISO-Normen 9000 ff. und des Total Quality Managements die Bedeutung von Qualit\u00e4tsmanagementsystemen aufzeigen.',
+              'die Zusammenh\u00e4nge zwischen \u00d6konomie und \u00d6kologie beschreiben.'
+            ]
+          },
+          {
+            type: 'concept',
+            title: 'Was ist Qualit\u00e4t?',
+            content: 'Im Marketing wird unter Qualit\u00e4t die F\u00e4higkeit eines Produkts oder einer Dienstleistung verstanden, Kundenbed\u00fcrfnisse zu befriedigen. Zum Konzept der Qualit\u00e4t geh\u00f6rt auch die \u00dcbereinstimmung der Anspr\u00fcche mit der Marktleistung. Ein Produkt oder eine Dienstleistung kann die Kundenbed\u00fcrfnisse durch seine Eigenschaften befriedigen.',
+            highlight: 'Qualit\u00e4t = F\u00e4higkeit einer Marktleistung, Kundenbed\u00fcrfnisse zu befriedigen.'
+          },
+          {
+            type: 'concept',
+            title: 'Kano-Modell: Muss-, Soll- und Plus-Faktoren',
+            content: 'Das Kano-Modell unterscheidet drei Faktoren der Kundenzufriedenheit: Muss-Faktoren sind Eigenschaften, die auf jeden Fall erwartet werden und erf\u00fcllt sein m\u00fcssen (z.B. funktionierendes Produkt). Soll-Faktoren werden ebenfalls erwartet und sollten erf\u00fcllt sein (z.B. schnelle Lieferung). Plus-Faktoren werden nicht erwartet und k\u00f6nnen die Kunden deshalb positiv \u00fcberraschen (z.B. pers\u00f6nliche Dankesbotschaft). Die Gestaltung des Kundendiensts ist dabei von zentraler Bedeutung.',
+            highlight: 'Kano-Modell: Muss-Faktoren (Grundanforderung), Soll-Faktoren (erwartet), Plus-Faktoren (\u00dcberraschung).'
+          },
+          {
+            type: 'concept',
+            title: 'Qualit\u00e4tsmanagement (QM)',
+            content: 'Das Qualit\u00e4tsmanagement (QM) umfasst verschiedene Strategien und Verfahren, die grunds\u00e4tzlich zum Ziel haben, die Qualit\u00e4t von Produkten, Dienstleistungen und Prozessen sicherzustellen. Der QM-Prozess basiert auf vier Schritten: 1. Planen (Ziele zur Qualit\u00e4tsverbesserung formulieren), 2. Entscheiden (Qualit\u00e4tsaktionsplan), 3. Umsetzen (mit Commitment, Culture, Costs), 4. Kontrollieren (Benchmarking, Ableiten neuer Ziele). Aufgabenbereiche: Qualit\u00e4tsplanung, Qualit\u00e4tslenkung, Qualit\u00e4tssicherung.',
+            highlight: 'QM-Prozess: Planen \u2192 Entscheiden \u2192 Umsetzen \u2192 Kontrollieren. Aufgaben: Planung, Lenkung, Sicherung.'
+          },
+          {
+            type: 'concept',
+            title: 'Qualit\u00e4tsmanagementsysteme: ISO 9000 und TQM',
+            content: 'Die bekanntesten Qualit\u00e4tsmanagementsysteme sind die ISO-Normen 9000 ff. und das Total Quality Management (TQM). TQM ist eine Unternehmensphilosophie, die Qualit\u00e4t als zentrales Ziel in allen Bereichen des Unternehmens verankert. TQM kann auch an Grenzen stossen: Qualit\u00e4tsverbesserungen sind mit Kosten verbunden, und der kontinuierliche Verbesserungsprozess darf nicht zu viele Aktivit\u00e4ten der Mitarbeitenden binden.',
+            highlight: 'ISO 9000 = internationaler Standard. TQM = Qualit\u00e4t als Unternehmensphilosophie in allen Bereichen.'
+          },
+          {
+            type: 'concept',
+            title: '\u00d6kologiemanagement',
+            content: 'Der gesellschaftliche Anspruch an die Unternehmen, sich nachhaltig mit Umweltschutzfragen zu besch\u00e4ftigen, hat in den letzten Jahren stark zugenommen. Ein bewusstes \u00d6kologiemanagement bietet auch neue Marktchancen: Imagevorteile, Kosteneinsparungen durch Ressourcenreduktion, Qualit\u00e4tsverbesserungen und Vermeidung von Haftungsrisiken. Strategien: Defensiv (nur offensichtliche Marketingnutzen absch\u00f6pfen) oder Offensiv (aktiv mit \u00f6kologischen Themen Wettbewerbsvorteile realisieren und neue M\u00e4rkte erschliessen).',
+            highlight: '\u00d6kologiemanagement als Chance: Imagevorteile, Kosteneinsparung, Qualit\u00e4t, Risikovermeidung.'
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              'Die <strong>Qualit\u00e4t</strong> einer Marktleistung ist die F\u00e4higkeit, Kundenbed\u00fcrfnisse zu befriedigen. <strong>Muss-Faktoren</strong> m\u00fcssen erf\u00fcllt sein, <strong>Soll-Faktoren</strong> werden erwartet, <strong>Plus-Faktoren</strong> \u00fcberraschen positiv.',
+              'Das Unternehmen muss durch ein st\u00e4ndiges <strong>Qualit\u00e4tsmanagement</strong> die Leistungserstellung kontrollieren und verbessern. Aufgaben: <strong>Qualit\u00e4tsplanung</strong>, <strong>Qualit\u00e4tslenkung</strong>, <strong>Qualit\u00e4tssicherung</strong>.',
+              'Die bekanntesten <strong>Qualit\u00e4tsmanagementsysteme</strong> sind ISO-Normen 9000 ff. und Total Quality Management.',
+              'Heute kann kein Unternehmen mehr auf <strong>\u00d6kologiemanagement</strong> verzichten. Strategien: <strong>defensiv</strong> oder <strong>offensiv</strong>.'
+            ]
+          },
+          {
+            type: 'keyterms',
+            title: 'Schl\u00fcsselbegriffe',
+            terms: [
+              { term: 'Qualit\u00e4t', def: 'F\u00e4higkeit eines Produkts oder einer Dienstleistung, Kundenbed\u00fcrfnisse zu befriedigen.' },
+              { term: 'Kano-Modell', def: 'Modell mit Muss-, Soll- und Plus-Faktoren zur Analyse der Kundenzufriedenheit.' },
+              { term: 'Muss-Faktoren', def: 'Grundanforderungen, die auf jeden Fall erf\u00fcllt sein m\u00fcssen.' },
+              { term: 'Plus-Faktoren', def: 'Nicht erwartete Eigenschaften, die den Kunden positiv \u00fcberraschen.' },
+              { term: 'Qualit\u00e4tsmanagement', def: 'Strategien und Verfahren zur Sicherstellung der Qualit\u00e4t.' },
+              { term: 'ISO 9000', def: 'Internationaler Standard f\u00fcr Qualit\u00e4tsmanagementsysteme.' },
+              { term: 'Total Quality Management', def: 'Unternehmensphilosophie, die Qualit\u00e4t in allen Bereichen verankert.' },
+              { term: '\u00d6kologiemanagement', def: 'Systematisches Management \u00f6kologischer Aspekte \u2013 bietet Marktchancen und reduziert Risiken.' }
+            ]
+          }
+        ]
+      }
     },
 
     // ================================================================
@@ -1445,7 +2539,74 @@ window.BOOK_DATA = {
           ]
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Qualit\u00e4tsmanagement II: Reklamationswesen',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels k\u00f6nnen Sie ...',
+            items: [
+              'die Begriffe \u00abReklamationsmanagement\u00bb oder \u00abBeschwerdemanagement\u00bb definieren.',
+              'das Reklamations- oder Beschwerdemanagement ins CRM einordnen.',
+              'die Ziele des Reklamations- oder Beschwerdemanagements beschreiben.',
+              'Reklamationen und Beschwerden erfolgreich behandeln.'
+            ]
+          },
+          {
+            type: 'concept',
+            title: 'Reklamations- oder Beschwerdemanagement \u2013 Definition',
+            content: 'Beschwerde, Beanstandung oder Reklamation sind negative \u00c4usserungen von Kunden, Lieferanten oder anderen Gesch\u00e4ftspartnern in Bezug auf Marktleistungen (Produkte oder Dienstleistungen), das Verhalten von Mitarbeitenden oder das Unternehmen als Ganzes. Das Reklamationsmanagement ist ein Mittel des Qualit\u00e4tsmanagements im Marketing. Es umfasst alle systematischen Massnahmen, die ein Unternehmen bei Reklamationen und Beschwerden umsetzt, um die Kundenzufriedenheit trotz einer negativen Erfahrung aufrechtzuerhalten.',
+            highlight: 'Reklamationsmanagement = alle systematischen Massnahmen bei Beschwerden, um Kundenzufriedenheit aufrechtzuerhalten.'
+          },
+          {
+            type: 'concept',
+            title: 'Einordnung ins CRM',
+            content: 'Das Reklamationsmanagement ist ein wichtiger Bestandteil des CRM (Customer Relationship Management). Diese unternehmerische Grundhaltung bezweckt, dem Kunden langfristig eine kontinuierliche Wertsch\u00f6pfung aus der Gesch\u00e4ftsbeziehung zu bieten \u2013 \u00fcber die gesamte Lebenszeit der Kundenbeziehung hinweg. Neben der Bindung von neuen und bestehenden Kunden geht es auch um die Kundenr\u00fcckgewinnung: \u00abK\u00fcndiger\u00bb, \u00abSchl\u00e4fer\u00bb/\u00abStammleichen\u00bb und \u00abReduzierer\u00bb.',
+            highlight: 'Reklamationsmanagement = Teil des CRM. Ziel: langfristige Kundenbeziehung und Kundenr\u00fcckgewinnung.'
+          },
+          {
+            type: 'concept',
+            title: 'Ziele des Beschwerdemanagements',
+            content: 'Die wichtigsten Ziele eines professionellen Reklamations- oder Beschwerdemanagements sind: Die Wiederherstellung von Kundenzufriedenheit, die Steigerung der Servicequalit\u00e4t durch z\u00fcgiges L\u00f6sen von Kundenanliegen, die Vermeidung und Reduzierung von Fehler-, Folge- und Beschwerdekosten sowie die Nutzung der Beschwerdeinformationen f\u00fcr betriebliche Risiken und Chancen. Erfolgreich gel\u00f6ste Beschwerden haben eine stark emotionale Wirkung und st\u00e4rken die Kundenbindung.',
+            highlight: 'Ziele: Kundenzufriedenheit wiederherstellen, Servicequalit\u00e4t steigern, Kosten senken, Informationen nutzen.'
+          },
+          {
+            type: 'concept',
+            title: 'Umgang mit Beschwerden \u2013 10 Punkte',
+            content: 'Bei der erfolgreichen Bearbeitung von Reklamationen sind 10 Punkte hilfreich: 1. Nehmen Sie sich Zeit, 2. H\u00f6ren Sie aufmerksam zu, 3. Zeigen Sie Verst\u00e4ndnis, 4. Suchen Sie die Schuld nicht beim Kunden, 5. Entschuldigen Sie sich, 6. Danken Sie f\u00fcr den Hinweis, 7. Bieten Sie eine L\u00f6sung an, 8. Halten Sie Ihre Versprechen ein, 9. Pr\u00fcfen Sie die Zufriedenheit nach, 10. Dokumentieren Sie die Reklamation.',
+            highlight: 'Grundregel: Zuh\u00f6ren, Verst\u00e4ndnis zeigen, Schuld nicht beim Kunden suchen, L\u00f6sung anbieten, Follow-up.'
+          },
+          {
+            type: 'concept',
+            title: 'Antwortschreiben auf Beschwerden',
+            content: 'Das Antwortschreiben auf Beschwerden kann in vier Teile gegliedert werden: 1. Bezug deutlich machen (genau angeben, auf welche Reklamation Bezug genommen wird), 2. Verst\u00e4ndnis zeigen (emotionale Wellen gl\u00e4tten), 3. Sachverhalt / L\u00f6sung (Sachverhalt schildern und L\u00f6sung anbieten \u2013 Begriffe wie \u00abProblem\u00bb, \u00abSchuld\u00bb vermeiden), 4. Schluss (nochmals Bedauern ausdr\u00fccken und positiven Ausblick geben).',
+            highlight: '4 Bausteine: 1. Bezug, 2. Verst\u00e4ndnis, 3. Sachverhalt/L\u00f6sung, 4. Schluss.'
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              'Die <strong>Beschwerde, Beanstandung oder Reklamation</strong> sind negative \u00c4usserungen von Kunden, Lieferanten oder anderen Gesch\u00e4ftspartnern \u00fcber Marktleistungen oder das Verhalten von Mitarbeitenden.',
+              'Das <strong>Reklamationswesen</strong> (auch Beschwerdemanagement genannt) umfasst alle systematischen Massnahmen, um die <strong>Kundenzufriedenheit</strong> trotz einer negativen Erfahrung aufrechtzuerhalten.',
+              'Das Reklamationswesen ist <strong>Bestandteil des CRM</strong>. Reklamationen sind eine Chance. Es gibt <strong>10 Stufen bei der Bearbeitung</strong> von Beschwerden.',
+              'Das <strong>Antwortschreiben</strong> auf Beschwerden sollte vier Bausteine enthalten: Bezug deutlich machen, Verst\u00e4ndnis zeigen, Sachverhalt/L\u00f6sung, Schluss.'
+            ]
+          },
+          {
+            type: 'keyterms',
+            title: 'Schl\u00fcsselbegriffe',
+            terms: [
+              { term: 'Reklamation', def: 'Negative \u00c4usserung eines Kunden bez\u00fcglich Marktleistung oder Verhalten.' },
+              { term: 'Beschwerdemanagement', def: 'Alle systematischen Massnahmen bei Reklamationen und Beschwerden.' },
+              { term: 'CRM', def: 'Customer Relationship Management \u2013 langfristige Pflege der Kundenbeziehung.' },
+              { term: 'Kundenbindung', def: 'Massnahmen, um bestehende Kunden langfristig an das Unternehmen zu binden.' },
+              { term: 'Kundenr\u00fcckgewinnung', def: 'Massnahmen, um verlorene oder inaktive Kunden zur\u00fcckzugewinnen.' },
+              { term: 'Antwortschreiben', def: 'Strukturierte Antwort auf eine Beschwerde mit vier Bausteinen.' }
+            ]
+          }
+        ]
+      }
     }
   ],
 

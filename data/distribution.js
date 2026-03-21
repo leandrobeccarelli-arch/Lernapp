@@ -292,7 +292,92 @@ window.BOOK_DATA = {
           reveal: ['Duale Distribution = Bearbeitung sowohl direkt (eigene Organe) als auch indirekt (über den Handel).','Wird häufig als Multichanneling bezeichnet.']
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Strategische Distribution',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels können Sie ...',
+            items: [
+              'die Begriffe der strategischen Distribution benennen und beschreiben.',
+              'die Kriterien zur Auswahl von Distributionsweg, Distributionsstufen und Distributionskanälen erläutern und anwenden.'
+            ]
+          },
+          {
+            type: 'concept',
+            title: '2.1 Definition',
+            content: 'Die strategische Distribution umfasst sämtliche Entscheide, Massnahmen und Tätigkeiten, die es braucht, um den Weg der Marktleistung (eines Produkts) vom Produktionsbetrieb zu den Konsumentinnen und Konsumenten festzulegen. Dabei wird auch die Länge des Wegs durch die Anzahl der involvierten Handelsstufen bestimmt. Des Weiteren werden die betroffenen Distributionstechniken (z.B. Ladenverkauf, Onlineshop, ADM etc.), Distributionsorgane und -formen definiert.',
+            highlight: 'Strategische Distribution = alle Entscheide zur Festlegung des Wegs der Marktleistung vom Hersteller zum Konsumenten.'
+          },
+          {
+            type: 'concept',
+            title: '2.2 Wahl des Distributionswegs',
+            content: 'In der strategischen Distribution wird eine der absolut wichtigsten Entscheidungen im Rahmen des Marketingmix umgesetzt. Es betrifft die grundsätzliche Festlegung des Distributionswegs (auch: Absatzweg oder Vertriebsweg). Zur Wahl stehen drei Optionen: Direkte Distribution (Direktvertrieb), Multichannel (duale Distribution) und Indirekte Distribution (über den Handel).',
+            highlight: 'Die Wahl des Distributionswegs ist der wichtigste strategische Entscheid: Direkt, Indirekt oder Multichannel.'
+          },
+          {
+            type: 'table',
+            title: 'Vorteile und Nachteile der Distributionswege',
+            headers: ['Distributionsweg', 'Vorteile', 'Nachteile'],
+            rows: [
+              ['Direkte Distribution', 'Qualitätssteigerung Serviceniveau, intensive Kundennähe, durchgehende Kontrolle, Flexibilität, keine Margenabgabe', 'Know-how muss aufgebaut werden, nicht alle Segmente erreichbar, hoher Aufwand, gesamtes Risiko selbst tragen'],
+              ['Indirekte Distribution', 'Know-how des Handels (Kernkompetenz), alle Kundensegmente erreichbar, schnelle Marktabdeckung, Risiko-/Kostensplitting', 'Handel gibt Vertrieb vor, Kommunikation durch Handel gefiltert, Prozesse nicht kontrollierbar, Margenabgabe'],
+              ['Multichannel', 'Sämtliche Kundensegmente erreichbar, schnelle Marktabdeckung, direkte Feedbacks vom Markt, Markttests möglich', 'Know-how für beide Wege aufwendig, hohe Investitionen, komplexe Koordination, herausfordernde Preispolitik']
+            ]
+          },
+          {
+            type: 'concept',
+            title: '2.3 Bestimmung der Absatz- und Handelskanäle',
+            content: 'Fällt die Entscheidung für eine indirekte Distribution, so ist festzulegen, über welche Zwischenhandelsstufen und Absatzkanäle der Vertrieb zu erfolgen hat. Entscheidend dabei ist, dass das Eigentum im juristischen Sinne beim Übergang in die nächste Stufe wechselt. Als Absatzkanäle bezeichnet man z.B. Grossverteiler, Warenhäuser, Discounter, Fachhandel etc. Als Handelskanäle definiert sind die in den Absatzkanälen enthaltenen, konkreten, von uns bearbeitbaren Kanäle des Detailhandels (z.B. Migros, Coop, Denner).',
+            highlight: 'Absatzkanäle = z.B. Grossverteiler, Warenhäuser, Discounter. Handelskanäle = die konkreten Detailhändler darin (Migros, Coop, Denner).'
+          },
+          {
+            type: 'methodenbox',
+            title: 'Methodenbox: Entscheidungsmatrix strategische Distribution',
+            content: 'Die Entscheidungsmatrix wird eingesetzt, wenn eine grundsätzliche Entscheidung zwischen zwei gegensätzlichen Möglichkeiten getroffen werden muss (z.B. direkt vs. indirekt). Das Ergebnis zeigt nachvollziehbar auf, wie der Entscheid zustande gekommen ist. Es müssen wichtige, relevante und auch polarisierende Kriterien gesetzt werden, die konkret auf die Situation ausgerichtet sind.',
+            items: [
+              'Wann einsetzen? Bei einer grundsätzlichen Entscheidung zwischen zwei Möglichkeiten.',
+              'Was erhalten Sie? Ein nachvollziehbares Ergebnis mit Begründung.',
+              'Mögliche Kriterien: Erreichbarkeit der Zielgruppe, Aufbau der Logistikinfrastruktur, Zeitbedarf Marktdurchdringung, Feedback aus dem Markt, Akzeptanz Hochpreis, Image/Glaubwürdigkeit.'
+            ]
+          },
+          {
+            type: 'merke',
+            title: 'Merke dir!',
+            items: [
+              'Die Wahl des Distributionswegs ist der wichtigste strategische Entscheid in der Distribution.',
+              'Drei Optionen: Direktvertrieb, indirekter Vertrieb (über den Handel), Multichannel (Kombination).',
+              'Duale Distribution (Multichannel) = Bearbeitung der Nachfragenden sowohl direkt als auch indirekt.',
+              'Absatzkanäle = Grossverteiler, Discounter, Warenhäuser etc. Handelskanäle = konkrete Detailhändler.',
+              'Die Entscheidungsmatrix hilft bei der rationalen und nachvollziehbaren Wahl des Vertriebswegs.'
+            ]
+          },
+          {
+            type: 'keyterms',
+            title: 'Schlüsselbegriffe',
+            terms: [
+              {term: 'Strategische Distribution', def: 'Alle Entscheide zur Festlegung des Wegs der Marktleistung vom Hersteller zum Konsumenten.'},
+              {term: 'Direktvertrieb', def: 'Absatzweg ohne Einschaltung des Handels, direkt an die Konsumenten.'},
+              {term: 'Indirekte Distribution', def: 'Absatzweg über den Handel (Eigenhändler), Distributionsaktivitäten durch herstellerfremde Organe.'},
+              {term: 'Multichannel / Duale Distribution', def: 'Gleichzeitige Nutzung von direktem und indirektem Vertrieb.'},
+              {term: 'Absatzkanal', def: 'Übergeordnete Kategorie im Handel (z.B. Grossverteiler, Warenhäuser, Discounter).'},
+              {term: 'Handelskanal', def: 'Konkrete, bearbeitbare Kanäle innerhalb eines Absatzkanals (z.B. Migros, Coop, Denner).'},
+              {term: 'Entscheidungsmatrix', def: 'Methode zur rationalen Entscheidungsfindung mit gewichteten Kriterien.'}
+            ]
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              'Die <strong>Wahl des Vertriebswegs</strong> ist eine der folgenschwersten Entscheidungen für ein Unternehmen. Sie ist eine strategische Entscheidung, daher langfristiger Natur und hat starke finanzielle Folgen.',
+              'Festgelegt wird der grundsätzliche <strong>Distributionsweg</strong> (direkt, indirekt oder beides).',
+              'Wird beim Entscheid der <strong>indirekte Vertrieb</strong> gewählt, so sind entsprechend die Absatzstufen, Absatz- und Handelskanäle zu bestimmen.',
+              'Aus diesen Entscheidungen ergeben sich dann auch die <strong>Organe und Techniken</strong>, die für die Bearbeitung einzusetzen sind.'
+            ]
+          }
+        ]
+      }
     },
 
     // ============================================================
@@ -395,7 +480,101 @@ window.BOOK_DATA = {
           reveal: ['Typische POS-Massnahmen: 1. Displays und Zweitplatzierungen (Aufmerksamkeit erhöhen), 2. Degustationen/Verkostungen (Produkt erlebbar machen), 3. Preisaktionen und Promotionen (Kaufanreiz schaffen).']
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Das Distributionskonzept',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels können Sie ...',
+            items: [
+              'den Aufbau eines Distributionskonzepts beschreiben.',
+              'die Konzeptschritte benennen und erklären.',
+              'Distributionskonzepte von vorhergehenden Analysen ableiten und Lösungen entwickeln.',
+              'die erarbeiteten Lösungen präsentieren.',
+              'die Distributionskennziffern erläutern und berechnen.'
+            ]
+          },
+          {
+            type: 'concept',
+            title: '3.1 Definition',
+            content: 'Ein Distributionskonzept umfasst sämtliche Entscheide und Massnahmen, um die angestrebten Zielvorgaben zu erreichen. Damit die strategischen Entscheidungen des Marketings in der Distribution gezielt umgesetzt werden können, braucht es einen konkreten Vorgehensplan.',
+            highlight: 'Distributionskonzept = konkreter Vorgehensplan mit allen Entscheiden und Massnahmen zur Umsetzung der Distributionsstrategie.'
+          },
+          {
+            type: 'table',
+            title: 'Die sechs Konzeptschritte',
+            headers: ['Schritt', 'Konzeptschritt', 'Inhalt'],
+            rows: [
+              ['1.', 'Situationsanalyse', 'Analyse der Ausgangslage mit Interpretation (Fazit) erstellen, dabei Vorgaben / Rahmenbedingungen berücksichtigen'],
+              ['2.', 'Ziele', 'Quantitative und qualitative Soll-Zustände aus Vorgaben (z.B. Marketingkonzept) ableiten'],
+              ['3.', 'Strategien', 'Festlegung der grundsätzlichen Ausrichtung der Distribution auf den Markt, beginnend mit dem Entscheid «direkt oder indirekt»'],
+              ['4.', 'Massnahmen', 'Einzelne Aktivitäten / Tätigkeiten zur Zielerreichung bestimmen (ausformuliert mit Termins, Kosten und Verantwortung)'],
+              ['5.', 'Budget', 'Potenzielle Kosten aller Aktivitäten errechnen / übernehmen'],
+              ['6.', 'Kontrolle', 'Zielerreichung (Punkte 2 und 3) kontrollieren']
+            ]
+          },
+          {
+            type: 'concept',
+            title: '3.3 Konzeptelemente: Strategieansatz (12 Schritte)',
+            content: 'Das Hauptelement eines Distributionskonzepts ist der Strategieansatz. Die Entscheidungen bilden die Basis für den Aufbau und die Struktur der Distribution. Die 12 Strategieschritte sind: 1. Distributionsart/-weg (direkt/indirekt), 2. Distributionsorgane (intern/extern), 3. Distributionstechniken (AD/ID/Internet), 4. Distributionsfeld (geografisch), 5. Distributionsdezentralisierung (Anzahl Stufen), 6. Kanalwahl (Absatzkanal/Handelskanäle), 7. Distributionsdifferenzierung (int./sel./exkl.), 8. Distributionsziele (operativ), 9. Distributionsrationalisierung (Logistik), 10. Distributionsbindung, 11. POS-Massnahmen (Einführung), 12. Distributionskonkurrenzierung.',
+            highlight: 'Der Strategieansatz umfasst 12 Schritte, die alle strategischen Entscheidungen der Distribution abdecken.'
+          },
+          {
+            type: 'concept',
+            title: '3.4 Distributionsorgane',
+            content: 'Als Organe werden Ausführende bezeichnet. Ein Unternehmen legt fest, ob die Marktleistung über interne oder externe Organe vertrieben werden soll. In der Praxis werden auch Kombinationen eingesetzt. Interne Organe: Aussendienstmitarbeitende (ADM), Verkaufsmitarbeitende (VKM), Innendienst (IDM). Externe Organe: Agenten (Handelsreisende), Makler, Kommissionäre. Diese Vermittler sind juristisch selbstständig, aber nie im Eigentum der Ware.',
+            highlight: 'Distributionsorgane: Intern (ADM, VKM, IDM) oder extern (Agent, Makler, Kommissionär).'
+          },
+          {
+            type: 'concept',
+            title: '3.9 Distributionsgrad (ND/GD)',
+            content: 'Die numerische Distribution (ND) misst die Präsenz eines Produkts: ND = Anzahl VS mit Produkt / Anzahl VS insgesamt x 100. Die gewichtete Distribution (GD) misst die Umsatzbedeutung: GD = Umsatz der VS, die das Produkt führen / Gesamtumsatz aller VS in der Produktgruppe x 100. Ist die GD höher als die ND, ist das Produkt in umsatzstarken VS gelistet.',
+            highlight: 'ND = Präsenz (Anteil Verkaufsstellen). GD = Umsatzbedeutung (Umsatzanteil). GD > ND = Produkt in umsatzstarken VS.'
+          },
+          {
+            type: 'concept',
+            title: '3.12-3.14 Bindung, POS und Konkurrenzierung',
+            content: 'Distributionsbindung: Lieferanten versuchen Kunden längerfristig zu binden durch Kundenzufriedenheit, Kundenbindungsprogramme, Franchising, Vorfinanzierung oder Konsignationsware. POS-Massnahmen bezeichnen Massnahmen am Verkaufspunkt (Regalplatz, Aktionspunkt): Displays, Zweitplatzierungen, Degustationen, Verkaufsförderungsaktionen. Distributionskonkurrenzierung: Beim Vertrieb über den Handel stösst man naturgemäss auf Konkurrenzprodukte.',
+            highlight: 'Bindung durch Kundenzufriedenheit, POS-Massnahmen am Verkaufspunkt, Konkurrenzierung im Handel beachten.'
+          },
+          {
+            type: 'merke',
+            title: 'Merke dir!',
+            items: [
+              'Das Distributionskonzept folgt dem 6-Schritte-Konzeptraster: Analyse, Ziele, Strategien, Massnahmen, Budget, Kontrolle.',
+              'Der Strategieansatz mit 12 Schritten ist das Herzstück des Distributionskonzepts.',
+              'Distributionsorgane: intern (ADM, VKM, IDM) oder extern (Agent, Makler, Kommissionär).',
+              'Numerische Distribution (ND) = Präsenz, Gewichtete Distribution (GD) = Umsatzbedeutung.',
+              'POS-Massnahmen: Displays, Zweitplatzierungen, Degustationen am Verkaufspunkt.'
+            ]
+          },
+          {
+            type: 'keyterms',
+            title: 'Schlüsselbegriffe',
+            terms: [
+              {term: 'Distributionskonzept', def: 'Konkreter Vorgehensplan mit allen Entscheiden und Massnahmen zur Umsetzung der Distributionsstrategie (6 Schritte).'},
+              {term: 'Distributionsorgane', def: 'Ausführende der Distribution: intern (ADM, VKM, IDM) oder extern (Agent, Makler, Kommissionär).'},
+              {term: 'Distributionstechniken', def: 'Vorgehensweisen für die Marktbearbeitung (Kundenbesuch, Ladenverkauf, Onlineshop etc.).'},
+              {term: 'Distributionsfeld', def: 'Das zu bearbeitende Marktgebiet (geografisch), nicht immer der Gesamtmarkt.'},
+              {term: 'Numerische Distribution (ND)', def: 'Anteil der Verkaufsstellen mit Produkt an der Gesamtzahl der Verkaufsstellen (Präsenz).'},
+              {term: 'Gewichtete Distribution (GD)', def: 'Umsatzanteil der VS mit Produkt am Gesamtumsatz der Produktgruppe (Umsatzbedeutung).'},
+              {term: 'POS-Massnahmen', def: 'Massnahmen am Verkaufspunkt: Displays, Zweitplatzierungen, Degustationen.'},
+              {term: 'Distributionsbindung', def: 'Massnahmen zur längerfristigen Kundenbindung (Franchising, Kundenkarten, Warenkredite).'}
+            ]
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              'Um die strategischen Entscheidungen des Marketings in der Distribution gezielt umsetzen zu können, braucht es ein <strong>Distributionskonzept</strong>.',
+              'Für den Aufbau eines Konzepts hat sich ein allgemeingültiges <strong>Konzeptraster in sechs Schritten</strong> bewährt: Analyse, Ziele, Strategien, Massnahmen, Budget, Kontrolle.',
+              'Das Hauptelement ist der <strong>Strategieansatz</strong> mit 12 Schritten: Distributionsweg, -organe, -techniken, -feld, Dezentralisierung, Kanalwahl, Differenzierung, Ziele, Rationalisierung, Bindung, POS-Massnahmen, Konkurrenzierung.',
+              'Die <strong>Distributionskennzahlen</strong> (ND und GD) sind unabdingbar für die operative Zielkontrolle.'
+            ]
+          }
+        ]
+      }
     },
 
     // ============================================================
@@ -494,7 +673,104 @@ window.BOOK_DATA = {
           reveal: ['Grosshandel -> Detailhandel -> Endkonsument.','Franchising = Lizenzierung des Geschäftskonzepts.']
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Direkte und indirekte Distribution',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels können Sie ...',
+            items: [
+              'den Distributionsweg darstellen, erklären und bewerten.',
+              'die passenden Formen im Gross- und Detailhandel bestimmen.',
+              'die Einflussfaktoren für die Sortimentsaufnahme gewichten.',
+              'den Eintritt in den Handel methodisch vorbereiten.'
+            ]
+          },
+          {
+            type: 'concept',
+            title: '4.1 Direktvertrieb (direkte Distribution)',
+            content: 'Die grundsätzliche Entscheidung zwischen direkter und indirekter Distribution lässt sich aus dem Marketingkonzept ableiten. Für den direkten Weg muss ein Unternehmen die dafür nötigen Organe und Techniken bestimmen und anpassen. Einflussfaktoren sind: Ziele und Strategie des Anbieters, wirtschaftliche Faktoren (Ertragsziele, Kosten), Konkurrenz- und Marktsituation, Produkt/Sortiment, Distribution/Logistik, Kundschaft (Segmente, Kanäle). Der Direktvertrieb ist vor allem für Investitionsgüter und beratungsintensive Dienstleistungen geeignet.',
+            highlight: 'Direktvertrieb eignet sich besonders für Investitionsgüter und beratungsintensive Dienstleistungen.'
+          },
+          {
+            type: 'concept',
+            title: '4.2 Handel (funktionelle und institutionelle Sicht)',
+            content: 'Der Handel kann aus zwei Perspektiven betrachtet werden: Funktionell beschreibt er die Tätigkeiten des Handels (Überbrückung räumlicher, zeitlicher und quantitativer Spannungen). Institutionell beschreibt er die Organisationsformen des Handels. Die Hauptfunktionen des Handels umfassen: Warenbündelung (Sortimentsbildung), Raumüberbrückung (Transport), Zeitüberbrückung (Lagerhaltung), Mengenüberbrückung. Zusatzfunktionen: Beratung, Finanzierung, Werbung.',
+            highlight: 'Handel funktionell = Tätigkeiten (Raum-, Zeit-, Mengenüberbrückung). Institutionell = Organisationsformen (Gross-/Detailhandel).'
+          },
+          {
+            type: 'concept',
+            title: '4.4 Grosshandel',
+            content: 'Der Grosshandel kauft Waren in grossen Mengen ein und verkauft sie an Detailhändler oder gewerbliche Abnehmer weiter. Es gibt verschiedene Formen: Sortimentsgrosshandel (breites Sortiment in seiner Warengruppe), Spezialgrosshandel (tiefes Sortiment), sowie spezielle Formen wie Streckengeschäft (Dropshipping) und Rack Jobber. Beim Dropshipping bestellt der Kunde beim Händler, die Ware wird direkt vom Hersteller an den Endkunden geschickt.',
+            highlight: 'Grosshandel: Sortimentsgrosshandel (breites Sortiment) vs. Spezialgrosshandel (tiefes Sortiment). Spezialformen: Dropshipping, Rack Jobber.'
+          },
+          {
+            type: 'table',
+            title: 'Arten von Detailhandelsgeschäften',
+            headers: ['Typ', 'Beschreibung'],
+            rows: [
+              ['Laden / Gemischtwarenladen', 'Handelsbetriebe (bis 500 m²) mit breitem Sortiment für den täglichen Bedarf (\"Tante-Emma-Laden\")'],
+              ['Fachgeschäfte', 'Artikel einer bestimmten Branche, mittlere Sortimentstiefe und -breite, persönliche Beratung'],
+              ['Boutique', 'Art des Spezialhandels, sehr konzentriertes, eher exklusives Sortiment (Mode, Schmuck)'],
+              ['Discounter', 'Kleinere Handelsbetriebe (bis 1\'000 m²) mit eingeschränktem Sortiment, ausgeprägte Tiefpreispolitik'],
+              ['Grossverteiler', 'Namhafteste Anbieter im Detailhandel (Migros, Coop), zentral geführte Organisationen mit vielen Filialen'],
+              ['Warenhaus', 'Grossflächige Betriebe mit breitem und tiefem Sortiment über mehrere Branchen']
+            ]
+          },
+          {
+            type: 'concept',
+            title: '4.6 Eintritt in den Handel',
+            content: 'Der Eintritt in den Handel verlangt eine spezielle Vorgehensweise zur Bestimmung der gewünschten Kanäle als Distributionspartner (Kanalwahl). Es müssen Listungsgebühren, Konditionen (Rabatte, Boni, Zahlungsbedingungen), Lieferfähigkeit und Mindestbestellmengen verhandelt werden. Die zunehmende Konzentration im Handel und das Klumpenrisiko müssen mitberücksichtigt werden.',
+            highlight: 'Eintritt in den Handel: Listung, Konditionen, Lieferfähigkeit, Klumpenrisiko beachten.'
+          },
+          {
+            type: 'methodenbox',
+            title: 'Methodenbox: Gewichtete Nutzwertanalyse Kanalwahl',
+            content: 'Diese Methode wird eingesetzt, wenn aus mehreren Möglichkeiten eine Wahl getroffen werden muss. Dabei sind jedoch nicht alle Kriterien gleich wichtig. Das Ergebnis zeigt nachvollziehbar auf, wie der Entscheid zustande gekommen ist. Es müssen sowohl qualitative wie auch quantitative Kriterien mit einer gewissen Bedeutung benutzt werden. Die Kriterien müssen differenzieren, d.h. nicht in jedem Kanal gleich sein.',
+            items: [
+              'Wann einsetzen? Wenn aus mehreren Möglichkeiten eine Wahl getroffen werden muss.',
+              'Was erhalten Sie? Ein nachvollziehbares, gewichtetes Ergebnis.',
+              'Was beachten? Qualitative und quantitative Kriterien, die zwischen den Kanälen differenzieren.'
+            ]
+          },
+          {
+            type: 'merke',
+            title: 'Merke dir!',
+            items: [
+              'Direktvertrieb eignet sich besonders für Investitionsgüter und beratungsintensive Dienstleistungen.',
+              'Handel hat Haupt- (Sortimentsbildung, Transport, Lagerhaltung) und Zusatzfunktionen (Beratung, Finanzierung).',
+              'Grosshandel verkauft an Detailhandel, Detailhandel verkauft an Endkonsumenten.',
+              'Arten von Detailhandelsgeschäften: Laden, Fachgeschäft, Boutique, Discounter, Grossverteiler, Warenhaus.',
+              'Beim Eintritt in den Handel sind Listungsgebühren, Konditionen und Klumpenrisiko zu beachten.'
+            ]
+          },
+          {
+            type: 'keyterms',
+            title: 'Schlüsselbegriffe',
+            terms: [
+              {term: 'Direktvertrieb', def: 'Vertrieb ohne Einschaltung des Handels, direkt an den Endkunden (geeignet für IG und DL).'},
+              {term: 'Grosshandel', def: 'Kauft Waren in grossen Mengen und verkauft an Detailhändler oder gewerbliche Abnehmer weiter.'},
+              {term: 'Detailhandel', def: 'Verkauf direkt an Endkonsumenten (Migros, Coop, Fachgeschäfte etc.).'},
+              {term: 'Merchandising', def: 'Alle Massnahmen zur Warenpräsentation und -pflege am Point of Sale.'},
+              {term: 'Dropshipping (Streckengeschäft)', def: 'Händler verkauft Ware, die direkt vom Hersteller an den Endkunden geliefert wird.'},
+              {term: 'Rack Jobber', def: 'Grosshändler, der im Detailhandel selbst Regale bewirtschaftet und bestückt.'},
+              {term: 'Listungsgebühr', def: 'Gebühr für die Aufnahme eines Produkts ins Sortiment des Handels.'},
+              {term: 'Franchising', def: 'Vertriebssystem, bei dem ein Franchisegeber dem Franchisenehmer das Recht einräumt, sein Geschäftskonzept zu nutzen.'}
+            ]
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              'Beim <strong>Direktvertrieb</strong> müssen gemäss internen und externen Einflussfaktoren die vollständige Organisation der Vertriebsstruktur (Organe und Techniken) festgelegt werden. Er ist vor allem für Investitionsgüter und beratungsintensive Dienstleistungen geeignet.',
+              'Beim <strong>indirekten Vertrieb</strong> sind die entsprechenden Handelsstufen zu bestimmen. Er ist für Konsumgüter mit grosser Marktdurchdringung geeignet.',
+              'Im indirekten Vertrieb über <strong>Grosshandel</strong> und <strong>Detailhandel</strong> müssen verschiedene Formen mit ihren speziellen Eigenheiten beachtet werden, dazu kommen gesetzliche Einflussfaktoren.',
+              'Der <strong>Eintritt in den Handel</strong> verlangt eine spezielle Vorgehensweise zur Bestimmung der gewünschten Kanäle als Distributionspartner (Kanalwahl).'
+            ]
+          }
+        ]
+      }
     },
 
     // ============================================================
@@ -603,7 +879,94 @@ window.BOOK_DATA = {
           reveal: ['Hauptziel: Sicherstellung des vereinbarten Serviceniveaus bei gleichzeitiger Optimierung der Kosten.']
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Physische Distribution',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels können Sie ...',
+            items: [
+              'die Begriffe der physischen Distribution nennen und erläutern.',
+              'Konzepte im Rahmen der physischen Distribution entwerfen.',
+              'Kriterien zur Wahl von Distributionspartnern nennen und erläutern.',
+              'ausgewählte Distributionspartner beurteilen.'
+            ]
+          },
+          {
+            type: 'concept',
+            title: '5.1 Logistikkonzept und Begriffe',
+            content: 'Die physische Distribution wird auch als Marketinglogistik oder Distributionslogistik bezeichnet. Sie umfasst die Festlegung der Infrastruktur in der Logistik. Zentrales Ziel ist die Sicherstellung des Serviceniveaus bei gleichzeitiger Optimierung der Kosten. Dies ergibt einen Zielkonflikt: Das Unternehmen will tiefe Kosten, der Markt verlangt ein hohes Serviceniveau.',
+            highlight: 'Physische Distribution = Marketinglogistik. Zielkonflikt: tiefe Kosten vs. hohes Serviceniveau.'
+          },
+          {
+            type: 'concept',
+            title: '5.3 Bereich der physischen Distribution',
+            content: 'Der Bereich der physischen Distribution umfasst die gesamte Organisation vom Fertiglager bis zur Übergabe an die nächste Stufe. Die Marketinglogistik gliedert sich in: Auftragswesen (Informationsfluss, Steuerung), Fertiglager (Lagerhaltung der konsumbereiten Produkte), Transport (Auslieferung an die Kundschaft), Verpackung und Entsorgung.',
+            highlight: 'Bereiche: Auftragswesen, Fertiglager, Transport, Verpackung, Entsorgung.'
+          },
+          {
+            type: 'concept',
+            title: '5.4 Serviceniveau und Lager',
+            content: 'Das Serviceniveau definiert den Standard der Dienstleistung gegenüber dem Kunden (Lieferbereitschaft, Lieferzeit, Lieferzuverlässigkeit). Die Lagerhaltung verfolgt das Ziel, konsumbereite Produkte in der richtigen Menge, zur richtigen Zeit, am richtigen Ort bereitzustellen. Wichtige Lagerkennzahlen: Lagerumschlag, Lagerdauer, Mindestbestellmenge, Sicherheitsbestand.',
+            highlight: 'Serviceniveau = Lieferbereitschaft, -zeit, -zuverlässigkeit. Lager: richtige Menge, Zeit, Ort.'
+          },
+          {
+            type: 'concept',
+            title: '5.5-5.7 Transport, Cross Docking, Verpackung',
+            content: 'Transport: Die Wahl des Transportmittels hängt ab von Art der Ware, Distanz, Kosten und Zeitanforderungen (Strasse, Schiene, Wasser, Luft). Cross Docking ist ein Umschlagverfahren ohne Einlagerung: Ware wird direkt vom Wareneingang zum Warenausgang umgeleitet. Verpackung/Palettierung: Transportverpackung muss Stapelbarkeit, Transportfähigkeit und gesetzliche Vorschriften erfüllen. Entsorgungslogistik umfasst Recycling, Rücknahme und Entsorgung.',
+            highlight: 'Cross Docking = Umschlag ohne Lagerung. Entsorgungslogistik = Rückwärtslogistik (Recycling, Rücknahme).'
+          },
+          {
+            type: 'concept',
+            title: '5.8 Spezialthemen: Outsourcing, JIT, Rückverfolgbarkeit',
+            content: 'Outsourcing: Auslagerung von Logistiktätigkeiten an Dritte. Vorteile: variable Kosten, kleinere Kapitalbindung, Entlastung. Nachteile: Abhängigkeit, Wertschöpfungsverlust, kleinere Kontrollmöglichkeit. Just in Time (JIT): Lieferung genau zum benötigten Zeitpunkt, minimale Lagerhaltung. Vendor Managed Inventory (VMI): Der Lieferant übernimmt die Bestandsverwaltung beim Kunden. Rückverfolgbarkeit und Rückruf: Fähigkeit, den Weg eines Produkts durch alle Stufen nachzuverfolgen.',
+            highlight: 'JIT = Lieferung zum richtigen Zeitpunkt. VMI = Lieferant verwaltet Kundenbestand. Outsourcing = Auslagerung an Dritte.'
+          },
+          {
+            type: 'concept',
+            title: '5.9 Logistikkosten und Kontrolle',
+            content: 'Die Distributionskosten / Logistikkosten müssen möglichst tief gehalten werden, ohne das Serviceniveau zu senken. Kostenwirksame Einflussfaktoren: Betriebsmittel, Nachfrage/Trend, Mitarbeitende/Löhne, Prozesse/Abläufe, Gesetze/Vorgaben, Finanzen/Zinsen, Werkstoffe/Material. Massnahmen: Erarbeiten von Vorgaben und Richtwerten, Alternativen zum Serviceniveau abklären, permanente Kostenkontrolle.',
+            highlight: 'Logistikkosten tief halten ohne Serviceniveau zu senken. Einflussfaktoren laufend kontrollieren.'
+          },
+          {
+            type: 'merke',
+            title: 'Merke dir!',
+            items: [
+              'Physische Distribution = Marketinglogistik (Lager, Transport, Informationsfluss).',
+              'Zielkonflikt: tiefe Kosten (Unternehmen) vs. hohes Serviceniveau (Markt).',
+              'Cross Docking = Umschlag ohne Lagerung, direkt vom Wareneingang zum Warenausgang.',
+              'Just in Time (JIT) = Lieferung genau zum benötigten Zeitpunkt.',
+              'Outsourcing: Vorteile (variable Kosten, Entlastung) vs. Nachteile (Abhängigkeit, Kontrollverlust).'
+            ]
+          },
+          {
+            type: 'keyterms',
+            title: 'Schlüsselbegriffe',
+            terms: [
+              {term: 'Physische Distribution', def: 'Marketinglogistik: Festlegung der Infrastruktur in der Logistik (Lager, Transport, Informationsfluss).'},
+              {term: 'Serviceniveau', def: 'Standard der Dienstleistung: Lieferbereitschaft, Lieferzeit, Lieferzuverlässigkeit.'},
+              {term: 'Cross Docking', def: 'Umschlagverfahren ohne Einlagerung: Ware direkt vom Wareneingang zum Warenausgang.'},
+              {term: 'Just in Time (JIT)', def: 'Lieferung genau zum benötigten Zeitpunkt, minimale Lagerhaltung.'},
+              {term: 'Vendor Managed Inventory (VMI)', def: 'System, bei dem der Lieferant die Lagerhaltung und Bestandsverwaltung beim Kunden übernimmt.'},
+              {term: 'Outsourcing', def: 'Auslagerung von Logistiktätigkeiten an externe Dienstleister.'},
+              {term: 'Entsorgungslogistik', def: 'Rückwärtslogistik: Recycling, Rücknahme, Entsorgung von Rückläufern und Abfall.'},
+              {term: 'Rückverfolgbarkeit', def: 'Fähigkeit, den Weg eines Produkts durch alle Stufen der Wertschöpfungskette nachzuverfolgen.'}
+            ]
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              'Die <strong>physische Distribution (Marketinglogistik)</strong> umfasst Lager, Transport und Informationsfluss (Auftragswesen).',
+              'Das Hauptziel ist die <strong>Sicherstellung des Serviceniveaus</strong> bei gleichzeitiger Optimierung der Kosten (Zielkonflikt).',
+              'Wichtige Konzepte: <strong>Cross Docking</strong> (Umschlag ohne Lagerung), <strong>JIT</strong> (Lieferung zum richtigen Zeitpunkt), <strong>VMI</strong> (Lieferant verwaltet Kundenbestand).',
+              '<strong>Outsourcing</strong> der Logistik bietet Vorteile (variable Kosten, Entlastung), aber auch Nachteile (Abhängigkeit, Wertschöpfungsverlust).',
+              'Die <strong>Logistikkosten</strong> sind laufend zu kontrollieren und zu optimieren.'
+            ]
+          }
+        ]
+      }
     },
 
     // ============================================================
@@ -692,7 +1055,96 @@ window.BOOK_DATA = {
           reveal: ['Elektronische Hilfsmittel ermöglichen hohen Automatisierungsgrad.','GTIN-Strichcodes sind die Basis im Lager und an der Kasse.']
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Distribution und Digitalisierung',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels können Sie ...',
+            items: [
+              'elektronische Hilfsmittel der Marketinglogistik erklären.',
+              'Distributionsprozesse analysieren und optimieren.',
+              'Begriffe der physischen Distribution im Zusammenhang mit der Digitalisierung erklären.'
+            ]
+          },
+          {
+            type: 'concept',
+            title: '6.1 Digitalität in der Distribution',
+            content: 'Die Digitalisierung schafft neue Möglichkeiten in der Distribution. Insbesondere im Bereich der Logistik stehen neue technische Hilfsmittel zur Verfügung. Diese erlauben es, die Logistikabläufe viel effizienter zu organisieren und senken gleichzeitig die Fehlerquote. Die digitalen Medien werden auch als komplementäre Vertriebsmethode oder -technik bezeichnet. Internet sollte jedoch nicht als «Kanal» bezeichnet werden, da dieser Begriff zu wenig exakt ist.',
+            highlight: 'Digitalisierung ermöglicht effizientere Logistik und tiefere Fehlerquoten. Internet = Vertriebstechnik, nicht Kanal.'
+          },
+          {
+            type: 'concept',
+            title: '6.2 Affiliate-Marketing',
+            content: 'Affiliate-Marketing ist die Nutzung bestehender Vertriebskanäle anderer Websites für den eigenen Vertrieb. Der Affiliate-Partner (Website-Betreiber) erhält eine Provision für vermittelte Verkäufe. Dies ermöglicht eine kostengünstige Erweiterung der Reichweite ohne eigene Infrastruktur aufbauen zu müssen.',
+            highlight: 'Affiliate-Marketing = Vertrieb über Partner-Websites gegen Provision. Kostengünstige Reichweitenerweiterung.'
+          },
+          {
+            type: 'table',
+            title: 'Digitale Anwendungsbereiche in der Distribution',
+            headers: ['Technologie', 'Beschreibung', 'Einsatzbereich'],
+            rows: [
+              ['GTIN (EAN)', 'Global Trade Item Number, der klassische Strichcode für Warenkennzeichnung', 'Lager, Kasse im Detailhandel, Warenidentifikation'],
+              ['EDI', 'Electronic Data Interchange: elektronischer Austausch genormter Daten mit Minimum an manuellen Eingriffen', 'Automatisierung der Administration zwischen Partnern'],
+              ['ECR', 'Efficient Consumer Response: ganzheitliche Betrachtung der Wertschöpfungskette', 'Nachfrageorientierte Sortimentsoptimierung am POS'],
+              ['QR-Code', 'Zweidimensionaler Code, kann mehr Informationen speichern als Strichcode', 'Erweiterte Produktinformationen, Marketing'],
+              ['RFID', 'Radio Frequency Identification: Chip mit Kleinsender (Transponder/TAG) für kontaktlose Datenübertragung', 'Warenflusssteuerung, Regalkontrolle, Diebstahlsicherung']
+            ]
+          },
+          {
+            type: 'concept',
+            title: '6.3 RFID im Detail',
+            content: 'RFID (Funkfrequenz-Identifikation) nutzt einen Chip mit integriertem Kleinsender (Transponder oder TAG), der das Übertragen und Erfassen von Warendaten per Funk ermöglicht. Damit wird im Warenflusssystem zu jedem Zeitpunkt automatisch der aktuelle Stand ausgewiesen. Weitere Einsatzmöglichkeiten: Regalkontrolle, Kassasystem, Diebstahlverhinderung. Grösstes Hindernis: die noch hohen Investitionskosten in die Infrastruktur.',
+            highlight: 'RFID = kontaktloser Datenaustausch via Funk-Chip. Vorteil: automatische Warenflusssteuerung. Hindernis: hohe Investitionskosten.'
+          },
+          {
+            type: 'methodenbox',
+            title: 'Methodenbox: Gewichtete Entscheidungsmatrix Logistiktechniken',
+            content: 'Diese Methode wird eingesetzt, wenn aus mehreren Vorschlägen eine Auswahl getroffen werden muss. Dabei werden die Kriterien gewichtet. Das Ergebnis zeigt nachvollziehbar auf, wie die Wahl zustande gekommen ist. Sind die richtigen Kriterien gesetzt worden, ist das Ergebnis in sich logisch. Die Relevanz der Kriterien entscheidet über die Aussagekraft dieser Methode.',
+            items: [
+              'Wann einsetzen? Wenn aus mehreren Vorschlägen eine Auswahl getroffen werden muss.',
+              'Was erhalten Sie? Ein nachvollziehbares, gewichtetes Ergebnis.',
+              'Was beachten? Die Relevanz der Kriterien entscheidet über die Aussagekraft.'
+            ]
+          },
+          {
+            type: 'merke',
+            title: 'Merke dir!',
+            items: [
+              'Digitalisierung ermöglicht effizientere Logistik und senkt die Fehlerquote.',
+              'GTIN-Strichcodes sind die Basis im Lager und an der Kasse.',
+              'EDI = elektronischer Datenaustausch mit Minimum an manuellen Eingriffen.',
+              'ECR = ganzheitliche Wertschöpfungskettenbetrachtung zur Sortimentsoptimierung.',
+              'RFID = kontaktlose Warenerfassung per Funk, aber noch hohe Investitionskosten.'
+            ]
+          },
+          {
+            type: 'keyterms',
+            title: 'Schlüsselbegriffe',
+            terms: [
+              {term: 'GTIN (Global Trade Item Number)', def: 'Strichcode (EAN) für die Warenkennzeichnung im Lager und an der Kasse.'},
+              {term: 'EDI (Electronic Data Interchange)', def: 'Elektronischer Austausch genormter, formatierter Daten zwischen ICT-Systemen mit Minimum an manuellen Eingriffen.'},
+              {term: 'ECR (Efficient Consumer Response)', def: 'Ganzheitliche Betrachtung der Wertschöpfungskette zur nachfrageorientierten Sortimentsoptimierung am POS.'},
+              {term: 'QR-Code (Quick Response)', def: 'Zweidimensionaler Code, der mehr Informationen speichern kann als ein Strichcode.'},
+              {term: 'RFID', def: 'Radio Frequency Identification: Chip mit Kleinsender (Transponder/TAG) für kontaktlose Datenübertragung und Warenerfassung.'},
+              {term: 'Affiliate-Marketing', def: 'Nutzung bestehender Vertriebskanäle anderer Websites gegen Provision.'},
+              {term: 'Digitalisierung', def: 'Einsatz neuer technischer Hilfsmittel in der Logistik zur Effizienzsteigerung und Fehlerreduktion.'}
+            ]
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              'Die <strong>Digitalisierung</strong> schafft neue Möglichkeiten in der Distribution, insbesondere in der Logistik.',
+              '<strong>Elektronische Hilfsmittel</strong> (GTIN, QR-Code, RFID) ermöglichen einen hohen Automatisierungsgrad und senken die Fehlerquote.',
+              '<strong>EDI</strong> ermöglicht den elektronischen Datenaustausch mit minimalen manuellen Eingriffen.',
+              '<strong>ECR</strong> dient der nachfrageorientierten Sortimentsoptimierung am POS durch ganzheitliche Betrachtung der Wertschöpfungskette.',
+              '<strong>RFID</strong> bietet grösstes Potenzial für die Zukunft, wird aber noch durch hohe Investitionskosten gebremst.'
+            ]
+          }
+        ]
+      }
     },
 
     // ============================================================
@@ -772,7 +1224,105 @@ window.BOOK_DATA = {
           reveal: ['Subjektive (qualitative) und finanzielle (quantitative) Sicht.','Marketing beeinflusst die Standortqualität aus Kundensicht.']
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Standort / Standortwahl',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels können Sie ...',
+            items: [
+              'den Begriff "Standort" erklären.',
+              'ein Konzept im Rahmen der Standortwahl entwerfen.',
+              'Kriterien zur Standortwahl nennen und erläutern.'
+            ]
+          },
+          {
+            type: 'concept',
+            title: '7.1 Standortentscheid allgemein',
+            content: 'Die Standortwahl ist für ein Unternehmen von entscheidender Bedeutung. Bei Produktionsbetrieben wird primär auf herstellertechnische Erfordernisse geachtet. Die absatzpolitischen Überlegungen werden erst in zweiter Priorität beachtet. Im Rahmen der Distributionspolitik liegt der Schwerpunkt auf der Bestimmung des Standorts einer Verkaufsstelle (Ladengeschäft) oder auf des Orts der Warenübergabe (Abhollager, Rampe).',
+            highlight: 'Die Standortwahl betrifft entweder die Verkaufsstelle (Ladengeschäft) oder den Ort der Warenübergabe (Abhollager, Rampe).'
+          },
+          {
+            type: 'concept',
+            title: '7.2 Standortkonzept',
+            content: 'Das Standortkonzept umfasst sämtliche Entscheide und Massnahmen, die es braucht, um die von einem Unternehmen angestrebten Standortziele zu erreichen. Es ist die Schnittstelle zum Logistikkonzept. Die Umsetzung erfolgt über die jeweiligen Massnahmenpläne der betroffenen Abteilungen / Mitarbeitenden (Verkauf und Logistik). Der Strategieansatz mit Zielgebilde umfasst: 1. Standortziele (operativ), 2. Standorte: Anzahl (zentral/dezentral), 3. Sicht bestimmen (Marketing/Logistik), 4. Definition Kriterien (Sollvorstellungen), sowie Erreichbarkeit, Nachfrage/Kundennähe, Kosten und Serviceniveau.',
+            highlight: 'Das Standortkonzept ist die Schnittstelle zum Logistikkonzept und umfasst alle Entscheide zur Erreichung der Standortziele.'
+          },
+          {
+            type: 'concept',
+            title: '7.3 Standortentscheid und Marketing',
+            content: 'In den wenigsten Fällen entspricht der Standort den Marketingvorstellungen und -zielsetzungen. Gerade aber für das Marketing ist unter Umständen eine gute Lage sehr wichtig. So kann z.B. mit einem oder mehreren Auslieferungslagern eine bessere Marktnähe erreicht werden. Oder die bessere Verkehrsanbindung optimiert den Warenfluss, was wiederum direkten Einfluss auf die Marketinglogistik und deren Kosten hat.',
+            highlight: 'Eine gute Lage kann über Auslieferungslager und bessere Verkehrsanbindung die Marktnähe und Marketinglogistik optimieren.'
+          },
+          {
+            type: 'table',
+            title: 'Kriterien beim Standortentscheid (B2C)',
+            headers: ['Kriterium', 'Beispiel'],
+            rows: [
+              ['Zielgruppenerreichbarkeit', 'Geografische Nähe, z.B. Lebensmittel'],
+              ['Höhe der Frequenzen', 'Bei Verkaufsstellen wie Kiosken'],
+              ['Parkmöglichkeit resp. öffentlicher Verkehr', 'Bequemlichkeit für die Nachfragenden'],
+              ['Konkurrenzsituation', 'Anzahl und Art der Konkurrenz'],
+              ['Psychologische Marktnähe', 'Sprache, Mentalität'],
+              ['Komplementärkonkurrenz bestehend', 'Kleider in einem Shoppingcenter'],
+              ['Nachfrage nach unserer Marktleistung', 'Eher Ausland als Schweiz'],
+              ['Kaufkraftverhältnisse', 'Eher Ausland als Schweiz'],
+              ['Marktvolumen und -potenzial', 'Eher Ausland als Schweiz']
+            ]
+          },
+          {
+            type: 'concept',
+            title: '7.4 Standortentscheid und andere Einflussfaktoren',
+            content: 'Bei einem Standortentscheid können zusätzlich andere Kriterien verwendet werden. Politische und gesetzliche Faktoren umfassen: Standort-Goodwill (kulante Behandlung bei Neuansiedlung), Steuerbelastung (entscheidend ist der Firmensitz), Wirtschaftsförderungsmassnahmen, Arbeitsgesetzgebung, Raumplanungsgesetz, Eigentumsverhältnisse, Umweltauflagen und -vorschriften sowie das politische System. Übrige Faktoren sind: Prestigewert, Lohnniveau, Bedeutung von Gewerkschaften, Arbeitslosenquote, Wohnwert der Region/Klima, kulturelles und soziales Umfeld, Höhe der Kapitalkosten sowie Zugang zu Kapitalmärkten.',
+            highlight: 'Neben marketingbezogenen Kriterien beeinflussen auch politische, gesetzliche und soziale Faktoren den Standortentscheid.'
+          },
+          {
+            type: 'concept',
+            title: '7.5 Standortbewertung, -beurteilung und -entscheid',
+            content: 'Um einen Standort zu bewerten, gibt es unterschiedliche Methoden. In der Praxis hat sich die Entscheidungstabelle für eine fundierte Bewertungsgrundlage etabliert. Die qualitative Bewertung vergleicht subjektive Kriterien in einer Diskussion. Die quantitative Bewertung nutzt den Vergleich vom eingesetzten Kapital zum erwartenden Erfolg, den sogenannten Return on Invest (ROI). Mittels der 10-10-10-Methode (auch Zeitreise genannt) kann man sich die Auswirkungen eines Standortentscheids in verschiedenen Zeiträumen vorstellen: Was wird in 10 Minuten, 10 Monaten und 10 Jahren sein?',
+            highlight: 'Standortbewertung kann qualitativ (subjektive Kriterien) oder quantitativ (ROI-Berechnung) erfolgen. Die 10-10-10-Methode hilft bei strategischen Entscheidungen.'
+          },
+          {
+            type: 'methodenbox',
+            title: '10-10-10-Methode (Zeitreise): Standortwahl',
+            content: '1. Wann und wofür setzen Sie diese Methode ein? Die 10-10-10-Methode (auch Zeitreise genannt) eignet sich hervorragend, um strategische Entscheidungen zu überdenken. 2. Was erhalten Sie als Ergebnis? Eine fiktive Betrachtung: Welche Auswirkungen und Folgen werden diese Entscheidungen in 10 Minuten, 10 Monaten und 10 Jahren haben? 3. Was beachten Sie bei der 10-10-10-Methode beim Entscheid bezüglich der Standortwahl? Das Resultat ist eine subjektive Annahme, die den betroffenen Entscheidungsträger zu einem vertieften Betrachten des Projekts führen soll.'
+          },
+          {
+            type: 'keyterms',
+            title: 'Schlüsselbegriffe',
+            terms: [
+              {term: '10-10-10-Methode', def: 'Zeitreise-Methode zur Überprüfung strategischer Entscheidungen: Was passiert in 10 Minuten, 10 Monaten, 10 Jahren?'},
+              {term: 'Qualitative Bewertung', def: 'Subjektive Standortbewertung anhand von Kriterien wie Marketing, Finanzen, Politik, Kommunikation.'},
+              {term: 'Quantitative Bewertung', def: 'Finanzielle Standortbewertung anhand von Return on Invest (ROI).'},
+              {term: 'Standort', def: 'Ort einer Verkaufsstelle oder eines Lagers/Warenübergabe.'},
+              {term: 'Standortkonzept', def: 'Alle Entscheide und Massnahmen zur Erreichung der angestrebten Standortziele; Schnittstelle zum Logistikkonzept.'},
+              {term: 'Standortkriterien', def: 'Bewertungsfaktoren wie Frequenz, Erreichbarkeit, Konkurrenzsituation, psychologische Marktnähe.'},
+              {term: 'Standortwahl', def: 'Entscheidungsprozess zur Bestimmung des besten Standorts für Verkauf oder Logistik.'}
+            ]
+          },
+          {
+            type: 'merke',
+            title: 'Merke dir!',
+            items: [
+              'Die Wahl und Entscheidung für einen Logistikstandort hat unmittelbare Auswirkung auf das ganze Unternehmen.',
+              'Insbesondere die Wahl aus Sicht des Marketings beeinflusst die Standortqualität aus Kundensicht.',
+              'Die Standortbewertung kann sowohl aus subjektiver (qualitativer) wie auch aus finanzieller (quantitativer) Sicht erfolgen.',
+              'Die 10-10-10-Methode eignet sich hervorragend, um strategische Entscheidungen zu überdenken.'
+            ]
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              'Die <strong>Wahl und Entscheidung</strong> für einen Logistikstandort hat unmittelbare Auswirkung auf das ganze Unternehmen.',
+              'Insbesondere die Wahl aus Sicht des Marketings (z.B. zentrale Lage) beeinflusst die <strong>Standortqualität</strong> aus Kundensicht.',
+              'Dazu spielen auch andere Gründe eine Rolle (z.B. Steuerfluss). Die Kriterien sind jeweils sorgfältig unter Berücksichtigung der Situation zu bestimmen.',
+              'Die Vorgehensweise bei der <strong>Standortbewertung</strong> kann sowohl aus <strong>subjektiver (qualitativer)</strong> wie auch aus <strong>finanzieller (quantitativer) Sicht</strong> erfolgen.'
+            ]
+          }
+        ]
+      }
     },
 
     // ============================================================
@@ -851,7 +1401,94 @@ window.BOOK_DATA = {
           reveal: ['Indirekter Export: Fakturierung auf Kunden im Inland, Eigentum wechselt vor der Grenze. Der Abnehmer im Inland exportiert die Ware selbst.']
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Export',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels können Sie ...',
+            items: [
+              'den Begriff "Export" erklären.',
+              'Kriterien zur Wahl von Distributionspartnern im Export nennen und erläutern.',
+              'ausgewählte Distributionspartner im Export beurteilen.'
+            ]
+          },
+          {
+            type: 'concept',
+            title: '8.1 Beschrieb',
+            content: 'Unter Export (oder Ausfuhr) versteht man die Lieferung von Waren in Drittländer. Andere Bezeichnungen sind "internationales Marketing", "multinationales Marketing" oder "Globalmarketing". Im Export kommt eine zusätzliche Komponente zu den bestehenden Tätigkeiten einer Firma im Inland hinzu -- im Minimum ist eine Grenze zu überqueren. Dies ist mit zusätzlichem Aufwand für die Logistik verbunden (betrifft sowohl den Informations- wie auch den Warenfluss).',
+            highlight: 'Export = Lieferung von Waren in Drittländer. Es ist immer eine Grenze zu überqueren, was zusätzlichen logistischen Aufwand bedeutet.'
+          },
+          {
+            type: 'concept',
+            title: '8.2 Ansätze im Export',
+            content: 'Beim direkten Export fakturiert der Anbieter auf einen Kunden im Ausland (Importeur/Handel/Konsumenten), also wechselt das Eigentum nach der Grenze. Der Ort der Warenübergabe im physischen Sinne hängt von den vereinbarten Konditionen ab, die in den sogenannten Incoterms geregelt sind. Beim indirekten Export fakturiert der Anbieter auf einen Kunden im Inland (Exporteur/Handel/Konsumenten), also wechselt das Eigentum vor der Grenze. Der Ort der Warenübergabe ist i.d.R. im Inland.',
+            highlight: 'Direkter Export: Eigentum wechselt nach der Grenze. Indirekter Export: Eigentum wechselt vor der Grenze (Fakturierung auf Kunden im Inland).'
+          },
+          {
+            type: 'keyterms',
+            title: 'Schlüsselbegriffe',
+            terms: [
+              {term: 'Export', def: 'Lieferung von Waren in Drittländer (Ausfuhr). Im Minimum ist eine Grenze zu überqueren.'},
+              {term: 'Direkter Export', def: 'Anbieter fakturiert auf Kunden im Ausland; Eigentum wechselt nach der Grenze.'},
+              {term: 'Indirekter Export', def: 'Anbieter fakturiert auf Kunden im Inland; Eigentum wechselt vor der Grenze.'},
+              {term: 'Incoterms', def: 'International Commercial Terms: Internationale Handelsklauseln zur Interpretation von Handelsbedingungen im Aussenhandelsgeschäft.'},
+              {term: 'Auslandsreisende', def: 'Eigene Aussendienstmitarbeitende, die im Namen des Anbieters auftreten.'},
+              {term: 'Distributor', def: 'Selbstständiger Händler, tritt evtl. als offizielle Vertretung in einem Land auf. Kann Importeur, Grosshandel oder Detailhandel sein.'},
+              {term: 'Exportkommissionär', def: 'Kauft unter eigenem Namen, aber auf Rechnung des Auftraggebers.'},
+              {term: 'Exportmakler', def: 'Vermittelt Aufträge zwischen den interessierten Parteien.'},
+              {term: 'Internet-/Online-Recherche', def: 'Methode zur Erhebung grundsätzlicher Informationen am Anfang eines Exportprojekts.'},
+              {term: 'Zweigniederlassung', def: 'Eigene Filiale im Ausland, rechtlich unselbstständig.'}
+            ]
+          },
+          {
+            type: 'concept',
+            title: '8.3 Distribution und Export',
+            content: 'Beim Export ist die Aufgabe der Distribution, die Produkte den Nachfragern verfügbar zu machen. Daraus lassen sich zwei Herausforderungen ableiten: a) Wie ist der Zugang zu einem definierten ausländischen Markt zu finden? b) Wie hat die (Fein)verteilung im ausländischen Markt zu erfolgen? Die dafür nötigen Informationen können mittels Internet-/Online-Recherche erhoben werden. Relevante Informationen umfassen: Marktpotenzial des Landes, Potenzial in der Branche, Handelsschwernisse (Importgesetze, Zollvorschriften), soziodemografische Statistiken und politische Entwicklung.',
+            highlight: 'Im Export sind zwei Fragen zentral: Wie gelangt man in den Markt? Und wie erfolgt die Feinverteilung vor Ort?'
+          },
+          {
+            type: 'concept',
+            title: '8.3.1 Zusätzliche Einflussfaktoren im Export',
+            content: 'Aus den sich ergebenden Anforderungen an das Marketing und die Marketinglogistik lassen sich folgende Bereiche herauskristallisieren: Marktzugang (Eintritt in ein fremdes Land), Administration (Zoll), Recht und Gesetze (Lebensmittelgesetze, Zulassungsbedingungen/Normen, Einfuhrgesetze/Kontingente), Kosten (Zölle, Steuern), Finanzen (Währungsrisiko, Devisenausfuhr), Marktentfernung (längere Reaktionszeit), Kultur (Entwicklungsländer), Informationen (Sprache), Feinverteilung (andere Distributionssysteme).',
+            highlight: 'Einflussfaktoren im Export: Marktzugang, Administration (Zoll), Recht und Gesetze, Kosten, Finanzen (Währungsrisiko), Kultur und Sprache.'
+          },
+          {
+            type: 'concept',
+            title: '8.3.2 Direkte oder indirekte Distribution im Export',
+            content: 'Der Vertrieb in fremden Märkten kann grundsätzlich auf zwei verschiedenen Wegen erfolgen: direkt (durch eigene/fremde Absatzorgane im Namen des Herstellers) oder indirekt (durch den Handel/Absatzmittler). Eigene Organe der direkten Distribution sind: Auslandsreisende, Zweigniederlassung (rechtlich unselbstständig) und Tochtergesellschaft (rechtlich selbstständig). Fremde Organe: Exportmakler (-broker) und Exportkommissionär. Absatzmittler der indirekten Distribution sind: Exporteure (im Land des Herstellers), Importeure (im Zielland) und Distributoren (selbstständige Händler).',
+            highlight: 'Direkte Distribution: eigene Reisende, Zweigniederlassung, Tochtergesellschaft. Indirekte Distribution: Exporteure, Importeure, Distributoren.'
+          },
+          {
+            type: 'methodenbox',
+            title: 'Internet-/Online-Recherche: Informationsbeschaffung',
+            content: '1. Wann und wofür setzen Sie diese Methode ein? Diese Methode wird ganz am Anfang eines Projekts zur Erhebung von grundsätzlichen Informationen eingesetzt. 2. Was erhalten Sie als Ergebnis? Digitale Nachschlagewerke helfen, einen ersten Überblick über die Struktur eines bestimmten Themas zu gewinnen. 3. Was beachten Sie bei der Internet-/Online-Recherche beim Entscheid? Das Resultat hängt von den gewählten Suchkriterien ab und ist daher subjektiv. Die Fähigkeit, vertrauenswürdige Quellen zu erkennen und zu bewerten, ist mittlerweile eine wichtige Kernkompetenz im digitalen Zeitalter.'
+          },
+          {
+            type: 'merke',
+            title: 'Merke dir!',
+            items: [
+              'Export = Warenverkehr mit dem Ausland (Lieferung in Drittländer).',
+              'Direkter Export: Eigentumswechsel nach der Grenze. Indirekter Export: Eigentumswechsel vor der Grenze.',
+              'Incoterms regeln die Konditionen (Transportkosten, Risiko, Steuern) beim Export.',
+              'Zusätzliche Einflussfaktoren: Zoll, Gesetze, Währungsrisiko, Kultur, Sprache.',
+              'Eigene Organe: Auslandsreisende, Zweigniederlassung, Tochtergesellschaft.',
+              'Fremde Organe/Absatzmittler: Exportmakler, Exportkommissionär, Exporteure, Importeure, Distributoren.'
+            ]
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              'Als <strong>Export</strong> wird der Warenverkehr mit dem Ausland bezeichnet.',
+              'Der Export kann <strong>direkt oder indirekt</strong> vorgenommen werden.',
+              'Zu den üblichen Einflussfaktoren an die Logistik kommen im Export noch weitere spezielle Anforderungen dazu (z.B. andere Gesetze, spezielle Administration, zusätzliche Kosten usw.).',
+              'Die Organe im Export tragen teilweise eigene Namen wie: <strong>Tochtergesellschaft, Exportkommissionäre/-makler, Distributoren</strong>.'
+            ]
+          }
+        ]
+      }
     },
 
     // ============================================================
@@ -939,7 +1576,150 @@ window.BOOK_DATA = {
           reveal: ['Konsumgüter = viele kleine Kunden, Masse.','Investitionsgüter = wenige grosse Kunden, Beratung.','Dienstleistungen = immateriell.']
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Distribution nach Gütern',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels können Sie ...',
+            items: [
+              'Güter im volkswirtschaftlichen Sinne definieren.',
+              'Güterarten hierarchisch darstellen und erklären.',
+              'Kriterien der Differenzierung der Güter nennen und erläutern.'
+            ]
+          },
+          {
+            type: 'concept',
+            title: '9.1 Unterscheidung der Güter',
+            content: 'Für die Verfügbarmachung einer Marktleistung gibt es sehr unterschiedliche Voraussetzungen. In der Volkswirtschaft wird zwischen Konsumgütern, Investitionsgütern und Dienstleistungen unterschieden. Die Güter des Markts werden zunächst in wirtschaftliche und freie Güter unterteilt. Wirtschaftliche Güter gliedern sich in materielle und immaterielle Güter. Materielle Güter umfassen Investitionsgüter und Konsumgüter (jeweils in Gebrauchs- und Verbrauchsgüter), immaterielle Güter umfassen Dienstleistungen, Rechte und Know-how.',
+            highlight: 'Die Volkswirtschaft unterscheidet drei Güterarten: Konsumgüter, Investitionsgüter und Dienstleistungen. Die Verwendung (nicht das Gut selbst) bestimmt die Klassifizierung.'
+          },
+          {
+            type: 'concept',
+            title: '9.2 Konsumgüter',
+            content: 'Konsumgüter sind Güter, die für die persönliche oder private Verwendung der Konsumentinnen und Konsumenten gedacht sind. Es handelt sich i.d.R. um Massengüter. Man kann sie zusätzlich unterscheiden in Gebrauchs- und Verbrauchsgüter. Eine andere Unterscheidung ist möglich in Alltags- und Luxusgüter. Konsumgüter haben eine physische Komponente. Der Vertrieb erfolgt mehrheitlich indirekt, d.h. über den Handel (Business-to-Consumer, B2C). Beim Vertrieb wird stark mit den Kommunikationsinstrumenten gearbeitet: Push-Marketing (auf den Handel) und Pull-Marketing (auf die Konsumenten). Das Ziel bei Konsumgütern ist eine breite Verfügbarkeit.',
+            highlight: 'Konsumgüter = Massengüter für die private Verwendung. Vertrieb mehrheitlich indirekt über den Handel (B2C). Ziel: breite Verfügbarkeit.'
+          },
+          {
+            type: 'concept',
+            title: '9.3 Investitionsgüter',
+            content: 'Investitionsgüter inkl. Produktionsgüter sind Güter, die für die Erstellung einer anderen Marktleistung eingesetzt werden. Sie können unterteilt werden in Produktionsmittel, Produktionsstoffe, Zusatzstoffe und Hilfsstoffe. Man kann sie zusätzlich unterscheiden in Gebrauchs- und Verbrauchsgüter. Investitionsgüter werden in ihrer Gesamtheit vom Kunden als Marktleistung (Produkt) wahrgenommen. Sie haben eine physische Komponente. Der Vertrieb erfolgt mehrheitlich direkt, d.h. mittels eigener Organe oder fremder Organe im Namen des Herstellers (Business-to-Business, B2B). Investitionsgüter sind oft spezifisch auf den Kunden ausgerichtet ("customized"). Der Vertrieb wird sachbezogen informiert und der persönliche Verkauf dominiert.',
+            highlight: 'Investitionsgüter = Güter zur Erstellung anderer Marktleistungen. Vertrieb mehrheitlich direkt (B2B), persönlicher Verkauf dominiert.'
+          },
+          {
+            type: 'concept',
+            title: '9.4 Dienstleistungen',
+            content: 'Dienstleistungen sind Leistungen, die immateriell und vergänglich sind. Sie werden von den jeweiligen Anbietern erbracht. Dienstleistungen haben i.d.R. keine physische Komponente, benötigen jedoch ein Trägermedium. Sie können persönlich (Steuerberatung) oder unpersönlich (SBB) erbracht werden. Sie setzen vielfach den direkten Kontakt zwischen den Anbietern und den Nachfragern voraus. Dienstleistungen werden daher meistens direkt angeboten. Es gibt jedoch einige gewichtige Ausnahmen, wo sie sowohl indirekt wie auch über Mischsysteme vertrieben werden. Beim Vertrieb wird mit Imagekomponenten gearbeitet und die persönliche Ansprache dominiert.',
+            highlight: 'Dienstleistungen = immateriell und vergänglich. Vertrieb meistens direkt, persönliche Ansprache und Imagekomponenten dominieren.'
+          },
+          {
+            type: 'table',
+            title: 'Kriterien der Differenzierung: Konsumgüter',
+            headers: ['Kriterium', 'Beschreibung'],
+            rows: [
+              ['Distributionsweg', 'In der Regel indirekt'],
+              ['Anzahl Stufen', 'Vielfach über mehrere Stufen'],
+              ['Entscheidungsträger', 'Wenige, oft nur Produktverwender/-in'],
+              ['Kaufentscheid', 'Spontan'],
+              ['Art der Kundschaft', 'Private'],
+              ['Anzahl Nachfragende', 'Sehr viele (alle Konsument/-innen)'],
+              ['Volumen pro Auftrag', 'Klein, aber viele Aufträge'],
+              ['Verkaufsprozess', 'Einfach, Zug um Zug'],
+              ['Erklärungsbedarf', 'Meistens klein'],
+              ['Kundenbeziehung', 'Eher sachlich, aber emotional beeinflusst'],
+              ['Physische Komponente', 'Ja, vorhanden'],
+              ['Logistik', 'Aufwendig, da mehrere kleine Lager und viele Transporte'],
+              ['Konkurrenz', 'Viele Konkurrenten, harter Kampf'],
+              ['Preisgestaltung', 'Vom Markt beeinflusst']
+            ]
+          },
+          {
+            type: 'table',
+            title: 'Kriterien der Differenzierung: Investitionsgüter',
+            headers: ['Kriterium', 'Beschreibung'],
+            rows: [
+              ['Distributionsweg', 'In der Regel direkt'],
+              ['Anzahl Stufen', 'Eher keine Stufen'],
+              ['Entscheidungsträger', 'Viele möglich'],
+              ['Kaufentscheid', 'Längere Abklärungen'],
+              ['Art der Kundschaft', 'Firmen'],
+              ['Anzahl Nachfragende', 'Eher wenige'],
+              ['Volumen pro Auftrag', 'Gross, aber wenige Aufträge'],
+              ['Verkaufsprozess', 'Schwierig, komplex'],
+              ['Erklärungsbedarf', 'Vielfach sehr gross'],
+              ['Kundenbeziehung', 'Sachlich'],
+              ['Physische Komponente', 'Ja, vorhanden'],
+              ['Logistik', 'Sehr aufwendig, Transport und evtl. Installationsarbeiten'],
+              ['Konkurrenz', 'Genügend Konkurrenten, harter Kampf'],
+              ['Preisgestaltung', 'Vom Markt beeinflusst']
+            ]
+          },
+          {
+            type: 'table',
+            title: 'Kriterien der Differenzierung: Dienstleistungen',
+            headers: ['Kriterium', 'Beschreibung'],
+            rows: [
+              ['Distributionsweg', 'In der Regel direkt'],
+              ['Anzahl Stufen', 'Keine Stufen'],
+              ['Entscheidungsträger', 'Mehrere möglich, je nach Angebot'],
+              ['Kaufentscheid', 'Relativ spontan'],
+              ['Art der Kundschaft', 'Private und Firmen'],
+              ['Anzahl Nachfragende', 'Wenig bis viele, je nach Art des Angebots'],
+              ['Volumen pro Auftrag', 'Klein bis gross, je nach Auftrag'],
+              ['Verkaufsprozess', 'Einfach bis schwierig, je nach Angebot'],
+              ['Erklärungsbedarf', 'Vielfach sehr gross und schwierig'],
+              ['Kundenbeziehung', 'Persönlich, emotional beeinflusst'],
+              ['Physische Komponente', 'Nein, nicht vorhanden'],
+              ['Logistik', 'In der Regel wenig Aufwand'],
+              ['Konkurrenz', 'Genügend Konkurrenten, harter Kampf'],
+              ['Preisgestaltung', 'Kann frei ausgestaltet werden']
+            ]
+          },
+          {
+            type: 'methodenbox',
+            title: 'Tabellarische Übersicht: Kriterien nach Güterarten',
+            content: '1. Wann und wofür setzen Sie diese Methode ein? Diese Methode kann bei der Erstellung der Organisation eingesetzt werden, um verschiedene Anforderungen miteinander vergleichen zu können. 2. Was erhalten Sie als Ergebnis? Das Ergebnis ist eine Übersicht, die aufzeigt, wo die prägnanten Unterschiede zu finden sind. 3. Was beachten Sie bei den Kriterien nach Güterarten beim Entscheid? Das Resultat muss bezüglich Bedeutung hinterfragt werden. Nicht jeder Unterschied beeinflusst die Entscheidung gleich stark.'
+          },
+          {
+            type: 'keyterms',
+            title: 'Schlüsselbegriffe',
+            terms: [
+              {term: 'Konsumgüter', def: 'Güter für die persönliche/private Verwendung. Gebrauch und Verbrauch, Massengüter, Vertrieb über den Handel (B2C).'},
+              {term: 'Investitionsgüter', def: 'Güter zur Erstellung anderer Marktleistungen. Inkl. Produktionsgüter, Vertrieb direkt (B2B).'},
+              {term: 'Dienstleistungen', def: 'Immaterielle, vergängliche Leistungen. Persönlich oder unpersönlich erbracht, meist direkt vertrieben.'},
+              {term: 'Gebrauchsgüter', def: 'Güter, die über längere Zeit genutzt werden (z.B. Zahnbürste, Werkzeugmaschine).'},
+              {term: 'Verbrauchsgüter', def: 'Güter, die bei der Nutzung verbraucht werden (z.B. Zahnpasta, Schmierstoffe).'},
+              {term: 'Produktionsgüter', def: 'Unterkategorie der Investitionsgüter: Produktionsmittel, -stoffe, Zusatz- und Hilfsstoffe.'},
+              {term: 'Güterarten', def: 'Hierarchische Einteilung: Wirtschaftliche vs. freie Güter, materielle vs. immaterielle Güter.'},
+              {term: 'Tabellarische Darstellung', def: 'Methode zum Vergleich von Kriterien verschiedener Güterarten in einer Übersicht.'}
+            ]
+          },
+          {
+            type: 'merke',
+            title: 'Merke dir!',
+            items: [
+              'Es sind nicht die Güter selbst, die für die Klassifizierung sorgen, sondern vielmehr deren Verwendung.',
+              'Konsumgüter: viele kleine Kunden, Massengeschäft, indirekt über Handel (B2C).',
+              'Investitionsgüter: wenige grosse Kunden, hoher Beratungsaufwand, direkt (B2B).',
+              'Dienstleistungen: immateriell, persönlich oder unpersönlich, meist direkt.',
+              'Konsum- und Investitionsgüter sind meist materiell (physisch fassbar), Dienstleistungen sind immateriell.'
+            ]
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              'In der Volkswirtschaft spricht man von <strong>drei Güterarten</strong>.',
+              '<strong>Konsumgüter</strong> (Gebrauch und Verbrauch) werden von Privatpersonen konsumiert.',
+              '<strong>Investitionsgüter</strong> (Gebrauch und Verbrauch) werden von Firmen für eine weitere Verwendung gekauft.',
+              '<strong>Dienstleistungen</strong> (persönlich oder unpersönlich) werden von Privaten wie auch von Firmen bezogen.',
+              'Konsum- und Investitionsgüter sind meist materiell (physisch fassbar). Dienstleistungen sind i.d.R. immateriell (nicht fassbar).',
+              'Die Güter werden verschieden vertrieben (direkt und indirekt).'
+            ]
+          }
+        ]
+      }
     },
 
     // ============================================================
@@ -1018,7 +1798,144 @@ window.BOOK_DATA = {
           reveal: ['Relevante Gesetze: 1. Lebensmittelgesetz (bei Lebensmitteldistribution), 2. Umweltschutzgesetz (Entsorgung, Transport), 3. LSVA (Schwerverkehrsabgabe), sowie Strassenverkehrsgesetz, Arbeitsgesetz, Wettbewerbsrecht.']
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Spezialgebiete und Ausblick in der Distribution',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels können Sie ...',
+            items: [
+              'alternative Vertriebsformen aufzählen.',
+              'Gesetze, die speziell die Distribution betreffen, nennen.',
+              'Themen der Zukunft in Distribution und Logistik nennen.'
+            ]
+          },
+          {
+            type: 'concept',
+            title: '10.1 Alternative Vertriebsformen',
+            content: 'Eine Vertriebsform wird dann als "alternativ" bezeichnet, wenn sie sich für die Konsumentinnen und Konsumenten in irgendeiner nachvollziehbaren Art vom "klassischen" Einkaufsakt unterscheidet. Als klassisch wird der Vertrieb über den Detailhandel (ein- oder mehrstufig) angesehen. Alternative Vertriebsformen eröffnen den Anbietern neue Möglichkeiten und werden vielfach zusätzlich zu den bestehenden Kanälen eingesetzt. Sie gliedern sich in stationären Verkauf (Platzverkauf) und Besuchsverkauf (Feldverkauf).',
+            highlight: 'Alternative Vertriebsformen unterscheiden sich vom klassischen Detailhandel und gliedern sich in stationären Verkauf und Besuchsverkauf.'
+          },
+          {
+            type: 'table',
+            title: 'Übersicht alternative Vertriebsformen',
+            headers: ['Stationärer Verkauf (persönlich)', 'Stationärer Verkauf (unpersönlich)', 'Besuchsverkauf (persönlich)', 'Besuchsverkauf (unpersönlich)'],
+            rows: [
+              ['Convenience-Shops', 'SB-Shops (Automaten)', 'Mobile Verkaufsstellen', 'Online-Verkauf (E-Shop)'],
+              ['Factory-Outlets', '', 'Tür-zu-Tür-Verkauf', 'Vertrieb über Automaten'],
+              ['Secondhand-Läden', '', 'Partyverkauf', 'Versand (Heimzustelldienst)'],
+              ['Lagerläden für Mitglieder', '', 'Vertrieb an Events', 'Homeshopping'],
+              ['Kundenklubs', '', '', ''],
+              ['Showroom', '', '', ''],
+              ['Verkauf ab Bauernhof', '', '', ''],
+              ['Wochenmärkte', '', '', ''],
+              ['Messeverkauf', '', '', '']
+            ]
+          },
+          {
+            type: 'concept',
+            title: '10.2 Detailhandelspanel',
+            content: 'Im Detailhandelspanel von Nielsen (früher GfK) sind die massgeblichen Kanäle des Schweizer Lebensmitteldetailhandels aufgeführt (Migros, Coop, Denner etc.). Folgende Informationen sind im Panel enthalten: Umsatz/Absatz, Marktanteile, Distribution, Durchschnittspreis, Promotionsanteile und Sortimentstiefe/-breite. Nielsen führt keine physischen Erhebungen am POS durch. Die Kennzahlen sind alle auf Basis der Scanning-Abverkaufsdaten (an der Kasse im Detailhandel) errechnet.',
+            highlight: 'Das Detailhandelspanel von Nielsen liefert Kennzahlen wie Umsatz, Marktanteile und Distribution basierend auf Scanning-Abverkaufsdaten.'
+          },
+          {
+            type: 'keyterms',
+            title: 'Distributionskennzahlen',
+            terms: [
+              {term: 'Distribution verkaufend numerisch', def: 'Prozentualer Anteil der Anzahl Verkaufsstellen, die mindestens eine Packung während vier Wochen verkauft haben.'},
+              {term: 'Distribution verkaufend gewichtet', def: 'Prozentuale Umsatzbedeutung der verkaufenden Verkaufsstellen.'},
+              {term: 'Distributionslücke', def: 'Differenz der 4-wöchentlichen Distribution zur durchschnittlichen Distribution.'}
+            ]
+          },
+          {
+            type: 'concept',
+            title: '10.3 Category Management (CM)',
+            content: 'Unter dem Begriff "Category Management" werden Ansätze einer kooperativen Zusammenarbeit zwischen Industrie und Handel zusammengefasst. Das wesentliche Merkmal ist die Steuerung von Warengruppen als strategische Geschäftseinheiten (SGE). Oberstes Ziel des CM, sowohl der Hersteller wie auch des Handels, ist die Förderung von Umsatz und Gewinn durch höhere Kundenzufriedenheit. Das "Neue" dieses Ansatzes ist die Zuordnung von Produkten zu Warengruppen aus Sicht der Verbraucher. CM kann erst konsequent betrieben werden, seit eine effiziente Kundenorientierung durch die Vernetzung der Informationen mittels ECR möglich ist.',
+            highlight: 'Category Management = kooperative Zusammenarbeit zwischen Industrie und Handel. Warengruppen werden aus Verbrauchersicht gebildet.'
+          },
+          {
+            type: 'concept',
+            title: '10.4 Gesetze und Vorschriften',
+            content: 'Die Distribution wird in einigen Bereichen durch gesetzliche Vorgaben tangiert (z.B. Lebensmittelgesetz, LMG). Relevante Gesetze umfassen: Bauordnungsrecht und Baupolizeirecht (Einfluss auf Immobilien und Brandschutz), Bundesgesetz über den Umweltschutz/USG (Entsorgungslogistik und Verpackung), Bundesgesetz über den Schutz vor gefährlichen Stoffen/ChemG (Giftgesetz: Transport von Gütern). Speziell relevant für die Logistik sind Lkw-Gesetze und -Vorschriften: Verordnung über die Beförderung gefährlicher Güter (SDR), Fahrverbot an Sonn- und Feiertagen, Nachtfahrverbot, Gewichtslimiten (40t, kombinierter Verkehr 44t) und Kabotageverbot (Binnentransporte).',
+            highlight: 'Gesetze wie Umweltschutzgesetz, Lebensmittelgesetz und Lkw-Vorschriften tangieren die Distribution direkt.'
+          },
+          {
+            type: 'concept',
+            title: 'LSVA',
+            content: 'Seit 2001 wird in der Schweiz die neue Verkehrssteuer LSVA (Leistungsabhängige Schwerverkehrsabgabe) erhoben. Die Durchführung wurde dem Zoll übergeben. Sie ersetzt die bisherige "Schwerverkehrsabgabe". Die LSVA führt zu einer Mehrbelastung des Schwerverkehrs nach dem Verursacherprinzip. Sie wird bei denjenigen Unternehmen erhoben, die durch ihre Geschäftstätigkeit den Strassenverkehr in der Schweiz belasten. Das angestrebte Ziel ist eine vermehrte Verlagerung der Güter auf die Bahn. Die Steuer errechnet sich aus: Massgebliches Gewicht des Fahrzeugs, Tarifstufe (Emissionskategorie) und gefahrene km in der Schweiz.',
+            highlight: 'LSVA = Leistungsabhängige Schwerverkehrsabgabe seit 2001. Ziel: Verlagerung des Güterverkehrs auf die Bahn.'
+          },
+          {
+            type: 'concept',
+            title: '10.5 Die Distribution in der Zukunft',
+            content: 'Die Digitalisierung wird die Abläufe in der Distribution weiter verändern. Wichtige Zukunftstechnologien sind: Cargo sous terrain (CST) -- ein unterirdisches Tunnelsystem für Güterverkehr in der Schweiz ab ca. 2031; Drohnen -- flexibler, unabhängiger und ökologischer Transport, v.a. für dringende oder schwer erreichbare Sendungen; Roboterfahrzeuge -- autonome Lieferfahrzeuge auf der Strasse; 3-D-Printer -- Vor-Ort-Produktion, die lange Transportwege und Importkosten vermeidet; und neue Energieträger -- Elektrizität (Batterieantrieb), Wasserstoff (Brennstoffzellen) und Flüssiggas.',
+            highlight: 'Zukunftstechnologien: Cargo sous terrain (CST), Drohnen, Roboterfahrzeuge, 3-D-Printer, alternative Energieträger.'
+          },
+          {
+            type: 'concept',
+            title: '10.5.1 Cargo sous terrain (CST)',
+            content: 'CST beabsichtigt, ein neues, einzigartiges Logistiksystem zu bauen, das ab 2031 die Logistik in der Schweiz revolutionieren soll. Es handelt sich um ein Logistikprojekt der Zukunft, das insbesondere aus Sicht der Umweltentlastung, der Nachhaltigkeit, der Energieersparnis und der Verkehrsentlastung für die ganze Schweizer Volkswirtschaft von Interesse ist. Cargo sous terrain hat zum Ziel, ein unterirdisches Tunnelsystem in der Schweiz zu bauen. Elektrisch angetriebene Radfahrzeuge mit Induktionsschiene fahren mit einer konstanten Geschwindigkeit von 30 km/h durch den dreispurigen Tunnel. National- und Ständerat haben in der Schlussabstimmung eindeutig für das Bundesgesetz über den unterirdischen Gütertransport (UGüTG) gestimmt.',
+            highlight: 'CST = unterirdisches Tunnelsystem für Güterverkehr mit elektrischen Fahrzeugen bei 30 km/h. Politische Grundlage seit 2021.'
+          },
+          {
+            type: 'concept',
+            title: '10.5.2 Drohnen in der Logistik',
+            content: 'Drohnen versprechen, die Welt der Logistik nachhaltig zu verändern. Die Vorteile der unbemannten Luftfahrzeuge liegen klar auf der Hand. Pilotprojekte haben gezeigt, dass die Nutzung von Transportdrohnen längst nicht mehr in ferner Zukunft liegt. Mit Drohnen sind Transporte flexibler, unabhängiger von der Verkehrslage und ökologischer als ein Kurier auf der Strasse. Die Schweizerische Post leistete weltweit Pionierarbeit in der Drohnenlogistik. Als eines der ersten Unternehmen setzte sie von 2017 bis 2022 Drohnen für den Transport von Laborproben zwischen Spitälern und Laboren ein.',
+            highlight: 'Drohnen ermöglichen flexiblen, verkehrsunabhängigen und ökologischen Transport. Die Schweizerische Post war Pionierin (2017-2022, Laborproben).'
+          },
+          {
+            type: 'concept',
+            title: '10.5.3-4 Roboterfahrzeuge und 3-D-Printer',
+            content: 'Die fortschreitende Automatisierung/Roboterfahrzeuge erfordert kontinuierlich neue Lösungen im Logistikumfeld. In der Intralogistik innerhalb der Unternehmen sind diese schon längst im Einsatz. Vollständig automatische Fahrzeuge sollen den Verkehr der Zukunft vereinfachen und sicherer machen. 3-D-Druck wird die Logistik in den kommenden Jahren massiv verändern. Naheliegend ist der Einsatz in der Ersatzteillogistik. Es wird immer mehr Bereiche geben, in denen 3-D-Druck finanziell attraktiv sein wird. Flexibilität und Geschwindigkeit sind weitere Vorteile, die 3-D-Druck in der Logistik verschaffen kann. Zudem ermöglicht der Einsatz von 3-D-Druckern eine Vor-Ort-Produktion, wodurch lange Transportwege sowie Importkosten vermieden werden.',
+            highlight: 'Roboterfahrzeuge: autonome Logistik im Innen- und Aussenbereich. 3-D-Druck: Vor-Ort-Produktion, Ersatzteillogistik, Wegfall von Transportwegen.'
+          },
+          {
+            type: 'concept',
+            title: '10.5.5 Entwicklung der Energieträger',
+            content: 'Als Zukunftstechnologien in der Logistik werden zurzeit Elektrizität, Flüssiggas (kurzfristig) und Wasserstoff (mittel-/langfristig) angesehen. Die Entwicklung bei der Elektrizität, d.h. beim Batterieantrieb, ist rasant, die Infrastruktur wird laufend aufgerüstet (E-Tankstellen). Beim Wasserstoff (Brennstoffzellen) geht es zögerlicher vorwärts. Es gibt zurzeit in der Schweiz nur 12 Tankstellen. Flüssiggas ist zurzeit keine Alternative, da nach Energien gesucht wird, bei denen die Schweiz nicht abhängig ist vom Ausland.',
+            highlight: 'Energieträger der Zukunft: Elektrizität (Batterieantrieb, rasante Entwicklung), Wasserstoff (langfristig, noch wenig Infrastruktur), Flüssiggas (keine echte Alternative).'
+          },
+          {
+            type: 'keyterms',
+            title: 'Schlüsselbegriffe',
+            terms: [
+              {term: 'Alternative Vertriebsformen', def: 'Vertriebsformen, die sich vom klassischen Detailhandel unterscheiden (stationärer Verkauf und Besuchsverkauf).'},
+              {term: 'Category Management (CM)', def: 'Kooperative Zusammenarbeit zwischen Industrie und Handel. Steuerung von Warengruppen als strategische Geschäftseinheiten.'},
+              {term: 'Detailhandelspanel', def: 'Marktforschungsinstrument von Nielsen mit Kennzahlen des Schweizer Lebensmitteldetailhandels.'},
+              {term: 'LSVA', def: 'Leistungsabhängige Schwerverkehrsabgabe seit 2001. Ziel: Verlagerung auf die Bahn.'},
+              {term: 'Cargo sous terrain (CST)', def: 'Geplantes unterirdisches Tunnelsystem für Güterverkehr in der Schweiz ab ca. 2031.'},
+              {term: 'Drohnen', def: 'Unbemannte Luftfahrzeuge für flexiblen, ökologischen Transport in der Logistik.'},
+              {term: 'Roboterfahrzeuge', def: 'Autonome Fahrzeuge für den Gütertransport, in der Intralogistik bereits im Einsatz.'},
+              {term: '3-D-Printer', def: 'Ermöglichen Vor-Ort-Produktion und vermeiden lange Transportwege. Einsatz v.a. in der Ersatzteillogistik.'},
+              {term: 'Batterieantrieb', def: 'Elektrizität als Energieträger für Transportfahrzeuge, rasante Entwicklung der Infrastruktur.'},
+              {term: 'Wasserstoff', def: 'Brennstoffzellen als mittel-/langfristiger Energieträger. In der Schweiz noch wenig Infrastruktur.'}
+            ]
+          },
+          {
+            type: 'merke',
+            title: 'Merke dir!',
+            items: [
+              'Alternative Vertriebsformen ergänzen die klassischen Kanäle und erschliessen neue Zielgruppen.',
+              'Das Detailhandelspanel von Nielsen liefert wichtige Distributionskennzahlen (numerisch, gewichtet, Distributionslücke).',
+              'Category Management ordnet Produkte aus Verbrauchersicht in Warengruppen.',
+              'LSVA belastet den Schwerverkehr nach Verursacherprinzip -- Ziel: Verlagerung auf die Bahn.',
+              'Zukunftstechnologien: CST (unterirdisch), Drohnen, Roboterfahrzeuge, 3-D-Druck, neue Energieträger.'
+            ]
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              '<strong>Alternative Vertriebsformen</strong> ermöglichen den Unternehmen die Erschliessung neuer Zielgruppen (z.B. E-Shop bringt jüngere Kundensegmente).',
+              'Im <strong>Detailhandelspanel von Nielsen</strong> (früher GfK) sind die massgeblichen Kanäle des Schweizer Lebensmitteldetailhandels aufgeführt (Migros, Coop, Denner usw.).',
+              '<strong>Category Management (CM)</strong> ist ein neuer Begriff für Warengruppenmanagement und wird auch von den Konsumentinnen und Konsumenten wahrgenommen.',
+              'In der Distribution, speziell in der Logistik, gibt es spezifische <strong>Gesetze und Vorschriften</strong>, die zu beachten sind.',
+              'Die Zukunft der Distribution wird stark durch die <strong>Digitalisierung</strong> beeinflusst. Themen sind <strong>Cargo sous terrain (CST), Drohnen</strong> und <strong>Roboterfahrzeuge, 3-D-Printer</strong> in der Logistik sowie die <strong>Entwicklung der Energieträger</strong>.'
+            ]
+          }
+        ]
+      }
     }
   ],
 

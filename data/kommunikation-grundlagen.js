@@ -304,7 +304,95 @@ window.BOOK_DATA = {
           reveal: ['Prozessanalyse: Durchführung des Projekts im zeitlichen Ablauf.','Wirkungsanalyse: Reaktionen der Zielgruppen (kognitiv, affektiv, konativ).','Effizienzanalyse: Kosten-Nutzen-Vergleich.']
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Unternehmenskommunikation',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels können Sie ...',
+            items: [
+              'erklären, weshalb eine strategische Kommunikationspolitik notwendig ist.',
+              'die Kommunikationsstrategien auf unterschiedlichen Ebenen beschreiben.',
+              'Kommunikationsmassnahmen anhand der unterschiedlichen Integrationsebenen sinnvoll aufeinander abstimmen.'
+            ]
+          },
+          {
+            type: 'concept',
+            title: '2.1 Notwendigkeit einer strategischen Kommunikationspolitik',
+            content: 'Zentrale Veränderungen auf Unternehmens-, Wettbewerbs-, Kunden- und Umfeldebene begründen den Zwang zu einem strategischen Vorgehen in der Kommunikationspolitik: Unsicherheiten der Umwelt (Marktturbulenzen, Wettbewerbsdruck, Deregulierung), austauschbare Marktleistungen (Kommunikationswettbewerb statt Produktwettbewerb) und zunehmende Verlagerung der Kommunikationsinstrumente (von klassischen hin zu digitalen Instrumenten).',
+            highlight: 'Ein strategischer Ansatz in der Unternehmens- und Marketingkommunikation ist notwendig, um ein optimales Kosten-Nutzen-Verhältnis zu erreichen.'
+          },
+          {
+            type: 'concept',
+            title: '2.2 Kommunikationsstrategien auf unterschiedlichen Ebenen',
+            content: 'Kommunikationspolitische Entscheidungen müssen auf unterschiedlichen Ebenen getroffen werden: Auf der Ebene der Gesamtkommunikation werden zentrale Entscheidungen gefällt (strategische Zielsetzungen, Leitbild, Kommunikationsinstrumente). Auf der Ebene der Kommunikationsabteilung wird der Einsatz der jeweiligen Instrumente geplant (z. B. Werbung, PR, Sponsoring, Social Media). Die Strategieerarbeitung erfolgt top-down, die Konzepterstellung bottom-up.',
+            highlight: 'Gesamtkommunikation = strategische Ebene; Kommunikationsabteilung = taktische Ebene.'
+          },
+          {
+            type: 'concept',
+            title: '2.3 Kommunikation, strategisch geplant',
+            content: 'Die strategisch geplante Kommunikation (integrierte Kommunikation) umfasst 6 Merkmale: Sie ist ein Ziel der Unternehmenskommunikation (UCP), ein Managementprozess (Analyse, Planung, Organisation, Durchführung, Kontrolle), umfasst sämtliche internen und externen Kommunikationsinstrumente, schafft Einheit in der Kommunikation, steigert die Effizienz und erzeugt ein einheitliches Erscheinungsbild bei den Zielgruppen.',
+            highlight: 'Integrierte Kommunikation = inhaltliche, formale und zeitliche Abstimmung aller Kommunikationsmassnahmen.'
+          },
+          {
+            type: 'table',
+            title: 'Integrationsebenen der strategisch geplanten Kommunikation',
+            headers: ['Formen', 'Gegenstand', 'Ziele', 'Zeithorizont'],
+            rows: [
+              ['Inhaltliche Integration (funktional, instrumental, horizontal, vertikal)', 'Thematische Abstimmung durch Verbindungslinien', 'Konsistenz, Eigenständigkeit, Kongruenz', 'Langfristig'],
+              ['Formale Integration', 'Einhaltung formaler Gestaltungsprinzipien', 'Präsenz, Prägnanz, Klarheit', 'Mittel- bis langfristig'],
+              ['Zeitliche Integration', 'Abstimmung innerhalb und zwischen Planungsperioden', 'Konsistenz, Kontinuität', 'Kurz- bis mittelfristig']
+            ]
+          },
+          {
+            type: 'concept',
+            title: '2.4 Hierarchisierung der Kommunikationsinstrumente',
+            content: 'Bei der Konzepterstellung auf Ebene der Gesamtkommunikation spielt die Hierarchisierung der Instrumente eine wichtige Rolle. Es werden ein bis maximal zwei Leitinstrumente definiert, die sich durch beste Eignung zum Transport der Leitidee, grosses Beeinflussungspotenzial und Führungsfunktion für andere Instrumente auszeichnen. Weitere Kategorien: Kristallisationsinstrumente (herausragende Bedeutung für Zielgruppe), Integrationsinstrumente (hohes Integrationspotenzial), Folgeinstrumente (einzelne Kommunikationsaufgaben).',
+            highlight: 'Leitinstrumente beanspruchen einen dominanten Anteil des Kommunikationsbudgets.'
+          },
+          {
+            type: 'concept',
+            title: '2.5 Konzept auf Ebene Gesamtkommunikation',
+            content: 'Ein Kommunikationskonzept auf Ebene der Gesamtkommunikation umfasst 5 Phasen: 1. Situationsanalyse (SWOT-Analyse, kommunikative Problemstellung), 2. Zielgruppen, Ziele, Strategien (Positionierung, Kommunikations-Zielgruppen, Leitidee), 3. Kommunikationsmassnahmen (Hierarchisierung der Instrumente, Regeln für CI/CD), 4. Realisation/Budgetierung (Verteilung des Budgets), 5. Kontrolle/Controlling (Prozess-, Wirkungs- und Effizienzanalysen).',
+            highlight: 'Die 5 Phasen des Kommunikationskonzepts: Analyse, Zielgruppen/Ziele/Strategien, Massnahmen, Realisation/Budget, Kontrolle.'
+          },
+          {
+            type: 'merke',
+            title: 'Merke dir!',
+            items: [
+              'Eine strategische Kommunikationspolitik ist unverzichtbar wegen austauschbarer Marktleistungen, Verlagerung der Instrumente und Unsicherheiten der Umwelt.',
+              'Entscheidungen werden auf zwei Ebenen getroffen: Gesamtkommunikation (strategisch) und Kommunikationsabteilung (taktisch).',
+              'Die integrierte Kommunikation umfasst inhaltliche, formale und zeitliche Integration.',
+              'Leitinstrumente übernehmen die Führungsfunktion im Kommunikations-Mix.',
+              'Ein Kommunikationskonzept durchläuft 5 Phasen: Analyse, Ziele, Massnahmen, Budget, Kontrolle.',
+              'Kontrolle umfasst Prozessanalysen, Wirkungsanalysen und Effizienzanalysen.'
+            ]
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              'Veränderungen auf der Ebene des Unternehmens, des Wettbewerbs, der Kunden und des Umfelds machen ein <strong>strategisches Vorgehen</strong> in der Kommunikationspolitik notwendig.',
+              'Auf der <strong>Ebene der Gesamtkommunikation</strong> werden Entscheidungen gefällt, die das ganze Unternehmen betreffen. Auf der <strong>Ebene der Kommunikationsabteilung</strong> werden Entscheide über den Einsatz der Kommunikationsinstrumente getroffen.',
+              'Wichtig ist, dass die Kommunikationsbemühungen auf den unterschiedlichen Ebenen sorgfältig aufeinander abgestimmt werden. Man unterscheidet <strong>inhaltliche, formale und zeitliche Integration</strong>.'
+            ]
+          },
+          {
+            type: 'keyterms',
+            title: 'Schlüsselbegriffe',
+            terms: [
+              { term: 'Unternehmenskommunikation', def: 'Alle Kommunikationsaktivitäten für das Unternehmen selbst sowie die Marketingkommunikation (Corporate Communication + Business Communication).' },
+              { term: 'Strategisches Kommunikationskonzept', def: 'Verbindliche, mittel- bis langfristige Schwerpunktfestlegung für die Gesamtkommunikation des Unternehmens.' },
+              { term: 'Inhaltliche Integration', def: 'Thematische Abstimmung durch Verbindungslinien (Slogans, Kernbotschaften, Schlüsselbilder) für ein einheitliches Erscheinungsbild.' },
+              { term: 'Formale Integration', def: 'Einhaltung formaler Gestaltungsprinzipien (Logos, Schrifttyp, Grösse, Farbe) für ein einheitliches visuelles Erscheinungsbild.' },
+              { term: 'Zeitliche Integration', def: 'Kurz- bis mittelfristige Einsatzplanung und Abstimmung der Kommunikationsinstrumente und -mittel.' },
+              { term: 'Leitinstrument', def: 'Kommunikationsinstrument mit der besten Eignung zum Transport der Leitidee, grossem Beeinflussungspotenzial und Führungsfunktion.' },
+              { term: 'Cross-Impact-Analyse', def: 'Instrument zur Hierarchisierung von Kommunikationsinstrumenten durch Analyse der gegenseitigen Beeinflussung.' }
+            ]
+          }
+        ]
+      }
     },
 
     // ============================================================
@@ -395,7 +483,90 @@ window.BOOK_DATA = {
           reveal: ['Aussage 1: Falsch \u2013 CI = Selbstbild.','Aussage 2: Richtig \u2013 visuelle CD-Elemente.','Aussage 3: Falsch \u2013 CB gegenüber allen Anspruchsgruppen.','Aussage 4: Richtig \u2013 Idealfall = deckungsgleich.']
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Corporate Identity und Corporate Image',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels können Sie ...',
+            items: [
+              'Corporate Identity und Corporate Image unterscheiden.',
+              'die Begriffe Corporate Culture, Corporate Performance, Corporate Behaviour, Corporate Communication und Corporate Design beschreiben.',
+              'die zentralen Fragestellungen bei der Entwicklung einer Corporate Identity auf den Unternehmensalltag anwenden.'
+            ]
+          },
+          {
+            type: 'concept',
+            title: '3.1 Corporate Identity (CI)',
+            content: 'Die Corporate Identity ist die Identität und das Selbstverständnis eines Unternehmens, abgeleitet von der Unternehmens-Vision. Es handelt sich um die strategisch geplante und operativ eingesetzte Selbstdarstellung eines Unternehmens nach innen und aussen. Zur CI gehören fünf Elemente: Corporate Culture (Unternehmenskultur), Corporate Behaviour (Unternehmensverhalten), Corporate Communication (Unternehmenskommunikation), Corporate Design (visuelles Erscheinungsbild), Corporate Performance (Marktleistung).',
+            highlight: 'Corporate Identity = strategisch geplante Selbstdarstellung eines Unternehmens nach innen und nach aussen.'
+          },
+          {
+            type: 'concept',
+            title: '3.1.1 Corporate Culture',
+            content: 'Die Unternehmenskultur ist die Gesamtheit von Normen, Wertvorstellungen, Verhaltens- und Handlungsweisen, die den Charakter, den Stil, die Atmosphäre und das Erscheinungsbild eines Unternehmens prägen. Sie bestimmt das Klima, den Umgang der Menschen miteinander und strahlt nach innen und aussen aus. Hauptkategorien: Verhaltensweisen (Bräuche, Traditionen), Gruppennormen und Werte, Prinzipien (z. B. Produktqualität), Philosophie, Spielregeln, Klima, verwurzelte Talente, Denkgewohnheiten, Symbole mit Integrationskraft.',
+            highlight: 'Die Unternehmenskultur durchdringt alle Unternehmensebenen.'
+          },
+          {
+            type: 'concept',
+            title: '3.1.2-3.1.4 Corporate Behaviour, Communication & Design',
+            content: 'Corporate Behaviour ist das tatsächliche Verhalten des Unternehmens gegenüber allen Anspruchsgruppen (bedingtes monetäres und nichtmonetäres Verhalten). Daraus entsteht Glaubwürdigkeit. Corporate Communication umfasst alle strategischen Kommunikationsaktivitäten (kurz-, mittel- und langfristige Instrumente und Massnahmen). Corporate Design ist das definierte visuelle Erscheinungsbild: guter Name, Logo/Signet, sekundäre Erkennungsmerkmale, einprägsames Farbsystem, Typografie, Bildsprache, Layout-System, Claim.',
+            highlight: 'Corporate Behaviour erzeugt Glaubwürdigkeit; Corporate Design macht die Werte und Zielvorstellungen rasch sichtbar.'
+          },
+          {
+            type: 'concept',
+            title: '3.2 Corporate Image',
+            content: 'Das Corporate Image ist das Bild, das von aussen (Öffentlichkeit, Markt) wahrgenommen wird (Firmenimage/Fremdbild). Idealerweise sind Corporate Identity und Corporate Image deckungsgleich. Image ist immer eine subjektive Wahrnehmung, immer eine Wirkung (nie eine Ursache), kann nicht direkt gestaltet werden (nur beeinflusst durch Kommunikation, Verhalten, Marktleistung) und schafft Präferenzen. Neben dem Corporate Image gibt es auch Produktimage, Markenimage und Branchenimage.',
+            highlight: 'Das Corporate Image sollte im Idealfall deckungsgleich mit der Vision des Unternehmens sein.'
+          },
+          {
+            type: 'table',
+            title: 'Elemente der Corporate Identity',
+            headers: ['Begriff', 'Erklärung'],
+            rows: [
+              ['Corporate Culture', 'Alle Werte, Normen, Verhaltens- und Handlungsweisen, die den Charakter des Unternehmens prägen.'],
+              ['Corporate Communication', 'Gesamtheit der auf externe und interne Zielgruppen bezogenen, formalen Kommunikationsprozesse eines Unternehmens.'],
+              ['Corporate Behaviour', 'Das wirkliche, gelebte Verhalten eines Unternehmens, das durch die Anspruchsgruppen wahrnehmbaren Aktivitäten.'],
+              ['Corporate Design', 'Das definierte visuelle Erscheinungsbild eines Unternehmens nach innen und aussen.'],
+              ['Corporate Performance', 'Marktleistung des Unternehmens (Angebot, Fähigkeiten, vorhandene Ressourcen etc.).']
+            ]
+          },
+          {
+            type: 'merke',
+            title: 'Merke dir!',
+            items: [
+              'Corporate Identity (CI) = Selbstbild des Unternehmens nach innen und aussen.',
+              'Corporate Image = Fremdbild, wie das Unternehmen von der Öffentlichkeit wahrgenommen wird.',
+              'Im Idealfall stimmen CI und Image überein \u2013 das ist allerdings kaum zu 100% zu erreichen.',
+              'Die 5 CI-Elemente: Culture, Behaviour, Communication, Design, Performance.',
+              'Image kann nicht direkt gestaltet werden \u2013 es ist immer eine subjektive Wahrnehmung.',
+              'Der Gesamteindruck eines Unternehmens darf kein Zufall sein.'
+            ]
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              'Die <strong>Corporate Identity</strong> ist das Bild, das sich das Unternehmen nach innen und aussen gibt. Man unterscheidet fünf Bereiche: Corporate Culture, Corporate Communication, Corporate Behaviour, Corporate Design und Corporate Performance.',
+              'Das <strong>Corporate Image</strong> ist das Bild, das sich der Markt oder die Öffentlichkeit vom Unternehmen machen. Es sollte im Idealfall deckungsgleich sein mit der Vision des Unternehmens.'
+            ]
+          },
+          {
+            type: 'keyterms',
+            title: 'Schlüsselbegriffe',
+            terms: [
+              { term: 'Corporate Identity', def: 'Identität und Selbstverständnis eines Unternehmens \u2013 die strategisch geplante Selbstdarstellung nach innen und aussen.' },
+              { term: 'Corporate Culture', def: 'Gesamtheit von Normen, Wertvorstellungen und Handlungsweisen, die den Charakter des Unternehmens prägen.' },
+              { term: 'Corporate Behaviour', def: 'Das tatsächliche, gelebte Verhalten eines Unternehmens gegenüber allen Anspruchsgruppen.' },
+              { term: 'Corporate Communication', def: 'Alle strategischen Kommunikationsaktivitäten (intern und extern) eines Unternehmens.' },
+              { term: 'Corporate Design', def: 'Das definierte visuelle Erscheinungsbild (Logo, Farben, Schrift, Layout, Claim).' },
+              { term: 'Corporate Performance', def: 'Die eigentliche Marktleistung des Unternehmens als Resultat der gelebten CI.' },
+              { term: 'Corporate Image', def: 'Das Fremdbild \u2013 wie das Unternehmen von der Öffentlichkeit und dem Markt wahrgenommen wird.' }
+            ]
+          }
+        ]
+      }
     },
 
     // ============================================================
@@ -502,7 +673,108 @@ window.BOOK_DATA = {
           reveal: ['Der Grundsatz lautet: Intern vor extern.','Die internen Zielgruppen werden immer vor den externen Zielgruppen informiert.','Dies ist besonders bei kritischen Nachrichten von Bedeutung.']
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Public Relations \u2013 Grundlagen',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels können Sie ...',
+            items: [
+              'die wichtigsten Begriffe und Merkmale der Public Relations erklären und die verschiedenen PR-Arten unterscheiden.',
+              'erklären, was man unter dem standesethisch richtigen Verhalten versteht.',
+              'die Funktionen und die Wirkungsweise der Public Relations beschreiben.',
+              'die Kommunikationsinstrumente voneinander abgrenzen und die Grundprinzipien der PR beschreiben.'
+            ]
+          },
+          {
+            type: 'concept',
+            title: '4.1 Definition der Public Relations (PR)',
+            content: 'Public Relations sind die bewusste, geplante und kontinuierliche Beziehungspflege zu allen relevanten internen und externen Ziel-/Personen-/Bezugsgruppen mit dem Ziel, Verständnis und Vertrauen zu schaffen und damit gleichzeitig Ziele der Unternehmenskommunikation zu erreichen. PR soll einen Konsens mit den Teilöffentlichkeiten im Umfeld der Organisation schaffen. Besondere Aufmerksamkeit wird den Bezugsgruppen (Stakeholdern) gewidmet.',
+            highlight: 'Public Relations = Management von Kommunikationsprozessen von Organisationen mit ihren Anspruchs- resp. Dialoggruppen.'
+          },
+          {
+            type: 'concept',
+            title: '4.2 Arten der PR',
+            content: 'Es gibt verschiedene PR-Arten: PR für Unternehmen (Beziehungsmanagement innerhalb und ausserhalb), PR für öffentliche Verwaltungen (Informations- und Verständigungsprozess), PR für gemeinnützige Organisationen (Aufmerksamkeit und Goodwill für NPOs), PR für politische Organisationen (Meinungsbildung) und PR als Dienstleistung (externe PR-Spezialisten, PR-Agenturen). PR sind grundsätzlich Chefsache, aber PR-Spezialisten beraten und setzen Strategien um.',
+            highlight: 'PR sind mehr als Informationsvermittlung \u2013 sie sind Beziehungsmanagement innerhalb und ausserhalb des Unternehmens.'
+          },
+          {
+            type: 'concept',
+            title: '4.3 Ethik in den PR',
+            content: 'Für die Mitglieder von pr suisse sind der Kodex von Athen und der Kodex von Lissabon bindend. BPRA-Agenturen haben sich auf die Stockholm Charta der ICCO verpflichtet. Die drei Kodizes definieren standesethisch richtiges Verhalten: Achtung der Menschenrechte, keine Irreführung oder Täuschung, Respekt vor der Unabhängigkeit der Medien, keine Erfolgsgarantien, keine Einnahme von Rabatten oder Provisionen, Offenlegung von Interessenbindungen, Fairness gegenüber allen Bezugsgruppen.',
+            highlight: 'Ethisches Verhalten: Keine Irreführung, keine Täuschung, Respekt vor Medienunabhängigkeit, Fairness.'
+          },
+          {
+            type: 'concept',
+            title: '4.4 Funktionen und Wirkung der PR',
+            content: 'Man unterscheidet interne PR (Pflege der Beziehungen zwischen Unternehmen und Mitarbeitenden) und externe PR (Pflege der Beziehungen zu externen Bezugsgruppen wie Presse, Nachbarn, Behörden, Kunden). Interne PR fördert Wissen, Dialog, Identität, Vertrauen, Zusammengehörigkeit und Motivation. Externe PR sichert Information, positives Image, Beziehungen, Vertrauen und Transparenz.',
+            highlight: 'PR umfassen sämtliche Massnahmen zur Pflege der Beziehung zu internen Anspruchsgruppen sowie der definierten Öffentlichkeit.'
+          },
+          {
+            type: 'table',
+            title: 'Funktionen der Public Relations',
+            headers: ['Funktion', 'Beschreibung'],
+            rows: [
+              ['Informationsfunktion', 'Vermittlung von Informationen nach innen und nach aussen (Öffentlichkeit).'],
+              ['Kontaktfunktion', 'Aufbau und Aufrechterhaltung von Verbindungen zu allen relevanten Lebensbereichen.'],
+              ['Führungsfunktion', 'Repräsentation geistiger und realer Machtfaktoren und Schaffung von Verständnis für Entscheidungen.'],
+              ['Imagefunktion', 'Aufbau, Änderung und Pflege des Vorstellungsbilds von einem Meinungsgegenstand.'],
+              ['Harmonisierungsfunktion', 'Beitrag zur Harmonisierung der wirtschaftlichen und gesellschaftlichen Verhältnisse (Human Relations).'],
+              ['Absatzförderungsfunktion', 'Förderung des Absatzes durch Anerkennung in der Öffentlichkeit.'],
+              ['Stabilisierungsfunktion', 'Erhöhung der Standfestigkeit des Unternehmens in kritischen Situationen.'],
+              ['Kontinuitätsfunktion', 'Bewahrung eines einheitlichen Stils nach innen und nach aussen.']
+            ]
+          },
+          {
+            type: 'concept',
+            title: '4.6-4.7 PR-Ziele und PR-Massnahmen',
+            content: 'PR-Ziele tragen zum Erreichen von unternehmerischen Zielen bei und werden in kognitiv-orientierte (Wissen, Bekanntheit), affektiv-orientierte (Image, Vertrauen, Glaubwürdigkeit) und konativ-orientierte Ziele (Verhalten) unterteilt. PR-Massnahmen werden in interne und externe unterschieden und können mündlich (persönliche Gespräche, Veranstaltungen), schriftlich (offline: Broschüren, Berichte; online: Intranet, E-Mail, Blogs), oder akustisch/visuell (CD-Anwendungen, Fotos, Imagefilme) umgesetzt werden.',
+            highlight: 'PR-Ziele: kognitiv (Wissen), affektiv (Image/Vertrauen), konativ (Verhalten).'
+          },
+          {
+            type: 'concept',
+            title: '4.8-4.9 Abgrenzung und Organisation',
+            content: 'Die Abgrenzung zwischen Mediawerbung, Produkt-PR und Unternehmens-PR erfolgt u. a. nach Zielsetzung, Kommunikationsform, Einsatzebene, Funktion, Zielpublikum, Zutritt zu Medien, Einfluss auf Veröffentlichung, Wirkung der Botschaft, Dauer und Interessenlage. Die PR-Abteilung ist als Stabsstelle auf Stufe Unternehmensleitung organisiert, um den direkten Zugang zur Führungsspitze sicherzustellen.',
+            highlight: 'Die PR-Abteilung ist als Stabsstelle der Unternehmensleitung organisiert.'
+          },
+          {
+            type: 'merke',
+            title: 'Merke dir!',
+            items: [
+              'PR = bewusste, geplante und kontinuierliche Beziehungspflege zu allen relevanten Zielgruppen.',
+              'Grundsatz: Tue Gutes und sprich darüber.',
+              'PR sind Chefsache \u2013 aber PR-Spezialisten beraten und setzen Strategien um.',
+              'Ethik: Keine Irreführung, keine Täuschung, Respekt vor Medienunabhängigkeit.',
+              'Interne PR vor externer PR \u2013 Mitarbeitende sollen nicht aus den Medien erfahren, was im Unternehmen passiert.',
+              '8 PR-Funktionen: Information, Kontakt, Führung, Image, Harmonisierung, Absatzförderung, Stabilisierung, Kontinuität.',
+              'PR-Zielgruppen werden auch als Anspruchs-, Bezugs-, Dialoggruppen oder Stakeholder bezeichnet.'
+            ]
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              '<strong>Public Relations</strong> sind die bewusste, geplante und kontinuierliche Beziehungspflege zu allen relevanten internen und externen Zielgruppen mit dem Ziel, Verständnis und Vertrauen zu schaffen.',
+              'Man unterscheidet grundsätzlich <strong>interne PR</strong> (Pflege der Beziehungen zwischen Unternehmen und Mitarbeitenden) und <strong>externe PR</strong> (Pflege der Beziehungen zwischen Unternehmen und externen Bezugsgruppen).',
+              'Die <strong>PR-Zielgruppen, -Ziele und -Massnahmen</strong> werden ebenfalls in interne und externe aufgeteilt. Dabei gilt: Interne PR (Mitarbeitendenkommunikation) immer vor der externen PR.'
+            ]
+          },
+          {
+            type: 'keyterms',
+            title: 'Schlüsselbegriffe',
+            terms: [
+              { term: 'Public Relations', def: 'Management von Kommunikationsprozessen einer Organisation mit ihren Anspruchs-/Dialoggruppen (Stakeholdern).' },
+              { term: 'Interne PR', def: 'Pflege der Beziehungen zwischen Unternehmen und Mitarbeitenden durch kontinuierliche Information.' },
+              { term: 'Externe PR', def: 'Pflege der Beziehungen zwischen Unternehmen und externen Bezugsgruppen (Presse, Behörden, Kunden).' },
+              { term: 'Dialoggruppen / Stakeholder', def: 'Die Gruppen, mit denen das Unternehmen das Gespräch suchen und eine verbindliche Kommunikation aufbauen sollte.' },
+              { term: 'Kodex von Athen', def: 'Ethischer Verhaltenskodex für PR-Fachleute (bindend für pr suisse-Mitglieder).' },
+              { term: 'Imagefunktion', def: 'PR-Funktion zum Aufbau, zur Änderung und Pflege des Vorstellungsbilds eines Meinungsgegenstands.' },
+              { term: 'Produkt-PR', def: 'Verbraucherorientierte Medienarbeit für Produkte, Marken oder Dienstleistungen (ergänzt klassische Werbung).' }
+            ]
+          }
+        ]
+      }
     },
 
     // ============================================================
@@ -593,7 +865,89 @@ window.BOOK_DATA = {
           reveal: ['Aussage 1: Falsch \u2013 PR wirken langfristig.','Aussage 2: Richtig \u2013 Image braucht Zeit.','Aussage 3: Richtig \u2013 Grundsatz intern vor extern.']
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Public-Relations-Disziplinen',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels können Sie ...',
+            items: [
+              'die einzelnen PR-Disziplinen nennen und die Funktionsweise der jeweiligen PR-Massnahmen (Instrumente) erklären.',
+              'die jeweiligen Zielgruppen definieren und Ziele formulieren.',
+              'die Zusammenarbeit mit Medien (Media Relations) und deren Bedürfnisse erklären.',
+              'die Inhalte einer Medienmappe erklären und begründen.'
+            ]
+          },
+          {
+            type: 'table',
+            title: 'Übersicht der PR-Disziplinen',
+            headers: ['PR-Disziplin', 'Kurzbeschreibung'],
+            rows: [
+              ['Interne PR / Human Relations', 'Gestaltet die Beziehungen innerhalb der Organisation, pflegt den Dialog mit Mitarbeitenden.'],
+              ['Medienarbeit / Media Relations', 'Aufbau und Kontakt zu Redaktionen, Medienschaffenden bei allen Mediengattungen.'],
+              ['Investor Relations', 'Kommunikation mit Gruppen, die ein finanzielles Interesse am Unternehmen haben (Anleger, Analysten, Banken).'],
+              ['Public Affairs / Lobbying', 'Kommunikation mit politischen Institutionen und Personen im Umfeld des Unternehmens.'],
+              ['Community Relations', 'Standort-PR, richtet sich an die Standortbevölkerung und das nachbarschaftliche Umfeld.'],
+              ['Krisen-PR', 'Konzeption von PR-Strategien und -Massnahmen in kritischen Situationen zur Wahrung der Glaubwürdigkeit.'],
+              ['Produkt-PR', 'Medienarbeit für ein Produkt oder eine Dienstleistung (ergänzt klassische Werbe- und VKF-Massnahmen).']
+            ]
+          },
+          {
+            type: 'concept',
+            title: '5.1.1 Interne PR / Human Relations',
+            content: 'Die interne Kommunikation umfasst die Botschaftsübermittlung zwischen den Mitarbeitenden auf unterschiedlichen hierarchischen Ebenen. Es gibt zwei Formen: die interne Unternehmenskommunikation (Transparenz, Glaubwürdigkeit) und die externe Kommunikation (wirtschaftliche Beziehungen und Öffentlichkeitsarbeit). Zentraler Grundsatz: intern vor extern. Funktionen: Identifizierung mit dem Unternehmen, Dialog, Verständnis für Entscheidungen, Motivation. Instrumente: Bulletin Boards, Team-Treffen, Betriebsversammlung, Newsletter, E-Mail, Blogs, Intranet.',
+            highlight: 'Grundsatz der Unternehmenskommunikation: Intern vor extern \u2013 interne Zielgruppen immer zuerst informieren.'
+          },
+          {
+            type: 'concept',
+            title: '5.1.2 Medienarbeit / Media Relations',
+            content: 'Die Medienarbeit umfasst die Bereitstellung von Informationen für die Medien, die Nutzung von Medien für die gezielte Platzierung eigener Botschaften sowie die Herstellung und Verbreitung von Medienerzeugnissen. Zwei Zielgruppen: Empfänger von Medienbotschaften und Medienschaffende. Medienarbeit ist eine Querschnittsaufgabe für sämtliche Aufgabenstellungen der PR. Wichtig: Klare Trennung zwischen redaktionellem Text und Veröffentlichungen zu werblichen Zwecken (keine Schleichwerbung).',
+            highlight: 'Medienarbeit ist die Querschnittsaufgabe für sämtliche Aufgabenstellungen der Public Relations.'
+          },
+          {
+            type: 'concept',
+            title: '5.1.3-5.1.4 Investor Relations und Public Affairs',
+            content: 'Investor Relations (IR) umfassen die professionelle Kommunikation mit allen Finanz- und Kapitalmarktrelevanten Zielgruppen (Investoren, Analysten, Medien). Standards: Transparenz, Ehrlichkeit, Verständlichkeit, Glaubwürdigkeit, Kontinuität. Instrumente: Jahresbericht, Generalversammlung, Medienkonferenzen, Aktionärsbriefe, Lobbying. Public Affairs (PA) gestalten die betrieblichen Beziehungen zur sozialen und politischen Umwelt. Lobbying bezeichnet die Beziehungspflege zu Schlüsselpersonen in Politik und Wirtschaft.',
+            highlight: 'IR: Transparenz, Ehrlichkeit, Verständlichkeit, Glaubwürdigkeit, Kontinuität.'
+          },
+          {
+            type: 'merke',
+            title: 'Merke dir!',
+            items: [
+              'Es gibt 7 PR-Disziplinen: Interne PR, Media Relations, Investor Relations, Public Affairs, Community Relations, Krisen-PR, Produkt-PR.',
+              'Media Relations ist die zentrale Disziplin \u2013 eine Querschnittsaufgabe für alle PR-Bereiche.',
+              'Grundsatz: Intern vor extern \u2013 interne Zielgruppen immer zuerst informieren.',
+              'PR wirken langfristig \u2013 Image kann nur langfristig gebildet und beurteilt werden.',
+              'Schleichwerbung ist unethisch: Klare Trennung zwischen redaktionellem Text und Werbung.',
+              'Unterbinden Sie keine Initiativen von Mitarbeitenden zur Verbesserung der Kommunikation.'
+            ]
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              'Die Public Relations arbeiten mit unterschiedlichen Disziplinen. Je nach Zielsetzung und Strategie werden folgende <strong>PR-Disziplinen</strong> unterschieden: Interne PR / Human Relations, Medienarbeit / Media Relations, Produkte-PR, Investor Relations, Public Affairs / Lobbying, Standort-PR / Community Relations, Krisen-PR.',
+              'Eine der Hauptaufgaben von PR-Schaffenden sind die <strong>Media Relations</strong>. Denn alle PR-Disziplinen brauchen Medienschaffende, um die PR-Botschaft in den definierten Medien zu publizieren.',
+              'Für die Publikation von Informationen gilt der zentrale Grundsatz: <strong>Intern vor extern</strong>. Die internen Zielgruppen werden immer vor den externen Zielgruppen informiert.'
+            ]
+          },
+          {
+            type: 'keyterms',
+            title: 'Schlüsselbegriffe',
+            terms: [
+              { term: 'Media Relations', def: 'Aufbau und Pflege des Kontakts zu Redaktionen und Medienschaffenden \u2013 Querschnittsaufgabe der PR.' },
+              { term: 'Investor Relations', def: 'Professionelle Kommunikation mit Finanz- und Kapitalmarktrelevanten Zielgruppen.' },
+              { term: 'Public Affairs', def: 'Gestaltung der Beziehungen zur sozialen und politischen Umwelt des Unternehmens.' },
+              { term: 'Lobbying', def: 'Beziehungspflege zu Schlüsselpersonen in Politik und Wirtschaft zur Interessenvertretung.' },
+              { term: 'Community Relations', def: 'Standort-PR \u2013 richtet sich an die Standortbevölkerung und das nachbarschaftliche Umfeld.' },
+              { term: 'Krisen-PR', def: 'Konzeption von PR-Strategien und -Massnahmen in kritischen Situationen zur Wahrung der Glaubwürdigkeit.' },
+              { term: 'Produkt-PR', def: 'Verbraucherorientierte Medienarbeit für Produkte, Marken oder Dienstleistungen.' },
+              { term: 'Medienmitteilung', def: 'Zentrales Instrument der Medienarbeit zur Kommunikation von Neuigkeiten an die Presse.' }
+            ]
+          }
+        ]
+      }
     },
 
     // ============================================================
@@ -692,7 +1046,100 @@ window.BOOK_DATA = {
           reveal: ['Aussage 1: Richtig \u2013 zwei Perspektiven der Markenwertberechnung.','Aussage 2: Falsch \u2013 Dachmarke = keine isolierte Positionierung.','Aussage 3: Richtig \u2013 Definition der Positionierung.','Aussage 4: Falsch \u2013 Marke = Vermögenswert.']
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Markenpflege und -führung',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels können Sie ...',
+            items: [
+              'die Markenbegriffe erläutern.',
+              'die Funktionen einer Marke beschreiben.',
+              'Methoden zur Berechnung des Markenwerts nennen.',
+              'erläutern, wie Markenentscheidungen getroffen werden, und darauf aufbauend eine Markenstrategie definieren.',
+              'eine Positionierung als Basis einer starken Markenstrategie vornehmen.'
+            ]
+          },
+          {
+            type: 'concept',
+            title: '6.1 Markenbegriffe',
+            content: 'Eine Marke im rechtlichen Sinn ist ein geschütztes Kennzeichen, mit dem ein Unternehmen seine Waren oder Dienstleistungen von solchen anderer Unternehmen unterscheidet. Aus Sicht des Marketings ist eine Marke ein Vorstellungsbild in den Köpfen der Konsumenten \u2013 ein individuelles, differenzierendes Versprechen, das Produkte, Dienstleistungen oder Unternehmen an ihre Kunden binden soll.',
+            highlight: 'Eine Marke ist ein Vorstellungsbild in den Köpfen der Konsumenten und dient der Identifikation, Differenzierung und Vertrauensbildung.'
+          },
+          {
+            type: 'keyterms',
+            title: 'Schlüsselbegriffe Marke',
+            terms: [
+              { term: 'Marke (Brand)', def: 'Ein Name, Begriff, Zeichen, Symbol oder eine Kombination daraus zur Kennzeichnung und Differenzierung von Produkten/Dienstleistungen.' },
+              { term: 'Markenname', def: 'Der verbal wiedergebbare, artikulierbare Teil der Marke (z. B. Ovomaltine, Rivella, Ferrari).' },
+              { term: 'Markenzeichen', def: 'Der erkennbare, aber nicht verbal wiedergebbare Teil der Marke (z. B. ein Symbol, eine Farbgebung, eine Schrift).' },
+              { term: 'Warenzeichen', def: 'Eine rechtlich geschützte Marke, die dem Anbieter die ausschliessliche Nutzung des Namens oder Zeichens sichert.' },
+              { term: 'Urheberrecht (Copyright)', def: 'Der Markeninhaber hat durch Eintragung beim Institut für Geistiges Eigentum das ausschliessliche Nutzungsrecht für einen Markennamen und ein Markenzeichen.' }
+            ]
+          },
+          {
+            type: 'concept',
+            title: '6.2 Funktion der Marke',
+            content: 'Marken schaffen einen echten Unternehmenswert durch Überlebensfähigkeit, Differenzierung und Kapitalisierbarkeit. Für den Kunden erfüllt die Marke wichtige Funktionen: Identifikation (Wiedererkennung), Orientierungshilfe (präferenzprägende Funktion bei der Auswahl), Vertrauen (durch Bekanntheit und Ruf), Qualitätsversprechen (Garantie für Sicherheit und Kompetenz) sowie Image- und Prestigefunktion.',
+            highlight: 'Die Marke sichert die Überlebensfähigkeit von Unternehmen und dient dem Kunden als Identifikation, Orientierungshilfe, Qualitätsversprechen und Vertrauensgeber.'
+          },
+          {
+            type: 'concept',
+            title: '6.3 Wert einer Marke',
+            content: 'Der Markenwert kann aus zwei Perspektiven betrachtet werden: Die finanzwirtschaftliche Perspektive berechnet den Markenwert als Summe der zukünftig generierbaren Erträge (z. B. Interbrand, Brand Finance). Die Marketingperspektive (verhaltenswissenschaftliche Perspektive) bezieht sich auf den Erfolg der Marke bei Konsumenten (z. B. BrandAsset Valuator mit den Faktoren Differenzierung, Relevanz, Wertschätzung und Vertrautheit).',
+            highlight: 'Der Markenwert wird finanzwirtschaftlich (zukünftige Erträge) oder aus Marketingperspektive (Wahrnehmung bei Konsumenten) berechnet.'
+          },
+          {
+            type: 'concept',
+            title: '6.4 Markenstrategien',
+            content: 'Grundlegende Markenstrategien berücksichtigen drei Kriterien: Institutionelle Stellung des Markenträgers (Herstellermarke, Dienstleistungsmarke, Handelsmarke), Geographische Reichweite (regional, national, international) und Zahl der markierten Güter (Einzelmarke, Dachmarke, Familienmarke). Bei der Markendehnung gibt es drei Markenentwicklungsstrategien: Linienerweiterung (Line Extension), Markenerweiterung (Brand Extension) und Mehrmarkenstrategie (Multibrands). Sollte eine Markendehnung keine Option sein, kommt die Markeneinführung (New Brand) in Frage.',
+            highlight: 'Grundlegende Markenstrategien: Einzelmarke, Dachmarke, Familienmarke. Markendehnungsstrategien: Linienerweiterung, Markenerweiterung, Mehrmarkenstrategie.'
+          },
+          {
+            type: 'table',
+            title: 'Vor- und Nachteile der Markenstrategien',
+            headers: ['Strategieansatz', 'Vorteile', 'Nachteile'],
+            rows: [
+              ['Einzelmarke', 'Kann sehr genau im Zielsegment positioniert werden. Mehrere Marken im selben Markt möglich.', 'Hoher Aufwand. Jede Marke muss das gesamte Markenbudget allein tragen.'],
+              ['Dachmarke', 'Vorteile bei Einführung neuer Produkte. Geringeres Risiko, da Konsumenten die Marke kennen. Kostenvorteile.', 'Unklare Profilierung einzelner Produkte. Dominoeffekt bei Krisen (Imagetransfer).'],
+              ['Familienmarke', 'Profitiert von Profilierungsvorteilen der Einzelmarke und Kostenvorteilen der Dachmarke.', 'Nachteile der Einzel- und Dachmarkenstrategie müssen nicht explizit in Kauf genommen werden, Gefahr besteht aber trotzdem.']
+            ]
+          },
+          {
+            type: 'concept',
+            title: '6.5 Strategische Positionierung',
+            content: 'Die Positionierung ist ein zentraler Bestandteil und Basis einer Marken- und Kommunikationsstrategie. Es geht darum zu bestimmen, wie das Unternehmen bzw. die Marke aufgrund der aktuellen Marktstellung von den Hauptzielgruppen in Bezug auf die wichtigsten Mitbewerber mittel- bis langfristig gesehen werden möchte. Die Entwicklung einer strategischen Positionierung erfolgt in 4 Schritten: (1) Analyse des Wahrnehmungsraums aus Kundensicht, (2) Einbeziehung von Konkurrenzunternehmen, (3) Festlegung der strategischen Positionierung (Soll-Positionierung), (4) Gegenüberstellung der Ist- und Soll-Position.',
+            highlight: 'Die strategische Positionierung bestimmt, wie ein Unternehmen von den Zielgruppen im Vergleich zur Konkurrenz wahrgenommen werden soll. Sie ist Ausgangspunkt jeder Markenstrategie.'
+          },
+          {
+            type: 'keyterms',
+            title: 'Schlüsselbegriffe Positionierung',
+            terms: [
+              { term: 'USP (Unique Selling Proposition)', def: 'Ein einzigartiger, leistungsspezifischer Produktvorteil des Produkt- und Preis-Mix (z. B. Innovation, Langlebigkeit, Design, Technologie, Vertrieb).' },
+              { term: 'UCP (Unique Communication Proposition)', def: 'Ein einzigartiges Kommunikationsargument, das die fehlende Leistungsdifferenz durch eine kommunikative Differenzierung kompensiert.' },
+              { term: 'Positionierungsraum', def: 'Der Entscheidungs- und Wahrnehmungsraum, in dem Konsumenten Produkte nach Nutzenversprechen bewerten. Ist ein abstraktes Gebilde in den Köpfen der Abnehmer.' },
+              { term: 'Positioning Statement', def: 'Ein schlagwortartiger Kurzsatz, der die Schlüsselelemente zusammenfasst, die eine Marke ausmachen und sie von Konkurrenzprodukten unterscheiden.' }
+            ]
+          },
+          {
+            type: 'merke',
+            title: 'Merke: Verwässerungsgefahr',
+            content: 'Bei Linien- und Markenerweiterung besteht das Risiko der Verwässerung einer Marke. Beim Versuch, eine Marke an veränderte Wünsche und Bedürfnisse anzupassen, kann das bisher aufgebaute Image eine schwer zu überbrückende Barriere darstellen. Um- und Neupositionierungen von Marken erfordern Know-how und viel Fingerspitzengefühl. Bei Linienerweiterungen sowie bei Mehrmarkenstrategien besteht zudem die Gefahr der Kannibalisierung der Kernmarke.'
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              'Markenentscheidungen sind Orientierungspunkt für alle Massnahmen der Kommunikationspolitik, denn eine gute <strong>Marke</strong> stellt einen echten Vermögenswert für das Unternehmen dar, indem sie die Differenzierung von der Konkurrenz ermöglicht.',
+              'Der <strong>Markenwert</strong> kann aus finanzwirtschaftlicher Perspektive (Summe zukünftig generierbarer Erträge) oder aus Marketing-Perspektive (Wirkung der Marke auf Konsumenten) berechnet werden.',
+              '<strong>Grundlegende Markenstrategien</strong> (bei Einführung neuer Marken) berücksichtigen 3 Kriterien: Eigentümer der Marke (Hersteller-/Handelsmarke), Geografische Reichweite (regional, national, international), Zahl der markierten Güter (Einzelmarken, Dachmarken, Familienmarkenstrategien).',
+              'Bei der Markendehnung gibt es 3 <strong>Markenentwicklungsstrategien</strong>: Linienerweiterung, Markenerweiterung, Mehrmarkenstrategie \u2013 oder die Möglichkeit einer Markeneinführung.',
+              'Die <strong>strategische Positionierung</strong> ist Ausgangspunkt jeder Markenstrategie. Dabei steht die Wahrnehmung der Kunden im Vergleich zur Konkurrenz im Vordergrund, woraus eine <strong>USP</strong> oder <strong>UCP</strong> abgeleitet wird.'
+            ]
+          }
+        ]
+      }
     },
 
     // ============================================================
@@ -795,7 +1242,86 @@ window.BOOK_DATA = {
           reveal: ['Aussage 1: Falsch \u2013 auch formale und erweiterte Leistung.','Aussage 2: Falsch \u2013 Cross-Selling = ergänzend.','Aussage 3: Richtig \u2013 drei Phasen.','Aussage 4: Richtig \u2013 ganzheitlicher Ansatz.']
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Kundenbeziehungsmanagement I: Relationship Marketing',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels können Sie ...',
+            items: [
+              'die Entwicklung des Kundenbeziehungsmanagements zum CRM darstellen.',
+              'die Faktoren der Kundenbindung beschreiben.',
+              'die zwei Möglichkeiten der Kundenpflege erläutern.'
+            ]
+          },
+          {
+            type: 'concept',
+            title: '7.1 Begriffsdefinition',
+            content: 'Das zentrale Element des Relationship Marketings (Kundenbeziehungsmarketing) ist die Fokussierung auf die Etablierung langfristiger Kundenbeziehungen mit bestehenden Kunden. Ein möglichst grosser Teil der Marketing- und Verkaufsressourcen soll statt in die Neukundengewinnung in das Kundenbeziehungsmanagement investiert werden. Relationship Marketing ist eine ganzheitliche Unternehmensführung durch abteilungsübergreifende Integration aller kundenbezogener Prozesse in Marketing, Vertrieb, Kundendienst, Forschung und Entwicklung.',
+            highlight: 'Die Kundenbindung stellt die zentrale Denkhaltung im Marketing dar und prägt sämtliche Marketing- und Kommunikationsmassnahmen mit.'
+          },
+          {
+            type: 'concept',
+            title: '7.1.2 Der Kundenlebenszyklus',
+            content: 'Der Kundenlebenszyklus beschreibt den zeitlichen Verlauf und die unterschiedlichen Phasen einer Kundenbeziehung. Er besteht aus drei Hauptphasen: (1) Kundenakquisition (Recruitment) mit Anbahnungs- und Sozialisationsphase, (2) Kundenbindung (Retention) mit Wachstums- und Reifephase, (3) Kundenrückgewinnung (Recovery) mit Gefährdungs-, Auflösungs- und Abstinenzphase.',
+            highlight: 'Der Kundenlebenszyklus besteht aus drei Phasen: Kundenakquisition (Recruitment), Kundenbindung (Retention) und Kundenrückgewinnung (Recovery).'
+          },
+          {
+            type: 'concept',
+            title: '7.1.3 Kundenzufriedenheit und Kundenbindung',
+            content: 'Kundenzufriedenheit ist eine wichtige Voraussetzung für Kundenbindung und -loyalität. Das Zufriedenheitsniveau wird in drei Ebenen unterteilt: Enttäuschte Kunden (Erwartungen nicht erfüllt), Zufriedene Kunden (Erwartungen in etwa erfüllt) und Begeisterte Kunden (Erwartungen übertroffen). Die Kundenbindung erfolgt über psychologische Bindung (Vertrauen, Kundenloyalität, Zugehörigkeitsgefühl) und faktische Bindung (ökonomische, vertragliche, technologische Wechselbarrieren).',
+            highlight: 'Kundenbindung basiert auf psychologischer Bindung (Kundenverbundenheit) und faktischer Bindung (Kundengebundenheit). Variety Seeking kann trotz Zufriedenheit zu Abwanderung führen.'
+          },
+          {
+            type: 'table',
+            title: 'Vorteile des Relationship Marketing',
+            headers: ['Rentabilitätsaspekte', 'Wachstumsaspekte', 'Sicherheitsaspekte'],
+            rows: [
+              ['Geringere Transaktionskosten bei Stammkunden', 'Mehr Weiterempfehlungen durch Stammkunden', 'Grössere Planungssicherheit durch stabile Geschäftsbeziehungen'],
+              ['Erkennen von zukünftigem Nutzen von Beziehungen', 'Vermehrte Cross-Buying-Effekte (Zusatzkäufe)', 'Höhere Fehlertoleranz der Kunden (Beschwerdemanagement)'],
+              ['Steigende Rentabilität von Stammkunden im Zeitverlauf', 'Höhere Kauffrequenz im Verlauf der Geschäftsbeziehung', 'Kundenbindung als Markteintrittsbarriere']
+            ]
+          },
+          {
+            type: 'concept',
+            title: '7.2 Customer Relationship Management \u2013 CRM',
+            content: 'CRM umfasst einerseits ein umfassendes kundenorientiertes, technologiegestütztes Kunden-Managementkonzept, andererseits ein rein operatives technologisches Instrument zur Bearbeitung von Kundendaten. CRM stellt den Kunden in den Mittelpunkt und ermöglicht eine differenzierte Bearbeitung verschiedener Kundensegmente. Die CRM-Datenbank dient zur differenzierten Kundenbearbeitung mit Funktionen wie Kontaktdaten, Kontaktmanagement, Kommunikation, Marketing und Vertrieb, Zugriff/Erreichbarkeit, Archiv, Reporting, Kompatibilität und Datenschutz.',
+            highlight: 'CRM ist ein ganzheitlicher Ansatz der Unternehmensführung. Es integriert alle kundenbezogenen Prozesse in Marketing, Vertrieb, Kundendienst sowie Forschung und Entwicklung.'
+          },
+          {
+            type: 'concept',
+            title: '7.3 Massnahmen des Relationship Marketing',
+            content: 'Die wichtigsten Leitgedanken eines erfolgreichen Relationship Marketing sind: Kundenorientierung (konsequente Ausrichtung an den Bedürfnissen der Kunden), Langfristigkeit der Kundenbeziehungen, Wirtschaftlichkeitsorientierung (Fokus auf langfristig profitable Kunden, Customer Lifetime Value), Individualisierung der Kundenbeziehung, Systematisierung (über den gesamten Kundenbeziehungslebenszyklus) und Effizienz- und Effektivitätssteigerungen.',
+            highlight: 'Kundenbindung kann über psychologische oder faktische Massnahmen erreicht werden. Cross-Selling und Up-Selling sind zentrale Instrumente zur Umsatzsteigerung bei bestehenden Kunden.'
+          },
+          {
+            type: 'keyterms',
+            title: 'Schlüsselbegriffe',
+            terms: [
+              { term: 'Relationship Marketing', def: 'Kundenbeziehungsmarketing mit Fokus auf langfristige Beziehungen zu bestehenden Kunden.' },
+              { term: 'CRM (Customer Relationship Management)', def: 'Ganzheitlicher Ansatz zur Unternehmensführung, der alle kundenbezogenen Prozesse integriert und optimiert.' },
+              { term: 'Kundenlebenszyklus', def: 'Die drei Phasen einer Kundenbeziehung: Akquisition (Recruitment), Bindung (Retention), Rückgewinnung (Recovery).' },
+              { term: 'Cross-Selling', def: 'Zusatzverkäufe von ergänzenden Produkten an bestehende Kunden (Kernangebot wird mit flankierenden Produkten erweitert).' },
+              { term: 'Up-Selling', def: 'Verkauf von höherwertigen Produkten an bestehende Kunden zur Steigerung der Zahlungsbereitschaft.' },
+              { term: 'Customer Lifetime Value', def: 'Der langfristige Wert eines Kunden als Grundlage für die Wirtschaftlichkeitsorientierung im Relationship Marketing.' },
+              { term: 'Variety Seeking', def: 'Wunsch des Kunden nach Abwechslung, der trotz Zufriedenheit zum Wechsel von Marke, Produkt oder Anbieter führen kann.' }
+            ]
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              'Das <strong>Relationship Marketing</strong> konzentriert sich auf die Etablierung langfristiger Kundenbeziehungen mit bestehenden Kunden.',
+              'Das <strong>Customer Relationship Management (CRM)</strong> ist ein ganzheitlicher Ansatz der Unternehmensführung. Es integriert alle kundenbezogenen Prozesse in Marketing, Vertrieb, Kundendienst sowie Forschung und Entwicklung.',
+              'In <strong>CRM-Datenbanken</strong> werden Daten erfasst und analysiert, was eine differenzierte und individualisierte Kundenansprache während der gesamten <strong>Customer Journey</strong> ermöglicht.',
+              'Der <strong>Kundenlebenszyklus</strong> besteht aus drei Phasen: Kundenakquisition (Recruitment), Kundenbindung (Retention) und Kundenrückgewinnung (Recovery).',
+              '<strong>Kundenzufriedenheit</strong> ist Voraussetzung für langfristige Kundenbindung, wobei zwischen der Kernleistung, der formalen Leistung und der erweiterten Leistung zu unterscheiden ist.',
+              'Massnahmen zur Kundenbindung umfassen <strong>Cross-Selling</strong> (Zusatzverkäufe) und <strong>Up-Selling</strong> (Verkauf höherwertiger Produkte).'
+            ]
+          }
+        ]
+      }
     },
 
     // ============================================================
@@ -893,7 +1419,92 @@ window.BOOK_DATA = {
           reveal: ['Aussage 1: Falsch \u2013 Warmakquise = bestehende Kontakte.','Aussage 2: Richtig \u2013 Kunde ruft an.','Aussage 3: Falsch \u2013 verbunden = emotional.','Aussage 4: Richtig \u2013 Rückgewinnung günstiger.']
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Kundenbeziehungsmanagement II: persönliche Kommunikation',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels können Sie ...',
+            items: [
+              'eine Analyse von Privatkunden durchführen.',
+              'die verschiedenen Kundenarten erläutern.',
+              'Ziele und Methoden der persönlichen Kommunikation entlang des Kundenlebenszyklus anwenden.',
+              'zurückzugewinnende Kunden mittels Berechnung des Kundenwerts bestimmen.'
+            ]
+          },
+          {
+            type: 'concept',
+            title: '8.1 Kundenanalyse',
+            content: 'Die Kundenanalyse dient der Bewertung bestehender, ehemaliger und potenzieller Kunden hinsichtlich ihrer Bedürfnisse, ihrer Attraktivität und ihres Optimierungspotenzials. Kunden werden in Segmente eingeteilt. Für die Segmentierung gelten dieselben Kriterien wie übergeordnet im Marketing: Geografische Kriterien (Land, Region, PLZ), Demografische Kriterien (Alter, Geschlecht, Einkommen), Psychologische Kriterien (Lebensstil, Einstellungen, Motive) und Kriterien des Verhaltens (Kaufhäufigkeit, Markenwahl, Mediennutzung).',
+            highlight: 'Es ist 10-mal billiger, einen bestehenden Kunden zu pflegen, zu binden und die Kundenbeziehung zu intensivieren, als einen neuen Kunden zu akquirieren.'
+          },
+          {
+            type: 'concept',
+            title: '8.2 Kundenarten',
+            content: 'Kundenarten werden nach drei Perspektiven unterschieden: Nach den Umständen des Kaufs (Sehkunde, Laufkunde, Stammkunde), nach dem Verhalten des Kunden (der redselige Kunde, der schweigsame Kunde, der reizbare Kunde, der ruhige Kunde, der unentschlossene Kunde, der sichere Kunde), und nach der Kundenbeziehung (Bestehende Kunden: verbundene und gebundene; Ehemalige Kunden: Kündiger, Schläfer, Reduzierer; Variety Seekers; Potenzielle Kunden).',
+            highlight: 'Im Beziehungsmarketing ist hauptsächlich die Kundenart nach der Beziehung entscheidend: Bestehende, Ehemalige, Variety Seekers und Potenzielle Kunden.'
+          },
+          {
+            type: 'table',
+            title: 'Kundenarten nach Umständen des Kaufs',
+            headers: ['Kundenart', 'Kundenverhalten', 'Verkäuferverhalten'],
+            rows: [
+              ['Sehkunde', 'Information, Preisvergleich, Zeitüberbrückung', 'Nicht aufdrängen, bei Bedarf bereitwillig Auskünfte geben, auf Qualität und Angebote hinweisen.'],
+              ['Laufkunde', 'Beabsichtigter Kauf, weil Angebot preisgünstig ist, oder kommt zufällig vorbei.', 'Auf Preis und Angebot anderer Waren aufmerksam machen, versuchen einen Stammkunden zu machen.'],
+              ['Stammkunde', 'Freut sich, wenn er ins Geschäft kommt. Besuch kann auch aus Notwendigkeit sein.', 'Zuvorkommende, persönliche und individuelle Bedienung und Betreuung.']
+            ]
+          },
+          {
+            type: 'concept',
+            title: '8.3 Ziele und Methoden der persönlichen Kommunikation',
+            content: 'Die persönliche Kommunikation ist ein zentrales Element des Relationship Marketing. Ihre Ziele orientieren sich an den drei Phasen des Kundenlebenszyklus: Kundenakquisition (Recruitment) mittels Kalt- und Warmakquise, v. a. durch Telefonmarketing; Kundenbindung (Retention) durch Fokussierung auf Schlüsselkunden (Key Accounts) und persönliche Kundenverbindung; Kundenrückgewinnung (Recovery) durch individuelle Rückgewinnungsmassnahmen basierend auf dem Kundenwert.',
+            highlight: 'Die persönliche Kommunikation spielt entlang des gesamten Kundenlebenszyklus eine wichtige Rolle: bei der Akquisition, der Kundenbindung und der Rückgewinnung.'
+          },
+          {
+            type: 'concept',
+            title: '8.3.1 Kundenakquisition \u2013 Telefonmarketing',
+            content: 'Die am häufigsten eingesetzte Massnahme der persönlichen Kommunikation bei der Kundenakquisition ist das Telefonmarketing. Man unterscheidet zwischen passivem Telefonmarketing (Initiative vom Kunden: Bestellungen, Anfragen, Reklamationen, Service) und aktivem Telefonmarketing (Initiative vom Verkäufer: Gewinnung von Interessenten, Vereinbarung von Terminen, Nachfassen von Offerten, direkte Verkäufe). Unter Kaltakquisition versteht man die direkte Kontaktaufnahme mit potenziellen Kunden ohne vorherigen Kontakt. Warmakquisition konzentriert sich auf bestehende Kontakte.',
+            highlight: 'Beim aktiven Telefonmarketing dürfen nur Kunden, ehemalige Kunden und Interessierte, die zuvor ihr Einverständnis gegeben haben, kontaktiert werden.'
+          },
+          {
+            type: 'concept',
+            title: '8.3.2 Kundenbindung \u2013 Key Accounts',
+            content: 'Bei der Kundenbindung erfolgt die Fokussierung oft auf Schlüsselkunden (Key Accounts) mit hohem Kundenwert und hohem Umsatz oder strategischer Bedeutung. Key Accounts werden durch Verkaufsleiter oder spezialisierte Schlüsselkundenbetreuer (Key Account Manager) persönlich betreut. Die Kundenbindung läuft auf zwei Ebenen: der fachlichen (Austausch der Güter) und der persönlichen, zwischenmenschlichen Ebene. Massnahmen umfassen u. a.: Kundenklub, Kundenextra, persönliche Ansprechperson, Feedback einholen, Beschwerden ernst nehmen, persönliche Atmosphäre, exklusive Angebote.',
+            highlight: 'Unternehmen mit erfolgreicher Kundenbindung generieren zwischen 4% und 8% höhere Erträge.'
+          },
+          {
+            type: 'concept',
+            title: '8.3.3 Kundenrückgewinnung',
+            content: 'Die Kundenrückgewinnung beginnt mit der Identifikation abgewanderter Kunden (Kündiger, Schläfer, Reduzierer), gefolgt von einer Analyse des Kundenwerts. Der Brutto-Kundenwert ergibt sich aus Durchschnittsumsatz pro Kunde x Kaufhäufigkeit pro Jahr x Beziehungsdauer in Jahren. Der Netto-Kundenwert erhält man nach Abzug der Kosten für Bearbeitung und Betreuung. Individuelle Rückgewinnungsmassnahmen umfassen: bevorzugter Kontaktweg, individuelles Rückgewinnungsangebot, zusätzliche Serviceleistungen und Problemlösungen. Selbst bei Misserfolg werden wertvolle Informationen über Abwanderungsgründe gesammelt.',
+            highlight: 'Zur Berechnung des Brutto-Kundenwerts: Durchschnittsumsatz pro Kunde x Kaufhäufigkeit pro Jahr x Beziehungsdauer in Jahren. Minus Kosten = Netto-Kundenwert.'
+          },
+          {
+            type: 'keyterms',
+            title: 'Schlüsselbegriffe',
+            terms: [
+              { term: 'Kundenanalyse', def: 'Bewertung bestehender, ehemaliger und potenzieller Kunden hinsichtlich Bedürfnisse, Attraktivität und Optimierungspotenzial.' },
+              { term: 'Segmentierung', def: 'Einteilung in homogene Kundengruppen nach geografischen, demografischen, psychologischen und verhaltensbezogenen Kriterien.' },
+              { term: 'Kaltakquisition', def: 'Direkte Kontaktaufnahme mit potenziellen Kunden, zu denen bisher keine Beziehung besteht.' },
+              { term: 'Warmakquisition', def: 'Kontaktaufnahme mit bestehenden Kontakten oder Interessenten, zu denen bereits eine Beziehung aufgebaut werden konnte.' },
+              { term: 'Key Accounts', def: 'Schlüsselkunden mit hohem Kundenwert, die persönlich durch Verkaufsleiter oder Key Account Manager betreut werden.' },
+              { term: 'Kundenwert', def: 'Der wirtschaftliche Wert eines Kunden, berechnet aus Durchschnittsumsatz x Kaufhäufigkeit x Beziehungsdauer, abzüglich Bearbeitungskosten.' },
+              { term: 'Stammkunde', def: 'Kunde, der regelmässig und wiederholt bei einem Unternehmen einkauft und eine emotionale Bindung aufgebaut hat.' }
+            ]
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              'Bei der <strong>Kundenanalyse</strong> werden bestehende, ehemalige und potenzielle Kunden betreffend ihre Bedürfnisse, ihre Attraktivität und ihr Optimierungspotenzial bewertet.',
+              'Anschliessend wird mit dem Wissen um die verschiedenen <strong>Kundenarten</strong> das persönliche Verkaufsgespräch vorbereitet. Die persönliche Kommunikation spielt entlang des gesamten Kundenlebenszyklus eine wichtige Rolle.',
+              'Bei der <strong>Akquisition</strong> geht es um die Gewinnung von neuen Kunden oder Mandaten durch persönliche Ansprache. Mittels Telefonmarketing kann Kalt- und Warmakquise betrieben werden.',
+              'Bei der <strong>Kundenbindung</strong> steht die Betreuung von Schlüsselkunden (Key Accounts) im Vordergrund.',
+              'Bei der <strong>Kundenrückgewinnung</strong> werden bei denjenigen Kunden mit einem hohen Kundenwert individuelle Rückgewinnungsmassnahmen definiert. Die definierten Angebote werden durch persönliche Kommunikation vermittelt.'
+            ]
+          }
+        ]
+      }
     },
 
     // ============================================================
@@ -973,7 +1584,69 @@ window.BOOK_DATA = {
           reveal: ['Aussage 1: Richtig \u2013 dauerhafter Regelkreis.','Aussage 2: Richtig \u2013 unmittelbarer Austausch.','Aussage 3: Falsch \u2013 auch gedruckte Medien (Mitarbeitendenzeitung etc.).']
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Mitarbeitendenkommunikation',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels können Sie ...',
+            items: [
+              'die Notwendigkeit einer funktionierenden Mitarbeitendenkommunikation erläutern.',
+              'Ziele und Methoden der Mitarbeitendenkommunikation erklären und anwenden.',
+              'die verschiedenen Strategiearbeiten der Mitarbeitendenkommunikation aufführen.',
+              'die verschiedenen Massnahmen der Mitarbeitendenkommunikation beschreiben.'
+            ]
+          },
+          {
+            type: 'concept',
+            title: '9.1 Mitarbeitendenkommunikation',
+            content: 'In der Unternehmens- und der Marketingkommunikation nimmt die Mitarbeitendenkommunikation einen besonderen Stellenwert ein. Zur Mitarbeitendenkommunikation gehören alle Massnahmen des Managements, die der Kommunikation mit den Mitarbeitenden dienen. Sie ist ein zentrales Element der Unternehmenskultur (Corporate Culture) sowie der Unternehmens- und der Marketingkommunikation. Die Mitarbeitendenkommunikation muss langfristig geplant, auch in hektischen oder wirtschaftlich kritischen Zeiten lückenlos umgesetzt und zu jeder Zeit ehrlich und glaubwürdig sein.',
+            highlight: 'Die Mitarbeitendenkommunikation ist ein zentrales Element der Unternehmenskultur (Corporate Culture) sowie der Unternehmens- und der Marketingkommunikation.'
+          },
+          {
+            type: 'concept',
+            title: '9.1.1 Grundsätze der Mitarbeitendenkommunikation',
+            content: 'Die interne Kommunikation bezeichnet den Dialog zwischen den Vorgesetzten und ihren Mitarbeitenden sowie den täglichen Austausch zwischen den Mitarbeitenden selbst. Damit der interne Dialog gelingt, müssen folgende Faktoren berücksichtigt werden: Reichweite (die richtigen Kommunikationskanäle für das Unternehmen auswählen), Echtzeit (alle Informationen müssen in Echtzeit zugänglich sein, z. B. via Intranet), Transparenz (Mitarbeitende im Voraus über Veränderungen informieren), Interaktion (Mitarbeitende in Entscheidungen einbinden) und Glaubwürdigkeit (Walk as you talk \u2013 Management muss Vorbild sein).',
+            highlight: 'Motivierte Mitarbeitende prägen zudem die persönliche Kommunikation zur externen Zielgruppe, was essenziell ist für ein erfolgreiches Relationship Marketing.'
+          },
+          {
+            type: 'concept',
+            title: '9.1.2 Strategien der Mitarbeitendenkommunikation',
+            content: 'Mitarbeitendenkommunikation bezieht sich auf verbale und nonverbale Kommunikation und unterscheidet zwischen formeller (offiziell definierte Kanäle) und informeller Kommunikation (Flurfunk, Gerüchteküche). Sie verläuft in vier Richtungen: Vertikale Kommunikation (wechselseitig zwischen verschiedenen Hierarchieebenen), Horizontale Kommunikation (wechselseitig auf gleicher Hierarchieebene), Top-down-Kommunikation (einseitig von Führungsebene zu Mitarbeitenden) und Bottom-up-Kommunikation (einseitig von Mitarbeitenden zu Führungsebene). Die vier grundsätzlichen Themenbereiche sind: Information, Wissenstransfer, Dialog und Motivation.',
+            highlight: 'Erfolgreiche Mitarbeitendenkommunikation ist themen- oder anlassbezogen, eindeutig (Botschaft), zielgenau (Adressat) und termingerecht.'
+          },
+          {
+            type: 'concept',
+            title: '9.1.3 Instrumente der Mitarbeitendenkommunikation',
+            content: 'Wichtige Instrumente der Mitarbeitendenkommunikation sind: Persönliche Kommunikation (direkter Austausch zwischen Geschäftsleitung, Kader und Mitarbeitenden \u2013 nichts kann die persönliche Interaktion ersetzen), Newsletter (One-Way-Kommunikation für allgemeine Informationen), Intranet (Social Intranet mit dynamischer Wissensvermittlung und Interaktionsmöglichkeiten), Mitarbeitendenzeitung (allgemeine Informationen wie Unternehmensanlässe, Team-Aktivitäten) und Mitarbeitendenblog (Mitarbeitende berichten persönlich über ihren Arbeitsalltag).',
+            highlight: 'Die Mitarbeitendenkommunikation ist ein dauerhafter Regelkreis, der ununterbrochen weitergeführt und betrieben werden muss.'
+          },
+          {
+            type: 'keyterms',
+            title: 'Schlüsselbegriffe',
+            terms: [
+              { term: 'Mitarbeitendenkommunikation', def: 'Alle Massnahmen des Managements, die der Kommunikation mit den Mitarbeitenden dienen (direkt und über Kommunikationsmittel).' },
+              { term: 'Vertikale Kommunikation', def: 'Wechselseitige Kommunikation zwischen Mitarbeitenden auf unterschiedlichen Hierarchieebenen.' },
+              { term: 'Horizontale Kommunikation', def: 'Wechselseitige Kommunikation zwischen Mitarbeitenden auf gleicher Hierarchieebene.' },
+              { term: 'Top-down-Kommunikation', def: 'Einseitige Kommunikation von der Führungsebene zu den Mitarbeitenden.' },
+              { term: 'Bottom-up-Kommunikation', def: 'Einseitige Kommunikation von Mitarbeitenden zu Führungsebene (Berichte, Reportings).' },
+              { term: 'Intranet / Social Intranet', def: 'Digitale Plattform für die interne Kommunikation, die in Echtzeit relevante Informationen zugänglich macht und Interaktion ermöglicht.' }
+            ]
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              'Bei der <strong>Mitarbeitendenkommunikation</strong> werden bestehende, idealerweise auch ehemalige und potenzielle Mitarbeitende betreffend ihre Bedürfnisse und ihre Motivation angesprochen und das Optimierungspotenzial der Kommunikationsprozesse laufend beurteilt und umgesetzt.',
+              'Anschliessend werden mit dem Wissen um die unterschiedlichen Kommunikationsbedürfnisse der <strong>internen Zielgruppen</strong> die geeigneten Massnahmen vorbereitet.',
+              'Bei der direkten, persönlichen Mitarbeitendenkommunikation steht der unmittelbare <strong>Informationsaustausch</strong> im Vordergrund.',
+              'Bei der indirekten Mitarbeitendenkommunikation über <strong>Kommunikationsmittel</strong> liegt der Fokus auf der mehrheitlich einseitigen Informationsübermittlung zuhanden der Adressaten.',
+              'Die Mitarbeitendenkommunikation ist ein dauerhafter <strong>Regelkreis</strong>, der ununterbrochen weitergeführt und betrieben werden muss.'
+            ]
+          }
+        ]
+      }
     },
 
     // ============================================================
@@ -1060,7 +1733,90 @@ window.BOOK_DATA = {
           reveal: ['Aussage 1: Richtig \u2013 PESO-Modell.','Aussage 2: Falsch \u2013 Owned Media = zielgerichtet.','Aussage 3: Richtig \u2013 Kundenmagazin reduziert Abhängigkeit.']
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Corporate Media',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels können Sie ...',
+            items: [
+              'den Begriff Corporate Media (Corporate Publishing) definieren.',
+              'die Bedeutung von Storytelling innerhalb der Corporate Media erläutern.',
+              'die Instrumente bzw. Medien von Corporate Media aufzählen und deren Einsatzgebiet erklären.'
+            ]
+          },
+          {
+            type: 'concept',
+            title: '10.1 Die vier Grundarten von Content (PESO-Modell)',
+            content: 'Das PESO-Modell unterscheidet vier Grundarten von Content: Owned Content (Inhalt, über den Kommunikationsfachleute volle Kontrolle haben \u2013 z. B. Blog, Website, Newsroom), Paid Content (Inhalt, bei dem volle Kontrolle über die Reichweite besteht \u2013 z. B. Banner, Display, bezahlte Unterstützung), Earned Content (Inhalt, den sich ein Unternehmen verdienen muss \u2013 z. B. redaktionelle PR, Textplatzierungen, Interviews) und Social Content (Inhalt, der gemeinsam mit der Öffentlichkeit gestaltet wird \u2013 z. B. Postings, Kommentare, Forenbeiträge).',
+            highlight: 'Die vier Content-Arten im PESO-Modell: Paid (bezahlt), Earned (verdient), Social (geteilt), Owned (eigener Inhalt).'
+          },
+          {
+            type: 'concept',
+            title: '10.2 Was sind Corporate Media?',
+            content: 'Unter Corporate Media (CM) bzw. Corporate Publishing (CP) versteht man die journalistische und periodische Unternehmenskommunikation mit eigenen Medien (Owned Media). Corporate Publishing umfasst traditionell Printerzeugnisse wie Kundenzeitschriften, Mitarbeiterzeitschriften und Firmenzeitungen. Hinzu kommen Corporate-TV, Corporate Blogs und Mobile Communication. Die Instrumente des CM lassen sich in interne Zielgruppen (Unternehmenspublikationen, Haus- und Mitarbeiterpublikationen, E-Mail-Newsletter, Corporate-TV) und externe Zielgruppen (Geschäftsberichte, Imagebroschüren, Kundenpublikationen, Corporate Books, Online-Plattformen, Blogs und Podcasts) unterteilen.',
+            highlight: 'Corporate Media sind vom Unternehmen selbst erstellte und verbreitete Inhalte (Owned Media), die zielgruppennahe Mitarbeiter- und Kundenpublikationen umfassen.'
+          },
+          {
+            type: 'concept',
+            title: '10.3 Merkmale der Corporate Media',
+            content: 'Wichtige Grundsätze der Corporate Media sind: Inhalt (journalistische Aufbereitung, die durch Relevanz und Glaubwürdigkeit überzeugt statt durch werbliche Ansprache), Kontinuität (stetige Präsenz zur langfristigen Vermittlung von Botschaften und Vertrauensbildung), Mehrwert (besondere Aufmerksamkeit und Wertschätzung durch Einladungen zu Events, Klubvorteile, Service-Hotlines, Coupons), Individualität (individuelle Ausrichtung an die verschiedenen Zielgruppen) und Crossmediale Vernetzung (optimale Vernetzung aller Kommunikationskanäle für Synergieeffekte).',
+            highlight: 'Corporate Media liefern wertvolle Markeninhalte: Inhalt, Kontinuität, Mehrwert, Individualität und crossmediale Vernetzung sind die zentralen Grundsätze.'
+          },
+          {
+            type: 'concept',
+            title: '10.4 Storytelling',
+            content: 'Geschichten gewinnen eher die Aufmerksamkeit des Publikums als Hard Facts und bleiben deutlich länger im Gedächtnis haften. Die Idee hinter Storytelling: Nicht das Produkt, sondern das Bedürfnis dahinter steht im Fokus. Die wichtigsten Regeln: Jede Geschichte braucht einen guten Grund (Relevanz), muss zum richtigen Zeitpunkt erzählt werden (Aufhänger), braucht einen Helden (Fokus) und einen roten Faden (Stringenz), jede gute Geschichte berührt emotional, und man erzählt keine Geschichte zweimal.',
+            highlight: 'Storytelling: Nicht das Produkt, sondern das Bedürfnis dahinter steht im Fokus. Eine gute Storyline funktioniert unabhängig vom Kommunikationskanal.'
+          },
+          {
+            type: 'concept',
+            title: '10.5 Massnahmen der Corporate Media',
+            content: 'Die wichtigsten Instrumente für interne Zielgruppen sind: Intranet / Social Intranet (zentrale redaktionelle Bereitstellung und dynamische Wissensvermittlung), Hauszeitungen (Berichterstattung über unternehmerische Aktivitäten), Mitarbeiterzeitschriften (Verbreitung unternehmens- und branchenrelevanter Informationen). Für externe Zielgruppen: Kundenzeitschriften (periodisch erscheinende Instrumente der Unternehmenskommunikation), Geschäftsberichte (Jahresrechnung, Lagebericht, Konzernrechnung \u2013 zentrales Mittel der Selbstdarstellung), Corporate Books, Corporate TV/Audio, E-Mail-Newsletter, Corporate Blogs/Vlogs/Podcasts und Corporate Social Media.',
+            highlight: 'Corporate Media können für interne Zielgruppen (Mitarbeitende) und externe Zielgruppen (Kunden, Händler) eingesetzt werden.'
+          },
+          {
+            type: 'table',
+            title: 'Blog-Arten und ihre Funktionen',
+            headers: ['Blog-Art', 'Beschreibung'],
+            rows: [
+              ['Knowledge', 'Erfahrungsspeicher der Organisation, persönliche Journale der Mitarbeitenden.'],
+              ['Meeting', 'Protokollieren Inhalte von Treffen, können via Passwort geschlossen geführt werden.'],
+              ['Service', 'Zusätzliche Informationen zu Produkten, Verbesserungsvorschläge ermöglichen.'],
+              ['Kampagnen', 'Temporär angelegt, unterstützen PR- oder Werbekampagnen.'],
+              ['Themen', 'Unternehmen zeigen Kompetenz in relevanten Bereichen (z. B. Gesundheitsthemen).'],
+              ['Produkt und Marken', 'Produkt steht im Mittelpunkt, bei Marken-Blogs die Marke.'],
+              ['Customer Relationship', 'Schaffung einer Community, die an die Marke binden soll.'],
+              ['CEO oder Executive', 'Mitglieder des Vorstands schreiben persönlich und namentlich.'],
+              ['Employee', 'Weblogs von Mitarbeitenden \u2013 Unternehmen stellt lediglich Technik und Raum bereit.']
+            ]
+          },
+          {
+            type: 'keyterms',
+            title: 'Schlüsselbegriffe',
+            terms: [
+              { term: 'Corporate Media / Corporate Publishing', def: 'Journalistische und periodische Unternehmenskommunikation mit eigenen Medien (Owned Media).' },
+              { term: 'PESO-Modell', def: 'Vier Grundarten von Content: Paid (bezahlt), Earned (verdient durch PR), Social (geteilt in sozialen Medien), Owned (eigene Medien).' },
+              { term: 'Owned Content', def: 'Inhalte, über die das Unternehmen volle Kontrolle hat (Blog, Website, Newsroom), aber wenig Kontrolle über Reichweite.' },
+              { term: 'Storytelling', def: 'Präsentationsform, bei der Informationen in Geschichten verpackt werden, um Emotionen zu wecken und im Gedächtnis zu bleiben.' },
+              { term: 'Kundenzeitschrift', def: 'Periodisch erscheinendes Instrument der Unternehmenskommunikation im Zeitschriften- oder Zeitungslayout mit redaktionellem Inhalt.' },
+              { term: 'Corporate Social Media', def: 'Einsatz von Social-Media-Webseiten und Social-Media-Marketing-Aktivitäten von Unternehmen.' }
+            ]
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              'Die Digitalisierung sowie die Nutzung der Online-Medien bringt sowohl Vorteile als auch Nachteile mit sich. Auf der einen Seite haben Nutzer eine grosse Auswahl an Kanälen, auf der anderen Seite resultiert daraus eine starke <strong>Informationsüberflutung</strong>.',
+              'Hier kommt <strong>Corporate Publishing</strong> ins Spiel: mittels Owned Media (unternehmenseigene Medien) kann zielgerichteter kommuniziert werden.',
+              'Ein <strong>Corporate Blog</strong> auf der Unternehmenswebseite bietet mehr Content und Potenzial, besser von der Zielgruppe gefunden zu werden.',
+              'Ein <strong>Kundenmagazin</strong> ersetzt in Teilen die Abhängigkeit von Fachmedien als eigenes Medium für relevante Informationen.',
+              'Ein <strong>Mitarbeitermagazin</strong> kann den Employer Brand stärken und die Wertschätzung der eigenen Mitarbeitenden verdeutlichen.'
+            ]
+          }
+        ]
+      }
     },
 
     // ============================================================
@@ -1151,7 +1907,81 @@ window.BOOK_DATA = {
           reveal: ['Aussage 1: Richtig \u2013 Briefing-Inhalte.','Aussage 2: Falsch \u2013 Partnerschaft ist entscheidend.','Aussage 3: Richtig \u2013 drei Evaluationswege.','Aussage 4: Richtig \u2013 17,65% BSW/ASW-Satz.']
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Zusammenarbeit mit Agenturen',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels können Sie ...',
+            items: [
+              'die Aufgaben des Kommunikationsmanagers beschreiben.',
+              'die wichtigsten Arten von Kommunikationsagenturen nennen.',
+              'die wichtigsten Faktoren der Zusammenarbeit mit einer Kommunikationsagentur erläutern.',
+              'ein vollständiges Kommunikationsbriefing erstellen.'
+            ]
+          },
+          {
+            type: 'concept',
+            title: '11.1 Arten von Kommunikationsagenturen',
+            content: 'Ein Unternehmen ist in vielen Bereichen nicht in der Lage, sämtliche Kommunikationsaufgaben intern wahrzunehmen. Gründe dafür sind: fehlendes Spezialwissen, nicht ausreichende Kreativität, fehlende Beziehungen zu Medienschaffenden, knappe interne Ressourcen und Betriebsblindheit. Die sechs wichtigsten Typen von Kommunikationsagenturen sind: Werbeagenturen, PR-Agenturen, Mediaagenturen, Online-Kommunikations-Agenturen, Event-Agenturen und Sponsoring-Agenturen.',
+            highlight: 'Es gibt spezialisierte Agenturen für beinahe jeden Fachbereich: Werbe-, PR-, Media-, Online-Kommunikations-, Event- und Sponsoring-Agenturen.'
+          },
+          {
+            type: 'concept',
+            title: '11.1.1 Werbeagenturen',
+            content: 'Eine Werbeagentur ist ein Dienstleistungsunternehmen, das die Beratung, Konzeption, Planung, Gestaltung und Realisierung von Werbe- und sonstigen Kommunikationsmassnahmen übernimmt. Eine Full-Service-Werbeagentur bietet das gesamte Leistungsspektrum an: Marktforschung, Konsumentenforschung, Mediaforschung; Entwicklung von Kommunikationsstrategien; Konzeption, Gestaltung und Produktion; Analyse und Kontrolle der Werbewirkung. Etats werden meist über Pitches (Wettbewerbe) vergeben. Wichtige Berufe in Agenturen: Beratung, Account Planning, Kreation sowie Berater/Grafiker/Texter.',
+            highlight: 'Eine Full-Service-Werbeagentur bietet das gesamte Spektrum von Marktforschung über Strategieentwicklung bis zur Werbewirkungskontrolle.'
+          },
+          {
+            type: 'concept',
+            title: '11.1.2-11.1.6 Weitere Agenturtypen',
+            content: 'PR-Agenturen können die komplette Öffentlichkeitsarbeit übernehmen: PR-Konzepte entwickeln, Pressemeldungen schreiben, Kundenzeitschriften entwerfen sowie den Kontakt zu Redaktoren und die Pflege des Medienverteilers übernehmen. Mediaagenturen beraten bei der Streuung eines Werbeetats in verschiedenen Medien und erstellen Mediastrategien und -pläne (inkl. Mediaeinkauf). Online-Kommunikations-Agenturen konzentrieren sich auf das digitale Marketing (Websites, SEO, Content-Marketing, Social Media, Affiliate Marketing). Event-Agenturen sind auf die Organisation und Abwicklung von Events spezialisiert. Sponsoring-Agenturen helfen bei der Steigerung des Bekanntheits- und Sympathiegrads.',
+            highlight: 'Mediaagenturen erstellen Mediastrategien und -pläne; Online-Agenturen kümmern sich um den gesamten digitalen Auftritt eines Unternehmens.'
+          },
+          {
+            type: 'concept',
+            title: '11.2 Evaluation einer Kommunikationsagentur',
+            content: 'Bei der Evaluation einer Agentur werden drei Auswahlverfahren unterschieden: (1) Direktwahl \u2013 intuitive Agenturwahl aufgrund früherer Kontakte, Empfehlungen oder bekannter Kampagnen. Variante: Vergabe eines Einzelauftrags. (2) Agenturpräsentation \u2013 eine Shortlist von 3 bis 4 Kandidaten wird zusammengestellt, basierend auf Bekanntheit, Referenzen und Presseberichten. Die Beurteilung erfolgt nach gleichen Kriterien mittels Checkliste. (3) Wettbewerbspräsentation (Pitch) \u2013 Agenturen erarbeiten Strategien und Ideen auf Basis eines Briefings.',
+            highlight: 'Drei Evaluationswege: Direktwahl (intuitiv), Agenturpräsentation (Shortlist 3-4 Kandidaten), Wettbewerbspräsentation/Pitch (mit echten Problemlösungen).'
+          },
+          {
+            type: 'concept',
+            title: '11.3 Honorare und Entschädigung',
+            content: 'Die drei häufigsten Entschädigungsarten in der Zusammenarbeit mit Kommunikationsagenturen sind: Agenturhonorar (Abrechnung nach Aufwand oder pauschal), Kommission/Provision (prozentuale Vergütung auf vermitteltes Medievolumen \u2013 der BSW/ASW-Satz beträgt 17,65% auf die Nettokosten) und Success Fee (erfolgsabhängige Vergütung). Die wichtigste Grundlage einer erfolgreichen Zusammenarbeit ist eine partnerschaftliche Beziehung zwischen Auftraggeber und Agentur.',
+            highlight: 'Die drei häufigsten Entschädigungsarten: Agenturhonorar, Kommission/Provision (17,65% BSW/ASW-Satz) und Success Fee.'
+          },
+          {
+            type: 'methodenbox',
+            title: 'Kommunikationsbriefing',
+            text: 'Das Kommunikationsbriefing ist das zentrale Instrument der Zusammenarbeit zwischen Auftraggeber und Agentur. Es enthält folgende Elemente: (1) Vollständige Auftraggeberadresse, (2) Aufgabe/Rahmenbedingungen (Projektbeschreibung, Abgrenzung, Timing), (3) Situationale Frage: Markt, Distribution, Käufer/Konsumenten, Beeinflusser, Konkurrenz, Vorschriften/Bedingungen, Informationslücken, (4) Ausrichtung/Soll-Positionen: Visionen, Marketingziele, Marketingstrategie, Potenzial, (5) Positionierung/Wettbewerbsvorteile (USP, SEP, UCP), (6) Kommunikationsplattform (Leitbild, Corporate Design, Visual Identity, Kommunikationsziele), (7) Eigene Umsetzungsideen, (8) Zeitplan/Termine, (9) Budgetrahmen, (10) Verantwortlichkeiten.'
+          },
+          {
+            type: 'keyterms',
+            title: 'Schlüsselbegriffe',
+            terms: [
+              { term: 'Kommunikationsagentur', def: 'Spezialisiertes Dienstleistungsunternehmen für die Beratung, Konzeption, Planung und Realisierung von Kommunikationsmassnahmen.' },
+              { term: 'Full-Service-Werbeagentur', def: 'Werbeagentur, die das gesamte Massnahmenspektrum von Marktforschung bis Werbewirkungskontrolle anbietet.' },
+              { term: 'Pitch', def: 'Wettbewerbspräsentation, bei der Agenturen Strategien und Ideen erarbeiten und dem Auftraggeber präsentieren.' },
+              { term: 'Kommunikationsbriefing', def: 'Das zentrale Instrument der Zusammenarbeit \u2013 ein umfassendes Dokument mit Aufgabe, Situationsanalyse, Soll-Positionen und Rahmenbedingungen.' },
+              { term: 'Agenturhonorar', def: 'Vergütung der Agentur nach Aufwand oder pauschal für erbrachte Dienstleistungen.' },
+              { term: 'Mediaagentur', def: 'Spezialisierter Dienstleister für die Streuung von Werbeetats, Erstellung von Mediastrategien und -plänen sowie Mediaeinkauf.' },
+              { term: 'Account Planning', def: 'Agenturbereich, der Briefings an die Kreativabteilung erstellt und für die Kontrolle der Kommunikationsstrategie zuständig ist.' }
+            ]
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              'Die <strong>Zusammenarbeit mit Kommunikationsagenturen</strong> bietet sich an, wenn Spezialwissen und die fachlich bestmögliche Realisierung spezifischer Kommunikationsaufgaben gefordert sind.',
+              'Es gibt spezialisierte Agenturen für beinahe jeden Fachbereich, z. B. <strong>Werbe-, PR-, Media-, Online-Kommunikations-, Event- und Sponsoring-Agenturen</strong>.',
+              'Kommunikationsprojekte können dann erfolgreich geplant und umgesetzt werden, wenn diese möglichst gemeinsam und <strong>partnerschaftlich durch Auftraggeber und Agenturen</strong> entwickelt werden.',
+              'Bei der <strong>Evaluation der Agenturen</strong> gibt es drei Wege: Direktwahl, Agenturpräsentation und Wettbewerbspräsentation (Pitch).',
+              'Ein wichtiges Instrument der Zusammenarbeit ist das <strong>Kommunikationsbriefing</strong>, das alle relevanten Informationen für die Agentur strukturiert zusammenfasst.'
+            ]
+          }
+        ]
+      }
     }
   ],
 

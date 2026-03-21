@@ -39,7 +39,41 @@ window.BOOK_DATA = {
           tips: [], reveal: []
         }
       ],
-      learningData: null
+      learningData: {
+        sections: [
+          { type: 'intro', title: 'Lernziele', items: [
+            'Eine Uebersicht ueber das Rechnungswesen mit Haupt- und Nebenbereichen geben.',
+            'Einige wichtige Zwillingsbegriffe nennen.'
+          ]},
+          { type: 'keyterms', title: 'Schluesselbegriffe', terms: [
+            { term: 'Aufgaben, Instrumente und Bereiche des Rechnungswesens', def: 'Kernthemen dieses Kapitels' }
+          ]},
+          { type: 'concept', title: 'Das Rechnungswesen als Servicefunktion', content: 'Das Rechnungswesen erfuellt im Unternehmen eine Servicefunktion und dient der Unternehmensfuehrung als wichtige Entscheidungsgrundlage. Es wird eingesetzt als Planungs- und Entscheidungsinstrument, Kontrollinstrument und Fuehrungsinstrument.', highlight: 'Servicefunktion fuer Planung, Entscheidung, Kontrolle und Fuehrung' },
+          { type: 'table', title: 'Bereiche des Rechnungswesens', headers: ['Hilfsbereiche', 'Hauptbereiche', 'Ergaenzungen / Auswertung'], rows: [
+            ['Debitorenbuchhaltung', 'Finanzbuchhaltung (FIBU)', 'Konzernrechnung'],
+            ['Kreditorenbuchhaltung', 'Betriebsbuchhaltung (BEBU)', 'Bilanz- und Erfolgsanalyse'],
+            ['Kassenbuchhaltung', 'Erfassung Geschaeftsverkehr', 'Planung, Budgetierung'],
+            ['Lohnbuchhaltung', 'Erfolgsrechnung, Bilanz', 'Controlling, Statistiken'],
+            ['Anlagenbuchhaltung', 'BAB, Kalkulation', 'Sonderrechnungen'],
+            ['Lagerbuchhaltung', 'Break-even-Analysen', 'Investitionsrechnungen'],
+            ['Inventur / Inventar', '', '']
+          ]},
+          { type: 'merke', title: 'Intern vs. Extern', content: 'Die Finanzbuchhaltung (externes RW) richtet sich an aussenstehende Anspruchsgruppen und dient vor allem zur Dokumentation. Die Betriebsbuchhaltung (internes RW) ist eine rein interne Rechnungslegung fuer Fuehrungsaufgaben.' },
+          { type: 'concept', title: 'Austausch mit den Maerkten', content: 'Ein Unternehmen tauscht ueber Maerkte Gueter und Geld aus: Auf Beschaffungsmaerkten ist es Nachfrager (Kauf gegen Geld), auf Absatzmaerkten Anbieter (Verkauf gegen Geld). Auf Kapitalmaerkten ist es sowohl Nachfrager als auch Anbieter.', highlight: 'Beschaffungsmarkt, Absatzmarkt, Kapitalmarkt' },
+          { type: 'table', title: 'Wichtige Begriffspaare im Rechnungswesen', headers: ['Begriff', 'Erklaerung'], rows: [
+            ['Ausgaben / Einnahmen', 'Beziehen sich auf Geld. Ein Geldabgang ist eine Ausgabe, ein Geldzugang eine Einnahme.'],
+            ['Aufwand / Ertrag', 'Begriffe der Erfolgsrechnung. Aufwand = Wertverzehr (mindert Reinvermoegen), Ertrag = Wertzuwachs (mehrt Reinvermoegen).'],
+            ['Kosten / Leistungen', 'Analoge Begriffe zu Aufwand / Ertrag in der Betriebsbuchhaltung.'],
+            ['Abgaenge / Zugaenge', 'Beziehen sich auf Bestaende von Vermoegens- oder Kapitalposten. Die Bilanz weist diese aus.']
+          ]},
+          { type: 'summary', title: 'Zusammenfassung', items: [
+            'Das Rechnungswesen erfuellt eine Servicefunktion fuer Planung, Entscheidung, Kontrolle und Fuehrung.',
+            'Die Hauptbereiche sind die Finanzbuchhaltung und die Betriebsbuchhaltung.',
+            'Ein einfaches Unternehmensmodell ordnet die Gueter- und Geldfluesse ueber Beschaffungs-, Absatz- und Kapitalmaerkte.',
+            'Bestimmte Begriffspaare (wie Aufwand / Ertrag, Kosten / Leistungen) sind fuer das Fachgebiet zentral.'
+          ]}
+        ]
+      }
     },
 
     // ============================================================
@@ -122,7 +156,45 @@ window.BOOK_DATA = {
           tips: [], reveal: []
         }
       ],
-      learningData: null
+      learningData: {
+        sections: [
+          { type: 'intro', title: 'Lernziele', items: [
+            'Eine Bilanz in der Gliederung gemaess Kontenrahmen KMU lesen.',
+            'Wichtige Bilanzpositionen und die Zusammenhaenge zwischen ihnen selbststaendig erklaeren.'
+          ]},
+          { type: 'keyterms', title: 'Schluesselbegriffe', terms: [
+            { term: 'Aktiven', def: 'Vermoegensseite der Bilanz (links): Was ist an Vermoegen vorhanden?' },
+            { term: 'Passiven', def: 'Kapitalseite der Bilanz (rechts): Wer hat Kapital zur Verfuegung gestellt?' },
+            { term: 'Bilanzsumme', def: 'Total Aktiven = Total Passiven' },
+            { term: 'Eigenkapital', def: 'Differenz zwischen Aktiven und Fremdkapital (Reinvermoegen)' },
+            { term: 'Fremdkapital', def: 'Schulden gegenueber Dritten' },
+            { term: 'Umlaufvermoegen', def: 'Kurzfristig verfuegbare Vermoegenswerte (Kasse, Post, Forderungen, Vorraete)' },
+            { term: 'Anlagevermoegen', def: 'Langfristig gebundene Vermoegenswerte (Finanzanlagen, Mobile/Immobile Sachanlagen)' }
+          ]},
+          { type: 'concept', title: 'Grundgleichung der Bilanz', content: 'Die Bilanz zeigt das Vermoegen (Aktiven) und das Kapital (Passiven) eines Unternehmens an einem bestimmten Stichtag. Es gilt immer:\n\nAktiven = Passiven\nAktiven = Fremdkapital + Eigenkapital\nEigenkapital = Aktiven - Fremdkapital\n\nDas Bilanzgleichgewicht ist immer gewahrt. Das Eigenkapital bringt die Bilanz zum Ausgleich.', highlight: 'Aktiven = Fremdkapital + Eigenkapital' },
+          { type: 'merke', title: 'Zeitpunktrechnung', content: 'Die Bilanz ist eine Zeitpunktrechnung. Sie zeigt Vermoegen, Schulden und Reinvermoegen, die zu einem bestimmten Zeitpunkt vorhanden sind. Das Wort Bilanz stammt vom italienischen bilancia = Waage.' },
+          { type: 'table', title: 'Grobgliederung der Bilanz (vier Bloecke)', headers: ['Aktiven (Vermoegen)', 'Passiven (Kapital)'], rows: [
+            ['Umlaufvermoegen (UV): Fluessige Mittel, Forderungen, Vorraete, aktive RA', 'Kurzfristiges Fremdkapital (kfr. FK): Verbindlichkeiten L+L, Bankschulden kfr., passive RA'],
+            ['Anlagevermoegen (AV): Finanzanlagen, Mobile Sachanlagen, Immobile Sachanlagen', 'Langfristiges Fremdkapital (lfr. FK): Darlehen, Hypotheken, lfr. Rueckstellungen'],
+            ['', 'Eigenkapital (EK): Grund-/Stammkapital, Reserven, Gewinnvortrag, Jahresgewinn']
+          ]},
+          { type: 'concept', title: 'Goldene Bilanzregel und NUV', content: 'Langfristig gebundenes Vermoegen (AV) muss durch langfristiges Kapital (lfr. FK + EK) gedeckt sein. Das Nettoumlaufvermoegen (NUV) ergibt sich als Differenz aus UV und kfr. FK und sollte positiv sein.', highlight: 'NUV = Umlaufvermoegen - kurzfristiges Fremdkapital > 0' },
+          { type: 'table', title: 'Eigenkapital nach Rechtsform', headers: ['Rechtsform', 'Eigenkapitalpositionen'], rows: [
+            ['Einzelunternehmen', 'Eigenkapital des Inhabers, Privat'],
+            ['Kollektivgesellschaft', 'Kapital A, Kapital B, Kapital C usw.'],
+            ['Aktiengesellschaft (AG)', 'Aktienkapital, Partizipationskapital, Reserven, Gewinnvortrag/Verlustvortrag, Jahresgewinn'],
+            ['GmbH', 'Stammkapital, Reserven, Gewinnvortrag, Jahresgewinn']
+          ]},
+          { type: 'summary', title: 'Zusammenfassung', items: [
+            'Die Bilanz ist eine summarische Uebersicht zu Vermoegen, Fremd- und Eigenkapital an einem Stichtag.',
+            'Aktiven = Passiven, Aktiven = FK + EK, EK = Aktiven - FK.',
+            'Aktivseite zeigt die Zusammensetzung des Vermoegens und wie das Kapital investiert wurde.',
+            'Passivseite zeigt die Zusammensetzung des Kapitals und wie das Vermoegen finanziert wurde.',
+            'Das Eigenkapital ist die Differenz zwischen Vermoegen und Schulden und traegt das unternehmerische Risiko.',
+            'Die Bilanz wird in vier Bloecke gegliedert: UV, AV, kfr. FK, lfr. FK und EK.'
+          ]}
+        ]
+      }
     },
 
     // ============================================================
@@ -199,7 +271,39 @@ window.BOOK_DATA = {
           tips: [], reveal: []
         }
       ],
-      learningData: null
+      learningData: {
+        sections: [
+          { type: 'intro', title: 'Lernziele', items: [
+            'Eine Erfolgsrechnung in der Gliederung gemaess Kontenrahmen KMU lesen und wichtige Positionen umschreiben.',
+            'Den Aufbau einer mehrstufigen Erfolgsrechnung verstehen und die Zwischenresultate interpretieren.'
+          ]},
+          { type: 'keyterms', title: 'Schluesselbegriffe', terms: [
+            { term: 'Aufwand', def: 'Wertverzehr (Ressourcenverbrauch), mindert das Reinvermoegen.' },
+            { term: 'Ertrag', def: 'Wertzuwachs, mehrt das Reinvermoegen.' },
+            { term: 'Erfolg', def: 'Differenz zwischen Ertrag und Aufwand. Gewinn (positiv) oder Verlust (negativ).' },
+            { term: 'EBITDA', def: 'Betriebsergebnis vor Abschreibungen, Zinsen und Steuern.' },
+            { term: 'EBIT', def: 'Betriebsergebnis vor Zinsen und Steuern.' },
+            { term: 'EBT', def: 'Betriebsergebnis vor Steuern.' }
+          ]},
+          { type: 'merke', title: 'Zeitraumrechnung', content: 'Die Erfolgsrechnung ist eine Zeitraumrechnung. Sie zeigt die erfolgswirksamen Vorgaenge waehrend einer bestimmten Periode.' },
+          { type: 'concept', title: 'Stufung der Erfolgsrechnung', content: 'Im betrieblichen Bereich werden Aufwaende und Ertraege aus der eigentlichen Geschaeftstaetigkeit erfasst. Im neutralen Bereich betriebsfremde, periodenfremde oder ausserordentliche Erfolge.\n\nBetriebsgewinn + Neutraler Erfolg = Unternehmensgewinn', highlight: 'Betriebsgewinn + Neutraler Erfolg = Unternehmensgewinn' },
+          { type: 'table', title: 'Mehrstufige ER (Berichtsform)', headers: ['Stufe', 'Berechnung'], rows: [
+            ['Betrieblicher Ertrag aus L+L', 'Nettoerl\u00f6se'],
+            ['- Material-/Warenaufwand', '= Bruttoergebnis 1'],
+            ['- Personalaufwand', '= Bruttoergebnis 2'],
+            ['- Uebriger Betriebsaufwand', '= EBITDA'],
+            ['- Abschreibungen', '= EBIT'],
+            ['+/- Finanzerfolg', '= EBT'],
+            ['+/- Neutraler Erfolg, - Steuern', '= Jahresgewinn/-verlust']
+          ]},
+          { type: 'summary', title: 'Zusammenfassung', items: [
+            'Die ER ist eine Zeitraumrechnung und weist den Erfolg (Gewinn/Verlust) aus.',
+            'Aufwand = Wertverzehr, Ertrag = Wertzuwachs.',
+            'Wichtige Zwischenergebnisse: EBITDA, EBIT und EBT.',
+            'Branchentypische und branchenunabhaengige Erfolgsposten werden unterschieden.'
+          ]}
+        ]
+      }
     },
 
     // ============================================================
@@ -349,7 +453,36 @@ window.BOOK_DATA = {
           tips: [], reveal: []
         }
       ],
-      learningData: null
+      learningData: {
+        sections: [
+          { type: 'intro', title: 'Lernziele', items: [
+            'Den Zusammenhang zwischen Bilanz und Erfolgsrechnung erklaeren.',
+            'Die Unterschiede zwischen erfolgswirksamen und -unwirksamen Geschaeftsfaellen darlegen.',
+            'Den Rechnungszyklus einer Periode nachvollziehen.',
+            'Den doppelten Erfolgsnachweis und die Erfolgsverwendung darstellen.',
+            'Die Liquiditaetswirksamkeit von Geschaeftsfaellen erkennen und die Berechnung des Cashflows vornehmen.'
+          ]},
+          { type: 'concept', title: 'Erfolgswirksam vs. erfolgsunwirksam', content: 'Erfolgswirksame Vorgaenge betreffen je einen Erfolgs- und einen Bilanzposten und veraendern einseitig das Reinvermoegen. Erfolgsunwirksame Vorgaenge betreffen nur Bilanzposten (Aktivtausch, Passivtausch, Aktiv-Passiv-Mehrung/-Minderung).', highlight: 'Vorgaenge, die als Aufwand bzw. Ertrag erfasst werden, sind erfolgswirksam.' },
+          { type: 'table', title: '4 Faelle von Geschaeftsvorgaengen', headers: ['Fall', 'Posten', 'Wirkung'], rows: [
+            ['1', 'Bilanzposten / Bilanzposten', 'Erfolgsunwirksam (z.B. Aktivtausch)'],
+            ['2', 'Erfolgsposten / Bilanzposten', 'Erfolgswirksam (z.B. Aufwand)'],
+            ['3', 'Bilanzposten / Erfolgsposten', 'Erfolgswirksam (z.B. Ertrag)'],
+            ['4', 'Erfolgsposten / Erfolgsposten', 'Erfolgsunwirksam (selten)']
+          ]},
+          { type: 'concept', title: 'Rechnungszyklus', content: 'Ein Rechnungszyklus umfasst drei Phasen:\n1. Eroeffnung: Anfangsbestaende auf Bilanzkonten vortragen, Erfolgskonten einrichten\n2. Laufende Erfassung: Geschaeftsfaelle waehrend der Periode buchen\n3. Abschluss: Konten saldieren, Erfolgsrechnung und Schlussbilanz I erstellen', highlight: 'Eroeffnung - Laufende Erfassung - Abschluss' },
+          { type: 'concept', title: 'Doppelter Erfolgsnachweis', content: 'Der Erfolg laesst sich beim Abschluss doppelt nachweisen: In der Erfolgsrechnung (Ertrag minus Aufwand) und in der Schlussbilanz I (Aktiven minus Passiven = Eigenkapital). Die Schlussbilanz II entsteht nach der Erfolgsverwendung.', highlight: 'Erfolg = Ertrag - Aufwand = Veraenderung des Eigenkapitals' },
+          { type: 'concept', title: 'Gewinnverwendung und Verlustdeckung', content: 'Bei Gewinn: Rueckbehalt (Thesaurierung) und/oder Ausschuettung. Bei Verlust: Ausweis und Vortrag, Deckung aus Reserven (AG, GmbH) oder Kapitalreduktion.', highlight: 'Selbstfinanzierung durch zurueckbehaltene Gewinne' },
+          { type: 'concept', title: 'Liquiditaetswirksamkeit', content: 'Liquiditaetswirksame Geschaeftsvorgaenge veraendern die fluessigen Mittel (Kasse, Post, Bank). Liquiditaetsunwirksame haben keinen Einfluss auf die fluessigen Mittel. Zwei wichtige finanzwirtschaftliche Ziele: Liquiditaet (Zahlungsfaehigkeit) und Rentabilitaet (Verhaeltnis Gewinn zu Kapital).', highlight: 'Liquiditaet ist die Luft zum Atmen, Rentabilitaet die Nahrung zum Ueberleben.' },
+          { type: 'concept', title: 'Geldflussrechnung (Cashflow)', content: 'Die Geldflussrechnung erklaert die Veraenderung der fluessigen Mittel waehrend einer Periode. Sie zeigt den Geldzu-/-abfluss in drei Bereichen: Geschaeftsbereich (= Cashflow), Investitionsbereich, Finanzierungsbereich. Der Cashflow misst die Liquiditaetswirksamkeit von Erfolgsvorgaengen.', highlight: 'Cashflow = Gewinn + Abschreibungen (vereinfacht)' },
+          { type: 'summary', title: 'Zusammenfassung', items: [
+            'Erfolgswirksame Vorgaenge betreffen Erfolgs- und Bilanzposten und veraendern das Reinvermoegen.',
+            'Der Rechnungszyklus umfasst Eroeffnung, laufende Erfassung und Abschluss.',
+            'Der Erfolg laesst sich doppelt nachweisen: in der ER und in der Schlussbilanz I.',
+            'Die Geldflussrechnung zeigt den Cashflow in drei Bereichen.',
+            'Liquiditaet und Rentabilitaet sind die zwei zentralen finanzwirtschaftlichen Ziele.'
+          ]}
+        ]
+      }
     },
 
     // ============================================================
@@ -455,7 +588,35 @@ window.BOOK_DATA = {
           tips: [], reveal: []
         }
       ],
-      learningData: null
+      learningData: {
+        sections: [
+          { type: 'intro', title: 'Lernziele', items: [
+            'Das Prinzip der doppelten Buchfuehrung anwenden.',
+            'Erfassungstechniken in der Praxis verstehen.',
+            'Die Begriffe Kontenrahmen und Kontenplan erklaeren.'
+          ]},
+          { type: 'keyterms', title: 'Schluesselbegriffe', terms: [
+            { term: 'Soll', def: 'Linke Seite eines Kontos.' },
+            { term: 'Haben', def: 'Rechte Seite eines Kontos.' },
+            { term: 'Saldo', def: 'Differenz zwischen staerkerer und schwaecherer Kontenseite.' },
+            { term: 'Buchungssatz', def: 'Uebersetzung eines Geschaeftsfalls in die Buchhaltungssprache: Soll an Haben.' },
+            { term: 'Journal', def: 'Chronologische Aufzeichnung aller Buchungen.' },
+            { term: 'Hauptbuch', def: 'Sachliche Ordnung aller Buchungen auf Konten.' },
+            { term: 'Kontenrahmen KMU', def: 'Branchenuebergreifende Musterordnung der Konten in der Schweiz.' }
+          ]},
+          { type: 'concept', title: 'Vier Kontenarten', content: 'Die doppelte Buchfuehrung beruht auf vier Kontenarten:\n- Aktivkonten (fuer die Aktiven): AB im Soll, Zunahmen im Soll, Abnahmen im Haben\n- Passivkonten (fuer die Passiven): AB im Haben, Zunahmen im Haben, Abnahmen im Soll\n- Aufwandskonten: Zunahmen im Soll, Saldo im Haben\n- Ertragskonten: Zunahmen im Haben, Saldo im Soll', highlight: 'Jeder Geschaeftsfall wird in zwei Konten verbucht: einmal im Soll und einmal im Haben.' },
+          { type: 'merke', title: 'Grundprinzip', content: 'Total Soll = Total Haben. Es wird immer zuerst das Sollkonto und dann das Habenkonto genannt. Zwischen den Konten schreibt man / oder an.' },
+          { type: 'concept', title: 'Erfassungsschritte', content: '1. Keine Buchung ohne Beleg (oberstes Gebot)\n2. Kontierung/Buchungssatz: Belege werden mit Kontierungsstempel versehen\n3. Erfassung im Buchhaltungsprogramm: Journal und Hauptbuch', highlight: 'Keine Buchung ohne Beleg!' },
+          { type: 'concept', title: 'Kontenrahmen und Kontenplan', content: 'Ein Kontenplan ist das Verzeichnis der in einem Unternehmen verwendeten Konten. Die meisten Kontenplaene beruhen auf einem Kontenrahmen (Musterordnung). In der Schweiz gilt der Kontenrahmen KMU branchenuebergreifend.', highlight: 'Kontenrahmen KMU = branchenuebergreifende Musterordnung' },
+          { type: 'summary', title: 'Zusammenfassung', items: [
+            'Die doppelte Buchfuehrung beruht auf vier Kontenarten: Aktiv-, Passiv-, Aufwands- und Ertragskonten.',
+            'Ein Konto ist eine zweiseitige Rechnung (Soll links, Haben rechts).',
+            'Der Saldo ist der Ueberschuss der staerkeren ueber die schwaechere Kontenseite.',
+            'Jeder Geschaeftsfall wird in zwei Konten gebucht (Soll an Haben).',
+            'Der Kontenrahmen KMU ist die Musterordnung fuer Schweizer Unternehmen.'
+          ]}
+        ]
+      }
     },
 
     // ============================================================
@@ -541,7 +702,35 @@ window.BOOK_DATA = {
           tips: [], reveal: []
         }
       ],
-      learningData: null
+      learningData: {
+        sections: [
+          { type: 'intro', title: 'Lernziele', items: [
+            'Die rechtlichen Grundlagen des Rechnungswesens (Rechnungslegungs- und Bewertungsvorschriften) verstehen.',
+            'Die wichtigsten Bewertungsgrundsaetze nennen und in ihren Auswirkungen auf den Jahresabschluss verstehen.',
+            'Die Praesentation des Jahresabschlusses aufzeigen.'
+          ]},
+          { type: 'keyterms', title: 'Schluesselbegriffe', terms: [
+            { term: 'Rechnungslegung', def: 'Darstellung der wirtschaftlichen und finanziellen Lage des Unternehmens durch Jahresrechnung.' },
+            { term: 'Jahresrechnung', def: 'Besteht aus Bilanz und Erfolgsrechnung, je nach Rechtsform plus Anhang und Geldflussrechnung.' },
+            { term: 'Jahresabschluss', def: 'Erstellung der Jahresrechnung am Ende des Geschaeftsjahrs.' },
+            { term: 'Bewertungsgrundsaetze', def: 'Prinzip der Unternehmensfuehrung, Stetigkeitsprinzip und Vorsichtsprinzip mit Konkretisierungen.' }
+          ]},
+          { type: 'concept', title: 'Rechnungslegungsrecht (OR)', content: 'Das Rechnungslegungsrecht findet sich im 32. Titel des OR und gliedert sich in fuenf Abschnitte:\n1. Allgemeine Bestimmungen (OR 957-958f)\n2. Jahresrechnung (OR 959-960e)\n3. Rechnungslegung fuer groessere Unternehmen\n4. Abschluss nach anerkanntem Standard\n5. Konzernrechnung', highlight: 'OR 957-963b: 5 Abschnitte des Rechnungslegungsrechts' },
+          { type: 'table', title: 'Praesentation des Abschlusses', headers: ['Rechtsform', 'Bestandteile'], rows: [
+            ['Einzelunternehmen / Personengesellschaft (klein)', 'Jahresrechnung: Bilanz + Erfolgsrechnung'],
+            ['Groessere Unternehmen (3. Abschnitt OR)', 'Geschaeftsbericht: Lagebericht + Jahresrechnung (Bilanz, ER, Anhang, ggf. Geldflussrechnung)'],
+            ['Mit anerkanntem Standard', '+ Abschluss nach anerkanntem Standard zur Rechnungslegung'],
+            ['Konzern', '+ Konzernrechnung']
+          ]},
+          { type: 'merke', title: 'Bewertungsgrundsaetze', content: 'Vorsichtsprinzip: Aktiven eher unter-, Fremdkapital eher ueberbewerten. Konkretisierungen: Realisationsprinzip, Imparitaetsprinzip und Niederstwertprinzip. Stetigkeitsprinzip: Gleiche Bewertungsmethoden beibehalten.' },
+          { type: 'summary', title: 'Zusammenfassung', items: [
+            'Das OR regelt die Rechnungslegung in 5 Abschnitten.',
+            'Die allgemeinen Bestimmungen regeln Buchfuehrungspflicht, Grundsaetze und Bestandteile.',
+            'Bewertungsgrundsaetze: Vorsichtsprinzip, Stetigkeitsprinzip, Realisationsprinzip.',
+            'Die Praesentation haengt von Rechtsform und Groesse des Unternehmens ab.'
+          ]}
+        ]
+      }
     },
 
     // ============================================================
@@ -638,7 +827,38 @@ window.BOOK_DATA = {
           tips: [], reveal: []
         }
       ],
-      learningData: null
+      learningData: {
+        sections: [
+          { type: 'intro', title: 'Lernziele', items: [
+            'Die Bedeutung und Wirkung von Bewertungen erklaeren.',
+            'Wichtige Vorgaenge der Wertanpassung nennen.',
+            'Die Wirkungsweise der verschiedenen Abschreibungsmethoden (linear, degressiv) erkennen und Abschreibungen sowohl direkt als auch indirekt verbuchen.'
+          ]},
+          { type: 'keyterms', title: 'Schluesselbegriffe', terms: [
+            { term: 'Bewertung', def: 'Einer Sache, einem Vorgang usw. einen Wert zuordnen. In der Buchhaltung werden Werte in Geldeinheiten gemessen.' },
+            { term: 'Wertermittlung', def: 'Durch Ablesen/Zaehlen (eindeutig fest) oder durch Bewertung (nicht ohne Weiteres fest).' },
+            { term: 'Inventur', def: 'Taetigkeit der Bestandsaufnahme: zaehlen, messen, wiegen, bewerten.' },
+            { term: 'Inventar', def: 'Detailliertes Verzeichnis saemtlicher Vermoegensteile und Schulden an einem Stichtag.' },
+            { term: 'Abschreibung', def: 'Wertanpassung von Sachanlagen waehrend der Nutzungsdauer.' }
+          ]},
+          { type: 'concept', title: 'Wertanpassung durch Abschreibungen', content: 'Sachanlagen werden beim Zugang aktiviert (zu Anschaffungskosten). Ueber die Nutzungsdauer muessen sie im Wert angepasst werden. Abschreibungen haben drei Aufgaben:\n1. Verteilung der Anschaffungskosten auf die Nutzungsjahre\n2. Richtige Vermoegens- und Erfolgsermittlung\n3. Geldzufluss fuer Ersatz- oder Neuinvestitionen', highlight: 'Abschreibungsbetrag = Anschaffungskosten / Anzahl Nutzungsjahre (linear)' },
+          { type: 'table', title: 'Abschreibungsmethoden', headers: ['Methode', 'Beschreibung', 'Formel'], rows: [
+            ['Lineare Abschreibung', 'Gleichmaessige Abschreibung von den Anschaffungskosten', 'Abschreibungsbetrag = AK / Nutzungsjahre'],
+            ['Abschreibung vom Buchwert (degressiv)', 'Doppelter Satz der linearen, jeweils vom verbleibenden Buchwert', 'Satz = 2 x linearer Satz, auf Buchwert angewendet'],
+            ['Direkte Abschreibung', 'Abschreibung direkt auf dem Anlagekonto', 'Abschreibung / Mobilien'],
+            ['Indirekte Abschreibung', 'Ueber Wertberichtigungskonto (WB)', 'Abschreibung / WB Mobilien']
+          ]},
+          { type: 'merke', title: 'Pro-Memoria-Franken', content: 'Vollstaendig abgeschriebene Anlagen werden mit CHF 1.- (Pro-Memoria-Franken) in der Bilanz gefuehrt, solange sie noch vorhanden sind. Dies dient dem Grundsatz der Vollstaendigkeit.' },
+          { type: 'summary', title: 'Zusammenfassung', items: [
+            'Beim Jahresabschluss sind verschiedene Wertanpassungen vorzunehmen.',
+            'Bewertungen haben Einfluss auf den Ausweis des Eigenkapitals und des Erfolgs.',
+            'Ein Existenz- und Wertnachweis durch Inventur und Inventar ist regelmaessig zu erbringen.',
+            'Die lineare Abschreibung ergibt jedes Jahr den gleichen Betrag.',
+            'Die degressive Abschreibung vom Buchwert ergibt jedes Jahr kleinere Betraege.',
+            'Direkte Abschreibung: auf dem Anlagekonto. Indirekte: ueber WB-Konto.'
+          ]}
+        ]
+      }
     },
 
     // ============================================================
@@ -839,7 +1059,43 @@ window.BOOK_DATA = {
           tips: [], reveal: []
         }
       ],
-      learningData: null
+      learningData: {
+        sections: [
+          { type: 'intro', title: 'Lernziele', items: [
+            'Endgueltige und mutmassliche Verluste aus Forderungen unterscheiden und deren Verbuchung nachvollziehen.',
+            'Gruende fuer Wertanpassungen bei Vorraten nennen und die Wirkungen von Zu- bzw. Abnahmen auf den Erfolg nachvollziehen.',
+            'Den Zweck von transitorischen Posten erlaeutern und Verbuchungsbeispiele nachvollziehen.',
+            'Den Begriff Rueckstellungen erklaeren und deren Einordnung in die Bilanz vornehmen.',
+            'Den Zusammenhang zwischen Bewertung und stillen Reserven verstehen und den Unterschied von stillen und offenen Reserven darlegen.',
+            'Bestand, Bildung und Aufloesung von stillen Reserven nachvollziehen.'
+          ]},
+          { type: 'keyterms', title: 'Schluesselbegriffe', terms: [
+            { term: 'Verluste aus Forderungen', def: 'Endgueltige (direkte Abschreibung) oder mutmassliche (indirekte Abschreibung ueber WB Forderungen) Ausfaelle bei Debitoren.' },
+            { term: 'Wertberichtigung Forderungen (Delkredere)', def: 'WB-Konto als ruhendes Konto zur indirekten Erfassung mutmasslicher Forderungsausfaelle. Wird am Jahresende auf die gewuenschte Hoehe korrigiert.' },
+            { term: 'Bestandsaenderungen', def: 'Differenzen bei Vorraten (Waren, Material, Halb-/Fertigfabrikate), die bei der Inventur festgestellt werden und zu erfolgswirksamen Korrekturen fuehren.' },
+            { term: 'Aktive Rechnungsabgrenzung (ARA)', def: 'Guthaben gegenueber der naechsten Periode: vorausbezahlte Aufwendungen oder noch nicht erhaltene Ertraege. Gehoert zum Umlaufvermoegen.' },
+            { term: 'Passive Rechnungsabgrenzung (PRA)', def: 'Schuld gegenueber der naechsten Periode: noch nicht bezahlte Aufwendungen oder im Voraus erhaltene Ertraege. Gehoert zum Fremdkapital.' },
+            { term: 'Rueckstellungen', def: 'Verpflichtungen oder drohende Verluste mit Unsicherheiten bezueglich Hoehe, Faelligkeit oder Empfaenger. Gehoeren zum Fremdkapital.' },
+            { term: 'Stille Reserven', def: 'Entstehen durch Unterbewertung von Aktiven oder Ueberbewertung von Fremdkapital. Verzerren das Bild der wirtschaftlichen Lage in der externen Rechnungslegung.' }
+          ]},
+          { type: 'concept', title: 'Verluste aus Forderungen', content: 'Tatsaechlich eingetretene Verluste werden direkt vom Konto Forderungen L+L abgeschrieben (Gegenkonto: Verluste Forderungen). Mutmassliche Verluste werden indirekt ueber das WB-Konto (Delkredere) erfasst. Die Wertberichtigung kann individuell oder pauschal geschaetzt werden. Nachtraegliche Zahlungen im gleichen Jahr werden als Rueckbuchung erfasst, spaetere als ausserordentlicher Ertrag.' },
+          { type: 'concept', title: 'Bestandsaenderungen bei Vorraten', content: 'Bei der Inventur werden Vorraete nach Art, Menge und Wert erfasst. Eine Vorratszunahme wird als erfolgswirksame Aktivzunahme (positiv auf Erfolg), eine Vorratsabnahme als erfolgswirksame Aktivabnahme (negativ auf Erfolg) gebucht. Im Handelsunternehmen genuegt ein Konto Warenbestand, im Produktionsunternehmen gibt es Material-, Halbfabrikate- und Fertigfabrikatebestand.' },
+          { type: 'concept', title: 'Transitorische Posten und Rueckstellungen', content: 'Die Erfolgsrechnung soll Aufwand und Ertrag verursachungsgerecht ausweisen. Wenn Belegverbuchung und Verursachung nicht in dieselbe Periode fallen, sind zeitliche Abgrenzungen ueber transitorische Konten noetig. Aktive Rechnungsabgrenzungen (ARA) gehoeren zum Umlaufvermoegen, Passive Rechnungsabgrenzungen (PRA) zum kurzfristigen Fremdkapital. Rueckstellungen werden fuer ungewisse Verpflichtungen gebildet (Garantieleistungen, Prozessrisiken, Reparaturen usw.).' },
+          { type: 'merke', title: 'Stille Reserven', content: 'Stille Reserven verzerren das Bild der wirtschaftlichen Lage in der externen Rechnungslegung. Die interne Rechnungslegung soll auf moeglichst objektiven Werten beruhen und muss von stillen Reserven bereinigt werden. Die Bildung verschlechtert den externen Erfolgsausweis, die Aufloesung verbessert ihn.' },
+          { type: 'table', title: 'Stille Reserven: Bestand, Bildung und Aufloesung', headers: ['Stille Reserven ...', 'Bestand', 'Bildung', 'Aufloesung'], rows: [
+            ['... in den Aktiven (Unterbewertung)', 'Differenz zwischen hoeherem tatsaechlichem und tieferem ausgewiesenem Wert', 'Durch hoehere Wertminderungen als noetig (z.B. zu hohe Abschreibungen)', 'Durch geringere Wertminderungen als noetig oder Aufwertung'],
+            ['... im Fremdkapital (Ueberbewertung)', 'Differenz zwischen tieferem tatsaechlichem und hoeherem ausgewiesenem Wert', 'Durch Hoeherbewertung des Passivpostens (z.B. zu hohe Rueckstellung)', 'Durch Rueckgaengigmachen der Hoeherbewertung'],
+            ['... und Eigenkapital', 'Gegenwert zu Unterbewertungen in Aktiven und Ueberbewertungen im FK', 'SB I vor Verbuchung des Erfolgs: Bestand stiller Reserven noch unveraendert', 'SB I vor Verbuchung des Erfolgs: Bestand stiller Reserven noch unveraendert']
+          ]},
+          { type: 'summary', title: 'Zusammenfassung', items: [
+            'Tatsaechlich eingetretene Verluste aus Forderungen werden direkt abgeschrieben, mutmassliche kuenftige Verluste werden ueber das Konto WB Forderungen (Delkredere) erfasst.',
+            'Bestandsaenderungen bei Vorraten fuehren zu erfolgswirksamen Korrekturen: Zunahme = positive, Abnahme = negative Wirkung auf den Erfolg.',
+            'Die Erfolgsrechnung soll Aufwand und Ertrag verursachungsgerecht ausweisen; dafuer stehen ARA und PRA als transitorische Konten zur Verfuegung.',
+            'Rueckstellungen werden fuer ungewisse Verpflichtungen oder drohende Verluste gebildet.',
+            'Stille Reserven entstehen durch Unterbewertung von Aktiven bzw. Ueberbewertung von FK und muessen fuer die interne Rechnungslegung bereinigt werden.'
+          ]}
+        ]
+      }
     },
 
     // ============================================================
@@ -920,7 +1176,37 @@ window.BOOK_DATA = {
           tips: [], reveal: []
         }
       ],
-      learningData: null
+      learningData: {
+        sections: [
+          { type: 'intro', title: 'Lernziele', items: [
+            'Den Unterschied zwischen Finanz- und Betriebsbuchhaltung verstehen und die ihnen zukommende Bedeutung erklaeren.',
+            'Den Aufbau des Betriebsabrechnungsbogens (BAB) in den drei Hauptbereichen (Kostenarten, Kostenstellen, Kostentraeger) erlaeutern und einen BAB fuer einfache Beispiele erstellen.',
+            'Den Sinn und das Wesen der Abgrenzungen (sachlich und zeitlich) erklaeren.',
+            'Die Bedeutung von Umlageschluesseln zur Verteilung der Fixkosten auf Kostentraeger aufzeigen.',
+            'Aufzeigen, wie sich unternehmerische Entscheidungen auf die Kostenstellen- und die Kostentraegerrechnung auswirken.'
+          ]},
+          { type: 'keyterms', title: 'Schluesselbegriffe', terms: [
+            { term: 'Betriebsabrechnungsbogen (BAB)', def: 'Schema zur transparenten Darstellung der Arbeitsschritte einer Kostenrechnung. Gliedert sich in Kostenarten-, Kostenstellen- und Kostentraegerrechnung.' },
+            { term: 'Einzelkosten (direkte Kosten)', def: 'Kosten, die direkt auf die Kostentraeger verteilt werden koennen (z.B. Einzelmaterial, Einzelloehne).' },
+            { term: 'Gemeinkosten (indirekte Kosten)', def: 'Kosten, die indirekt ueber die Kostenstellenrechnung auf die Kostentraeger verrechnet werden muessen.' },
+            { term: 'Herstellkosten', def: 'Summe aus den gesamten Material- und Fertigungskosten (Einzel- und Gemeinkosten).' },
+            { term: 'Selbstkosten', def: 'Summe aus Herstellkosten und Verwaltungs- und Vertriebs-Gemeinkosten.' },
+            { term: 'Zuschlagssatz', def: 'Prozentualer Zuschlag auf einen Bezugswert zur Verrechnung der Gemeinkosten auf die Kostentraeger.' },
+            { term: 'Kostenstellen', def: 'Organisatorische Einheiten des Betriebs (z.B. Material, Fertigung, Verwaltung und Vertrieb), in denen die Gemeinkosten gesammelt werden.' }
+          ]},
+          { type: 'concept', title: 'Verhaeltnis Finanz- und Betriebsbuchhaltung', content: 'Das finanzielle Rechnungswesen (FIBU) dokumentiert die Vermoegens-, Finanz- und Ertragslage nach handels- und steuerrechtlichen Gesichtspunkten. Die Betriebsbuchhaltung (BEBU) liefert detaillierte Fuehrungsinformationen fuer das Management. Beide Systeme sind nicht losgeloest voneinander, sondern haengen zusammen.' },
+          { type: 'concept', title: 'Die drei Kernelemente des BAB', content: 'Kostenartenrechnung: Ermittlung der effektiv fuer die betriebliche Leistungserstellung entstandenen Kosten (mit sachlichen Abgrenzungen). Kostenstellenrechnung: Zuordnung der Gemeinkosten auf die Kostenstellen und Ermittlung der Zuschlagssaetze. Kostentraegerrechnung: Zuteilung saemtlicher Kosten (Einzel- und Gemeinkosten) auf die Kostentraeger. Die Differenz zum Nettoerloes ergibt den Erfolg je Kostentraeger.' },
+          { type: 'merke', title: 'Wichtige Ergebnisse des BAB', content: 'Herstellkosten = Materialkosten + Fertigungskosten (je Einzel- und Gemeinkosten). Selbstkosten = Herstellkosten + Verwaltungs- und Vertriebs-Gemeinkosten. Die Differenz zwischen Nettoerloes und Selbstkosten ergibt den Erfolg (Gewinn oder Verlust) je Kostentraeger.' },
+          { type: 'concept', title: 'Kostentraegerrechnung und Erfolgsrechnung', content: 'Die kurzfristige Erfolgsrechnung kann als Absatzerfolgsrechnung (Umsatzkostenverfahren) oder als Produktionserfolgsrechnung (Gesamtkostenverfahren) praesentiert werden. Bei der Absatzerfolgsrechnung werden dem Umsatz die Herstellkosten der verkauften Fabrikate gegenuebergestellt. Bei der Produktionserfolgsrechnung wird dem Gesamtertrag die Gesamtproduktion gegenuebergestellt.' },
+          { type: 'summary', title: 'Zusammenfassung', items: [
+            'Finanz- und Betriebsbuchhaltung sind die beiden Hauptbereiche des Rechnungswesens.',
+            'Die Finanzbuchhaltung dokumentiert die Vermoegens-, Finanz- und Ertragslage; die Betriebsbuchhaltung liefert detaillierte Fuehrungsinformationen.',
+            'Der BAB zeigt den Verrechnungsfluss: Kostenartenrechnung, Kostenstellenrechnung, Kostentraegerrechnung.',
+            'Einzelkosten werden direkt, Gemeinkosten indirekt ueber Zuschlagssaetze auf die Kostentraeger verrechnet.',
+            'Die Kostentraegerrechnung ermittelt das Betriebsergebnis differenziert pro Kostentraeger.'
+          ]}
+        ]
+      }
     },
 
     // ============================================================
@@ -1049,7 +1335,34 @@ window.BOOK_DATA = {
           tips: [], reveal: []
         }
       ],
-      learningData: null
+      learningData: {
+        sections: [
+          { type: 'intro', title: 'Lernziele', items: [
+            'Gliederungskriterien fuer Kostenrechnungssysteme nennen.',
+            'Die Grundzuege der Teilkostenrechnung (Deckungsbeitragsrechnung) darlegen.',
+            'Eine mehrstufige Deckungsbeitragsrechnung erstellen und verstehen.'
+          ]},
+          { type: 'keyterms', title: 'Schluesselbegriffe', terms: [
+            { term: 'Vollkostensysteme', def: 'Ist-Kostenrechnung, Normalkostenrechnung, Standard-/Plan-Kostenrechnung, Prozesskostenrechnung. Verrechnen alle Kosten auf die Kostentraeger.' },
+            { term: 'Teilkostensysteme', def: 'Direct Costing (einstufig/mehrstufig), Grenzplankostenrechnung, relative Einzelkostenrechnung. Verrechnen nur die variablen Kosten auf die Kostentraeger.' },
+            { term: 'Variable Kosten', def: 'Veraendern sich mit der Beschaeftigung (z.B. Material). Koennen proportional, ueberproportional oder unterproportional verlaufen.' },
+            { term: 'Fixe Kosten', def: 'Fallen unabhaengig von der Beschaeftigung an (z.B. Mieten, Abschreibungen). Koennen absolut fix oder sprungfix sein.' },
+            { term: 'Deckungsbeitrag', def: 'Erloes minus variable Kosten. Dient zur Deckung der Fixkosten und als Beitrag an den Gewinn.' },
+            { term: 'Fixkosten-Degression', def: 'Bei steigenden Mengen sinken die Fixkosten pro Stueck, bei sinkenden Mengen steigen sie.' }
+          ]},
+          { type: 'concept', title: 'Vollkostenrechnung vs. Teilkostenrechnung', content: 'Die Vollkostenrechnung waelzt alle Kosten (variable und fixe) auf die Kostentraeger um, um die vollen Selbstkosten zu ermitteln. Die Teilkostenrechnung belastet nur die variablen Kosten. Der Deckungsbeitrag (Erloes minus variable Kosten) dient zur Deckung der Fixkosten. Langfristige (strategische) Entscheidungen basieren auf Vollkosten, kurzfristige (taktische) Entscheidungen auf Teilkosten.' },
+          { type: 'concept', title: 'Kostenverhalten: fixe und variable Kosten', content: 'Variable Kosten veraendern sich mit der Beschaeftigung (produzierte Menge). Fixe Kosten fallen unabhaengig von der Produktion an und ergeben sich aus der Bereitstellung von Kapazitaet. Gemischte Kostenverlaeufe enthalten sowohl fixe als auch variable Anteile und muessen fuer die Teilkostenrechnung in ihre Bestandteile zerlegt werden.' },
+          { type: 'concept', title: 'Einstufige und mehrstufige Deckungsbeitragsrechnung', content: 'Beim einstufigen Direct Costing werden die Fixkosten insgesamt in einem Block abgezogen. Beim mehrstufigen Direct Costing werden die Fixkosten differenziert: Produkt-Fixkosten (DB 2), Produktgruppen-Fixkosten (DB 3), Bereichs-Fixkosten (DB 4) und Unternehmens-Fixkosten, bis man als Endergebnis den Betriebserfolg erhaelt.' },
+          { type: 'merke', title: 'Vorteile und Nachteile', content: 'Vollkostenrechnung: Vorteil ist die Ermittlung der vollen Kosten und einer Untergrenze fuer die Preise. Nachteil: Fixkosten-Proportionalisierung fuehrt zu Planungsfehlern. Teilkostenrechnung: Vorteil ist die bessere Entscheidungsgrundlage fuer kurzfristige Entscheidungen. Nachteil: Kurzfristige Preiszugestaendnisse bei Zusatzauftraegen koennen generellen Druck auf die Preise ausloesen.' },
+          { type: 'summary', title: 'Zusammenfassung', items: [
+            'Kostenrechnungssysteme unterscheiden sich nach dem Inhalt (Ist-, Normal-, Plan-Kosten) und dem Umfang (Voll- vs. Teilkosten).',
+            'Variable Kosten veraendern sich mit der Beschaeftigung, fixe Kosten bleiben konstant.',
+            'Der Deckungsbeitrag = Erloes minus variable Kosten; er dient zur Deckung der Fixkosten und als Gewinnbeitrag.',
+            'Das einstufige Direct Costing zieht die Fixkosten in einem Block ab; das mehrstufige differenziert die Fixkosten nach Produkt, Produktgruppe, Bereich und Unternehmen.',
+            'Langfristige Entscheidungen erfordern Vollkosten, kurzfristige Entscheidungen Teilkosten.'
+          ]}
+        ]
+      }
     },
 
     // ============================================================
@@ -1187,7 +1500,51 @@ window.BOOK_DATA = {
           tips: [], reveal: []
         }
       ],
-      learningData: null
+      learningData: {
+        sections: [
+          { type: 'intro', title: 'Lernziele', items: [
+            'Die Hauptbereiche der Kalkulation nach dem Transformationsprozess (Einkauf, Leistungserstellung, Verkauf) gliedern und wichtige Aspekte des Kalkulierens nennen.',
+            'Kalkulationen mithilfe der Zuschlagskalkulation sowie der Divisionskalkulation durchfuehren.',
+            'Kalkulationen der Leistungserstellung in Handel, Produktion und Dienstleistung durchfuehren.'
+          ]},
+          { type: 'keyterms', title: 'Schluesselbegriffe', terms: [
+            { term: 'Einkaufskalkulation', def: 'Ermittlung des Einstands (Einstandspreis) aufgrund der Lieferantenofferte und der Bezugskosten.' },
+            { term: 'Verkaufskalkulation', def: 'Ermittlung des Bruttoverkaufspreises ausgehend vom Nettoerloes ueber Verkaufssonderkosten, Rabatte und Skonti.' },
+            { term: 'Handelskalkulation', def: 'Kalkulation im Handelsbetrieb; der Bruttogewinn ist die zentrale Groesse (Warenwert im Verkauf minus Warenwert im Einkauf).' },
+            { term: 'Zuschlagskalkulation', def: 'Haeufigstes Kalkulationsverfahren fuer Produktions- und Dienstleistungsbetriebe. Gemeinkosten werden ueber Zuschlagssaetze auf Einzelkosten verrechnet.' },
+            { term: 'Divisionskalkulation', def: 'Einfachstes Verfahren: Gesamtkosten dividiert durch produzierte Menge ergibt Selbstkosten je Einheit.' },
+            { term: 'Aequivalenzziffernkalkulation', def: 'Modifizierte Divisionskalkulation fuer aehnliche Produkte. Kostenunterschiede werden durch Aequivalenzziffern (Verhaeltniszahlen) ausgedrueckt.' }
+          ]},
+          { type: 'concept', title: 'Hauptbereiche der Kalkulation', content: 'Die Kalkulation laesst sich am Betriebsprozess orientieren: Einkaufskalkulation (Ermittlung der Anschaffungskosten), Kalkulation der Leistungserstellung (Ermittlung der Selbstkosten bzw. des Nettoerloeses) und Verkaufskalkulation (Ermittlung der Verkaufspreise). Wichtige Aspekte sind: Gesamt-/Einzelkalkulation, Vor-/Nachkalkulation, aufbauende/abbauende Kalkulation, einstufige/mehrstufige Kalkulation.' },
+          { type: 'table', title: 'Schema Einkaufskalkulation', headers: ['Posten', 'Richtung'], rows: [
+            ['Bruttokreditankauf (Listenpreis)', '100%'],
+            ['- Rabatt', 'Abzug'],
+            ['= Nettokreditankauf', 'Fakturierter Preis'],
+            ['- Skonto', 'Abzug'],
+            ['= Nettobarankauf', 'Zahlung an Hersteller'],
+            ['+ Bezugskosten', 'Zuschlag'],
+            ['= Einstand', 'Einstandspreis pro Stueck']
+          ]},
+          { type: 'table', title: 'Schema Verkaufskalkulation (aufbauend)', headers: ['Posten', 'Richtung'], rows: [
+            ['Nettoerloes', '100%'],
+            ['+ Verkaufssonderkosten', 'Zuschlag'],
+            ['= Nettobarverkauf', 'Zahlung falls Skonto'],
+            ['+ Skonto', 'Zuschlag'],
+            ['= Nettokreditverkauf', 'Fakturierter Preis'],
+            ['+ Rabatt', 'Zuschlag'],
+            ['= Bruttokreditverkauf', 'Katalogpreis']
+          ]},
+          { type: 'concept', title: 'Zuschlagskalkulation im Produktionsbetrieb', content: 'Bei der Herstellung entstehen direkte Kosten (Einzelmaterial, Einzelloehne) und indirekte Kosten (Gemeinkosten). Die Gemeinkosten werden ueber Zuschlagssaetze auf die Einzelkosten verrechnet. Die differenzierte Zuschlagskalkulation unterscheidet Materialkosten, Fertigungskosten und Verwaltungs-/Vertriebskosten. Bei der summarischen Zuschlagskalkulation wird nur ein einziger Zuschlagssatz verwendet.' },
+          { type: 'summary', title: 'Zusammenfassung', items: [
+            'Die Bereiche der Kalkulationen orientieren sich am Betriebsprozess: Einkaufskalkulation, Kalkulation der Leistungserstellung, Verkaufskalkulation.',
+            'Einkaufskalkulation: [Bruttokreditankauf] - Rabatt - Skonto + Bezugskosten = Einstand.',
+            'Verkaufskalkulation: [Nettoerloes] + Verkaufssonderkosten + Skonto + Rabatt = Bruttokreditverkauf.',
+            'Im Handelsbetrieb ist der Bruttogewinn die zentrale Groesse.',
+            'Im Produktionsbetrieb ist die Zuschlagskalkulation das haeufigste Verfahren.',
+            'Die Divisionskalkulation eignet sich fuer Einproduktbetriebe, die Aequivalenzziffernkalkulation fuer aehnliche Produkte.'
+          ]}
+        ]
+      }
     },
 
     // ============================================================
@@ -1325,7 +1682,38 @@ window.BOOK_DATA = {
           tips: [], reveal: []
         }
       ],
-      learningData: null
+      learningData: {
+        sections: [
+          { type: 'intro', title: 'Lernziele', items: [
+            'Einflussgroessen der Preisentscheidung nennen und den Preisspielraum umschreiben.',
+            'Die Begriffe Grenzkosten und Grenzpreis erlaeutern und angemessen verwenden.',
+            'Preisuntergrenzen ermitteln (lang- und kurzfristig, mit und ohne Kapazitaetsengpaesse).',
+            'Sortimentsentscheidungen und Make-or-Buy-Entscheidungen vornehmen.',
+            'Den Break-even-Punkt sowohl mengen- als auch wertmaessig ermitteln und darstellen.',
+            'Auswirkungen von einfacheren unternehmerischen Entscheidungen auf die Veraenderung des Break-even-Punkts einschaetzen.'
+          ]},
+          { type: 'keyterms', title: 'Schluesselbegriffe', terms: [
+            { term: 'Break-even-Punkt (Nutzschwelle)', def: 'Der Punkt, an dem der Erloes gerade die Kosten deckt und der Erfolg null ist. Auch als toter Punkt bezeichnet.' },
+            { term: 'Deckungsbeitrag', def: 'Erloes minus variable Kosten. Dient zur Deckung der Fixkosten und als Gewinnbeitrag.' },
+            { term: 'Preisuntergrenze', def: 'Langfristig: volle Selbstkosten. Kurzfristig bei freien Kapazitaeten: variable Kosten (Grenzkosten).' },
+            { term: 'Grenzpreis', def: 'Bei knappen Kapazitaeten: Grenzkosten plus Opportunitaetskosten (entgangener Deckungsbeitrag).' },
+            { term: 'Make-or-Buy', def: 'Entscheidung zwischen Eigenherstellung und Fremdbezug, basierend auf Grenzkostenueberlagerungen.' },
+            { term: 'Sensitivitaetsanalyse', def: 'Was-wenn-Untersuchungen zur Auswirkung von veraenderten Fixkosten, Verkaufspreisen oder variablen Kosten auf die Nutzschwelle.' }
+          ]},
+          { type: 'concept', title: 'Entscheidungen auf Teilkostenbasis', content: 'Ergebnisse der Teilkostenrechnung werden bei der Preis- und Sortimentspolitik verwendet. Die Preisuntergrenze ist langfristig durch die vollen Selbstkosten gegeben. Kurzfristig muss bei freien Kapazitaeten nur der variable Kostenanteil gedeckt sein (Grenzkosten). Bei knappen Kapazitaeten ist der Grenzpreis = Grenzkosten + Opportunitaetskosten. Die Sortimentsbeurteilung erfolgt aufgrund von Deckungsbeitraegen.' },
+          { type: 'concept', title: 'Grundlagen der Break-even-Analyse', content: 'Die Nutzschwelle wird erreicht, wenn der Erfolg gerade null ist. Zwei gleichwertige Bedingungen: (1) Nettoerloes = Selbstkosten, (2) Deckungsbeitrag = Fixkosten. Die Herleitung kann tabellarisch, formelmaessig und grafisch erfolgen. Mengenmessig: NS = Fixkosten / DB pro Mengeneinheit. Wertmaessig: NS = Fixkosten / Deckungsbeitragsmarge.' },
+          { type: 'methodenbox', title: 'Formeln zur Break-even-Analyse', text: 'Mengenmassige Nutzschwelle: NS = Fixkosten / Deckungsbeitrag pro Stueck.\nWertmaessige Nutzschwelle: NS = Fixkosten / Deckungsbeitragsmarge.\nDeckungsbeitragsmarge = Deckungsbeitrag / Nettoerloes.\nDeckungsbedarf = Fixkosten (an der Nutzschwelle); fuer andere Ziele: Fixkosten + gewuenschter Gewinn.' },
+          { type: 'concept', title: 'Sensitivitaetsanalysen (Was-wenn-Fragen)', content: 'Veraenderte Fixkosten: Steigende Fixkosten erhoehen die Nutzschwelle, sinkende senken sie. Veraenderte Verkaufspreise: Eine Preiserhoehung macht die Nettoerloeskurve steiler und senkt die Nutzschwelle. Veraenderte variable Kosten: Steigende variable Kostensaetze erhoehen die Nutzschwelle.' },
+          { type: 'summary', title: 'Zusammenfassung', items: [
+            'Die Preisuntergrenze ist langfristig durch die vollen Selbstkosten, kurzfristig durch die variablen Kosten (Grenzkosten) gegeben.',
+            'Bei knappen Kapazitaeten ist der Grenzpreis = Grenzkosten + Opportunitaetskosten.',
+            'Die Sortimentsbeurteilung erfolgt aufgrund von Deckungsbeitraegen; bei Kapazitaetsengpaessen ist der engpassbezogene Deckungsbeitrag relevant.',
+            'Die Break-even-Analyse untersucht, wie viel Ware verkauft werden muss, damit die Gewinnzone erreicht wird.',
+            'An der Nutzschwelle sind zwei Bedingungen erfuellt: Nettoerloes = Selbstkosten und Deckungsbeitrag = Fixe Kosten.',
+            'NS (mengenmaessig) = Fixkosten / DB pro Stueck; NS (wertmaessig) = Fixkosten / Deckungsbeitragsmarge.'
+          ]}
+        ]
+      }
     },
 
     // ============================================================
@@ -1423,7 +1811,38 @@ window.BOOK_DATA = {
         },
         { id: 188, type: 'text', title: 'Beurteilung von Kennzahlen', q: 'Wie beurteilen Sie die folgenden Kennzahlen? Begr\u00fcnden Sie Ihre Antwort mit je 2 bis 3 S\u00e4tzen.\nA) Eigenfinanzierungsgrad von 10%\nB) Liquidit\u00e4tsgrad 2 von 250%', keywords: ['niedrig','hoch','Risiko','Unabh\u00e4ngigkeit','\u00fcberliquid','gebunden'], solution: 'A) Ein EFG von 10% ist sehr niedrig. Das Unternehmen ist stark fremdfinanziert und somit abh\u00e4ngig von Kreditgebern. Das Risiko bei wirtschaftlichen Schwierigkeiten ist hoch.\nB) Ein LG2 von 250% ist sehr hoch. Das deutet auf \u00dcberliquidit\u00e4t hin, was bedeutet, dass zu viel Kapital kurzfristig gebunden ist statt ertragbringend eingesetzt zu werden.', tips: [], reveal: [] }
       ],
-      learningData: null
+      learningData: {
+        sections: [
+          { type: 'intro', title: 'Lernziele', items: [
+            'Den Zweck und die Arten von Kennzahlen umschreiben.',
+            'Die wichtigsten Rahmenbedingungen der Bilanz- und Erfolgsanalyse nennen und umschreiben.',
+            'Aufzeigen, was unter Bereinigung zu verstehen ist.',
+            'Die wichtigsten Kennzahlen fuer eine Auswertung der Bilanz nennen und berechnen.',
+            'Die wichtigsten Kennzahlen fuer eine Auswertung der Erfolgsrechnung nennen und berechnen.',
+            'Kennzahlensysteme (DuPont-Schema) erklaeren.'
+          ]},
+          { type: 'keyterms', title: 'Schluesselbegriffe', terms: [
+            { term: 'Kennzahlen', def: 'Verdichten Informationen. Koennen absolute Zahlen (Einzelzahlen, Summen, Mittelwerte) oder Verhaeltniszahlen (Gliederungs-, Beziehungs-, Indexzahlen) sein.' },
+            { term: 'Bereinigung', def: 'Formelle Bereinigung (Zusammenzug und Aufspaltung von Posten) und materielle Bereinigung (Korrektur um stille Reserven).' },
+            { term: 'Liquiditaet', def: 'Zahlungsbereitschaft; gemessen z.B. durch Liquiditaetsgrad 2 (Quick Ratio) = (Fluessige Mittel + Forderungen) / kurzfristiges FK.' },
+            { term: 'Rentabilitaet', def: 'Verhaeltnis von Erfolg zu Kapital. Eigenkapitalrentabilitaet = Erfolg * 100 / Eigenkapital. Gesamtkapitalrentabilitaet = (Erfolg + FK-Zinsen) * 100 / Gesamtkapital.' },
+            { term: 'Eigenfinanzierungsgrad', def: 'Eigenkapital * 100 / Gesamtkapital. Zeigt die finanzielle Unabhaengigkeit.' },
+            { term: 'Anlagedeckungsgrad', def: 'Anlagedeckungsgrad 1 = Eigenkapital / Anlagevermoegen. Anlagedeckungsgrad 2 = (Eigenkapital + langfristiges FK) / Anlagevermoegen (goldene Bilanzregel).' },
+            { term: 'DuPont-Schema', def: 'Kennzahlensystem, das von der Kapitalrentabilitaet (ROI) ausgeht und diese in Umsatzrentabilitaet und Kapitalumschlag aufteilt.' }
+          ]},
+          { type: 'concept', title: 'Auswertung der Bilanz', content: 'Die Bilanz wird in vier Bereichen ausgewertet: (1) Vermoegensstruktur (vertikal, Aktivseite): Intensitaet Umlauf-/Anlagevermoegen. (2) Finanzierungsstruktur (vertikal, Passivseite): Eigen-/Fremdfinanzierungsgrad. (3) Liquiditaetskennzahlen (horizontal): Verhaeltnis von kurzfristigen Aktiven zu kurzfristigem FK. (4) Deckungsverhaeltnisse (horizontal): Anlagedeckungsgrad 1 und 2 (goldene Bilanzregel).' },
+          { type: 'concept', title: 'Auswertung der Erfolgsrechnung', content: 'Vertikal: Aufwands- und Ertragsstruktur (prozentuale Anteile). Horizontal: Wirtschaftlichkeit und Erfolg. Wichtige Kennzahlen sind die Betriebsgewinnmarge (Unternehmensgewinnmarge) und die Umsatzrentabilitaet. Aktivitaetskennzahlen messen den Umschlag und die durchschnittliche Verweildauer (Frist) fuer Vorraete, Debitoren und Kreditoren.' },
+          { type: 'concept', title: 'DuPont-Schema', content: 'Das DuPont-Schema geht von der Kapitalrentabilitaet (Return on Investment, ROI) aus und veraestelt sich ueber mehrere Stufen. ROI = Umsatzrentabilitaet * Kapitalumschlag. Die Umsatzrentabilitaet = Gewinn / Umsatz. Der Kapitalumschlag = Umsatz / eingesetztes Kapital. Ueberlegungen zur Rentabilitaetsverbesserung koennen auf allen Stufen des Unternehmens angestellt werden.' },
+          { type: 'summary', title: 'Zusammenfassung', items: [
+            'Vor einer Auswertung sind Bereinigungen vorzunehmen: formelle (Zusammenzug/Aufspaltung) und materielle (Korrektur um stille Reserven).',
+            'Vermoegens- und Finanzierungsstruktur werden vertikal analysiert (z.B. Anlageintensitaet, Eigenfinanzierungsgrad).',
+            'Liquiditaetskennzahlen und Deckungsverhaeltnisse werden horizontal analysiert (z.B. Liquiditaetsgrad 2, Anlagedeckungsgrad).',
+            'Erfolgskennzahlen: Betriebsgewinnmarge, Umsatzrentabilitaet, Rentabilitaet des Eigen- und Gesamtkapitals.',
+            'Aktivitaetskennzahlen messen Umschlag und Verweildauer (Vorraete, Debitoren, Kreditoren).',
+            'Das DuPont-Schema ist ein Kennzahlensystem zur systematischen Rentabilitaetsverbesserung.'
+          ]}
+        ]
+      }
     },
 
     // ============================================================
@@ -1519,7 +1938,34 @@ window.BOOK_DATA = {
           tips: [], reveal: []
         }
       ],
-      learningData: null
+      learningData: {
+        sections: [
+          { type: 'intro', title: 'Lernziele', items: [
+            'Die Bedeutung von Investitionen erklaeren und die wichtigsten Investitionsarten nennen.',
+            'Die Grundlagen fuer eine Investitionsrechnung darstellen.',
+            'Die wichtigsten statischen und dynamischen Methoden der Investitionsrechnung nennen und ihre Anwendung an einfachen Beispielen nachvollziehen.'
+          ]},
+          { type: 'keyterms', title: 'Schluesselbegriffe', terms: [
+            { term: 'Investitionen', def: 'Fuehren zunaechst zu Auszahlungen und spaeter zu Einzahlungen. Durch Investitionen werden Mittel gebunden. Sachinvestitionen, Finanzinvestitionen und immaterielle Investitionen.' },
+            { term: 'Finanzierungen', def: 'Fuehren zunaechst zu Einzahlungen und spaeter zu Auszahlungen (Tilgungen, Zinsen). Durch Finanzierungen werden Mittel beschafft.' },
+            { term: 'Statische Methoden', def: 'Beruecksichtigen den Zeitfaktor nicht (keine Auf-/Abzinsung): Kostenvergleichsrechnung, Gewinnvergleichsrechnung, Renditerechnung, Amortisationsrechnung.' },
+            { term: 'Dynamische Methoden', def: 'Beruecksichtigen den Zeitfaktor mittels Zinseszinsrechnung: Kapitalwertmethode, Annuitaetenmethode, Methode des internen Ertragssatzes, dynamische Pay-back-Methode.' },
+            { term: 'Kostenvergleichsrechnung', def: 'Vergleich der Kosten zwischen Investitionsalternativen. Entscheidungskriterium: Kostendifferenz.' },
+            { term: 'Renditerechnung (Rentabilitaetsrechnung)', def: 'Gewinn bezogen auf das eingesetzte Kapital ergibt die Rentabilitaet pro Investition.' },
+            { term: 'Amortisationsrechnung (Pay-back)', def: 'Berechnet, in wie vielen Jahren die investierte Geldsumme zurueckfliesst. Statisch: Durchschnittswerte. Dynamisch: Abgezinste Zahlungen.' }
+          ]},
+          { type: 'concept', title: 'Arten und Anlaesse von Investitionen', content: 'Nach der Art der Mittelanlage: Sachinvestitionen (Immobilien, Maschinen, Werkzeuge), Finanzinvestitionen (Darlehen, Beteiligungen, Wertschriften) und immaterielle Investitionen (Forschung, Patente, Lizenzen, Werbung). Nach dem Zweck: Gruendungs-, Ersatz-, Modernisierungs-, Rationalisierungs-, Erweiterungs-, Umstellungs-, Diversifizierungs-, Sicherungs- und Umwelt-/Sozialinvestitionen.' },
+          { type: 'concept', title: 'Statische Methoden der Investitionsrechnung', content: 'Statische Methoden beruecksichtigen den Zeitfaktor nicht. Kostenvergleichsrechnung: Vergleich der unterschiedlichen Kosten. Gewinnvergleichsrechnung: Vergleich der Gewinne (Erloese minus Kosten). Renditerechnung: Gewinn bezogen auf eingesetztes Kapital. Amortisationsrechnung: In wie vielen Jahren fliesst die Investitionssumme zurueck? Vorteil: einfach und anschaulich.' },
+          { type: 'concept', title: 'Dynamische Methoden der Investitionsrechnung', content: 'Dynamische Methoden beziehen alle Zahlungsstroeme ueber die ganze Nutzungszeit ein und beruecksichtigen den Zeitfaktor mittels Zinseszinsrechnung. Grundsatz: Geld, das heute zur Verfuegung steht, ist mehr wert als Geld in der Zukunft. Kuenftige Zahlungen werden auf den heutigen Zeitpunkt abgezinst. Der Kalkulationszinssatz wird vom Investor festgelegt; die tatsaechlich erreichte Verzinsung heisst interner Ertragssatz.' },
+          { type: 'summary', title: 'Zusammenfassung', items: [
+            'Investitionen unterscheiden sich nach Art (Sach-, Finanz-, immaterielle) und nach Zweck (Gruendungs-, Ersatz-, Erweiterungsinvestitionen usw.).',
+            'Mithilfe von Investitionsrechnungen soll die Vorteilhaftigkeit eines oder mehrerer Investitionsobjekte ermittelt werden.',
+            'Wichtige quantifizierbare Groessen: Investitionsbetrag, Nutzen, Kalkulationszinssatz, Nutzungsdauer, Liquidationserloes.',
+            'Statische Methoden (ohne Zeitfaktor): Kostenvergleich, Gewinnvergleich, Renditerechnung, Amortisationsrechnung.',
+            'Dynamische Methoden (mit Zeitfaktor): Kapitalwertmethode, Annuitaetenmethode, interner Ertragssatz, dynamische Pay-back-Methode.'
+          ]}
+        ]
+      }
     },
 
     // ============================================================
@@ -1588,7 +2034,39 @@ window.BOOK_DATA = {
         { id: 233, type: 'text', title: 'Ertrag/Aufwand vs. Einnahmen/Ausgaben', q: 'Wenn es um den Erfolg eines Unternehmens geht, wird in den Gr\u00f6ssen Ertrag und Aufwand gedacht. Wenn es dagegen um die Liquidit\u00e4t geht, wird in den Gr\u00f6ssen Einnahmen und Ausgaben gedacht. Entwickeln Sie ein Gesp\u00fcr f\u00fcr die Unterschiede.', keywords: ['Erfolg','Ertrag','Aufwand','Liquidit\u00e4t','Einnahmen','Ausgaben','Geld','Periodisierung'], solution: 'Ertrag und Aufwand beziehen sich auf die periodengerechte Erfolgsermittlung (wann ist die Leistung erbracht?). Einnahmen und Ausgaben beziehen sich auf tats\u00e4chliche Geldbewegungen (wann fliesst das Geld?). Oft entsprechen sich Ertrag und Einnahmen bzw. Aufwand und Ausgaben, aber nicht immer (z. B. Abschreibungen = Aufwand, aber keine Ausgabe).', tips: [], reveal: [] },
         { id: 234, type: 'text', title: 'Liquidit\u00e4tsplan', q: 'Am detailliertesten ist der Liquidit\u00e4tsplan, der auf kurze Zeitr\u00e4ume (Tage, Wochen) ausgerichtet ist. Nennen Sie die Kennzahl sowie das geeignetere Instrument zur \u00dcberwachung der Liquidit\u00e4t. (Stichw\u00f6rter.)', keywords: ['Liquidit\u00e4tsgrad','Liquidit\u00e4tsplan','Geldflussrechnung','Cashflow'], solution: 'Kennzahl: Liquidit\u00e4tsgrad (z. B. Quick Ratio). Geeigneteres Instrument: Liquidit\u00e4tsplan (Geldflussrechnung), da er die zeitliche Komponente ber\u00fccksichtigt.', tips: [], reveal: [] }
       ],
-      learningData: null
+      learningData: {
+        sections: [
+          { type: 'intro', title: 'Lernziele', items: [
+            'Den Fuehrungskreislauf, die Fuehrungsebenen und den Zielsetzungsprozess umschreiben.',
+            'Zwischen Strategieentwicklung und -fortschreibung differenzieren.',
+            'Den Budgetkreislauf auf der operativen Ebene beschreiben und den Aufbau des Budgetsystems erklaeren.',
+            'Wichtige Formen von Soll-Ist-Vergleichen fuer die Kontrolle nennen.'
+          ]},
+          { type: 'keyterms', title: 'Schluesselbegriffe', terms: [
+            { term: 'Budget', def: 'Ergebnis des Budgetprozesses. Dient als Vorgabe bei der Umsetzung der Planung. Liefert Soll-Werte, mit denen die Ist-Werte verglichen werden koennen.' },
+            { term: 'Fuehrungskreislauf', def: 'Vier Phasen: (1) Planen, (2) Entscheiden, (3) Anordnen (Aufgabenuebertragung), (4) Kontrollieren. Gilt auf strategischer und operativer Ebene.' },
+            { term: 'Strategische Planung', def: 'Mittel- bis langfristige Planung. Strategische Entwicklungen werden durch Businessplaene, strategische Fortschreibung durch Mehrjahresplaene dargestellt.' },
+            { term: 'Operative Planung (Jahresbudget)', def: 'Kurzfristige Planung auf Jahresbasis mit hohem Detaillierungsgrad. Einzelplaene werden zu Gesamtrechnungen (Plan-ER, Plan-Bilanz, Plan-Geldflussrechnung) zusammengefuehrt.' },
+            { term: 'Soll-Ist-Vergleich', def: 'Vergleich zwischen Plan-Werten (Soll) und effektiven Werten (Ist). Grundlage fuer Controllingberichte auf Detail- und Gesamtebene.' },
+            { term: 'Abweichungsanalyse', def: 'Untersuchung von Preis-/Satzabweichungen und Mengenabweichungen. Starres Budget: Plan bei 100% Beschaeftigung. Flexibles Budget: Plan angepasst an tatsaechliche Beschaeftigung.' },
+            { term: 'Finanzmanagement', def: 'Umfasst Finanzplanung und -kontrolle. Am detailliertesten ist der Liquiditaetsplan, der auf kurze Zeitraeume (Tage, Wochen) ausgerichtet ist.' }
+          ]},
+          { type: 'concept', title: 'Fuehrungskreislauf und Fuehrungsebenen', content: 'Ein Unternehmen braucht Visionen und Ziele. Die Realisierung erfolgt Schritt fuer Schritt, Jahr fuer Jahr. Der Fuehrungskreislauf (Planen, Entscheiden, Anordnen, Kontrollieren) gilt auf der strategischen und operativen Ebene. Die Operationalisierung der Ziele erfolgt von oben nach unten (Zielpyramide), die Rueckkopplung von unten nach oben ueber die Ergebnisse der Zielerreichung.' },
+          { type: 'concept', title: 'Strategische Planung', content: 'Strategische Entwicklungen werden bevorzugt in Form von Businessplaenen dargestellt. Businessplaene werden nicht nur bei Unternehmensgruendungen eingesetzt, sondern auch bei Erneuerung, Erweiterung oder Umgestaltung. Die strategische Fortschreibung geht um Mehrjahresplaene bestehender Geschaefte. Beide werden in Gesamtrechnungen (Plan-ER, Plan-Bilanz, Plan-Geldflussrechnung) integriert.' },
+          { type: 'concept', title: 'Operative Planung und Budgetierung', content: 'Auf der operativen Ebene werden Jahresbudgets erstellt. Einzelplaene (Absatz-, Produktions-, Personal-, Beschaffungs-, Investitionsplan usw.) werden zu Gesamtrechnungen zusammengefuehrt. Die Budgeterstellung ist selbst ein Kreislauf: Zahlen von Einzelplaenen werden zu Gesamtrechnungen zusammengezogen und mit Schluesselkennzahlen geprueft, ob die finanziellen Ziele erreichbar sind.' },
+          { type: 'concept', title: 'Controllingberichte und Soll-Ist-Vergleiche', content: 'Controlling baut auf dem betrieblichen Rechnungswesen auf. Soll-Ist-Vergleiche werden auf Detailstufe (Kostenstellen- und Kostentraegerberichte) und auf der Stufe von Gesamtrechnungen durchgefuehrt. Abweichungen koennen in Mengen- und Preis-/Satzabweichungen zerlegt werden. Bei einem flexiblen Budget wird der Plan-Wert an die tatsaechliche Beschaeftigung angepasst.' },
+          { type: 'concept', title: 'Finanzmanagement und Finanzplanung', content: 'Das Finanzmanagement koordiniert die Beschaffung, Verwendung und Verwaltung der finanziellen Mittel. Die Finanzplanung ist eine rollende Planung. Am detailliertesten ist der Liquiditaetsplan, der auf kurze Zeitraeume (Tage, Wochen) ausgerichtet ist. Liquiditaet ist eines der finanziellen Hauptziele: Zahlungsunfaehigkeit kann zu Betreibungen und Konkurs fuehren.' },
+          { type: 'summary', title: 'Zusammenfassung', items: [
+            'Budgets sind die rechnerische Unterstuetzung der Planungsphase im Fuehrungskreislauf.',
+            'Die Fuehrungsebenen sind ueber die Ziele miteinander verbunden; finanzwirtschaftliche Ziele haben eine Leit- und eine Messfunktion.',
+            'Auf der strategischen Ebene werden Gesamtrechnungen fuer die mittel- bis langfristige Planung eingesetzt (Businessplaene, Mehrjahresplaene).',
+            'Auf der operativen Ebene werden Jahresbudgets erstellt; Einzelplaene werden zu Gesamtrechnungen zusammengefuehrt.',
+            'Die Budgeterstellung ist selbst ein Kreislauf mit Schluesselkennzahlen zur Pruefung der Zielerreichung.',
+            'Controllingberichte: Soll-Ist-Vergleiche auf Detail- und Gesamtebene.',
+            'Das Finanzmanagement umfasst Finanzplanung und -kontrolle; am detailliertesten ist der Liquiditaetsplan.'
+          ]}
+        ]
+      }
     }
   ],
 

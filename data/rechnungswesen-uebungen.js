@@ -77,7 +77,25 @@ window.BOOK_DATA = {
           reveal: [{label:'A',val:'Finanzbuchhaltung'},{label:'B',val:'Inventar'},{label:'C',val:'Lohnbuchhaltung'},{label:'D',val:'Geldflussrechnung'},{label:'E',val:'Bilanz- und Erfolgsanalyse'},{label:'F',val:'Betriebsbuchhaltung'}]
         }
       ],
-      learningData: null
+      learningData: {
+        sections: [
+          { type: 'intro', title: 'Lernziele', items: [
+            'Die zwei Hauptbereiche des Rechnungswesens unterscheiden (FIBU und BEBU)',
+            'Die Rolle der Nebenbuchhaltungen (Hilfsrechnungen) kennen',
+            'Die Funktion des Rechnungswesens im Unternehmen verstehen'
+          ]},
+          { type: 'concept', title: 'Zwei Hauptbereiche', content: 'Das Rechnungswesen gliedert sich in zwei Hauptbereiche: Das finanzielle Rechnungswesen (externer Abschluss mit Bilanz und Erfolgsrechnung) und das betriebliche Rechnungswesen (interner Abschluss mit der Erfassung der Kosten).', highlight: 'Finanzbuchhaltung = extern, Betriebsbuchhaltung = intern' },
+          { type: 'keyterms', title: 'Schlüsselbegriffe', terms: [
+            { term: 'Finanzbuchhaltung (FIBU)', def: 'Externer Abschluss: Bilanz und Erfolgsrechnung. Bildet den Verkehr mit Marktpartnern ab.' },
+            { term: 'Betriebsbuchhaltung (BEBU)', def: 'Interner Abschluss. Dient der Führung des Unternehmens mit Zahlen.' },
+            { term: 'Nebenbuchhaltungen', def: 'Hilfsrechnungen wie Debitoren-, Kreditoren- und Lohnbuchhaltung.' },
+            { term: 'Inventar', def: 'Detaillierte Bestandsaufnahme der Ist-Bestände auf einen Stichtag.' },
+            { term: 'Geldflussrechnung', def: 'Zeigt die Herkunft und Verwendung der finanziellen Mittel (dritte Abschlussrechnung).' },
+            { term: 'Bilanz- und Erfolgsanalyse', def: 'Auswertung von Abschlussrechnungen mit Kennzahlen.' }
+          ]},
+          { type: 'merke', title: 'Merke dir', content: 'Das Rechnungswesen erfüllt im Unternehmen eine wichtige Grundlage für die Planung, Entscheidung, Kontrolle und Führung. Die Buchhaltung erfasst nur zahlenmässig erfassbare Geschäftsvorgänge.' }
+        ]
+      }
     },
 
     // ═══════════════════════════════════════════════════════════════════════════
@@ -101,7 +119,33 @@ window.BOOK_DATA = {
         { id: 15, type: 'text', q: 'Bilanz aus einem Geschäftsbericht (Meyer Burger). Beantworten Sie die Fragen zur Konzernbilanz 2016.', tips: ['Zeitpunktrechnung: Achten Sie auf die Datumsangaben.','Prozentzahlen zeigen den Anteil jeder Position an der Bilanzsumme (100%).','Summationsstaffeln: FK-Blöcke werden zuerst summiert.'], reveal: [{label:'A',val:'Ja – Stichtage 31.12.2016 und 31.12.2015'},{label:'B',val:'Serviceleistung, nicht obligatorisch'},{label:'C',val:'Anteil jeder Position an der Bilanzsumme (100%)'},{label:'D',val:'Staffel 1: 271141+124323=395464; Staffel 2: 395464+234424=629889'},{label:'E',val:'Warenvorräte (Vorräte / Inventories)'}], questions: [{id:'a',q:'Ist die Bilanz eine Zeitpunktrechnung?',accept:['zeitpunkt','stichtag','31.12']},{id:'b',q:'Prozentzahlen: Serviceleistung oder obligatorisch?',accept:['service','freiwillig','nicht obligatorisch']},{id:'c',q:'Wie sind die Prozentzahlen zu lesen?',accept:['anteil','bilanzsumme','100%']},{id:'d',q:'Summationsstaffeln der Passivseite zuordnen',accept:['395','629','staffel']},{id:'e',q:'Um welche Bilanzposition handelt es sich (Detailtabelle)?',accept:['vorr','warenvorr','inventori']}] },
         { id: 16, type: 'fill', q: 'Kreuzworträtsel zum Thema Bilanz. Was ist in den Reihen gesucht?', tips: ['Südlich des Gotthards = Italienisch.','«Weniger am Rotieren» = Anlage...','Passiv sitzen = Passiven. Unterm Strich gleich = Bilanzsumme.'], reveal: [{label:'1',val:'BILANCIA'},{label:'2',val:'ANLAGEVERMÖGEN'},{label:'3',val:'PASSIVEN'},{label:'4',val:'EIGENKAPITAL'},{label:'5',val:'FREMDKAPITAL'},{label:'6',val:'AKTIVEN'},{label:'7',val:'BILANZSUMME'}], clues: [{nr:1,hint:'Südlich des Gotthards das Sinnbild für die Bilanz.',ans:['bilancia'],display:'BILANCIA'},{nr:2,hint:'Auf der Aktivseite viel weniger am Rotieren.',ans:['anlagevermoegen','anlagevermögen'],display:'ANLAGEVERMÖGEN'},{nr:3,hint:'Eine Ansammlung von Couch-Potatoes? Kapital hängt darunter ab.',ans:['passiven'],display:'PASSIVEN'},{nr:4,hint:'Aktienkapital, Reserven und Gewinnvortrag gehören dazu.',ans:['eigenkapital'],display:'EIGENKAPITAL'},{nr:5,hint:'Solches aufzunehmen, beschönigt der Bankräuber seine Tat.',ans:['fremdkapital'],display:'FREMDKAPITAL'},{nr:6,hint:'Vermögensposten; bringen Schwung ins Vereinsleben.',ans:['aktiven'],display:'AKTIVEN'},{nr:7,hint:'Unterm Strich passt es links wie rechts.',ans:['bilanzsumme'],display:'BILANZSUMME'}] }
       ],
-      learningData: null
+      learningData: {
+        sections: [
+          { type: 'intro', title: 'Lernziele', items: [
+            'Den Aufbau und die Struktur einer Bilanz verstehen',
+            'Bilanzpositionen den Hauptgruppen zuordnen (UV, AV, FK, EK)',
+            'Die goldene Bilanzregel anwenden können',
+            'Bilanzen für verschiedene Unternehmenstypen erstellen'
+          ]},
+          { type: 'concept', title: 'Aufbau der Bilanz', content: 'Die Bilanz ist eine summarische Gegenüberstellung von Vermögen und Kapital an einem Stichtag. Die Aktivseite zeigt die Zusammensetzung des Vermögens (Mittelverwendung), die Passivseite zeigt die Zusammensetzung des Kapitals (Mittelherkunft).', highlight: 'Aktiven = Vermögen, Passiven = Kapital (FK + EK)' },
+          { type: 'keyterms', title: 'Schlüsselbegriffe', terms: [
+            { term: 'Umlaufvermögen (UV)', def: 'Kurzfristig gebundene Vermögenswerte: Kasse, Bank, Forderungen, Vorräte.' },
+            { term: 'Anlagevermögen (AV)', def: 'Langfristig gebundene Vermögenswerte: Immobilien, Maschinen, Fahrzeuge.' },
+            { term: 'Fremdkapital (FK)', def: 'Schulden des Unternehmens: Verbindlichkeiten, Darlehen, Hypotheken, Rückstellungen.' },
+            { term: 'Eigenkapital (EK)', def: 'Eigene Mittel: Aktienkapital, Reserven, Gewinnvortrag. EK = Aktiven − FK.' },
+            { term: 'Bilanzsumme', def: 'Total Aktiven = Total Passiven. Stets im Gleichgewicht.' },
+            { term: 'Goldene Bilanzregel', def: 'Langfristiges Kapital (EK + langfr. FK) soll mindestens so hoch sein wie das Anlagevermögen.' },
+            { term: 'Nettoumlaufvermögen', def: 'UV − kurzfristiges FK. Ist positiv, wenn die goldene Bilanzregel eingehalten wird.' }
+          ]},
+          { type: 'merke', title: 'Merke dir', content: 'Stets gilt: Eigenkapital = Aktiven − Fremdkapital. Das Fremdkapital ist NICHT immer höher als das Eigenkapital. Die Bilanz ist eine Zeitpunktrechnung (Stichtag).' },
+          { type: 'summary', title: 'Zusammenfassung', items: [
+            'Aktiven: zuerst UV (Liquiditätsreihenfolge), dann AV',
+            'Passiven: zuerst FK (kurzfr. vor langfr.), dann EK',
+            'Rechtsformtypische EK-Posten: AG → Aktienkapital + Reserven, EU → Eigenkapital',
+            'Bilanzgleichung: Vermögen = Fremdkapital + Eigenkapital'
+          ]}
+        ]
+      }
     },
 
     // ═══════════════════════════════════════════════════════════════════════════
@@ -122,7 +166,26 @@ window.BOOK_DATA = {
         { id: 24, type: 'check', q: 'Wie wirken sich Vorgänge auf die Stufenergebnisse aus? (+, −, 0)', tips: ['+ = erhöht das Ergebnis, − = senkt es, 0 = keine Auswirkung.','Bruttogewinn: Nur Warenaufwand/-ertrag.'], reveal: [{label:'1',val:'BG: 0 | Betr: − | UG: −'},{label:'2',val:'BG: 0 | Betr: 0 | UG: +'}], transactions: [{s:'Bezahlung der Löhne via Bank',bg:'0',betg:'-',ug:'-'},{s:'Kursgewinne auf Wertschriften',bg:'0',betg:'0',ug:'+'},{s:'Nachträgliche Rabatte auf Wareneinkäufen',bg:'+',betg:'+',ug:'+'},{s:'Bodenreinigung des Ladenlokals',bg:'0',betg:'-',ug:'-'},{s:'Warenverkäufe auf Kredit',bg:'+',betg:'+',ug:'+'},{s:'Unterhaltsarbeiten am Gewerbegebäude',bg:'0',betg:'0',ug:'-'},{s:'Abschreibung Ladeneinrichtung',bg:'0',betg:'-',ug:'-'},{s:'Mietaufwand und Gutschrift Immobilien',bg:'0',betg:'-',ug:'0'}] },
         { id: 25, type: 'text', q: 'Erfolgsrechnung aus einem Geschäftsbericht (Meyer Burger)', tips: ['Zeitraumrechnung: ER zeigt Aufwand/Ertrag über eine Periode.','EBITDA = vor Abschreibungen. EBIT = vor Zinsen und Steuern.'], reveal: [{label:'A',val:'Ja – Zeitraum 1.1.–31.12.'},{label:'F',val:'Lage verbessert sich – Verlust wird kleiner'}], questions: [{id:'a',label:'Zeitpunkt- oder Zeitraumrechnung?',keywords:['zeitraum','1.1','31.12']},{id:'b',label:'Prozentzahlen: Serviceleistung oder obligatorisch?',keywords:['serviceleistung','nicht obligatorisch']},{id:'c',label:'Wie sind die Prozentzahlen zu lesen?',keywords:['anteil','nettoerlös','100%']},{id:'d',label:'Erläuterung sonstiger Betriebsaufwand',keywords:['sonstiger betriebsaufwand']},{id:'e',label:'Zwischenergebnisse den KHG zuordnen',keywords:['brutto','personal','ebitda','ebit']},{id:'f',label:'Verschlimmert oder verbessert sich die Lage?',keywords:['verbessert','kleiner']}] }
       ],
-      learningData: null
+      learningData: {
+        sections: [
+          { type: 'intro', title: 'Lernziele', items: [
+            'Aufwand und Ertrag unterscheiden und den richtigen Konten zuordnen',
+            'Eine gestufte Erfolgsrechnung aufstellen (zwei- und dreistufig)',
+            'Die Darstellungsformen der ER kennen (Kontoform vs. Staffelform)',
+            'Zwischenergebnisse wie Bruttogewinn, EBIT und Unternehmensgewinn berechnen'
+          ]},
+          { type: 'concept', title: 'Erfolgsrechnung', content: 'Die Erfolgsrechnung zeigt den Ertrag und Aufwand einer Periode (Zeitraum). Aufwand bedeutet Wertverzehr (Abnahme des Vermögens bzw. Zunahme der Schulden). Ertrag bedeutet Wertzuwachs. Das Ergebnis (Saldo) ist der Erfolg: Gewinn oder Verlust.', highlight: 'ER = Zeitraumrechnung (im Gegensatz zur Bilanz = Zeitpunktrechnung)' },
+          { type: 'keyterms', title: 'Schlüsselbegriffe', terms: [
+            { term: 'Aufwand', def: 'Wertverzehr: einseitige Abnahme des Vermögens oder einseitige Zunahme der Schulden.' },
+            { term: 'Ertrag', def: 'Wertzuwachs: einseitige Zunahme des Vermögens oder einseitige Abnahme der Schulden.' },
+            { term: 'Bruttogewinn', def: 'Nettoerlös − Warenaufwand (Einstandswert). Erstes Zwischenergebnis.' },
+            { term: 'EBIT', def: 'Earnings Before Interest and Taxes. Betriebsergebnis, dient dem Vergleich.' },
+            { term: 'Kontoform (T-Form)', def: 'Darstellung im Unterricht. Aufwand links, Ertrag rechts.' },
+            { term: 'Staffelform (Berichtsform)', def: 'Darstellung in Geschäftsberichten. Schrittweise Berechnung.' }
+          ]},
+          { type: 'merke', title: 'Merke dir', content: '«Erfolg» ist der Oberbegriff (nicht «Gewinn»). Gewinn = Ertragsüberschuss, Verlust = Aufwandsüberschuss. In Geschäftsberichten wird die ER meist in der Staffelform (Berichtsform) dargestellt, nicht in der Kontoform.' }
+        ]
+      }
     },
 
     // ═══════════════════════════════════════════════════════════════════════════
@@ -136,7 +199,26 @@ window.BOOK_DATA = {
         { id: 26, type: 'tf', q: 'Geldflussrechnungen in verschiedenen Unternehmenssituationen', tips: ['GFR zeigt Geldzu- und -abflüsse in 3 Bereichen.','Positiver operativer Cashflow = Kerngeschäft generiert Geld.'], reveal: [{label:'1',val:'Richtig – Start-up: negativer CF'},{label:'2',val:'Falsch – Unternehmen B hat negativen CF (-130)'}], statements: [{s:'Die GFR des Unternehmens C wäre am ehesten bei einem Start-up-Unternehmen vorzufinden.', c: true},{s:'Investoren wären am glücklichsten mit Unternehmen B.', c: false,reason:'Unternehmen B hat negativen operativen CF.'},{s:'Nur bei Unternehmen B sind die Erträge höher als die Aufwendungen.', c: false,reason:'Unternehmen B hat negativen operativen CF (-130).'},{s:'Die GFR von Unternehmen A findet man am ehesten bei einem starken Unternehmen.', c: true}] },
         { id: 27, type: 'text', q: 'Geldflussrechnung aus einem Geschäftsbericht', tips: ['Die GFR ist eine Zeitraumrechnung.','Praxis-Cashflow = Gewinn + Abschreibungen.'], reveal: [{label:'A',val:'Zeitraumrechnung'},{label:'B',val:'Ja: drei Bereiche'},{label:'C',val:'Operativer CF 2015 negativ'}], questions: [{id:'a',label:'Zeitpunkt- oder Zeitraumrechnung?',keywords:['zeitraum']},{id:'b',label:'Drei Bereiche erkennbar?',keywords:['geschäftstätigkeit','investition','finanzierung']},{id:'c',label:'Was fällt am CF 2015 auf?',keywords:['negativ','verbrennt']},{id:'d',label:'Flüssige Mittel zu- oder abgenommen?',keywords:['abgenommen']},{id:'e',label:'Massnahme gegen Finanzlage?',keywords:['kapitalerhöhung','finanzierung']},{id:'f',label:'Praxis-Cashflow vs. echter CF?',keywords:['working capital','abschreibung']}] }
       ],
-      learningData: null
+      learningData: {
+        sections: [
+          { type: 'intro', title: 'Lernziele', items: [
+            'Den Zusammenhang zwischen Bilanz und Erfolgsrechnung verstehen',
+            'Die Kontenarten der doppelten Buchhaltung kennen (Bilanz- und Erfolgskonten)',
+            'Erfolgswirksame und erfolgsunwirksame Buchungen unterscheiden',
+            'Die Geldflussrechnung als dritte Abschlussrechnung verstehen'
+          ]},
+          { type: 'concept', title: 'Doppelter Erfolgsnachweis', content: 'Die doppelte Buchhaltung basiert auf zwei Arten von Konten: Bilanzkonten (Aktiv- und Passivkonten) und Erfolgskonten (Aufwands- und Ertragskonten). Der Erfolg kann doppelt nachgewiesen werden: in der Schlussbilanz (Differenz Aktiven − FK) und in der Erfolgsrechnung (Differenz Ertrag − Aufwand).', highlight: 'Vor der Gewinnverbuchung: SB I, nach der Gewinnverbuchung: SB II' },
+          { type: 'keyterms', title: 'Schlüsselbegriffe', terms: [
+            { term: 'Bilanzkonten', def: 'Aktiv- und Passivkonten. Haben einen Anfangsbestand und einen Endbestand.' },
+            { term: 'Erfolgskonten', def: 'Aufwands- und Ertragskonten. Haben keinen Anfangsbestand.' },
+            { term: 'Erfolgswirksam', def: 'Buchung berührt ein Erfolgskonto und verändert den Gewinn/Verlust.' },
+            { term: 'Erfolgsunwirksam', def: 'Buchung berührt nur Bilanzkonten (AT, PT, KB, KR).' },
+            { term: 'Geldflussrechnung (GFR)', def: 'Zeigt die Geldzu- und -abflüsse in drei Bereichen: operativ, Investition, Finanzierung.' },
+            { term: 'Cashflow', def: 'Mittelzufluss aus der Geschäftstätigkeit. Praxis-Cashflow = Gewinn + Abschreibungen.' }
+          ]},
+          { type: 'merke', title: 'Merke dir', content: 'Ein positiver operativer Cashflow bedeutet, dass das Kerngeschäft Geld generiert. Bei einem Startup ist ein negativer Cashflow zu Beginn normal. Ein starkes Unternehmen hat in der Regel einen positiven operativen Cashflow.' }
+        ]
+      }
     },
 
     // ═══════════════════════════════════════════════════════════════════════════
@@ -161,7 +243,34 @@ window.BOOK_DATA = {
         { id: 39, type: 'match', q: 'Grafische Aufgabe zu Erfolgsvorgängen', tips: ['Aufwandskonten: Soll = Zunahme.','Ertragskonten: Haben = Zunahme.'], reveal: [{label:'A',val:'Aufwandsbuchung (Aufwandskonto Soll / Aktivkonto Haben)'}], pairs: [{l:'A) Barzahlung Miete',r:'1'},{l:'B) Bareinnahme Warenverkauf',r:'2'},{l:'C) Lohnzahlung per Bank',r:'1'},{l:'D) Bankgutschrift für DL',r:'2'},{l:'E) Wareneinkauf auf Rechnung',r:'3'},{l:'F) Zinsertrag auf Post',r:'2'}], options: ['1','2','3'] },
         { id: 40, type: 'text', q: 'Einzelfragen zum Thema Buchungstechnik', tips: ['Die Bilanz wird in Konten aufgelöst.','Journal = chronologisch. Hauptbuch = sachlich.'], reveal: [{label:'A',val:'Jeder Geschäftsfall auf mindestens zwei Konten'},{label:'B',val:'Journal = chronologisch, Hauptbuch = sachlich'}], questions: [{id:'a',q:'Was bedeutet "doppelte Buchhaltung"?',keywords:['zwei konten','soll','haben']},{id:'b',q:'Journal vs. Hauptbuch?',keywords:['chronolog','sachlich']},{id:'c',q:'Ablauf Eröffnung bis Schlussbilanz?',keywords:['eröffnung','geschäftsf','abschluss']},{id:'d',q:'Was ist der doppelte Erfolgsnachweis?',keywords:['bilanz','erfolgsrechnung','beide']},{id:'e',q:'Rolle des Belegs?',keywords:['beleg','grundlage','keine buchung']}] }
       ],
-      learningData: null
+      learningData: {
+        sections: [
+          { type: 'intro', title: 'Lernziele', items: [
+            'Die vier Typen von Bilanzveränderungen kennen und anwenden',
+            'Buchungssätze formulieren (Soll an Haben)',
+            'Den Zusammenhang zwischen Journal und Hauptbuch verstehen',
+            'Den doppelten Erfolgsnachweis in Bilanz und ER nachvollziehen'
+          ]},
+          { type: 'concept', title: 'Vier Bilanzveränderungstypen', content: 'Jeder Geschäftsfall verändert die Bilanz auf eine von vier Arten: Aktivtausch (a+/a−), Passivtausch (p−/p+), Kapitalbeschaffung (a+/p+) oder Kapitalrückzahlung (a−/p−). Beim AT und PT bleibt die Bilanzsumme gleich, bei KB steigt sie und bei KR sinkt sie.', highlight: 'AT und PT: Bilanzsumme bleibt gleich. KB: steigt. KR: sinkt.' },
+          { type: 'keyterms', title: 'Schlüsselbegriffe', terms: [
+            { term: 'Aktivtausch (AT)', def: 'Aktiv+ / Aktiv−. Bilanzsumme bleibt gleich. Bsp: Kauf Fahrzeug bar.' },
+            { term: 'Passivtausch (PT)', def: 'Passiv− / Passiv+. Bilanzsumme bleibt gleich. Bsp: Darlehen in Hypothek umwandeln.' },
+            { term: 'Kapitalbeschaffung (KB)', def: 'Aktiv+ / Passiv+. Bilanzsumme steigt. Bsp: Kauf Mobiliar auf Rechnung.' },
+            { term: 'Kapitalrückzahlung (KR)', def: 'Aktiv− / Passiv−. Bilanzsumme sinkt. Bsp: Bezahlung Lieferantenrechnung.' },
+            { term: 'Buchungssatz', def: 'Kontoaufruf: Soll an Haben (z.B. Maschinen / Kasse = Aktivtausch).' },
+            { term: 'Journal', def: 'Chronologische Aufzeichnung aller Geschäftsfälle.' },
+            { term: 'Hauptbuch', def: 'Sachliche Ordnung der Buchungen nach Konten.' }
+          ]},
+          { type: 'merke', title: 'Merke dir', content: 'Die Grundregel der doppelten Buchhaltung: Jeder Geschäftsfall wird auf mindestens zwei Konten gebucht (Soll und Haben). Ohne Beleg keine Buchung! Erfolgskonten haben keinen Anfangsbestand und werden am Periodenende über die ER abgeschlossen.' },
+          { type: 'summary', title: 'Zusammenfassung', items: [
+            'Aktivkonten: Zunahme im Soll, Abnahme im Haben',
+            'Passivkonten: Zunahme im Haben, Abnahme im Soll',
+            'Aufwandskonten: Zunahme im Soll (wie Aktivkonten)',
+            'Ertragskonten: Zunahme im Haben (wie Passivkonten)',
+            'SB I = vor Erfolgsverbuchung, SB II = nach Erfolgsverbuchung'
+          ]}
+        ]
+      }
     },
 
     // ═══════════════════════════════════════════════════════════════════════════
@@ -178,7 +287,26 @@ window.BOOK_DATA = {
         { id: 44, type: 'text', q: 'Theoriefragen zu den Bewertungsvorschriften', tips: ['Bewertung = Frankenwert jedem Posten zuordnen.','Niederstwertprinzip bei Vorräten.'], reveal: [{label:'A',val:'Bewertung = Festlegung des Frankenwerts'},{label:'B',val:'Niederstwertprinzip anwenden'}], questions: [{id:'a',q:'Was ist Bewertung?',keywords:['Frankenwert','Bilanzposten','Wert']},{id:'b',q:'Laborgeräte: zu welchem Preis bilanzieren?',keywords:['2950','5290','Niederstwert']},{id:'c',q:'Lower of cost or market übersetzen',keywords:['Niederstwert','niedrigere']},{id:'d',q:'Für welche Position gilt «Anschaffungskosten»?',keywords:['Sachanlage','Anlagevermögen']}] },
         { id: 45, type: 'mc', q: 'Wählen Sie die Antwort: Bewertungsfragen beim Jahresabschluss', tips: ['Anschaffungskosten = Katalogpreis − Rabatt − Skonto + Transport + Montage.','Vorräte: Niederstwertprinzip.'], reveal: [{label:'A',val:'CHF 129 000.–'},{label:'B',val:'CHF 240.–'}], questions: [{id:'a',q:'Aktivierung Spezialmaschine?',options:['CHF 95 000.–','CHF 125 000.–','CHF 129 000.–','CHF 117 000.–'],answer:2},{id:'b',q:'Bewertung Rohmaterialien?',options:['CHF 250.–','CHF 240.–','CHF 265.–','CHF 275.–'],answer:1},{id:'c',q:'Wertschriften bilanzieren?',answer:2},{id:'d',q:'Liegenschaft bilanzieren?',options:['750 000.–','386 000.–','450 000.–','610 000.–'],answer:2}] }
       ],
-      learningData: null
+      learningData: {
+        sections: [
+          { type: 'intro', title: 'Lernziele', items: [
+            'Die gesetzlichen Rechnungslegungsvorschriften (OR) kennen',
+            'Die Bewertungsvorschriften für Aktiven und Fremdkapital verstehen',
+            'Den Aufbau eines Geschäftsberichts kennen (Jahresrechnung, Lagebericht)',
+            'Die Grundsätze ordnungsmässiger Rechnungslegung anwenden'
+          ]},
+          { type: 'concept', title: 'Bewertungsvorschriften', content: 'Gemäss OR 960 ist bei Aktiven und Verbindlichkeiten grundsätzlich die Einzelbewertung vorgeschrieben. Für Aktiven gelten Höchstbewertungsvorschriften (max. Anschaffungs- oder Herstellungskosten), für Fremdkapital gelten Mindestbewertungsvorschriften. Eine Unterbewertung der Aktiven ist erlaubt (Vorsichtsprinzip), eine Überbewertung nicht.', highlight: 'Aktiven: Höchstbewertung. FK: Mindestbewertung. Unterbewertung erlaubt, Überbewertung nicht.' },
+          { type: 'keyterms', title: 'Schlüsselbegriffe', terms: [
+            { term: 'Jahresrechnung', def: 'Bilanz, Erfolgsrechnung und Anhang.' },
+            { term: 'Geschäftsbericht', def: 'Jahresrechnung + Lagebericht (für grössere Unternehmen).' },
+            { term: 'Buchführungspflicht', def: 'Nach OR 957 für juristische Personen in jedem Fall.' },
+            { term: 'Anschaffungskosten', def: 'Katalogpreis − Rabatt − Skonto + Transport + Montage.' },
+            { term: 'Herstellungskosten', def: 'Höchstwert für selbst produzierte Güter.' },
+            { term: 'GoR', def: 'Grundsätze ordnungsmässiger Rechnungslegung: Klarheit, Verständlichkeit, Vollständigkeit, Verlässlichkeit.' }
+          ]},
+          { type: 'merke', title: 'Merke dir', content: 'Gemäss OR 960a gibt es bei der Ersterfassung von Aktiven zwei Höchstwerte: Anschaffungskosten (für gekaufte Güter) und Herstellungskosten (für selbst produzierte Güter). Kasse, Post- und Bankkonten sowie leicht realisierbare Wertschriften stehen im Wert fest.' }
+        ]
+      }
     },
 
     // ═══════════════════════════════════════════════════════════════════════════
@@ -195,7 +323,26 @@ window.BOOK_DATA = {
         { id: 49, type: 'tf', q: 'Richtig oder falsch? Aussagen zu Inventar und Inventur', tips: ['Inventar = Verzeichnis. Inventur = Tätigkeit der Bestandsaufnahme.'], reveal: [{label:'1',val:'Richtig'},{label:'4',val:'Falsch – Inventur ist die Tätigkeit'}], statements: [{s:'Das Inventar ist ein Verzeichnis, Resultat einer Bestandsaufnahme.', c: true},{s:'Inventar enthält nur belegte Posten.', c: false,reason:'Alle zu bewertenden Posten.'},{s:'Inventur ist ein detailliertes Verzeichnis.', c: true},{s:'Inventur ist die Tätigkeit der Bestandsaufnahme.', c: false,reason:'Definition verwechselt.'},{s:'Inventar umfasst sämtliche Posten.', c: false,reason:'Nur die zu bewertenden.'},{s:'Inventar umfasst die zu bewertenden Posten.', c: true}] },
         { id: 50, type: 'text', q: 'Theoriefragen zur Abschreibung', tips: ['Indirekte Methode ist aufschlussreicher.','Abschreibungen sind nicht zahlungswirksam.'], reveal: [{label:'A',val:'Indirekte Methode aufschlussreicher'},{label:'C',val:'Nicht zahlungswirksam'}], questions: [{id:'a',q:'Welches Verfahren ist aufschlussreicher?',keywords:['indirekte','aufschlussreich']},{id:'b',q:'Abschreibung von Anschaffungskosten vs. Buchwert?',keywords:['konstant','linear','degressiv']},{id:'c',q:'Unterschied zu anderem Aufwand?',keywords:['nicht zahlungswirksam']},{id:'d',q:'Buchwert bei indirekter Abschreibung ermittelbar?',keywords:['ja','WB','Differenz']},{id:'e',q:'Anschaffungskosten bei direkter Abschreibung ermittelbar?',keywords:['nein','nicht','direkt']}] }
       ],
-      learningData: null
+      learningData: {
+        sections: [
+          { type: 'intro', title: 'Lernziele', items: [
+            'Die Methoden der Abschreibung kennen (linear, degressiv, leistungsabhängig)',
+            'Direkte und indirekte Abschreibungsmethode unterscheiden',
+            'Wirkungen von Über- und Unterbewertungen im Fremdkapital verstehen',
+            'Inventar und Inventur unterscheiden'
+          ]},
+          { type: 'concept', title: 'Abschreibungsmethoden', content: 'Bei den linearen Abschreibungen wird der jährliche Abschreibungsbetrag in Prozent der Anschaffungskosten berechnet (konstanter Betrag). Bei der degressiven Methode wird in Prozent des Buchwerts abgeschrieben (abnehmender Betrag). Bei der leistungsabhängigen Methode wird der Abschreibungsbetrag pro Leistungseinheit mit den beanspruchten Leistungseinheiten multipliziert.', highlight: 'Linear = % der Anschaffungskosten. Degressiv = % des Buchwerts.' },
+          { type: 'keyterms', title: 'Schlüsselbegriffe', terms: [
+            { term: 'Direkte Abschreibung', def: 'Abschreibung direkt auf dem Anlagekonto. Anschaffungskosten nicht mehr ersichtlich.' },
+            { term: 'Indirekte Abschreibung', def: 'Abschreibung über ein Wertberichtigungskonto (WB). Anschaffungskosten bleiben sichtbar.' },
+            { term: 'Wertberichtigung (WB)', def: 'Minus-Aktivkonto. Zeigt die kumulierten Abschreibungen.' },
+            { term: 'Buchwert', def: 'Anschaffungskosten − kumulierte Abschreibungen.' },
+            { term: 'Inventar', def: 'Verzeichnis (Ergebnis der Bestandsaufnahme).' },
+            { term: 'Inventur', def: 'Tätigkeit der Bestandsaufnahme.' }
+          ]},
+          { type: 'merke', title: 'Merke dir', content: 'Das Wertberichtigungskonto (WB) ist ein Minus-Aktivkonto (nicht ein Passivkonto!). Bei der degressiven Abschreibung wird der Wert null normalerweise nicht erreicht. Abschreibungen sind nicht zahlungswirksam (kein Geldabfluss). Die indirekte Methode ist aufschlussreicher, da Anschaffungskosten und kumulierte Abschreibungen separat ersichtlich sind.' }
+        ]
+      }
     },
 
     // ═══════════════════════════════════════════════════════════════════════════
@@ -212,7 +359,26 @@ window.BOOK_DATA = {
         { id: 54, type: 'calc', q: 'Berechnung WB Forderungen (Delkredere)', tips: ['WB in CHF = Forderungsbestand × WB-Satz in %.'], reveal: [{label:'Jahr 1',val:'WB = 80 000 × 5% = 4 000'},{label:'Jahr 2',val:'Ford. = 5 000 / 4% = 125 000'}], rows: [{label:'Jahr 1',answer:4000},{label:'Jahr 2',answer:125000},{label:'Jahr 3',answer:4400},{label:'Jahr 4',answer:6}] },
         { id: 55, type: 'check', q: 'Geschäftsfälle betragsmässig zwischen zwei Jahren abgrenzen', tips: ['Prüfen: Buchung ins laufende oder nächste Jahr?','Verursachung im selben Jahr → keine Abgrenzung.'], reveal: [{label:'1',val:'Laufendes 03: 2 Mon. = 2000; Nächstes 04: 1 Mon. = 1000'}], geschaeftsfaelle: [{nr:1,text:'Mietzins 12 000.– für Nov. bis Jan. im Voraus bezahlt.',needsAbgrenzung:'Ja'},{nr:2,text:'Maschinenreparatur in Woche 50, Rechnung fehlt noch.',needsAbgrenzung:'Ja'},{nr:3,text:'Warenbestellung vor Jahresende, Lieferung im Jan.',needsAbgrenzung:'Nein'},{nr:4,text:'Zeitschriftenabos im Voraus, 6 000.– laufen noch ins 04.',needsAbgrenzung:'Ja'},{nr:5,text:'Säumige Mieter zahlen Dezembermieten.',needsAbgrenzung:'Nein'},{nr:6,text:'Darlehen ab 01.08., Zinszahlung Ende Jan. fällig.',needsAbgrenzung:'Ja'}] }
       ],
-      learningData: null
+      learningData: {
+        sections: [
+          { type: 'intro', title: 'Lernziele', items: [
+            'Verluste aus Forderungen und Wertberichtigungen (Delkredere) verbuchen',
+            'Aktive und passive Rechnungsabgrenzungen verstehen',
+            'Transitorische Aktiven (ARA) und Passiven (PRA) unterscheiden',
+            'Rückstellungen bilden und ihre Auswirkungen kennen'
+          ]},
+          { type: 'concept', title: 'Rechnungsabgrenzungen', content: 'Rechnungsabgrenzungen sorgen dafür, dass Aufwand und Ertrag der richtigen Periode zugeordnet werden. Aktive Rechnungsabgrenzungen (ARA/Transitorische Aktiven) grenzen Aufwand ab, der zwar verbucht, aber die nächste Periode betrifft, oder Ertrag, der die laufende Periode betrifft, aber noch nicht verbucht ist. Passive Rechnungsabgrenzungen (PRA/Transitorische Passiven) wirken umgekehrt.', highlight: 'ARA = Transitorische Aktiven (UV). PRA = Transitorische Passiven (kurzfr. FK).' },
+          { type: 'keyterms', title: 'Schlüsselbegriffe', terms: [
+            { term: 'Debitorenverluste', def: 'Tatsächliche, endgültige Verluste aus Forderungen. Werden direkt vom Konto Forderungen L+L abgeschrieben.' },
+            { term: 'Wertberichtigung Forderungen (Delkredere)', def: 'Pauschale Wertkorrektur auf dem Forderungsbestand. Bestand abhängig vom Forderungsbestand.' },
+            { term: 'ARA (Transitorische Aktiven)', def: 'Vorausbezahlter Aufwand der nächsten Periode, oder noch nicht erhaltener Ertrag der laufenden Periode.' },
+            { term: 'PRA (Transitorische Passiven)', def: 'Noch nicht bezahlter Aufwand der laufenden Periode, oder im Voraus erhaltener Ertrag der nächsten Periode.' },
+            { term: 'Rückstellungen', def: 'Gebildet für ungewisse Verpflichtungen. Unsicherheit bei Höhe, Betrag und/oder Zeitpunkt des Eintretens.' },
+            { term: 'Bestandskorrekturen', def: 'Differenzen aus der Inventur. Zunahmen wirken positiv, Abnahmen negativ auf den Periodenerfolg.' }
+          ]},
+          { type: 'merke', title: 'Merke dir', content: 'Die Bildung einer Rückstellung ist erfolgswirksam und belastet den Erfolg der Periode, in der die ungewisse Verpflichtung entsteht. Die Buchung lautet: Aufwandkonto / Rückstellungen (nicht umgekehrt!). Ohne Abgrenzung würde der Erfolg der Periode verzerrt dargestellt.' }
+        ]
+      }
     },
 
     // ═══════════════════════════════════════════════════════════════════════════
@@ -229,7 +395,23 @@ window.BOOK_DATA = {
         { id: 59, type: 'calc', q: 'Bilanzgleichung und stille Reserven', tips: ['Stille Reserven = Unterbewertung Aktiven + Überbewertung FK.','Aktiven − FK = EK.'], reveal: [{label:'A – extern',val:'Aktiven = 1000, FK = 400, EK = 600'}], fieldsA: [{label:'Externe Bilanz: Aktiven',answer:1000},{label:'Wertunterschied: Aktiven',answer:-100},{label:'Wertunterschied: FK',answer:40},{label:'Wertunterschied: EK',answer:-140},{label:'Interne Bilanz: FK',answer:360},{label:'Interne Bilanz: EK',answer:740}], fieldsB: [{label:'Interne Bilanz: Aktiven',answer:910},{label:'Interne Bilanz: FK',answer:440},{label:'Wertunterschied: Aktiven',answer:-70},{label:'Wertunterschied: FK',answer:20},{label:'Externe Bilanz: FK',answer:460},{label:'Externe Bilanz: EK',answer:380}] },
         { id: 60, type: 'mc', q: 'Wählen Sie die Antwort: Stille Reserven bei einer AG', tips: ['Mobiliar CHF 1.– = Erinnerungsfranken.','Bildung stiller Reserven verkleinert den ausgewiesenen Gewinn.'], reveal: [{label:'A',val:'Erinnerungsfranken'},{label:'E',val:'Verkleinert ausgewiesenen Gewinn'}], questions: [{id:'a',q:'Mobiliar CHF 1.– ?',answer:2},{id:'b',q:'Was gehört zum EK?',answer:2},{id:'c',q:'Wo keine stillen Reserven?',answer:2},{id:'d',q:'Welche Aussage ist richtig?',answer:3},{id:'e',q:'Warum Selbstfinanzierung?',answer:1}] }
       ],
-      learningData: null
+      learningData: {
+        sections: [
+          { type: 'intro', title: 'Lernziele', items: [
+            'Stille Reserven verstehen: Entstehung durch Unterbewertung Aktiven oder Überbewertung FK',
+            'Bildung und Auflösung stiller Reserven und deren Auswirkung auf den Erfolg kennen',
+            'Zwischen externer (publizierter) und interner (bereinigter) Bilanz unterscheiden'
+          ]},
+          { type: 'concept', title: 'Stille Reserven', content: 'Stille Reserven entstehen durch Unterbewertung von Aktiven oder Überbewertung von Fremdkapital. Sie sind in der publizierten (externen) Bilanz nicht erkennbar. Die Bildung stiller Reserven mindert den extern ausgewiesenen Erfolg, die Auflösung erhöht ihn. Die interne Bilanz zeigt die bereinigten (echten) Werte.', highlight: 'Bildung stiller Reserven → externer Gewinn sinkt. Auflösung → externer Gewinn steigt.' },
+          { type: 'keyterms', title: 'Schlüsselbegriffe', terms: [
+            { term: 'Stille Reserven', def: 'Differenz zwischen dem internen (echten) Wert und dem extern ausgewiesenen Wert. Entstehen durch bewusste Unterbewertung.' },
+            { term: 'Externe Bilanz', def: 'Die publizierte Bilanz mit möglicherweise stillen Reserven.' },
+            { term: 'Interne Bilanz', def: 'Die bereinigte Bilanz mit den echten (höheren) Werten.' },
+            { term: 'Erinnerungsfranken', def: 'Bilanzierung einer Anlage zu CHF 1.−, obwohl sie mehr wert ist (stille Reserven).' }
+          ]},
+          { type: 'merke', title: 'Merke dir', content: 'Beim Konto Kasse können KEINE stillen Reserven gebildet werden (Bargeld hat einen festen Wert). Stille Reserven sind «still», weil sie in der externen Bilanz nicht erkennbar sind. Die Bildung stiller Reserven ist eine Form der Selbstfinanzierung.' }
+        ]
+      }
     },
 
     // ═══════════════════════════════════════════════════════════════════════════
@@ -249,7 +431,28 @@ window.BOOK_DATA = {
         { id: 67, type: 'calc', q: 'Fahrradhersteller Keller GmbH: Auswertung des BAB', tips: ['Zuschlagssatz = GK / Bezugsgrösse × 100.'], reveal: [{label:'Material-ZS',val:'19.56%'}], calcs: [{label:'Material-ZS in %',answer:19.56},{label:'Rahmenherstellung CHF/h',answer:36.92},{label:'Zubehörproduktion CHF/Löhne',answer:161.62},{label:'Montage CHF/h',answer:25.00},{label:'Entwurf CHF/Stk',answer:13.61},{label:'V.u.V. in % der HK',answer:15.43}] },
         { id: 68, type: 'calc', q: 'Betriebsabrechnung der Race Equipment AG', tips: ['Rohmaterial im Verhältnis 88:176.','Einzellöhne: 2/6 Snowboard, 4/6 Carving Ski.'], reveal: [{label:'Gewinn Snowboards',val:'560'},{label:'Gewinn Carving Skis',val:'680'}], calcs: [{label:'Total Rohmaterial Snowboards',answer:1280},{label:'Total Rohmaterial Carving Skis',answer:2560},{label:'Einzellöhne Snowboards',answer:747},{label:'Einzellöhne Carving Skis',answer:1493},{label:'Gewinn/Verlust Snowboards',answer:560},{label:'Gewinn/Verlust Carving Skis',answer:680}] }
       ],
-      learningData: null
+      learningData: {
+        sections: [
+          { type: 'intro', title: 'Lernziele', items: [
+            'Die drei Stufen der Kostenrechnung verstehen: Kostenarten, Kostenstellen, Kostenträger',
+            'Einzelkosten und Gemeinkosten unterscheiden',
+            'Sachliche Abgrenzungen zwischen FIBU und BEBU vornehmen',
+            'Einen einfachen Betriebsabrechnungsbogen (BAB) erstellen'
+          ]},
+          { type: 'concept', title: 'Aufbau der Kostenrechnung', content: 'In der Betriebsbuchhaltung (BEBU) werden die Kosten nach drei Gesichtspunkten erfasst: Kostenarten (welche Kosten?), Kostenstellen (wo sind sie angefallen?) und Kostenträger (wofür sind sie angefallen?). Einzelkosten werden direkt den Kostenträgern zugeordnet, Gemeinkosten werden über die Kostenstellenrechnung verteilt.', highlight: 'Einzelkosten → direkt auf Kostenträger. Gemeinkosten → über Kostenstellen verteilt.' },
+          { type: 'keyterms', title: 'Schlüsselbegriffe', terms: [
+            { term: 'Kostenarten', def: 'Welche Kosten? Z.B. Material, Löhne, Zinsen, Versicherungen, Abschreibungen.' },
+            { term: 'Kostenstellen', def: 'Wo sind die Kosten angefallen? Z.B. Material, Fertigung, Verwaltung, Vertrieb.' },
+            { term: 'Kostenträger', def: 'Wofür sind die Kosten angefallen? Z.B. Produkt A, Produkt B.' },
+            { term: 'Einzelkosten (direkte Kosten)', def: 'Kosten, die einem Kostenträger direkt zugeordnet werden können.' },
+            { term: 'Gemeinkosten (indirekte Kosten)', def: 'Kosten, die nicht direkt zugeordnet werden können und über Kostenstellen umgelegt werden.' },
+            { term: 'Sachliche Abgrenzung', def: 'Differenz zwischen Aufwand (FIBU) und Kosten (BEBU). Z.B. kalkulatorische Kosten.' },
+            { term: 'Verursacherprinzip', def: 'Wer die Kosten verursacht, soll sie auch tragen.' },
+            { term: 'Bezugsgrösse', def: 'Verteilschlüssel für die Umlage der Gemeinkosten auf Kostenträger.' }
+          ]},
+          { type: 'merke', title: 'Merke dir', content: 'Die Kostenstellenrechnung bildet die Grundlage für die Kostenträgerrechnung (nicht umgekehrt!). Herstellkosten = Materialkosten + Fertigungskosten. Selbstkosten = Herstellkosten + VVGK (Verwaltungs- und Vertriebsgemeinkosten).' }
+        ]
+      }
     },
 
     // ═══════════════════════════════════════════════════════════════════════════
@@ -266,7 +469,26 @@ window.BOOK_DATA = {
         { id: 72, type: 'text', q: 'Kostenverläufe aufzeichnen', tips: ['Fixe Kosten: waagrechte Linie.','Variable Kosten: steigende Gerade durch Nullpunkt.'], reveal: [{label:'A',val:'Fixe Kosten = waagrechte Linie'},{label:'B',val:'Variable Kosten = steigende Gerade'}], questions: [{id:'a',q:'Beschreiben Sie den Verlauf fixer Kosten.',keywords:['waagrecht','konstant','horizontal']},{id:'b',q:'Beschreiben Sie den Verlauf variabler Kosten.',keywords:['steigend','proportional','Gerade']}] },
         { id: 73, type: 'calc', q: 'Betriebsabrechnung im Direct Costing', tips: ['Im Direct Costing werden nur variable Kosten den Produkten zugerechnet.','Fixe Kosten werden als Block vom Gesamt-DB abgezogen.'], reveal: [{label:'DB Produkt A',val:'Berechnung: Erlös − variable Kosten'}], calcs: [] }
       ],
-      learningData: null
+      learningData: {
+        sections: [
+          { type: 'intro', title: 'Lernziele', items: [
+            'Verschiedene Kostenrechnungssysteme kennen (Ist-, Normal-, Standardkostenrechnung)',
+            'Voll- und Teilkostenrechnung unterscheiden',
+            'Variable und fixe Kosten unterscheiden und grafisch darstellen',
+            'Den Deckungsbeitrag berechnen (Nettoerlös − variable Kosten)'
+          ]},
+          { type: 'concept', title: 'Kostenrechnungssysteme', content: 'Die ursprüngliche Form ist die Ist-Kostenrechnung, bei der die tatsächlichen Kosten verrechnet werden. Bei der Vollkostenrechnung werden ALLE Kosten auf die Kostenträger verrechnet. Bei der Teilkostenrechnung (z.B. Direct Costing) werden nur die variablen Kosten den Kostenträgern zugerechnet; die fixen Kosten werden als Block vom Gesamt-Deckungsbeitrag abgezogen.', highlight: 'Vollkosten = alle Kosten. Teilkosten (Direct Costing) = nur variable Kosten.' },
+          { type: 'keyterms', title: 'Schlüsselbegriffe', terms: [
+            { term: 'Ist-Kostenrechnung', def: 'Verrechnet die tatsächlich angefallenen Kosten.' },
+            { term: 'Normalkostenrechnung', def: 'Verwendet Durchschnittswerte aus der Vergangenheit.' },
+            { term: 'Standardkostenrechnung', def: 'Vollkostensystem mit vorgegebenen Plankosten.' },
+            { term: 'Variable Kosten', def: 'Kosten, die sich proportional zur Produktionsmenge verändern.' },
+            { term: 'Fixe Kosten', def: 'Kosten, die unabhängig von der Produktionsmenge gleich bleiben.' },
+            { term: 'Deckungsbeitrag (DB)', def: 'Nettoerlös − variable Kosten. Beitrag zur Deckung der Fixkosten und zum Gewinn.' }
+          ]},
+          { type: 'merke', title: 'Merke dir', content: 'Einzelkosten sind NICHT immer gleich variable Kosten (z.B. fixe Einzelkosten). Im Direct Costing werden nur variable Kosten den Kostenträgern zugerechnet. Nicht verrechnete fixe Kosten müssen durch den Gesamt-Deckungsbeitrag gedeckt werden.' }
+        ]
+      }
     },
 
     // ═══════════════════════════════════════════════════════════════════════════
@@ -434,7 +656,28 @@ window.BOOK_DATA = {
           ]
         }
       ],
-      learningData: null
+      learningData: {
+        sections: [
+          { type: 'intro', title: 'Lernziele', items: [
+            'Kalkulationsgrössen für Handels- und Produktionsbetriebe kennen',
+            'Einkaufs- und Verkaufskalkulationen durchführen',
+            'Das Kalkulationsschema eines Produktionsbetriebs anwenden',
+            'Zuschlagssätze berechnen (Gemeinkostenzuschlag, Reingewinnzuschlag)'
+          ]},
+          { type: 'concept', title: 'Kalkulationsschema Handel', content: 'Im Handel: Bruttokreditankauf − Rabatt = Nettokreditankauf − Skonto = Nettobarankauf + Bezugskosten = Einstand (Warenaufwand). Einstand + Bruttogewinn = Nettoerlös. Bruttogewinnzuschlag basiert auf dem Einstandswert, Handelsmarge basiert auf dem Nettoerlös.', highlight: 'Handelsmarge und Bruttogewinnzuschlag: In Franken gleich, in Prozenten ist die Marge kleiner.' },
+          { type: 'concept', title: 'Kalkulationsschema Produktion', content: 'Im Produktionsbetrieb: Einzelmaterial + Material-GK = Materialkosten. Einzellöhne + Fertigungs-GK = Fertigungskosten. Materialkosten + Fertigungskosten = Herstellkosten. Herstellkosten + VVGK = Selbstkosten. Selbstkosten + Reingewinn = Nettoerlös.', highlight: 'Herstellkosten = Material + Fertigung. Selbstkosten = HK + VVGK.' },
+          { type: 'keyterms', title: 'Schlüsselbegriffe', terms: [
+            { term: 'Einstandswert (Einstand)', def: 'Gesamtkosten der Beschaffung: Einkaufspreis − Rabatt − Skonto + Bezugskosten.' },
+            { term: 'Bruttogewinn', def: 'Nettoerlös − Warenaufwand (Einstand).' },
+            { term: 'Bruttogewinnzuschlag', def: 'Bruttogewinn in % des Einstandswerts (vom Kleineren zum Grösseren).' },
+            { term: 'Handelsmarge', def: 'Bruttogewinn in % des Nettoerlöses (vom Grösseren zum Kleineren).' },
+            { term: 'Herstellkosten', def: 'Materialkosten + Fertigungskosten.' },
+            { term: 'Selbstkosten', def: 'Herstellkosten + Verwaltungs- und Vertriebsgemeinkosten (VVGK).' },
+            { term: 'Reingewinn', def: 'Nettoerlös − Selbstkosten.' }
+          ]},
+          { type: 'merke', title: 'Merke dir', content: 'Der Gemeinkostenzuschlag erfolgt auf dem Warenaufwand (Einstand), der Reingewinnzuschlag auf den Selbstkosten. Nettoerlös − Selbstkosten = Reingewinn. Nettoerlös − Warenaufwand = Bruttogewinn.' }
+        ]
+      }
     },
 
     // ═══════════════════════════════════════════════════════════════════════════
@@ -589,7 +832,33 @@ window.BOOK_DATA = {
           ]
         }
       ],
-      learningData: null
+      learningData: {
+        sections: [
+          { type: 'intro', title: 'Lernziele', items: [
+            'Die Nutzschwelle (Break-even-Point) mengen- und wertmässig berechnen',
+            'Entscheidungen auf Teilkostenbasis treffen (Deckungsbeitrag pro Stück und pro Engpasseinheit)',
+            'Preisuntergrenzen für reguläre und Zusatzaufträge kennen',
+            'Make-or-Buy-Entscheidungen auf Basis des Deckungsbeitrags treffen'
+          ]},
+          { type: 'concept', title: 'Nutzschwelle (Break-even)', content: 'Die Nutzschwelle bezeichnet jene Mengen- oder Umsatzgrösse, bei der das Unternehmen weder Gewinn noch Verlust erwirtschaftet. An der Nutzschwelle gilt: Deckungsbeitrag total = Fixkosten, bzw. Nettoerlös = Selbstkosten. Mengenmässige NS = Fixkosten / DB pro Stück. Wertmässige NS = mengenmässige NS × Nettoerlös pro Stück.', highlight: 'Nutzschwelle: DB total = Fixkosten. Gewinn = DB − Fixkosten.' },
+          { type: 'keyterms', title: 'Schlüsselbegriffe', terms: [
+            { term: 'Nutzschwelle (Break-even-Point)', def: 'Punkt, an dem weder Gewinn noch Verlust entsteht. DB = Fixkosten.' },
+            { term: 'Deckungsbeitrag (DB)', def: 'Nettoerlös − variable Kosten. Beitrag zur Deckung der Fixkosten.' },
+            { term: 'Langfristige Preisuntergrenze', def: 'Volle Selbstkosten müssen gedeckt sein.' },
+            { term: 'Kurzfristige Preisuntergrenze', def: 'Variable Kosten müssen gedeckt sein (bei Zusatzaufträgen).' },
+            { term: 'DB pro Engpasseinheit', def: 'Bei Engpass: DB / Zeiteinheit entscheidend, nicht DB / Stück.' },
+            { term: 'Make or Buy', def: 'Eigenfertigung vs. Fremdbezug. Vergleich der Gesamtkosten bei kritischer Menge.' }
+          ]},
+          { type: 'merke', title: 'Merke dir', content: 'DB ist NICHT Nettoerlös − Selbstkosten, sondern Nettoerlös − variable Kosten! An der Nutzschwelle gilt NICHT Nettoerlös = DB, sondern Nettoerlös = Selbstkosten bzw. DB = Fixkosten. Bei Engpass ist nicht der DB pro Stück entscheidend, sondern der DB pro Engpasseinheit (z.B. pro Minute, pro Maschinenstunde).' },
+          { type: 'summary', title: 'Zusammenfassung', items: [
+            'Fixkosten im Handel = Gemeinkosten (meist fix)',
+            'Variable Kosten im Handel = Einstand (Warenaufwand)',
+            'Mengenmässige NS = Fixkosten / DB pro Stück',
+            'Wertmässige NS = mengenmässige NS × Preis pro Stück',
+            'Bei Gewinnziel: (Fixkosten + Gewinnziel) / DB pro Stück'
+          ]}
+        ]
+      }
     },
 
     // ═══════════════════════════════════════════════════════════════════════════
@@ -722,7 +991,28 @@ window.BOOK_DATA = {
           ]
         }
       ],
-      learningData: null
+      learningData: {
+        sections: [
+          { type: 'intro', title: 'Lernziele', items: [
+            'Die wichtigsten Kennzahlen der Bilanz- und Erfolgsanalyse berechnen',
+            'Liquiditätsgrade, Eigenfinanzierungsgrad und Anlagedeckungsgrad interpretieren',
+            'Das DuPont-Schema verstehen (Kapitalrentabilität = Umsatzrentabilität × Kapitalumschlag)',
+            'Formelle und materielle Bereinigung der Bilanz durchführen'
+          ]},
+          { type: 'concept', title: 'Kennzahlengruppen', content: 'Finanzielle Kennzahlen lassen sich in vier Gruppen einteilen: Liquiditätskennzahlen (Zahlungsbereitschaft), Finanzierungskennzahlen (Kapitalstruktur), Rentabilitätskennzahlen (Ertragskraft) und Aktivitätskennzahlen (Umschlag). Die Kennzahlen werden aus der bereinigten Bilanz und ER berechnet.', highlight: 'Vier Gruppen: Liquidität, Finanzierung, Rentabilität, Aktivität.' },
+          { type: 'keyterms', title: 'Schlüsselbegriffe', terms: [
+            { term: 'Liquiditätsgrad 2 (Quick Ratio)', def: '(Flüssige Mittel + kurzfr. Forderungen) / kurzfr. FK × 100. Sollte mindestens 100% betragen.' },
+            { term: 'Eigenfinanzierungsgrad', def: 'Eigenkapital / Gesamtkapital × 100.' },
+            { term: 'Fremdfinanzierungsgrad', def: '100% − Eigenfinanzierungsgrad. Kann bei Überschuldung über 100% liegen.' },
+            { term: 'Anlagedeckungsgrad 2', def: '(EK + langfr. FK) / AV × 100. Goldene Bilanzregel: ≥ 100%.' },
+            { term: 'Eigenkapitalrentabilität', def: 'Gewinn / EK × 100.' },
+            { term: 'DuPont-Schema', def: 'Kapitalrentabilität = Umsatzrentabilität × Kapitalumschlag.' },
+            { term: 'Cashflow', def: 'Praxis: Gewinn + Abschreibungen. Zeigt die Innenfinanzierungskraft.' },
+            { term: 'Verschuldungsfaktor', def: 'Effektivverschuldung / Cashflow. Zeigt, wie viele Jahre nötig, um Schulden zu tilgen.' }
+          ]},
+          { type: 'merke', title: 'Merke dir', content: 'Die goldene Bilanzregel besagt NICHT, dass das EK ca. 50% der Passiven betragen soll, sondern dass langfristiges Kapital (EK + langfr. FK) mindestens so hoch sein muss wie das Anlagevermögen. Eine Postüberweisung von Kunden (Post↑, Debitoren↓) ist ein Aktivtausch und hat KEINEN Einfluss auf den Liquiditätsgrad 2.' }
+        ]
+      }
     },
 
     // ═══════════════════════════════════════════════════════════════════════════
@@ -769,7 +1059,27 @@ window.BOOK_DATA = {
           ]
         }
       ],
-      learningData: null
+      learningData: {
+        sections: [
+          { type: 'intro', title: 'Lernziele', items: [
+            'Statische und dynamische Investitionsrechnungsverfahren unterscheiden',
+            'Die Kapitalwertmethode anwenden (Barwert der Einzahlungen − Auszahlung)',
+            'Kostenvergleichsrechnung und Gewinnvergleichsrechnung durchführen',
+            'Die Amortisationsdauer (Pay-back) berechnen'
+          ]},
+          { type: 'concept', title: 'Investitionsrechnungsverfahren', content: 'Investitionsrechnungsverfahren werden grob gegliedert in statische Methoden (ohne Berücksichtigung des Zeitfaktors) und dynamische Methoden (mit Berücksichtigung des Zeitwerts des Geldes). Bei den Daten unterscheidet man zwischen vergangenheitsorientierten, zukunftsorientierten und irreversiblen Daten (sunk costs).', highlight: 'Statisch: kein Zeitfaktor. Dynamisch: Zeitwert des Geldes berücksichtigt.' },
+          { type: 'keyterms', title: 'Schlüsselbegriffe', terms: [
+            { term: 'Kostenvergleichsrechnung', def: 'Statisches Verfahren. Vergleicht die Gesamtkosten verschiedener Alternativen.' },
+            { term: 'Gewinnvergleichsrechnung', def: 'Statisches Verfahren. Vergleicht den Gewinn verschiedener Alternativen.' },
+            { term: 'Kapitalwertmethode', def: 'Dynamisches Verfahren. Kapitalwert = Summe der abgezinsten Einzahlungen − Auszahlung.' },
+            { term: 'Pay-back-Methode (Amortisationsrechnung)', def: 'Berechnet die Dauer, bis die Investition sich amortisiert hat.' },
+            { term: 'Barwert', def: 'Heutiger Wert einer zukünftigen Zahlung (abgezinst).' },
+            { term: 'Kalkulationszinssatz', def: 'Zinssatz für die Abzinsung zukünftiger Zahlungen.' },
+            { term: 'Sunk Costs', def: 'Bereits getätigte, irreversible Ausgaben. Dürfen Investitionsentscheid nicht beeinflussen.' }
+          ]},
+          { type: 'merke', title: 'Merke dir', content: 'Nutzen einer Investition sind nicht nur zusätzliche Einnahmen, sondern auch Kosteneinsparungen. Ein Restwert am Ende der Nutzungsdauer senkt die jährlichen Abschreibungskosten. Bei der Kapitalwertmethode gilt: Kapitalwert > 0 → Investition lohnt sich.' }
+        ]
+      }
     },
 
     // ═══════════════════════════════════════════════════════════════════════════
@@ -826,7 +1136,28 @@ window.BOOK_DATA = {
           ]
         }
       ],
-      learningData: null
+      learningData: {
+        sections: [
+          { type: 'intro', title: 'Lernziele', items: [
+            'Den Managementkreislauf und Budgetkreislauf verstehen',
+            'Strategische und operative Planung unterscheiden',
+            'Budgets als Planungsinstrument einsetzen und interpretieren',
+            'Soll-Ist-Vergleiche (Abweichungsanalysen) durchführen'
+          ]},
+          { type: 'concept', title: 'Planung und Budgetierung', content: 'Planen, Entscheiden, Anordnen und Kontrollieren sind die Phasen des Managementkreislaufs. Die strategische Planung arbeitet mit Businessplänen (Mehrjahrespläne), die operative Planung mit Budgets (Jahrespläne). Budgets legen offen, ob die definierten Zielwerte erreichbar sind. Wenn nicht, werden die Einzelpläne überarbeitet.', highlight: 'Strategisch = Businesspläne (langfristig). Operativ = Budgets (kurzfristig).' },
+          { type: 'keyterms', title: 'Schlüsselbegriffe', terms: [
+            { term: 'Managementkreislauf', def: 'Planen → Entscheiden → Anordnen → Kontrollieren.' },
+            { term: 'Strategische Planung', def: 'Langfristige Planung mit Businessplänen. Umfasst strategische Entwicklung und Analyse.' },
+            { term: 'Operative Planung', def: 'Kurzfristige Planung mit Budgets (Jahresplanung).' },
+            { term: 'Leistungsziele', def: 'Produktziele und Marktziele eines Unternehmens.' },
+            { term: 'Finanzziele', def: 'Liquiditätsziele, Rentabilitätsziele und Sicherheitsziele.' },
+            { term: 'Soll-Ist-Vergleich', def: 'Vergleich der geplanten Werte (Budget) mit den tatsächlichen Werten.' },
+            { term: 'Controlling', def: 'Steuerung und Kontrolle. Kein Controllingbericht sollte ausführlicher sein als nötig.' },
+            { term: 'Gegenstromverfahren', def: 'Budgeterstellung durch Kombination von Top-down und Bottom-up.' }
+          ]},
+          { type: 'merke', title: 'Merke dir', content: 'Es gilt: Keine Planung ohne Kontrolle, und keine Kontrolle ohne Planung. Damit eine sinnvolle Kontrolle möglich ist, müssen Plan- und Ist-Rechnungen die gleiche Struktur haben. Ein guter Controllingbericht ist NICHT ausführlich und detailliert, sondern enthält nur so viele Daten, wie der Empfänger benötigt.' }
+        ]
+      }
     }
   ],
 

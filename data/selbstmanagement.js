@@ -266,7 +266,105 @@ window.BOOK_DATA = {
           reveal: []
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Basiskompetenzen in der Kommunikation',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels können Sie \u2026',
+            items: [
+              'den Ablauf des Kommunikationsprozesses beschreiben.',
+              'die Kommunikationsgrundsätze aufführen.',
+              'erklären, was man unter der Sach- und der Beziehungsebene der Kommunikation versteht.',
+              'die Ausdrucksformen der verbalen und der nonverbalen Kommunikation darstellen.'
+            ]
+          },
+          {
+            type: 'concept',
+            title: 'Kommunikationsprozess',
+            content: 'Kommunikation ist der Prozess der Informationsübertragung. Das einfache Kommunikationsmodell nach Shannon und Weaver zeigt den Ablauf: Sender codiert eine Nachricht in Signale, sendet sie über einen Kanal, und der Empfänger decodiert sie. Im erweiterten Kommunikationsmodell wird berücksichtigt, dass Sender und Empfänger die Nachricht jeweils durch ihren eigenen Bezugsrahmen (Werte, Erfahrungen, Kultur) filtern. Missverständnisse entstehen, wenn Signale unterschiedlich interpretiert werden oder innere und äussere Filter die Wahrnehmung beeinträchtigen.',
+            highlight: 'Sender codiert \u2192 Signal \u2192 Kanal \u2192 Signal \u2192 Empfänger decodiert. Rückmeldung (Feedback) zeigt dem Sender, wie die Nachricht angekommen ist.'
+          },
+          {
+            type: 'concept',
+            title: 'Fünf Axiome nach Watzlawick (Kommunikationsgrundsätze)',
+            content: 'Paul Watzlawick formulierte fünf Axiome der Kommunikation: 1. Man kann nicht nicht kommunizieren – jedes Verhalten hat Mitteilungscharakter. 2. Jede Kommunikation hat eine Sach- und eine Beziehungsebene. 3. Kommunikationsabläufe werden unterschiedlich strukturiert – jeder hat seine eigene Wirklichkeit. 4. Kommunikation erfolgt digital (Wörter, Sätze, Symbole) oder analog (nonverbale Signale). 5. Kommunikation verläuft symmetrisch (gleichberechtigt) und/oder komplementär (über-/untergeordnet).',
+            highlight: '5 Axiome: 1) Nicht nicht kommunizieren, 2) Sach- + Beziehungsebene, 3) Eigene Strukturierung, 4) Digital + analog, 5) Symmetrisch + komplementär.'
+          },
+          {
+            type: 'concept',
+            title: 'Sach- und Beziehungsebene (Eisbergmodell)',
+            content: 'Gemäss dem zweiten Axiom unterscheidet man die Sachebene (Inhalt der Nachricht) und die Beziehungsebene (wie die Nachricht zu verstehen ist). Das Eisbergmodell veranschaulicht: Der sichtbare Teil über der Wasseroberfläche ist die Sachebene, der viel grössere unsichtbare Teil darunter die Beziehungsebene. Mehr Entscheidungen fallen auf der Beziehungsebene. Ein erfolgreiches Gespräch berücksichtigt beide Ebenen in einem ausgewogenen Verhältnis.',
+            highlight: 'Sachebene = Inhalt (sichtbar). Beziehungsebene = Zwischenmenschliches (unsichtbar, grösser). Ist die Beziehungsebene gestört, muss sie zuerst geklärt werden.'
+          },
+          {
+            type: 'concept',
+            title: 'Kommunikationsquadrat (Vier-Seiten-Modell)',
+            content: 'Friedemann Schulz von Thun erweiterte das Modell um vier Seiten einer Nachricht: Sachinhalt (worüber ich informiere), Selbstoffenbarung (was ich von mir zu erkennen gebe), Beziehung (was ich von dir halte und wie ich zu dir stehe), Appell (was ich bei dir erreichen möchte). Beim Sender sind es vier Aspekte (Sachaspekt, Selbstoffenbarungsaspekt, Beziehungsaspekt, Appellaspekt), beim Empfänger vier Ohren (Sachohr, Selbstoffenbarungsohr, Beziehungsohr, Appellohr).',
+            highlight: '4 Seiten: Sachinhalt, Selbstoffenbarung, Beziehung, Appell. Der Empfänger kann mit jedem der vier Ohren anders hören.'
+          },
+          {
+            type: 'table',
+            title: 'Verbale, nonverbale und paraverbale Kommunikation',
+            headers: ['Form', 'Beschreibung'],
+            rows: [
+              ['Verbale Kommunikation', 'Kommunikation mit Worten (verbal)'],
+              ['Nonverbale Kommunikation', 'Körpersprache (Mimik und Gestik), Zeit, Raum, Gegenstände'],
+              ['Paraverbale Kommunikation', 'Wie wir etwas sagen: Tonfall, Tonlage, Sprechpausen, Sprache als Symbolträger']
+            ]
+          },
+          {
+            type: 'table',
+            title: 'Distanzzonen',
+            headers: ['Zone', 'Distanz', 'Bedeutung'],
+            rows: [
+              ['Intime Distanz', 'Bis ca. 60 cm', 'Zeichen der Nähe und Verbundenheit'],
+              ['Persönliche Distanz', 'Ca. 60–150 cm', 'Normale Gesprächsdistanz'],
+              ['Gesellschaftliche Distanz', 'Ca. 1,5–4 m', 'Signalisiert unpersönliches Interesse'],
+              ['Öffentliche Distanz', 'Ab ca. 4 m', 'Keine persönliche Beziehung, öffentliche Rolle']
+            ]
+          },
+          {
+            type: 'merke',
+            title: 'Merke dir!',
+            items: [
+              'Kommunikation = Prozess der Informationsübertragung (Sender \u2192 Codierung \u2192 Kanal \u2192 Decodierung \u2192 Empfänger).',
+              'Man kann nicht nicht kommunizieren (1. Axiom Watzlawick).',
+              'Jede Nachricht hat 4 Seiten: Sachinhalt, Selbstoffenbarung, Beziehung, Appell.',
+              'Die Beziehungsebene (Eisberg) beeinflusst mehr Entscheidungen als die Sachebene.',
+              'Nonverbale Signale wirken oft stärker als verbale – Kongruenz ist entscheidend.',
+              'Die Distanzzonen (intim, persönlich, gesellschaftlich, öffentlich) beeinflussen die Kommunikation.'
+            ]
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              'Der <strong>Kommunikationsprozess</strong> setzt einen Sender, einen Empfänger sowie eine Nachricht oder Botschaft voraus. Der Sender codiert seine Gedanken in Signale, der Empfänger decodiert sie mit seinem eigenen Bezugsrahmen.',
+              'Die fünf <strong>Kommunikationsgrundsätze</strong> (Axiome) nach Watzlawick beschreiben grundlegende Eigenschaften der zwischenmenschlichen Kommunikation.',
+              'Die Kommunikation verläuft auf der <strong>Sachebene</strong> (Inhalt) und der <strong>Beziehungsebene</strong> (verbale und nonverbale Signale). Das Eisbergmodell zeigt, dass die Beziehungsebene den grösseren Anteil hat.',
+              'Das <strong>Kommunikationsquadrat</strong> nach Schulz von Thun zeigt, dass jede Nachricht vier Botschaften enthält: Sachinhalt, Selbstoffenbarung, Beziehung und Appell.',
+              'Neben der verbalen Kommunikation gibt es die <strong>nonverbale</strong> (Körpersprache, Zeit, Raum, Gegenstände) und die <strong>paraverbale</strong> Kommunikation (Tonfall, Tonlage, Sprechpausen).'
+            ]
+          },
+          {
+            type: 'keyterms',
+            title: 'Schlüsselbegriffe',
+            terms: [
+              { term: 'Kommunikationsprozess', def: 'Prozess der Informationsübertragung zwischen Sender und Empfänger über einen Kanal.' },
+              { term: 'Codierung', def: 'Sender übersetzt Gedanken in Signale (Worte, Gesten, Bilder).' },
+              { term: 'Decodierung', def: 'Empfänger entschlüsselt die empfangenen Signale in eine Nachricht.' },
+              { term: 'Eisbergmodell', def: 'Sachebene (sichtbar) und Beziehungsebene (unsichtbar, grösser) der Kommunikation.' },
+              { term: 'Kommunikationsquadrat', def: 'Vier-Seiten-Modell von Schulz von Thun: Sachinhalt, Selbstoffenbarung, Beziehung, Appell.' },
+              { term: 'Nonverbale Kommunikation', def: 'Kommunikation ohne Worte: Körpersprache, Mimik, Gestik, Raum, Zeit, Gegenstände.' },
+              { term: 'Paraverbale Kommunikation', def: 'Wie etwas gesagt wird: Tonfall, Tonlage, Sprechpausen, Sprache als Symbolträger.' },
+              { term: 'Distanzzonen', def: 'Vier Distanzzonen: intim, persönlich, gesellschaftlich, öffentlich.' },
+              { term: 'Vier-Ohren-Modell', def: 'Sachohr, Selbstoffenbarungsohr, Beziehungsohr, Appellohr des Empfängers.' }
+            ]
+          }
+        ]
+      }
     },
     {
       id: 'ch3',
@@ -348,7 +446,90 @@ window.BOOK_DATA = {
           reveal: []
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Kommunikationstechniken einsetzen',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels können Sie \u2026',
+            items: [
+              'die Ich-Botschaften und das aktive Zuhören erklären.',
+              'die passende Frageform in einer bestimmten Gesprächssituation vorschlagen.',
+              'die Todsünden der Kommunikation nennen.'
+            ]
+          },
+          {
+            type: 'concept',
+            title: 'Ich-Botschaften senden',
+            content: 'Du-Botschaften werden häufig als Herabsetzung oder Ablehnung empfunden und führen zu Gegendruck. Im Gegensatz dazu begegnen Ich-Botschaften dem Gesprächspartner auf derselben Ebene – offen, ehrlich und direkt. Eine vollständige Ich-Botschaft besteht aus drei Komponenten: 1) Verhaltens- oder Situationsbeschreibung (ohne Wertung), 2) Eigene Gefühle (ehrlich und klar), 3) Auswirkung(en) (auf mich oder auf Dritte). Ich-Botschaften geben Klarheit und Transparenz, ermöglichen die eigene Wahrnehmung ernst zu nehmen und zeigen das eigene Wesen.',
+            highlight: 'Ich-Botschaft = Situationsbeschreibung + eigene Gefühle + Auswirkungen. Du-Botschaften vermeiden!'
+          },
+          {
+            type: 'concept',
+            title: 'Aktives Zuhören',
+            content: 'Die Technik des aktiven Zuhörens stammt vom Psychologen Carl R. Rogers. Es ist ein einfühlsames Zuhören mit dem Ziel, die Mitteilungen des Gegenübers aufzunehmen und seine Sicht zu verstehen. Aktives Zuhören erfordert mehr als ein offenes Ohr – es fordert alle Sinne: Ohr (hören), Auge (beobachten), ungeteilte Aufmerksamkeit und Herz (einfühlen). Drei Stufen: 1) Aufnehmendes Zuhören (Blickkontakt, Nicken), 2) Paraphrasieren (Gehörtes in eigenen Worten wiedergeben), 3) Verbalisieren (Gefühle des Gegenübers ansprechen).',
+            highlight: 'Aktives Zuhören = Ohr + Auge + ungeteilte Aufmerksamkeit + Herz. Unter Spiegeln versteht man das Zusammenfassen in eigenen Worten.'
+          },
+          {
+            type: 'table',
+            title: 'Frageformen',
+            headers: ['Frageform', 'Beschreibung'],
+            rows: [
+              ['Geschlossene Fragen', 'Lassen sich mit \u00abJa\u00bb oder \u00abNein\u00bb beantworten und fordern eine klare Stellungnahme.'],
+              ['Offene Fragen', 'W-Fragen ermöglichen eine offene, ausführliche Antwort.'],
+              ['Konkretisierende Fragen', 'Vertiefendes Nachfragen bei unklaren oder ausweichenden Antworten.'],
+              ['Verhaltensorientierte Fragen', 'Fragen nach Situation, Vorgehen und Resultat (Verhaltensdreieck).'],
+              ['Indirekte Fragen', 'Reflektieren das Gesagte, um schwierige Situationen zu klären.'],
+              ['Richtungsweisende Fragen', 'Gezielte, klärende Fragen, die ein stockendes Gespräch weiterbringen.'],
+              ['Alternativfragen', '\u00abOder\u00bb-Fragen als Entscheidungshilfe.'],
+              ['Suggestivfragen', 'Manipulative Fragen, die dem Gesprächspartner die Antwort in den Mund legen.']
+            ]
+          },
+          {
+            type: 'concept',
+            title: 'Todsünden der Kommunikation',
+            content: 'Gewisse Verhaltensweisen führen fast automatisch zu Missverständnissen, Ärger und Gesprächsabbrüchen. Die vier Todsünden der Kommunikation: 1) Herablassung zeigen – Gesprächspartner von oben herab behandeln. 2) Aktive und passive Störsignale setzen – z.B. Desinteresse zeigen, auf das Handy schauen. 3) Vermeidung von Kommunikation – Konflikte werden nicht angesprochen. 4) Killerphrasen verwenden – negative Botschaften, die eine Gewinner-Verlierer-Situation schaffen und kreatives Denken blockieren.',
+            highlight: '4 Todsünden: Herablassung, Störsignale setzen, Vermeidung, Killerphrasen.'
+          },
+          {
+            type: 'merke',
+            title: 'Merke dir!',
+            items: [
+              'Ich-Botschaften statt Du-Botschaften: Situationsbeschreibung + eigene Gefühle + Auswirkungen.',
+              'Aktives Zuhören = einfühlsames Zuhören mit allen Sinnen (Ohr, Auge, Aufmerksamkeit, Herz).',
+              'Spiegeln = Gehörtes in eigenen Worten zusammenfassen, um Missverständnisse vorzubeugen.',
+              'Wirksames Fragen: Frageform bewusst und situationsgerecht einsetzen.',
+              'Verhaltensorientierte Fragen nutzen das Verhaltensdreieck: Situation \u2192 Vorgehen \u2192 Resultat.',
+              'Killerphrasen blockieren kreatives Denken und schaffen eine Gewinner-Verlierer-Situation.'
+            ]
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              'Eigene Meinungen und Gefühle sollen in <strong>Ich-Botschaften</strong> mitgeteilt werden. So entsteht Klarheit und Verbindlichkeit.',
+              '<strong>Aktives Zuhören</strong> ist ein einfühlsames Zuhören. Der Empfänger bemüht sich, die Mitteilung im Sinne des Senders zu decodieren und dessen Ansicht zu verstehen.',
+              'Unter <strong>Spiegeln</strong> versteht man, die Mitteilung des Gegenübers in eigenen Worten zusammenzufassen, um allfälligen Missverständnissen vorzubeugen.',
+              'Durch <strong>wirksames Fragen</strong> will man weitere Informationen gewinnen. Der bewusste, situationsgerechte Einsatz der unterschiedlichen Frageformen ist ein wichtiges Gesprächsführungsmittel.',
+              'Zu den <strong>Todsünden der Kommunikation</strong> gehören: Herablassung, Signale setzen, Vermeidung von Kommunikation und Killerphrasen verwenden.'
+            ]
+          },
+          {
+            type: 'keyterms',
+            title: 'Schlüsselbegriffe',
+            terms: [
+              { term: 'Ich-Botschaft', def: 'Offene Mitteilung eigener Gefühle und Wahrnehmungen (Situationsbeschreibung + Gefühle + Auswirkungen).' },
+              { term: 'Du-Botschaft', def: 'Anklagende Formulierung, die als Herabsetzung empfunden wird und Gegendruck erzeugt.' },
+              { term: 'Aktives Zuhören', def: 'Einfühlsames Zuhören mit dem Ziel, die Sicht des Gegenübers zu verstehen (nach Carl R. Rogers).' },
+              { term: 'Spiegeln', def: 'Das Gehörte in eigenen Worten zusammenfassen, um Verständnis zu sichern.' },
+              { term: 'Verhaltensdreieck', def: 'Situation \u2192 Vorgehen \u2192 Resultat – Struktur für verhaltensorientierte Fragen.' },
+              { term: 'Killerphrasen', def: 'Negative Botschaften, die kreatives Denken blockieren und eine Win-Lose-Situation schaffen.' },
+              { term: 'Man-Botschaften', def: 'Verallgemeinerungen mit \u00abman\u00bb, die als Schutzschild für die eigene Meinung dienen.' }
+            ]
+          }
+        ]
+      }
     },
     {
       id: 'ch4',
@@ -452,7 +633,84 @@ window.BOOK_DATA = {
           reveal: []
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Schriftliche Kommunikation',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels können Sie \u2026',
+            items: [
+              'Besonderheiten der schriftlichen Kommunikation beschreiben.',
+              'die drei übergeordneten Kommunikationsziele umschreiben.',
+              'erklären, was Zielgruppenorientierung heisst.',
+              'Kriterien der Verständlichkeit nennen.',
+              'verständliche, moderne Sätze formulieren.'
+            ]
+          },
+          {
+            type: 'concept',
+            title: 'Besonderheiten der schriftlichen Kommunikation',
+            content: 'Schriftliche und mündliche Kommunikation unterscheiden sich in sieben Punkten: 1) Aussage: Schriftliche Texte müssen allein aus den Worten verständlich sein. 2) Zeit: Sowohl Sender als auch Empfänger haben mehr Zeit. 3) Relevanz: Geschriebenes hat in der Regel mehr Gewicht. 4) Dauerhaftigkeit/Beweiskraft: E-Mails und Briefe können aufbewahrt werden. 5) Adressatenkreis: Schriftliche Informationen können vervielfältigt und weitergeleitet werden. 6) Interaktion: Zunächst Ein-Weg-Kommunikation. 7) Verbindlichkeit: Schriftliche Inhalte sind nachprüfbar und verbindlicher.',
+            highlight: '7 Unterschiede: Aussage, Zeit, Relevanz, Dauerhaftigkeit, Adressatenkreis, Interaktion, Verbindlichkeit.'
+          },
+          {
+            type: 'concept',
+            title: 'Kommunikationsziele und Zielgruppe',
+            content: 'Man unterscheidet drei übergeordnete Kommunikationsziele: Information (Lesenden ein Thema vermitteln), Motivation (Lesende begeistern oder zur Auseinandersetzung anregen) und Interaktion (Dialog herstellen und Diskussion anstossen). Die Zielgruppe bestimmt die Ausführlichkeit und Formulierung des Texts. Zu wenig Information führt zu Doppelspurigkeiten, zu viel Information beansprucht unnötig Denkkapazitäten.',
+            highlight: '3 Kommunikationsziele: Information, Motivation, Interaktion. Zielgruppenorientierung ist entscheidend.'
+          },
+          {
+            type: 'concept',
+            title: 'Nachrichtentrichter und 6 W-Fragen',
+            content: 'Der Nachrichtentrichter stammt aus dem Journalismus: Die wichtigsten Informationen stehen am Anfang (Das Wichtigste zuerst!). Die 6 W-Fragen helfen, die Vollständigkeit zu prüfen: Was? Wer? Warum oder wozu? Wann? Wie? Wo? Form und Umfang des Texts müssen dem Inhalt entsprechen.',
+            highlight: 'Das Wichtigste zuerst! Vollständigkeit prüfen mit den 6 W-Fragen: Was? Wer? Warum? Wann? Wie? Wo?'
+          },
+          {
+            type: 'concept',
+            title: 'Hamburger Verständlichkeitsmodell',
+            content: 'Das Hamburger Verständlichkeitsmodell wurde von Langer, Schulz von Thun und Tausch entwickelt. Es definiert vier Merkmale der Verständlichkeit (auch \u00abVerständlichmacher\u00bb genannt): 1) Einfachheit: Kurze Sätze, geläufige Wörter, keine Fachwörter ohne Erklärung. 2) Gliederung/Ordnung: Äussere Gliederung und innere Ordnung durch Folgerichtigkeit, roten Faden. 3) Prägnanz/Kürze: Angemessene Länge, präzise Sprache ohne Floskeln. 4) Anregende Zusätze: z.B. Zitate, Fragen, Beispiele, Illustrationen. Stilistisch gilt: Verbalstil statt Nominalstil, aktive statt passive Formulierungen.',
+            highlight: '4 Verständlichmacher: Einfachheit, Gliederung/Ordnung, Prägnanz/Kürze, Anregende Zusätze.'
+          },
+          {
+            type: 'merke',
+            title: 'Merke dir!',
+            items: [
+              'Schriftliche Kommunikation ist verbindlicher, dauerhafter und relevanter als mündliche.',
+              'Zuerst das Kommunikationsziel festlegen: Information, Motivation oder Interaktion.',
+              'Zielgruppenorientierung: Text an den Adressaten anpassen.',
+              '6 W-Fragen sichern die Vollständigkeit: Was? Wer? Warum? Wann? Wie? Wo?',
+              'Nachrichtentrichter: Das Wichtigste zuerst!',
+              'Hamburger Verständlichkeitsmodell: Einfachheit, Gliederung, Prägnanz, Anregende Zusätze.',
+              'Verbalstil statt Nominalstil, aktiv statt passiv formulieren.'
+            ]
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              '<strong>Schriftliche und mündliche Kommunikation</strong> unterscheiden sich in ihrer Wirkung stark. Schriftliche Kommunikation ist verbindlicher, dauerhafter, relevanter und ermöglicht eine durchdachte Formulierung.',
+              'Ein <strong>Text</strong> hat gute Chancen aufgenommen zu werden, wenn er dem Ziel, dem Zielpublikum und der Situation angemessen und ansprechend gestaltet ist.',
+              'Das <strong>Kommunikationsziel</strong> im Auge behalten: Information, Motivation, Interaktion.',
+              'Die <strong>6 W-Fragen</strong> helfen, die Vollständigkeit zu prüfen. Der <strong>Nachrichtentrichter</strong> stellt die wichtigsten Botschaften an den Anfang.',
+              'Das <strong>Hamburger Verständlichkeitsmodell</strong> zeigt vier Merkmale: Einfachheit, Gliederung/Ordnung, Prägnanz/Kürze und Anregende Zusätze.'
+            ]
+          },
+          {
+            type: 'keyterms',
+            title: 'Schlüsselbegriffe',
+            terms: [
+              { term: 'Kommunikationsziele', def: 'Drei übergeordnete Ziele: Information, Motivation, Interaktion.' },
+              { term: 'Zielgruppe', def: 'Adressaten, an die sich ein Text richtet – bestimmt Formulierung und Ausführlichkeit.' },
+              { term: 'Nachrichtentrichter', def: 'Journalistisches Prinzip: Das Wichtigste zuerst, im ersten Absatz alle W-Fragen beantworten.' },
+              { term: '6 W-Fragen', def: 'Was? Wer? Warum/Wozu? Wann? Wie? Wo? – zur Prüfung der Vollständigkeit.' },
+              { term: 'Hamburger Verständlichkeitsmodell', def: 'Vier Merkmale der Verständlichkeit: Einfachheit, Gliederung/Ordnung, Prägnanz/Kürze, Anregende Zusätze.' },
+              { term: 'Nominalstil', def: 'Schwerfälliger Schreibstil mit vielen Nomen – besser durch Verbalstil ersetzen.' },
+              { term: 'Floskeln', def: 'Überflüssige, nichtssagende Redewendungen, die einen Text aufblähen.' }
+            ]
+          }
+        ]
+      }
     },
     {
       id: 'ch5',
@@ -561,7 +819,89 @@ window.BOOK_DATA = {
           reveal: []
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Mündliche Kommunikation',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels können Sie \u2026',
+            items: [
+              'die Interaktion und die Rollen im Unternehmen beschreiben.',
+              'ein Führungsgespräch optimal vorbereiten, strukturiert durchführen und konsequent auswerten.',
+              'erklären, wie man in einer Verhandlung eine Win-win-Situation herstellen kann.',
+              'das Harvard-Konzept beschreiben.',
+              'die wichtigen Punkte im Verhandlungsleitfaden nennen.'
+            ]
+          },
+          {
+            type: 'concept',
+            title: 'Interaktion und Rolle',
+            content: 'Im Unternehmen gibt es viele Anlässe und Formen der Interaktion. Die mündliche Kommunikation in Form eines Gesprächs ist das Paradebeispiel. Die Wahrscheinlichkeit, dass ein Gespräch positiv verläuft, steigt, wenn die involvierten Personen sich rollenkonform einbringen. Unter Rollenerwartung wird die formal zugeschriebene Funktion oder Position verstanden. Nicht erfüllte Rollenerwartungen können zu Rollenkonflikten führen.',
+            highlight: 'Rollenkonformes Verhalten fördert den Gesprächserfolg. Nicht erfüllte Rollenerwartungen können Konflikte auslösen.'
+          },
+          {
+            type: 'concept',
+            title: 'Führungsgespräch',
+            content: 'Führungsgespräche unterscheiden sich durch die Art des Gesprächs (z.B. Feedback-, Verhandlungsgespräch) und den Teilnehmerkreis (Team- oder Einzelgespräch). Der Gesprächserfolg hängt davon ab, sich auf das Gespräch einzustellen, das Gesprächsziel vor Augen zu führen und den Verlauf zu strukturieren. Die drei Phasen: 1) Vorbereitung (innere und äussere), 2) Durchführung (Einstieg, Kernphase, Vereinbarung), 3) Nachbearbeitung (Protokoll, Reflexion).',
+            highlight: '3 Phasen: Vorbereitung \u2192 Durchführung \u2192 Nachbearbeitung. Gesprächsziel klar definieren!'
+          },
+          {
+            type: 'concept',
+            title: 'Harvard-Konzept',
+            content: 'Das Harvard-Konzept ist eine Verhandlungsmethode, die auf eine Win-win-Situation abzielt. Die vier Grundprinzipien: 1) Menschen und Probleme getrennt behandeln. 2) Auf Interessen konzentrieren, nicht auf Positionen. 3) Optionen zum beiderseitigen Vorteil entwickeln. 4) Auf der Anwendung objektiver Kriterien bestehen. Ziel ist es, einen Konsens zu finden, der die Interessen beider Seiten berücksichtigt.',
+            highlight: 'Harvard-Konzept: Menschen + Probleme trennen, Interessen statt Positionen, Optionen entwickeln, objektive Kriterien.'
+          },
+          {
+            type: 'table',
+            title: 'Leitfaden Verhandlungsgespräch',
+            headers: ['Phase', 'Merkpunkte'],
+            rows: [
+              ['Vorbereitung', 'Eigene Position und Grenzen kennen, Win-win-Haltung, Zielvorstellung und Bedürfnisse des Partners einschätzen'],
+              ['Gesprächseinstieg', 'Nicht Problem, sondern Hoffnung auf Lösungsfindung ansprechen'],
+              ['Situationsklärung', 'Beweggründe, Zielvorstellungen, sachliche Ausführungen und Rahmenbedingungen darlegen'],
+              ['Lösungsfindung', 'Interessen auflisten und aufeinander abstimmen, gemeinsamen Handlungsspielraum abstecken'],
+              ['Kontrakt vereinbaren', 'Lösungsalternativen bewerten, Ergebnisse schriftlich festhalten'],
+              ['Abschluss', 'Metakommunikation über das Gespräch, Verabschiedung, evtl. Nachbearbeitung']
+            ]
+          },
+          {
+            type: 'merke',
+            title: 'Merke dir!',
+            items: [
+              'Rollenkonformes Verhalten steigert den Gesprächserfolg.',
+              'Führungsgespräche folgen drei Phasen: Vorbereitung, Durchführung, Nachbearbeitung.',
+              'Das Gesprächsziel immer klar definieren und vor Augen haben.',
+              'Harvard-Konzept: Win-win durch Trennung von Menschen und Problemen, Fokus auf Interessen.',
+              'Gesprächsnotiz erstellen und Vereinbarungen schriftlich festhalten.'
+            ]
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              'Bei einer <strong>Interaktion</strong> beziehen die Beteiligten ihr Verhalten und ihre Kommunikation aufeinander. Das <strong>Gespräch</strong> ist die klassische Form.',
+              'Die <strong>Rolle</strong> ist ein Bündel Erwartungen an die Träger von Funktionen. Nicht erfüllte Rollenerwartungen können zu <strong>Rollenkonflikten</strong> führen.',
+              '<strong>Führungsgespräche</strong> unterscheiden sich durch die Art (Feedback, Verhandlung) und den Teilnehmerkreis (Team, Einzelgespräch).',
+              'Für den <strong>Gesprächserfolg</strong> ist es wichtig, sich einzustellen, das Ziel vor Augen zu führen und den Verlauf zu strukturieren.',
+              'Das <strong>Harvard-Konzept</strong> zielt auf Win-win-Lösungen durch sachbezogenes Verhandeln.'
+            ]
+          },
+          {
+            type: 'keyterms',
+            title: 'Schlüsselbegriffe',
+            terms: [
+              { term: 'Interaktion', def: 'Aufeinander bezogenes Handeln und Kommunizieren der Beteiligten.' },
+              { term: 'Rolle', def: 'Bündel von Erwartungen an die Träger von Funktionen oder Positionen.' },
+              { term: 'Rollenkonflikt', def: 'Entsteht, wenn Führungskräfte mehrere Rollen einnehmen müssen und die Erwartungen nicht erfüllt werden.' },
+              { term: 'Führungsgespräch', def: 'Strukturiertes Gespräch zur Führung von Mitarbeitenden (Feedback, Zielvereinbarung, Verhandlung).' },
+              { term: 'Harvard-Konzept', def: 'Verhandlungsmethode für Win-win-Lösungen: Menschen/Probleme trennen, Interessen statt Positionen.' },
+              { term: 'Win-win-Situation', def: 'Beide Verhandlungspartner profitieren vom Ergebnis.' },
+              { term: 'Gesprächsnotiz', def: 'Schriftliche Zusammenfassung der wichtigsten Vereinbarungen und Ergebnisse.' }
+            ]
+          }
+        ]
+      }
     },
     {
       id: 'ch6',
@@ -616,7 +956,58 @@ window.BOOK_DATA = {
           reveal: []
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Interkulturelle Zusammenarbeit',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels k\u00f6nnen Sie \u2026',
+            items: [
+              'interkulturelle Verschiedenheiten ber\u00fccksichtigen und mit Unterschieden umgehen.',
+              'Massnahmen im Bereich des Diversity-Managements erkl\u00e4ren.'
+            ]
+          },
+          {
+            type: 'concept',
+            title: 'Interkulturelle Kommunikation',
+            content: 'Die interkulturelle Kommunikationsf\u00e4higkeit ist wichtig geworden. Eine gute Verst\u00e4ndigung und Zusammenarbeit h\u00e4ngt nicht nur von der Anpassungsf\u00e4higkeit und -bereitschaft von Menschen ausl\u00e4ndischer Herkunft ab. Vorurteile der Mehrheitsgesellschaft gegen\u00fcber bestimmten Gruppen k\u00f6nnen die interkulturelle Kommunikation von vornherein verhindern. Offenheit und Toleranz sind gefragt und von Fach- und F\u00fchrungskr\u00e4ften wird interkulturelle Kompetenz erwartet.',
+            highlight: 'Sechs wichtige Aspekte: Verst\u00e4ndigung auf der sprachlichen Ebene, eigene Rolle und gemeinsame Ziele, kulturelle Unterschiede, religi\u00f6se Aspekte, Anerkennung im Ausland erworbener Zertifikate, Rahmenbedingungen beim Arbeitgeber.'
+          },
+          {
+            type: 'concept',
+            title: 'Kulturelle Unterschiede wahrnehmen',
+            content: 'Kulturelle Unterschiede zwischen Gespr\u00e4chspartnern k\u00f6nnen zu Irritationen f\u00fchren und Fehlinterpretationen nach sich ziehen. Wichtige Bereiche kultureller Unterschiede sind: Augenkontakt (in westlichen Gesellschaften direkt erw\u00fcnscht, in Ostasien eher kurz), K\u00f6rperkontakt (H\u00e4ndedruck als Zeichen f\u00fcr Offenheit, in anderen Kulturen kann N\u00e4he unangemessen sein), direkte und indirekte Kommunikation, Umgang mit Kritik (in vielen Kulturen gilt direkte Kritik als pers\u00f6nlicher Angriff), Zeigen von Emotionen und Statusfragen (Geschlecht und Alter).',
+            highlight: 'Kulturelle Unterschiede: Augenkontakt, K\u00f6rperkontakt, direkte vs. indirekte Kommunikation, Umgang mit Kritik, Zeigen von Emotionen, Statusfragen.'
+          },
+          {
+            type: 'concept',
+            title: 'Diversity und Diversity-Management',
+            content: 'Mit dem Begriff \u00abDiversity\u00bb wird Diversit\u00e4t, d.h. Vielfalt und Heterogenit\u00e4t auf der sozialen Ebene bezeichnet. Diversity-Kriterien umfassen: ethnischer Hintergrund, Staatsangeh\u00f6rigkeit, Alter, Gesundheit/Krankheit, Gender/sexuelle Orientierung, Religion/Weltbild, \u00abHautfarbe\u00bb/\u00abRasse\u00bb, Mutter-/Fremdsprache. Das Diversity-Management hat zwei grosse Ziele: Vielfalt als Qualit\u00e4t wahrnehmen und Talente gewinnen sowie Diskriminierung abbauen und Chancengleichheit f\u00f6rdern.',
+            highlight: 'Diversity-Management: Vielfalt als Qualit\u00e4t wahrnehmen, Diskriminierung abbauen. Interkulturelles Management und Diversity-Management erg\u00e4nzen sich.'
+          },
+          {
+            type: 'keyterms',
+            title: 'Schl\u00fcsselbegriffe',
+            terms: [
+              { term: 'Interkulturelle Kompetenz', def: 'F\u00e4higkeit, mit Menschen aus anderen Kulturen angemessen und respektvoll zu kommunizieren und zusammenzuarbeiten.' },
+              { term: 'Diversity', def: 'Diversit\u00e4t, d.h. Vielfalt und Heterogenit\u00e4t auf der sozialen Ebene.' },
+              { term: 'Diversity-Management', def: 'Massnahmen, die einerseits Diskriminierung ausschliessen, andererseits die Vielfalt zugunsten eines Wettbewerbsvorteils f\u00f6rdern sollen.' },
+              { term: 'Diskriminierung', def: 'Benachteiligung von Angeh\u00f6rigen von Minderheiten aufgrund impliziter Annahmen und subtiler Ausgrenzungsmechanismen.' },
+              { term: 'Inklusion', def: 'Sozialer Einbezug \u2013 das Gegenteil von Seklusion (sozialer Ausschluss).' },
+              { term: 'Stereotypisierung', def: 'Vorurteile, die auf negativen Eigenschaften oder Defiziten einer Minderheit basieren und generell zugeschrieben werden.' }
+            ]
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              'Folgende sechs Themen sind bei der <strong>interkulturellen Kommunikation</strong> wesentlich: Die Verst\u00e4ndigung auf der sprachlichen Ebene sichern, die eigene Rolle kl\u00e4ren und positive Ziele definieren, kulturelle Unterschiede wahrnehmen (z.B. Augenkontakt, Statusfragen), religi\u00f6se Aspekte ber\u00fccksichtigen, die im Ausland erworbene Qualifizierung einsch\u00e4tzen, Rahmenbedingungen beim Arbeitgeber kl\u00e4ren.',
+              '<strong>Diversity</strong> ist eine soziale Vielfalt, bei der immer die Gefahr besteht, dass Minderheiten aufgrund ihrer Hautfarbe oder ihrer Herkunft diskriminiert werden. Das Management von Diversity hilft, diese Ressourcen zu nutzen und Diskriminierung abzubauen.'
+            ]
+          }
+        ]
+      }
     },
     {
       id: 'ch7',
@@ -675,7 +1066,52 @@ window.BOOK_DATA = {
           reveal: []
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Pr\u00e4sentation',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels k\u00f6nnen Sie \u2026',
+            items: [
+              'eine Pr\u00e4sentation systematisch vorbereiten, kompetent durchf\u00fchren und nachbearbeiten.',
+              'die Pr\u00e4sentationsmedien und ihre Vor- und Nachteile auff\u00fchren.'
+            ]
+          },
+          {
+            type: 'concept',
+            title: 'Damit der Funke \u00fcberspringt',
+            content: 'Eine Pr\u00e4sentation gelingt, wenn das, was Sie dem Publikum vermitteln wollen (also der Inhalt), mit Ihrer Art zu pr\u00e4sentieren (mit der Rhetorik bzw. der Pr\u00e4sentationstechnik) zusammenpasst und wenn Ihre pers\u00f6nliche Ausstrahlung beim Publikum \u00fcberzeugend und authentisch ankommt. Im Begriff \u00abPr\u00e4sentieren\u00bb steckt das lateinische Wort \u00abpraesentare\u00bb, das \u00ab\u00fcberreichen, darbieten, vorzeigen\u00bb bedeutet. Pr\u00e4sentieren wird auch als Ein-Weg-Kommunikation bezeichnet.',
+            highlight: 'Drei \u00fcbergeordnete Pr\u00e4sentationsziele: Information (neues Thema vermitteln), Motivation (Zuh\u00f6rende begeistern), Interaktion (Dialog mit dem Publikum).'
+          },
+          {
+            type: 'concept',
+            title: 'Inhaltliche Vorbereitung',
+            content: 'Eine Faustregel besagt, dass mindestens 80% des gesamten Zeitaufwands in die inhaltliche und organisatorische Vorbereitung investiert werden sollten. Bei der inhaltlichen Vorbereitung befassen Sie sich mit: Thema und Ziel (Pr\u00e4sentationsthema eingrenzen, Pr\u00e4sentationsziel festlegen), Zielpublikum (ausgewählter Teilnehmerkreis, Interessen und Erwartungen), Inhalt und Gliederung (Einleitung 10%, Hauptteil 85%, Schluss 5%), Pr\u00e4sentationsstil (faktenorientiert oder interaktiv, f\u00f6rmlich oder locker).',
+            highlight: 'Zeitliche Aufteilung: Einleitung 10%, Hauptteil 85%, Schluss 5%. Faustregel: 80% der Zeit f\u00fcr Vorbereitung investieren.'
+          },
+          {
+            type: 'methodenbox',
+            title: 'Verst\u00e4ndlich pr\u00e4sentieren',
+            text: 'Vier Merkmale einer verst\u00e4ndlichen Pr\u00e4sentation: Einfach und klar (KISS-Prinzip, einfache Sprache), Gut gegliedert (logische Argumentationsketten, Schlussfolgerungen zusammenfassen), Pr\u00e4gnant (\u00abIn der K\u00fcrze liegt die W\u00fcrze\u00bb, auf das Wesentliche konzentrieren), Anregend (Neugierde wecken, unkonventionelle Einsch\u00fcbe, Bezug zu Erfahrungen des Publikums).'
+          },
+          {
+            type: 'concept',
+            title: 'Pr\u00e4sentationsmedien und Rhetorik',
+            content: 'Pr\u00e4sentationsmedien sind Hilfsmittel, die eine Pr\u00e4sentation unterst\u00fctzen: Kopie/Handouts (f\u00fcr alle Teilnehmer gut lesbar), Beamer (schrittweise Pr\u00e4sentation, Gefahr der Reiz\u00fcberflutung), Flipchart (starke Teilnehmerorientierung, spontane Gestaltung), Wandplakat/Poster (bei Messen, f\u00f6rdert Wiedererkennung). Rhetorische Mittel: verbale (Sprechtempo, Lautst\u00e4rke, Sprechpausen, Betonung, Beispiele, Vergleiche, Zitate, Anekdoten, Humor) und nonverbale (K\u00f6rpersprache, Blickkontakt, Mimik, Gestik, Raum, Kleidung).',
+            highlight: 'Drei Aspekte nonverbaler Kommunikation: K\u00f6rpersprache (Blickkontakt, Mimik, Gestik), Raum (nicht auf einem Fleck stehen bleiben), Kleidung (angemessen).'
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              'Eine <strong>Pr\u00e4sentation</strong> ist dann gelungen, wenn folgende Komponenten aufeinander abgestimmt sind: Inhalt der Pr\u00e4sentation, Art und Weise der Pr\u00e4sentation, Pers\u00f6nlichkeit und Verhalten der pr\u00e4sentierenden Person.',
+              'Pr\u00e4sentationen haben einen <strong>informativen</strong>, einen <strong>motivierenden</strong> oder einen <strong>interaktiven</strong> Charakter.',
+              'Die Pr\u00e4sentation gliedert sich in die <strong>Vorbereitung</strong> (inhaltlich und organisatorisch), <strong>Durchf\u00fchrung</strong> (rechtzeitig eintreffen, mit St\u00f6rungen umgehen) und <strong>Nachbereitung</strong> (Selbstreflexion, Feedback einholen).'
+            ]
+          }
+        ]
+      }
     },
     {
       id: 'ch8',
@@ -759,7 +1195,57 @@ window.BOOK_DATA = {
           reveal: []
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Gruppendynamik und Gruppenrollen',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels k\u00f6nnen Sie \u2026',
+            items: [
+              'typische Merkmale in den einzelnen Phasen eines Teambildungsprozesses bestimmen.',
+              'aufgrund von Rollenmodellen das typische Rollenverhalten in einem Team erl\u00e4utern.'
+            ]
+          },
+          {
+            type: 'concept',
+            title: 'Teambildungsprozess nach Tuckman',
+            content: 'Der Gestaltpsychologe Kurt Lewin (1890\u20131947) gilt als Begr\u00fcnder der Sozialpsychologie und Gruppendynamik. Bruce W. Tuckman ver\u00f6ffentlichte 1965 ein Modell, das den gruppendynamischen Prozess einer funktionierenden Gruppe in vier Phasen teilt: 1. Forming (sich orientieren, Kennenlernphase), 2. Storming (sich auseinandersetzen, Konfliktphase), 3. Norming (sich finden, Konsens- und Kompromissphase), 4. Performing (Ergebnisse erzielen, produktive Arbeitsphase). Sp\u00e4ter wurde das Modell um Adjourning (Aufl\u00f6sungsphase) als f\u00fcnfte Phase erg\u00e4nzt.',
+            highlight: 'Vier Phasen nach Tuckman: Forming (Orientierung), Storming (Konflikte), Norming (Konsens), Performing (produktive Arbeit). F\u00fcnfte Phase: Adjourning (Aufl\u00f6sung).'
+          },
+          {
+            type: 'concept',
+            title: 'Gruppenrollen und Rollenmodelle',
+            content: 'Bei einer Gruppenrolle handelt es sich um eine bestimmte Funktion, die zur Aufgabenerf\u00fcllung in der Gruppe notwendig ist. Vier Rollenmodelle bieten verschiedene Sichtweisen: Soziodynamische Rangstruktur nach Schindler (Alpha = Gruppenf\u00fchrer, Beta = Fachmann, Gamma = Gefolgsleute, Omega = Aussenseiterrolle, Gegner = Feindbild), Riemann-Thomann-Kreuz (vier Grundstrebungen: N\u00e4he vs. Distanz, Dauer vs. Wechsel), Verhaltensorientierte Rollenfunktionen nach Brocher (Aufgabenrollen, Aufbau-/Erhaltungsrollen, Individualrollen), Teamrollenmodell nach Belbin (neun Rollen in drei Kategorien: kommunikationsorientiert, handlungsorientiert, wissensorientiert).',
+            highlight: 'Schindler: Alpha, Beta, Gamma, Omega, Gegner. Brocher: Aufgabenrollen, Aufbau-/Erhaltungsrollen, Individualrollen. Belbin: 9 Teamrollen.'
+          },
+          {
+            type: 'table',
+            title: 'Teamrollen nach Belbin',
+            headers: ['Rolle', 'Eigenschaften', 'Beitrag'],
+            rows: [
+              ['Koordinator', 'Ruhig, selbstsicher, beherrscht', 'Entschlussfreudig, erkennt St\u00e4rken und Schw\u00e4chen im Team'],
+              ['Wegbereiter', 'Extrovertiert, kommunikativ, optimistisch', 'Erschliesst wichtige Kontakte im Umfeld'],
+              ['Teamarbeiter', 'Kooperativ, diplomatisch, humorvoll', '\u00dcberl\u00e4sst anderen die F\u00fchrung, sorgt f\u00fcr harmonisches Klima'],
+              ['Macher', 'Dynamisch, leistungsmotiviert, mutig', '\u00dcbernimmt Verantwortung, entscheidet z\u00fcgig'],
+              ['Umsetzer', 'Systematisch, diszipliniert, effizient', 'Entwickelt Arbeitspl\u00e4ne, arbeitet methodisch'],
+              ['Perfektionist', 'Gewissenhaft, exakt, vorsichtig', 'Achtet auf genaue Einhaltung der Vorgaben'],
+              ['Erfinder', 'Originell, kreativ, unkonventionell', 'Denkt strategisch, findet L\u00f6sungen f\u00fcr schwierige Probleme'],
+              ['Beobachter', 'Besonnen, n\u00fcchtern, logisch', 'Verschafft sich guten \u00dcberblick, gutes Urteilsverm\u00f6gen'],
+              ['Spezialist', 'Sachlich, pr\u00e4zise, engagiert', 'Steuert notwendiges Fachwissen bei']
+            ]
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              '<strong>Teamentwicklungsprozesse</strong> laufen in vier Phasen ab: In der Forming-Phase lernen die Teammitglieder sich kennen. In der Storming-Phase kommt es zu Konflikten und Machtkämpfen. In der Norming-Phase entwickelt sich ein Teamgef\u00fchl mit akzeptierten Normen. In der Performing-Phase steht die Erf\u00fcllung der Aufgaben im Vordergrund.',
+              'Die <strong>Adjourning-Phase</strong> als f\u00fcnfte Phase tritt bei Aufl\u00f6sung des Teams ein. Ein <strong>Reforming</strong> ergibt sich bei ver\u00e4nderter Teamzusammensetzung.',
+              'Die <strong>Rollenverteilung</strong> innerhalb eines Teams regelt die Aufgaben, Rechte und Pflichten der Teammitglieder. Verschiedene Rollenmodelle (Schindler, Riemann-Thomann, Brocher, Belbin) bieten unterschiedliche Perspektiven.'
+            ]
+          }
+        ]
+      }
     },
     {
       id: 'ch9',
@@ -853,7 +1339,54 @@ window.BOOK_DATA = {
           reveal: []
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Moderation von Workshops und Sitzungen',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels k\u00f6nnen Sie \u2026',
+            items: [
+              'erkl\u00e4ren, wie Sitzungen vorbereitet und durchgef\u00fchrt werden.',
+              'Sitzungen ziel- und teilnehmerorientiert leiten.'
+            ]
+          },
+          {
+            type: 'concept',
+            title: 'Vorbereitung der Sitzung',
+            content: 'Sitzungen sichern den Informationsaustausch in der Zusammenarbeit und festigen den Zusammenhalt im Team. Dank einer professionellen Moderation k\u00f6nnen sich alle Teilnehmenden aktiv und gleichberechtigt einbringen, bleibt ein offenes, respektvolles Besprechungsklima gew\u00e4hrt und verl\u00e4uft die Auseinandersetzung mit dem Thema zielbewusst und strukturiert. Der Ablauf einer Sitzung gliedert sich in drei Phasen: Vorbereitung, Durchf\u00fchrung und Nachbearbeitung.',
+            highlight: 'Vier Fragen der inhaltlichen Vorbereitung: Worum geht es? (Thema/Ziele), Wer muss dabei sein? (Teilnehmerkreis), Wer moderiert? (Sitzungsleitung), Wann und wie? (Traktandenliste/Moderationsleitfaden).'
+          },
+          {
+            type: 'concept',
+            title: 'Moderationsprozess',
+            content: 'Der Moderationsprozess l\u00e4sst sich in drei Phasen mit insgesamt sechs Vorgehensschritten gliedern: Phase 1 Einsteigen (Sitzungser\u00f6ffnung, Erwartungen, Ziele, Regeln, Zeitplan, Protokoll), Phase 2 Arbeiten mit vier Schritten (Sammeln: Themen-/Ideenfindung; Ausw\u00e4hlen: Strukturierung, Priorit\u00e4ten; Bearbeiten: Vorgehensmethode bestimmen; Planen: Massnahmen entwickeln), Phase 3 Aussteigen (offene Punkte, R\u00fcckblick, Ausblick, Verdankung).',
+            highlight: 'Moderationsprozess: Einsteigen \u2192 Sammeln \u2192 Ausw\u00e4hlen \u2192 Bearbeiten \u2192 Planen \u2192 Aussteigen.'
+          },
+          {
+            type: 'concept',
+            title: 'Konstruktives Sitzungsklima',
+            content: 'Moderieren ist eine doppelte Prozessbegleitungsaufgabe: man gestaltet den Gruppenprozess (Beziehungsebene) und lenkt das inhaltliche Vorgehen (Sachebene). Wichtige Moderationsaufgaben: Zeitmanagement (p\u00fcnktlich anfangen und aufh\u00f6ren), Einigkeit \u00fcber das Vorgehen (Vorgehensweise, Zeitplan absprechen), Visualisierung (komplexe Zusammenh\u00e4nge aufzeigen), Verbindliche Ergebnisse (schriftliche Massnahmenpl\u00e4ne), Verhaltensregeln (gemeinsam vereinbarte Regeln einhalten), Anteilnahme (auf Teilnehmende eingehen, Wertsch\u00e4tzung zeigen).',
+            highlight: 'Zwei Zeitmanagementregeln: Beginnen Sie immer p\u00fcnktlich. Schliessen Sie immer p\u00fcnktlich ab.'
+          },
+          {
+            type: 'concept',
+            title: 'Nachbearbeitung der Sitzung',
+            content: 'Die Reflexion dient dazu, sich das Geschehene bewusst nochmals vor Augen zu f\u00fchren, Erkenntnisse daraus zu gewinnen und m\u00f6gliche Konsequenzen f\u00fcr eine n\u00e4chste vergleichbare Situation zu ziehen. Zur Nachbearbeitung geh\u00f6rt: die Umsetzung der Sitzungsbeschl\u00fcsse kontrollieren und das Sitzungsprotokoll so bald wie m\u00f6glich zur Verf\u00fcgung stellen. Reflexionsfragen betreffen: Vorbereitung, Durchf\u00fchrung, Ziele, Teilnehmende/Gruppenklima und Fazit/Erkenntnisse.',
+            highlight: 'Sitzungsprotokoll sp\u00e4testens nach zwei Tagen zur Verf\u00fcgung stellen. Sitzungsbeschl\u00fcsse konsequent umsetzen und kontrollieren.'
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              'Typische <strong>Anl\u00e4sse</strong> f\u00fcr Teamsitzungen: gegenseitige Information, L\u00f6sung eines Problems, gemeinsame Entscheidungsfindung oder Konfliktl\u00f6sung.',
+              'Die <strong>Sitzungsvorbereitung</strong> umfasst: inhaltliche Vorbereitung (Thema, Sitzungsziele, Teilnehmerkreis, Sitzungsleitung, Traktandenliste), organisatorische Vorbereitung (Infrastruktur, Medien, Pausen, Einladung) und eigene innere Vorbereitung.',
+              'Die <strong>Durchf\u00fchrung</strong> l\u00e4sst sich durch ein strukturiertes Vorgehen (Moderationsprozess) und den Einsatz geeigneter Moderationstechniken unterst\u00fctzen.',
+              'Die <strong>Sitzungsnachbearbeitung</strong> umfasst: Reflexion, Sitzungsbeschl\u00fcsse festhalten und Umsetzung kontrollieren, Sitzungsprotokoll den Teilnehmenden weiterleiten.'
+            ]
+          }
+        ]
+      }
     },
     {
       id: 'ch10',
@@ -924,7 +1457,45 @@ window.BOOK_DATA = {
           reveal: []
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Methoden und Instrumente',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels k\u00f6nnen Sie \u2026',
+            items: [
+              'Ihr typisches Arbeitsverhalten anhand von ausgew\u00e4hlten Praxisaufgaben einsch\u00e4tzen.'
+            ]
+          },
+          {
+            type: 'concept',
+            title: 'Zeitmanagement im \u00dcberblick',
+            content: 'Das Zeitmanagement betrifft alle Lebensbereiche, nicht nur die bewusste Gestaltung der Arbeitszeit. Es geht nicht darum, m\u00f6glichst viele Aktivit\u00e4ten in eine Woche zu packen. Vielmehr soll es Ihnen helfen, mit der zur Verf\u00fcgung stehenden Zeit effektiver umzugehen. In diesem Kapitel analysieren Sie Ihr pers\u00f6nliches Arbeitsverhalten anhand verschiedener Praxisaufgaben: Zeitanforderungen, T\u00e4tigkeitsanalyse, Arbeitsgewohnheiten, Organisation am Arbeitsplatz und Tagesleistungskurve.',
+            highlight: 'Drei Lebensbereiche der Zeitverteilung: Arbeitszeit/Arbeitsweg, lebensnotwendige T\u00e4tigkeiten (Schlafen, Essen), Freizeit.'
+          },
+          {
+            type: 'concept',
+            title: 'T\u00e4tigkeitsanalyse und Arbeitsgewohnheiten',
+            content: 'Die T\u00e4tigkeitsanalyse hilft, die eigene Zeitverwendung zu \u00fcberpr\u00fcfen. Dazu geh\u00f6rt die Erfassung aller T\u00e4tigkeiten w\u00e4hrend einer typischen Arbeitswoche in einer T\u00e4tigkeitsliste. Die Analyse der Arbeitsgewohnheiten zeigt, wo Zeit verschwendet wird. Bei der Organisation des B\u00fcroarbeitsplatzes unterscheidet man zwischen \u00abVolltischlern\u00bb (alles auf dem Schreibtisch stapeln) und \u00abLeertischlern\u00bb (nur Computer, Telefon und evtl. zwei weitere Hilfsmittel).',
+            highlight: 'Arbeitsplatz-Organisation: \u00abVolltischler\u00bb vs. \u00abLeertischler\u00bb. Pr\u00fcfen Sie Ihre Arbeitsgewohnheiten kritisch.'
+          },
+          {
+            type: 'concept',
+            title: 'Tagesleistungskurve',
+            content: 'Finden Sie Ihren pers\u00f6nlichen Tagesrhythmus heraus, indem Sie die Leistungshochs und -tiefs \u00fcber einen Zeitraum von mindestens einer Arbeitswoche beobachten. Leistungsstarke Phasen: Sie arbeiten am liebsten, kommen besonders rasch voran, sind geistig besonders fit, lernen am besten. Leistungsschwache Phasen: Sie kommen nur schleppend voran, stellen Erm\u00fcdungsanzeichen fest, k\u00f6nnen sich nicht gut konzentrieren.',
+            highlight: 'Kennen Sie Ihre pers\u00f6nliche Tagesleistungskurve! Planen Sie wichtige Aufgaben in leistungsstarke Phasen.'
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              'Das <strong>Zeitmanagement</strong> beginnt mit der Analyse des eigenen Arbeitsverhaltens.',
+              'Wichtige Instrumente sind: <strong>T\u00e4tigkeitsanalyse</strong> (Zeitverwendung \u00fcberpr\u00fcfen), <strong>Arbeitsgewohnheiten</strong> (Zeitverschwendung erkennen), <strong>Arbeitsplatzorganisation</strong> (effiziente Ordnung), <strong>Tagesleistungskurve</strong> (pers\u00f6nlichen Rhythmus kennen).'
+            ]
+          }
+        ]
+      }
     },
     {
       id: 'ch11',
@@ -1030,7 +1601,66 @@ window.BOOK_DATA = {
           reveal: []
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Zeitplanung',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels k\u00f6nnen Sie \u2026',
+            items: [
+              'die Bedeutung der Ziele und der zielgerichteten, schriftlichen Planung f\u00fcr das pers\u00f6nliche Zeitmanagement erkl\u00e4ren.',
+              'aufzeigen, wie die Tagesplanung mit der ALPEN-Methode erfolgt.',
+              'Ihre eigenen typischen Zeitfallen nennen.'
+            ]
+          },
+          {
+            type: 'concept',
+            title: 'Vier Hauptaufgaben des Zeitmanagements',
+            content: 'Managementprozesse bestehen aus einem Regelkreis von vier Hauptaufgaben: 1. Planen (klare Ziele definieren und alle Aktivit\u00e4ten darauf ausrichten), 2. Entscheiden (sich auf zielt\u00fchrende Aktivit\u00e4ten konzentrieren, Priorit\u00e4ten richtig setzen und Aufgaben delegieren), 3. Realisieren (sich organisieren, zielorientiert Aktivit\u00e4ten ausf\u00fchren und mit anderen kommunizieren), 4. Kontrollieren (erzielte Ergebnisse \u00fcberpr\u00fcfen, sich durch Erfolge motivieren und aus Fehlern lernen).',
+            highlight: 'Vier Hauptaufgaben: Planen \u2192 Entscheiden \u2192 Realisieren \u2192 Kontrollieren. \u00abWer den Hafen nicht kennt, in den er segeln will, f\u00fcr den ist kein Wind ein g\u00fcnstiger.\u00bb (Seneca)'
+          },
+          {
+            type: 'concept',
+            title: 'Ziele definieren und SMART-Formel',
+            content: 'Ziele weisen in die Zukunft und zeigen einen definierten Soll-Zustand. Ziele m\u00fcssen konkret und erreichbar sein. Das Zielsystem gliedert sich in Zielebenen: Jahresziel \u2192 Monatsziele \u2192 Wochenziele \u2192 Tagesziele. Bei der Zielformulierung kommt die SMART-Formel zur Anwendung: S (Spezifisch: eindeutiger Gegenstand), M (Messbar: klarer Massstab), A (Attraktiv: realistische Herausforderung), R (Resultatorientiert: definiertes Ergebnis), T (Terminbezogen: eindeutiger Zeitraum/Termin).',
+            highlight: 'SMART-Formel: Spezifisch, Messbar, Attraktiv, Resultatorientiert, Terminbezogen. Zielebenen: Jahresziel \u2192 Monatsziele \u2192 Wochenziele \u2192 Tagesziele.'
+          },
+          {
+            type: 'methodenbox',
+            title: 'ALPEN-Methode',
+            text: 'Die ALPEN-Methode unterst\u00fctzt die systematische Tagesplanung. Sie ist nach den Anfangsbuchstaben der f\u00fcnf Elemente benannt: A = Aufgaben notieren (To-do-Liste erstellen, alle Termine und unerledigte Aufgaben), L = L\u00e4nge (Zeitdauer) absch\u00e4tzen, P = Pufferzeiten reservieren, E = Entscheidungen treffen \u00fcber Priorit\u00e4ten, N = Nachkontrolle machen. Die Tagesplanung braucht gew\u00f6hnlich nicht mehr als 10 Minuten.'
+          },
+          {
+            type: 'concept',
+            title: 'Typische Zeitfallen',
+            content: 'Zehn typische Zeitfallen, die zu Zeitmangel f\u00fchren: 1. Fehlende Zielklarheit, 2. Aufschieben unangenehmer Aufgaben, 3. Keine Priorit\u00e4ten setzen, 4. Zu viel auf einmal wollen, 5. Zu wenig Delegieren, 6. Mangelnde Selbstdisziplin, 7. Informationsdefizite und Fehlinformationen, 8. Unordnung am Arbeitsplatz, 9. Unp\u00fcnktlichkeit, 10. Unsortierte E-Mails und Stapel von Unterlagen. Zeitmangel ist oft \u00abhausgemacht\u00bb.',
+            highlight: 'Zeitmangel ist oft \u00abhausgemacht\u00bb \u2013 wir nehmen uns zu viel vor oder halten uns nicht an die Zeitplanung.'
+          },
+          {
+            type: 'table',
+            title: 'Planungshorizont, Zielebene und Zeitplan',
+            headers: ['Planungshorizont', 'Zielebene', 'Zeitplan'],
+            rows: [
+              ['Langfristig', 'Jahresziele', 'Jahresplan'],
+              ['Mittelfristig', 'Monatsziele', 'Monatsplan'],
+              ['Kurzfristig', 'Wochenziele', 'Wochenplan'],
+              ['Laufend', 'Tagesziele', 'Tagesplan']
+            ]
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              'Mit einem systematischen <strong>Zeitmanagement</strong> l\u00e4sst sich wertvolle Zeit bei der Aufgabenerledigung gewinnen. Die Planung darf aber nicht zum Selbstzweck werden.',
+              '<strong>Ziele</strong> sind die Grundlage der Aktivit\u00e4tenplanung. Es empfiehlt sich, die verschiedenen Zielebenen zu ber\u00fccksichtigen: Gesamtziele in Etappenziele herunterbrechen, Jahresziele in Monats-, Wochen- und Tagesziele konkretisieren.',
+              'Bei der <strong>Zielformulierung</strong> kommt die SMART-Formel zur Anwendung: Spezifisch, Messbar, Attraktiv, Resultatorientiert, Terminbezogen.',
+              '<strong>Zielgerichtet planen</strong> bedeutet: Planungshorizont, Zielebene und Zeitplan abstimmen. Klare Termine setzen. Schriftlich planen. Ziele regelm\u00e4ssig \u00fcberpr\u00fcfen.',
+              'Die <strong>ALPEN-Methode</strong> unterst\u00fctzt die systematische Tagesplanung: Aufgaben notieren, L\u00e4nge absch\u00e4tzen, Pufferzeiten reservieren, Entscheidungen \u00fcber Priorit\u00e4ten, Nachkontrolle.'
+            ]
+          }
+        ]
+      }
     },
     {
       id: 'ch12',
@@ -1143,7 +1773,67 @@ window.BOOK_DATA = {
           reveal: []
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Priorit\u00e4ten setzen',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels k\u00f6nnen Sie \u2026',
+            items: [
+              'den Perfektionsgrad Ihrer Arbeit entsprechend dem Pareto-Prinzip festlegen.',
+              'die ABC-Analyse beschreiben und Ihre Aufgaben in A-, B- und C-Aufgaben einteilen.',
+              'entsprechend dem Eisenhower-Prinzip Ihre Aufgaben nach Wichtigkeit und Dringlichkeit einordnen.',
+              'Ihre pers\u00f6nliche Tagesleistungskurve interpretieren.',
+              'anhand von Beispielen aufzeigen, wie man richtig delegiert.'
+            ]
+          },
+          {
+            type: 'concept',
+            title: 'Pareto-Prinzip',
+            content: 'Das Pareto-Prinzip (80/20-Regel) erleichtert die Priorit\u00e4tensetzung. Es geht zur\u00fcck auf den Volkswirtschaftler Vilfredo Pareto (1848\u20131923). Das Verh\u00e4ltnis 20:80 besagt: In 20% der aufgewendeten Zeit werden 80% der Ergebnisse erreicht. Umgekehrt gilt: In den \u00fcbrigen 80% der Zeit werden nur 20% der Ergebnisse erreicht. Das bedeutet f\u00fcr das Zeitmanagement: Die angemessene Erledigung einer Aufgabe ben\u00f6tigt meist deutlich weniger Zeit als die perfekte Erledigung.',
+            highlight: 'Pareto-Prinzip: In 20% der Zeit werden 80% der Ergebnisse erzielt. Perfektion kostet \u00fcberproportional viel Zeit.'
+          },
+          {
+            type: 'concept',
+            title: 'ABC-Analyse',
+            content: 'Die ABC-Analyse hilft bei der Beurteilung der Wichtigkeit. Die anfallenden Aufgaben werden eingeteilt in: A-Aufgaben (15% aller Aufgaben, sehr wichtig, 65% der Arbeitszeit), B-Aufgaben (20% aller Aufgaben, durchschnittlich wichtig, 20% der Arbeitszeit), C-Aufgaben (65% aller Aufgaben, unwichtig, 15% der Arbeitszeit). Die vergleichsweise wenigen A-Aufgaben tragen mehr zur Zielerreichung bei als die viel zahlreicheren C-Aufgaben.',
+            highlight: 'ABC-Analyse: A-Aufgaben (15% der Aufgaben, 65% Zeitbedarf), B-Aufgaben (20%, 20%), C-Aufgaben (65%, 15%).'
+          },
+          {
+            type: 'concept',
+            title: 'Eisenhower-Prinzip',
+            content: 'Das Eisenhower-Prinzip hilft, die Priorit\u00e4ten bei der Aufgabenerledigung richtig zu setzen, indem es sich auf die Kriterien Wichtigkeit und Dringlichkeit st\u00fctzt. Vier M\u00f6glichkeiten: Wichtig und dringlich = sofort und selbst erledigen. Wichtig, aber wenig dringlich = Erledigung terminieren, eventuell delegieren. Dringend, aber wenig wichtig = wenn m\u00f6glich delegieren. Wenig dringlich und wenig wichtig = ignorieren, nicht erledigen, in den Papierkorb.',
+            highlight: 'Eisenhower-Prinzip: Aufgaben nach Wichtigkeit und Dringlichkeit einteilen. Wichtig + dringlich = sofort selbst erledigen. Unwichtig + wenig dringlich = Papierkorb.'
+          },
+          {
+            type: 'concept',
+            title: 'Delegieren',
+            content: 'Delegieren heisst, die Erf\u00fcllung einer Aufgabe an eine andere Person zu \u00fcbertragen, zusammen mit den daf\u00fcr notwendigen Kompetenzen und der Verantwortung. Argumente daf\u00fcr: Entlastung des eigenen Zeitbudgets, Zeitgewinn f\u00fcr F\u00fchrungsaufgaben, Motivation der Mitarbeitenden, Nutzung des K\u00f6nnens und der Erfahrungen. Delegationskriterien beachten: Adressaten (direkt unterstellte Mitarbeitende), Zeitpunkt (fr\u00fchzeitig delegieren), Verbindlichkeit (Zweck und Ziel klar kommunizieren, AKV-Prinzip), Kontrolle (Unterst\u00fctzung bieten, Zwischenkontrollen).',
+            highlight: 'Delegieren: Aufgabe + Kompetenz + Verantwortung \u00fcbertragen. Fr\u00fchzeitig delegieren, vollst\u00e4ndige Aufgaben, nicht nur Teilaufgaben.'
+          },
+          {
+            type: 'table',
+            title: 'Eisenhower-Prinzip: Priorit\u00e4tenmatrix',
+            headers: ['', 'Wenig dringlich', 'Dringlich'],
+            rows: [
+              ['Wichtig', 'Erledigung terminieren. Eventuell delegieren.', 'Sofort und selbst erledigen.'],
+              ['Unwichtig', 'Ignorieren, nicht erledigen. In den Papierkorb verschieben.', 'Wenn m\u00f6glich delegieren.']
+            ]
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              '<strong>Entscheiden</strong> heisst Priorit\u00e4ten setzen. Es gibt verschiedene Kriterien, nach denen die Priorit\u00e4tensetzung erfolgen kann.',
+              'Das <strong>Pareto-Prinzip</strong> macht deutlich, dass f\u00fcr die angemessene Erledigung einer Aufgabe meist deutlich weniger Zeit ben\u00f6tigt wird als f\u00fcr die perfekte Erledigung (20% Zeitaufwand = 80% der Ergebnisse).',
+              'In der <strong>ABC-Analyse</strong> ist es die Frage nach der Wichtigkeit: A-Aufgaben (15%, 65% Zeitbedarf), B-Aufgaben (20%, 20%), C-Aufgaben (65%, 15%).',
+              'Das <strong>Eisenhower-Prinzip</strong> teilt Aufgaben ein nach Wichtigkeit und Dringlichkeit in vier Kategorien.',
+              'Das <strong>Delegieren</strong> von Aufgaben bringt Vorteile: Entlastung des eigenen Zeitbudgets, Zeitgewinn, Motivation der Mitarbeitenden.'
+            ]
+          }
+        ]
+      }
     },
     {
       id: 'ch13',
@@ -1270,7 +1960,48 @@ window.BOOK_DATA = {
           reveal: []
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Zeitplanung realisieren',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels k\u00f6nnen Sie \u2026',
+            items: [
+              'erkl\u00e4ren, wie zeitbedingter Stress entsteht und wie er sich im Arbeitsalltag auswirkt.',
+              'konkrete Massnahmen zur Stresspr\u00e4vention und -bew\u00e4ltigung beschreiben.',
+              'aufzeigen, wie Sie Gespr\u00e4che und Sitzungen effizienter gestalten k\u00f6nnen.'
+            ]
+          },
+          {
+            type: 'concept',
+            title: 'Zeitbedingter Stress',
+            content: 'Wir leben in einer hektischen und kr\u00e4ftezehrenden Zeit. \u00abMegastress\u00bb ist ein ernsthaftes Problem der heutigen Gesellschaft. Jeder Mensch braucht angemessene Belastungen, um sich k\u00f6rperlich und seelisch entwickeln zu k\u00f6nnen. Stress ist ein k\u00f6rperlicher und emotionaler Reaktionsprozess auf Belastungssituationen. Man unterscheidet zwischen dem Eustress (positiv, befl\u00fcgelt zu Leistung) und dem Distress (negativ, belastend). Der Prozess l\u00e4uft vom Stressor (\u00e4ussere Einwirkung, z.B. Zeitdruck) \u00fcber den Stressverst\u00e4rker (subjektive Bewertung, z.B. Angst zu versagen) zur Stressreaktion (Auswirkung, z.B. Nervosit\u00e4t, \u00c4rger).',
+            highlight: 'Eustress = positiver Stress, befl\u00fcgelt zu ausserordentlichen Leistungen. Distress = negativer Stress, f\u00fchrt zu Belastung. Burn-out = gravierender Ersch\u00f6pfungszustand.'
+          },
+          {
+            type: 'concept',
+            title: 'Stressmanagement',
+            content: 'Unter Stressmanagement versteht man Strategien und Massnahmen, um belastende Stresssituationen zu vermindern und zu vermeiden. Drei Wege: 1. Stressbew\u00e4ltigung (\u00abCoping\u00bb): Die pers\u00f6nliche Einstellung gegen\u00fcber Stresssituationen \u00e4ndern, Erholungs- und Entspannungsphasen einplanen, bewusste Bewegung und Ern\u00e4hrung. 2. Stresspr\u00e4vention: Sich besser organisieren, Stressoren reduzieren, Massnahmen gegen Zeitfallen. 3. Externe Hilfe: Professionelle therapeutische Begleitung bei Burn-out.',
+            highlight: 'Drei S\u00e4ulen des Stressmanagements: Stressbew\u00e4ltigung (Coping), Stresspr\u00e4vention (Stressoren reduzieren), Externe Hilfe (bei Burn-out).'
+          },
+          {
+            type: 'concept',
+            title: 'Zeitfallen vermeiden als Stresspr\u00e4vention',
+            content: 'Drei Massnahmen helfen, Zeitfallen auszuschalten: St\u00f6rungsfreie Zeit vereinbaren (Zeitfenster ohne Unterbrechungen, \u00abstille Stunde\u00bb im Team), Unterbrechungen vermeiden (nicht \u00abnur kurz\u00bb auf E-Mails antworten, Aufwärmphase nach Unterbrechung beachten), Operative Hektik vermeiden (Zeitreserven und fr\u00fchzeitiges Planen). Zudem: Effizienter kommunizieren (sach- und adressatengerecht), Ablagesystem organisieren (identische Ordnungskriterien f\u00fcr physische und digitale Ablage, \u00abKeep it simple\u00bb), Arbeitsplatzgestaltung.',
+            highlight: 'St\u00f6rungsfreie Zeit: Vereinbaren Sie eine \u00abstille Stunde\u00bb im Team. Ablagesystem: \u00abKeep it simple\u00bb \u2013 einfach und praktisch.'
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              '<strong>Stress</strong> ist ein k\u00f6rperlicher und emotionaler Reaktionsprozess auf Belastungssituationen. Man unterscheidet zwischen dem <strong>Eustress</strong> als positiv und dem <strong>Distress</strong> als negativ empfundenem Stressgef\u00fchl.',
+              'Das <strong>Stressmanagement</strong> sieht drei Schutzmechanismen vor: Bew\u00e4ltigung (Einstellung \u00e4ndern), Pr\u00e4vention (Stressoren beseitigen oder verändern), Externe Hilfe (im Krankheitsfall oder bei Burn-out).',
+              'Massnahmen zur <strong>Stresspr\u00e4vention</strong>: Selbstorganisation (st\u00f6rungsfreie Zeit, Unterbrechungen vermeiden), Kommunikation (sach- und adressatengerecht), Ablagesystem (\u00abKeep it simple\u00bb), Arbeitsplatzgestaltung.'
+            ]
+          }
+        ]
+      }
     },
     {
       id: 'ch14',
@@ -1370,7 +2101,47 @@ window.BOOK_DATA = {
           reveal: []
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Eigene Kompetenzentwicklung',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels k\u00f6nnen Sie \u2026',
+            items: [
+              'die eigenen Kompetenzen kl\u00e4ren und bewerten.',
+              'die eigenen Kompetenzen priorisieren und einsch\u00e4tzen.'
+            ]
+          },
+          {
+            type: 'concept',
+            title: 'Begriff Kompetenz',
+            content: 'Der Begriff \u00abKompetenz\u00bb hat zwei Aspekte: Einerseits umfasst Kompetenz alle Kenntnisse, F\u00e4higkeiten und Fertigkeiten, die einer Person zur Verf\u00fcgung stehen, sowie die Bereitschaft, diese einzusetzen. Andererseits meint Kompetenz die Rechte und Pflichten eines Funktionstr\u00e4gers in einer Organisation (Durchf\u00fchrungskompetenz und Leitungskompetenz). Neben der Sachkompetenz ist heute auch Methodenkompetenz, Selbstkompetenz und soziale Kompetenz gefragt.',
+            highlight: 'Kompetenzkategorien: Fachkompetenz, Methodenkompetenz, Selbst-/Ich-Kompetenz, Sozialkompetenz, Handlungskompetenz, Informationskompetenz, Interkulturelle Kompetenz, Managementkompetenz, F\u00fchrungskompetenz.'
+          },
+          {
+            type: 'concept',
+            title: 'Kompetenzen kl\u00e4ren und bewerten',
+            content: 'In den meisten F\u00e4llen wissen die Menschen nicht genau, \u00fcber welche F\u00e4higkeiten sie verf\u00fcgen. Vieles wird auch informell gelernt (informelle Kompetenzen). Vor diesem Hintergrund ist eine Bestandsaufnahme der Kompetenzen sinnvoll. Die Bewertung erfolgt mit Blick auf berufliche Entwicklungsrichtungen: Einstieg (Berufseinstieg, informell erworbene F\u00e4higkeiten n\u00fctzlich), Aufstieg (Karriereschritt, Auspr\u00e4gung bestimmter Kompetenzen im Fokus), Wiedereinstieg (aktuelle Anforderungen pr\u00fcfen), Umorientierung (übertragbare Kompetenzen im Mittelpunkt).',
+            highlight: 'Bestandsaufnahme der Kompetenzen: Profiling. Kompetenzbewertung bei: Einstieg, Aufstieg, Wiedereinstieg, Umorientierung.'
+          },
+          {
+            type: 'concept',
+            title: 'Kompetenzen einsch\u00e4tzen und Taxonomie',
+            content: 'Die Einsch\u00e4tzung der Kompetenzen kann durch eine Bewertungsskala oder Taxonomie unterst\u00fctzt werden. Die Taxonomie nach Benjamin Bloom umfasst sechs Stufen: 1. Wissen (Sachkenntnisse abrufen), 2. Verstehen (Zusammenh\u00e4nge erkl\u00e4ren), 3. Anwenden (Gelerntes \u00fcbertragen), 4. Analyse (Probleme zerlegen), 5. Synthese (Beziehungen herstellen), 6. Beurteilen (Entscheidungen treffen). Der Europ\u00e4ische Qualifikationsrahmen (EQR) f\u00fcr lebenslanges Lernen unterscheidet acht Stufen und dient der Vergleichbarkeit zwischen L\u00e4ndern.',
+            highlight: 'Taxonomie nach Bloom: Wissen \u2192 Verstehen \u2192 Anwenden \u2192 Analyse \u2192 Synthese \u2192 Beurteilen. Kompetenzprofil und Kompetenzbilanz.'
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              'Die Qualifikationen, Kenntnisse, F\u00e4higkeiten, Fertigkeiten und Erfahrungen sind die Schl\u00fcssel zur <strong>Arbeitsmarkt- und Besch\u00e4ftigungsf\u00e4higkeit</strong> (Employability) sowie zu einem ausgef\u00fcllten Erwerbsleben.',
+              'In einem <strong>Kompetenzprofil</strong> werden die Schl\u00fcsselkompetenzen f\u00fcr die Aus\u00fcbung einer T\u00e4tigkeit zusammengestellt: Fachkompetenz, Methodenkompetenz, Selbst-/Ich-Kompetenz, Sozialkompetenz, Handlungskompetenz, Informationskompetenz, Interkulturelle Kompetenz, Managementkompetenz, F\u00fchrungskompetenz.',
+              'Die <strong>Taxonomie nach Bloom</strong> (sechs Stufen) und der <strong>Europ\u00e4ische Qualifikationsrahmen EQR</strong> (acht Stufen) helfen bei der Einsch\u00e4tzung der Kompetenzen.'
+            ]
+          }
+        ]
+      }
     },
     {
       id: 'ch15',
@@ -1489,7 +2260,67 @@ window.BOOK_DATA = {
           reveal: []
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Strukturierte Probleml\u00f6sung',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels k\u00f6nnen Sie \u2026',
+            items: [
+              'typische Merkmale eines Problems nennen.',
+              'den Probleml\u00f6sungsprozess auf eigene Beispiele anwenden.',
+              'die Grundlagen des vernetzten Denkens bei komplexen Problemen beschreiben.'
+            ]
+          },
+          {
+            type: 'concept',
+            title: 'Merkmale eines Problems',
+            content: 'Allgemein sprechen wir von einem Problem, wenn wir mit dem heutigen Zustand (dem Ist) unzufrieden sind, weil er von dem von uns selbst erw\u00fcnschten Zustand oder den von aussen vorgegebenen Anforderungen (dem Soll) abweicht. Ein Problem ist demnach die Differenz zwischen dem Soll-Zustand und dem Ist-Zustand. Wie schwierig ein Problem eingestuft wird, h\u00e4ngt von folgenden Merkmalen ab: L\u00f6sbarkeit, Erfassbarkeit, Zerlegbarkeit, \u00c4hnlichkeit, N\u00fctzlichkeit, Subjektive Bewertung.',
+            highlight: 'Problem = Differenz zwischen Soll-Zustand und Ist-Zustand. Drei Problemarten: einfach (klare Vorgaben), kompliziert (strukturierter Prozess n\u00f6tig), komplex (vernetztes Denken n\u00f6tig).'
+          },
+          {
+            type: 'methodenbox',
+            title: 'Probleml\u00f6sungsprozess AZPERK',
+            text: 'Der Probleml\u00f6sungsprozess wird aufgrund seiner Anfangsbuchstaben auch AZPERK genannt. Er besteht aus sechs Schritten: A = Analyse (Problemerkennung, Problemanalyse, Problembeurteilung), Z = Zieldefinition (Muss-Ziele und Kann-Ziele), P = Planung (Synthese: L\u00f6sungsideen entwickeln; Analyse: Abgleich mit Muss-Zielen), E = Entscheidung (Bewertung von L\u00f6sungsvarianten anhand von Bewertungskriterien), R = Realisierung (Massnahmenplanung, Steuerung und Unterst\u00fctzung), K = Kontrolle (\u00dcberpr\u00fcfung der Zielerreichung).'
+          },
+          {
+            type: 'concept',
+            title: 'Vernetztes Denken',
+            content: 'Bei komplexen Problemen im Alltag funktionieren isolierte Einzell\u00f6sungen meist nicht, weil sie nur Symptome bek\u00e4mpfen. Wer komplexe Probleme mit unzul\u00e4nglichen Mitteln angeht, muss mit Denkfehlern rechnen. Die Methodik des vernetzten Denkens hilft, die unterschiedlichen Einflussfaktoren auf ein Problem mit ihren gegenseitigen Abh\u00e4ngigkeiten und Wechselwirkungen zu erkennen. F\u00fcnf Prinzipien: 1. Blickwinkel \u00f6ffnen (Perspektivenwechsel, Metaebene), 2. Zusammenh\u00e4nge verstehen (Gesamtproblem erfassen), 3. Dynamik der Beziehungen verstehen (Intensit\u00e4t und zeitlicher Verlauf), 4. Ungewissheit ertragen (Rahmenbedingungen respektieren, langfristig denken), 5. Wirksame L\u00f6sungen finden (umsichtig, situationsgerecht, anpassungsf\u00e4hig).',
+            highlight: 'F\u00fcnf Prinzipien des vernetzten Denkens: Blickwinkel \u00f6ffnen, Zusammenh\u00e4nge verstehen, Dynamik verstehen, Ungewissheit ertragen, wirksame L\u00f6sungen finden.'
+          },
+          {
+            type: 'concept',
+            title: 'Problemnetzwerk erstellen',
+            content: 'Das Problemnetzwerk ist die methodische Anwendung des vernetzten Denkens. Dabei geht man Schritt f\u00fcr Schritt und zielgerichtet vor: Problem konkretisieren (Abgrenzung und Ermittlung der Einflussfaktoren), Vernetzung der Beziehungen ermitteln (Art der Beziehung: positiv \u00ab+\u00bb = gleichgerichtet, negativ \u00ab\u2013\u00bb = entgegengesetzt), Dynamik der Beziehungen bestimmen (St\u00e4rke und zeitlicher Verlauf), Szenarien formulieren (Best Case, Worst Case, wahrscheinlicher Fall).',
+            highlight: 'Positive Beziehung (+): Je mehr A, desto mehr B. Negative Beziehung (\u2013): Je mehr A, desto weniger B.'
+          },
+          {
+            type: 'table',
+            title: 'Probleml\u00f6sungsprozess AZPERK',
+            headers: ['Vorgehensschritt', 'Beschreibung'],
+            rows: [
+              ['Analyse', 'Problemerkennung, Problemanalyse (Art, Ursachen, Einflussfaktoren), Problembeurteilung (Wichtigkeit, Dringlichkeit, Chancen)'],
+              ['Zieldefinition', 'Muss-Ziele (zwingende Anspr\u00fcche) und Kann-Ziele (gew\u00fcnschte Anforderungen)'],
+              ['Planung', 'Synthese: Entwicklung von L\u00f6sungsideen. Analyse: Abgleich mit Muss-Zielen'],
+              ['Entscheidung', 'Bewertung von L\u00f6sungsvarianten anhand von Bewertungskriterien und -verfahren'],
+              ['Realisierung', 'Massnahmenplanung, Steuerung, Unterst\u00fctzung und Zeitmanagement bei der Realisierung'],
+              ['Kontrolle', '\u00dcberpr\u00fcfung der Zielerreichung. Gegebenenfalls Prozess nochmals von vorne beginnen']
+            ]
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              'Ein <strong>Problem</strong> liegt vor, wenn der Ist-Zustand vom Soll-Zustand abweicht. Wie schwierig ein Problem eingestuft wird, h\u00e4ngt ab von: L\u00f6sbarkeit, Erfassbarkeit, Zerlegbarkeit, \u00c4hnlichkeit, N\u00fctzlichkeit, Subjektive Bewertung.',
+              'Es gibt drei Problemarten: <strong>Einfache Probleme</strong> (klare Vorgaben, Checklisten, Erfahrung und Intuition), <strong>Komplizierte Probleme</strong> (strukturiertes Vorgehen gem\u00e4ss Probleml\u00f6sungsprozess), <strong>Komplexe Probleme</strong> (vernetztes Denken erforderlich).',
+              'Der <strong>Probleml\u00f6sungsprozess AZPERK</strong> besteht aus sechs Schritten: Analyse, Zieldefinition, Planung, Entscheidung, Realisierung, Kontrolle.',
+              'F\u00fcnf Prinzipien des <strong>vernetzten Denkens</strong>: Blickwinkel \u00f6ffnen, Zusammenh\u00e4nge verstehen, Dynamik der Beziehungen verstehen, Ungewissheit ertragen, wirksame L\u00f6sungen finden.'
+            ]
+          }
+        ]
+      }
     }
   ],
   glossary: [

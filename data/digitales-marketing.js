@@ -489,7 +489,93 @@ window.BOOK_DATA = {
           ]
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Marketingkonzept für das digitale Marketing',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels können Sie ...',
+            items: [
+              'die sechs Schritte des (digitalen) Marketingkonzepts beschreiben.',
+              'die POST-Methode als Alternative zum klassischen Marketingkonzept erklären.'
+            ]
+          },
+          {
+            type: 'keyterms',
+            title: 'Schlüsselbegriffe',
+            items: [
+              'Analyse', 'Budget', 'Instrumente (Marketingmix, Taktik)', 'Kontrolle', 'Marketingkonzept',
+              'POST-Methode (People, Objectives, Strategy, Technology)', 'Realisation', 'Strategie', 'Ziele'
+            ]
+          },
+          {
+            type: 'concept',
+            title: '2.1 Klassisches Marketingkonzept',
+            content: 'Da das digitale Marketing ein integrativer Bestandteil des Marketings ist, gibt es in jeder Phase des Marketingkonzepts Anknüpfungspunkte für das digitale Marketing. Die Planung und Konzepterstellung erfolgen somit nach denselben Regeln wie im klassischen Marketing - die einzelnen Schritte werden einfach erweitert um Überlegungen zu den digitalen Medien.',
+            highlight: 'Das digitale Marketingkonzept besteht aus sechs Schritten: 1) Analyse, 2) Ziele, 3) Strategien, 4) Instrumente, 5) Budget und Realisation, 6) Kontrolle.'
+          },
+          {
+            type: 'table',
+            title: 'Checkliste - Inhalte eines Marketingkonzepts',
+            headers: ['Phase', 'Zu beantwortende Fragen'],
+            rows: [
+              ['Analyse', 'Was macht das Unternehmen? Was machen andere? Was bedeutet das für heute und morgen?'],
+              ['Definition der Ziele', 'Welche Ziele leiten Sie aus der Analyse ab? Welche Zielgruppen stehen im Fokus?'],
+              ['Definition der Strategie', 'Wie können die Ziele erreicht werden? Welche übergeordnete Vorgehensweise wählen Sie?'],
+              ['Festlegen des Marketingmix', 'Welche Instrumente eignen sich, um die Ziele zu erreichen? Welche konkreten Massnahmen planen?'],
+              ['Budget und Realisation', 'Welche Mittel stehen für die Durchführung zur Verfügung? Wer erledigt welche Aufgaben?'],
+              ['Kontrolle', 'Wurden die Ziele erreicht? Wo gibt es Verbesserungen?']
+            ]
+          },
+          {
+            type: 'concept',
+            title: '2.2 POST-Methode',
+            content: 'Die 4-stufige POST-Methode - People, Objectives, Strategy, Technology - ist ein guter Leitfaden zur Entwicklung eines digitalen Marketingkonzepts. Die Methode basiert auf dem Ansatz, dass man zuerst verstehen muss, für wen das Konzept entwickelt wird und mit welchem Ziel. Erst am Ende werden Plattformen und Aktivitäten definiert.',
+            highlight: 'Bei der POST-Methode kommt die Technologie immer zuletzt! Zuerst muss man wissen, WER die Zielgruppe ist (People), dann die Ziele definieren (Objectives), die Strategie festlegen (Strategy) und erst dann die passenden Instrumente wählen (Technology).'
+          },
+          {
+            type: 'table',
+            title: 'Digitale Zielgruppen (nach Li / Bernoff)',
+            headers: ['Zielgruppe', 'Beschreibung'],
+            rows: [
+              ['Creators', 'Erstellen selbst Inhalte: Betreiben Blogs, schreiben Artikel, laden Videos hoch.'],
+              ['Critics', 'Reagieren auf Inhalte: Kommentieren und bewerten, beteiligen sich auf Online-Foren.'],
+              ['Collectors', 'Sammeln Inhalte: Abonnieren RSS-Feeds, sammeln und taggen Fotos.'],
+              ['Joiners', 'Sind digital präsent, aber nicht sehr aktiv, haben ein Profil in den sozialen Netzwerken.'],
+              ['Spectators', 'Noch weniger aktiv als Joiners: Lesen ab und zu Blogs, schauen Videos an, lesen Bewertungen.'],
+              ['Inactives', 'Nichtnutzer von digitalen Plattformen / sozialen Medien.']
+            ]
+          },
+          {
+            type: 'concept',
+            title: 'B) Objectives - Fünf Hauptziele',
+            content: 'Die Entwickler der POST-Methode unterscheiden fünf Hauptziele für die Interaktion mit Zielgruppen:',
+            highlight: 'Die fünf Objectives: 1) Zuhören (Monitoring der Gespräche), 2) Mitteilen (Teilnahme und Initiierung von Gesprächen), 3) Anregen (Identifikation und Motivation von Markenfans), 4) Unterstützen (Förderung der Kollaboration mit Kunden), 5) Einbeziehen (Integration von Kunden in Unternehmensprozesse).'
+          },
+          {
+            type: 'merke',
+            title: 'Merke dir!',
+            items: [
+              'Das klassische Marketingkonzept besteht aus 6 Schritten: Analyse, Ziele, Strategien, Instrumente, Budget/Realisation, Kontrolle.',
+              'Die POST-Methode ist eine Alternative speziell für das digitale Marketing.',
+              'Bei POST kommt die Technologie immer ZULETZT - zuerst People, dann Objectives, Strategy, dann Technology.',
+              'Digitale Zielgruppen lassen sich in Creators, Critics, Collectors, Joiners, Spectators und Inactives einteilen.',
+              'Ein unerfahrenes Unternehmen sollte mit Zuhören beginnen und sich nach und nach den anderen Zielen widmen.',
+              'Beide Methoden eignen sich gleichermassen zur Erstellung eines digitalen Marketingkonzepts.'
+            ]
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              'Grundlage für die Durchführung digitaler Marketingmassnahmen ist ein <strong>digitales Marketingkonzept</strong>. Es besteht, analog dem klassischen Marketingkonzept, aus folgenden Teilen: Analyse, Ziele, Strategien, Instrumente (Marketingmix, Taktik), Budget und Realisation, Kontrolle.',
+              'Als Alternative kann bei der Erstellung eines digitalen Marketingkonzepts die <strong>POST-Methode</strong> gearbeitet werden: People (Zielgruppe definieren), Objectives (Ziele definieren), Strategy (Vorgehen festlegen), Technology (Instrumente wählen).',
+              'Digitales Marketing muss integriert werden in bestehende, analoge Marketingmassnahmen, damit ein einheitliches Erscheinungsbild gewährleistet ist.'
+            ]
+          }
+        ]
+      }
     },
 
     // ============================================================
@@ -684,7 +770,122 @@ window.BOOK_DATA = {
           ]
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Analyse (Ist-Zustand)',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels können Sie ...',
+            items: [
+              'verschiedene Vorgehensweisen für die Analyse der Ist-Situation in einem Unternehmen erklären.',
+              'erläutern, wie sich die einzelnen Analysemethoden der primären und der sekundären digitalen Marktforschung voneinander unterscheiden.',
+              'Analyse-Tools und Vorgehensweisen, die im Rahmen des digitalen Marketings eingesetzt werden können, nennen und beschreiben.'
+            ]
+          },
+          {
+            type: 'keyterms',
+            title: 'Schlüsselbegriffe',
+            items: [
+              'Analyse-Tools', 'Customer Journey', 'digitale Marktforschung', 'Facebook Analytics',
+              'Google Analytics', 'Konkurrenzanalyse', 'Kundenbeziehungszyklus', 'Kundenlebenszyklus',
+              'primäre Marktforschung', 'sekundäre Marktforschung', 'Touchpoint-Analyse'
+            ]
+          },
+          {
+            type: 'concept',
+            title: '3.1 Marktforschung',
+            content: 'Marktforschung umfasst die Vorgehensweisen und Methoden zur systematischen Sammlung, Aufbereitung, Analyse und Bewertung von Daten bezogen auf eine Gegebenheit in einem Markt. Im digitalen Marketing steht die primäre Marktforschung im Vordergrund, weil jedes Unternehmen selbst einfach Daten erheben kann, z.B. durch die Nutzung von Google Analytics.',
+            highlight: 'Primäre Marktforschung: Noch nicht vorhandene Daten werden erhoben (qualitativ und quantitativ). Sekundäre Marktforschung: Bereits vorhandene Daten werden genutzt und ausgewertet.'
+          },
+          {
+            type: 'concept',
+            title: '3.1.1 Primäre Marktforschung - 3 Schritte',
+            content: 'Ein sinnvolles Vorgehen im digitalen Marketing gliedert sich in drei Schritte: Schritt 1: Mittels quantitativer Methoden herausfinden, welche Zielgruppen dem Unternehmen heute bekannt sind. Schritt 2: Mittels qualitativer Methoden (z.B. Tiefeninterviews) herausfinden, welche Bedürfnisse diese Zielgruppen haben. Schritt 3: Wieder mittels quantitativer Methoden überprüfen, ob die Ergebnisse der Interviews auch für andere Teile der Zielgruppen zutreffen.',
+            highlight: 'Qualitative Methoden (Interviews, Beobachtungen) dienen dem Entdecken von Neuem. Quantitative Methoden (Befragungen, Experimente) dienen der Überprüfung von Bekanntem. Die Kombination beider Methoden ist für die Analyse der bestehenden digitalen Marketingaktivitäten wichtig.'
+          },
+          {
+            type: 'concept',
+            title: '3.2 Stärken und Schwächen (interne Analyse)',
+            content: 'Der Startpunkt vieler Analysen beginnt mit der eigenen Leistung: Worin sind wir gut? Wo können wir uns verbessern? Innerhalb der internen Analyse werden folgende Fragestellungen betrachtet: Wo interagieren die Kunden mit uns (Touchpoint-Analyse)? Wie gut kennt das Unternehmen die Kunden (Kundenlebenszyklus)? Wie erleben die Kunden die Zusammenarbeit (Customer Journey)?',
+            highlight: 'Digitale Analyse-Tools: Google Analytics (Website-Analyse) und Facebook Analytics (Social-Media-Analyse) sind die zwei wichtigsten Analyseprogramme, die breitflächig verfügbar, kostenlos nutzbar und von einer grossen Anzahl relevanter Kernfunktionen abgedeckt sind.'
+          },
+          {
+            type: 'table',
+            title: 'Google Analytics - Wichtigste Funktionen',
+            headers: ['Bereich', 'Fragestellungen'],
+            rows: [
+              ['Besucheranzahl', 'Wie viele Besucher in einem Zeitraum? Zu welchem Zeitpunkt die meisten? Steigend oder sinkend?'],
+              ['Nutzerverhalten', 'Verweildauer? Nutzungsdauer? Unique Users? Wiederkehrende Besucher? Absprungrate?'],
+              ['Bewegung durch die Webpräsenz', 'Wie bewegen sich die Anwender durch die Webseite? Welche Zusammenhänge bestehen?'],
+              ['Besucherdaten', 'Aus welchem Land? Welche Sprache? Welche Daten zu Alter und Geschlecht?'],
+              ['Technische Details', 'Ladezeit der Seite? Über welchen Browser wird zugegriffen?'],
+              ['Schlüsselwörter / Kanäle', 'Über welche Schlüsselwörter werden Seiten aufgefunden? Über welche Kanäle gelangen User auf die Seite?']
+            ]
+          },
+          {
+            type: 'concept',
+            title: '3.2.2 Touchpoint-Analyse',
+            content: 'In der Touchpoint-Analyse beurteilt das digitale Marketing, welche Art von Informationen über welche Kanäle an die Kunden weitergegeben werden. Touchpoints sind die Momente, in denen Unternehmen mit ihren Kunden interagieren. Beispiele im digitalen Bereich: Google Ad, Internetseite, Werbebanner, Internetvideo, E-Mail, Social-Media-Seiten, Blog, Onlineshop.',
+            highlight: 'Neun Kriterien zur Beurteilung eines Touchpoints: 1) Art des Kontaktpunkts, 2) Beliebtheit, 3) Veränderbarkeit, 4) Individualisierbarkeit, 5) Kosten, 6) Bedürfnisabdeckung, 7) Kundengerechtigkeit, 8) Sinnhaftigkeit, 9) Verknüpfung mit anderen Touchpoints.'
+          },
+          {
+            type: 'concept',
+            title: '3.2.3 Kundenlebenszyklus',
+            content: 'Der Kundenlebenszyklus kann in drei Phasen eingeteilt werden: 1. Phase Kundengewinnung (der potenzielle Kunde wird identifiziert), 2. Phase aktiver Kunde (Kundenbindung und Treue), 3. Phase passiver Kunde (Kunde hat sich vom Unternehmen abgewendet - Rückgewinnung versuchen). In allen Phasen ist die Kommunikation entscheidend.',
+            highlight: 'Kundenlebenszyklus = wann und wie oft standen die Kunden mit uns in einer Beziehung? Kundenbeziehungszyklus = wie lange und wie intensiv war die Beziehung?'
+          },
+          {
+            type: 'concept',
+            title: '3.2.5 Customer Journey',
+            content: 'Eine Customer Journey soll aufzeigen, wie ein Kunde die einzelnen Interaktionen in den von ihm genutzten Touchpoints erlebt. Der Aufbau orientiert sich an den Phasen des Marketingtrichters: Awareness (Bewusstsein), Consideration (Überlegung), Conversion (Umsetzung), Retention (Erhaltung), Advocacy (Befürwortung).',
+            highlight: 'Die Customer Journey wird in 5 Schritten erstellt: 1) Phasen des Marketingtrichters skizzieren, 2) Touchpoints zuordnen, 3) Handlungen und Wahrnehmungen je Touchpoint erfassen, 4) Emotionen beschreiben, 5) Ideen und Verbesserungsvorschläge sammeln.'
+          },
+          {
+            type: 'concept',
+            title: '3.3 Chancen und Risiken (externe Analyse)',
+            content: 'Die externe Analyse betrachtet das Umfeld des Unternehmens. Die klassischen Analyseformen PESTEL und Five Forces werden vorgestellt, ergänzt durch Konkurrenzanalyse und Benchmarking.',
+            highlight: 'PESTELE steht für: P = politisch, E = wirtschaftlich (economics), S = sozial, T = technologisch, E = Umwelt (environmental), L = juristisch (legal), E = ethisch (neu).'
+          },
+          {
+            type: 'concept',
+            title: '3.3.2 Five Forces nach Porter',
+            content: 'Porters Five Forces ist ein einfaches, aber leistungsstarkes Werkzeug, um die Wettbewerbsfähigkeit Ihres Unternehmensumfelds zu verstehen. Die fünf Kräfte sind: A) Rivalität im Wettbewerb, B) Stärke der Lieferanten, C) Macht der Nachfrager, D) Drohende Substitution, E) Bedrohung durch Neueintritte von Wettbewerbern.',
+            highlight: 'Five Forces hilft, Chancen für eine Ausweitung der Aktivitäten zu erkennen und wo Risiken lauern.'
+          },
+          {
+            type: 'concept',
+            title: '3.4 SWOT-Analyse',
+            content: 'Die SWOT-Analyse ist eine einfache Methode, mit der Sie die Stärken (Strengths) und Schwächen (Weaknesses) eines Unternehmens den Chancen (Opportunities) und Risiken (Threats) auf dem Markt gegenüberstellen können. Stärken und Schwächen beziehen sich auf das eigene Unternehmen (intern). Chancen und Risiken ergeben sich aus den Aktivitäten der Konkurrenten oder den Gegebenheiten des Markts an sich (extern).',
+            highlight: 'Vier SWOT-Kombinationen: Stärken-Chancen (SO-Strategie), Stärken-Risiken (ST-Strategie), Schwächen-Chancen (WO-Strategie), Schwächen-Risiken (WT-Strategie). Die wichtigsten sind SO (Potenzial) und WT (grösste Gefahren).'
+          },
+          {
+            type: 'merke',
+            title: 'Merke dir!',
+            items: [
+              'Die Analysephase ist die ERSTE und wichtigste Phase im Marketingkonzept - ohne sie fehlt die Grundlage für alles Weitere.',
+              'Primäre Marktforschung erhebt NEUE Daten (Interviews, Umfragen), sekundäre nutzt BESTEHENDE Daten (Bilanz, CRM, Studien).',
+              'Google Analytics und Facebook Analytics sind die zwei wichtigsten digitalen Analyse-Tools.',
+              'Touchpoints sind die Momente, in denen Kunden mit dem Unternehmen interagieren.',
+              'Der Kundenlebenszyklus hat drei Phasen: Kundengewinnung, aktiver Kunde, passiver Kunde.',
+              'Die Customer Journey beschreibt die Phasen: Awareness, Consideration, Conversion, Retention, Advocacy.',
+              'PESTELE analysiert politische, wirtschaftliche, soziale, technologische, Umwelt-, rechtliche und ethische Faktoren.',
+              'Die SWOT-Analyse kombiniert interne Analyse (Stärken/Schwächen) mit externer Analyse (Chancen/Risiken).'
+            ]
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              'Das Ziel in der <strong>Analysephase</strong> ist, möglichst genau zu verstehen, wie sich die aktuelle Situation für das Unternehmen darstellt und mit wem das Unternehmen wie in der digitalen Welt kommuniziert.',
+              'Die <strong>primäre Marktforschung</strong> gewinnt Erkenntnisse direkt aus der Untersuchung der Marktteilnehmer. Die <strong>sekundäre Marktforschung</strong> gewinnt Erkenntnisse aus bereits erhobenen Daten, Studien oder Experimenten.',
+              'Bei der <strong>internen Analyse</strong> werden Stärken und Schwächen analysiert, unterstützt durch Tools wie <strong>Google Analytics</strong> und <strong>Facebook Analytics</strong>. Methoden: Touchpoint-Analyse, Kundenlebenszyklusanalyse, Kundenbeziehungszyklus, Customer Journey.',
+              'Bei der <strong>externen Analyse</strong> werden Chancen und Risiken analysiert mittels: PESTEL(E), Five Forces, Konkurrenzanalyse, Benchmarking.',
+              'Die Erkenntnisse aus allen Analysen werden in einer <strong>SWOT-Analyse</strong> zusammengeführt. Daraus werden geeignete Ziele und Strategien für das digitale Marketing abgeleitet.'
+            ]
+          }
+        ]
+      }
     },
 
     // ============================================================
@@ -874,7 +1075,97 @@ window.BOOK_DATA = {
           ]
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Zielsetzung und Strategien (Soll-Zustand)',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels können Sie ...',
+            items: [
+              'Zielgruppen für das digitale Marketing definieren.',
+              'Personas erstellen und deren Bedeutung für das digitale Marketing erläutern.',
+              'Ziele anhand der 5 S und des RACE-Frameworks formulieren.',
+              'zur Konkretisierung der Ziele die SMART-Methode anwenden.',
+              'strategische Überlegungen im Bereich des Content Marketings anhand von Qualitätsmerkmalen begründen.'
+            ]
+          },
+          {
+            type: 'keyterms',
+            title: 'Schlüsselbegriffe',
+            items: [
+              '5-S-Ziele', 'Content Marketing', 'Content-Strategie', 'Corporate Identity',
+              'Kommunikationsstrategie', 'Markenstrategie', 'Persona', 'Personalisierung',
+              'RACE-Framework', 'SMART-Methode', 'Storytelling', 'Ziele', 'Zielgruppe'
+            ]
+          },
+          {
+            type: 'concept',
+            title: '4.1 Zielgruppen',
+            content: 'Zielgruppen sind auch im Online-Marketing Gruppen von Personen (mit vergleichbaren Merkmalen), die gezielt auf etwas angesprochen bzw. mit einer Marketingbotschaft erreicht werden sollen. Der Unterschied zum klassischen Marketing liegt im Detaillierungsgrad der Zielgruppendefinition. Mit modernen digitalen Marketingzielgruppensegmentierungs-Tools können sehr detaillierte Zielgruppen beschrieben werden.',
+            highlight: 'Im digitalen Marketing werden Zielgruppen anhand ihres Online-Verhaltens verfeinert. Vier spezifische Zielgruppen: Aktive Nutzer/Produzenten, Kommentatoren, Konsumenten, Inaktive. Nicht nur die aktiven Gruppen ansprechen - auch die grosse Masse der wenig Aktiven ist wichtig!'
+          },
+          {
+            type: 'concept',
+            title: '4.1.2 Personas',
+            content: 'Die Nutzung von Personas zur Beschreibung von Kundenbedürfnissen hat in den letzten Jahren stark an Popularität gewonnen. Eine Persona ist ein konstruierter, repräsentativer Stellvertreter einer Zielgruppe. Dieser Stellvertreter wird konkret und lebensnah charakterisiert, vor allem durch seine Motive, Bedürfnisse und Ziele.',
+            highlight: 'Eine Persona enthält zwingend: Alter, Beruf, Foto, Kernaussage als Zitat, Bedürfnisse/Ziele/Motivationen, Frustrationen/Herausforderungen, Verhaltensweisen (Mediennutzung, Kaufverhalten). Im digitalen Marketing greifen die meisten Unternehmen auf 3-5 Personas zurück.'
+          },
+          {
+            type: 'table',
+            title: 'Die 5-S-Ziele',
+            headers: ['Ziel', 'Beschreibung'],
+            rows: [
+              ['Sell (verkaufen)', 'Zielt auf die Neukundengewinnung, die Kundenbindung und die Steigerung des Verkaufs ab.'],
+              ['Serve (dienen)', 'Steigerung der Kundenzufriedenheit, z.B. durch zusätzliche Leistungen oder eine engere Kommunikation.'],
+              ['Sizzle (motivieren und begeistern)', 'Durch spannende Themen und Dienstleistungen soll die Verweildauer erhöht und Begeisterung erzeugt werden.'],
+              ['Speak (sprechen)', 'Die Anzahl der für das Unternehmen aktiv eintretenden Kunden soll erhöht und Botschafter geschaffen werden.'],
+              ['Save (sparen)', 'Kosten sollen durch die Nutzung von digitalen Marketinginstrumenten gespart werden - quantifizierbare Effizienzziele.']
+            ]
+          },
+          {
+            type: 'concept',
+            title: '4.2.3 Das RACE-Framework',
+            content: 'RACE ist ein alternativer Ansatz zur Definition von Zielkategorien im Marketing. Die einzelnen Zielstellungen sind, im Vergleich zu den 5 S, noch stärker auf die Aktivitäten im digitalen Marketing ausgelegt.',
+            highlight: 'RACE: R = Reach/Reichweite (Gewinnung neuer Kunden), A = Act/Interaktion (Zielgruppen interagieren stärker mit dem Unternehmen), C = Convert/Konvertieren (Generierung von Kundenkontakten und Konvertieren), E = Engage/Engagement (Kunden an Wertschöpfungsprozessen beteiligen).'
+          },
+          {
+            type: 'concept',
+            title: '4.2.5 Konkretisierung der Ziele: SMART',
+            content: 'Die Zielsetzung wird konkretisiert, indem Sie sie SMART machen. Damit sie messbar sind (Erfolg oder Misserfolg), braucht es sogenannte KPIs - Key Performance Indicators, also Schlüsselkennzahlen für die Leistung des Unternehmens.',
+            highlight: 'SMART: S = spezifisch, M = messbar, A = aktionsorientiert (achievable), R = realistisch, T = terminiert. Beispiele für KPIs: Anzahl Online-Bestellungen, Umsatz des E-Commerce-Bereichs, Anzahl Downloads, Besucherzahlen der Website, Anzahl neuer Kunden.'
+          },
+          {
+            type: 'concept',
+            title: '4.3 Strategien',
+            content: 'Bei der Definition einer digitalen Marketingstrategie stehen drei Überlegungen im Zentrum: Die Markenstrategie (Vorgaben für Sprache, Bild, Tonalität, Qualität), die Content-Strategie (Produkte in spannende Geschichten verpacken) und die Kommunikationsstrategie (welche Instrumente passen zum Unternehmen).',
+            highlight: 'Content Marketing ist ein Kernelement oder sogar eine Voraussetzung für erfolgreiches digitales Marketing. 8 Qualitätskriterien: Einzigartigkeit, Emotionen, Relevanz/Mehrwert, Multimedialität, Zielgruppengerechter Umfang, Zeitpunkt, Personalisierung, Qualität statt Quantität.'
+          },
+          {
+            type: 'merke',
+            title: 'Merke dir!',
+            items: [
+              'Zielgruppen im digitalen Marketing entsprechen den klassischen Zielgruppen, können aber dank digitaler Tools detaillierter definiert werden.',
+              'Personas sind FIKTIVE Personen mit Story, die eine Zielgruppe repräsentieren - basierend auf realen Daten.',
+              'Die 5-S-Ziele: Sell, Serve, Sizzle, Speak, Save.',
+              'RACE-Framework: Reach, Act, Convert, Engage.',
+              'Ziele müssen SMART sein: Spezifisch, Messbar, Aktionsorientiert, Realistisch, Terminiert.',
+              'Content Marketing: Nicht das Unternehmen steht im Mittelpunkt, sondern der Kunde und seine Geschichten.',
+              'Die wichtigste Voraussetzung für Sizzle ist, dass bekannt ist, was die Zielgruppe begeistert.',
+              'Im Content Marketing ist Authentizität entscheidend - unwahre Inhalte zerstören Vertrauen.'
+            ]
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              '<strong>Zielgruppen</strong> im digitalen Marketing entsprechen den Zielgruppen im klassischen Marketing. Dank digitaler Tools können sie aber viel detaillierter definiert werden. Neben Zielgruppen werden oft <strong>Personas</strong> erstellt - fiktive Personen, die dazu dienen, Zielgruppen mit ihren Motiven, Bedürfnissen und Zielen zu repräsentieren.',
+              '<strong>Ziele</strong> werden oft mittels der <strong>5 S</strong> (Sell, Serve, Sizzle, Speak, Save) oder des <strong>RACE-Frameworks</strong> (Reach, Act, Convert, Engage) erarbeitet und anschliessend mit der <strong>SMART-Methode</strong> konkretisiert (spezifisch, messbar, aktionsorientiert, realistisch, terminiert).',
+              '<strong>Strategien</strong> umfassen drei Bereiche: <strong>Markenstrategie</strong> (Vorgaben für Sprache, Bild, Tonalität), <strong>Content-Strategie</strong> (Produkte in spannende Geschichten verpacken) und <strong>Kommunikationsstrategie</strong> (Instrumente wählen, die zu Unternehmen und Zielen passen).'
+            ]
+          }
+        ]
+      }
     },
 
     // ============================================================
@@ -1099,7 +1390,81 @@ window.BOOK_DATA = {
           ]
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Instrumente - Teil 1',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels können Sie ...',
+            items: [
+              'den Einfluss des digitalen Marketings auf die 4 P erläutern und Beispiele nennen.',
+              'einen digitalen Marketingmix erstellen.',
+              'die Funktionsweise von Online Ads (Display-Werbung und Affiliate Marketing) erläutern sowie deren Eignung und Wirkung abschätzen.',
+              'erklären, was SEO (Search Engine Optimization) bedeutet und welche Aspekte zu einem guten Page Ranking führen.',
+              'die Funktionsweise und Vorteile von SEA (Search Engine Advertising) beschreiben.'
+            ]
+          },
+          {
+            type: 'keyterms',
+            title: 'Schlüsselbegriffe',
+            items: [
+              'Affiliate Marketing', 'Backlinks', 'Display-Werbung', 'Dynamic Pricing',
+              'Keywords (Schlüsselwörter)', 'Marketingmix (4 P)', 'Off-Site-Optimierung',
+              'On-Site-Optimierung', 'Page Ranking', 'SEA (Search Engine Advertising)',
+              'SEM (Suchmaschinenmarketing)', 'SEO (Suchmaschinenoptimierung)',
+              'Social Signals', 'User Experience', 'User Signals'
+            ]
+          },
+          {
+            type: 'concept',
+            title: '5.1 Der digitale Marketingmix (4 P)',
+            content: 'Der Marketingmix, die 4 P des Marketings, setzt sich aus den 4 Instrumenten Produktpolitik (Product), Preispolitik (Price), Distributionspolitik (Place) und Kommunikationspolitik (Promotion) zusammen. Das digitale Marketing wirkt bei allen 4 P aktiv mit, wird aber vorwiegend im Bereich der Kommunikationspolitik eingesetzt.',
+            highlight: 'Digitale Erweiterungen der 4 P: Product (datenbasierte Angebotsgestaltung, personalisierter Service), Price (Dynamic Pricing, nachfrageorientierte Preisanpassungen), Place (Onlineshops, Serviceplattformen), Promotion (Online Ads, SEO/SEA, Social Media, E-Mail-Marketing, Influencer Marketing).'
+          },
+          {
+            type: 'concept',
+            title: '5.2 Online Ads (Online-Anzeigen)',
+            content: 'Die Vorteile von Online-Werbung gegenüber klassischer Werbung sind: Grössere Reichweite, hohe Verfügbarkeit, geringe Einstiegskosten, hohe Flexibilität, starker Einfluss auf das Branding, mögliche Interaktionen, zielgruppenspezifische oder individuelle Ansprache.',
+            highlight: 'Zwei Formen von Online Ads: Display-Werbung (Bannerwerbung) und Affiliate Marketing (Partnermarketing). Bei Affiliate Marketing bewerben Partnerunternehmen (Affiliates) die Produkte auf ihren Webseiten und erhalten eine Provision bei erfolgreicher Transaktion.'
+          },
+          {
+            type: 'concept',
+            title: '5.3 Suchmaschinenmarketing (SEM)',
+            content: 'Suchmaschinenmarketing (SEM) umfasst zwei Bereiche: SEO (Suchmaschinenoptimierung) und SEA (Suchmaschinenwerbung). SEO steht für Search Engine Optimization, also die Optimierung der Online-Inhalte für Suchmaschinen. Ein hohes Ranking erhält eine Seite mit spannenden Inhalten und geeigneten Schlüsselwörtern, hoher Anzahl an Backlinks, hohem Traffic, professioneller Technik, gutem Anwendererlebnis und hoher Zahl an Social Signals.',
+            highlight: 'SEO = organische (unbezahlte) Optimierung, wirkt langfristig. SEA = bezahlte Anzeigen (z.B. Google Ads), wirkt kurzfristig. Bei SEA zahlt man nur bei Klick (erfolgsorientiert).'
+          },
+          {
+            type: 'concept',
+            title: '5.3.3 Suchmaschinenwerbung (SEA)',
+            content: 'Bei SEA (Search Engine Advertising) handelt es sich um die entgeltliche Platzierung von kommerziellen Anzeigen, zunächst in Form einer kurzen Textbeschreibung. Vorteile: Anzeigen sind kurzfristig buchbar, die Positionierung kann über das investierte Kapital gesteuert werden, die Werbung ist erfolgsorientiert, Kampagnen haben hohe Flexibilität, sie lassen sich gut skalieren, und der Erfolg kann in Echtzeit gemessen werden.',
+            highlight: 'Der Google Ads Prozess: 1) Festlegung des Netzwerks, 2) Auswahl der Endgeräte, 3) Festlegung des Tagesbudgets, 4) Erfassung des Anzeigentexts, 5) Definition der Schlüsselwörter, 6) Erfassung der Zahlungsmodalitäten.'
+          },
+          {
+            type: 'merke',
+            title: 'Merke dir!',
+            items: [
+              'Der digitale Marketingmix erweitert die klassischen 4 P um digitale Aspekte.',
+              'Die Kommunikationspolitik (Promotion) ist der wichtigste Bereich für digitales Marketing.',
+              'Die 5 Kommunikationsinstrumente: Werbung, Verkaufsförderung, PR, Direktmarketing, Persönlicher Verkauf.',
+              'SEO (organisch, langfristig) und SEA (bezahlt, kurzfristig) bilden zusammen SEM (Suchmaschinenmarketing).',
+              'Bei SEA zahlt man nur bei Klick - die Werbung ist erfolgsorientiert.',
+              'Affiliate Marketing = Partnermarketing - Kosten entstehen nur bei erfolgreicher Transaktion.',
+              'Die Auswahl geeigneter Keywords ist eine Herausforderung: genug gesucht und trotzdem differenzierend.',
+              'On-Site-Optimierung (Inhalte, Technik) und Off-Site-Optimierung (Backlinks, Social Signals) sind beide für SEO wichtig.'
+            ]
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              'Jedem der <strong>4 P</strong> im digitalen Marketingmix können unterschiedliche Instrumente des digitalen Marketings zugeordnet werden. Das digitale Marketing wird zwar vorwiegend im Bereich der <strong>Kommunikationspolitik</strong> eingesetzt, kann aber auch die Produktpolitik, die Preispolitik und die Distributionspolitik unterstützen.',
+              'Die Kommunikationsinstrumente umfassen: <strong>Werbung</strong> (Display-Werbung, Affiliate Marketing), <strong>Verkaufsförderung</strong> (Search Engine Marketing, Marketing auf der Website), <strong>PR</strong> (Online PR), <strong>Direktmarketing</strong> (E-Mail-Marketing, Social Commerce), <strong>Persönlicher Verkauf</strong> (Social Media Marketing, Influencer Marketing).',
+              '<strong>SEO</strong> optimiert Inhalte für Suchmaschinen (organisch, langfristig). <strong>SEA</strong> platziert bezahlte Anzeigen (kurzfristig buchbar, erfolgsorientiert, in Echtzeit messbar). Beide zusammen bilden <strong>SEM</strong>.'
+            ]
+          }
+        ]
+      }
     },
 
     // ============================================================
@@ -1308,7 +1673,99 @@ window.BOOK_DATA = {
           ]
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Instrumente - Teil 2',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels können Sie ...',
+            items: [
+              'die unterschiedlichen Erscheinungsformen von Webseiten beschreiben.',
+              'erläutern, was es bei der Umsetzung von Social Media Marketing in der Praxis zu beachten gibt.',
+              'die Chancen und Risiken von Influencer Marketing beurteilen.',
+              'die Funktionsweise von Social Commerce und Bewertungsplattformen erläutern sowie deren Wirkung abschätzen.',
+              'rechtlich konforme und wirkungsstarke E-Mail-Marketing-Massnahmen planen.',
+              'das Kosten-Nutzen-Verhältnis der einzelnen digitalen Marketinginstrumente abwägen.'
+            ]
+          },
+          {
+            type: 'keyterms',
+            title: 'Schlüsselbegriffe',
+            items: [
+              'Bewertungsplattform', 'Blog', 'CTA (Call-to-Action)', 'Double-Opt-in',
+              'E-Mail-Marketing', 'Influencer Marketing', 'Microsite', 'Onlineshop',
+              'Online PR', 'Permission Marketing', 'Portal', 'Redaktionsplan',
+              'Social Commerce', 'Social Media Marketing', 'Website'
+            ]
+          },
+          {
+            type: 'concept',
+            title: '6.1 Digitales Marketing auf der Website',
+            content: 'Die Website ist ein wichtiger Bestandteil der Online-Kommunikation. In der Online-Kommunikation ist die Website das Kernstück. Auf der Website sollen schlussendlich die potenziellen Kunden und Interessenten landen. Websites sind komplexe Gebilde und müssen regelmässig erneuert werden.',
+            highlight: 'Vier Erscheinungsformen von Websites: 1) Corporate Websites (alle relevanten Infos über das Unternehmen), 2) Onlineshops (E-Commerce, Verkauf), 3) Microsites (kleinere, themenbezogene Websites für Kampagnen), 4) Portale (Sammlung von Informationen oder Angeboten).'
+          },
+          {
+            type: 'concept',
+            title: '6.2-6.4 Social Media Marketing',
+            content: 'Die sozialen Medien sind zu einem festen Bestandteil der täglichen Kommunikation geworden. Die Plattformen sind einfach und relativ schnell einzurichten. Es sollte jedoch ein klarer Fokus auf die relevantesten Plattformen gesetzt werden. Zentral sind spannende Inhalte und ausreichende Ressourcen.',
+            highlight: 'Bei der Umsetzung von Social Media sind zu beantworten: Welche Kanäle werden bewirtschaftet? Zu welcher Tageszeit wird gepostet? Welches Vorgehen ist für die Gestaltung der Inhalte definiert? Wie umgehen mit kritischer Kommunikation? Ein Redaktionsplan ist unverzichtbar.'
+          },
+          {
+            type: 'concept',
+            title: '6.5 Influencer Marketing',
+            content: 'Beim Influencer Marketing werden Meinungsmacher mit einer reichweitenstarken Community für Marketing- und Kommunikationszwecke eingesetzt. Die Zusammenarbeit mit Influencern hat in den letzten Jahren stark an Bedeutung gewonnen.',
+            highlight: 'Influencer Marketing hat Chancen (hohe Reichweite, Glaubwürdigkeit bei Zielgruppe) und Risiken (schwer zu kontrollieren, gute Influencer sind schwer zu finden, Authentizität muss gewährleistet sein).'
+          },
+          {
+            type: 'concept',
+            title: '6.6 Social Commerce und Bewertungsplattformen',
+            content: 'Unter Social Commerce versteht man die Möglichkeit, ein Produkt innerhalb der eigenen Social-Media-Seiten zu verkaufen. Bewertungsplattformen sind kostenlos, aber schwierig zu kontrollieren. Vorteile: Vertrauensbildung, Einbindung der Kunden, Interaktion zwischen den Kunden (Mundpropaganda).',
+            highlight: 'Social Commerce und Bewertungsplattformen gelten heute als eine der wirksamsten Marketingmassnahmen, weil sie Vertrauen schaffen und Mundpropaganda fördern.'
+          },
+          {
+            type: 'concept',
+            title: '6.7 E-Mail-Marketing und Online PR',
+            content: 'E-Mail-Marketing umfasst den strategischen Einsatz von E-Mail mit dem Ziel, den Empfänger auf eine bestimmte Online-Präsenz zu lenken. Bei der Online PR werden Kunden und Interessenten nicht direkt adressiert. Stattdessen versucht das Unternehmen durch die Zusammenarbeit mit Medien Aufmerksamkeit zu erlangen und die Bekanntheit zu steigern.',
+            highlight: 'E-Mail-Marketing: Einfach umzusetzen, keine Streuverluste (Permission Marketing), höhere Rücklaufquoten. Online PR: Kostenlos, imagebildend, hohe Reichweiten, Glaubwürdigkeit (redaktionelles Umfeld).'
+          },
+          {
+            type: 'table',
+            title: 'Kosten-Nutzen der digitalen Instrumente',
+            headers: ['Instrument', 'Kosten', 'Nutzen'],
+            rows: [
+              ['Online Ads', 'Variiert je nach Anbieter; Affiliate erst bei Transaktion', 'Grössere Reichweiten, Imageaufbau, gezielte Ansprache'],
+              ['Suchmaschinenmarketing', 'SEO: kostenlos bis teuer; SEA: kostenpflichtig', 'SEM gehört in jedes digitale Marketingkonzept, Auffindbarkeit ist die Basis'],
+              ['Website', 'Von günstig (Template) bis teuer (Agentur)', 'Kernstück des digitalen Marketings, Inhalt-Hub'],
+              ['Social Media', 'Kostenlose Profile, aber aufwendig und zeitintensiv', 'Interaktion, Reichweite, Kundenbindung, Community'],
+              ['E-Mail-Marketing', 'Sehr kosteneffizient, Initialaufwand für Datenbank', 'Keine Streuverluste, hohe Rücklaufquoten, Bekanntmachung'],
+              ['Online PR', 'Kostenlos, setzt aber spannenden Content voraus', 'Imagebildend, hohe Reichweiten, Glaubwürdigkeit']
+            ]
+          },
+          {
+            type: 'merke',
+            title: 'Merke dir!',
+            items: [
+              'Die Website ist das KERNSTÜCK des digitalen Marketings - alle anderen Massnahmen verlinken darauf.',
+              'Vier Erscheinungsformen: Corporate Websites, Onlineshops, Microsites, Portale.',
+              'Social Media braucht einen Redaktionsplan und klare Vorgaben für Inhalte und Umgang mit Kritik.',
+              'E-Mail-Marketing basiert auf Permission Marketing (Double-Opt-in) und hat keine Streuverluste.',
+              'Online PR ist kostenlos und imagebildend, adressiert aber Kunden nicht direkt.',
+              'Influencer Marketing birgt Chancen (Reichweite) und Risiken (Kontrolle, Authentizität).',
+              'Bei der Wahl der Instrumente immer das Kosten-Nutzen-Verhältnis im Hinblick auf die Ziele abwägen.'
+            ]
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              'Im digitalen Marketing ist die <strong>Website</strong> das Kernstück. Zentral ist die Verknüpfung mit anderen Kommunikationsmassnahmen. Erscheinungsformen: Corporate Websites, Onlineshops, Microsites, Portale.',
+              'Die <strong>sozialen Medien</strong> sind zu einem festen Bestandteil geworden. Die Plattformen sind einfach einzurichten, aber es sollte ein klarer Fokus auf die relevantesten Plattformen gesetzt werden. Zentral sind spannende Inhalte und ausreichende Ressourcen.',
+              '<strong>Social Commerce</strong> und <strong>Bewertungsplattformen</strong> ermöglichen Vertrauensbildung und Kundenbindung. <strong>E-Mail-Marketing</strong> ist kosteneffizient und hat keine Streuverluste. <strong>Online PR</strong> ist kostenlos und imagebildend.'
+            ]
+          }
+        ]
+      }
     },
 
     // ============================================================
@@ -1488,7 +1945,86 @@ window.BOOK_DATA = {
           ]
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Budget und Realisation',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels können Sie ...',
+            items: [
+              'die Kostenfaktoren und gängigen Preismodelle im digitalen Marketing erklären.',
+              'einen einfachen Budgetplan erstellen.',
+              'den Realisationsprozess in digitalen Marketingprojekten beschreiben.',
+              'Dienstleister (Agenturen) aus dem Online-Marketing-Markt unterscheiden.',
+              'die Anforderungen an die Zusammenarbeit mit Dienstleistern sowie an ein Agentur-Briefing in die eigene Arbeit einfliessen lassen.'
+            ]
+          },
+          {
+            type: 'keyterms',
+            title: 'Schlüsselbegriffe',
+            items: [
+              'Agentur', 'Briefing', 'Budget', 'Budgetplan', 'Change Management',
+              'CPC (Cost per Click)', 'CPL (Cost per Lead)', 'CPO (Cost per Order)',
+              'CPV (Cost per View)', 'Fixplatzierung', 'Go-live', 'Kostenfaktoren',
+              'Pitch', 'Preismodelle', 'TKP (Tausender-Kontakt-Preis)'
+            ]
+          },
+          {
+            type: 'concept',
+            title: '7.1 Budget',
+            content: 'Die Budgetierung von Marketingaktivitäten ist eine herausfordernde Aufgabe, da viele unterschiedliche Kostenfaktoren berücksichtigt werden müssen. Ein durchschnittliches digitales Marketingbudget reicht von CHF 30\'000-145\'000 pro Jahr für viele kleine bis mittlere Unternehmen. Voraussetzung für den Budgetierungsprozess ist eine abgeschlossene Planung der Analyse, Zielsetzung, Strategiedefinition und Instrumentenwahl.',
+            highlight: 'Relevante Kostenfaktoren im digitalen Marketing: Personalkosten, Kosten für den Betrieb der digitalen Touchpoints, Content-Entwicklung und -Verteilung, Online Monitoring, SEO, SEA, Social Media Marketing, Online Advertising, E-Mail-Marketing, IT-Kosten, Online-Marketing-Kampagnen, Agenturkosten.'
+          },
+          {
+            type: 'table',
+            title: 'Preismodelle in der Online-Werbung',
+            headers: ['Preismodell', 'Beschreibung'],
+            rows: [
+              ['TKP / CPM (Cost per Mille)', 'Tausender-Kontakt-Preis - Kosten pro 1000 Einblendungen'],
+              ['CPC (Cost per Click)', 'Kosten pro Klick auf die Werbeanzeige'],
+              ['CPL (Cost per Lead)', 'Kosten pro generiertem Lead/Kontakt'],
+              ['CPO (Cost per Order)', 'Kosten pro Bestellung/Transaktion'],
+              ['CPV (Cost per View)', 'Kosten pro Ansicht (z.B. bei Videos)'],
+              ['Fixplatzierung', 'Fester Preis für einen bestimmten Werbeplatz über einen definierten Zeitraum']
+            ]
+          },
+          {
+            type: 'concept',
+            title: '7.2 Realisation',
+            content: 'Die Realisation von Marketingprojekten erfolgt i.d.R. in 5 Schritten: 1) Ideenfindung, 2) Skizzieren des Projekts, 3) Planungsphase, 4) Durchführung, 5) Umsetzung. Dabei sollte die Umsetzung von Projekten von Change Management begleitet werden, um sicherzustellen, dass Veränderungen im Unternehmen für die Anwender durch kommunikative Massnahmen erleichtert werden.',
+            highlight: 'Die 5 Schritte der Realisation: 1) Ideenfindung, 2) Skizzieren des Projekts, 3) Planungsphase, 4) Durchführung, 5) Umsetzung.'
+          },
+          {
+            type: 'concept',
+            title: '7.3 Zusammenarbeit mit Agenturen',
+            content: 'Viele Unternehmen lagern Teile des digitalen Marketings an Agenturen aus. Die Inhalte des Briefings für Online-Medien unterscheiden sich kaum von klassischen Briefings, werden aber um Angaben zu den digitalen Präsenzen ergänzt. Wichtig ist, der Agentur rechtzeitig Rückmeldungen zu geben und die einzelnen Arbeiten genau zu überprüfen.',
+            highlight: 'Agentur-Briefing für eine Website sollte enthalten: URL, bestehende Online-Präsenz, Vorstellungen zur Struktur, gewünschte Formate (Bilder, Videos), Funktionalitäten (Newsletter, Webshop, Social Media), Tracking-Tools, Responsiveness, Barrierefreiheit, CMS, Wartung und Pflege.'
+          },
+          {
+            type: 'merke',
+            title: 'Merke dir!',
+            items: [
+              'Das Budget bildet die Basis für das Management von Ressourcen und die Durchführung von digitalen Marketingaktivitäten.',
+              'Wichtige Preismodelle: TKP/CPM, CPC, CPL, CPO, CPV, Fixplatzierung.',
+              'Die Kosten für Agenturen variieren: klassische Preisgestaltung, personalisierte, Abonnements, Auktionen, performancebasiert.',
+              'Die Realisation erfolgt in 5 Schritten: Ideenfindung, Skizzieren, Planungsphase, Durchführung, Umsetzung.',
+              'Change Management begleitet die Umsetzung, um Veränderungen zu erleichtern.',
+              'Ein klares Briefing und regelmässige Rückmeldungen sind entscheidend für die Zusammenarbeit mit Agenturen.',
+              'Der Budgetplan ist das zentrale Steuerungs-Tool für das digitale Marketing.'
+            ]
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              'Das <strong>Budget</strong> bildet die Basis für das Management von Ressourcen und die Durchführung von digitalen Marketingaktivitäten. Es gibt unterschiedliche <strong>Kostenarten</strong>: Personalkosten, Kosten für digitale Touchpoints, Content-Entwicklung, Online Monitoring, SEO, SEA, Social Media, Online Advertising, E-Mail-Marketing, IT-Kosten, Kampagnen, Agenturkosten.',
+              'Gängige <strong>Preismodelle</strong> in der Online-Werbung: TKP/CPM, CPC, CPL, CPO, CPV, Fixplatzierung. Agenturen nutzen zudem: klassische, personalisierte, Abonnement-, Auktions- und performancebasierte Preisgestaltung.',
+              'Die <strong>Realisation</strong> von Marketingprojekten erfolgt in 5 Schritten: Ideenfindung, Skizzieren, Planungsphase, Durchführung, Umsetzung. Die Umsetzung sollte von <strong>Change Management</strong> begleitet werden.'
+            ]
+          }
+        ]
+      }
     },
 
     // ============================================================
@@ -1706,7 +2242,155 @@ window.BOOK_DATA = {
           ]
         }
       ],
-      learningData: null
+      learningData: {
+        title: 'Kontrolle',
+        sections: [
+          {
+            type: 'intro',
+            title: 'Lernziele',
+            content: 'Nach der Bearbeitung dieses Kapitels können Sie ...',
+            items: [
+              'die wichtigsten Key Performance Indicators im digitalen Marketing beschreiben.',
+              'erklären, wie Aktivitäten auf der Website und auf Social Media analysiert werden und welche Tools dafür eingesetzt werden.',
+              'erläutern, was Social Media Monitoring ist und warum es für das Unternehmen wichtig ist.',
+              'das Performance Marketing und sein Potenzial im digitalen Marketing beschreiben.'
+            ]
+          },
+          {
+            type: 'keyterms',
+            title: 'Schlüsselbegriffe',
+            items: [
+              'A/B-Testing', 'Erfolgsmessung', 'Google Analytics', 'Key Performance Indicator (KPI)',
+              'Marketing Controlling', 'Monitoring', 'Net Promoter Score (NPS)',
+              'Performance Marketing', 'Social Media Analytics', 'Social Media Monitoring',
+              'Website Analytics', 'Webtracking'
+            ]
+          },
+          {
+            type: 'concept',
+            title: '8.1 Key Performance Indicators',
+            content: 'Die Erfolgsmessung der digitalen Marketingaktivitäten sollte ein zentraler Bestandteil des digitalen Marketings sein. Nur so lässt sich belegbar ableiten, wie erfolgreich die einzelnen Aktivitäten waren oder ob das Marketingkonzept, die Marketingstrategie oder die Kampagne erfolgreich umgesetzt wurden. Für die Kontrolle der Marketingaktivitäten werden Kennzahlen verwendet. Man unterscheidet zwischen technischen und betriebswirtschaftlichen Kennzahlen.',
+            highlight: 'Technische Kennzahlen dienen oft der Verbesserung des Kundenerlebnisses oder als Basis für technische Anpassungen. Betriebswirtschaftliche Kennzahlen zeigen den wirtschaftlichen Erfolg der Marketingaktivitäten auf.'
+          },
+          {
+            type: 'table',
+            title: 'KPIs im digitalen Marketing',
+            headers: ['Kennzahl', 'Bedeutung'],
+            rows: [
+              ['Anzahl Bestellungen', 'Anzahl der durch einen Kampagnenbaustein, ein bestimmtes Werbemittel oder einen einzelnen Schlüsselbegriff erzielten Bestellungen'],
+              ['Conversions', 'Anzahl der Website-Besucher, die eine gewünschte Transaktion durchgeführt haben (Kauf, Formularausfüllung, Newsletter-Abo etc.)'],
+              ['Conversion Rate (CR)', 'Verhältnis zwischen erzielten Conversions und der Anzahl der Besucher (Klicks), die auf die Ziel-Website gelenkt wurden. CR = Conversions / Klicks · 100'],
+              ['Cost per Click (CPC)', 'Die Kosten in Euro, die für einen neuen Besucher (Klick) gezahlt werden (auch «Cost per Click-Through»)'],
+              ['Cost per Conversion', 'Die Kosten, die pro gewünschter Transaktion anfallen, heruntergebrochen auf Kampagnen-, Werbemittel- oder Schlüsselbegriffsebene'],
+              ['Cost per Lead (CPL)', 'Die Kosten, die zur Erlangung jedes neuen Kontakts anfallen (im Prinzip identisch mit Cost per Conversion, da ein Lead auch gleichzeitig eine Conversion ist)'],
+              ['Cost per Order (CPO)', 'Die Kosten, die pro Bestellung anfallen, pro Kampagne, pro Kampagnenbaustein oder pro einzelnem Werbemittel'],
+              ['Gewinn je Franken (ROI)', 'Der Gewinn je eingesetztem Franken Werbebudget, pro Kampagne, pro Baustein oder pro einzelnem Werbemittel'],
+              ['Klickrate (CTR)', 'Verhältnis zwischen den Einblendungen eines Werbemittels (Impressions) und der Anzahl Klicks. CTR = I / Klicks · 100'],
+              ['Klicks', 'Anzahl der Besucher, die auf ein Werbemittel geklickt haben und so auf die Website des Werbetreibenden gelangt sind'],
+              ['Kundenwert (Customer Lifetime Value)', 'Wirtschaftliche Kundenlebenszyklusbetrachtung: Der Wert eines Neukunden zum Zeitpunkt der Erstbestellung, basierend auf Vergangenheitswerten'],
+              ['Nettokäufe', 'Anzahl der durch die Kampagne generierten Käufe, bereinigt um die Retouren'],
+              ['Page Impressions (PIs)', 'Abruf einer Einzelseite innerhalb einer Website (auch Page Views genannt)'],
+              ['Umsatz', 'Umsatz, der durch die Kampagne, einen Kampagnenbaustein oder ein einzelnes Werbemittel erreicht wurde'],
+              ['Wiederkäufer', 'Anzahl der Wiederkäufer, die durch eine Kampagne akquiriert wurden und mehrfach gekauft haben']
+            ]
+          },
+          {
+            type: 'concept',
+            title: '8.1.2 KPIs in der Praxis',
+            content: 'Welche Kennzahlen genau im Unternehmen eingesetzt werden sollten, lässt sich pauschal nicht definieren. Die oben gezeigte Tabelle zeigt, wie komplex das Thema «Kontrolle» sein kann. Es ist möglich, viel Zeit und Geld in das Thema zu investieren und schlussendlich trotzdem nicht die richtigen Informationen zu haben. Speziell bei Unternehmen, die noch am Anfang des digitalen Marketings stehen, werden oft nur technische Kennzahlen genutzt, die niemand wirklich versteht oder weiss, wie sie genutzt werden können.',
+            highlight: 'Vor der Kontrolle sollten grundsätzliche Fragen beantwortet werden: Warum kontrollieren? Was soll kontrolliert werden? Wie häufig wird kontrolliert?'
+          },
+          {
+            type: 'concept',
+            title: 'Kontrollbereiche im digitalen Marketing',
+            content: 'Je komplexer die Aktivitäten im digitalen Marketing, desto komplexer auch die Kontrolle. Folgende Aktivitäten können beobachtet (= Monitoring) und ausgewertet werden:',
+            highlight: 'Kontrollbereiche: Webseiten-Monitoring und Social Media Monitoring, Tracking von Newslettern und E-Mail-Kampagnen, Content Tracking, User Tracking (im Rahmen der gesetzlichen Vorgaben), Digital-Marketing-Kampagnen-Tracking, Allgemeine Kostenkontrolle.'
+          },
+          {
+            type: 'concept',
+            title: '8.2 Tools und Ansätze zur Kontrolle',
+            content: 'Im Folgenden werden diejenigen Tools und Methoden vorgestellt, die in der Praxis am häufigsten für die Kontrolle eingesetzt werden: Net Promoter Score (NPS), Website Analytics, Social Media Analytics, Social Media Monitoring und A/B-Testing.'
+          },
+          {
+            type: 'concept',
+            title: '8.2.1 Net Promoter Score (NPS)',
+            content: 'Der Net Promoter Score beschreibt die Bereitschaft der Kunden, das Unternehmen weiterzuempfehlen. Im Kern steht die Frage: «Wie wahrscheinlich ist es, dass Sie unser Unternehmen (unser Produkt, unsere Marke) einem Freund oder Kollegen weiterempfehlen werden?» Auf einer Skala von 0 bis 10 kann dies bewertet werden, wobei 10 der höchste Wert für die Weiterempfehlung ist.',
+            highlight: 'NPS-Berechnung: Kunden mit 9-10 = Fürsprecher (Promotoren), 7-8 = Unentschiedene, 0-6 = Kritiker (Detraktoren). Fürsprecher-Anteil (%) minus Kritiker-Anteil (%) = NPS. Der NPS kann zwischen -100 und +100 liegen.'
+          },
+          {
+            type: 'concept',
+            title: '8.2.2 Website Analytics',
+            content: 'Web Analytics, auch Datenverkehrsanalyse, Web-Analyse oder Webtracking genannt, ist die wichtigste Auswertung im digitalen Marketing. Ein Grossteil der Unternehmen arbeitet dafür mit Google Analytics, weil es kostenlos ist. Es gibt aber diverse, kostenpflichtige Alternativen (wie z.B. Hotjar).',
+            highlight: 'Web Analytics beantwortet drei Fragen: A) Was? (Woher kommen Besucher, welcher Content bringt die meisten Besucher, Usability/Heatmaps), B) Warum? (Website optimieren, Bedürfnisse der User besser verstehen), C) Wie? (Cookies, Seitenaufrufe, Sitzungen).'
+          },
+          {
+            type: 'methodenbox',
+            title: 'Besucherquellen in Web Analytics',
+            text: 'Von woher gelangen die Besucher auf die Website? Organic Search = über Suchmaschinen, Social = über soziale Medien, Referral = über andere Webseiten, Direct = direkt über die Eingabe der URL, E-Mail = über E-Mails des Unternehmens (Newsletter, Event-Einladungen etc.).'
+          },
+          {
+            type: 'concept',
+            title: '8.2.3 Social Media Analytics',
+            content: 'Zur Auswertung von Marketingaktivitäten auf den sozialen Medien bieten die verschiedenen Plattformen ihre eigenen Auswertungsinstrumente an. Sie sind meistens in ihren Funktionalitäten begrenzt, sind aber gratis und damit insbesondere für kleinere Unternehmen eine gute Möglichkeit. Am bekanntesten und häufigsten genutzt ist Facebook Analytics.'
+          },
+          {
+            type: 'table',
+            title: 'Social Media Analyse-Tools',
+            headers: ['Plattform', 'Beschreibung'],
+            rows: [
+              ['Facebook', 'Sehr detaillierte Statistiken, die einen ersten Überblick geben, welche Beiträge gut angekommen sind und woher die Fans stammen'],
+              ['Instagram', 'Eigene Analytics-Seiten, die sich gut mit Facebook verknüpfen lassen'],
+              ['YouTube', 'Analyse-Tool, mit dem man unter anderem analysieren kann, welche Videos erfolgreich waren und wie viele Personen sie angeschaut haben'],
+              ['Twitter', 'Allen Usern Analysemöglichkeiten: welche Tweets am erfolgreichsten waren und welche am meisten Follower erreicht haben'],
+              ['Pinterest', 'Integrierte Analyse mit Business Account (business.pinterest.com), spezieller Zugang mit Zusatzfunktionen und umfangreicheren Analysen']
+            ]
+          },
+          {
+            type: 'concept',
+            title: '8.2.4 Social Media Monitoring',
+            content: 'Social Media Monitoring bedeutet «die Beobachtung relevanter Informationen auf den sozialen Medien». Monitoring-Tools erfassen Daten, zu denen sich das Unternehmen Alerts (automatische Benachrichtigungen) einrichten kann: Erwähnungen des Unternehmens, einer Marke oder eines Produkts in den Social Media, Analyse der Stimmung (positiv oder negativ/kritisch), Erwähnungen der Konkurrenz, bestimmte Themen (z.B. allgemeine Trends).',
+            highlight: 'Über Social Media Monitoring können gewonnen werden: Stärken/Schwächen Ihrer Kampagnen, Stärken/Schwächen der Konkurrenz, Identifizierung von Influencern oder Meinungsführern. Es gibt kein Patentrezept - jedes Unternehmen muss die für sich relevanten Kriterien definieren.'
+          },
+          {
+            type: 'concept',
+            title: '8.2.5 A/B-Testing',
+            content: 'Das A/B-Testing ermöglicht den Vergleich verschiedener Inhaltselemente, um die Wirkung von Marketingaktivitäten festzustellen. Es wird insbesondere zur Analyse von Webseiten und Newslettern eingesetzt. Es werden zwei Versionen einer Landingpage oder eines Newsletters erstellt. Die User werden zufällig auf die eine oder die andere Seite weitergeleitet. Nach einer bestimmten Zeit wird ausgewertet, welche Version mehr Klicks und weitere Interaktionen (Leads, Conversions etc.) erhalten hat.',
+            highlight: 'Beispiele von Inhaltselementen für A/B-Tests: Headlines und Titel, Seitenstruktur/Menüführung, Betreffzeilen in E-Newslettern, Grösse/Form/Farbe von Buttons, Texte und Bilder auf Werbebannern.'
+          },
+          {
+            type: 'concept',
+            title: '8.3 Performance Marketing',
+            content: 'Performance Marketing ist der Einsatz von Online-Marketing-Instrumenten mit dem Ziel, eine messbare Reaktion und/oder Transaktion mit dem Nutzer zu erzielen. Performance Marketing findet ausschliesslich über Online-Kanäle statt. Die Basis des Performance Marketings basiert auf der Messbarkeit und der ständigen Optimierung der Marketingmassnahmen. Die Hauptkanäle sind Suchmaschinenmarketing (SEA), Suchmaschinenoptimierung (SEO), E-Mail-Marketing und Affiliate Marketing.',
+            highlight: 'Grundelemente des Performance Marketings: 1) Performance-Marketing-Strategie (Ziele, Kanäle, KPIs definieren), 2) Durchführung der Aktivitäten / Generierung des Traffics, 3) Messung (KPIs vollständig messen und berechnen), 4) Analyse (Optimierungspotenziale identifizieren), 5) Optimierung (Massnahmen umsetzen, Kampagne weiter optimieren).'
+          },
+          {
+            type: 'merke',
+            title: 'Merke dir!',
+            items: [
+              'Die Erfolgsmessung der digitalen Marketingaktivitäten ist ein zentraler Bestandteil des digitalen Marketings.',
+              'Man unterscheidet technische Kennzahlen (Verbesserung des Kundenerlebnisses) und betriebswirtschaftliche Kennzahlen (wirtschaftlicher Erfolg).',
+              'Der Net Promoter Score (NPS) misst die Weiterempfehlungsbereitschaft der Kunden auf einer Skala von 0-10.',
+              'Website Analytics (z.B. Google Analytics) ist die wichtigste Auswertung im digitalen Marketing.',
+              'Social Media Plattformen bieten eigene, meist kostenlose Analyse-Tools an.',
+              'Social Media Monitoring beobachtet relevante Informationen auf sozialen Medien (Erwähnungen, Stimmung, Konkurrenz).',
+              'A/B-Testing vergleicht zwei Varianten, um die bessere Performance zu ermitteln.',
+              'Performance Marketing fokussiert auf messbare Reaktionen und besteht aus 5 Schritten: Strategie, Durchführung, Messung, Analyse, Optimierung.'
+            ]
+          },
+          {
+            type: 'summary',
+            title: 'Zusammenfassung',
+            content: [
+              'Die Aktivitäten des digitalen Marketings werden durch <strong>KPIs (Key Performance Indicators)</strong>, Kennzahlen, kontrolliert. Man unterscheidet technische und betriebswirtschaftlich ausgerichtete Kennzahlen. Die technischen Kennzahlen dienen oft der Verbesserung des Kundenerlebnisses oder als Basis für technische Anpassungen. Die betriebswirtschaftlichen Kennzahlen zeigen den wirtschaftlichen Erfolg der Marketingaktivitäten auf.',
+              'Eine Kennzahl, die immer mehr Unternehmen einsetzen, um die Zufriedenheit ihrer Kunden einzuschätzen, ist der <strong>Net Promoter Score</strong>. Die einzelnen Aktivitäten kann man im Rahmen von <strong>Website und Social Media Analytics</strong> analysieren. Neben der Leistung der Website werden auch die Aktionen der Anwender dokumentiert.',
+              'Die einzelnen <strong>Social-Media-Plattformen</strong> wie Facebook, Instagram oder Twitter bieten eigene, speziell auf ihre Plattform zugeschnittene Tools an, die oft weitere spezielle Kennzahlen enthalten, um das Verhalten der Anwender auszuwerten.',
+              'Das <strong>Social Media Monitoring</strong> liefert Informationen darüber, was in den einzelnen Social-Media-Plattformen und auch allgemein im Internet über das Unternehmen gesagt wird. Um den Prozess zu vereinfachen, gibt es eine Reihe von Tools, die dem Marketingmitarbeiter helfen können.',
+              'Mittels <strong>A/B-Testing</strong> lassen sich verschiedene Inhaltselemente (Inhalt, Form und Positionierung von Headlines, Titeln, Call-to-Action etc.) vergleichen, um deren Wirkung festzustellen.',
+              'Beim <strong>Performance Marketing</strong> geht es um die Maximierung des betriebswirtschaftlichen Ergebnisses und um die Ausnutzung der gesammelten Daten.'
+            ]
+          }
+        ]
+      }
     }
   ],
   glossary: [
