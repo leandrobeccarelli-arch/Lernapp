@@ -10,7 +10,7 @@
   --accent:#4338ca;--green:#059669;--red:#dc2626;--amber:#b45309;
   --border:#d4d4da;--card-shadow:0 1px 3px rgba(0,0,0,0.06),0 4px 12px rgba(0,0,0,0.04);
   --input-bg:#f6f6f8;--hover:#f0f0f4;
-  --hero-bg:linear-gradient(135deg,#e2e5ec,#d8dce6);--hero-text:#18181b;--hero-sub:#52525b
+  --hero-bg:linear-gradient(135deg,#1e1e32,#1a2540);--hero-text:#e4e4e7;--hero-sub:#a1a1aa
 }
 .dark{
   --bg:#111113;--nav:#fafafa;--card:#1c1c1e;--text:#e4e4e7;--text2:#a1a1aa;
