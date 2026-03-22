@@ -10,14 +10,14 @@
   --accent:#4338ca;--green:#059669;--red:#dc2626;--amber:#b45309;
   --border:#d4d4da;--card-shadow:0 1px 3px rgba(0,0,0,0.06),0 4px 12px rgba(0,0,0,0.04);
   --input-bg:#f6f6f8;--hover:#f0f0f4;
-  --hero-bg:linear-gradient(135deg,#2c2218,#1f1a14,#2a1f16);--hero-text:#e8e0d4;--hero-sub:#a89882
+  --hero-bg:linear-gradient(135deg,#3d2e1e,#1a1310,#352818);--hero-text:#ffffff;--hero-sub:#d4c8b8
 }
 .dark{
   --bg:#111113;--nav:#fafafa;--card:#1c1c1e;--text:#e4e4e7;--text2:#a1a1aa;
   --accent:#818cf8;--green:#34d399;--red:#f87171;--amber:#fbbf24;
   --border:#27272a;--card-shadow:0 1px 3px rgba(0,0,0,0.3);
   --input-bg:#18181b;--hover:#27272a;
-  --hero-bg:linear-gradient(135deg,#1a1510,#16120e,#1e1812);--hero-text:#e8e0d4;--hero-sub:#a89882
+  --hero-bg:linear-gradient(135deg,#352818,#120e0a,#2a1f14);--hero-text:#ffffff;--hero-sub:#d4c8b8
 }
 body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;transition:background .3s,color .3s;-webkit-font-smoothing:antialiased}
 input,select,button,textarea{font-family:'Inter',sans-serif}
