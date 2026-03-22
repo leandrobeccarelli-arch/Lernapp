@@ -107,9 +107,9 @@ var TYPE_LABELS = {
 };
 
 var TYPE_ICONS = {
-  mc: '\uD83D\uDD18', tf: '\u2714\uFE0F', fill: '\u270D\uFE0F',
-  match: '\uD83D\uDD17', check: '\u2611\uFE0F', calc: '\uD83E\uDDEE',
-  text: '\uD83D\uDCDD', table: '\uD83D\uDCCA', sort: '\uD83D\uDD22'
+  mc: '', tf: '', fill: '',
+  match: '', check: '', calc: '',
+  text: '', table: '', sort: ''
 };
 
 // ─── Tips Component ─────────────────────────────────────────────────────────
@@ -1013,7 +1013,7 @@ function LearningRenderer(props) {
 
   if (!data) {
     return e('div', { className: 'learn-container', style: { textAlign: 'center', padding: 40, color: 'var(--text2)' } },
-      e('div', { style: { fontSize: '2rem', marginBottom: 12 } }, '\uD83D\uDCD6'),
+      e('div', { style: { fontSize: '1rem', marginBottom: 12, color: 'var(--text2)' } }, ''),
       e('div', { style: { fontSize: '.95rem', fontWeight: 600 } }, 'Theorie wird bald erg\u00E4nzt'),
       e('div', { style: { fontSize: '.85rem', marginTop: 6 } }, 'Der Lerninhalt f\u00FCr dieses Kapitel wird in K\u00FCrze verf\u00FCgbar sein.')
     );
@@ -1030,11 +1030,11 @@ function LearningRenderer(props) {
   }
 
   function renderSection(section, idx) {
-    var icon = '\uD83D\uDCC4';
+    var icon = '';
     var sectionClass = 'learn-section';
 
     if (section.type === 'intro') {
-      icon = '\uD83C\uDFAF';
+      icon = '';
       sectionClass += ' learn-intro';
       return e('div', { key: idx, className: sectionClass },
         e('div', { className: 'learn-section-header' },
@@ -1051,7 +1051,7 @@ function LearningRenderer(props) {
     }
 
     if (section.type === 'concept') {
-      icon = '\uD83D\uDCA1';
+      icon = '';
       sectionClass += ' learn-concept';
       return e('div', { key: idx, className: sectionClass },
         e('div', { className: 'learn-section-header' },
@@ -1066,7 +1066,7 @@ function LearningRenderer(props) {
     }
 
     if (section.type === 'svg') {
-      icon = '\uD83D\uDCCA';
+      icon = '';
       return e('div', { key: idx, className: sectionClass },
         e('div', { className: 'learn-section-header' },
           e('span', { className: 'learn-section-icon' }, icon),
@@ -1080,7 +1080,7 @@ function LearningRenderer(props) {
     }
 
     if (section.type === 'table') {
-      icon = '\uD83D\uDCCB';
+      icon = '';
       return e('div', { key: idx, className: sectionClass },
         e('div', { className: 'learn-section-header' },
           e('span', { className: 'learn-section-icon' }, icon),
@@ -1109,7 +1109,7 @@ function LearningRenderer(props) {
     }
 
     if (section.type === 'keyterms') {
-      icon = '\uD83D\uDD11';
+      icon = '';
       return e('div', { key: idx, className: sectionClass },
         e('div', { className: 'learn-section-header' },
           e('span', { className: 'learn-section-icon' }, icon),
@@ -1129,7 +1129,7 @@ function LearningRenderer(props) {
     }
 
     if (section.type === 'merke') {
-      icon = '\u26A1';
+      icon = '';
       sectionClass += ' learn-merke';
       return e('div', { key: idx, className: sectionClass },
         e('div', { className: 'learn-section-header' },
@@ -1145,7 +1145,7 @@ function LearningRenderer(props) {
     }
 
     if (section.type === 'methodenbox') {
-      icon = '\uD83E\uDDF0';
+      icon = '';
       sectionClass += ' learn-methodenbox';
       return e('div', { key: idx, className: sectionClass },
         e('div', { className: 'learn-section-header' },
@@ -1164,7 +1164,7 @@ function LearningRenderer(props) {
     }
 
     if (section.type === 'summary') {
-      icon = '\uD83D\uDCDD';
+      icon = '';
       sectionClass += ' learn-summary';
       return e('div', { key: idx, className: sectionClass },
         e('div', { className: 'learn-section-header' },
@@ -1320,7 +1320,7 @@ function ExamMode(props) {
     e('div', { className: 'exam-timer-bar' },
       e('div', { className: 'exam-timer-info' }, examExercises.length + ' Aufgaben'),
       e('div', { className: 'exam-timer-clock' + (timeLeft < 120 ? ' urgent' : '') },
-        '\u23F1 ' + formatTime(timeLeft)
+        formatTime(timeLeft)
       ),
       e('button', { className: 'exam-submit-btn', onClick: submit }, 'Abgeben')
     ),
@@ -1386,7 +1386,7 @@ function Calculator(props) {
   function b(label, action, cls) { return e('button', { className: 'calc-btn ' + cls, onClick: action }, label); }
 
   return e('div', { className: 'panel-overlay calc-panel' },
-    e('div', { className: 'panel-header' }, e('b', null, '\uD83E\uDDC2 Taschenrechner'), e('button', { className: 'panel-close', onClick: onClose }, '\u2715')),
+    e('div', { className: 'panel-header' }, e('b', null, 'Taschenrechner'), e('button', { className: 'panel-close', onClick: onClose }, '\u2715')),
     hist.length > 0 ? e('div', { className: 'calc-history' }, hist.slice(-3).map(function(h, i) { return e('div', { key: i, className: 'calc-history-item' }, h); })) : null,
     e('div', { className: 'calc-display' }, disp),
     e('div', { className: 'calc-prev' }, prev !== null && op ? (prev + ' ' + op) : ''),
@@ -1405,7 +1405,7 @@ function Calculator(props) {
 function Notes(props) {
   return e('div', { className: 'panel-overlay notes-panel' },
     e('div', { className: 'panel-header' },
-      e('b', null, '\uD83D\uDCDD Notizen'),
+      e('b', null, 'Notizen'),
       e('div', { style: { display: 'flex', gap: 8, alignItems: 'center' } },
         e('span', { className: 'notes-meta' }, props.notes.length + ' Zeichen'),
         e('button', { className: 'panel-close', onClick: props.onClose }, '\u2715')
@@ -1427,7 +1427,7 @@ function Glossary(props) {
   });
 
   return e('div', { className: 'panel-overlay glossary-panel' },
-    e('div', { className: 'panel-header' }, e('b', null, '\uD83D\uDCD6 Glossar'), e('button', { className: 'panel-close', onClick: props.onClose }, '\u2715')),
+    e('div', { className: 'panel-header' }, e('b', null, 'Glossar'), e('button', { className: 'panel-close', onClick: props.onClose }, '\u2715')),
     e('div', { className: 'glossary-search' }, e('input', { value: search, onChange: function(ev) { setSearch(ev.target.value); }, placeholder: 'Suchen\u2026' })),
     e('div', { className: 'glossary-list' },
       filtered.map(function(g, i) {
@@ -1468,7 +1468,7 @@ function Kontenrahmen(props) {
   }
 
   return e('div', { className: 'panel-overlay kr-panel' },
-    e('div', { className: 'panel-header' }, e('b', null, '\uD83D\uDCCB Kontenrahmen KMU'), e('button', { className: 'panel-close', onClick: props.onClose }, '\u2715')),
+    e('div', { className: 'panel-header' }, e('b', null, 'Kontenrahmen KMU'), e('button', { className: 'panel-close', onClick: props.onClose }, '\u2715')),
     e('div', { className: 'kr-search' }, e('input', { value: search, onChange: function(ev) { setSearch(ev.target.value); }, placeholder: 'Konto suchen (Nr. oder Name)\u2026' })),
     e('div', { className: 'kr-tabs' },
       kontenrahmen.map(function(c) {
@@ -1511,21 +1511,21 @@ function ModeTabs(props) {
       className: 'mode-tab' + (mode === 'ueben' ? ' active-ueben' : ''),
       onClick: function() { setMode('ueben'); }
     },
-      e('span', { className: 'mode-tab-icon' }, '\u270D\uFE0F'), ' \u00DCben',
+      '\u00DCben',
       chProgress ? e('span', { className: 'mode-badge' }, chProgress.done + '/' + chProgress.total) : null
     ),
     hasLearningData ? e('button', {
       className: 'mode-tab' + (mode === 'lernen' ? ' active-lernen' : ''),
       onClick: function() { setMode('lernen'); }
     },
-      e('span', { className: 'mode-tab-icon' }, '\uD83D\uDCD6'), ' Lernen',
+      'Lernen',
       learnRead ? e('span', { className: 'mode-badge' }, '\u2713') : null
     ) : null,
     e('button', {
       className: 'mode-tab' + (mode === 'pruefung' ? ' active-pruefung' : ''),
       onClick: function() { setMode('pruefung'); }
     },
-      e('span', { className: 'mode-tab-icon' }, '\uD83C\uDFAF'), ' Pr\u00FCfung',
+      'Pr\u00FCfung',
       bestExam ? e('span', { className: 'mode-badge' }, bestExam.pct + '%') : null
     )
   );
@@ -1600,7 +1600,7 @@ function BuchungssaetzeTrainer(props) {
   return e('div', { className: 'container' },
     e('div', { style: { marginBottom: 24 } },
       e('button', { className: 'btn-back', onClick: onClose, style: { marginBottom: 16 } }, '\u2190 Zur\u00fcck zu Kapiteln'),
-      e('h2', { style: { margin: '0 0 4px', fontSize: '1.3rem', fontWeight: 700 } }, '\uD83D\uDCDA Buchungss\u00e4tze-Trainer'),
+      e('h2', { style: { margin: '0 0 4px', fontSize: '1.3rem', fontWeight: 700 } }, 'Buchungss\u00e4tze-Trainer'),
       e('p', { style: { margin: '0 0 16px', color: 'var(--text2)', fontSize: '.85rem' } },
         sorted.length + ' Gesch\u00e4ftsf\u00e4lle \u2013 w\u00e4hle f\u00fcr jeden das richtige Soll- und Haben-Konto'
       ),
@@ -1681,7 +1681,7 @@ function BuchungssaetzeTrainer(props) {
             e('button', {
               onClick: function() { setShowTip(function(p) { var n = Object.assign({}, p); n[bs.id] = !p[bs.id]; return n; }); },
               style: { padding: '8px 16px', fontSize: '.82rem', borderRadius: 8, border: '1px solid var(--border)', background: 'var(--bg)', color: 'var(--text2)', cursor: 'pointer' }
-            }, tip ? 'Tipp ausblenden' : '\uD83D\uDCA1 Tipp')
+            }, tip ? 'Tipp ausblenden' : 'Tipp')
           ) : null,
 
           // Tip
@@ -1764,7 +1764,7 @@ function CalcTrainer(props) {
   return e('div', { className: 'container' },
     e('div', { style: { marginBottom: 24 } },
       e('button', { className: 'btn-back', onClick: onClose, style: { marginBottom: 16 } }, '\u2190 Zur\u00FCck zu Kapiteln'),
-      e('h2', { style: { margin: '0 0 4px', fontSize: '1.3rem', fontWeight: 700 } }, '\uD83E\uDDEE Berechnungs-Trainer'),
+      e('h2', { style: { margin: '0 0 4px', fontSize: '1.3rem', fontWeight: 700 } }, 'Berechnungs-Trainer'),
       e('p', { style: { margin: '0 0 16px', color: 'var(--text2)', fontSize: '.85rem' } },
         allCalc.length + ' Berechnungen aus ' + bookData.chapters.length + ' Kapiteln \u2013 von einfach bis komplex'
       ),
@@ -1897,7 +1897,7 @@ function ChapterCard(props) {
           e('button', {
             onClick: function() { setShowFilter(!showFilter); },
             style: { padding: '6px 14px', fontSize: '.8rem', fontWeight: 600, border: '1px solid var(--border)', borderRadius: 20, background: showFilter ? 'var(--accent)' : 'var(--card)', color: showFilter ? '#fff' : 'var(--text)', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 6 }
-          }, '\u2699\uFE0F', ' Filter'),
+          }, 'Filter'),
           typeFilter ? e('button', {
             onClick: function() { setTypeFilter(null); localStorage.removeItem('lp-type-filter'); },
             style: { padding: '4px 10px', fontSize: '.72rem', border: '1px solid var(--border)', borderRadius: 12, background: 'transparent', color: 'var(--text2)', cursor: 'pointer' }
@@ -2021,13 +2021,13 @@ function initApp(bookData) {
             seconds < 3600 ? e('span', { onClick: resetTimer, style: { cursor: 'pointer', fontSize: '.75rem', opacity: .6 } }, '\u21BB') : null
           ),
           e('div', { className: 'tool-bar' },
-            e('button', { className: 'tool-btn' + (showCalc ? ' active' : ''), onClick: function() { setShowCalc(!showCalc); } }, '\uD83E\uDDC2' + (showCalc ? ' \u2715' : ' Rechner')),
-            e('button', { className: 'tool-btn' + (showNotes ? ' active' : ''), onClick: function() { setShowNotes(!showNotes); } }, '\uD83D\uDCDD' + (showNotes ? ' \u2715' : ' Notizen')),
-            e('button', { className: 'tool-btn' + (showGlossar ? ' active' : ''), onClick: function() { setShowGlossar(!showGlossar); } }, '\uD83D\uDCD6' + (showGlossar ? ' \u2715' : ' Glossar')),
-            bookData.kontenrahmen ? e('button', { className: 'tool-btn' + (showKR ? ' active' : ''), onClick: function() { setShowKR(!showKR); } }, '\uD83D\uDCCB' + (showKR ? ' \u2715' : ' Kontenrahmen')) : null
+            e('button', { className: 'tool-btn' + (showCalc ? ' active' : ''), onClick: function() { setShowCalc(!showCalc); } }, showCalc ? '\u2715 Rechner' : 'Rechner'),
+            e('button', { className: 'tool-btn' + (showNotes ? ' active' : ''), onClick: function() { setShowNotes(!showNotes); } }, showNotes ? '\u2715 Notizen' : 'Notizen'),
+            e('button', { className: 'tool-btn' + (showGlossar ? ' active' : ''), onClick: function() { setShowGlossar(!showGlossar); } }, showGlossar ? '\u2715 Glossar' : 'Glossar'),
+            bookData.kontenrahmen ? e('button', { className: 'tool-btn' + (showKR ? ' active' : ''), onClick: function() { setShowKR(!showKR); } }, showKR ? '\u2715 Kontenrahmen' : 'Kontenrahmen') : null
           ),
           e('span', { className: 'nav-btn', style: { fontSize: '.75rem' } }, totalDone + '/' + totalExercises),
-          e('button', { className: 'nav-btn', onClick: toggleDark }, dark ? '\u2600\uFE0F Licht' : '\u263E Dunkel'),
+          e('button', { className: 'nav-btn', onClick: toggleDark }, dark ? 'Licht' : 'Dunkel'),
           e('button', { className: 'nav-btn', onClick: resetAll }, 'Reset')
         )
       ),
@@ -2064,7 +2064,6 @@ function initApp(bookData) {
             onClick: function() { setShowCalcTrainer(true); },
             style: { margin: '0 0 16px', padding: '14px 18px', borderRadius: 8, background: 'linear-gradient(135deg, var(--accent), #6366f1)', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 12, transition: 'transform .15s', color: '#fff' }
           },
-            e('div', { style: { fontSize: '1.6rem' } }, '\uD83E\uDDEE'),
             e('div', { style: { flex: 1 } },
               e('div', { style: { fontWeight: 700, fontSize: '.95rem' } }, 'Berechnungs-Trainer'),
               e('div', { style: { fontSize: '.78rem', opacity: .85, marginTop: 2 } }, calcCount + ' Berechnungen \u2013 von einfach bis komplex'),
@@ -2074,7 +2073,7 @@ function initApp(bookData) {
                 )
               ) : null
             ),
-            e('span', { style: { fontSize: '1.2rem', opacity: .7 } }, '\u2192')
+            e('span', { style: { fontSize: '.8rem', opacity: .5, fontWeight: 600 } }, '\u203A')
           );
         })(),
         // Buchungssätze-Trainer Button
@@ -2087,7 +2086,6 @@ function initApp(bookData) {
             onClick: function() { setShowBSTrainer(true); },
             style: { margin: '0 0 16px', padding: '14px 18px', borderRadius: 8, background: 'linear-gradient(135deg, #059669, #0d9488)', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 12, color: '#fff' }
           },
-            e('div', { style: { fontSize: '1.6rem' } }, '\uD83D\uDCDA'),
             e('div', { style: { flex: 1 } },
               e('div', { style: { fontWeight: 700, fontSize: '.95rem' } }, 'Buchungss\u00e4tze-Trainer'),
               e('div', { style: { fontSize: '.78rem', opacity: .85, marginTop: 2 } }, bsData.length + ' Gesch\u00e4ftsf\u00e4lle \u2013 Soll an Haben \u00fcben'),
@@ -2097,7 +2095,7 @@ function initApp(bookData) {
                 )
               ) : null
             ),
-            e('span', { style: { fontSize: '1.2rem', opacity: .7 } }, '\u2192')
+            e('span', { style: { fontSize: '.8rem', opacity: .5, fontWeight: 600 } }, '\u203A')
           );
         })(),
         bookData.chapters.map(function(ch) {
