@@ -8,7 +8,7 @@
 <meta http-equiv="Expires" content="0">
 <title>Lernplattform – Berufsprüfung Marketing & Verkauf</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=042">
+<link rel="stylesheet" href="css/style.css?v=043">
 <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 </head>
@@ -66,11 +66,11 @@ function App(){
     /* ─── Hero ─── */
     e('div',{className:'hero'},
       e('div',{style:{position:'relative'}},
-        e('div',{style:{fontSize:'.65rem',fontWeight:600,letterSpacing:'.25em',color:'rgba(255,255,255,.25)',textTransform:'uppercase',marginBottom:8}},'Berufsprüfung · Marketing & Verkauf'),
+        e('div',{style:{fontSize:'.65rem',fontWeight:600,letterSpacing:'.25em',color:'var(--hero-sub)',opacity:.5,textTransform:'uppercase',marginBottom:8}},'Berufsprüfung · Marketing & Verkauf'),
         e('h1',{className:'hero-title'},'Lernplattform'),
         e('p',{className:'hero-sub'},'Kompetenzorientiertes Wissen mit interaktiven Übungen'),
-        e('div',{style:{display:'inline-block',marginTop:8,padding:'3px 10px',borderRadius:20,fontSize:'.65rem',fontWeight:600,letterSpacing:'.05em',background:'rgba(255,255,255,.1)',color:'rgba(255,255,255,.45)',border:'1px solid rgba(255,255,255,.08)'}},'v0.6.1-beta'),
-        e('div',{style:{marginTop:6,fontSize:'.6rem',color:'rgba(255,255,255,.3)',maxWidth:340,lineHeight:1.4}},'Neu: 13 Calc-\u00dcbungen (BAB, DB, Break-even, Kennzahlen, Kalkulation)'),
+        e('div',{style:{display:'inline-block',marginTop:8,padding:'3px 10px',borderRadius:20,fontSize:'.65rem',fontWeight:600,letterSpacing:'.05em',background:'rgba(0,0,0,.06)',color:'var(--hero-sub)',border:'1px solid rgba(0,0,0,.08)'}},'v0.6.2-beta'),
+        e('div',{style:{marginTop:6,fontSize:'.6rem',color:'var(--hero-sub)',opacity:.6,maxWidth:340,lineHeight:1.4}},'Neu: 13 Calc-\u00dcbungen (BAB, DB, Break-even, Kennzahlen, Kalkulation)'),
         e('div',{className:'hero-stats'},
           e('div',{className:'hero-stat'},
             e('div',{className:'hero-stat-val'},booksReady+'/'+booksTotal),
@@ -90,7 +90,7 @@ function App(){
             e('div',{className:'progress-fill',style:{width:totalPct+'%',background:totalPct===100?'var(--green)':'var(--accent)'}})
           )
         ):null,
-        e('button',{onClick:toggleDark,style:{position:'absolute',top:0,right:0,background:'rgba(255,255,255,.07)',border:'1px solid rgba(255,255,255,.08)',color:'rgba(255,255,255,.5)',width:36,height:36,borderRadius:10,fontSize:16,cursor:'pointer'}},dark?'\u2600':'\u263d')
+        e('button',{onClick:toggleDark,style:{position:'absolute',top:0,right:0,background:'rgba(0,0,0,.05)',border:'1px solid rgba(0,0,0,.08)',color:'var(--hero-sub)',width:36,height:36,borderRadius:10,fontSize:16,cursor:'pointer'}},dark?'\u2600':'\u263d')
       )
     ),
 
