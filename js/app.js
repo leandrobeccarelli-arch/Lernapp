@@ -1531,6 +1531,110 @@ function ModeTabs(props) {
   );
 }
 
+// ─── Berechnungs-Trainer ─────────────────────────────────────────────────────
+
+var CALC_DIFFICULTY = {
+  11: 1, 46: 1, 47: 1, 48: 1, 178: 1, 230: 1,
+  18: 2, 30: 2, 58: 2, 59: 2, 80: 2, 187: 2, 205: 2, 206: 2,
+  60: 3, 81: 3, 82: 3, 140: 3, 204: 3
+};
+
+var DIFF_LABELS = { 1: 'Einfach', 2: 'Mittel', 3: 'Schwer' };
+var DIFF_COLORS = { 1: '#22c55e', 2: '#f59e0b', 3: '#ef4444' };
+
+function CalcTrainer(props) {
+  var bookData = props.bookData, progress = props.progress, markDone = props.markDone, onClose = props.onClose;
+  var st = useState(null), openEx = st[0], setOpenEx = st[1];
+  var st2 = useState(0), currentDiff = st2[0], setCurrentDiff = st2[1]; // 0=all, 1,2,3
+
+  // Collect all calc exercises across chapters
+  var allCalc = [];
+  bookData.chapters.forEach(function(ch) {
+    (ch.exercises || []).forEach(function(ex) {
+      if (ex.type === 'calc') {
+        allCalc.push({ ex: ex, chapter: ch.num + ': ' + ch.title, difficulty: CALC_DIFFICULTY[ex.id] || 2 });
+      }
+    });
+  });
+
+  // Sort by difficulty then by id
+  allCalc.sort(function(a, b) {
+    if (a.difficulty !== b.difficulty) return a.difficulty - b.difficulty;
+    return a.ex.id - b.ex.id;
+  });
+
+  var filtered = currentDiff === 0 ? allCalc : allCalc.filter(function(c) { return c.difficulty === currentDiff; });
+
+  var doneCount = allCalc.filter(function(c) { return progress[c.ex.id] && progress[c.ex.id].done; }).length;
+  var donePct = allCalc.length > 0 ? Math.round(doneCount / allCalc.length * 100) : 0;
+
+  // Count per difficulty
+  var counts = { 1: 0, 2: 0, 3: 0 };
+  var doneCounts = { 1: 0, 2: 0, 3: 0 };
+  allCalc.forEach(function(c) {
+    counts[c.difficulty] = (counts[c.difficulty] || 0) + 1;
+    if (progress[c.ex.id] && progress[c.ex.id].done) doneCounts[c.difficulty] = (doneCounts[c.difficulty] || 0) + 1;
+  });
+
+  return e('div', { className: 'container' },
+    e('div', { style: { marginBottom: 24 } },
+      e('button', { className: 'btn-back', onClick: onClose, style: { marginBottom: 16 } }, '\u2190 Zur\u00FCck zu Kapiteln'),
+      e('h2', { style: { margin: '0 0 4px', fontSize: '1.3rem', fontWeight: 700 } }, '\uD83E\uDDEE Berechnungs-Trainer'),
+      e('p', { style: { margin: '0 0 16px', color: 'var(--text2)', fontSize: '.85rem' } },
+        allCalc.length + ' Berechnungen aus ' + bookData.chapters.length + ' Kapiteln \u2013 von einfach bis komplex'
+      ),
+      e('div', { className: 'progress-bar', style: { maxWidth: 400, marginBottom: 16 } },
+        e('div', { className: 'progress-fill', style: { width: donePct + '%', background: donePct === 100 ? 'var(--green)' : 'var(--accent)' } })
+      ),
+      e('div', { style: { fontSize: '.78rem', color: 'var(--text2)', marginBottom: 16 } }, doneCount + '/' + allCalc.length + ' gel\u00F6st (' + donePct + '%)'),
+
+      // Difficulty filter tabs
+      e('div', { style: { display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 20 } },
+        e('button', {
+          onClick: function() { setCurrentDiff(0); setOpenEx(null); },
+          style: { padding: '6px 16px', fontSize: '.8rem', fontWeight: 600, borderRadius: 20, border: '1px solid var(--border)', background: currentDiff === 0 ? 'var(--accent)' : 'var(--card)', color: currentDiff === 0 ? '#fff' : 'var(--text)', cursor: 'pointer' }
+        }, 'Alle (' + allCalc.length + ')'),
+        [1, 2, 3].map(function(d) {
+          return e('button', {
+            key: d,
+            onClick: function() { setCurrentDiff(d); setOpenEx(null); },
+            style: { padding: '6px 16px', fontSize: '.8rem', fontWeight: 600, borderRadius: 20, border: '2px solid ' + (currentDiff === d ? DIFF_COLORS[d] : 'var(--border)'), background: currentDiff === d ? DIFF_COLORS[d] : 'var(--card)', color: currentDiff === d ? '#fff' : 'var(--text)', cursor: 'pointer' }
+          }, DIFF_LABELS[d] + ' (' + doneCounts[d] + '/' + counts[d] + ')');
+        })
+      )
+    ),
+
+    // Exercise list
+    filtered.map(function(item, idx) {
+      var ex = item.ex;
+      var isDone = progress[ex.id] && progress[ex.id].done;
+      var isExOpen = openEx === ex.id;
+      return e('div', { key: ex.id, className: 'ex-card', style: { marginBottom: 12 } },
+        e('div', { className: 'ex-header', onClick: function() { setOpenEx(isExOpen ? null : ex.id); } },
+          e('span', { className: 'ex-num' + (isDone ? ' done' : ''), style: { background: isDone ? 'var(--green)' : DIFF_COLORS[item.difficulty], color: '#fff' } }, idx + 1),
+          e('div', { className: 'ex-title-wrap' },
+            e('div', { className: 'ex-title' }, ex.title || (ex.q ? ex.q.substring(0, 80) : 'Aufgabe ' + ex.id)),
+            e('div', { style: { display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap', marginTop: 2 } },
+              e('span', { style: { fontSize: '.7rem', fontWeight: 600, padding: '2px 8px', borderRadius: 10, background: DIFF_COLORS[item.difficulty] + '18', color: DIFF_COLORS[item.difficulty], border: '1px solid ' + DIFF_COLORS[item.difficulty] + '40' } }, DIFF_LABELS[item.difficulty]),
+              e('span', { style: { fontSize: '.7rem', color: 'var(--text2)' } }, item.chapter)
+            ),
+            isDone ? e('span', { className: 'score-badge good' }, 'Gel\u00F6st') : null
+          ),
+          e('span', { className: 'ch-arrow' + (isExOpen ? ' open' : '') }, '\u25BC')
+        ),
+        isExOpen ? e('div', { className: 'ex-body' },
+          e(ExerciseCard, {
+            ex: ex,
+            examMode: false,
+            onDone: function(score) { markDone(ex.id, score); }
+          })
+        ) : null
+      );
+    }),
+    e('div', { className: 'footer' }, 'Built by Leandro \u00B7 Compendio Bildungsmedien')
+  );
+}
+
 // ─── Chapter Card ───────────────────────────────────────────────────────────
 
 function ChapterCard(props) {
@@ -1679,6 +1783,7 @@ function initApp(bookData) {
     var st4 = useState(false), showNotes = st4[0], setShowNotes = st4[1];
     var st5 = useState(false), showGlossar = st5[0], setShowGlossar = st5[1];
     var st5b = useState(false), showKR = st5b[0], setShowKR = st5b[1];
+    var stCT = useState(false), showCalcTrainer = stCT[0], setShowCalcTrainer = stCT[1];
     var st6 = useState(function() { return localStorage.getItem('lp-notes-' + bookData.id) || ''; });
     var notes = st6[0], setNotes = st6[1];
     var st7 = useState(false), timerOn = st7[0], setTimerOn = st7[1];
@@ -1741,8 +1846,47 @@ function initApp(bookData) {
         )
       ),
 
-      // Chapters
+      // Calc Trainer or Chapters
+      showCalcTrainer ? e(CalcTrainer, {
+        bookData: bookData,
+        progress: progress,
+        markDone: markDone,
+        onClose: function() { setShowCalcTrainer(false); }
+      }) :
       e('div', { className: 'container' },
+        // Berechnungs-Trainer Button (only if book has calc exercises)
+        (function() {
+          var hasCalc = bookData.chapters.some(function(ch) {
+            return (ch.exercises || []).some(function(ex) { return ex.type === 'calc'; });
+          });
+          if (!hasCalc) return null;
+          var calcCount = 0;
+          bookData.chapters.forEach(function(ch) {
+            (ch.exercises || []).forEach(function(ex) { if (ex.type === 'calc') calcCount++; });
+          });
+          var calcDone = 0;
+          bookData.chapters.forEach(function(ch) {
+            (ch.exercises || []).forEach(function(ex) {
+              if (ex.type === 'calc' && progress[ex.id] && progress[ex.id].done) calcDone++;
+            });
+          });
+          return e('div', {
+            onClick: function() { setShowCalcTrainer(true); },
+            style: { margin: '0 0 24px', padding: '16px 20px', borderRadius: 12, background: 'linear-gradient(135deg, var(--accent), #6366f1)', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 14, transition: 'transform .15s', color: '#fff' }
+          },
+            e('div', { style: { fontSize: '1.6rem' } }, '\uD83E\uDDEE'),
+            e('div', { style: { flex: 1 } },
+              e('div', { style: { fontWeight: 700, fontSize: '.95rem' } }, 'Berechnungs-Trainer'),
+              e('div', { style: { fontSize: '.78rem', opacity: .85, marginTop: 2 } }, calcCount + ' Berechnungen \u2013 von einfach bis komplex'),
+              calcDone > 0 ? e('div', { style: { marginTop: 6 } },
+                e('div', { style: { height: 4, borderRadius: 2, background: 'rgba(255,255,255,.25)', width: 200 } },
+                  e('div', { style: { height: 4, borderRadius: 2, background: '#fff', width: Math.round(calcDone / calcCount * 100) + '%' } })
+                )
+              ) : null
+            ),
+            e('span', { style: { fontSize: '1.2rem', opacity: .7 } }, '\u2192')
+          );
+        })(),
         bookData.chapters.map(function(ch) {
           return e(ChapterCard, {
             key: ch.id,
