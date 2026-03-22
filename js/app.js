@@ -2062,7 +2062,7 @@ function initApp(bookData) {
           });
           return e('div', {
             onClick: function() { setShowCalcTrainer(true); },
-            style: { margin: '0 0 24px', padding: '16px 20px', borderRadius: 12, background: 'linear-gradient(135deg, var(--accent), #6366f1)', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 14, transition: 'transform .15s', color: '#fff' }
+            style: { margin: '0 0 16px', padding: '14px 18px', borderRadius: 8, background: 'linear-gradient(135deg, var(--accent), #6366f1)', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 12, transition: 'transform .15s', color: '#fff' }
           },
             e('div', { style: { fontSize: '1.6rem' } }, '\uD83E\uDDEE'),
             e('div', { style: { flex: 1 } },
@@ -2085,7 +2085,7 @@ function initApp(bookData) {
           try { var bsProg = JSON.parse(localStorage.getItem('lp-bs-' + bookData.id)) || {}; bsDone = Object.keys(bsProg).length; } catch(x) {}
           return e('div', {
             onClick: function() { setShowBSTrainer(true); },
-            style: { margin: '0 0 24px', padding: '16px 20px', borderRadius: 12, background: 'linear-gradient(135deg, #059669, #0d9488)', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 14, color: '#fff' }
+            style: { margin: '0 0 16px', padding: '14px 18px', borderRadius: 8, background: 'linear-gradient(135deg, #059669, #0d9488)', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 12, color: '#fff' }
           },
             e('div', { style: { fontSize: '1.6rem' } }, '\uD83D\uDCDA'),
             e('div', { style: { flex: 1 } },

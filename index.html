@@ -8,7 +8,7 @@
 <meta http-equiv="Expires" content="0">
 <title>Lernplattform – Berufsprüfung Marketing & Verkauf</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=043">
+<link rel="stylesheet" href="css/style.css?v=044">
 <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 </head>
@@ -66,31 +66,30 @@ function App(){
     /* ─── Hero ─── */
     e('div',{className:'hero'},
       e('div',{style:{position:'relative'}},
-        e('div',{style:{fontSize:'.65rem',fontWeight:600,letterSpacing:'.25em',color:'var(--hero-sub)',opacity:.5,textTransform:'uppercase',marginBottom:8}},'Berufsprüfung · Marketing & Verkauf'),
-        e('h1',{className:'hero-title'},'Lernplattform'),
-        e('p',{className:'hero-sub'},'Kompetenzorientiertes Wissen mit interaktiven Übungen'),
-        e('div',{style:{display:'inline-block',marginTop:8,padding:'3px 10px',borderRadius:20,fontSize:'.65rem',fontWeight:600,letterSpacing:'.05em',background:'rgba(0,0,0,.06)',color:'var(--hero-sub)',border:'1px solid rgba(0,0,0,.08)'}},'v0.6.2-beta'),
-        e('div',{style:{marginTop:6,fontSize:'.6rem',color:'var(--hero-sub)',opacity:.6,maxWidth:340,lineHeight:1.4}},'Neu: 13 Calc-\u00dcbungen (BAB, DB, Break-even, Kennzahlen, Kalkulation)'),
+        e('div',{style:{fontSize:'.6rem',fontWeight:600,letterSpacing:'.3em',color:'var(--hero-sub)',opacity:.4,textTransform:'uppercase',marginBottom:6}},'Berufsprüfung Marketing & Verkauf'),
+        e('h1',{className:'hero-title'},'Dein Prüfungs-Toolkit'),
+        e('p',{className:'hero-sub'},'10 Fachbücher · '+totalExercises+' interaktive Übungen · Theorie, Praxis & Prüfungsmodus'),
+        e('div',{style:{display:'inline-block',marginTop:8,padding:'2px 10px',borderRadius:4,fontSize:'.6rem',fontWeight:600,letterSpacing:'.05em',background:'rgba(0,0,0,.05)',color:'var(--hero-sub)',border:'1px solid rgba(0,0,0,.06)'}},'v0.6.3-beta'),
         e('div',{className:'hero-stats'},
           e('div',{className:'hero-stat'},
             e('div',{className:'hero-stat-val'},booksReady+'/'+booksTotal),
             e('div',{className:'hero-stat-label'},'Bücher')
           ),
           e('div',{className:'hero-stat'},
-            e('div',{className:'hero-stat-val'},totalExercises),
-            e('div',{className:'hero-stat-label'},'Aufgaben')
+            e('div',{className:'hero-stat-val'},totalDone+'/'+totalExercises),
+            e('div',{className:'hero-stat-label'},'Erledigt')
           ),
           e('div',{className:'hero-stat'},
             e('div',{className:'hero-stat-val'},totalPct+'%'),
-            e('div',{className:'hero-stat-label'},'Fortschritt')
+            e('div',{className:'hero-stat-label'},'Gesamt')
           )
         ),
         totalPct>0?e('div',{style:{maxWidth:300,margin:'16px auto 0'}},
           e('div',{className:'progress-bar',style:{maxWidth:'100%'}},
-            e('div',{className:'progress-fill',style:{width:totalPct+'%',background:totalPct===100?'var(--green)':'var(--accent)'}})
+            e('div',{className:'progress-fill',style:{width:totalPct+'%',background:totalPct===100?'var(--green)':'linear-gradient(90deg,var(--accent),#6366f1)'}})
           )
         ):null,
-        e('button',{onClick:toggleDark,style:{position:'absolute',top:0,right:0,background:'rgba(0,0,0,.05)',border:'1px solid rgba(0,0,0,.08)',color:'var(--hero-sub)',width:36,height:36,borderRadius:10,fontSize:16,cursor:'pointer'}},dark?'\u2600':'\u263d')
+        e('button',{onClick:toggleDark,style:{position:'absolute',top:0,right:0,background:'rgba(0,0,0,.04)',border:'1px solid rgba(0,0,0,.06)',color:'var(--hero-sub)',width:32,height:32,borderRadius:6,fontSize:14,cursor:'pointer'}},dark?'\u2600':'\u263d')
       )
     ),
 
@@ -124,7 +123,7 @@ function App(){
     ),
 
     /* ─── Footer ─── */
-    e('div',{className:'footer'},'Built by Leandro · Compendio Bildungsmedien')
+    e('div',{className:'footer'},'Leandro Beccarelli · Compendio Bildungsmedien')
   );
 }
 
