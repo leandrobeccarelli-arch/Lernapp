@@ -1186,6 +1186,41 @@ window.BOOK_DATA = {
           ],
           options: ['A: Direkte Verrechnung.','B: Betriebsbuchhaltung.','D: Kostentr\u00e4ger.','F: Finanzbuchhaltung.','I: Kostenstellen.','L: Kostenarten.'],
           tips: [], reveal: []
+        },
+        {
+          id: 89, type: 'calc',
+          title: 'Zuschlagss\u00e4tze berechnen',
+          q: 'Ein Unternehmen hat folgende Kosten: Material-Einzelkosten CHF 150\u2019000, Material-Gemeinkosten CHF 45\u2019000, Fertigungs-Einzelkosten CHF 200\u2019000, Fertigungs-Gemeinkosten CHF 80\u2019000. Berechnen Sie die Zuschlagss\u00e4tze.',
+          fields: [
+            { label: 'Material-GK-Zuschlag', answer: 30, unit: '%' },
+            { label: 'Fertigungs-GK-Zuschlag', answer: 40, unit: '%' }
+          ],
+          tips: ['Zuschlagssatz = (Gemeinkosten / Einzelkosten) \u00d7 100.','Material: 45\u2019000 / 150\u2019000 \u00d7 100.','Fertigung: 80\u2019000 / 200\u2019000 \u00d7 100.'],
+          reveal: ['Material-GK-Zuschlag: 45\u2019000 / 150\u2019000 \u00d7 100 = 30%.','Fertigungs-GK-Zuschlag: 80\u2019000 / 200\u2019000 \u00d7 100 = 40%.','Warum Zuschlagss\u00e4tze? Sie erm\u00f6glichen es, die Gemeinkosten verursachungsgerecht auf die Kostentr\u00e4ger zu verteilen. Je h\u00f6her der Zuschlag, desto mehr Gemeinkosten fallen pro Einzelkostenfranken an.']
+        },
+        {
+          id: 90, type: 'calc',
+          title: 'Herstellkosten und Selbstkosten',
+          q: 'F\u00fcr einen Auftrag fallen an: Material-EK CHF 12\u2019000, Fertigungs-EK CHF 8\u2019000. Die Zuschlagss\u00e4tze betragen: Material-GK 30%, Fertigungs-GK 40%, Verwaltungs- und Vertriebs-GK 15% (auf Herstellkosten). Berechnen Sie Herstellkosten und Selbstkosten.',
+          fields: [
+            { label: 'Materialkosten (EK + GK)', answer: 15600, unit: 'CHF' },
+            { label: 'Fertigungskosten (EK + GK)', answer: 11200, unit: 'CHF' },
+            { label: 'Herstellkosten', answer: 26800, unit: 'CHF' },
+            { label: 'Selbstkosten', answer: 30820, unit: 'CHF' }
+          ],
+          tips: ['Materialkosten = Material-EK + (Material-EK \u00d7 GK-Zuschlag).','Herstellkosten = Materialkosten + Fertigungskosten.','Selbstkosten = Herstellkosten + VV-GK (15% auf HK).'],
+          reveal: ['Material: 12\u2019000 + 30% = 12\u2019000 + 3\u2019600 = 15\u2019600.','Fertigung: 8\u2019000 + 40% = 8\u2019000 + 3\u2019200 = 11\u2019200.','HK: 15\u2019600 + 11\u2019200 = 26\u2019800.','SK: 26\u2019800 + 15% = 26\u2019800 + 4\u2019020 = 30\u2019820.','Warum diese Stufenberechnung? Der BAB verteilt Kosten stufenweise: zuerst Kostenarten (EK/GK), dann Kostenstellen (Material/Fertigung/VV), dann Kostentr\u00e4ger.']
+        },
+        {
+          id: 91, type: 'calc',
+          title: 'Erfolg pro Kostentr\u00e4ger',
+          q: 'Der Auftrag aus der vorherigen Aufgabe erzielt einen Nettoertrag von CHF 35\u2019000. Die Selbstkosten betragen CHF 30\u2019820. Wie hoch ist der Erfolg?',
+          fields: [
+            { label: 'Erfolg (Nettoertrag \u2212 Selbstkosten)', answer: 4180, unit: 'CHF' },
+            { label: 'Gewinnmarge', answer: 11.9, unit: '%', tolerance: 0.2 }
+          ],
+          tips: ['Erfolg = Nettoertrag \u2212 Selbstkosten.','Gewinnmarge = (Erfolg / Nettoertrag) \u00d7 100.'],
+          reveal: ['Erfolg: 35\u2019000 \u2212 30\u2019820 = 4\u2019180 CHF.','Gewinnmarge: 4\u2019180 / 35\u2019000 \u00d7 100 = 11.9%.','Warum ist der Erfolg pro Kostentr\u00e4ger wichtig? Er zeigt, ob ein Auftrag/Produkt rentabel ist. Liegt der Nettoertrag unter den Selbstkosten, wird ein Verlust erwirtschaftet.']
         }
       ],
       learningData: {
@@ -1346,6 +1381,32 @@ window.BOOK_DATA = {
           keywords: ['Deckungsbeitrag'],
           solution: 'Deckungsbeitrag.',
           tips: [], reveal: []
+        },
+        {
+          id: 124, type: 'calc',
+          title: 'Deckungsbeitrag und Betriebserfolg',
+          q: 'Ein Produkt wird f\u00fcr CHF 25 pro St\u00fcck verkauft. Die variablen Kosten betragen CHF 15 pro St\u00fcck. Es werden 5\u2019000 St\u00fcck verkauft. Die Fixkosten betragen CHF 40\u2019000.',
+          fields: [
+            { label: 'Deckungsbeitrag pro St\u00fcck', answer: 10, unit: 'CHF' },
+            { label: 'Deckungsbeitrag total', answer: 50000, unit: 'CHF' },
+            { label: 'Betriebserfolg', answer: 10000, unit: 'CHF' }
+          ],
+          tips: ['DB/St\u00fcck = Verkaufspreis \u2212 variable St\u00fcckkosten.','DB total = DB/St\u00fcck \u00d7 Menge.','Betriebserfolg = DB total \u2212 Fixkosten.'],
+          reveal: ['DB/St\u00fcck: 25 \u2212 15 = 10 CHF.','DB total: 10 \u00d7 5\u2019000 = 50\u2019000 CHF.','Betriebserfolg: 50\u2019000 \u2212 40\u2019000 = 10\u2019000 CHF.','Warum Deckungsbeitrag? Er zeigt, wie viel jedes St\u00fcck zur Deckung der Fixkosten beitr\u00e4gt. Erst wenn der DB total die Fixkosten \u00fcbersteigt, entsteht Gewinn.']
+        },
+        {
+          id: 125, type: 'calc',
+          title: 'Mehrstufige Deckungsbeitragsrechnung',
+          q: 'Ein Unternehmen hat 2 Produkte:\n\u2022 Produkt A: Erl\u00f6s 80\u2019000, variable Kosten 48\u2019000, Produkt-Fixkosten 12\u2019000\n\u2022 Produkt B: Erl\u00f6s 60\u2019000, variable Kosten 30\u2019000, Produkt-Fixkosten 10\u2019000\nUnternehmens-Fixkosten: 25\u2019000.',
+          fields: [
+            { label: 'DB I Produkt A', answer: 32000, unit: 'CHF' },
+            { label: 'DB I Produkt B', answer: 30000, unit: 'CHF' },
+            { label: 'DB II Produkt A (nach Produkt-FK)', answer: 20000, unit: 'CHF' },
+            { label: 'DB II Produkt B (nach Produkt-FK)', answer: 20000, unit: 'CHF' },
+            { label: 'Betriebserfolg', answer: 15000, unit: 'CHF' }
+          ],
+          tips: ['DB I = Erl\u00f6s \u2212 variable Kosten.','DB II = DB I \u2212 Produkt-Fixkosten.','Betriebserfolg = Summe DB II \u2212 Unternehmens-Fixkosten.'],
+          reveal: ['A: DB I = 80\u2019000 \u2212 48\u2019000 = 32\u2019000. DB II = 32\u2019000 \u2212 12\u2019000 = 20\u2019000.','B: DB I = 60\u2019000 \u2212 30\u2019000 = 30\u2019000. DB II = 30\u2019000 \u2212 10\u2019000 = 20\u2019000.','Betriebserfolg: (20\u2019000 + 20\u2019000) \u2212 25\u2019000 = 15\u2019000.','Warum mehrstufig? Die Stufen zeigen, welches Produkt wirklich profitabel ist. Ein Produkt mit hohem DB I aber hohen Produkt-Fixkosten kann schlechter abschneiden als erwartet.']
         }
       ],
       learningData: {
@@ -1512,6 +1573,30 @@ window.BOOK_DATA = {
             { label: 'Nr. 2: Nettobarankauf (nach Skonto)', answer: 886.5, unit: 'CHF' }
           ],
           tips: [], reveal: []
+        },
+        {
+          id: 141, type: 'calc',
+          title: 'Einkaufskalkulation komplett',
+          q: 'Ein H\u00e4ndler kauft Ware ein: Bruttokreditankauf CHF 8\u2019000, Rabatt 25%, Skonto 2%, Bezugskosten CHF 150. Berechnen Sie den Einstandspreis.',
+          fields: [
+            { label: 'Nettokreditankauf (nach Rabatt)', answer: 6000, unit: 'CHF' },
+            { label: 'Nettobarankauf (nach Skonto)', answer: 5880, unit: 'CHF' },
+            { label: 'Einstandspreis (+ Bezugskosten)', answer: 6030, unit: 'CHF' }
+          ],
+          tips: ['Nettokreditankauf = Brutto \u2212 Rabatt (25%).','Nettobarankauf = Nettokredit \u2212 Skonto (2% auf Nettokredit).','Einstand = Nettobar + Bezugskosten.'],
+          reveal: ['Nettokreditankauf: 8\u2019000 \u2212 25% = 8\u2019000 \u2212 2\u2019000 = 6\u2019000.','Nettobarankauf: 6\u2019000 \u2212 2% = 6\u2019000 \u2212 120 = 5\u2019880.','Einstand: 5\u2019880 + 150 = 6\u2019030.','Warum diese Reihenfolge? Zuerst wird der Rabatt (Mengen-/Treuenachlass) abgezogen, dann der Skonto (Schnellzahlungsrabatt auf den bereits reduzierten Preis). Bezugskosten kommen am Schluss dazu.']
+        },
+        {
+          id: 142, type: 'calc',
+          title: 'Verkaufskalkulation',
+          q: 'Ein Produkt hat Selbstkosten von CHF 240. Der gew\u00fcnschte Gewinnzuschlag betr\u00e4gt 20%. Auf den Nettoverkaufspreis kommen: Skonto 2%, Rabatt 10%. Berechnen Sie den Bruttokreditverkaufspreis.',
+          fields: [
+            { label: 'Nettobarverkauf (SK + Gewinn)', answer: 288, unit: 'CHF' },
+            { label: 'Nettokreditverkauf (+ Skonto)', answer: 293.88, unit: 'CHF', tolerance: 0.1 },
+            { label: 'Bruttokreditverkauf (+ Rabatt)', answer: 326.53, unit: 'CHF', tolerance: 0.1 }
+          ],
+          tips: ['Nettobarverkauf = Selbstkosten \u00d7 1.20 (Gewinnzuschlag).','Nettokreditverkauf = Nettobar / 0.98 (Skonto herausrechnen).','Bruttokreditverkauf = Nettokredit / 0.90 (Rabatt herausrechnen).'],
+          reveal: ['Nettobar: 240 \u00d7 1.20 = 288.','Nettokredit: 288 / 0.98 = 293.88 (Skonto wird herausgerechnet, nicht addiert!).','Bruttokredit: 293.88 / 0.90 = 326.53.','Warum dividieren statt addieren? Bei der Verkaufskalkulation m\u00fcssen Skonto und Rabatt \u00abherausgerechnet\u00bb werden (100-%-Methode), da sie vom h\u00f6heren Preis abgezogen werden sollen.']
         }
       ],
       learningData: {
@@ -1695,6 +1780,42 @@ window.BOOK_DATA = {
           keywords: ['variable','Kosten','Deckungsbeitrag','positiv','annehmen','St\u00fcck'],
           solution: 'Aus Teilkostensicht vergleicht man den Preis mit den variablen St\u00fcckkosten. Solange der Preis die variablen Kosten \u00fcbersteigt (positiver Deckungsbeitrag), lohnt sich der Zusatzauftrag kurzfristig.',
           tips: [], reveal: []
+        },
+        {
+          id: 160, type: 'calc',
+          title: 'Break-even-Punkt berechnen',
+          q: 'Ein Produkt wird f\u00fcr CHF 45 verkauft. Die variablen St\u00fcckkosten betragen CHF 27. Die Fixkosten belaufen sich auf CHF 90\u2019000. Berechnen Sie den Break-even-Punkt.',
+          fields: [
+            { label: 'Deckungsbeitrag pro St\u00fcck', answer: 18, unit: 'CHF' },
+            { label: 'Nutzschwelle (Menge)', answer: 5000, unit: 'St\u00fcck' },
+            { label: 'Nutzschwelle (Wert)', answer: 225000, unit: 'CHF' }
+          ],
+          tips: ['DB/St\u00fcck = Verkaufspreis \u2212 variable St\u00fcckkosten.','Nutzschwelle (Menge) = Fixkosten / DB pro St\u00fcck.','Nutzschwelle (Wert) = Nutzschwelle (Menge) \u00d7 Verkaufspreis.'],
+          reveal: ['DB/St\u00fcck: 45 \u2212 27 = 18 CHF.','NS Menge: 90\u2019000 / 18 = 5\u2019000 St\u00fcck.','NS Wert: 5\u2019000 \u00d7 45 = 225\u2019000 CHF.','Warum Break-even? Am Break-even-Punkt sind die Gesamtkosten genau gleich dem Erl\u00f6s \u2013 der Erfolg ist null. Ab dem 5\u2019001. St\u00fcck wird Gewinn erwirtschaftet.']
+        },
+        {
+          id: 161, type: 'calc',
+          title: 'Break-even mit DB-Marge',
+          q: 'Verkaufspreis CHF 80, variable Kosten CHF 48, Fixkosten CHF 128\u2019000. Berechnen Sie die DB-Marge und die wertm\u00e4ssige Nutzschwelle \u00fcber die DB-Marge.',
+          fields: [
+            { label: 'Deckungsbeitrag pro St\u00fcck', answer: 32, unit: 'CHF' },
+            { label: 'DB-Marge', answer: 40, unit: '%' },
+            { label: 'Nutzschwelle (Wert) via DB-Marge', answer: 320000, unit: 'CHF' },
+            { label: 'Nutzschwelle (Menge)', answer: 4000, unit: 'St\u00fcck' }
+          ],
+          tips: ['DB-Marge = (DB pro St\u00fcck / Verkaufspreis) \u00d7 100.','NS Wert = Fixkosten / DB-Marge (als Dezimalzahl).','NS Menge = NS Wert / Verkaufspreis.'],
+          reveal: ['DB: 80 \u2212 48 = 32 CHF.','DB-Marge: 32 / 80 \u00d7 100 = 40%.','NS Wert: 128\u2019000 / 0.40 = 320\u2019000 CHF.','NS Menge: 320\u2019000 / 80 = 4\u2019000 St\u00fcck.','Warum DB-Marge? Sie zeigt den prozentualen Anteil des Erl\u00f6ses, der zur Fixkostendeckung beitr\u00e4gt. Bei 40% DB-Marge deckt jeder Umsatzfranken 40 Rappen Fixkosten.']
+        },
+        {
+          id: 162, type: 'calc',
+          title: 'Sortimentsentscheidung mit Engpass',
+          q: 'Zwei Produkte konkurrieren um knappe Maschinenkapazit\u00e4t:\n\u2022 Produkt X: DB CHF 60/St\u00fcck, Maschinenzeit 3 Stunden\n\u2022 Produkt Y: DB CHF 40/St\u00fcck, Maschinenzeit 1 Stunde\nWelches Produkt soll bevorzugt werden?',
+          fields: [
+            { label: 'DB pro Maschinenstunde Produkt X', answer: 20, unit: 'CHF/h' },
+            { label: 'DB pro Maschinenstunde Produkt Y', answer: 40, unit: 'CHF/h' }
+          ],
+          tips: ['DB pro Engpasseinheit = DB pro St\u00fcck / Engpasszeit pro St\u00fcck.','Das Produkt mit dem h\u00f6heren DB pro Engpasseinheit wird bevorzugt.'],
+          reveal: ['X: 60 / 3 = 20 CHF/h.','Y: 40 / 1 = 40 CHF/h.','Produkt Y wird bevorzugt, obwohl X einen h\u00f6heren DB pro St\u00fcck hat!','Warum? Bei Engp\u00e4ssen z\u00e4hlt nicht der DB pro St\u00fcck, sondern der DB pro Engpasseinheit. Y bringt pro Maschinenstunde doppelt so viel Deckungsbeitrag.']
         }
       ],
       learningData: {
@@ -1824,6 +1945,42 @@ window.BOOK_DATA = {
             { label: 'Nr. 2: KFFK', answer: 40, unit: '(gerundet)' }
           ],
           tips: [], reveal: []
+        },
+        {
+          id: 189, type: 'calc',
+          title: 'Liquidit\u00e4tsgrade berechnen',
+          q: 'Ein Unternehmen hat: Fl\u00fcssige Mittel CHF 30\u2019000, Forderungen CHF 50\u2019000, Vorr\u00e4te CHF 40\u2019000, kurzfristiges Fremdkapital CHF 80\u2019000. Berechnen Sie die Liquidit\u00e4tsgrade.',
+          fields: [
+            { label: 'Liquidit\u00e4tsgrad 1 (Cash Ratio)', answer: 37.5, unit: '%', tolerance: 0.5 },
+            { label: 'Liquidit\u00e4tsgrad 2 (Quick Ratio)', answer: 100, unit: '%' },
+            { label: 'Liquidit\u00e4tsgrad 3 (Current Ratio)', answer: 150, unit: '%' }
+          ],
+          tips: ['LG 1 = Fl\u00fcssige Mittel / kurzfr. FK \u00d7 100.','LG 2 = (Fl\u00fcssige Mittel + Forderungen) / kurzfr. FK \u00d7 100.','LG 3 = (Fl\u00fcssige Mittel + Forderungen + Vorr\u00e4te) / kurzfr. FK \u00d7 100.'],
+          reveal: ['LG 1: 30\u2019000 / 80\u2019000 \u00d7 100 = 37.5%.','LG 2: (30\u2019000 + 50\u2019000) / 80\u2019000 \u00d7 100 = 100% \u2013 knapp gen\u00fcgend (Richtwert: \u2265 100%).','LG 3: (30\u2019000 + 50\u2019000 + 40\u2019000) / 80\u2019000 \u00d7 100 = 150% \u2013 gut (Richtwert: 150\u2013200%).','Warum drei Stufen? LG 1 zeigt die sofortige Zahlungsf\u00e4higkeit, LG 2 die kurzfristige, LG 3 die mittelfristige. Je h\u00f6her die Stufe, desto mehr Positionen werden einbezogen.']
+        },
+        {
+          id: 190, type: 'calc',
+          title: 'Anlagedeckung und Eigenfinanzierung',
+          q: 'Bilanz: Anlageverm\u00f6gen CHF 300\u2019000, Eigenkapital CHF 200\u2019000, langfristiges FK CHF 150\u2019000, Gesamtkapital CHF 500\u2019000. Berechnen Sie die Deckungs- und Finanzierungskennzahlen.',
+          fields: [
+            { label: 'Eigenfinanzierungsgrad', answer: 40, unit: '%' },
+            { label: 'Anlagedeckungsgrad 1 (nur EK)', answer: 66.7, unit: '%', tolerance: 0.5 },
+            { label: 'Anlagedeckungsgrad 2 (EK + langfr. FK)', answer: 116.7, unit: '%', tolerance: 0.5 }
+          ],
+          tips: ['EFG = Eigenkapital / Gesamtkapital \u00d7 100.','ADG 1 = Eigenkapital / Anlageverm\u00f6gen \u00d7 100.','ADG 2 = (Eigenkapital + langfr. FK) / Anlageverm\u00f6gen \u00d7 100.','Goldene Bilanzregel: ADG 2 sollte \u2265 100% sein.'],
+          reveal: ['EFG: 200\u2019000 / 500\u2019000 \u00d7 100 = 40%.','ADG 1: 200\u2019000 / 300\u2019000 \u00d7 100 = 66.7% \u2013 AV nicht allein durch EK gedeckt.','ADG 2: (200\u2019000 + 150\u2019000) / 300\u2019000 \u00d7 100 = 116.7% \u2013 goldene Bilanzregel erf\u00fcllt!','Warum goldene Bilanzregel? Langfristig gebundenes Verm\u00f6gen (AV) soll durch langfristiges Kapital finanziert sein. Wenn ADG 2 < 100%, besteht ein Fristigkeitsproblem.']
+        },
+        {
+          id: 250, type: 'calc',
+          title: 'ROI nach DuPont-Schema',
+          q: 'Ein Unternehmen erzielt einen Umsatz von CHF 800\u2019000, einen Gewinn von CHF 48\u2019000 und verf\u00fcgt \u00fcber ein Gesamtkapital von CHF 400\u2019000. Berechnen Sie den ROI nach dem DuPont-Schema.',
+          fields: [
+            { label: 'Umsatzrentabilit\u00e4t', answer: 6, unit: '%' },
+            { label: 'Kapitalumschlag', answer: 2, unit: '\u00d7' },
+            { label: 'ROI (= Umsatzrent. \u00d7 Kapitalumschlag)', answer: 12, unit: '%' }
+          ],
+          tips: ['Umsatzrentabilit\u00e4t = Gewinn / Umsatz \u00d7 100.','Kapitalumschlag = Umsatz / Gesamtkapital.','ROI = Umsatzrentabilit\u00e4t \u00d7 Kapitalumschlag.'],
+          reveal: ['Umsatzrentabilit\u00e4t: 48\u2019000 / 800\u2019000 \u00d7 100 = 6%.','Kapitalumschlag: 800\u2019000 / 400\u2019000 = 2\u00d7.','ROI: 6% \u00d7 2 = 12%.','Warum DuPont? Der ROI l\u00e4sst sich in zwei Hebel zerlegen: Marge (wie viel Gewinn pro Umsatzfranken) und Umschlag (wie effizient wird das Kapital eingesetzt). Ein Unternehmen kann den ROI verbessern, indem es entweder die Marge erh\u00f6ht ODER das Kapital effizienter einsetzt.']
         },
         { id: 188, type: 'text', title: 'Beurteilung von Kennzahlen', q: 'Wie beurteilen Sie die folgenden Kennzahlen? Begr\u00fcnden Sie Ihre Antwort mit je 2 bis 3 S\u00e4tzen.\nA) Eigenfinanzierungsgrad von 10%\nB) Liquidit\u00e4tsgrad 2 von 250%', keywords: ['niedrig','hoch','Risiko','Unabh\u00e4ngigkeit','\u00fcberliquid','gebunden'], solution: 'A) Ein EFG von 10% ist sehr niedrig. Das Unternehmen ist stark fremdfinanziert und somit abh\u00e4ngig von Kreditgebern. Das Risiko bei wirtschaftlichen Schwierigkeiten ist hoch.\nB) Ein LG2 von 250% ist sehr hoch. Das deutet auf \u00dcberliquidit\u00e4t hin, was bedeutet, dass zu viel Kapital kurzfristig gebunden ist statt ertragbringend eingesetzt zu werden.', tips: [], reveal: [] }
       ],
