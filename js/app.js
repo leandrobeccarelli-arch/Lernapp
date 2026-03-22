@@ -1531,6 +1531,195 @@ function ModeTabs(props) {
   );
 }
 
+// ─── Buchungssätze-Trainer ────────────────────────────────────────────────────
+
+var BS_KONTEN = [
+  'Kasse','Bank','Forderungen L+L','WB Forderungen','Warenvorrat',
+  'Maschinen','Mobilien','Immobilien','WB Immobilien','Aktive RA',
+  'Verbindlichkeiten L+L','Darlehen','Hypotheken','Passive RA',
+  'Eigenkapital','Gewinnvortrag',
+  'Warenaufwand','Warenertrag','Lohnaufwand','Mietaufwand','Mietertrag',
+  'Verwaltungsaufwand','Versicherungsaufwand','Abschreibungen',
+  'Finanzaufwand','Finanzertrag','Forderungsverluste',
+  'Ausserordentlicher Ertrag','Ausserordentlicher Aufwand'
+];
+
+function BuchungssaetzeTrainer(props) {
+  var bookData = props.bookData, onClose = props.onClose;
+  var bsData = bookData.buchungssaetze || [];
+  if (bsData.length === 0) return e('div', null, 'Keine Buchungss\u00e4tze verf\u00fcgbar.');
+
+  var stP = useState(function() {
+    try { return JSON.parse(localStorage.getItem('lp-bs-' + bookData.id)) || {}; } catch(x) { return {}; }
+  });
+  var bsProgress = stP[0], setBsProgress = stP[1];
+  var st = useState(null), openId = st[0], setOpenId = st[1];
+  var st2 = useState(0), diffFilter = st2[0], setDiffFilter = st2[1];
+  var stSoll = useState({}), sollSel = stSoll[0], setSollSel = stSoll[1];
+  var stHaben = useState({}), habenSel = stHaben[0], setHabenSel = stHaben[1];
+  var stChecked = useState({}), checked = stChecked[0], setChecked = stChecked[1];
+  var stShowTip = useState({}), showTip = stShowTip[0], setShowTip = stShowTip[1];
+
+  useEffect(function() { localStorage.setItem('lp-bs-' + bookData.id, JSON.stringify(bsProgress)); }, [bsProgress]);
+
+  var sorted = bsData.slice().sort(function(a,b) {
+    if (a.difficulty !== b.difficulty) return a.difficulty - b.difficulty;
+    return bsData.indexOf(a) - bsData.indexOf(b);
+  });
+
+  var filtered = diffFilter === 0 ? sorted : sorted.filter(function(bs) { return bs.difficulty === diffFilter; });
+
+  var counts = {1:0,2:0,3:0}, doneCounts = {1:0,2:0,3:0};
+  sorted.forEach(function(bs) {
+    counts[bs.difficulty]++;
+    if (bsProgress[bs.id]) doneCounts[bs.difficulty]++;
+  });
+  var totalDone = Object.keys(bsProgress).length;
+  var totalPct = sorted.length > 0 ? Math.round(totalDone / sorted.length * 100) : 0;
+
+  function checkBS(bs) {
+    var s = sollSel[bs.id], h = habenSel[bs.id];
+    var correct = s === bs.soll && h === bs.haben;
+    setChecked(function(prev) { var n = Object.assign({}, prev); n[bs.id] = { correct: correct, soll: s, haben: h }; return n; });
+    if (correct) setBsProgress(function(prev) { var n = Object.assign({}, prev); n[bs.id] = true; return n; });
+  }
+
+  function retryBS(bs) {
+    setSollSel(function(p) { var n = Object.assign({}, p); delete n[bs.id]; return n; });
+    setHabenSel(function(p) { var n = Object.assign({}, p); delete n[bs.id]; return n; });
+    setChecked(function(p) { var n = Object.assign({}, p); delete n[bs.id]; return n; });
+  }
+
+  function renderSelect(bsId, value, setter, label) {
+    return e('select', {
+      value: value || '',
+      onChange: function(ev) { setter(function(p) { var n = Object.assign({}, p); n[bsId] = ev.target.value; return n; }); },
+      style: { padding: '8px 12px', fontSize: '.85rem', borderRadius: 8, border: '2px solid var(--border)', background: 'var(--card)', color: 'var(--text)', minWidth: 180, cursor: 'pointer' }
+    },
+      e('option', { value: '' }, '-- ' + label + ' w\u00e4hlen --'),
+      BS_KONTEN.map(function(k) { return e('option', { key: k, value: k }, k); })
+    );
+  }
+
+  return e('div', { className: 'container' },
+    e('div', { style: { marginBottom: 24 } },
+      e('button', { className: 'btn-back', onClick: onClose, style: { marginBottom: 16 } }, '\u2190 Zur\u00fcck zu Kapiteln'),
+      e('h2', { style: { margin: '0 0 4px', fontSize: '1.3rem', fontWeight: 700 } }, '\uD83D\uDCDA Buchungss\u00e4tze-Trainer'),
+      e('p', { style: { margin: '0 0 16px', color: 'var(--text2)', fontSize: '.85rem' } },
+        sorted.length + ' Gesch\u00e4ftsf\u00e4lle \u2013 w\u00e4hle f\u00fcr jeden das richtige Soll- und Haben-Konto'
+      ),
+      e('div', { className: 'progress-bar', style: { maxWidth: 400, marginBottom: 16 } },
+        e('div', { className: 'progress-fill', style: { width: totalPct + '%', background: totalPct === 100 ? 'var(--green)' : 'var(--accent)' } })
+      ),
+      e('div', { style: { fontSize: '.78rem', color: 'var(--text2)', marginBottom: 16 } }, totalDone + '/' + sorted.length + ' korrekt (' + totalPct + '%)'),
+
+      // Difficulty filter
+      e('div', { style: { display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 20 } },
+        e('button', {
+          onClick: function() { setDiffFilter(0); },
+          style: { padding: '6px 16px', fontSize: '.8rem', fontWeight: 600, borderRadius: 20, border: '1px solid var(--border)', background: diffFilter === 0 ? 'var(--accent)' : 'var(--card)', color: diffFilter === 0 ? '#fff' : 'var(--text)', cursor: 'pointer' }
+        }, 'Alle (' + sorted.length + ')'),
+        [1,2,3].map(function(d) {
+          return e('button', {
+            key: d,
+            onClick: function() { setDiffFilter(d); },
+            style: { padding: '6px 16px', fontSize: '.8rem', fontWeight: 600, borderRadius: 20, border: '2px solid ' + (diffFilter === d ? DIFF_COLORS[d] : 'var(--border)'), background: diffFilter === d ? DIFF_COLORS[d] : 'var(--card)', color: diffFilter === d ? '#fff' : 'var(--text)', cursor: 'pointer' }
+          }, DIFF_LABELS[d] + ' (' + doneCounts[d] + '/' + counts[d] + ')');
+        })
+      ),
+
+      // Merke box
+      e('div', { style: { padding: '12px 16px', borderRadius: 10, background: 'var(--bg)', border: '1px solid var(--border)', marginBottom: 20, fontSize: '.82rem', lineHeight: 1.5 } },
+        e('strong', null, 'Merke: '), 'Soll an Haben \u2013 ',
+        'Aktivkonten: Zunahme = Soll, Abnahme = Haben. ',
+        'Passivkonten: Zunahme = Haben, Abnahme = Soll. ',
+        'Aufwand = Soll, Ertrag = Haben.'
+      )
+    ),
+
+    // Exercise list
+    filtered.map(function(bs, idx) {
+      var isDone = !!bsProgress[bs.id];
+      var isOpen = openId === bs.id;
+      var ch = checked[bs.id];
+      var tip = showTip[bs.id];
+
+      return e('div', { key: bs.id, className: 'ex-card', style: { marginBottom: 12 } },
+        e('div', { className: 'ex-header', onClick: function() { setOpenId(isOpen ? null : bs.id); } },
+          e('span', { className: 'ex-num' + (isDone ? ' done' : ''), style: { background: isDone ? 'var(--green)' : DIFF_COLORS[bs.difficulty], color: '#fff' } }, idx + 1),
+          e('div', { className: 'ex-title-wrap' },
+            e('div', { className: 'ex-title' }, bs.q),
+            e('div', { style: { display: 'flex', gap: 8, alignItems: 'center', marginTop: 2 } },
+              e('span', { style: { fontSize: '.7rem', fontWeight: 600, padding: '2px 8px', borderRadius: 10, background: DIFF_COLORS[bs.difficulty] + '18', color: DIFF_COLORS[bs.difficulty], border: '1px solid ' + DIFF_COLORS[bs.difficulty] + '40' } }, DIFF_LABELS[bs.difficulty]),
+              bs.betrag ? e('span', { style: { fontSize: '.7rem', color: 'var(--text2)' } }, 'CHF ' + bs.betrag.toLocaleString('de-CH')) : null
+            ),
+            isDone ? e('span', { className: 'score-badge good' }, 'Korrekt') : null
+          ),
+          e('span', { className: 'ch-arrow' + (isOpen ? ' open' : '') }, '\u25BC')
+        ),
+
+        isOpen ? e('div', { className: 'ex-body', style: { padding: '16px 20px' } },
+          e('div', { style: { fontSize: '.9rem', marginBottom: 16, lineHeight: 1.5 } }, bs.q),
+
+          // Soll / Haben Selection
+          e('div', { style: { display: 'flex', gap: 16, flexWrap: 'wrap', alignItems: 'flex-start', marginBottom: 16 } },
+            e('div', null,
+              e('div', { style: { fontSize: '.75rem', fontWeight: 700, color: '#059669', marginBottom: 4, textTransform: 'uppercase', letterSpacing: '.05em' } }, 'Soll (Belastung)'),
+              renderSelect(bs.id, sollSel[bs.id], setSollSel, 'Soll-Konto')
+            ),
+            e('div', { style: { display: 'flex', alignItems: 'center', paddingTop: 22, fontSize: '1.2rem', fontWeight: 700, color: 'var(--text2)' } }, '/'),
+            e('div', null,
+              e('div', { style: { fontSize: '.75rem', fontWeight: 700, color: '#ef4444', marginBottom: 4, textTransform: 'uppercase', letterSpacing: '.05em' } }, 'Haben (Gutschrift)'),
+              renderSelect(bs.id, habenSel[bs.id], setHabenSel, 'Haben-Konto')
+            )
+          ),
+
+          // Check button or result
+          !ch ? e('div', { style: { display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap' } },
+            e('button', {
+              onClick: function() { checkBS(bs); },
+              disabled: !sollSel[bs.id] || !habenSel[bs.id],
+              className: 'btn-check',
+              style: { opacity: (!sollSel[bs.id] || !habenSel[bs.id]) ? .5 : 1 }
+            }, 'Pr\u00fcfen'),
+            e('button', {
+              onClick: function() { setShowTip(function(p) { var n = Object.assign({}, p); n[bs.id] = !p[bs.id]; return n; }); },
+              style: { padding: '8px 16px', fontSize: '.82rem', borderRadius: 8, border: '1px solid var(--border)', background: 'var(--bg)', color: 'var(--text2)', cursor: 'pointer' }
+            }, tip ? 'Tipp ausblenden' : '\uD83D\uDCA1 Tipp')
+          ) : null,
+
+          // Tip
+          tip && !ch ? e('div', { style: { marginTop: 12, padding: '10px 14px', borderRadius: 8, background: '#fef3c7', border: '1px solid #fbbf24', fontSize: '.82rem', color: '#92400e' } },
+            'Soll an Haben: ', bs.soll, ' / ', bs.haben
+          ) : null,
+
+          // Result
+          ch ? e('div', { style: { marginTop: 4 } },
+            e('div', { style: { padding: '12px 16px', borderRadius: 10, background: ch.correct ? '#dcfce7' : '#fee2e2', border: '1px solid ' + (ch.correct ? '#86efac' : '#fca5a5'), marginBottom: 12 } },
+              e('div', { style: { fontWeight: 700, fontSize: '.9rem', color: ch.correct ? '#166534' : '#991b1b', marginBottom: 4 } },
+                ch.correct ? '\u2705 Korrekt!' : '\u274C Leider falsch'
+              ),
+              !ch.correct ? e('div', { style: { fontSize: '.82rem', color: '#991b1b', marginBottom: 8 } },
+                'Deine Antwort: ', ch.soll, ' / ', ch.haben,
+                e('br'),
+                e('strong', null, 'Richtig: '), bs.soll, ' / ', bs.haben
+              ) : null,
+              e('div', { style: { fontSize: '.82rem', color: ch.correct ? '#166534' : '#991b1b', lineHeight: 1.5 } },
+                e('strong', null, 'Erkl\u00e4rung: '), bs.explain
+              )
+            ),
+            !ch.correct ? e('button', {
+              onClick: function() { retryBS(bs); },
+              style: { padding: '8px 16px', fontSize: '.82rem', fontWeight: 600, borderRadius: 8, border: 'none', background: 'var(--accent)', color: '#fff', cursor: 'pointer' }
+            }, '\u21BB Nochmal versuchen') : null
+          ) : null
+        ) : null
+      );
+    }),
+    e('div', { className: 'footer' }, 'Built by Leandro \u00b7 Compendio Bildungsmedien')
+  );
+}
+
 // ─── Berechnungs-Trainer ─────────────────────────────────────────────────────
 
 var CALC_DIFFICULTY = {
@@ -1784,6 +1973,7 @@ function initApp(bookData) {
     var st5 = useState(false), showGlossar = st5[0], setShowGlossar = st5[1];
     var st5b = useState(false), showKR = st5b[0], setShowKR = st5b[1];
     var stCT = useState(false), showCalcTrainer = stCT[0], setShowCalcTrainer = stCT[1];
+    var stBT = useState(false), showBSTrainer = stBT[0], setShowBSTrainer = stBT[1];
     var st6 = useState(function() { return localStorage.getItem('lp-notes-' + bookData.id) || ''; });
     var notes = st6[0], setNotes = st6[1];
     var st7 = useState(false), timerOn = st7[0], setTimerOn = st7[1];
@@ -1846,7 +2036,11 @@ function initApp(bookData) {
         )
       ),
 
-      // Calc Trainer or Chapters
+      // Trainers or Chapters
+      showBSTrainer ? e(BuchungssaetzeTrainer, {
+        bookData: bookData,
+        onClose: function() { setShowBSTrainer(false); }
+      }) :
       showCalcTrainer ? e(CalcTrainer, {
         bookData: bookData,
         progress: progress,
@@ -1881,6 +2075,29 @@ function initApp(bookData) {
               calcDone > 0 ? e('div', { style: { marginTop: 6 } },
                 e('div', { style: { height: 4, borderRadius: 2, background: 'rgba(255,255,255,.25)', width: 200 } },
                   e('div', { style: { height: 4, borderRadius: 2, background: '#fff', width: Math.round(calcDone / calcCount * 100) + '%' } })
+                )
+              ) : null
+            ),
+            e('span', { style: { fontSize: '1.2rem', opacity: .7 } }, '\u2192')
+          );
+        })(),
+        // Buchungssätze-Trainer Button
+        (function() {
+          var bsData = bookData.buchungssaetze;
+          if (!bsData || bsData.length === 0) return null;
+          var bsDone = 0;
+          try { var bsProg = JSON.parse(localStorage.getItem('lp-bs-' + bookData.id)) || {}; bsDone = Object.keys(bsProg).length; } catch(x) {}
+          return e('div', {
+            onClick: function() { setShowBSTrainer(true); },
+            style: { margin: '0 0 24px', padding: '16px 20px', borderRadius: 12, background: 'linear-gradient(135deg, #059669, #0d9488)', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 14, color: '#fff' }
+          },
+            e('div', { style: { fontSize: '1.6rem' } }, '\uD83D\uDCDA'),
+            e('div', { style: { flex: 1 } },
+              e('div', { style: { fontWeight: 700, fontSize: '.95rem' } }, 'Buchungss\u00e4tze-Trainer'),
+              e('div', { style: { fontSize: '.78rem', opacity: .85, marginTop: 2 } }, bsData.length + ' Gesch\u00e4ftsf\u00e4lle \u2013 Soll an Haben \u00fcben'),
+              bsDone > 0 ? e('div', { style: { marginTop: 6 } },
+                e('div', { style: { height: 4, borderRadius: 2, background: 'rgba(255,255,255,.25)', width: 200 } },
+                  e('div', { style: { height: 4, borderRadius: 2, background: '#fff', width: Math.round(bsDone / bsData.length * 100) + '%' } })
                 )
               ) : null
             ),

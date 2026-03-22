@@ -2332,5 +2332,40 @@ window.BOOK_DATA = {
         { nr: '9200', n: 'Jahresgewinn oder -verlust' }
       ]}
     ]}
+  ],
+
+  // ============================================================
+  // Buchungss\u00e4tze-Trainer
+  // ============================================================
+  buchungssaetze: [
+    // ── Einfach (difficulty 1) ──────────────────────────────────
+    { id:'bs1', difficulty:1, q:'Barverkauf von Waren f\u00fcr CHF 500.', soll:'Kasse', haben:'Warenertrag', betrag:500, explain:'Kasse nimmt zu (Aktivkonto \u2192 Soll). Warenertrag nimmt zu (Ertragskonto \u2192 Haben).' },
+    { id:'bs2', difficulty:1, q:'Bankeinzahlung von CHF 2\u2019000 aus der Kasse.', soll:'Bank', haben:'Kasse', betrag:2000, explain:'Bank nimmt zu (Soll). Kasse nimmt ab (Aktivkonto ab \u2192 Haben). Aktivtausch \u2013 nur Verm\u00f6gensseite betroffen.' },
+    { id:'bs3', difficulty:1, q:'Barzahlung der Monatsmiete von CHF 1\u2019800.', soll:'Mietaufwand', haben:'Kasse', betrag:1800, explain:'Mietaufwand nimmt zu (Aufwandskonto \u2192 Soll). Kasse nimmt ab (Aktivkonto ab \u2192 Haben).' },
+    { id:'bs4', difficulty:1, q:'Lohnzahlung von CHF 5\u2019400 via Bank.', soll:'Lohnaufwand', haben:'Bank', betrag:5400, explain:'Lohnaufwand nimmt zu (Soll). Bank nimmt ab (Haben). Aufwand erh\u00f6ht sich, Verm\u00f6gen sinkt.' },
+    { id:'bs5', difficulty:1, q:'Bareinzahlung eines Kunden f\u00fcr offene Rechnung: CHF 750.', soll:'Kasse', haben:'Forderungen L+L', betrag:750, explain:'Kasse nimmt zu (Soll). Forderungen nehmen ab (Aktivkonto ab \u2192 Haben). Aktivtausch.' },
+    { id:'bs6', difficulty:1, q:'Barkauf von B\u00fcromaterial f\u00fcr CHF 120.', soll:'Verwaltungsaufwand', haben:'Kasse', betrag:120, explain:'Verwaltungsaufwand nimmt zu (Soll). Kasse nimmt ab (Haben).' },
+    { id:'bs7', difficulty:1, q:'Bezahlung einer Lieferantenrechnung via Bank: CHF 3\u2019200.', soll:'Verbindlichkeiten L+L', haben:'Bank', betrag:3200, explain:'Verbindlichkeiten nehmen ab (Passivkonto ab \u2192 Soll). Bank nimmt ab (Haben). Schulden und Verm\u00f6gen sinken gleichzeitig.' },
+    { id:'bs8', difficulty:1, q:'Bankgutschrift f\u00fcr Zinsertr\u00e4ge: CHF 85.', soll:'Bank', haben:'Finanzertrag', betrag:85, explain:'Bank nimmt zu (Soll). Finanzertrag nimmt zu (Ertragskonto \u2192 Haben).' },
+
+    // ── Mittel (difficulty 2) ──────────────────────────────────
+    { id:'bs9', difficulty:2, q:'Warenverkauf auf Kredit: CHF 4\u2019500.', soll:'Forderungen L+L', haben:'Warenertrag', betrag:4500, explain:'Forderungen nehmen zu (Aktivkonto \u2192 Soll). Warenertrag nimmt zu (Haben). Der Kunde zahlt sp\u00e4ter.' },
+    { id:'bs10', difficulty:2, q:'Wareneinkauf auf Kredit: CHF 2\u2019800.', soll:'Warenaufwand', haben:'Verbindlichkeiten L+L', betrag:2800, explain:'Warenaufwand nimmt zu (Soll). Verbindlichkeiten nehmen zu (Passivkonto \u2192 Haben). Wir zahlen sp\u00e4ter.' },
+    { id:'bs11', difficulty:2, q:'Abschreibung auf Mobilien: CHF 1\u2019500.', soll:'Abschreibungen', haben:'Mobilien', betrag:1500, explain:'Abschreibungen (Aufwand) nimmt zu (Soll). Mobilien (Aktivkonto) nimmt ab (Haben). Direkte Abschreibung.' },
+    { id:'bs12', difficulty:2, q:'Aufnahme eines Bankdarlehens: CHF 50\u2019000.', soll:'Bank', haben:'Darlehen', betrag:50000, explain:'Bank nimmt zu (Aktivkonto \u2192 Soll). Darlehen nimmt zu (Passivkonto \u2192 Haben). Bilanzsumme w\u00e4chst auf beiden Seiten.' },
+    { id:'bs13', difficulty:2, q:'R\u00fcckzahlung einer Hypothek via Bank: CHF 10\u2019000.', soll:'Hypotheken', haben:'Bank', betrag:10000, explain:'Hypotheken nehmen ab (Passivkonto ab \u2192 Soll). Bank nimmt ab (Haben). Bilanzschrumpfung \u2013 beide Seiten nehmen ab.' },
+    { id:'bs14', difficulty:2, q:'Versicherungspr\u00e4mie per Bank bezahlt: CHF 960.', soll:'Versicherungsaufwand', haben:'Bank', betrag:960, explain:'Versicherungsaufwand nimmt zu (Soll). Bank nimmt ab (Haben).' },
+    { id:'bs15', difficulty:2, q:'Zinszahlung auf Bankdarlehen via Bank: CHF 1\u2019250.', soll:'Finanzaufwand', haben:'Bank', betrag:1250, explain:'Finanzaufwand (Zinsaufwand) nimmt zu (Soll). Bank nimmt ab (Haben).' },
+    { id:'bs16', difficulty:2, q:'Kunde zahlt offene Rechnung per Bank: CHF 6\u2019300.', soll:'Bank', haben:'Forderungen L+L', betrag:6300, explain:'Bank nimmt zu (Soll). Forderungen nehmen ab (Haben). Aktivtausch.' },
+
+    // ── Schwer (difficulty 3) ──────────────────────────────────
+    { id:'bs17', difficulty:3, q:'Bildung einer Wertberichtigung auf Forderungen: CHF 2\u2019000.', soll:'Forderungsverluste', haben:'WB Forderungen', betrag:2000, explain:'Forderungsverluste (Aufwand) nimmt zu (Soll). WB Forderungen (Korrekturkonto Aktiv, wie Passiv) nimmt zu (Haben). Die Forderungen werden indirekt reduziert.' },
+    { id:'bs18', difficulty:3, q:'Nachtr\u00e4glicher Rabatt auf Wareneinkauf: CHF 400.', soll:'Verbindlichkeiten L+L', haben:'Warenaufwand', betrag:400, explain:'Verbindlichkeiten nehmen ab (Soll) \u2013 wir schulden weniger. Warenaufwand nimmt ab (Haben) \u2013 Aufwandminderung.' },
+    { id:'bs19', difficulty:3, q:'Bildung einer transitorischen Abgrenzung: Miete Januar bereits im Dezember bezahlt: CHF 1\u2019800.', soll:'Aktive RA', haben:'Mietaufwand', betrag:1800, explain:'Aktive Rechnungsabgrenzung (Transitorische Aktiven) nimmt zu (Soll). Mietaufwand nimmt ab (Haben). Der Aufwand geh\u00f6rt ins n\u00e4chste Jahr.' },
+    { id:'bs20', difficulty:3, q:'Aufl\u00f6sung stiller Reserven auf Maschinen: CHF 5\u2019000.', soll:'Maschinen', haben:'Ausserordentlicher Ertrag', betrag:5000, explain:'Maschinen (Aktivkonto) nimmt zu (Soll) \u2013 Aufwertung. Ausserordentlicher Ertrag (Haben). Die stille Reserve wird sichtbar gemacht.' },
+    { id:'bs21', difficulty:3, q:'Passive Rechnungsabgrenzung: Im Dezember erhaltene Miete f\u00fcr Januar: CHF 2\u2019000.', soll:'Mietertrag', haben:'Passive RA', betrag:2000, explain:'Mietertrag nimmt ab (Ertragskonto ab \u2192 Soll). Passive RA (Transitorische Passiven) nimmt zu (Haben). Der Ertrag geh\u00f6rt ins n\u00e4chste Jahr.' },
+    { id:'bs22', difficulty:3, q:'Skonto bei Zahlung einer Lieferantenrechnung: Brutto CHF 5\u2019000, 2% Skonto.', soll:'Verbindlichkeiten L+L', haben:'Bank', betrag:4900, explain:'Verbindlichkeiten nehmen ab um den vollen Betrag (5\u2019000, Soll). Bank nimmt ab um den reduzierten Betrag (4\u2019900, Haben). Zus\u00e4tzlich: Warenaufwand / Verbindlichkeiten L+L f\u00fcr die 100 Skonto-Minderung. Vereinfacht: Nettobuchung.' },
+    { id:'bs23', difficulty:3, q:'Abschreibung auf Immobilien \u00fcber Wertberichtigung (indirekt): CHF 8\u2019000.', soll:'Abschreibungen', haben:'WB Immobilien', betrag:8000, explain:'Abschreibungen (Aufwand \u2192 Soll). WB Immobilien (Korrekturkonto \u2192 Haben). Bei indirekter Abschreibung bleibt der Anschaffungswert sichtbar.' },
+    { id:'bs24', difficulty:3, q:'Gewinnaussch\u00fcttung an die Aktion\u00e4re via Bank: CHF 15\u2019000.', soll:'Gewinnvortrag', haben:'Bank', betrag:15000, explain:'Gewinnvortrag (Eigenkapital) nimmt ab (Soll). Bank nimmt ab (Haben). Der Gewinn wird an die Eigent\u00fcmer ausbezahlt.' }
   ]
 };
