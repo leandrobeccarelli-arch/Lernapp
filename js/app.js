@@ -813,18 +813,27 @@ function ExerciseCard(props) {
   var ex = props.ex, onDone = props.onDone, examMode = props.examMode;
   var exerciseProps = { ex: ex, onDone: onDone, examMode: examMode };
 
+  var comp;
   switch (ex.type) {
-    case 'mc': return e(MCExercise, exerciseProps);
-    case 'tf': return e(TFExercise, exerciseProps);
-    case 'fill': return e(FillExercise, exerciseProps);
-    case 'match': return e(MatchExercise, exerciseProps);
-    case 'check': return e(CheckExercise, exerciseProps);
-    case 'calc': return e(CalcExercise, exerciseProps);
-    case 'text': return e(TextExercise, exerciseProps);
-    case 'table': return e(TableExercise, exerciseProps);
-    case 'sort': return e(SortExercise, exerciseProps);
-    default: return e('div', { style: { color: 'var(--text2)', fontStyle: 'italic' } }, 'Unbekannter Aufgabentyp: ' + ex.type);
+    case 'mc': comp = e(MCExercise, exerciseProps); break;
+    case 'tf': comp = e(TFExercise, exerciseProps); break;
+    case 'fill': comp = e(FillExercise, exerciseProps); break;
+    case 'match': comp = e(MatchExercise, exerciseProps); break;
+    case 'check': comp = e(CheckExercise, exerciseProps); break;
+    case 'calc': comp = e(CalcExercise, exerciseProps); break;
+    case 'text': comp = e(TextExercise, exerciseProps); break;
+    case 'table': comp = e(TableExercise, exerciseProps); break;
+    case 'sort': comp = e(SortExercise, exerciseProps); break;
+    default: comp = e('div', { style: { color: 'var(--text2)', fontStyle: 'italic' } }, 'Unbekannter Aufgabentyp: ' + ex.type);
   }
+
+  if (ex.svg) {
+    return e('div', null,
+      e('div', { style: { margin: '0 0 16px', width: '100%' }, dangerouslySetInnerHTML: { __html: ex.svg } }),
+      comp
+    );
+  }
+  return comp;
 }
 
 // ─── Text Formatter (converts flat text to structured elements) ──────────────
