@@ -7,14 +7,14 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --bg:#ebebef;--nav:#1a1a1a;--card:#ffffff;--text:#18181b;--text2:#64648c;
-  --accent:#4338ca;--green:#059669;--red:#dc2626;--amber:#b45309;
+  --accent:#5c3d1e;--green:#059669;--red:#dc2626;--amber:#b45309;
   --border:#d4d4da;--card-shadow:0 1px 3px rgba(0,0,0,0.06),0 4px 12px rgba(0,0,0,0.04);
   --input-bg:#f6f6f8;--hover:#f0f0f4;
   --hero-bg:linear-gradient(135deg,#3d2e1e,#1a1310,#352818);--hero-text:#ffffff;--hero-sub:#d4c8b8
 }
 .dark{
   --bg:#111113;--nav:#fafafa;--card:#1c1c1e;--text:#e4e4e7;--text2:#a1a1aa;
-  --accent:#818cf8;--green:#34d399;--red:#f87171;--amber:#fbbf24;
+  --accent:#c9a06f;--green:#34d399;--red:#f87171;--amber:#fbbf24;
   --border:#27272a;--card-shadow:0 1px 3px rgba(0,0,0,0.3);
   --input-bg:#18181b;--hover:#27272a;
   --hero-bg:linear-gradient(135deg,#352818,#120e0a,#2a1f14);--hero-text:#ffffff;--hero-sub:#d4c8b8
@@ -81,7 +81,7 @@ input,select,button,textarea{font-family:'Inter',sans-serif}
 .ch-arrow{font-size:1.2rem;color:var(--text2);transition:transform .3s;margin-left:16px}
 .ch-arrow.open{transform:rotate(180deg)}
 .progress-bar{height:3px;background:var(--border);border-radius:2px;margin-top:10px;overflow:hidden;max-width:300px}
-.progress-fill{height:100%;background:linear-gradient(90deg,var(--accent),#6366f1);border-radius:2px;transition:width .5s ease}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--accent),#8b6a3e);border-radius:2px;transition:width .5s ease}
 .ch-exam-badge{display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:8px;font-size:.72rem;font-weight:600;margin-left:8px}
 .ch-exam-badge.pass{background:rgba(5,150,105,.1);color:var(--green)}
 .ch-exam-badge.fail{background:rgba(220,38,38,.1);color:var(--red)}
@@ -146,7 +146,7 @@ input,select,button,textarea{font-family:'Inter',sans-serif}
 /* ─── Exercise Elements: Multiple Choice ───────────────── */
 .mc-option{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--border);border-radius:6px;margin-bottom:6px;cursor:pointer;transition:all .15s;font-size:.88rem}
 .mc-option:hover{border-color:var(--accent);background:var(--hover)}
-.mc-option.selected{border-color:var(--accent);background:rgba(59,130,246,.08)}
+.mc-option.selected{border-color:var(--accent);background:rgba(92,61,30,.08)}
 .mc-option.correct-sel{border-color:var(--green);background:rgba(5,150,105,.08)}
 .mc-option.wrong-sel{border-color:var(--red);background:rgba(220,38,38,.08)}
 .mc-option.correct-unsel{border-color:var(--green)}
@@ -216,14 +216,17 @@ input,select,button,textarea{font-family:'Inter',sans-serif}
 .btn{padding:9px 18px;border-radius:7px;border:none;font-size:.88rem;font-weight:600;cursor:pointer;transition:all .12s ease;display:flex;align-items:center;gap:6px}
 .btn:active{transform:scale(.97)}
 .btn-primary{background:var(--accent);color:#fff}
-.btn-primary:hover{background:#2563eb}
+.btn-primary:hover{opacity:.9}
+.btn-check{padding:9px 18px;border-radius:7px;border:none;font-size:.88rem;font-weight:600;cursor:pointer;background:var(--accent);color:#fff;transition:all .12s}
+.btn-check:hover{opacity:.9}
+.btn-check:active{transform:scale(.97)}
 .btn-secondary{background:var(--input-bg);color:var(--text);border:1px solid var(--border)}
 .btn-secondary:hover{background:var(--hover)}
 .btn-reset{background:var(--red);color:#fff}
 .btn-reset:hover{opacity:.9}
 
 /* ─── Tips & Reveal ────────────────────────────────────── */
-.tip-box{background:rgba(59,130,246,.06);border:1px solid rgba(59,130,246,.2);border-radius:8px;padding:12px 16px;margin-bottom:16px}
+.tip-box{background:rgba(92,61,30,.06);border:1px solid rgba(92,61,30,.2);border-radius:8px;padding:12px 16px;margin-bottom:16px}
 .tip-toggle{font-size:.85rem;font-weight:600;color:var(--accent);cursor:pointer;display:flex;align-items:center;gap:6px}
 .tip-content{margin-top:8px;font-size:.82rem;color:var(--text2);line-height:1.6}
 .tip-content li{margin-bottom:4px}
@@ -257,8 +260,8 @@ input,select,button,textarea{font-family:'Inter',sans-serif}
 .calc-btn-eq{background:var(--text);color:var(--card);font-weight:700}
 .dark .calc-btn-eq{background:var(--accent);color:#fff}
 .calc-btn-eq:hover{opacity:.9}
-.calc-btn-fn{background:rgba(59,130,246,.08);color:var(--accent);font-weight:700}
-.calc-btn-fn:hover{background:rgba(59,130,246,.15)}
+.calc-btn-fn{background:rgba(92,61,30,.08);color:var(--accent);font-weight:700}
+.calc-btn-fn:hover{background:rgba(92,61,30,.15)}
 .calc-btn-span2{grid-column:span 2}
 
 /* Notes Panel */
@@ -316,7 +319,7 @@ input,select,button,textarea{font-family:'Inter',sans-serif}
 .learn-intro{border-top:3px solid var(--accent)}
 .learn-intro .learn-intro-text{font-size:.88rem;color:var(--text2);line-height:1.6;margin-bottom:12px}
 .learn-intro .learn-intro-list{list-style:none;padding:0}
-.learn-intro .learn-intro-list li{padding:8px 14px;font-size:.88rem;line-height:1.5;color:var(--text);background:rgba(59,130,246,.04);border-left:3px solid var(--accent);margin-bottom:6px;border-radius:0 8px 8px 0}
+.learn-intro .learn-intro-list li{padding:8px 14px;font-size:.88rem;line-height:1.5;color:var(--text);background:rgba(92,61,30,.04);border-left:3px solid var(--accent);margin-bottom:6px;border-radius:0 8px 8px 0}
 
 /* Learning: Concept Section */
 .learn-concept{border-top:3px solid #8b5cf6}
@@ -332,7 +335,7 @@ input,select,button,textarea{font-family:'Inter',sans-serif}
 .learn-table-wrap{overflow-x:auto}
 .learn-table{width:100%;border-collapse:separate;border-spacing:0;font-size:.85rem;border-radius:10px;overflow:hidden;border:1px solid var(--border)}
 .learn-table thead th{background:var(--hover);color:var(--text);padding:10px 14px;font-weight:600;font-size:.8rem;text-transform:uppercase;letter-spacing:.3px;text-align:left;border-bottom:2px solid var(--border)}
-.dark .learn-table thead th{background:rgba(59,130,246,.1);color:var(--accent)}
+.dark .learn-table thead th{background:rgba(92,61,30,.1);color:var(--accent)}
 .learn-table tbody td{padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text);vertical-align:top}
 .learn-table tbody tr:last-child td{border-bottom:none}
 .learn-table tbody tr:nth-child(even){background:var(--hover)}
@@ -341,7 +344,7 @@ input,select,button,textarea{font-family:'Inter',sans-serif}
 /* Learning: Key Terms Grid */
 .learn-terms-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
 .learn-term-card{background:var(--input-bg);border:1px solid var(--border);border-radius:10px;padding:14px 16px;transition:all .15s}
-.learn-term-card:hover{border-color:var(--accent);box-shadow:0 2px 8px rgba(59,130,246,.1)}
+.learn-term-card:hover{border-color:var(--accent);box-shadow:0 2px 8px rgba(92,61,30,.1)}
 .learn-term-name{font-weight:700;font-size:.88rem;color:var(--text);margin-bottom:4px}
 .dark .learn-term-name{color:var(--accent)}
 .learn-term-def{font-size:.82rem;color:var(--text2);line-height:1.5}

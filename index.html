@@ -8,7 +8,7 @@
 <meta http-equiv="Expires" content="0">
 <title>Lernplattform – Berufsprüfung Marketing & Verkauf</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=049">
+<link rel="stylesheet" href="css/style.css?v=050">
 <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 </head>
@@ -147,7 +147,7 @@ function App(){
     e('div',{className:'hero'},
       e('div',{style:{position:'relative'}},
         e('h1',{className:'hero-title',style:{letterSpacing:'.12em',fontSize:'1.4rem'}},'BUILT BY LEANDRO'),
-        e('div',{style:{display:'inline-block',marginTop:10,padding:'2px 10px',borderRadius:4,fontSize:'.6rem',fontWeight:600,letterSpacing:'.05em',background:'rgba(255,255,255,.08)',color:'var(--hero-sub)',border:'1px solid rgba(255,255,255,.1)'}},'v0.6.6-beta'),
+        e('div',{style:{display:'inline-block',marginTop:10,padding:'2px 10px',borderRadius:4,fontSize:'.6rem',fontWeight:600,letterSpacing:'.05em',background:'rgba(255,255,255,.08)',color:'var(--hero-sub)',border:'1px solid rgba(255,255,255,.1)'}},'v0.6.7-beta'),
         e('div',{className:'hero-stats'},
           e('div',{className:'hero-stat'},
             e('div',{className:'hero-stat-val'},booksReady+'/'+booksTotal),
@@ -164,7 +164,7 @@ function App(){
         ),
         totalPct>0?e('div',{style:{maxWidth:300,margin:'16px auto 0'}},
           e('div',{className:'progress-bar',style:{maxWidth:'100%'}},
-            e('div',{className:'progress-fill',style:{width:totalPct+'%',background:totalPct===100?'var(--green)':'linear-gradient(90deg,var(--accent),#6366f1)'}})
+            e('div',{className:'progress-fill',style:{width:totalPct+'%',background:totalPct===100?'var(--green)':'linear-gradient(90deg,#5c3d1e,#8b6a3e)'}})
           )
         ):null,
         e('button',{onClick:toggleDark,style:{marginTop:16,background:'rgba(255,255,255,.08)',border:'1px solid rgba(255,255,255,.1)',color:'var(--hero-sub)',padding:'4px 10px',borderRadius:6,fontSize:'.6rem',fontWeight:600,cursor:'pointer',letterSpacing:'.03em'}},dark?'LICHT':'DUNKEL')
