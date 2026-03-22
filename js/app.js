@@ -1816,7 +1816,7 @@ function CalcTrainer(props) {
         ) : null
       );
     }),
-    e('div', { className: 'footer' }, 'Built by Leandro \u00B7 Compendio Bildungsmedien')
+    e('div', { className: 'footer' }, e('span', { style: { fontWeight: 700, letterSpacing: '.1em' } }, 'BUILT BY LEANDRO'))
   );
 }
 
@@ -2109,7 +2109,7 @@ function initApp(bookData) {
             markDone: markDone
           });
         }),
-        e('div', { className: 'footer' }, 'Built by Leandro \u00B7 Compendio Bildungsmedien')
+        e('div', { className: 'footer' }, e('span', { style: { fontWeight: 700, letterSpacing: '.1em' } }, 'BUILT BY LEANDRO'))
       ),
 
       // Panels
