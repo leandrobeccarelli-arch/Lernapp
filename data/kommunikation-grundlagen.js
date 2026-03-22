@@ -107,6 +107,61 @@ window.BOOK_DATA = {
           options: ['Konsumgüter (B2C)','Investitionsgüter (B2B)','Dienstleistungen'],
           tips: ['B2C = grosse Zielgruppen, starker Wettbewerb.','B2B = individuelle Lösungen, wenige Kunden.','Dienstleistungen = immateriell, schwer greifbar.'],
           reveal: ['Konsumgüter: Massenkommunikation, Differenzierung durch Kommunikation.','Investitionsgüter: Vertrauen, Qualität, Service.','Dienstleistungen: Testimonials, Kundenbewertungen.']
+        },
+        {
+          id: 83, type: 'sort',
+          q: 'Phasen des Diffusionsprozesses',
+          instruction: 'Bringen Sie die Phasen des Diffusionsprozesses in die richtige Reihenfolge (von den Ersten bis zu den Letzten).',
+          items: ['Innovatoren','Early Adopters','Frühe Mehrheit','Späte Mehrheit','Nachzügler'],
+          correctOrder: [0,1,2,3,4],
+          tips: ['Die Innovatoren sind die allerersten Käufer einer Neuheit.','Early Adopters übernehmen Innovationen früh und beeinflussen andere.','Die Nachzügler adoptieren eine Innovation als Letzte.'],
+          reveal: ['1. Innovatoren (ca. 2.5 %) -- risikofreudig, probieren Neues aus.','2. Early Adopters (ca. 13.5 %) -- Meinungsführer, übernehmen früh.','3. Frühe Mehrheit (ca. 34 %) -- übernehmen nach Bewährung.','4. Späte Mehrheit (ca. 34 %) -- skeptisch, übernehmen spät.','5. Nachzügler (ca. 16 %) -- adoptieren als Letzte.']
+        },
+        {
+          id: 84, type: 'mc',
+          q: 'Kommunikationsprozess (MC)',
+          instruction: 'Welches Element gehört NICHT zum klassischen Kommunikationsprozess?',
+          options: ['Sender','Codierung','Budgetierung','Empfänger'],
+          answer: 2,
+          tips: ['Der Kommunikationsprozess beschreibt den Weg einer Botschaft.','Sender codiert, Medium überträgt, Empfänger decodiert.','Budgetierung gehört zur Kommunikationsplanung, nicht zum Prozessmodell.'],
+          reveal: ['Budgetierung ist kein Element des Kommunikationsprozesses.','Der klassische Prozess umfasst: Sender, Codierung, Kanal/Medium, Decodierung, Empfänger und Feedback.','Budgetierung gehört zum Kommunikationskonzept (Phase 4: Realisation).']
+        },
+        {
+          id: 85, type: 'fill',
+          q: 'Faktoren der Instrumentenwahl',
+          instruction: 'Ergänzen Sie die 5 Faktoren, die die Wahl der Kommunikationsinstrumente beeinflussen.',
+          template: 'Die Wahl der Kommunikationsinstrumente hängt ab von: {0}, {1}, {2}, dem Produkt selbst und der gewählten {3}.',
+          blanks: [
+            ['Phase im Produktlebenszyklus','Produktlebenszyklusphase','PLZ-Phase'],
+            ['Involvement der Zielgruppe','Involvement'],
+            ['Kommunikationsziele','Kommunikationszielen'],
+            ['Absatzstrategie','Absatzstrategie (Push vs. Pull)']
+          ],
+          tips: ['Es gibt 5 Faktoren, die die Wahl beeinflussen.','Der Produktlebenszyklus hat verschiedene Phasen (Einführung, Wachstum, Reife, Rückgang).','Push und Pull sind Absatzstrategien.'],
+          reveal: ['1. Phase im Produktlebenszyklus (Einführung, Wachstum, Reife, Rückgang).','2. Involvement der Zielgruppe (hohes vs. tiefes Interesse).','3. Kommunikationsziele (Bekanntheit, Image, Absatz).','4. Produkt selbst (Konsumgut, Investitionsgut, Dienstleistung).','5. Gewählte Absatzstrategie (Push vs. Pull).']
+        },
+        {
+          id: 86, type: 'sort',
+          q: 'Phasen des Produktlebenszyklus',
+          instruction: 'Bringen Sie die Phasen des Produktlebenszyklus in die richtige Reihenfolge.',
+          items: ['Einführung','Wachstum','Reife','Sättigung','Rückgang'],
+          correctOrder: [0,1,2,3,4],
+          tips: ['Der PLZ beginnt mit der Markteinführung eines neuen Produkts.','In der Wachstumsphase steigen die Umsätze stark an.','Am Ende steht der Rückgang, wenn das Produkt vom Markt verdrängt wird.'],
+          reveal: ['1. Einführung -- hoher Kommunikationsaufwand, Bekanntheit aufbauen.','2. Wachstum -- Marktanteil ausbauen, Differenzierung.','3. Reife -- maximaler Umsatz, Wettbewerb intensiv.','4. Sättigung -- Markt gesättigt, Marktanteile halten.','5. Rückgang -- sinkende Umsätze, Produkt wird ersetzt.']
+        },
+        {
+          id: 87, type: 'check',
+          q: 'Merkmale der Pull-Strategie',
+          instruction: 'Welche Merkmale treffen auf die Pull-Strategie zu?',
+          statements: [
+            { s: 'Direkte Kommunikation an den Endkunden', c: true },
+            { s: 'Mediawerbung ist ein typisches Instrument', c: true },
+            { s: 'Verkaufsförderung am POS steht im Zentrum', c: false },
+            { s: 'Der Endkunde fragt das Produkt beim Handel nach', c: true },
+            { s: 'Der Handel wird durch Rabatte und Konditionen motiviert', c: false }
+          ],
+          tips: ['Pull = Nachfrage beim Endkunden erzeugen.','Der Konsument soll das Produkt aktiv beim Händler nachfragen.','Push-Instrumente zielen auf den Handel, Pull-Instrumente auf den Endkunden.'],
+          reveal: ['Pull-Strategie: Direkte Ansprache des Endkunden (z.B. via Mediawerbung).','Der Konsument fragt das Produkt beim Handel nach (Sog-Wirkung).','VKF am POS und Handelsrabatte sind typische Push-Instrumente.','In der Praxis werden Push und Pull oft kombiniert.']
         }
       ],
       learningData: {
@@ -303,6 +358,60 @@ window.BOOK_DATA = {
           options: ['Prozessanalyse','Wirkungsanalyse','Effizienzanalyse'],
           tips: ['Prozess = zeitlicher Ablauf.','Wirkung = Reaktionen der Zielgruppen.','Effizienz = Kosten-Nutzen-Verhältnis.'],
           reveal: ['Prozessanalyse: Durchführung des Projekts im zeitlichen Ablauf.','Wirkungsanalyse: Reaktionen der Zielgruppen (kognitiv, affektiv, konativ).','Effizienzanalyse: Kosten-Nutzen-Vergleich.']
+        },
+        {
+          id: 88, type: 'sort',
+          q: '5 Schritte des Kommunikationskonzepts',
+          instruction: 'Bringen Sie die 5 Schritte des Kommunikationskonzepts in die richtige Reihenfolge.',
+          items: ['Analyse (Situationsanalyse)','Kommunikationsstrategie (Ziele, Zielgruppen)','Kreative Umsetzung (Massnahmen)','Realisation / Budgetierung','Kontrolle (Controlling)'],
+          correctOrder: [0,1,2,3,4],
+          tips: ['Jedes Konzept beginnt mit einer Bestandsaufnahme.','Erst die Strategie, dann die Umsetzung.','Die Kontrolle steht immer am Ende des Prozesses.'],
+          reveal: ['1. Analyse -- Wo stehen wir? (SWOT, Problemstellung).','2. Strategie -- Wo wollen wir hin? (Ziele, Zielgruppen, Positionierung).','3. Kreative Umsetzung -- Wie setzen wir es um? (Instrumente, CI/CD).','4. Realisation / Budgetierung -- Was kostet es?','5. Kontrolle -- Haben wir die Ziele erreicht? (Prozess-, Wirkungs-, Effizienzanalyse).']
+        },
+        {
+          id: 89, type: 'mc',
+          q: 'Leitinstrument der Kommunikation (MC)',
+          instruction: 'Was zeichnet ein Leitinstrument in der Kommunikationshierarchie aus?',
+          options: ['Es hat das kleinste Budget','Es hat die beste Eignung zum Transport der Leitidee und eine Führungsfunktion','Es wird nur kurzfristig eingesetzt','Es richtet sich ausschliesslich an interne Zielgruppen'],
+          answer: 1,
+          tips: ['Leitinstrumente haben eine dominante Rolle im Kommunikations-Mix.','Sie beanspruchen den grössten Anteil des Budgets.','Es werden maximal ein bis zwei Leitinstrumente definiert.'],
+          reveal: ['Ein Leitinstrument zeichnet sich aus durch: beste Eignung zum Transport der Leitidee, grosses Beeinflussungspotenzial und Führungsfunktion für andere Instrumente.','Leitinstrumente beanspruchen einen dominanten Anteil des Kommunikationsbudgets.','Es werden maximal 1-2 Leitinstrumente definiert.']
+        },
+        {
+          id: 90, type: 'fill',
+          q: 'Integrationsformen der Kommunikation',
+          instruction: 'Ergänzen Sie die drei Formen der integrierten Kommunikation.',
+          template: 'Die drei Formen der integrierten Kommunikation sind: {0} Integration (einheitliche Botschaften), {1} Integration (einheitliches Erscheinungsbild) und {2} Integration (abgestimmte zeitliche Abfolge).',
+          blanks: [
+            ['Inhaltliche','inhaltliche'],
+            ['Formale','formale'],
+            ['Zeitliche','zeitliche']
+          ],
+          tips: ['Es geht um WAS kommuniziert wird, WIE es aussieht und WANN es geschieht.','Inhaltlich = gleiche Kernbotschaften über alle Kanäle.','Formal = gleiche visuelle Gestaltung (Logo, Farben, Schriften).'],
+          reveal: ['Inhaltliche Integration: einheitliche Botschaften, Argumente und Kernaussagen über alle Instrumente.','Formale Integration: einheitliches visuelles Erscheinungsbild (Logo, Farben, Schriften, Layout).','Zeitliche Integration: abgestimmte zeitliche Abfolge der Kommunikationsmassnahmen.']
+        },
+        {
+          id: 91, type: 'check',
+          q: 'Aufgaben der Gesamtkommunikation',
+          instruction: 'Welche Entscheide werden auf der Ebene der Gesamtkommunikation getroffen?',
+          statements: [
+            { s: 'Strategische Zielsetzungen des Gesamtunternehmens', c: true },
+            { s: 'Positionierung des Unternehmens', c: true },
+            { s: 'Massnahmenplanung und Disposition einzelner Instrumente', c: false },
+            { s: 'Festlegung der einzusetzenden Kommunikationsinstrumente', c: true },
+            { s: 'Detaillierte Mediaplanung für einzelne Kampagnen', c: false }
+          ],
+          tips: ['Gesamtkommunikation = strategische Ebene.','Die operative Planung einzelner Instrumente erfolgt auf Fachabteilungsebene.','Positionierung ist immer eine strategische Entscheidung.'],
+          reveal: ['Gesamtkommunikation: Strategische Zielsetzungen, Positionierung, Leitbild, einzusetzende Instrumente.','Fachabteilung: Massnahmenplanung, Disposition, detaillierte Mediaplanung.','Die Strategieerarbeitung erfolgt top-down, die Konzepterstellung bottom-up.']
+        },
+        {
+          id: 92, type: 'sort',
+          q: 'Hierarchie der Kommunikationsinstrumente',
+          instruction: 'Ordnen Sie die Instrumentenkategorien nach ihrer Bedeutung in der Kommunikationshierarchie (vom Wichtigsten zum Unwichtigsten).',
+          items: ['Leitinstrument (Führungsfunktion)','Kristallisationsinstrument (herausragende Bedeutung für Zielgruppe)','Integrationsinstrument (hohes Integrationspotenzial)','Folgeinstrument (einzelne Kommunikationsaufgaben)'],
+          correctOrder: [0,1,2,3],
+          tips: ['Das Leitinstrument steht an der Spitze der Hierarchie.','Kristallisationsinstrumente haben eine besondere Bedeutung für bestimmte Zielgruppen.','Folgeinstrumente erfüllen einzelne, untergeordnete Aufgaben.'],
+          reveal: ['1. Leitinstrument -- beste Eignung zum Transport der Leitidee, grösstes Budget.','2. Kristallisationsinstrument -- herausragende Bedeutung für bestimmte Zielgruppen.','3. Integrationsinstrument -- hohes Integrationspotenzial für verschiedene Instrumente.','4. Folgeinstrument -- erfüllt einzelne, nachgeordnete Kommunikationsaufgaben.']
         }
       ],
       learningData: {
@@ -483,6 +592,67 @@ window.BOOK_DATA = {
           ],
           tips: ['CI = Selbstbild, Image = Fremdbild.','CD umfasst visuelle Elemente.','CB = gelebtes Verhalten gegenüber ALLEN Anspruchsgruppen.'],
           reveal: ['Aussage 1: Falsch \u2013 CI = Selbstbild.','Aussage 2: Richtig \u2013 visuelle CD-Elemente.','Aussage 3: Falsch \u2013 CB gegenüber allen Anspruchsgruppen.','Aussage 4: Richtig \u2013 Idealfall = deckungsgleich.']
+        },
+        {
+          id: 93, type: 'sort',
+          q: 'Elemente der Corporate Identity',
+          instruction: 'Ordnen Sie die CI-Elemente in der logischen Reihenfolge: vom inneren Kern (Werte) bis zur äusseren Darstellung.',
+          items: ['Corporate Culture (Werte und Normen)','Corporate Behaviour (gelebtes Verhalten)','Corporate Communication (Kommunikationsprozesse)','Corporate Design (visuelles Erscheinungsbild)','Corporate Performance (Marktleistung)'],
+          correctOrder: [0,1,2,3,4],
+          tips: ['Die Unternehmenskultur bildet den innersten Kern der CI.','Das Verhalten folgt aus der Kultur.','Das Design ist die äussere, sichtbare Hülle der CI.'],
+          reveal: ['1. Corporate Culture -- Werte, Normen und Handlungsweisen bilden den Kern.','2. Corporate Behaviour -- das gelebte Verhalten basiert auf der Kultur.','3. Corporate Communication -- formale Kommunikation nach innen und aussen.','4. Corporate Design -- das sichtbare Erscheinungsbild (Logo, Farben, Layout).','5. Corporate Performance -- die tatsächliche Marktleistung des Unternehmens.']
+        },
+        {
+          id: 94, type: 'mc',
+          q: 'Corporate Image (MC)',
+          instruction: 'Was beschreibt das Corporate Image?',
+          options: ['Das Selbstbild des Unternehmens','Das Fremdbild -- wie das Unternehmen von aussen wahrgenommen wird','Das visuelle Erscheinungsbild (Logo, Farben)','Die Marktleistung des Unternehmens'],
+          answer: 1,
+          tips: ['Image kommt aus der externen Perspektive.','CI = Selbstbild, Image = Fremdbild.','Das visuelle Erscheinungsbild ist das Corporate Design, nicht das Image.'],
+          reveal: ['Das Corporate Image ist das Fremdbild -- die tatsächliche Wahrnehmung des Unternehmens durch die Zielgruppen.','Es kann vom Selbstbild (CI) abweichen, wenn die CI nicht konsequent gelebt wird.','Ziel ist die Deckungsgleichheit von CI und Image.']
+        },
+        {
+          id: 95, type: 'fill',
+          q: 'CI-Elemente benennen',
+          instruction: 'Ergänzen Sie die fünf Elemente der Corporate Identity.',
+          template: 'Die fünf Elemente der Corporate Identity sind: {0}, {1}, {2}, {3} und {4}.',
+          blanks: [
+            ['Corporate Culture','Culture'],
+            ['Corporate Behaviour','Behaviour'],
+            ['Corporate Communication','Communication'],
+            ['Corporate Design','Design'],
+            ['Corporate Performance','Performance']
+          ],
+          tips: ['Alle fünf Elemente beginnen mit "Corporate".','Culture = Werte, Behaviour = Verhalten, Communication = Kommunikation.','Design = visuelles Erscheinungsbild, Performance = Marktleistung.'],
+          reveal: ['Corporate Culture: Werte, Normen, Handlungsweisen.','Corporate Behaviour: gelebtes Verhalten gegenüber allen Anspruchsgruppen.','Corporate Communication: formale Kommunikationsprozesse.','Corporate Design: visuelles Erscheinungsbild (Logo, Farben, Layout).','Corporate Performance: Marktleistung des Unternehmens.']
+        },
+        {
+          id: 96, type: 'match',
+          q: 'CD-Elemente zuordnen',
+          instruction: 'Ordnen Sie die Beispiele den richtigen Corporate-Design-Elementen zu.',
+          pairs: [
+            { l: 'Das Swisscom-Logo mit dem blauen Punkt', r: 'Logo / Signet' },
+            { l: 'Die rote Farbe von Coca-Cola', r: 'Farbsystem' },
+            { l: 'Einheitliche Formatvorlagen für Geschäftsbriefe', r: 'Layout-System' },
+            { l: 'Fotostil mit natürlichem Licht und echten Personen', r: 'Bildsprache' }
+          ],
+          options: ['Logo / Signet','Farbsystem','Layout-System','Bildsprache'],
+          tips: ['Ein Logo ist ein grafisches Erkennungszeichen.','Das Farbsystem definiert die Unternehmensfarben.','Die Bildsprache legt den Stil der verwendeten Bilder fest.'],
+          reveal: ['Logo / Signet: Visuelles Erkennungszeichen (z.B. Swisscom-Logo).','Farbsystem: Definierte Unternehmensfarben (z.B. Rot bei Coca-Cola).','Layout-System: Einheitliche Gestaltungsvorlagen für alle Dokumente.','Bildsprache: Einheitlicher Stil der Bilder und Fotos.']
+        },
+        {
+          id: 97, type: 'check',
+          q: 'Ursachen für Abweichung CI und Image',
+          instruction: 'Welche Faktoren können dazu führen, dass Corporate Identity und Corporate Image voneinander abweichen?',
+          statements: [
+            { s: 'Die CI wird intern nicht konsequent gelebt', c: true },
+            { s: 'Prinzipien werden nicht durchgesetzt und Rituale nicht gepflegt', c: true },
+            { s: 'Das Logo wurde kürzlich modernisiert', c: false },
+            { s: 'Vorgesetzte sind inkonsequent in ihrem Verhalten', c: true },
+            { s: 'Den Worten der Unternehmensleitung folgen keine Taten', c: true }
+          ],
+          tips: ['Wenn die CI nicht gelebt wird, stimmt das Fremdbild nicht mit dem Selbstbild überein.','Inkonsequentes Verhalten von Führungskräften schadet der CI.','Ein Logo-Update allein verursacht keine CI-Image-Abweichung.'],
+          reveal: ['Abweichungen entstehen, wenn die CI intern nicht konsequent gelebt wird.','Wenn Prinzipien nicht durchgesetzt und Rituale nicht gepflegt werden.','Wenn Vorgesetzte inkonsequent handeln oder Versprechen nicht eingehalten werden.','Ein Logo-Update ist eine gestalterische Massnahme und keine Ursache für Abweichungen.']
         }
       ],
       learningData: {
@@ -673,6 +843,69 @@ window.BOOK_DATA = {
           answer: 1,
           tips: ['Die internen Zielgruppen sollen immer zuerst informiert werden.','Dies ist besonders wichtig bei kritischen Nachrichten.','Mitarbeitende sollten nicht aus den Medien erfahren, was im Unternehmen passiert.'],
           reveal: ['Der Grundsatz lautet: Intern vor extern.','Die internen Zielgruppen werden immer vor den externen Zielgruppen informiert.','Dies ist besonders bei kritischen Nachrichten von Bedeutung.']
+        },
+        {
+          id: 98, type: 'sort',
+          q: 'PR-Ziele nach Wirkungsebenen',
+          instruction: 'Ordnen Sie die PR-Zielkategorien in der richtigen Reihenfolge der Wirkung (von Wissen über Einstellung bis Verhalten).',
+          items: ['Kognitiv-orientierte Ziele (Wissen, Bekanntheit)','Affektiv-orientierte Ziele (Image, Vertrauen, Glaubwürdigkeit)','Konativ-orientierte Ziele (Verhalten, Handlung)'],
+          correctOrder: [0,1,2],
+          tips: ['Zuerst muss die Zielgruppe etwas WISSEN (kognitiv).','Dann entwickelt sie eine EINSTELLUNG (affektiv).','Schliesslich folgt das VERHALTEN (konativ).'],
+          reveal: ['1. Kognitiv -- Wissen und Bekanntheit aufbauen (z.B. Informationsvermittlung).','2. Affektiv -- Einstellungen und Emotionen beeinflussen (z.B. Imageaufbau, Vertrauen).','3. Konativ -- Verhalten und Handlungen auslösen (z.B. Kaufentscheidung, Empfehlung).']
+        },
+        {
+          id: 99, type: 'fill',
+          q: 'PR-Funktionen ergänzen',
+          instruction: 'Ergänzen Sie die fehlenden PR-Funktionen.',
+          template: 'Die 8 Funktionen der PR sind: {0}, Kontaktfunktion, {1}, Imagefunktion, {2}, {3}, Stabilisierungsfunktion und Kontinuitätsfunktion.',
+          blanks: [
+            ['Informationsfunktion'],
+            ['Führungsfunktion'],
+            ['Harmonisierungsfunktion'],
+            ['Absatzförderungsfunktion']
+          ],
+          tips: ['Die Informationsfunktion steht am Anfang -- PR informiert.','Die Führungsfunktion schafft Verständnis für Entscheide.','Die Harmonisierungsfunktion gleicht wirtschaftliche und gesellschaftliche Verhältnisse aus.'],
+          reveal: ['Informationsfunktion: Vermittlung von Informationen nach innen und aussen.','Führungsfunktion: Repräsentation und Verständnis für Entscheidungen schaffen.','Harmonisierungsfunktion: Beitrag zur Harmonisierung wirtschaftlicher und gesellschaftlicher Verhältnisse.','Absatzförderungsfunktion: Förderung des Absatzes durch Anerkennung in der Öffentlichkeit.']
+        },
+        {
+          id: 100, type: 'match',
+          q: 'PR-Arten zuordnen',
+          instruction: 'Ordnen Sie die Beschreibungen der richtigen PR-Art zu.',
+          pairs: [
+            { l: 'Beziehungsmanagement innerhalb und ausserhalb des Unternehmens', r: 'PR für Unternehmen' },
+            { l: 'Aufmerksamkeit und Goodwill für Non-Profit-Organisationen', r: 'PR für gemeinnützige Organisationen' },
+            { l: 'Informations- und Verständigungsprozess mit Bürgern', r: 'PR für öffentliche Verwaltungen' },
+            { l: 'Externe Spezialisten beraten Unternehmen in Kommunikationsfragen', r: 'PR als Dienstleistung' }
+          ],
+          options: ['PR für Unternehmen','PR für gemeinnützige Organisationen','PR für öffentliche Verwaltungen','PR als Dienstleistung'],
+          tips: ['Es gibt verschiedene Organisationsformen, die PR betreiben.','Auch öffentliche Verwaltungen und NPOs brauchen PR.','PR-Agenturen bieten PR als Dienstleistung an.'],
+          reveal: ['PR für Unternehmen: klassisches Beziehungsmanagement (intern und extern).','PR für gemeinnützige Organisationen: Aufmerksamkeit mit wenig Mitteln schaffen.','PR für öffentliche Verwaltungen: Verständnis und Vertrauen der Bevölkerung gewinnen.','PR als Dienstleistung: externe PR-Spezialisten und PR-Agenturen.']
+        },
+        {
+          id: 101, type: 'check',
+          q: 'Ethische Grundsätze der PR',
+          instruction: 'Welche Aussagen entsprechen den ethischen Grundsätzen der PR gemäss den Standesregeln?',
+          statements: [
+            { s: 'Keine Irreführung oder Täuschung der Öffentlichkeit', c: true },
+            { s: 'Erfolgsgarantien gegenüber Kunden sind zulässig', c: false },
+            { s: 'Respekt vor der Unabhängigkeit der Medien', c: true },
+            { s: 'Schleichwerbung ist ein legitimes PR-Instrument', c: false },
+            { s: 'Offenlegung von Interessenbindungen', c: true }
+          ],
+          tips: ['Die Standesregeln basieren auf dem Kodex von Athen und Lissabon.','Ehrlichkeit und Transparenz sind zentrale Werte.','Schleichwerbung widerspricht den ethischen Grundsätzen.'],
+          reveal: ['Ethische PR-Grundsätze: Keine Irreführung, keine Täuschung, kein Missbrauch.','Erfolgsgarantien sind nicht zulässig -- PR-Ergebnisse sind nicht garantierbar.','Respekt vor der Unabhängigkeit der Medien ist Pflicht.','Schleichwerbung ist verboten -- klare Trennung zwischen PR und Werbung.','Interessenbindungen müssen offengelegt werden.']
+        },
+        {
+          id: 102, type: 'tf',
+          q: 'PR-Grundsätze: Richtig oder Falsch',
+          statements: [
+            { s: 'PR sind ausschliesslich Aufgabe der PR-Abteilung, nicht der Unternehmensleitung.', c: false, feedback: 'PR sind Chefsache -- die oberste Führungsebene trägt die Verantwortung.' },
+            { s: 'Die PR-Abteilung ist idealerweise als Stabsstelle der Unternehmensleitung organisiert.', c: true, feedback: 'So ist der direkte Zugang zur Führungsspitze sichergestellt.' },
+            { s: 'PR und Mediawerbung verfolgen die gleichen Ziele und nutzen die gleichen Instrumente.', c: false, feedback: 'PR und Mediawerbung unterscheiden sich in Zielsetzung, Kommunikationsform und Wirkung.' },
+            { s: 'Der Grundsatz "Tue Gutes und sprich darüber" fasst das Wesen der PR zusammen.', c: true, feedback: 'Dieser Grundsatz beschreibt das Wesen der PR: positive Handlungen kommunizieren.' }
+          ],
+          tips: ['PR sind immer Chefsache.','Die PR-Abteilung braucht direkten Zugang zur Unternehmensleitung.','PR und Mediawerbung sind zwei verschiedene Kommunikationsinstrumente.'],
+          reveal: ['Aussage 1: Falsch -- PR sind Chefsache, nicht nur Aufgabe der PR-Abteilung.','Aussage 2: Richtig -- Stabsstelle sichert direkten Zugang zur Führung.','Aussage 3: Falsch -- PR und Mediawerbung unterscheiden sich grundlegend.','Aussage 4: Richtig -- der klassische PR-Grundsatz.']
         }
       ],
       learningData: {
@@ -866,6 +1099,65 @@ window.BOOK_DATA = {
           ],
           tips: ['PR = langfristiges Instrument.','Image braucht Zeit zum Aufbau.','Intern vor extern ist ein zentraler PR-Grundsatz.'],
           reveal: ['Aussage 1: Falsch \u2013 PR wirken langfristig.','Aussage 2: Richtig \u2013 Image braucht Zeit.','Aussage 3: Richtig \u2013 Grundsatz intern vor extern.']
+        },
+        {
+          id: 103, type: 'sort',
+          q: 'PR-Disziplinen: von intern nach extern',
+          instruction: 'Ordnen Sie die PR-Disziplinen von der am stärksten intern ausgerichteten zur am stärksten extern ausgerichteten.',
+          items: ['Interne PR / Human Relations','Community Relations / Standort-PR','Public Affairs / Lobbying','Medienarbeit / Media Relations','Investor Relations'],
+          correctOrder: [0,1,2,3,4],
+          tips: ['Interne PR richtet sich an die eigenen Mitarbeitenden.','Community Relations richtet sich an die lokale Bevölkerung (nahe am Unternehmen).','Investor Relations richtet sich an den Finanzmarkt (breiteste externe Öffentlichkeit).'],
+          reveal: ['1. Interne PR / Human Relations -- richtet sich an die eigenen Mitarbeitenden.','2. Community Relations -- richtet sich an die lokale Standortbevölkerung.','3. Public Affairs -- richtet sich an Politik und Behörden.','4. Media Relations -- richtet sich an Medienschaffende und die breite Öffentlichkeit.','5. Investor Relations -- richtet sich an den nationalen/internationalen Finanzmarkt.']
+        },
+        {
+          id: 104, type: 'mc',
+          q: 'Media Relations als Querschnittsaufgabe (MC)',
+          instruction: 'Warum wird die Medienarbeit als Querschnittsaufgabe der PR bezeichnet?',
+          options: ['Weil sie nur in Krisenzeiten relevant ist','Weil alle PR-Disziplinen Medienschaffende brauchen, um ihre Botschaften zu publizieren','Weil sie ausschliesslich für interne Kommunikation zuständig ist','Weil sie das kleinste Budget aller PR-Disziplinen hat'],
+          answer: 1,
+          tips: ['Media Relations ist die zentrale Disziplin der PR.','Alle PR-Bereiche sind auf Medien angewiesen.','Ohne Medienarbeit können PR-Botschaften kaum verbreitet werden.'],
+          reveal: ['Medienarbeit ist eine Querschnittsaufgabe, weil alle PR-Disziplinen Medienschaffende brauchen.','Ob Investor Relations, Krisen-PR oder Produkte-PR -- alle benötigen den Zugang zu Medien.','Die Hauptaufgabe ist die Publizierung der PR-Botschaft in den definierten Medien.']
+        },
+        {
+          id: 105, type: 'fill',
+          q: 'Inhalte einer Medienmappe',
+          instruction: 'Ergänzen Sie die typischen Inhalte einer Medienmappe.',
+          template: 'Eine Medienmappe enthält typischerweise: {0}, {1}, Bilder und Grafiken, {2} und Kontaktdaten der PR-Abteilung.',
+          blanks: [
+            ['Medienmitteilung','Pressemitteilung'],
+            ['Factsheet','Datenblatt'],
+            ['Hintergrundinformationen','Backgrounder']
+          ],
+          tips: ['Die Medienmitteilung ist das zentrale Dokument.','Ein Factsheet fasst die wichtigsten Fakten und Zahlen zusammen.','Hintergrundinformationen bieten Kontext für Medienschaffende.'],
+          reveal: ['Medienmitteilung: Das zentrale Dokument mit der aktuellen Nachricht.','Factsheet / Datenblatt: Übersicht der wichtigsten Fakten und Zahlen.','Hintergrundinformationen / Backgrounder: Kontext und Hintergrund zum Thema.','Dazu: Bilder, Grafiken und Kontaktdaten der PR-Abteilung.']
+        },
+        {
+          id: 106, type: 'match',
+          q: 'Instrumente der internen PR zuordnen',
+          instruction: 'Ordnen Sie die Kommunikationsinstrumente der richtigen Kategorie zu.',
+          pairs: [
+            { l: 'Intranet, Newsletter, E-Mail', r: 'Schriftlich / Digital' },
+            { l: 'Betriebsversammlung, Team-Treffen', r: 'Mündlich / Persönlich' },
+            { l: 'Imagefilm, Corporate TV', r: 'Visuell / Audiovisuell' },
+            { l: 'Geschäftsbericht, Broschüre', r: 'Schriftlich / Print' }
+          ],
+          options: ['Schriftlich / Digital','Mündlich / Persönlich','Visuell / Audiovisuell','Schriftlich / Print'],
+          tips: ['Digitale Instrumente: Intranet, Newsletter, E-Mail.','Persönliche Instrumente: direkte Gespräche und Versammlungen.','Audiovisuelle Instrumente: Filme, Videos, Podcasts.'],
+          reveal: ['Schriftlich / Digital: Intranet, Newsletter, E-Mail, Blogs.','Mündlich / Persönlich: Betriebsversammlung, Team-Treffen, persönliche Gespräche.','Visuell / Audiovisuell: Imagefilm, Corporate TV, Podcasts.','Schriftlich / Print: Geschäftsbericht, Broschüren, Mitarbeitermagazin.']
+        },
+        {
+          id: 107, type: 'check',
+          q: 'Merkmale der Krisen-PR',
+          instruction: 'Welche Aussagen treffen auf die Krisen-PR zu?',
+          statements: [
+            { s: 'In einer Krise gilt der Grundsatz: Intern vor extern informieren', c: true },
+            { s: 'Krisen-PR sollte erst beginnen, wenn die Krise bereits öffentlich ist', c: false },
+            { s: 'Transparenz und Ehrlichkeit sind in der Krisenkommunikation zentral', c: true },
+            { s: 'Ein Krisenplan sollte VOR einer Krise erstellt werden', c: true },
+            { s: 'In einer Krise sollte man abwarten und keine Informationen herausgeben', c: false }
+          ],
+          tips: ['Krisen-PR erfordert proaktive und schnelle Kommunikation.','Ein Krisenplan wird präventiv erstellt -- nicht erst in der Krise.','Schweigen wird in einer Krise als Schuldeingeständnis interpretiert.'],
+          reveal: ['Intern vor extern: Mitarbeitende immer zuerst informieren.','Krisen-PR beginnt präventiv -- ein Krisenplan wird VOR der Krise erstellt.','Transparenz und Ehrlichkeit sind in Krisenzeiten besonders wichtig.','Abwarten ist in einer Krise fatal -- proaktive Kommunikation ist Pflicht.','Wer schweigt, verliert die Deutungshoheit über die Situation.']
         }
       ],
       learningData: {
@@ -1047,6 +1339,65 @@ window.BOOK_DATA = {
           ],
           tips: ['Markenwert = Vermögenswert.','Dachmarke = alle Produkte unter einer Marke.','Positionierung = Wahrnehmung im Vergleich zur Konkurrenz.'],
           reveal: ['Aussage 1: Richtig \u2013 zwei Perspektiven der Markenwertberechnung.','Aussage 2: Falsch \u2013 Dachmarke = keine isolierte Positionierung.','Aussage 3: Richtig \u2013 Definition der Positionierung.','Aussage 4: Falsch \u2013 Marke = Vermögenswert.']
+        },
+        {
+          id: 108, type: 'sort',
+          q: 'Schritte der strategischen Positionierung',
+          instruction: 'Bringen Sie die 4 Schritte der strategischen Positionierung in die richtige Reihenfolge.',
+          items: ['Analyse des Wahrnehmungsraums aus Kundensicht','Einbeziehung der Konkurrenzunternehmen','Festlegung der strategischen Soll-Positionierung','Gegenüberstellung von Ist- und Soll-Position'],
+          correctOrder: [0,1,2,3],
+          tips: ['Zuerst muss man verstehen, wie Kunden den Markt wahrnehmen.','Dann analysiert man die Wettbewerbsposition.','Am Ende vergleicht man Ist und Soll.'],
+          reveal: ['1. Analyse des Wahrnehmungsraums -- wie nehmen Kunden die Produkteigenschaften wahr?','2. Einbeziehung der Konkurrenz -- wo stehen die Mitbewerber?','3. Festlegung der Soll-Positionierung -- wo will man hin?','4. Gegenüberstellung Ist/Soll -- wie gross ist die Lücke?']
+        },
+        {
+          id: 109, type: 'mc',
+          q: 'Einzelmarke vs. Dachmarke (MC)',
+          instruction: 'Welcher Vorteil gilt speziell für die Einzelmarkenstrategie?',
+          options: ['Kostenvorteile durch gemeinsame Kommunikation','Das Produkt kann sehr genau im Zielsegment positioniert werden','Geringeres Risiko bei Neuprodukteinführungen','Alle Produkte profitieren vom gleichen Image'],
+          answer: 1,
+          tips: ['Bei der Einzelmarke hat jedes Produkt eine eigene Marke.','Dies ermöglicht eine sehr gezielte Positionierung.','Kostenvorteile und Imagetransfer sind Vorteile der Dachmarke.'],
+          reveal: ['Der Hauptvorteil der Einzelmarke: Das Produkt kann sehr genau im Zielsegment positioniert werden.','Mehrere Marken im selben Markt sind möglich (z.B. P&G mit verschiedenen Waschmittelmarken).','Nachteil: Hoher Aufwand, da jede Marke das gesamte Budget allein tragen muss.']
+        },
+        {
+          id: 110, type: 'fill',
+          q: 'Markenfunktionen für den Kunden',
+          instruction: 'Ergänzen Sie die Funktionen, die eine Marke für den Kunden erfüllt.',
+          template: 'Eine Marke erfüllt für den Kunden folgende Funktionen: {0} (Wiedererkennung), {1} (Auswahl erleichtern), {2} (durch Bekanntheit und Ruf) und Image-/Prestigefunktion.',
+          blanks: [
+            ['Identifikation','Identifikationsfunktion'],
+            ['Orientierungshilfe','Orientierung'],
+            ['Vertrauen','Qualitätsversprechen']
+          ],
+          tips: ['Marken helfen dem Kunden, Produkte wiederzuerkennen.','Sie erleichtern die Auswahl in einem überladenen Markt.','Bekannte Marken schaffen Vertrauen und versprechen Qualität.'],
+          reveal: ['Identifikation: Wiedererkennung des Produkts durch Markenname und -zeichen.','Orientierungshilfe: Erleichtert die Auswahl unter vielen Produkten.','Vertrauen / Qualitätsversprechen: Bekanntheit und Ruf der Marke schaffen Sicherheit.','Image-/Prestigefunktion: Marken vermitteln einen bestimmten Status.']
+        },
+        {
+          id: 111, type: 'match',
+          q: 'Markendehnungsstrategien mit Beispielen',
+          instruction: 'Ordnen Sie die Beispiele der richtigen Markendehnungsstrategie zu.',
+          pairs: [
+            { l: 'Coca-Cola bringt Coca-Cola Zero auf den Markt', r: 'Line Extension (Linienerweiterung)' },
+            { l: 'Bic erweitert von Kugelschreibern zu Feuerzeugen', r: 'Brand Extension (Markenerweiterung)' },
+            { l: 'P&G führt neben Persil auch Ariel als Waschmittel', r: 'Multibrands (Mehrmarkenstrategie)' },
+            { l: 'Ein Unternehmen kreiert eine komplett neue Marke für ein neues Produkt', r: 'Markeneinführung (New Brand)' }
+          ],
+          options: ['Line Extension (Linienerweiterung)','Brand Extension (Markenerweiterung)','Multibrands (Mehrmarkenstrategie)','Markeneinführung (New Brand)'],
+          tips: ['Line Extension = gleiche Kategorie, gleiche Marke, neue Variante.','Brand Extension = neue Kategorie, gleiche Marke.','Multibrands = gleiche Kategorie, verschiedene Marken.'],
+          reveal: ['Line Extension: Coca-Cola Zero -- neue Variante der gleichen Marke in gleicher Kategorie.','Brand Extension: Bic Feuerzeuge -- bestehende Marke in neuer Produktkategorie.','Multibrands: P&G mit mehreren Waschmittelmarken in gleicher Kategorie.','Markeneinführung: komplett neue Marke für ein neues Produkt.']
+        },
+        {
+          id: 112, type: 'check',
+          q: 'Risiken der Markendehnung',
+          instruction: 'Welche Risiken bestehen bei einer Markendehnungsstrategie?',
+          statements: [
+            { s: 'Die Kernzielgruppe fühlt sich nicht mehr angesprochen', c: true },
+            { s: 'Das aufgebaute Image wird verwässert', c: true },
+            { s: 'Die Kommunikationskosten sinken automatisch', c: false },
+            { s: 'Kannibalisierung der Kernmarke ist möglich', c: true },
+            { s: 'Die Positionierung wird unscharf', c: true }
+          ],
+          tips: ['Bei Markendehnung wird eine bestehende Marke auf neue Produkte übertragen.','Wenn zu viele Produkte unter einer Marke laufen, kann das Image leiden.','Kannibalisierung bedeutet, dass das neue Produkt dem bestehenden Umsatz wegnimmt.'],
+          reveal: ['Die Kernzielgruppe kann sich durch neue Zielgruppenansprache entfremdet fühlen.','Das Image wird verwässert, wenn die Marke für zu viele verschiedene Produkte steht.','Kommunikationskosten sinken nicht automatisch -- oft steigen sie durch Komplexität.','Kannibalisierung: Das neue Produkt nimmt dem bestehenden Produkt Marktanteile weg.','Die Positionierung wird unscharf, wenn die Marke zu breit aufgestellt wird.']
         }
       ],
       learningData: {
@@ -1244,6 +1595,60 @@ window.BOOK_DATA = {
           ],
           tips: ['Kundenzufriedenheit = Kern + formale + erweiterte Leistung.','Cross = quer = ergänzend, Up = nach oben = höherwertig.','Kundenlebenszyklus: 3 Phasen.'],
           reveal: ['Aussage 1: Falsch \u2013 auch formale und erweiterte Leistung.','Aussage 2: Falsch \u2013 Cross-Selling = ergänzend.','Aussage 3: Richtig \u2013 drei Phasen.','Aussage 4: Richtig \u2013 ganzheitlicher Ansatz.']
+        },
+        {
+          id: 113, type: 'sort',
+          q: 'Phasen des Kundenlebenszyklus',
+          instruction: 'Bringen Sie die Phasen des Kundenlebenszyklus in die richtige Reihenfolge.',
+          items: ['Kundenbindung (Retention)','Kundenrückgewinnung (Recovery)','Kundenakquisition (Recruitment)'],
+          correctOrder: [2,0,1],
+          tips: ['Zuerst muss ein Kunde gewonnen werden.','Danach wird er an das Unternehmen gebunden.','Erst wenn er abwandert, kommt die Rückgewinnung.'],
+          reveal: ['1. Kundenakquisition (Recruitment): Neukunden gewinnen.','2. Kundenbindung (Retention): Bestehende Kunden pflegen und binden.','3. Kundenrückgewinnung (Recovery): Verlorene Kunden zurückgewinnen.']
+        },
+        {
+          id: 114, type: 'fill',
+          q: 'Customer Lifetime Value',
+          instruction: 'Ergänzen Sie die Lücken zum Customer Lifetime Value.',
+          template: 'Der Customer Lifetime Value beschreibt den {0} Wert eines Kunden. Er ist die Grundlage für die {1} im Relationship Marketing. Ressourcen sollen auf langfristig {2} Kunden fokussiert werden.',
+          blanks: [
+            ['langfristigen','langfristig'],
+            ['Wirtschaftlichkeitsorientierung'],
+            ['profitable','profitablen']
+          ],
+          tips: ['CLV betrachtet den Kunden über die gesamte Beziehungsdauer.','Im Relationship Marketing zählt die Wirtschaftlichkeit.','Nicht alle Kunden sind gleich profitabel.'],
+          reveal: ['Der Customer Lifetime Value beschreibt den langfristigen Wert eines Kunden.','Er ist Grundlage für die Wirtschaftlichkeitsorientierung im Relationship Marketing.','Ressourcen sollen auf langfristig profitable Kunden fokussiert werden.']
+        },
+        {
+          id: 115, type: 'mc',
+          q: 'Variety Seeking (MC)',
+          instruction: 'Was versteht man unter Variety Seeking?',
+          options: ['Kunden suchen aktiv nach dem günstigsten Anbieter','Kunden wechseln trotz Zufriedenheit den Anbieter aus Wunsch nach Abwechslung','Kunden vergleichen systematisch Produktbewertungen','Kunden kaufen nur bei bekannten Marken ein'],
+          answer: 1,
+          tips: ['Variety = Abwechslung, Vielfalt.','Es geht nicht um Unzufriedenheit.','Manche Kunden wollen einfach etwas Neues ausprobieren.'],
+          reveal: ['Variety Seeking bedeutet, dass Kunden trotz Zufriedenheit den Anbieter oder die Marke wechseln.','Der Grund ist der Wunsch nach Abwechslung, nicht Unzufriedenheit.','Dies ist eine besondere Herausforderung für die Kundenbindung.']
+        },
+        {
+          id: 116, type: 'check',
+          q: 'Leitgedanken des Relationship Marketing',
+          instruction: 'Welche der folgenden Aussagen sind Leitgedanken eines erfolgreichen Relationship Marketing?',
+          statements: [
+            { s: 'Kundenorientierung: konsequente Ausrichtung an Kundenbedürfnissen', c: true },
+            { s: 'Kurzfristigkeit: schnelle Gewinne maximieren', c: false },
+            { s: 'Individualisierung der Kundenbeziehung', c: true },
+            { s: 'Systematisierung über den gesamten Kundenbeziehungslebenszyklus', c: true },
+            { s: 'Standardisierung: alle Kunden gleich behandeln', c: false }
+          ],
+          tips: ['Relationship Marketing setzt auf langfristige Beziehungen.','Individualisierung ist ein zentraler Leitgedanke.','Systematisierung bedeutet: den gesamten Lebenszyklus abdecken.'],
+          reveal: ['Kundenorientierung: Ja \u2013 konsequente Ausrichtung an Bedürfnissen.','Kurzfristigkeit: Nein \u2013 Langfristigkeit ist ein Leitgedanke.','Individualisierung: Ja \u2013 individuelle Kundenbeziehung statt Massenansatz.','Systematisierung: Ja \u2013 über den gesamten Kundenlebenszyklus.','Standardisierung: Nein \u2013 Individualisierung statt Standardisierung.']
+        },
+        {
+          id: 117, type: 'sort',
+          q: 'Zufriedenheitsniveaus der Kunden',
+          instruction: 'Sortieren Sie die Zufriedenheitsniveaus von niedrig nach hoch.',
+          items: ['Begeisterte Kunden (Erwartungen übertroffen)','Zufriedene Kunden (Erwartungen in etwa erfüllt)','Enttäuschte Kunden (Erwartungen nicht erfüllt)'],
+          correctOrder: [2,1,0],
+          tips: ['Das niedrigste Niveau: Erwartungen werden nicht erfüllt.','Mittleres Niveau: Erwartungen werden in etwa erfüllt.','Höchstes Niveau: Erwartungen werden übertroffen.'],
+          reveal: ['1. Enttäuschte Kunden: Erwartungen nicht erfüllt (niedrigstes Niveau).','2. Zufriedene Kunden: Erwartungen in etwa erfüllt (mittleres Niveau).','3. Begeisterte Kunden: Erwartungen übertroffen (höchstes Niveau).']
         }
       ],
       learningData: {
@@ -1421,6 +1826,60 @@ window.BOOK_DATA = {
           ],
           tips: ['Warm = bestehender Kontakt, Kalt = kein Kontakt.','Passiv = Kunde kommt, Aktiv = Unternehmen geht.','Verbunden = emotional, Gebunden = vertraglich.'],
           reveal: ['Aussage 1: Falsch \u2013 Warmakquise = bestehende Kontakte.','Aussage 2: Richtig \u2013 Kunde ruft an.','Aussage 3: Falsch \u2013 verbunden = emotional.','Aussage 4: Richtig \u2013 Rückgewinnung günstiger.']
+        },
+        {
+          id: 118, type: 'sort',
+          q: 'Schritte der Kundenrückgewinnung',
+          instruction: 'Bringen Sie die Schritte der Kundenrückgewinnung in die richtige Reihenfolge.',
+          items: ['Individuelle Rückgewinnungsmassnahmen definieren','Abgewanderte Kunden identifizieren (Kündiger, Schläfer, Reduzierer)','Kundenwert analysieren und berechnen','Rückgewinnungsangebot persönlich kommunizieren'],
+          correctOrder: [1,2,0,3],
+          tips: ['Zuerst muss man wissen, wer abgewandert ist.','Dann wird geprüft, ob sich die Rückgewinnung lohnt (Kundenwert).','Erst danach werden Massnahmen definiert und kommuniziert.'],
+          reveal: ['1. Abgewanderte Kunden identifizieren (Kündiger, Schläfer, Reduzierer).','2. Kundenwert analysieren und berechnen (lohnt sich die Rückgewinnung?).','3. Individuelle Rückgewinnungsmassnahmen definieren.','4. Rückgewinnungsangebot persönlich kommunizieren.']
+        },
+        {
+          id: 119, type: 'calc',
+          q: 'Brutto-Kundenwert berechnen',
+          instruction: 'Ein Kunde kauft durchschnittlich für CHF 250 pro Einkauf, er kauft 4-mal pro Jahr, und die Beziehungsdauer beträgt 6 Jahre. Berechnen Sie den Brutto-Kundenwert.',
+          targetValue: 6000,
+          unit: 'CHF',
+          steps: ['Durchschnittsumsatz pro Kunde: CHF 250','Kaufhäufigkeit pro Jahr: 4','Beziehungsdauer: 6 Jahre','Brutto-Kundenwert = 250 x 4 x 6 = CHF 6000'],
+          tips: ['Formel: Durchschnittsumsatz x Kaufhäufigkeit x Beziehungsdauer.','250 x 4 = 1000 pro Jahr.','1000 x 6 Jahre = Brutto-Kundenwert.'],
+          reveal: ['Brutto-Kundenwert = Durchschnittsumsatz x Kaufhäufigkeit x Beziehungsdauer.','250 x 4 x 6 = CHF 6000.','Für den Netto-Kundenwert müssten noch die Bearbeitungskosten abgezogen werden.']
+        },
+        {
+          id: 120, type: 'match',
+          q: 'Kundenarten nach Umständen des Kaufs',
+          instruction: 'Ordnen Sie die Beschreibungen der richtigen Kundenart zu.',
+          pairs: [
+            { l: 'Kommt zur Information und zum Preisvergleich', r: 'Sehkunde' },
+            { l: 'Kauft wegen günstigem Angebot oder kommt zufällig vorbei', r: 'Laufkunde' },
+            { l: 'Freut sich auf den Besuch, erwartet persönliche Betreuung', r: 'Stammkunde' }
+          ],
+          options: ['Sehkunde','Laufkunde','Stammkunde'],
+          tips: ['Sehkunde = schaut nur, kauft (noch) nicht.','Laufkunde = kauft gelegentlich, oft preisgetrieben.','Stammkunde = kommt regelmässig und gerne.'],
+          reveal: ['Sehkunde: Kommt zur Information und zum Preisvergleich.','Laufkunde: Kauft wegen günstigem Angebot oder kommt zufällig vorbei.','Stammkunde: Freut sich auf den Besuch, erwartet persönliche und individuelle Betreuung.']
+        },
+        {
+          id: 121, type: 'fill',
+          q: 'Aktives vs. passives Telefonmarketing',
+          instruction: 'Ergänzen Sie die Lücken zum Telefonmarketing.',
+          template: 'Beim {0} Telefonmarketing geht die Initiative vom Verkäufer aus. Beim {1} Telefonmarketing geht die Initiative vom {2} aus, z.B. bei einem Service-Center oder einer Bestellhotline.',
+          blanks: [
+            ['aktiven'],
+            ['passiven'],
+            ['Kunden']
+          ],
+          tips: ['Aktiv = das Unternehmen kontaktiert den Kunden.','Passiv = der Kunde kontaktiert das Unternehmen.','Beispiele für passiv: Service-Center, Bestellhotline.'],
+          reveal: ['Aktives Telefonmarketing: Initiative vom Verkäufer (Gewinnung, Terminvereinbarung, Nachfassen).','Passives Telefonmarketing: Initiative vom Kunden (Anfragen, Bestellungen, Reklamationen).','Beim passiven Telefonmarketing wartet das Unternehmen auf den Anruf des Kunden.']
+        },
+        {
+          id: 122, type: 'mc',
+          q: 'Key Account Management (MC)',
+          instruction: 'Was ist ein Key Account?',
+          options: ['Ein Neukunde mit hohem Akquisitionsaufwand','Ein Schlüsselkunde mit hohem Kundenwert und strategischer Bedeutung','Ein Kunde, der häufig reklamiert','Ein Kunde mit kurzfristiger Kaufabsicht'],
+          answer: 1,
+          tips: ['Key = Schlüssel, Account = Konto/Kunde.','Key Accounts sind besonders wichtige Kunden.','Sie werden durch spezialisierte Betreuer persönlich gepflegt.'],
+          reveal: ['Key Accounts sind Schlüsselkunden mit hohem Kundenwert und strategischer Bedeutung.','Sie werden durch Key Account Manager persönlich betreut.','Die Fokussierung auf Key Accounts ist zentral für die Kundenbindung.']
         }
       ],
       learningData: {
@@ -1586,6 +2045,67 @@ window.BOOK_DATA = {
           ],
           tips: ['Mitarbeitendenkommunikation ist ein Regelkreis.','Direkt = persönlich, unmittelbar.','Indirekt = über Kommunikationsmittel (digital und gedruckt).'],
           reveal: ['Aussage 1: Richtig \u2013 dauerhafter Regelkreis.','Aussage 2: Richtig \u2013 unmittelbarer Austausch.','Aussage 3: Falsch \u2013 auch gedruckte Medien (Mitarbeitendenzeitung etc.).']
+        },
+        {
+          id: 123, type: 'sort',
+          q: 'Kommunikationsrichtungen in der Hierarchie',
+          instruction: 'Sortieren Sie die Kommunikationsrichtungen von oben nach unten in der Hierarchie.',
+          items: ['Bottom-up-Kommunikation (Mitarbeitende an Führung)','Top-down-Kommunikation (Führung an Mitarbeitende)','Horizontale Kommunikation (gleiche Hierarchieebene)'],
+          correctOrder: [1,2,0],
+          tips: ['Top-down kommt von der Führungsebene.','Horizontal verläuft auf gleicher Ebene.','Bottom-up geht von Mitarbeitenden nach oben.'],
+          reveal: ['1. Top-down-Kommunikation: von der Führungsebene zu den Mitarbeitenden (einseitig).','2. Horizontale Kommunikation: auf gleicher Hierarchieebene (wechselseitig).','3. Bottom-up-Kommunikation: von Mitarbeitenden zur Führungsebene (einseitig, z.B. Berichte, Reportings).']
+        },
+        {
+          id: 124, type: 'match',
+          q: 'Instrumente der Mitarbeitendenkommunikation',
+          instruction: 'Ordnen Sie die Instrumente der richtigen Beschreibung zu.',
+          pairs: [
+            { l: 'Zentrale redaktionelle Bereitstellung und dynamische Wissensvermittlung', r: 'Intranet / Social Intranet' },
+            { l: 'One-Way-Kommunikation für allgemeine Informationen', r: 'Newsletter' },
+            { l: 'Mitarbeitende berichten persönlich über ihren Arbeitsalltag', r: 'Mitarbeitendenblog' },
+            { l: 'Berichterstattung über unternehmerische Aktivitäten', r: 'Mitarbeitendenzeitung' }
+          ],
+          options: ['Intranet / Social Intranet','Newsletter','Mitarbeitendenblog','Mitarbeitendenzeitung'],
+          tips: ['Intranet = dynamisch und interaktiv.','Newsletter = einseitige Information.','Blog = persönliche Berichte von Mitarbeitenden.'],
+          reveal: ['Intranet / Social Intranet: Zentrale Plattform mit dynamischer Wissensvermittlung.','Newsletter: Einseitige Informationsvermittlung.','Mitarbeitendenblog: Persönliche Berichte aus dem Arbeitsalltag.','Mitarbeitendenzeitung: Berichterstattung über Unternehmensaktivitäten.']
+        },
+        {
+          id: 125, type: 'mc',
+          q: 'Formelle vs. informelle Kommunikation (MC)',
+          instruction: 'Was versteht man unter informeller Mitarbeitendenkommunikation?',
+          options: ['Offizielle Rundschreiben der Geschäftsleitung','Kommunikation über definierte, offizielle Kanäle','Flurfunk und Gerüchteküche','Regelmässige Team-Meetings'],
+          answer: 2,
+          tips: ['Informell = nicht offiziell, nicht über definierte Kanäle.','Denken Sie an Gespräche in der Kaffeepause.','Flurfunk ist ein typisches Beispiel.'],
+          reveal: ['Informelle Kommunikation umfasst Flurfunk und Gerüchteküche.','Sie verläuft ausserhalb der offiziell definierten Kanäle.','Formelle Kommunikation verläuft über offizielle, definierte Kanäle.']
+        },
+        {
+          id: 126, type: 'check',
+          q: 'Erfolgsfaktoren der Mitarbeitendenkommunikation',
+          instruction: 'Welche der folgenden Punkte sind zentrale Erfolgsfaktoren der Mitarbeitendenkommunikation?',
+          statements: [
+            { s: 'Reichweite: alle Mitarbeitenden erreichen', c: true },
+            { s: 'Exklusivität: nur Kaderleute informieren', c: false },
+            { s: 'Transparenz: offen und ehrlich informieren', c: true },
+            { s: 'Interaktion: Dialogmöglichkeiten bieten', c: true },
+            { s: 'Verzögerung: Informationen erst nach Abschluss kommunizieren', c: false },
+            { s: 'Glaubwürdigkeit: Walk as you talk', c: true }
+          ],
+          tips: ['Es gibt fünf zentrale Erfolgsfaktoren.','Alle Mitarbeitenden sollen einbezogen werden, nicht nur Kader.','Echtzeit-Information ist wichtiger als verzögerte Kommunikation.'],
+          reveal: ['Reichweite: Ja \u2013 alle Mitarbeitenden müssen erreicht werden.','Exklusivität: Nein \u2013 alle sollen informiert werden.','Transparenz: Ja \u2013 offene und ehrliche Information.','Interaktion: Ja \u2013 Dialog ermöglichen.','Verzögerung: Nein \u2013 Echtzeit ist ein Erfolgsfaktor.','Glaubwürdigkeit: Ja \u2013 Management muss Vorbild sein.']
+        },
+        {
+          id: 127, type: 'fill',
+          q: 'Vier Themenbereiche der Mitarbeitendenkommunikation',
+          instruction: 'Ergänzen Sie die vier grundsätzlichen Themenbereiche der Mitarbeitendenkommunikation.',
+          template: 'Die vier Themenbereiche sind: {0} (Mitarbeitende informieren), {1} (Wissen teilen), {2} (Rückmeldungen ermöglichen) und {3} (Engagement fördern).',
+          blanks: [
+            ['Information'],
+            ['Wissenstransfer'],
+            ['Dialog'],
+            ['Motivation']
+          ],
+          tips: ['Der erste Bereich ist die grundlegende Informationsvermittlung.','Wissen muss aktiv geteilt werden.','Dialog und Motivation sind ebenso zentral.'],
+          reveal: ['Information: Mitarbeitende über das Unternehmen auf dem Laufenden halten.','Wissenstransfer: Wissen aktiv teilen und weitergeben.','Dialog: Rückmeldungen und Austausch ermöglichen.','Motivation: Engagement und Einsatzbereitschaft der Mitarbeitenden fördern.']
         }
       ],
       learningData: {
@@ -1735,6 +2255,67 @@ window.BOOK_DATA = {
           ],
           tips: ['PESO = Paid, Earned, Shared, Owned.','Owned Media = volle Kontrolle, zielgerichtete Kommunikation.','Kundenmagazin = eigenes Medium.'],
           reveal: ['Aussage 1: Richtig \u2013 PESO-Modell.','Aussage 2: Falsch \u2013 Owned Media = zielgerichtet.','Aussage 3: Richtig \u2013 Kundenmagazin reduziert Abhängigkeit.']
+        },
+        {
+          id: 128, type: 'sort',
+          q: 'Storytelling-Regeln: Aufbau einer guten Geschichte',
+          instruction: 'Bringen Sie die Storytelling-Regeln in eine logische Reihenfolge.',
+          items: ['Einen roten Faden durchziehen (Stringenz)','Einen guten Grund finden (Relevanz)','Einen Helden bestimmen (Fokus)','Den richtigen Zeitpunkt wählen (Aufhänger)'],
+          correctOrder: [1,3,2,0],
+          tips: ['Zuerst braucht man einen guten Grund für die Geschichte.','Dann den richtigen Zeitpunkt und einen Helden.','Der rote Faden hält alles zusammen.'],
+          reveal: ['1. Relevanz: Jede Geschichte braucht einen guten Grund.','2. Aufhänger: Die Geschichte muss zum richtigen Zeitpunkt erzählt werden.','3. Fokus: Jede Geschichte braucht einen Helden.','4. Stringenz: Ein roter Faden muss die Geschichte zusammenhalten.']
+        },
+        {
+          id: 129, type: 'match',
+          q: 'Corporate-Media-Instrumente: intern vs. extern',
+          instruction: 'Ordnen Sie die Instrumente der richtigen Zielgruppe zu.',
+          pairs: [
+            { l: 'Hauszeitung', r: 'Interne Zielgruppe' },
+            { l: 'Kundenzeitschrift', r: 'Externe Zielgruppe' },
+            { l: 'Mitarbeiterzeitschrift', r: 'Interne Zielgruppe' },
+            { l: 'Geschäftsbericht', r: 'Externe Zielgruppe' }
+          ],
+          options: ['Interne Zielgruppe','Externe Zielgruppe'],
+          tips: ['Intern = für Mitarbeitende.','Extern = für Kunden, Aktionäre, Öffentlichkeit.','Hauszeitung und Mitarbeiterzeitschrift richten sich an die eigenen Mitarbeitenden.'],
+          reveal: ['Hauszeitung: Intern \u2013 richtet sich an Mitarbeitende.','Kundenzeitschrift: Extern \u2013 richtet sich an Kunden.','Mitarbeiterzeitschrift: Intern \u2013 richtet sich an Mitarbeitende.','Geschäftsbericht: Extern \u2013 richtet sich an Aktionäre und Öffentlichkeit.']
+        },
+        {
+          id: 130, type: 'fill',
+          q: 'Grundsätze der Corporate Media',
+          instruction: 'Ergänzen Sie die fünf zentralen Grundsätze der Corporate Media.',
+          template: 'Die fünf Grundsätze sind: {0} (journalistische Aufbereitung), {1} (stetige Präsenz), {2} (besondere Aufmerksamkeit für Zielgruppen), {3} (Ausrichtung an verschiedene Zielgruppen) und {4} (Vernetzung aller Kanäle).',
+          blanks: [
+            ['Inhalt'],
+            ['Kontinuität','Kontinuitaet'],
+            ['Mehrwert'],
+            ['Individualität','Individualitaet'],
+            ['Crossmediale Vernetzung','crossmediale Vernetzung']
+          ],
+          tips: ['Der erste Grundsatz betrifft die Qualität des Inhalts.','Stetigkeit und Regelmässigkeit sind wichtig.','Verschiedene Zielgruppen brauchen individuelle Ansprache.'],
+          reveal: ['Inhalt: Journalistische Aufbereitung statt werbliche Ansprache.','Kontinuität: Stetige Präsenz zur Vertrauensbildung.','Mehrwert: Besondere Aufmerksamkeit und Wertschätzung.','Individualität: Ausrichtung an verschiedene Zielgruppen.','Crossmediale Vernetzung: Optimale Vernetzung aller Kommunikationskanäle.']
+        },
+        {
+          id: 131, type: 'mc',
+          q: 'Vorteil von Owned Content (MC)',
+          instruction: 'Was ist ein Vorteil von Owned Content gegenüber Earned Content?',
+          options: ['Höhere Glaubwürdigkeit bei der Zielgruppe','Volle Kontrolle über den Inhalt','Automatisch grosse Reichweite','Keine Kosten für die Erstellung'],
+          answer: 1,
+          tips: ['Owned = eigener Content, eigene Medien.','Bei eigenen Medien hat man die volle Kontrolle.','Reichweite ist eher ein Nachteil von Owned Content.'],
+          reveal: ['Owned Content: Volle Kontrolle über den Inhalt, aber wenig Kontrolle über die Reichweite.','Earned Content: Höhere Glaubwürdigkeit und Reichweite, aber muss verdient werden.','Die Kombination beider Content-Arten ist optimal.']
+        },
+        {
+          id: 132, type: 'check',
+          q: 'Blog-Arten im Corporate Publishing',
+          instruction: 'Welche der folgenden sind typische Blog-Arten im Corporate Publishing?',
+          statements: [
+            { s: 'Knowledge Blog: Erfahrungsspeicher der Organisation', c: true },
+            { s: 'Spam Blog: Automatisch generierte Werbeinhalte', c: false },
+            { s: 'Service Blog: Zusätzliche Produktinformationen', c: true },
+            { s: 'CEO Blog: Vorstandsmitglieder schreiben persönlich', c: true },
+            { s: 'Kampagnen Blog: Temporär angelegt, unterstützt Kampagnen', c: true }
+          ],
+          tips: ['Es gibt verschiedene Blog-Arten für unterschiedliche Zwecke.','Automatisch generierte Spam-Inhalte gehören nicht dazu.','CEO Blogs zeigen persönliches Engagement der Führung.'],
+          reveal: ['Knowledge Blog: Ja \u2013 Erfahrungsspeicher und persönliche Journale.','Spam Blog: Nein \u2013 das ist keine seriöse Blog-Art.','Service Blog: Ja \u2013 zusätzliche Informationen und Verbesserungsvorschläge.','CEO Blog: Ja \u2013 Vorstandsmitglieder schreiben persönlich und namentlich.','Kampagnen Blog: Ja \u2013 temporär angelegt für PR- oder Werbekampagnen.']
         }
       ],
       learningData: {
@@ -1910,6 +2491,62 @@ window.BOOK_DATA = {
           ],
           tips: ['Das Briefing ist das zentrale Instrument der Zusammenarbeit.','Partnerschaft > Preis.','17,65% ist der BSW/ASW-Satz.'],
           reveal: ['Aussage 1: Richtig \u2013 Briefing-Inhalte.','Aussage 2: Falsch \u2013 Partnerschaft ist entscheidend.','Aussage 3: Richtig \u2013 drei Evaluationswege.','Aussage 4: Richtig \u2013 17,65% BSW/ASW-Satz.']
+        },
+        {
+          id: 133, type: 'sort',
+          q: 'Evaluationswege: Aufwand steigend',
+          instruction: 'Sortieren Sie die drei Evaluationswege fuer Agenturen nach steigendem Aufwand.',
+          items: ['Wettbewerbspraesentation (Pitch)','Direktwahl ohne Evaluationsverfahren','Agenturpraesentation (Shortlist)'],
+          correctOrder: [1,2,0],
+          tips: ['Der einfachste Weg ist die direkte Beauftragung.','Die Agenturpraesentation erfordert eine Shortlist.','Der Pitch ist am aufwendigsten.'],
+          reveal: ['1. Direktwahl: Geringster Aufwand, intuitive Wahl aufgrund frueherer Kontakte oder Empfehlungen.','2. Agenturpraesentation: Mittlerer Aufwand, Shortlist von 3-4 Kandidaten.','3. Wettbewerbspraesentation (Pitch): Hoechster Aufwand, Agenturen erarbeiten Strategien und Ideen.']
+        },
+        {
+          id: 134, type: 'match',
+          q: 'Agenturtypen und ihre Kernleistungen',
+          instruction: 'Ordnen Sie die Kernleistungen dem richtigen Agenturtyp zu.',
+          pairs: [
+            { l: 'Beratung, Konzeption und Realisierung von Werbemassnahmen', r: 'Werbeagentur' },
+            { l: 'Oeffentlichkeitsarbeit, Pressemeldungen, Medienverteiler', r: 'PR-Agentur' },
+            { l: 'Streuung von Werbeetats, Mediastrategien, Mediaeinkauf', r: 'Mediaagentur' },
+            { l: 'Websites, SEO, Content-Marketing, Social Media', r: 'Online-Kommunikations-Agentur' }
+          ],
+          options: ['Werbeagentur','PR-Agentur','Mediaagentur','Online-Kommunikations-Agentur'],
+          tips: ['Werbeagenturen konzipieren und realisieren Werbung.','PR-Agenturen pflegen die Oeffentlichkeitsarbeit.','Mediaagenturen planen den Mediaeinsatz.'],
+          reveal: ['Werbeagentur: Beratung, Konzeption, Planung und Realisierung von Werbemassnahmen.','PR-Agentur: Oeffentlichkeitsarbeit, Pressemeldungen, Pflege des Medienverteilers.','Mediaagentur: Streuung von Werbeetats, Erstellung von Mediastrategien und -plaenen.','Online-Kommunikations-Agentur: Websites, SEO, Content-Marketing, Social Media.']
+        },
+        {
+          id: 135, type: 'fill',
+          q: 'Gruende fuer die Zusammenarbeit mit Agenturen',
+          instruction: 'Ergaenzen Sie die Gruende, warum Unternehmen mit externen Agenturen zusammenarbeiten.',
+          template: 'Gruende fuer externe Agenturen: fehlendes {0}, nicht ausreichende {1}, fehlende Beziehungen zu {2}, knappe interne {3} und {4}.',
+          blanks: [
+            ['Spezialwissen'],
+            ['Kreativitaet'],
+            ['Medienschaffenden'],
+            ['Ressourcen'],
+            ['Betriebsblindheit']
+          ],
+          tips: ['Unternehmen haben nicht immer das noetige Spezialwissen.','Kreativitaet und frische Ideen kommen oft von aussen.','Agenturen haben Kontakte zu Medienschaffenden.'],
+          reveal: ['Fehlendes Spezialwissen: Agenturen bringen Fachwissen mit.','Nicht ausreichende Kreativitaet: Externe Perspektive bringt frische Ideen.','Fehlende Beziehungen zu Medienschaffenden: Agenturen haben etablierte Kontakte.','Knappe interne Ressourcen: Agenturen entlasten das Team.','Betriebsblindheit: Externe Sicht hilft, blinde Flecken zu erkennen.']
+        },
+        {
+          id: 136, type: 'mc',
+          q: 'Full-Service-Werbeagentur (MC)',
+          instruction: 'Was bietet eine Full-Service-Werbeagentur an?',
+          options: ['Nur die kreative Gestaltung von Werbemitteln','Das gesamte Spektrum von Marktforschung bis Werbewirkungskontrolle','Ausschliesslich Mediaplanung und Mediaeinkauf','Nur PR und Oeffentlichkeitsarbeit'],
+          answer: 1,
+          tips: ['Full-Service = das gesamte Leistungsspektrum.','Von der Forschung bis zur Kontrolle.','Im Gegensatz zu spezialisierten Agenturen.'],
+          reveal: ['Eine Full-Service-Werbeagentur bietet das gesamte Massnahmenspektrum an.','Dies umfasst: Marktforschung, Strategieentwicklung, Konzeption, Gestaltung, Produktion und Werbewirkungskontrolle.','Im Gegensatz dazu gibt es spezialisierte Agenturen fuer einzelne Bereiche.']
+        },
+        {
+          id: 137, type: 'sort',
+          q: 'Briefing-Aufbau: Vom Ist zum Soll',
+          instruction: 'Bringen Sie die Elemente eines Kommunikationsbriefings in die richtige Reihenfolge.',
+          items: ['Ausrichtung / Soll-Positionen (Wohin wollen wir?)','Situationsanalyse (Wo stehen wir im Markt?)','Aufgabe / Rahmenbedingungen (Was wollen wir?)','Auftraggeberadresse (Wer sind wir?)'],
+          correctOrder: [3,2,1,0],
+          tips: ['Zuerst stellt sich der Auftraggeber vor.','Dann wird die Aufgabe beschrieben.','Die Situationsanalyse zeigt den Ist-Zustand, die Soll-Positionen das Ziel.'],
+          reveal: ['1. Auftraggeberadresse: Wer sind wir? (Unternehmensvorstellung).','2. Aufgabe / Rahmenbedingungen: Was wollen wir von der Agentur?','3. Situationsanalyse: Wo stehen wir im Markt? (Ist-Zustand).','4. Ausrichtung / Soll-Positionen: Wohin wollen wir? (Ziele und Strategie).']
         }
       ],
       learningData: {
