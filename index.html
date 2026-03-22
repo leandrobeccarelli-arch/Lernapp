@@ -13,24 +13,17 @@
 <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 </head>
 <body>
-<div id="splash" style="position:fixed;top:0;left:0;right:0;bottom:0;z-index:9999;background:linear-gradient(135deg,#e8ecf1,#dfe4ec);display:flex;align-items:center;justify-content:center;transition:opacity .6s ease;opacity:1">
-<div style="text-align:center">
-<div id="splash-text" style="font-family:Inter,sans-serif;font-size:1.3rem;font-weight:800;letter-spacing:.14em;color:#18181b;opacity:0;transform:translateY(12px);transition:opacity .8s ease,transform .8s ease">BUILT BY LEANDRO</div>
-<div id="splash-line" style="width:0;height:2px;background:#4b5563;margin:14px auto 0;transition:width .6s ease .3s;border-radius:1px"></div>
-</div>
+<div id="splash" style="position:fixed;top:0;left:0;right:0;bottom:0;z-index:9999;background:linear-gradient(135deg,#e8ecf1,#dfe4ec);display:flex;align-items:center;justify-content:center;transition:opacity .8s ease;opacity:1">
+<div id="splash-text" style="font-family:Inter,sans-serif;font-size:1.3rem;font-weight:800;letter-spacing:.14em;color:#18181b;opacity:0;transform:translateY(12px);transition:opacity 1s ease,transform 1s ease">BUILT BY LEANDRO</div>
 </div>
 <div id="root"></div>
 <script>
 (function(){
   var splash = document.getElementById('splash');
   var txt = document.getElementById('splash-text');
-  var line = document.getElementById('splash-line');
-  // Animate in
-  setTimeout(function(){ txt.style.opacity='1'; txt.style.transform='translateY(0)'; line.style.width='60px'; }, 100);
-  // Fade out
-  setTimeout(function(){ splash.style.opacity='0'; }, 1800);
-  // Remove
-  setTimeout(function(){ splash.remove(); }, 2400);
+  setTimeout(function(){ txt.style.opacity='1'; txt.style.transform='translateY(0)'; }, 200);
+  setTimeout(function(){ splash.style.opacity='0'; }, 2400);
+  setTimeout(function(){ splash.remove(); }, 3200);
 })();
 </script>
 <script>
