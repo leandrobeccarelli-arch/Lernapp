@@ -10,14 +10,14 @@
   --accent:#4338ca;--green:#059669;--red:#dc2626;--amber:#b45309;
   --border:#e4e4e7;--card-shadow:0 1px 3px rgba(0,0,0,0.05),0 1px 2px rgba(0,0,0,0.03);
   --input-bg:#fafafa;--hover:#f4f4f5;
-  --hero-bg:#eaeaed;--hero-text:#18181b;--hero-sub:#52525b
+  --hero-bg:linear-gradient(135deg,#e8ecf1,#dfe4ec);--hero-text:#18181b;--hero-sub:#52525b
 }
 .dark{
   --bg:#111113;--nav:#fafafa;--card:#1c1c1e;--text:#e4e4e7;--text2:#a1a1aa;
   --accent:#818cf8;--green:#34d399;--red:#f87171;--amber:#fbbf24;
   --border:#27272a;--card-shadow:0 1px 3px rgba(0,0,0,0.3);
   --input-bg:#18181b;--hover:#27272a;
-  --hero-bg:#18181b;--hero-text:#e4e4e7;--hero-sub:#a1a1aa
+  --hero-bg:linear-gradient(135deg,#18181b,#1e1e24);--hero-text:#e4e4e7;--hero-sub:#a1a1aa
 }
 body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;transition:background .3s,color .3s;-webkit-font-smoothing:antialiased}
 input,select,button,textarea{font-family:'Inter',sans-serif}
@@ -45,7 +45,7 @@ input,select,button,textarea{font-family:'Inter',sans-serif}
 .container{max-width:900px;margin:0 auto;padding:24px 16px 80px}
 
 /* ─── Hero (Startseite) ───────────────────────────────── */
-.hero{background:var(--hero-bg);padding:44px 24px 48px;text-align:center;position:relative;overflow:hidden}
+.hero{background:var(--hero-bg);padding:40px 24px 44px;text-align:center;position:relative;overflow:hidden}
 .hero-title{color:var(--hero-text);font-size:1.6rem;font-weight:800;letter-spacing:-.03em}
 .hero-sub{color:var(--hero-sub);font-size:.82rem;margin-top:6px;font-weight:400;max-width:400px;margin-left:auto;margin-right:auto;line-height:1.5}
 .hero-stats{display:flex;justify-content:center;gap:32px;margin-top:20px}
@@ -54,16 +54,16 @@ input,select,button,textarea{font-family:'Inter',sans-serif}
 .hero-stat-label{color:var(--hero-sub);font-size:.65rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-top:2px}
 
 /* ─── Book Cards (Startseite) ─────────────────────────── */
-.book-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;padding:28px 20px;max-width:1100px;margin:0 auto}
-.book-card{background:var(--card);border-radius:10px;border:1px solid var(--border);box-shadow:var(--card-shadow);overflow:hidden;cursor:pointer;transition:all .2s;display:flex;flex-direction:row}
-.book-card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.08);border-color:rgba(67,56,202,.3)}
-.book-card-color{width:5px;flex-shrink:0}
-.book-card-body{padding:16px 18px;flex:1;display:flex;flex-direction:column}
-.book-card-title{font-size:.92rem;font-weight:700;line-height:1.35;margin-bottom:3px;letter-spacing:-.01em}
-.book-card-author{font-size:.72rem;color:var(--text2);margin-bottom:10px}
-.book-card-meta{font-size:.72rem;color:var(--text2);margin-top:auto;font-weight:500}
-.book-card-progress{height:3px;background:var(--border);border-radius:2px;margin-top:8px;overflow:hidden}
-.book-card-progress-fill{height:100%;border-radius:2px;transition:width .5s}
+.book-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;padding:28px 20px;max-width:1100px;margin:0 auto}
+.book-card{background:var(--card);border-radius:8px;border:1px solid var(--border);box-shadow:var(--card-shadow);overflow:hidden;cursor:pointer;transition:all .25s;display:flex;flex-direction:column;position:relative}
+.book-card:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,0,0,.07);border-color:#a1a1aa}
+.book-card-color{height:0;display:none}
+.book-card-body{padding:18px 20px 16px;flex:1;display:flex;flex-direction:column}
+.book-card-title{font-size:.88rem;font-weight:700;line-height:1.35;margin-bottom:4px;letter-spacing:-.01em;color:var(--text)}
+.book-card-author{font-size:.7rem;color:var(--text2);margin-bottom:12px;font-weight:400}
+.book-card-meta{font-size:.7rem;color:var(--text2);margin-top:auto;font-weight:500;letter-spacing:.01em}
+.book-card-progress{height:2px;background:var(--border);border-radius:1px;margin-top:10px;overflow:hidden}
+.book-card-progress-fill{height:100%;border-radius:1px;transition:width .5s;background:var(--text2)}
 
 /* ─── Chapter Cards ────────────────────────────────────── */
 .chapter-card{background:var(--card);border-radius:10px;box-shadow:var(--card-shadow);margin-bottom:14px;overflow:hidden;border:1px solid var(--border);transition:background .3s,border .3s}

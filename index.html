@@ -8,7 +8,7 @@
 <meta http-equiv="Expires" content="0">
 <title>Lernplattform – Berufsprüfung Marketing & Verkauf</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=044">
+<link rel="stylesheet" href="css/style.css?v=045">
 <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 </head>
@@ -22,16 +22,16 @@ const {useState, useEffect} = React;
    Bücher-Katalog
    ══════════════════════════════════════════════════════════ */
 const BOOKS = [
-  {id:'rechnungswesen-uebungen',file:'rechnungswesen-uebungen.html',title:'Rechnungswesen – Aufgaben und Übungen',author:'Compendio-Autorenteam',year:2017,pages:280,color:'#3b82f6',chapters:16,exercises:159},
-  {id:'rechnungswesen',file:'rechnungswesen.html',title:'Rechnungswesen für Marketing- und Verkaufsverantwortliche',author:'Robert Baumann',year:2017,pages:323,color:'#059669',chapters:15,exercises:204},
-  {id:'selbstmanagement',file:'selbstmanagement.html',title:'Selbstmanagement für Marketing- und Verkaufsverantwortliche',author:'Geiger, Jäggi, Messi, Züger, Pifko',year:2017,pages:228,color:'#8b5cf6',chapters:15,exercises:87},
-  {id:'projektmanagement',file:'projektmanagement.html',title:'Projektmanagement für Marketing- und Verkaufsverantwortliche',author:'Führer, Züger',year:2017,pages:142,color:'#d97706',chapters:15,exercises:43},
-  {id:'marketingkonzept',file:'marketingkonzept.html',title:'Marketingkonzept, Marktanalyse und Marktleistung',author:'Friebe, Michel, Portmann, Reber, Schneider',year:2022,pages:280,color:'#dc2626',chapters:16,exercises:98},
-  {id:'digitales-marketing',file:'digitales-marketing.html',title:'Digitales Marketing für Marketing- und Verkaufsverantwortliche',author:'Michael Klaas',year:2020,pages:166,color:'#0891b2',chapters:8,exercises:76},
-  {id:'kommunikation-grundlagen',file:'kommunikation-grundlagen.html',title:'Grundlagen der Kommunikation für Marketing- und Verkaufsverantwortliche',author:'Markus Aerni',year:2023,pages:167,color:'#be185d',chapters:11,exercises:83},
-  {id:'kommunikation-instrumente',file:'kommunikation-instrumente.html',title:'Instrumente der Kommunikation für Marketing- und Verkaufsverantwortliche',author:'Markus Aerni',year:2023,pages:198,color:'#9333ea',chapters:9,exercises:82},
-  {id:'distribution',file:'distribution.html',title:'Distribution 3.0 für Marketing- und Verkaufsverantwortliche',author:'Bislin, Röösli',year:2023,pages:175,color:'#ea580c',chapters:10,exercises:81},
-  {id:'verkaufsplanung',file:'verkaufsplanung.html',title:'Verkaufsplanung für Marketing- und Verkaufsverantwortliche',author:'Portmann, Meyer',year:2023,pages:231,color:'#4f46e5',chapters:10,exercises:101}
+  {id:'rechnungswesen-uebungen',file:'rechnungswesen-uebungen.html',title:'Rechnungswesen – Aufgaben und Übungen',author:'Compendio-Autorenteam',year:2017,pages:280,color:'#6b7280',chapters:16,exercises:159},
+  {id:'rechnungswesen',file:'rechnungswesen.html',title:'Rechnungswesen für Marketing- und Verkaufsverantwortliche',author:'Robert Baumann',year:2017,pages:323,color:'#4b5563',chapters:15,exercises:204},
+  {id:'selbstmanagement',file:'selbstmanagement.html',title:'Selbstmanagement für Marketing- und Verkaufsverantwortliche',author:'Geiger, Jäggi, Messi, Züger, Pifko',year:2017,pages:228,color:'#6b7280',chapters:15,exercises:87},
+  {id:'projektmanagement',file:'projektmanagement.html',title:'Projektmanagement für Marketing- und Verkaufsverantwortliche',author:'Führer, Züger',year:2017,pages:142,color:'#4b5563',chapters:15,exercises:43},
+  {id:'marketingkonzept',file:'marketingkonzept.html',title:'Marketingkonzept, Marktanalyse und Marktleistung',author:'Friebe, Michel, Portmann, Reber, Schneider',year:2022,pages:280,color:'#6b7280',chapters:16,exercises:98},
+  {id:'digitales-marketing',file:'digitales-marketing.html',title:'Digitales Marketing für Marketing- und Verkaufsverantwortliche',author:'Michael Klaas',year:2020,pages:166,color:'#4b5563',chapters:8,exercises:76},
+  {id:'kommunikation-grundlagen',file:'kommunikation-grundlagen.html',title:'Grundlagen der Kommunikation für Marketing- und Verkaufsverantwortliche',author:'Markus Aerni',year:2023,pages:167,color:'#6b7280',chapters:11,exercises:83},
+  {id:'kommunikation-instrumente',file:'kommunikation-instrumente.html',title:'Instrumente der Kommunikation für Marketing- und Verkaufsverantwortliche',author:'Markus Aerni',year:2023,pages:198,color:'#4b5563',chapters:9,exercises:82},
+  {id:'distribution',file:'distribution.html',title:'Distribution 3.0 für Marketing- und Verkaufsverantwortliche',author:'Bislin, Röösli',year:2023,pages:175,color:'#6b7280',chapters:10,exercises:81},
+  {id:'verkaufsplanung',file:'verkaufsplanung.html',title:'Verkaufsplanung für Marketing- und Verkaufsverantwortliche',author:'Portmann, Meyer',year:2023,pages:231,color:'#4b5563',chapters:10,exercises:101}
 ];
 
 /* ══════════════════════════════════════════════════════════
@@ -113,7 +113,7 @@ function App(){
                 : 'Kommt bald...'
             ),
             ready?e('div',{className:'book-card-progress'},
-              e('div',{className:'book-card-progress-fill',style:{width:pct+'%',background:pct===100?'var(--green)':book.color}})
+              e('div',{className:'book-card-progress-fill',style:{width:pct+'%',background:pct===100?'var(--green)':'var(--text2)'}})
             ):null
           )
         )
