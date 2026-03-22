@@ -143,7 +143,7 @@ function Reveal(props) {
 
   return e('div', { className: 'reveal-box' },
     items.slice(0, shown).map(function(s, i) {
-      var content = typeof s === 'string' ? s : (s && s.label ? s.label + ': ' + s.val : (s && s.val ? s.val : String(s)));
+      var content = typeof s === 'string' ? s : (s && s.label ? s.label + ': ' + (s.val || '') : (s && s.val ? s.val : (s && s.text ? s.text : (s && typeof s === 'object' ? JSON.stringify(s) : String(s || '')))));
       return e('div', { key: i, className: 'reveal-step' },
         e('strong', null, 'Schritt ' + (i + 1) + ': '), content
       );
@@ -282,6 +282,7 @@ function MCExercise(props) {
 
 function TFExercise(props) {
   var ex = props.ex, onDone = props.onDone, examMode = props.examMode;
+  var statements = ex.statements || [];
   var st = useState({}), answers = st[0], setAnswers = st[1];
   var st2 = useState(false), checked = st2[0], setChecked = st2[1];
 
@@ -293,8 +294,8 @@ function TFExercise(props) {
   function check() {
     setChecked(true);
     var correct = 0;
-    ex.statements.forEach(function(s, i) { if (answers[i] === s.c) correct++; });
-    if (onDone) onDone(Math.round(correct / ex.statements.length * 100));
+    statements.forEach(function(s, i) { if (answers[i] === s.c) correct++; });
+    if (onDone) onDone(statements.length ? Math.round(correct / statements.length * 100) : 0);
   }
 
   function reset() { setAnswers({}); setChecked(false); }
@@ -302,7 +303,7 @@ function TFExercise(props) {
   return e('div', null,
     ex.q ? e('div', { className: 'ex-instruction' }, ex.q) : null,
     ex.instruction ? e('div', { className: 'ex-instruction', style: { marginTop: 4, fontWeight: 'normal' } }, ex.instruction) : null,
-    ex.statements.map(function(s, i) {
+    statements.map(function(s, i) {
       var userAns = answers[i];
       return e('div', { key: i, className: 'tf-row' },
         e('div', { className: 'tf-statement' }, s.s),
@@ -335,7 +336,9 @@ function TFExercise(props) {
 
 function FillExercise(props) {
   var ex = props.ex, onDone = props.onDone, examMode = props.examMode;
-  var st = useState(ex.blanks.map(function() { return ''; }));
+  var blanks = ex.blanks || [];
+  var template = ex.template || '';
+  var st = useState(blanks.map(function() { return ''; }));
   var vals = st[0], setVals = st[1];
   var st2 = useState(false), checked = st2[0], setChecked = st2[1];
 
@@ -345,23 +348,23 @@ function FillExercise(props) {
 
   function getAccepted(i) {
     if (ex.accept && ex.accept[i]) return ex.accept[i];
-    var b = ex.blanks[i];
+    var b = blanks[i];
     return Array.isArray(b) ? b : [b];
   }
 
   function check() {
     setChecked(true);
     var correct = 0;
-    ex.blanks.forEach(function(b, i) {
+    blanks.forEach(function(b, i) {
       if (matchAnswer(vals[i], getAccepted(i))) correct++;
     });
-    if (onDone) onDone(Math.round(correct / ex.blanks.length * 100));
+    if (onDone) onDone(blanks.length ? Math.round(correct / blanks.length * 100) : 0);
   }
 
-  function reset() { setVals(ex.blanks.map(function() { return ''; })); setChecked(false); }
+  function reset() { setVals(blanks.map(function() { return ''; })); setChecked(false); }
 
   // Build template with blanks
-  var parts = ex.template.split(/\{(\d+)\}/);
+  var parts = template.split(/\{(\d+)\}/);
   var rendered = parts.map(function(part, i) {
     if (i % 2 === 1) {
       var idx = parseInt(part, 10);
@@ -385,7 +388,7 @@ function FillExercise(props) {
     e('div', { className: 'blank-text' }, rendered),
     checked && !examMode ? e('div', { className: 'solution-box' },
       e('strong', null, 'L\u00F6sung: '),
-      ex.blanks.map(function(b, i) {
+      blanks.map(function(b, i) {
         return (i > 0 ? ', ' : '') + (i + 1) + '. ' + (Array.isArray(b) ? b[0] : b);
       })
     ) : null,
@@ -403,7 +406,8 @@ function FillExercise(props) {
 
 function MatchExercise(props) {
   var ex = props.ex, onDone = props.onDone, examMode = props.examMode;
-  var st = useState(ex.pairs.map(function() { return ''; }));
+  var pairs = ex.pairs || [];
+  var st = useState(pairs.map(function() { return ''; }));
   var answers = st[0], setAnswers = st[1];
   var st2 = useState(false), checked = st2[0], setChecked = st2[1];
 
@@ -414,16 +418,16 @@ function MatchExercise(props) {
   function check() {
     setChecked(true);
     var correct = 0;
-    ex.pairs.forEach(function(p, i) { if (answers[i] === p.r) correct++; });
-    if (onDone) onDone(Math.round(correct / ex.pairs.length * 100));
+    pairs.forEach(function(p, i) { if (answers[i] === p.r) correct++; });
+    if (onDone) onDone(pairs.length ? Math.round(correct / pairs.length * 100) : 0);
   }
 
-  function reset() { setAnswers(ex.pairs.map(function() { return ''; })); setChecked(false); }
+  function reset() { setAnswers(pairs.map(function() { return ''; })); setChecked(false); }
 
   return e('div', null,
     ex.q ? e('div', { className: 'ex-instruction' }, ex.q) : null,
     ex.instruction ? e('div', { className: 'ex-instruction', style: { marginTop: 4, fontWeight: 'normal' } }, ex.instruction) : null,
-    ex.pairs.map(function(p, i) {
+    pairs.map(function(p, i) {
       var isCorrect = checked && answers[i] === p.r;
       var isWrong = checked && answers[i] !== p.r;
       return e('div', { key: i, className: 'match-row' },
@@ -435,7 +439,7 @@ function MatchExercise(props) {
           disabled: checked
         },
           e('option', { value: '' }, '-- W\u00E4hlen --'),
-          ex.options.map(function(opt, j) {
+          (ex.options || []).map(function(opt, j) {
             return e('option', { key: j, value: opt }, opt);
           })
         ),
@@ -456,6 +460,7 @@ function MatchExercise(props) {
 
 function CheckExercise(props) {
   var ex = props.ex, onDone = props.onDone, examMode = props.examMode;
+  var statements = ex.statements || [];
   var st = useState({}), answers = st[0], setAnswers = st[1];
   var st2 = useState(false), checked = st2[0], setChecked = st2[1];
 
@@ -467,8 +472,8 @@ function CheckExercise(props) {
   function check() {
     setChecked(true);
     var correct = 0;
-    ex.statements.forEach(function(s, i) { if (answers[i] === s.c) correct++; });
-    if (onDone) onDone(Math.round(correct / ex.statements.length * 100));
+    statements.forEach(function(s, i) { if (answers[i] === s.c) correct++; });
+    if (onDone) onDone(statements.length ? Math.round(correct / statements.length * 100) : 0);
   }
 
   function reset() { setAnswers({}); setChecked(false); }
@@ -476,7 +481,7 @@ function CheckExercise(props) {
   return e('div', null,
     ex.q ? e('div', { className: 'ex-instruction' }, ex.q) : null,
     ex.instruction ? e('div', { className: 'ex-instruction', style: { marginTop: 4, fontWeight: 'normal' } }, ex.instruction) : null,
-    ex.statements.map(function(s, i) {
+    statements.map(function(s, i) {
       var userAns = answers[i];
       var rowClass = '';
       if (checked && !examMode) rowClass = userAns === s.c ? ' correct-row' : ' wrong-row';
@@ -829,7 +834,7 @@ function ExerciseCard(props) {
 
   if (ex.svg) {
     return e('div', null,
-      e('div', { style: { margin: '0 0 16px', width: '100%' }, dangerouslySetInnerHTML: { __html: ex.svg } }),
+      e('div', { style: { margin: '0 0 16px', width: '100%' }, dangerouslySetInnerHTML: { __html: ex.svg.replace('<svg ', '<svg width="100%" ') } }),
       comp
     );
   }
