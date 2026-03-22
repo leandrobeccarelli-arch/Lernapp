@@ -190,16 +190,11 @@ window.BOOK_DATA = {
         },
         {
           id: 7, type: 'calc', title: 'S\u00e4ttigungsgrad berechnen',
-          q: 'Berechnen Sie den S\u00e4ttigungsgrad f\u00fcr eine spezielle Software im Markt Europa.',
-          rows: [
-            { label: 'Marktvolumen 20_1', val: 'EUR 18 Mio.' },
-            { label: 'Marktpotenzial 20_1', val: 'EUR 68 Mio.' },
-            { label: 'Marktvolumen 20_2', val: 'EUR 31 Mio.' },
-            { label: 'Marktpotenzial 20_2', val: 'EUR 75 Mio.' }
-          ],
-          inputs: [
-            { label: 'S\u00e4ttigungsgrad 20_1 (in %)', answer: ['26.5', '26,5'], tolerance: 0.5 },
-            { label: 'S\u00e4ttigungsgrad 20_2 (in %)', answer: ['41.3', '41,3'], tolerance: 0.5 }
+          q: 'S\u00e4ttigungsgrad berechnen',
+          instruction: 'Berechnen Sie den S\u00e4ttigungsgrad f\u00fcr eine spezielle Software im Markt Europa.\n\n\u2022 Marktvolumen 20_1: EUR 18 Mio.\n\u2022 Marktpotenzial 20_1: EUR 68 Mio.\n\u2022 Marktvolumen 20_2: EUR 31 Mio.\n\u2022 Marktpotenzial 20_2: EUR 75 Mio.',
+          fields: [
+            { label: 'S\u00e4ttigungsgrad 20_1 (in %)', answer: 26.5, tolerance: 0.02 },
+            { label: 'S\u00e4ttigungsgrad 20_2 (in %)', answer: 41.3, tolerance: 0.02 }
           ],
           tips: ['S\u00e4ttigungsgrad = Marktvolumen / Marktpotenzial \u00d7 100'],
           reveal: [
@@ -1596,15 +1591,12 @@ window.BOOK_DATA = {
       exercises: [
         {
           id: 54, type: 'calc', title: 'Break-even Produktinnovation',
-          q: 'Ein Unternehmen entwickelt drei Produktideen bis zur Beta-Test-Phase. Pro Idee fallen CHF 18\u2019000 an. Das vielversprechendste wird lanciert mit Budget CHF 90\u2019000. Verkaufspreis CHF 2\u2019400, variable Kosten CHF 1\u2019200.',
-          rows: [
-            { label: 'Gesamtkosten Innovation', val: '3 \u00d7 18\u2019000 + 90\u2019000' },
-            { label: 'Deckungsbeitrag/St\u00fcck', val: '2\u2019400 \u2212 1\u2019200' }
-          ],
-          inputs: [
-            { label: 'Gesamtkosten (CHF)', answer: ['144000', '144\'000', '144 000'], tolerance: 0 },
-            { label: 'DB pro St\u00fcck (CHF)', answer: ['1200', '1\'200', '1 200'], tolerance: 0 },
-            { label: 'Break-even (St\u00fcck)', answer: ['120'], tolerance: 0 }
+          q: 'Break-even Produktinnovation',
+          instruction: 'Ein Unternehmen entwickelt drei Produktideen bis zur Beta-Test-Phase.\n\n\u2022 Entwicklungskosten pro Idee: CHF 18\u2019000\n\u2022 Anzahl Ideen: 3\n\u2022 Lancierungsbudget (beste Idee): CHF 90\u2019000\n\u2022 Verkaufspreis: CHF 2\u2019400\n\u2022 Variable Kosten: CHF 1\u2019200',
+          fields: [
+            { label: 'Gesamtkosten (CHF)', answer: 144000, tolerance: 0.01 },
+            { label: 'DB pro St\u00fcck (CHF)', answer: 1200, tolerance: 0.01 },
+            { label: 'Break-even (St\u00fcck)', answer: 120, tolerance: 0.01 }
           ],
           tips: [
             'Gesamtkosten = Entwicklungskosten aller Ideen + Lancierungsbudget',
@@ -1898,18 +1890,13 @@ window.BOOK_DATA = {
       exercises: [
         {
           id: 64, type: 'calc', title: 'Deckungsbeitrag bei Rabattvarianten',
-          q: 'Ein Verkaufsleiter analysiert Rabattvarianten. Richtpreis CHF 100, variable Kosten CHF 50.',
-          rows: [
-            { label: 'Ausgangssituation', val: 'Rabatt 5%, Netto CHF 95, Absatz 1000' },
-            { label: 'Variante 1', val: 'Rabatt 0%, Netto CHF 100, Absatz 800' },
-            { label: 'Variante 2', val: 'Rabatt 10%, Netto CHF 90, Absatz 1100' },
-            { label: 'Variante 3', val: 'Rabatt 20%, Netto CHF 80, Absatz 1400' }
-          ],
-          inputs: [
-            { label: 'DB gesamt Ausgangssituation', answer: ['45000', '45\'000', '45 000'], tolerance: 0 },
-            { label: 'DB gesamt Variante 1', answer: ['40000', '40\'000', '40 000'], tolerance: 0 },
-            { label: 'DB gesamt Variante 2', answer: ['44000', '44\'000', '44 000'], tolerance: 0 },
-            { label: 'DB gesamt Variante 3', answer: ['42000', '42\'000', '42 000'], tolerance: 0 }
+          q: 'Deckungsbeitrag bei Rabattvarianten',
+          instruction: 'Ein Verkaufsleiter analysiert Rabattvarianten. Berechnen Sie den Gesamt-DB.\n\n\u2022 Richtpreis: CHF 100, variable Kosten: CHF 50\n\u2022 Ausgangssituation: Rabatt 5%, Netto CHF 95, Absatz 1\u2019000\n\u2022 Variante 1: Rabatt 0%, Netto CHF 100, Absatz 800\n\u2022 Variante 2: Rabatt 10%, Netto CHF 90, Absatz 1\u2019100\n\u2022 Variante 3: Rabatt 20%, Netto CHF 80, Absatz 1\u2019400',
+          fields: [
+            { label: 'DB gesamt Ausgangssituation (CHF)', answer: 45000, tolerance: 0.01 },
+            { label: 'DB gesamt Variante 1 (CHF)', answer: 40000, tolerance: 0.01 },
+            { label: 'DB gesamt Variante 2 (CHF)', answer: 44000, tolerance: 0.01 },
+            { label: 'DB gesamt Variante 3 (CHF)', answer: 42000, tolerance: 0.01 }
           ],
           tips: ['DB pro St\u00fcck = Netto \u2212 variable Kosten. DB gesamt = DB/St\u00fcck \u00d7 Absatz.'],
           reveal: [
@@ -2368,14 +2355,11 @@ window.BOOK_DATA = {
         },
         {
           id: 82, type: 'calc', title: 'Budgetentscheid: Werbekampagne',
-          q: 'F\u00fcr eine Werbekampagne werden zwei Varianten ausgearbeitet:',
-          rows: [
-            { label: 'Variante 1', val: 'Investition CHF 300\u2019000, Zusatz-DB CHF 440\u2019000' },
-            { label: 'Variante 2', val: 'Investition CHF 500\u2019000, Zusatz-DB CHF 680\u2019000' }
-          ],
-          inputs: [
-            { label: 'Netto-DB Variante 1 (CHF)', answer: ['140000', '140\'000', '140 000'], tolerance: 0 },
-            { label: 'Netto-DB Variante 2 (CHF)', answer: ['180000', '180\'000', '180 000'], tolerance: 0 }
+          q: 'Budgetentscheid: Werbekampagne',
+          instruction: 'F\u00fcr eine Werbekampagne werden zwei Varianten ausgearbeitet. Berechnen Sie den Netto-DB.\n\n\u2022 Variante 1: Investition CHF 300\u2019000, Zusatz-DB CHF 440\u2019000\n\u2022 Variante 2: Investition CHF 500\u2019000, Zusatz-DB CHF 680\u2019000',
+          fields: [
+            { label: 'Netto-DB Variante 1 (CHF)', answer: 140000, tolerance: 0.01 },
+            { label: 'Netto-DB Variante 2 (CHF)', answer: 180000, tolerance: 0.01 }
           ],
           tips: ['Netto-DB = Zusatz-DB \u2212 Investition'],
           reveal: [
