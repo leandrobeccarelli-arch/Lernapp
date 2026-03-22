@@ -1770,6 +1770,17 @@ window.BOOK_DATA = {
             highlight: 'Kundenbindung kann über psychologische oder faktische Massnahmen erreicht werden. Cross-Selling und Up-Selling sind zentrale Instrumente zur Umsatzsteigerung bei bestehenden Kunden.'
           },
           {
+            type: 'merke',
+            title: 'Merke dir!',
+            items: [
+              'Relationship Marketing fokussiert auf langfristige Beziehungen mit bestehenden Kunden statt auf Neukundengewinnung.',
+              'Der Kundenlebenszyklus besteht aus drei Phasen: Kundenakquisition (Recruitment), Kundenbindung (Retention) und Kundenrückgewinnung (Recovery).',
+              'Kundenbindung basiert auf psychologischer Bindung (Vertrauen, Loyalität) und faktischer Bindung (ökonomische, vertragliche Wechselbarrieren).',
+              'CRM ist ein ganzheitlicher Ansatz, der alle kundenbezogenen Prozesse in Marketing, Vertrieb und Kundendienst integriert.',
+              'Cross-Selling (Zusatzverkäufe) und Up-Selling (höherwertige Produkte) sind zentrale Instrumente zur Umsatzsteigerung bei Stammkunden.'
+            ]
+          },
+          {
             type: 'keyterms',
             title: 'Schlüsselbegriffe',
             terms: [
@@ -2013,6 +2024,17 @@ window.BOOK_DATA = {
             highlight: 'Zur Berechnung des Brutto-Kundenwerts: Durchschnittsumsatz pro Kunde x Kaufhäufigkeit pro Jahr x Beziehungsdauer in Jahren. Minus Kosten = Netto-Kundenwert.'
           },
           {
+            type: 'merke',
+            title: 'Merke dir!',
+            items: [
+              'Es ist 10-mal günstiger, einen bestehenden Kunden zu pflegen, als einen neuen zu akquirieren.',
+              'Kundenarten werden nach drei Perspektiven unterschieden: Umstände des Kaufs, Verhalten des Kunden und Art der Kundenbeziehung.',
+              'Persönliche Kommunikation begleitet den gesamten Kundenlebenszyklus: Akquisition (Telefonmarketing), Bindung (Key Accounts) und Rückgewinnung.',
+              'Brutto-Kundenwert = Durchschnittsumsatz × Kaufhäufigkeit pro Jahr × Beziehungsdauer in Jahren. Minus Kosten = Netto-Kundenwert.',
+              'Beim aktiven Telefonmarketing dürfen nur Kunden, ehemalige Kunden und Personen mit Einverständnis kontaktiert werden.'
+            ]
+          },
+          {
             type: 'keyterms',
             title: 'Schlüsselbegriffe',
             terms: [
@@ -2225,6 +2247,17 @@ window.BOOK_DATA = {
             type: 'svg',
             title: 'Regelkreis der Mitarbeitendenkommunikation (Abb. 9-1)',
             svg: '<svg viewBox="0 0 700 350" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif"><defs><linearGradient id="c91g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#5c3d1e"/><stop offset="100%" stop-color="#8b6a3e"/></linearGradient><marker id="c91a" viewBox="0 0 10 7" refX="10" refY="3.5" markerWidth="10" markerHeight="7" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#5c3d1e"/></marker></defs><rect x="270" y="10" width="160" height="45" rx="10" fill="url(#c91g)"/><text x="350" y="37" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">Unternehmensleitung</text><rect x="500" y="130" width="170" height="45" rx="10" fill="#f5f0eb" stroke="#5c3d1e" stroke-width="1.5"/><text x="585" y="148" text-anchor="middle" fill="#5c3d1e" font-size="10" font-weight="600">Bedürfnisse der</text><text x="585" y="163" text-anchor="middle" fill="#5c3d1e" font-size="10" font-weight="600">Mitarbeitenden</text><rect x="270" y="270" width="160" height="45" rx="10" fill="#f5f0eb" stroke="#5c3d1e" stroke-width="1.5"/><text x="350" y="288" text-anchor="middle" fill="#5c3d1e" font-size="10" font-weight="600">Mitarbeitenden-</text><text x="350" y="303" text-anchor="middle" fill="#5c3d1e" font-size="10" font-weight="600">kommunikation</text><rect x="30" y="130" width="170" height="45" rx="10" fill="#f5f0eb" stroke="#5c3d1e" stroke-width="1.5"/><text x="115" y="148" text-anchor="middle" fill="#5c3d1e" font-size="10" font-weight="600">Reaktionen der</text><text x="115" y="163" text-anchor="middle" fill="#5c3d1e" font-size="10" font-weight="600">Mitarbeitenden</text><rect x="285" y="140" width="130" height="35" rx="8" fill="url(#c91g)"/><text x="350" y="162" text-anchor="middle" fill="#fff" font-size="10" font-weight="600">Vision & Strategie</text><path d="M415,20 Q550,30 580,128" fill="none" stroke="#5c3d1e" stroke-width="1.5" marker-end="url(#c91a)"/><path d="M585,175 Q570,250 432,280" fill="none" stroke="#5c3d1e" stroke-width="1.5" marker-end="url(#c91a)"/><path d="M270,290 Q140,270 120,177" fill="none" stroke="#5c3d1e" stroke-width="1.5" marker-end="url(#c91a)"/><path d="M115,130 Q130,60 270,35" fill="none" stroke="#5c3d1e" stroke-width="1.5" marker-end="url(#c91a)"/><text x="540" y="70" fill="#64648c" font-size="8">Perspektiven, Erfolg,</text><text x="540" y="82" fill="#64648c" font-size="8">Restrukturierung</text><text x="620" y="215" fill="#64648c" font-size="8">Informationsbedürfnisse,</text><text x="620" y="227" fill="#64648c" font-size="8">Identifikation</text><text x="30" y="215" fill="#64648c" font-size="8">Evaluation, Weiter-</text><text x="30" y="227" fill="#64648c" font-size="8">führung des Prozesses</text><text x="350" y="340" text-anchor="middle" fill="#64648c" font-size="8">Vision, Ziele, Strategien, Wahl der Kommunikationsmittel</text></svg>'
+          },
+          {
+            type: 'merke',
+            title: 'Merke dir!',
+            items: [
+              'Mitarbeitendenkommunikation ist ein zentrales Element der Unternehmenskultur und muss langfristig, lückenlos, ehrlich und glaubwürdig sein.',
+              'Fünf Erfolgsfaktoren: Reichweite, Echtzeit, Transparenz, Interaktion und Glaubwürdigkeit (Walk as you talk).',
+              'Vier Kommunikationsrichtungen: vertikal (zwischen Ebenen), horizontal (gleiche Ebene), top-down (Führung → Mitarbeitende) und bottom-up (Mitarbeitende → Führung).',
+              'Motivierte Mitarbeitende prägen die persönliche Kommunikation zur externen Zielgruppe und sind essenziell für erfolgreiches Relationship Marketing.',
+              'Die Mitarbeitendenkommunikation ist ein dauerhafter Regelkreis, der ununterbrochen weitergeführt werden muss.'
+            ]
           },
           {
             type: 'keyterms',
@@ -2461,6 +2494,17 @@ window.BOOK_DATA = {
               ['Customer Relationship', 'Schaffung einer Community, die an die Marke binden soll.'],
               ['CEO oder Executive', 'Mitglieder des Vorstands schreiben persönlich und namentlich.'],
               ['Employee', 'Weblogs von Mitarbeitenden \u2013 Unternehmen stellt lediglich Technik und Raum bereit.']
+            ]
+          },
+          {
+            type: 'merke',
+            title: 'Merke dir!',
+            items: [
+              'Das PESO-Modell unterscheidet vier Content-Arten: Paid (bezahlt), Earned (verdient), Social (geteilt) und Owned (eigene Medien).',
+              'Corporate Media sind vom Unternehmen selbst erstellte Inhalte (Owned Media) für interne und externe Zielgruppen.',
+              'Fünf Grundsätze der Corporate Media: Inhalt (journalistisch), Kontinuität, Mehrwert, Individualität und crossmediale Vernetzung.',
+              'Storytelling: Nicht das Produkt, sondern das Bedürfnis dahinter steht im Fokus – Geschichten bleiben länger im Gedächtnis als Hard Facts.',
+              'Corporate Blogs erhöhen die Online-Sichtbarkeit und bieten Potenzial, besser von der Zielgruppe gefunden zu werden.'
             ]
           },
           {

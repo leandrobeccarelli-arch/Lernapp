@@ -84,7 +84,7 @@ function loadExamScores(bookId) {
 }
 function saveExamScore(bookId, chId, score, total) {
   var scores = loadExamScores(bookId);
-  var pct = Math.round(score / total * 100);
+  var pct = total > 0 ? Math.round(score / total * 100) : 0;
   var existing = scores[chId];
   if (!existing || pct > existing.pct) {
     scores[chId] = { score: score, total: total, pct: pct, date: new Date().toLocaleDateString('de-CH') };
@@ -226,6 +226,62 @@ function MCExercise(props) {
       examMode && mchecked ? e('div', { style: { fontSize: '.8rem', color: 'var(--green)', marginTop: 8 } }, '\u2713 Beantwortet') : null,
       !examMode && ex.tips ? e(Tips, { tips: ex.tips }) : null,
       !examMode && mchecked && ex.reveal ? e(Reveal, { items: ex.reveal }) : null
+    );
+  }
+
+  // Multi-select MC format (ex.multi = true, ex.correct = [indices])
+  if (ex.multi && ex.correct) {
+    var mst3 = useState({}), multiSel = mst3[0], setMultiSel = mst3[1];
+    var mst4 = useState(false), mchecked2 = mst4[0], setMChecked2 = mst4[1];
+
+    function toggleMulti(i) {
+      if (mchecked2) return;
+      setMultiSel(function(prev) { var n = Object.assign({}, prev); n[i] = !n[i]; return n; });
+    }
+
+    function checkMulti() {
+      setMChecked2(true);
+      var correctSet = ex.correct;
+      var userSet = Object.keys(multiSel).filter(function(k) { return multiSel[k]; }).map(Number);
+      var correct = 0;
+      correctSet.forEach(function(c) { if (userSet.indexOf(c) !== -1) correct++; });
+      var wrong = userSet.filter(function(u) { return correctSet.indexOf(u) === -1; }).length;
+      var score = Math.max(0, Math.round((correct - wrong) / correctSet.length * 100));
+      if (onDone) onDone(score);
+    }
+
+    function resetMulti() { setMultiSel({}); setMChecked2(false); }
+
+    var hasSelection = Object.keys(multiSel).some(function(k) { return multiSel[k]; });
+
+    return e('div', null,
+      ex.q ? e('div', { className: 'ex-instruction' }, ex.q) : null,
+      ex.instruction ? e('div', { className: 'ex-instruction', style: { marginTop: 4, fontWeight: 'normal' } }, ex.instruction) : null,
+      (ex.options || []).map(function(opt, i) {
+        var isSelected = !!multiSel[i];
+        var isCorrect = ex.correct.indexOf(i) !== -1;
+        var cls = 'mc-option';
+        if (mchecked2 && !examMode) {
+          if (isSelected && isCorrect) cls += ' correct-sel';
+          else if (isSelected && !isCorrect) cls += ' wrong-sel';
+          else if (!isSelected && isCorrect) cls += ' correct-unsel';
+        } else if (isSelected) cls += ' selected';
+        return e('div', {
+          key: i, className: cls,
+          onClick: mchecked2 ? null : function() { toggleMulti(i); }
+        },
+          e('div', { className: 'mc-radio', style: { borderRadius: 4 } }),
+          e('span', null, opt)
+        );
+      }),
+      !examMode ? e('div', { className: 'btn-row' },
+        e('button', { className: 'btn btn-primary', onClick: checkMulti, disabled: !hasSelection }, 'Pr\u00FCfen'),
+        mchecked2 ? e('button', { className: 'btn btn-secondary', onClick: resetMulti }, 'Nochmal') : null
+      ) : null,
+      examMode && !mchecked2 ? e('div', { style: { fontSize: '.8rem', color: 'var(--text2)', marginTop: 8 } }, 'W\u00E4hle die richtigen Antworten') : null,
+      examMode && mchecked2 ? e('div', { style: { fontSize: '.8rem', color: 'var(--green)', marginTop: 8 } }, '\u2713 Beantwortet') : null,
+      !examMode && ex.tips ? e(Tips, { tips: ex.tips }) : null,
+      !examMode && mchecked2 && ex.reveal ? e(Reveal, { items: ex.reveal }) : null
     );
   }
 
@@ -762,7 +818,7 @@ function SortExercise(props) {
     items.forEach(function(item, i) {
       if (item === correctOrder[i]) correct++;
     });
-    if (onDone) onDone(Math.round(correct / correctOrder.length * 100));
+    if (onDone) onDone(correctOrder.length > 0 ? Math.round(correct / correctOrder.length * 100) : 0);
   }
 
   function reset() {
@@ -1287,7 +1343,7 @@ function ExamMode(props) {
       var r = results[ex.id];
       if (r && r.done && r.score >= 60) correct++;
     });
-    var pct = Math.round(correct / total * 100);
+    var pct = total > 0 ? Math.round(correct / total * 100) : 0;
     var passed = pct >= 60;
 
     return e('div', { className: 'score-screen' },

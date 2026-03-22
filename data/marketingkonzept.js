@@ -76,7 +76,7 @@ window.BOOK_DATA = {
             { s: 'Neue Informationen k\u00f6nnen die Analyse und Ziele jederzeit \u00e4ndern.', c: true, feedback: 'Richtig \u2013 deshalb ist der Prozess iterativ.' },
             { s: 'In der Pr\u00fcfung wird das Konzept oft linear dargestellt.', c: true, feedback: 'Aus didaktischen Gr\u00fcnden wird das Konzept in Pr\u00fcfungen oft linear aufgebaut.' }
           ],
-          tips: [],
+          tips: ['Denken Sie an den Unterschied zwischen Theorie und Praxis.', 'Wie verläuft ein Planungsprozess in der Realität – streng nacheinander oder mit Rückschleifen?', 'Überlegen Sie, wie neue Erkenntnisse frühere Schritte beeinflussen können.'],
           reveal: ['Aussage 1: Falsch. Die Erarbeitung ist ein iterativer Prozess – die Phasen beeinflussen sich gegenseitig.', 'Aussage 2: Richtig. Richtig – deshalb ist der Prozess iterativ.', 'Aussage 3: Richtig. Aus didaktischen Gründen wird das Konzept in Prüfungen oft linear aufgebaut.']
         }
       ],
@@ -236,7 +236,7 @@ window.BOOK_DATA = {
             { l: 'Marktkapazit\u00e4t', r: '4' }
           ],
           options: ['1', '2', '3', '4'],
-          tips: [],
+          tips: ['Es geht um die Grösse der jeweiligen Marktkennzahl.', 'Marktanteil ist ein Teil des Marktvolumens – was ist grösser?', 'Die Reihenfolge: Anteil eines Unternehmens → tatsächlicher Gesamtmarkt → möglicher Gesamtmarkt → maximale Kapazität.'],
           reveal: ['Marktanteil → 1', 'Marktvolumen → 2', 'Marktpotenzial → 3', 'Marktkapazität → 4']
         },
         {
@@ -386,7 +386,7 @@ window.BOOK_DATA = {
             { s: 'In einem Markt, der schnell w\u00e4chst, ist die Rivalit\u00e4t eher gering.', c: true, feedback: 'Bei Marktwachstum k\u00f6nnen alle Anbieter wachsen, der Wettbewerb ist weniger intensiv.' },
             { s: 'Je h\u00f6her die Markteintrittsbarrieren, desto h\u00f6her die m\u00f6gliche Rentabilit\u00e4t der etablierten Unternehmen.', c: true, feedback: 'Hohe Barrieren sch\u00fctzen bestehende Anbieter.' }
           ],
-          tips: [],
+          tips: ['Es geht um verschiedene Analyseinstrumente und Marktmechanismen.', 'Benchmarking kann auf verschiedene Arten durchgeführt werden – nicht nur mit dem Branchenleader.', 'Denken Sie bei Involvement an den Preis und die emotionale Bedeutung des Produkts.'],
           reveal: ['Aussage 1: Falsch. Man kann auch internes Benchmarking betreiben oder Best-in-Class aus anderen Branchen.', 'Aussage 2: Richtig. A-Kunden machen ca. 80% des Umsatzes aus.', 'Aussage 3: Richtig. Hoher Preis, emotionale Bindung – typisch High-Involvement.', 'Aussage 4: Richtig. Bei Marktwachstum können alle Anbieter wachsen, der Wettbewerb ist weniger intensiv.', 'Aussage 5: Richtig. Hohe Barrieren schützen bestehende Anbieter.']
         },
         {
@@ -436,7 +436,7 @@ window.BOOK_DATA = {
           statements: [
             { s: 'Konkurrenten, die kosteng\u00fcnstig produzieren, sind weniger gef\u00e4hrlich f\u00fcr ein Unternehmen, weil die Qualit\u00e4t der Produkte schlecht ist.', c: false, feedback: 'Kosteng\u00fcnstige Produktion bedeutet nicht automatisch schlechte Qualit\u00e4t. Kostenf\u00fchrerschaft kann sehr gef\u00e4hrlich sein.' }
           ],
-          tips: [],
+          tips: ['Denken Sie an die Wettbewerbsstrategien nach Porter.', 'Bedeutet günstiger Preis automatisch schlechte Qualität?', 'Kostenführerschaft ist eine bewusste Strategie – und kann sehr wirkungsvoll sein.'],
           reveal: ['Aussage 1: Falsch. Kostengünstige Produktion bedeutet nicht automatisch schlechte Qualität. Kostenführerschaft kann sehr gefährlich sein.']
         },
         {
@@ -1323,7 +1323,7 @@ window.BOOK_DATA = {
             { l: 'Werbung und PR', r: 'Promotion' }
           ],
           options: ['Product', 'Price', 'Place', 'Promotion'],
-          tips: [],
+          tips: ['Die 4P stehen für Product, Price, Place und Promotion.', 'Überlegen Sie: Betrifft das Instrument das Produkt selbst, den Preis, den Vertrieb oder die Kommunikation?', 'Rabatte gehören zum Preis, Kanäle zur Distribution, Werbung zur Kommunikation.'],
           reveal: ['Sortimentspolitik → Product', 'Rabattgewährung → Price', 'Wahl des Vertriebskanals → Place', 'Werbung und PR → Promotion']
         },
         {
@@ -1346,7 +1346,7 @@ window.BOOK_DATA = {
             { s: 'Bei personalintensiven Dienstleistungen reichen die 4P aus.', c: false, feedback: 'Falsch. Bei Dienstleistungen kommen 3 zus\u00e4tzliche P hinzu: People, Process, Physical Tangibles.' },
             { s: 'Investitionsg\u00fctermarketing besteht aus wenigen K\u00e4ufern mit enger Beziehung.', c: true, feedback: 'Richtig. Wenige K\u00e4ufer, enge Beziehung, Kaufentscheid durch mehrere Personen (Buying Center).' }
           ],
-          tips: [],
+          tips: ['Es geht um die Unterschiede zwischen Konsumgüter-, Dienstleistungs- und Investitionsgütermarketing.', 'Dienstleistungen haben besondere Eigenschaften – welche zusätzlichen P braucht es?', 'Denken Sie an People, Process und Physical Tangibles als Erweiterung der 4P.'],
           reveal: ['Aussage 1: Richtig. Richtig. Die 4P sind das klassische Modell für Konsumgütermarketing.', 'Aussage 2: Falsch. Falsch. Bei Dienstleistungen kommen 3 zusätzliche P hinzu: People, Process, Physical Tangibles.', 'Aussage 3: Richtig. Richtig. Wenige Käufer, enge Beziehung, Kaufentscheid durch mehrere Personen (Buying Center).']
         }
       ],
@@ -1640,7 +1640,7 @@ window.BOOK_DATA = {
             { l: 'Testmarkt', r: 'Beta- und Markttest' }
           ],
           options: ['Ideengewinnung', 'Ideenauswahl', 'Konzeptentwicklung und -test', 'Wirtschaftlichkeitsanalyse', 'Beta- und Markttest', 'Einf\u00fchrung'],
-          tips: [],
+          tips: ['Die sechs Phasen verlaufen von der Idee bis zur Markteinführung.', 'Kreativitätstechniken wie Brainstorming gehören zum Anfang des Prozesses.', 'Target Costing prüft die Wirtschaftlichkeit, ein Testmarkt testet vor der Einführung.'],
           reveal: ['Brainstorming → Ideengewinnung', 'Eliminierung von schlechten Ideen → Ideenauswahl', 'Target Costing → Wirtschaftlichkeitsanalyse', 'Marktbeobachtung → Einführung', 'Mindmapping → Ideengewinnung', 'Testmarkt → Beta- und Markttest']
         },
         {
@@ -1787,7 +1787,7 @@ window.BOOK_DATA = {
             { l: 'Dient als Lager- und Transporthilfsmittel', r: 'Terti\u00e4rverpackung' }
           ],
           options: ['Prim\u00e4rverpackung', 'Sekund\u00e4rverpackung', 'Terti\u00e4rverpackung'],
-          tips: [],
+          tips: ['Primär bedeutet «erste» – was berührt das Produkt direkt?', 'Sekundär ist die zweite Schicht – hier steht die Kommunikation im Vordergrund.', 'Tertiär ist die äusserste Schicht – denken Sie an Transport und Lagerung.'],
           reveal: ['Steht in direktem Kontakt mit dem Produkt → Primärverpackung', 'Dient als Informationsträger und Werbemittel → Sekundärverpackung', 'Dient als Lager- und Transporthilfsmittel → Tertiärverpackung']
         },
         {
@@ -1917,7 +1917,7 @@ window.BOOK_DATA = {
             'Keine Rabatte geben'
           ],
           answer: 1,
-          tips: [],
+          tips: ['Es geht um Preisdifferenzierung – nicht alle Kunden müssen den gleichen Preis zahlen.', 'Welche Rabattformen richten sich gezielt an neue Kunden, ohne bestehende Kunden zu benachteiligen?', 'Denken Sie an Erstkundenrabatt, Mengenrabatt oder Produktbündel.'],
           reveal: ['Richtige Antwort: Differenzierte Preise, Erstkundenrabatt, Mengenrabatt, Bundle-Angebote']
         },
         {
@@ -1953,7 +1953,7 @@ window.BOOK_DATA = {
             { s: 'Die Bundesverfassung verlangt, dass Unternehmen wie die Migros in allen Kantonen f\u00fcr das gleiche Produkt denselben Preis verlangen.', c: false, feedback: 'Falsch. Es gibt keine solche Pflicht \u2013 regionale Preisunterschiede sind erlaubt.' },
             { s: 'In der Schweiz darf man grunds\u00e4tzlich Produkte unter den eigenen Kosten verkaufen.', c: true, feedback: 'Grunds\u00e4tzlich ja, ausser es handelt sich um Missbrauch einer marktbeherrschenden Stellung.' }
           ],
-          tips: [],
+          tips: ['Es geht um gesetzliche Rahmenbedingungen der Preispolitik in der Schweiz.', 'Müssen alle Filialen eines Unternehmens die gleichen Preise verlangen?', 'Denken Sie an das Preisgesetz (PG) und das Kartellrecht.'],
           reveal: ['Aussage 1: Richtig. Richtig. Das Preisgesetz schützt Konsumenten vor überhöhten Preisen.', 'Aussage 2: Falsch. Falsch. Es gibt keine solche Pflicht – regionale Preisunterschiede sind erlaubt.', 'Aussage 3: Richtig. Grundsätzlich ja, ausser es handelt sich um Missbrauch einer marktbeherrschenden Stellung.']
         },
         {
@@ -2083,7 +2083,7 @@ window.BOOK_DATA = {
             { s: 'Bei traditionellen Kan\u00e4len besteht ein Zielkonflikt zwischen Reichhaltigkeit und Reichweite.', c: true, feedback: 'Richtig. E-Commerce l\u00f6st diesen Konflikt teilweise auf.' },
             { s: 'E-Government-L\u00f6sungen haben denselben Zielkonflikt.', c: false, feedback: 'Nein \u2013 E-Government kann beides bieten: breite Reichweite und detaillierte Informationen.' }
           ],
-          tips: [],
+          tips: ['Es geht um den Trade-off zwischen Informationstiefe und Erreichbarkeit.', 'Digitale Kanäle können diesen Zielkonflikt teilweise auflösen.', 'Überlegen Sie, ob Online-Plattformen gleichzeitig viele Menschen erreichen UND detaillierte Infos bieten können.'],
           reveal: ['Aussage 1: Richtig. Richtig. E-Commerce löst diesen Konflikt teilweise auf.', 'Aussage 2: Falsch. Nein – E-Government kann beides bieten: breite Reichweite und detaillierte Informationen.']
         },
         {
@@ -2119,7 +2119,7 @@ window.BOOK_DATA = {
             { l: 'Wie stark kann man den Vertrieb steuern?', r: 'Beeinflussbarkeit' }
           ],
           options: ['Funktionserf\u00fcllung', 'Distributionsgrad', 'Entwicklungsm\u00f6glichkeit', 'Beeinflussbarkeit'],
-          tips: [],
+          tips: ['Jedes Kriterium bewertet einen bestimmten Aspekt des Vertriebssystems.', 'Distributionsgrad = Wie breit verfügbar ist das Produkt?', 'Beeinflussbarkeit = Wie viel Kontrolle hat das Unternehmen über den Kanal?'],
           reveal: ['Wie gut erfüllt das System die Vertriebsaufgaben? → Funktionserfüllung', 'Wie breit ist das Produkt erhältlich? → Distributionsgrad', 'Kann das System mitwachsen? → Entwicklungsmöglichkeit', 'Wie stark kann man den Vertrieb steuern? → Beeinflussbarkeit']
         },
         {
@@ -2233,7 +2233,7 @@ window.BOOK_DATA = {
             { l: 'Bannerwerbung auf 20min.ch', r: 'Paid' }
           ],
           options: ['Paid', 'Owned', 'Earned', 'Shared'],
-          tips: [],
+          tips: ['Die vier Medientypen unterscheiden sich durch Kontrolle und Ursprung.', 'Paid = bezahlt, Owned = eigene Kanäle, Earned = verdient durch Qualität, Shared = geteilt von Nutzern.', 'Wer hat den Inhalt erstellt und wer kontrolliert ihn?'],
           reveal: ['Kundenbewertung auf Google → Earned', 'Eigene Website → Owned', 'Facebook-Post eines Nutzers über die Marke → Shared', 'Bannerwerbung auf 20min.ch → Paid']
         },
         {
@@ -2250,7 +2250,7 @@ window.BOOK_DATA = {
             { s: 'Influencer Marketing geh\u00f6rt zu den Offline-Instrumenten.', c: false, feedback: 'Falsch \u2013 Influencer Marketing ist ein Online-Kommunikationsinstrument.' },
             { s: 'Bei der Push-Strategie folgt der Kommunikationsfluss dem Warenfluss.', c: true, feedback: 'Richtig: Produzent \u2192 Handel \u2192 Endkonsument.' }
           ],
-          tips: [],
+          tips: ['Unterscheiden Sie zwischen klassischen Offline- und modernen Online-Instrumenten.', 'Influencer Marketing basiert auf sozialen Medien – ist das offline oder online?', 'Bei Push wird der Kunde «angestossen», bei Pull sucht der Kunde aktiv.'],
           reveal: ['Aussage 1: Richtig. Richtig – das sind die klassischen Offline-Instrumente.', 'Aussage 2: Falsch. Falsch – Influencer Marketing ist ein Online-Kommunikationsinstrument.', 'Aussage 3: Richtig. Richtig: Produzent → Handel → Endkonsument.']
         },
         {
@@ -2388,7 +2388,7 @@ window.BOOK_DATA = {
             { s: 'Szenarien sind etwas f\u00fcr Leute, die entweder zu faul oder zu dumm sind, Prognosen zu erstellen.', c: false, feedback: 'Falsch! Szenarien sind ein wichtiges Instrument der strategischen Planung. Sie helfen, verschiedene Zukunftsszenarien durchzuspielen und sich vorzubereiten.' },
             { s: 'Auch kleine Unternehmen sollten ein Marketingbudget erstellen.', c: true, feedback: 'Richtig \u2013 ein Budget hilft bei der Ressourcenallokation und Kontrolle.' }
           ],
-          tips: [],
+          tips: ['Es geht um strategische Planungsinstrumente und deren Nutzen.', 'Szenarien helfen, sich auf verschiedene Zukunftsentwicklungen vorzubereiten.', 'Ein Marketingbudget ist für jedes Unternehmen sinnvoll – unabhängig von der Grösse.'],
           reveal: ['Aussage 1: Falsch. Falsch! Szenarien sind ein wichtiges Instrument der strategischen Planung. Sie helfen, verschiedene Zukunftsszenarien durchzuspielen und sich vorzubereiten.', 'Aussage 2: Richtig. Richtig – ein Budget hilft bei der Ressourcenallokation und Kontrolle.']
         },
         {
@@ -2401,7 +2401,7 @@ window.BOOK_DATA = {
             { l: 'Wann? oder Zeitpunkt', r: 'Zeitplan' }
           ],
           options: ['Zielinhalt', 'Methode', 'Verantwortlicher', 'Zeitplan'],
-          tips: [],
+          tips: ['Die 4 W-Fragen: Was, Wie, Wer, Wann.', 'Jede W-Frage entspricht einem Planungselement.', '«Was» definiert den Inhalt, «Wie» die Methode, «Wer» die Verantwortung, «Wann» den Zeitpunkt.'],
           reveal: ['Was? oder Zielobjekt / Zielgrösse → Zielinhalt', 'Wie? oder Kontrollmethode → Methode', 'Wer? oder Verantwortlichkeit → Verantwortlicher', 'Wann? oder Zeitpunkt → Zeitplan']
         },
         {
@@ -2527,7 +2527,7 @@ window.BOOK_DATA = {
             { s: 'F\u00fcr hervorragende Qualit\u00e4t sind die Kunden bereit, jeden Preis zu bezahlen.', c: false, feedback: 'Falsch \u2013 es gibt immer eine Zahlungsbereitschaft-Grenze.' },
             { s: 'TQM ist ein ganzheitlicher Ansatz, der nur optimale Resultate liefern kann, wenn er von den Mitarbeitenden unterst\u00fctzt wird.', c: true, feedback: 'Richtig \u2013 Mitarbeiterbeteiligung ist essenziell.' }
           ],
-          tips: [],
+          tips: ['TQM steht für Total Quality Management – «Total» bedeutet umfassend.', 'Es geht nicht nur um Produktqualität, sondern um alle Prozesse im Unternehmen.', 'Denken Sie an kontinuierliche Verbesserung (KVP) und die Rolle der Mitarbeitenden.'],
           reveal: ['Aussage 1: Falsch. TQM ist umfassender: es geht um die Qualität aller Prozesse im gesamten Unternehmen.', 'Aussage 2: Richtig. Richtig – Qualität und Effizienz gehören zusammen.', 'Aussage 3: Richtig. Richtig – kontinuierliche Verbesserung (KVP) ist ein Grundprinzip.', 'Aussage 4: Richtig. Richtig – Vergleich verschiedener Geschäftseinheiten innerhalb des Unternehmens.', 'Aussage 5: Falsch. Falsch – es gibt immer eine Zahlungsbereitschaft-Grenze.', 'Aussage 6: Richtig. Richtig – Mitarbeiterbeteiligung ist essenziell.']
         },
         {
@@ -2580,7 +2580,7 @@ window.BOOK_DATA = {
             'Weil die Konkurrenz es auch macht'
           ],
           answer: 1,
-          tips: [],
+          tips: ['Ökologisches Engagement kann mehr sein als eine Pflicht.', 'Denken Sie an Imagegewinn, Kosteneinsparungen und neue Zielgruppen.', 'Nachhaltigkeit kann auch Innovationen im Unternehmen fördern.'],
           reveal: ['Richtige Antwort: Weil es Kosten spart und das Image verbessert, neue Kundengruppen erschliesst und Innovationen fördert']
         }
       ],
@@ -2691,7 +2691,7 @@ window.BOOK_DATA = {
             'Weil Reklamationen nur von der IT bearbeitet werden'
           ],
           answer: 1,
-          tips: [],
+          tips: ['CRM steht für Customer Relationship Management – Kundenbeziehungsmanagement.', 'Was hat der Umgang mit Beschwerden mit Kundenbeziehungen zu tun?', 'Eine gut bearbeitete Reklamation kann die Kundenbindung sogar stärken.'],
           reveal: ['Richtige Antwort: Weil Reklamationsmanagement dazu beiträgt, Kundenbeziehungen zu pflegen und zu verbessern']
         },
         {
