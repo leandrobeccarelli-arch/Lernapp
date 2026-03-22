@@ -10,14 +10,14 @@
   --accent:#4338ca;--green:#059669;--red:#dc2626;--amber:#b45309;
   --border:#d4d4da;--card-shadow:0 1px 3px rgba(0,0,0,0.06),0 4px 12px rgba(0,0,0,0.04);
   --input-bg:#f6f6f8;--hover:#f0f0f4;
-  --hero-bg:linear-gradient(135deg,#1e1e32,#1a2540);--hero-text:#e4e4e7;--hero-sub:#a1a1aa
+  --hero-bg:linear-gradient(135deg,#2c2218,#1f1a14,#2a1f16);--hero-text:#e8e0d4;--hero-sub:#a89882
 }
 .dark{
   --bg:#111113;--nav:#fafafa;--card:#1c1c1e;--text:#e4e4e7;--text2:#a1a1aa;
   --accent:#818cf8;--green:#34d399;--red:#f87171;--amber:#fbbf24;
   --border:#27272a;--card-shadow:0 1px 3px rgba(0,0,0,0.3);
   --input-bg:#18181b;--hover:#27272a;
-  --hero-bg:linear-gradient(135deg,#18181b,#1e1e24);--hero-text:#e4e4e7;--hero-sub:#a1a1aa
+  --hero-bg:linear-gradient(135deg,#1a1510,#16120e,#1e1812);--hero-text:#e8e0d4;--hero-sub:#a89882
 }
 body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;transition:background .3s,color .3s;-webkit-font-smoothing:antialiased}
 input,select,button,textarea{font-family:'Inter',sans-serif}
@@ -45,7 +45,8 @@ input,select,button,textarea{font-family:'Inter',sans-serif}
 .container{max-width:900px;margin:0 auto;padding:24px 16px 80px}
 
 /* ─── Hero (Startseite) ───────────────────────────────── */
-.hero{background:var(--hero-bg);padding:40px 24px 44px;text-align:center;position:relative;overflow:hidden;box-shadow:inset 0 -1px 0 var(--border),0 2px 8px rgba(0,0,0,0.04)}
+.hero{background:var(--hero-bg);padding:40px 24px 44px;text-align:center;position:relative;overflow:hidden;box-shadow:inset 0 -1px 0 var(--border),0 2px 8px rgba(0,0,0,0.04);isolation:isolate}
+.hero::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.12'/%3E%3C/svg%3E");opacity:.35;pointer-events:none;z-index:1;mix-blend-mode:overlay}
 .hero-title{color:var(--hero-text);font-size:1.6rem;font-weight:800;letter-spacing:-.03em}
 .hero-sub{color:var(--hero-sub);font-size:.82rem;margin-top:6px;font-weight:400;max-width:400px;margin-left:auto;margin-right:auto;line-height:1.5}
 .hero-stats{display:flex;justify-content:center;gap:32px;margin-top:20px}
