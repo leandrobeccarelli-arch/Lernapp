@@ -78,6 +78,13 @@
     setTimeout(function(){ splash.remove(); }, 3200);
   }
 
+  // Only show splash on fresh session (not when navigating back from a book)
+  if(sessionStorage.getItem('lp-splash-shown')){
+    splash.remove();
+    return;
+  }
+  sessionStorage.setItem('lp-splash-shown','1');
+
   // Try autoplay, fallback to click
   setTimeout(function(){
     if(!started) startSplash();

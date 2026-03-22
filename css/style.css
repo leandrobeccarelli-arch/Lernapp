@@ -492,11 +492,11 @@ input,select,button,textarea{font-family:'Inter',sans-serif}
   .bilanz-grid{grid-template-columns:1fr}
   .match-row{flex-direction:column;align-items:flex-start;gap:6px}
   .calc-row{flex-direction:column;align-items:flex-start;gap:4px}
-  .nav{padding:10px 12px;gap:6px}
+  .nav{padding:10px 12px;gap:6px;flex-wrap:wrap}
   .nav-title{font-size:.88rem}
   .nav-sub{font-size:.65rem}
-  .nav-right{gap:6px;width:100%;justify-content:space-between}
-  .tool-bar{gap:4px}
+  .nav-right{gap:6px;width:100%;flex-wrap:wrap}
+  .tool-bar{gap:4px;margin-left:0;flex-wrap:wrap}
   .tool-btn{padding:4px 8px;font-size:.65rem}
   .nav-btn{padding:4px 8px;font-size:.7rem}
   .container{padding:16px 10px 60px}
