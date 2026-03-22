@@ -1534,14 +1534,10 @@ function ModeTabs(props) {
 // ─── Buchungssätze-Trainer ────────────────────────────────────────────────────
 
 var BS_KONTEN = [
-  'Kasse','Bank','Forderungen L+L','WB Forderungen','Warenvorrat',
-  'Maschinen','Mobilien','Immobilien','WB Immobilien','Aktive RA',
-  'Verbindlichkeiten L+L','Darlehen','Hypotheken','Passive RA',
-  'Eigenkapital','Gewinnvortrag',
-  'Warenaufwand','Warenertrag','Lohnaufwand','Mietaufwand','Mietertrag',
-  'Verwaltungsaufwand','Versicherungsaufwand','Abschreibungen',
-  'Finanzaufwand','Finanzertrag','Forderungsverluste',
-  'Ausserordentlicher Ertrag','Ausserordentlicher Aufwand'
+  'Kasse','Bank','Forderungen L+L','Warenvorrat','Mobilien',
+  'Verbindlichkeiten L+L','Darlehen','Eigenkapital',
+  'Warenaufwand','Warenertrag','Lohnaufwand','Mietaufwand',
+  'Verwaltungsaufwand','Finanzaufwand','Finanzertrag'
 ];
 
 function BuchungssaetzeTrainer(props) {
@@ -1631,9 +1627,9 @@ function BuchungssaetzeTrainer(props) {
       // Merke box
       e('div', { style: { padding: '12px 16px', borderRadius: 10, background: 'var(--bg)', border: '1px solid var(--border)', marginBottom: 20, fontSize: '.82rem', lineHeight: 1.5 } },
         e('strong', null, 'Merke: '), 'Soll an Haben \u2013 ',
-        'Aktivkonten: Zunahme = Soll, Abnahme = Haben. ',
-        'Passivkonten: Zunahme = Haben, Abnahme = Soll. ',
-        'Aufwand = Soll, Ertrag = Haben.'
+        'Aktivkonten (Verm\u00f6gen): Zunahme = Soll, Abnahme = Haben. ',
+        'Passivkonten (Schulden/EK): Zunahme = Haben, Abnahme = Soll. ',
+        'Aufwandskonten: Zunahme = Soll. Ertragskonten: Zunahme = Haben.'
       )
     ),
 
