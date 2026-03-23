@@ -1234,9 +1234,11 @@ function LearningRenderer(props) {
         ),
         e('div', { className: 'learn-section-body' },
           e('div', { className: 'learn-summary-text' },
-            Array.isArray(section.content)
-              ? section.content.map(function(p, i) { return e('p', { key: i, style: { marginBottom: 10, lineHeight: 1.7 }, dangerouslySetInnerHTML: { __html: p } }); })
-              : formatText(section.content || section.text || '')
+            Array.isArray(section.items)
+              ? section.items.map(function(p, i) { return e('p', { key: i, style: { marginBottom: 10, lineHeight: 1.7 } }, formatText(typeof p === 'string' ? p : (p.label ? p.label + ': ' + (p.text || p.val || '') : (p.text || p.val || JSON.stringify(p))))); })
+              : Array.isArray(section.content)
+                ? section.content.map(function(p, i) { return e('p', { key: i, style: { marginBottom: 10, lineHeight: 1.7 } }, formatText(p)); })
+                : formatText(section.content || section.text || '')
           )
         )
       );
