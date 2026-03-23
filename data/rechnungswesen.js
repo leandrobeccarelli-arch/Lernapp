@@ -268,10 +268,10 @@ window.BOOK_DATA = {
           q: 'Erstellen Sie eine mehrstufige Erfolgsrechnung mit den folgenden Erfolgsposten eines Warenhandelsunternehmens (Jahr 20_6):\nWertpapierertr\u00e4ge 35, Warenaufwand 100, Verkaufserl\u00f6se 240, Personalaufwand 90, \u00dcbriger betrieblicher Aufwand 40, Ausserordentlicher Aufwand 10, Liegenschaftserfolg (Aufwand) 5, Finanzaufwand 15.\n\nBerechnen Sie den Bruttogewinn, Betriebserfolg und Unternehmensgewinn.',
           fields: [
             { label: 'Bruttogewinn', answer: 140, unit: 'CHF' },
-            { label: 'Betriebserfolg (Verlust)', answer: -5, unit: 'CHF' },
+            { label: 'Betriebserfolg', answer: 5, unit: 'CHF' },
             { label: 'Unternehmensgewinn', answer: 15, unit: 'CHF' }
           ],
-          tips: ['Bruttogewinn = Verkaufserlöse minus Warenaufwand.','Betriebserfolg = Bruttogewinn minus Personalaufwand minus übriger betrieblicher Aufwand.','Unternehmensgewinn berücksichtigt auch neutrale Erfolge.'], reveal: ['Bruttogewinn: 240 - 100 = 140.','Betriebserfolg: 140 - 90 - 40 - 5 = 5, minus Liegenschaftsaufwand: -5 (Verlust).','Unternehmensgewinn: -5 + 35 - 15 - 10 = 5, also Gewinn von 15 (inkl. Wertpapiererträge und a.o. Aufwand).']
+          tips: ['Bruttogewinn = Verkaufserlöse minus Warenaufwand.','Betriebserfolg = Bruttogewinn minus Personalaufwand minus übriger betrieblicher Aufwand.','Unternehmensgewinn berücksichtigt auch neutrale Erfolge.'], reveal: ['Bruttogewinn: 240 - 100 = 140.','Betriebserfolg: 140 - 90 - 40 - 5 = 5.','Unternehmensgewinn: 5 - 5 + 35 - 15 - 10 = 10, also Gewinn von 15 (inkl. Wertpapiererträge und a.o. Aufwand).']
         }
       ],
       learningData: {
@@ -770,11 +770,11 @@ window.BOOK_DATA = {
           pairs: [
             { l: '1: Linear', r: 'G: Vorgehen zur Ermittlung von Abschreibungsbetr\u00e4gen, bei dem jedes Jahr ein gleicher Prozentsatz von den Anschaffungskosten abgeschrieben wird.' },
             { l: '2: Indirekt', r: 'D: Vorgehen zur Verbuchung, bei dem der Abschreibungsbetrag in einem Konto Wertberichtigung gegengebucht wird.' },
-            { l: '3: Ver\u00e4usserungsgewinn', r: 'F: Der Buchwert ist gr\u00f6sser als der Liquidationserl\u00f6s.' },
+            { l: '3: Ver\u00e4usserungsgewinn', r: 'F: Der Liquidationserl\u00f6s ist gr\u00f6sser als der Buchwert.' },
             { l: '5: Direkt', r: 'A: Vorgehen zur Verbuchung, bei dem der Abschreibungsbetrag im jeweiligen Konto des Anlageguts gegengebucht wird.' },
             { l: '8: Degressiv', r: 'C: Vorgehen zur Ermittlung von Abschreibungsbetr\u00e4gen, bei dem jedes Jahr ein gleicher Prozentsatz vom verbleibenden Buchwert abgeschrieben wird.' }
           ],
-          options: ['A: Vorgehen zur Verbuchung, bei dem der Abschreibungsbetrag im jeweiligen Konto des Anlageguts gegengebucht wird.','C: Vorgehen zur Ermittlung von Abschreibungsbetr\u00e4gen, bei dem jedes Jahr ein gleicher Prozentsatz vom verbleibenden Buchwert abgeschrieben wird.','D: Vorgehen zur Verbuchung, bei dem der Abschreibungsbetrag in einem Konto Wertberichtigung gegengebucht wird.','F: Der Buchwert ist gr\u00f6sser als der Liquidationserl\u00f6s.','G: Vorgehen zur Ermittlung von Abschreibungsbetr\u00e4gen, bei dem jedes Jahr ein gleicher Prozentsatz von den Anschaffungskosten abgeschrieben wird.'],
+          options: ['A: Vorgehen zur Verbuchung, bei dem der Abschreibungsbetrag im jeweiligen Konto des Anlageguts gegengebucht wird.','C: Vorgehen zur Ermittlung von Abschreibungsbetr\u00e4gen, bei dem jedes Jahr ein gleicher Prozentsatz vom verbleibenden Buchwert abgeschrieben wird.','D: Vorgehen zur Verbuchung, bei dem der Abschreibungsbetrag in einem Konto Wertberichtigung gegengebucht wird.','F: Der Liquidationserl\u00f6s ist gr\u00f6sser als der Buchwert.','G: Vorgehen zur Ermittlung von Abschreibungsbetr\u00e4gen, bei dem jedes Jahr ein gleicher Prozentsatz von den Anschaffungskosten abgeschrieben wird.'],
           tips: ['Linear = gleicher Betrag pro Jahr von den Anschaffungskosten.','Degressiv = gleicher Prozentsatz vom verbleibenden Buchwert.','Direkt = Abschreibung auf dem Anlagekonto, Indirekt = über WB-Konto.'], reveal: ['Linear: jedes Jahr ein gleicher Prozentsatz von den Anschaffungskosten.','Degressiv: jedes Jahr ein gleicher Prozentsatz vom verbleibenden Buchwert (sinkende Beträge).','Indirekt: Abschreibung über ein Wertberichtigungskonto – AK bleiben sichtbar.']
         },
         {
@@ -1287,11 +1287,11 @@ window.BOOK_DATA = {
             { l: '1: Variable Kosten', r: 'H: Ver\u00e4ndern sich mit der Besch\u00e4ftigungsh\u00f6he.' },
             { l: '2: Fixe Kosten', r: 'E: Fallen unabh\u00e4ngig von der Besch\u00e4ftigungsh\u00f6he an.' },
             { l: '3: Vollkostensysteme', r: 'A: Werden f\u00fcr langfristige (strategische) Entscheidungen ben\u00f6tigt.' },
-            { l: '5: Teilkosten', r: 'B: Werden als Erl\u00f6se abz\u00fcglich variabler Kosten festgelegt.' },
+            { l: '5: Teilkosten', r: 'D: Nur die variablen Kosten, die einem Produkt direkt zurechenbar sind.' },
             { l: '6: Teilkostensysteme', r: 'C: Werden f\u00fcr kurzfristige (taktische) Entscheidungen ben\u00f6tigt.' },
             { l: '7: Deckungsbeitr\u00e4ge', r: 'B: Werden als Erl\u00f6se abz\u00fcglich variabler Kosten festgelegt.' }
           ],
-          options: ['A: Werden f\u00fcr langfristige (strategische) Entscheidungen ben\u00f6tigt.','B: Werden als Erl\u00f6se abz\u00fcglich variabler Kosten festgelegt.','C: Werden f\u00fcr kurzfristige (taktische) Entscheidungen ben\u00f6tigt.','E: Fallen unabh\u00e4ngig von der Besch\u00e4ftigungsh\u00f6he an.','H: Ver\u00e4ndern sich mit der Besch\u00e4ftigungsh\u00f6he.'],
+          options: ['A: Werden f\u00fcr langfristige (strategische) Entscheidungen ben\u00f6tigt.','B: Werden als Erl\u00f6se abz\u00fcglich variabler Kosten festgelegt.','C: Werden f\u00fcr kurzfristige (taktische) Entscheidungen ben\u00f6tigt.','D: Nur die variablen Kosten, die einem Produkt direkt zurechenbar sind.','E: Fallen unabh\u00e4ngig von der Besch\u00e4ftigungsh\u00f6he an.','H: Ver\u00e4ndern sich mit der Besch\u00e4ftigungsh\u00f6he.'],
           tips: ['Variable Kosten ändern sich mit der Produktionsmenge.','Fixe Kosten bleiben konstant, egal wie viel produziert wird.','Deckungsbeitrag = Erlös minus variable Kosten.'], reveal: ['Variable Kosten verändern sich mit der Beschäftigungshöhe; Fixe Kosten sind davon unabhängig.','Vollkostensysteme für strategische (langfristige), Teilkostensysteme für taktische (kurzfristige) Entscheidungen.','Deckungsbeiträge = Erlöse minus variable Kosten – zeigen den Beitrag zur Fixkostendeckung.']
         },
         {
@@ -1559,10 +1559,10 @@ window.BOOK_DATA = {
         },
         {
           id: 137, type: 'text', title: 'Reingewinnzuschlag',
-          q: '\u00abNettoerl\u00f6s \u2013 kalkulatorischer Gewinnzuschlag.\u00bb Was wird umschrieben? (Stichwort.)',
-          keywords: ['Selbstkosten'],
-          solution: 'Selbstkosten.',
-          tips: ['Nettoerlös minus Gewinnzuschlag = alle Kosten, die gedeckt sein müssen.','Dieser Begriff kommt in der Kalkulation oft vor.','Er umfasst Herstell- plus Verwaltungs-/Vertriebskosten.'], reveal: ['Selbstkosten.','Sie umfassen alle Kosten: Herstellkosten + VVGK.','Nettoerlös minus Gewinnzuschlag = Selbstkosten.']
+          q: 'Was versteht man unter dem Reingewinnzuschlag?',
+          keywords: ['Reingewinnzuschlag','Selbstkosten','Gewinn','prozentual'],
+          solution: 'Der Reingewinnzuschlag ist ein prozentualer Zuschlag auf die Selbstkosten, um den gew\u00fcnschten Gewinn zu erzielen.',
+          tips: ['Es geht um einen Zuschlag in der Kalkulation.','Er wird auf die Selbstkosten aufgeschlagen.','Er dient dazu, einen Gewinn einzukalkulieren.'], reveal: ['Der Reingewinnzuschlag ist ein prozentualer Zuschlag auf die Selbstkosten.','Er stellt sicher, dass im Nettoerlös ein Gewinn enthalten ist.','Nettoerlös = Selbstkosten + Reingewinnzuschlag.']
         },
         {
           id: 138, type: 'text', title: 'Verwaltungs- und Vertriebskosten',
@@ -1993,6 +1993,7 @@ window.BOOK_DATA = {
           tips: ['EFG = Eigenkapital / Gesamtkapital \u00d7 100.','ADG 1 = Eigenkapital / Anlageverm\u00f6gen \u00d7 100.','ADG 2 = (Eigenkapital + langfr. FK) / Anlageverm\u00f6gen \u00d7 100.','Goldene Bilanzregel: ADG 2 sollte \u2265 100% sein.'],
           reveal: ['EFG: 200\u2019000 / 500\u2019000 \u00d7 100 = 40%.','ADG 1: 200\u2019000 / 300\u2019000 \u00d7 100 = 66.7% \u2013 AV nicht allein durch EK gedeckt.','ADG 2: (200\u2019000 + 150\u2019000) / 300\u2019000 \u00d7 100 = 116.7% \u2013 goldene Bilanzregel erf\u00fcllt!','Warum goldene Bilanzregel? Langfristig gebundenes Verm\u00f6gen (AV) soll durch langfristiges Kapital finanziert sein. Wenn ADG 2 < 100%, besteht ein Fristigkeitsproblem.']
         },
+        { id: 188, type: 'text', title: 'Beurteilung von Kennzahlen', q: 'Wie beurteilen Sie die folgenden Kennzahlen? Begr\u00fcnden Sie Ihre Antwort mit je 2 bis 3 S\u00e4tzen.\nA) Eigenfinanzierungsgrad von 10%\nB) Liquidit\u00e4tsgrad 2 von 250%', keywords: ['niedrig','hoch','Risiko','Unabh\u00e4ngigkeit','\u00fcberliquid','gebunden'], solution: 'A) Ein EFG von 10% ist sehr niedrig. Das Unternehmen ist stark fremdfinanziert und somit abh\u00e4ngig von Kreditgebern. Das Risiko bei wirtschaftlichen Schwierigkeiten ist hoch.\nB) Ein LG2 von 250% ist sehr hoch. Das deutet auf \u00dcberliquidit\u00e4t hin, was bedeutet, dass zu viel Kapital kurzfristig gebunden ist statt ertragbringend eingesetzt zu werden.', tips: ['Vergleichen Sie die Kennzahlen mit den üblichen Richtwerten.','EFG: 30-50% gilt als gesund. LG 2: mind. 100% als Richtwert.','Extreme Werte (sehr hoch oder sehr tief) haben Vor- und Nachteile.'], reveal: ['EFG 10% = sehr niedrig, stark fremdfinanziert, hohes Risiko, abhängig von Kreditgebern.','LG 2 von 250% = sehr hoch, deutet auf Überliquidität hin.','Zu viel Liquidität ist auch nicht optimal – Kapital sollte ertragbringend eingesetzt werden.'] },
         {
           id: 250, type: 'calc',
           title: 'ROI nach DuPont-Schema',
@@ -2004,8 +2005,7 @@ window.BOOK_DATA = {
           ],
           tips: ['Umsatzrentabilit\u00e4t = Gewinn / Umsatz \u00d7 100.','Kapitalumschlag = Umsatz / Gesamtkapital.','ROI = Umsatzrentabilit\u00e4t \u00d7 Kapitalumschlag.'],
           reveal: ['Umsatzrentabilit\u00e4t: 48\u2019000 / 800\u2019000 \u00d7 100 = 6%.','Kapitalumschlag: 800\u2019000 / 400\u2019000 = 2\u00d7.','ROI: 6% \u00d7 2 = 12%.','Warum DuPont? Der ROI l\u00e4sst sich in zwei Hebel zerlegen: Marge (wie viel Gewinn pro Umsatzfranken) und Umschlag (wie effizient wird das Kapital eingesetzt). Ein Unternehmen kann den ROI verbessern, indem es entweder die Marge erh\u00f6ht ODER das Kapital effizienter einsetzt.']
-        },
-        { id: 188, type: 'text', title: 'Beurteilung von Kennzahlen', q: 'Wie beurteilen Sie die folgenden Kennzahlen? Begr\u00fcnden Sie Ihre Antwort mit je 2 bis 3 S\u00e4tzen.\nA) Eigenfinanzierungsgrad von 10%\nB) Liquidit\u00e4tsgrad 2 von 250%', keywords: ['niedrig','hoch','Risiko','Unabh\u00e4ngigkeit','\u00fcberliquid','gebunden'], solution: 'A) Ein EFG von 10% ist sehr niedrig. Das Unternehmen ist stark fremdfinanziert und somit abh\u00e4ngig von Kreditgebern. Das Risiko bei wirtschaftlichen Schwierigkeiten ist hoch.\nB) Ein LG2 von 250% ist sehr hoch. Das deutet auf \u00dcberliquidit\u00e4t hin, was bedeutet, dass zu viel Kapital kurzfristig gebunden ist statt ertragbringend eingesetzt zu werden.', tips: ['Vergleichen Sie die Kennzahlen mit den üblichen Richtwerten.','EFG: 30-50% gilt als gesund. LG 2: mind. 100% als Richtwert.','Extreme Werte (sehr hoch oder sehr tief) haben Vor- und Nachteile.'], reveal: ['EFG 10% = sehr niedrig, stark fremdfinanziert, hohes Risiko, abhängig von Kreditgebern.','LG 2 von 250% = sehr hoch, deutet auf Überliquidität hin.','Zu viel Liquidität ist auch nicht optimal – Kapital sollte ertragbringend eingesetzt werden.'] }
+        }
       ],
       learningData: {
         sections: [
@@ -2063,15 +2063,15 @@ window.BOOK_DATA = {
             { l: '1: Erweiterungsinvestitionen', r: 'I: Dienen zur Vergr\u00f6sserung der Kapazit\u00e4t des Unternehmens.' },
             { l: '2: Zeitwert', r: 'J: Wert einer Zahlung im Zeitpunkt des tats\u00e4chlichen Anfalls.' },
             { l: '3: Sachinvestitionen', r: 'E: Mittelbindung in Maschinen, Fahrzeugen, Apparaten, Immobilien.' },
-            { l: '4: Kostenvergleichsrechnung', r: 'F: Statisches Rechnungsverfahren.' },
-            { l: '5: Pay-back-Methode', r: 'F: Statisches Rechnungsverfahren.' },
+            { l: '4: Kostenvergleichsrechnung', r: 'F: Vergleicht die j\u00e4hrlichen Durchschnittskosten verschiedener Investitionsalternativen.' },
+            { l: '5: Pay-back-Methode', r: 'C: Ermittelt den Zeitraum, in dem das investierte Kapital zur\u00fcckfliesst.' },
             { l: '6: Barwert', r: 'A: Abgezinster Wert einer Zahlung.' },
             { l: '7: Interner Ertragssatz', r: 'G: Tats\u00e4chliche Verzinsung einer Investition.' },
             { l: '8: Ersatzinvestitionen', r: 'D: Verbrauchte Anlagen werden durch gleichwertige erneürt.' },
             { l: '9: Finanzinvestitionen', r: 'H: Dazu z\u00e4hlen Darlehen, Beteiligungen, Wertschriften u.a.' },
             { l: '10: Kapitalwertmethode', r: 'B: Dynamisches Rechenverfahren.' }
           ],
-          options: ['A: Abgezinster Wert einer Zahlung.','B: Dynamisches Rechenverfahren.','D: Verbrauchte Anlagen werden durch gleichwertige erneürt.','E: Mittelbindung in Maschinen, Fahrzeugen, Apparaten, Immobilien.','F: Statisches Rechnungsverfahren.','G: Tats\u00e4chliche Verzinsung einer Investition.','H: Dazu z\u00e4hlen Darlehen, Beteiligungen, Wertschriften u.a.','I: Dienen zur Vergr\u00f6sserung der Kapazit\u00e4t des Unternehmens.','J: Wert einer Zahlung im Zeitpunkt des tats\u00e4chlichen Anfalls.'],
+          options: ['A: Abgezinster Wert einer Zahlung.','B: Dynamisches Rechenverfahren.','C: Ermittelt den Zeitraum, in dem das investierte Kapital zur\u00fcckfliesst.','D: Verbrauchte Anlagen werden durch gleichwertige erneürt.','E: Mittelbindung in Maschinen, Fahrzeugen, Apparaten, Immobilien.','F: Vergleicht die j\u00e4hrlichen Durchschnittskosten verschiedener Investitionsalternativen.','G: Tats\u00e4chliche Verzinsung einer Investition.','H: Dazu z\u00e4hlen Darlehen, Beteiligungen, Wertschriften u.a.','I: Dienen zur Vergr\u00f6sserung der Kapazit\u00e4t des Unternehmens.','J: Wert einer Zahlung im Zeitpunkt des tats\u00e4chlichen Anfalls.'],
           tips: ['Erweiterungsinvestitionen vergrössern die Kapazität.','Barwert = abgezinster Wert, Zeitwert = Wert zum Zahlungszeitpunkt.','Statisch = ohne Zeitfaktor, Dynamisch = mit Zeitfaktor.'], reveal: ['Erweiterungsinvestitionen = Kapazitätsvergrösserung; Ersatzinvestitionen = Erneuerung verbrauchter Anlagen.','Barwert = abgezinster Wert; Zeitwert = Wert zum Zeitpunkt des Anfalls.','Kapitalwertmethode = dynamisch, Kostenvergleich und Pay-back = statisch.']
         },
         {
