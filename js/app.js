@@ -15,10 +15,34 @@ var useMemo = React.useMemo;
 
 // ─── Data Loading ───────────────────────────────────────────────────────────
 
+var VALID_BOOKS = ['rechnungswesen','rechnungswesen-uebungen','kommunikation-grundlagen','verkaufsplanung','distribution','digitales-marketing','kommunikation-instrumente','marketingkonzept','selbstmanagement','projektmanagement'];
+
 var bookParam = new URLSearchParams(window.location.search).get('book');
 
+function showError(msg) {
+  var root = document.getElementById('root');
+  var wrap = document.createElement('div');
+  wrap.style.cssText = 'padding:60px 20px;text-align:center;font-family:Inter,sans-serif';
+  var h2 = document.createElement('h2');
+  h2.textContent = msg;
+  var p = document.createElement('p');
+  p.style.marginTop = '12px';
+  var a = document.createElement('a');
+  a.href = 'index.html';
+  a.textContent = 'Zur Buchauswahl';
+  p.appendChild(a);
+  wrap.appendChild(h2);
+  wrap.appendChild(p);
+  root.appendChild(wrap);
+}
+
 if (!bookParam) {
-  document.getElementById('root').innerHTML = '<div style="padding:60px 20px;text-align:center;font-family:Inter,sans-serif"><h2>Kein Buch angegeben</h2><p style="margin-top:12px"><a href="index.html">Zur Buchauswahl</a></p></div>';
+  showError('Kein Buch angegeben');
+  return;
+}
+
+if (VALID_BOOKS.indexOf(bookParam) === -1) {
+  showError('Ungültiges Buch');
   return;
 }
 
@@ -30,11 +54,11 @@ script.onload = function() {
     document.title = window.BOOK_DATA.shortTitle + ' – Lernplattform';
     initApp(window.BOOK_DATA);
   } else {
-    document.getElementById('root').innerHTML = '<div style="padding:60px 20px;text-align:center;font-family:Inter,sans-serif"><h2>Buchdaten nicht gefunden</h2><p style="margin-top:12px"><a href="index.html">Zur Buchauswahl</a></p></div>';
+    showError('Buchdaten nicht gefunden');
   }
 };
 script.onerror = function() {
-  document.getElementById('root').innerHTML = '<div style="padding:60px 20px;text-align:center;font-family:Inter,sans-serif"><h2>Buch nicht gefunden: ' + bookParam + '</h2><p style="margin-top:12px"><a href="index.html">Zur Buchauswahl</a></p></div>';
+  showError('Buch nicht gefunden');
 };
 document.head.appendChild(script);
 
