@@ -2065,9 +2065,62 @@ function initApp(bookData) {
       });
     }
 
+    var stSearch = useState(''), searchQuery = stSearch[0], setSearchQuery = stSearch[1];
+
     var totalExercises = 0;
     bookData.chapters.forEach(function(ch) { totalExercises += (ch.exercises || []).length; });
     var totalDone = Object.values(progress).filter(function(p) { return p && p.done; }).length;
+
+    // Search: filter chapters and find matching exercises/content
+    var searchResults = useMemo(function() {
+      var q = searchQuery.trim().toLowerCase();
+      if (!q || q.length < 2) return null;
+      var results = [];
+      bookData.chapters.forEach(function(ch) {
+        var chMatch = ch.title.toLowerCase().indexOf(q) >= 0 || (ch.num || '').toLowerCase().indexOf(q) >= 0;
+        var matchingExercises = (ch.exercises || []).filter(function(ex) {
+          return (ex.q || '').toLowerCase().indexOf(q) >= 0
+            || (ex.instruction || '').toLowerCase().indexOf(q) >= 0
+            || (ex.template || '').toLowerCase().indexOf(q) >= 0
+            || (ex.statements || []).some(function(s) { return (s.s || '').toLowerCase().indexOf(q) >= 0; })
+            || (ex.options || []).some(function(o) { return (o || '').toLowerCase().indexOf(q) >= 0; })
+            || (ex.pairs || []).some(function(p) { return (p.l || '').toLowerCase().indexOf(q) >= 0 || (p.r || '').toLowerCase().indexOf(q) >= 0; })
+            || (ex.questions || []).some(function(qn) { return (qn.q || '').toLowerCase().indexOf(q) >= 0; });
+        });
+        var matchingSections = [];
+        if (ch.learningData && ch.learningData.sections) {
+          ch.learningData.sections.forEach(function(sec) {
+            if ((sec.title || '').toLowerCase().indexOf(q) >= 0
+              || (sec.content || '').toLowerCase().indexOf(q) >= 0
+              || (sec.text || '').toLowerCase().indexOf(q) >= 0
+              || (sec.highlight || '').toLowerCase().indexOf(q) >= 0
+              || (sec.items || []).some(function(it) { return (typeof it === 'string' ? it : JSON.stringify(it)).toLowerCase().indexOf(q) >= 0; })
+              || (sec.terms || []).some(function(t) { return (t.term || '').toLowerCase().indexOf(q) >= 0 || (t.def || '').toLowerCase().indexOf(q) >= 0; })
+            ) {
+              matchingSections.push(sec);
+            }
+          });
+        }
+        // Also search glossary
+        var matchingGlossary = (bookData.glossary || []).filter(function(g) {
+          return (g.term || '').toLowerCase().indexOf(q) >= 0 || (g.def || '').toLowerCase().indexOf(q) >= 0;
+        });
+        if (chMatch || matchingExercises.length > 0 || matchingSections.length > 0) {
+          results.push({ chapter: ch, chMatch: chMatch, exercises: matchingExercises, sections: matchingSections });
+        }
+        if (matchingGlossary.length > 0 && results.glossary === undefined) {
+          results.glossary = matchingGlossary;
+        }
+      });
+      // Attach glossary results
+      if (!results.glossary) {
+        var gResults = (bookData.glossary || []).filter(function(g) {
+          return (g.term || '').toLowerCase().indexOf(q) >= 0 || (g.def || '').toLowerCase().indexOf(q) >= 0;
+        });
+        if (gResults.length > 0) results.glossary = gResults;
+      }
+      return results;
+    }, [searchQuery]);
 
     return e('div', null,
       // Nav
@@ -2107,6 +2160,52 @@ function initApp(bookData) {
         onClose: function() { setShowCalcTrainer(false); }
       }) :
       e('div', { className: 'container' },
+        // Search bar
+        e('div', { style: { margin: '0 0 16px', position: 'relative' } },
+          e('input', {
+            type: 'text',
+            value: searchQuery,
+            onChange: function(ev) { setSearchQuery(ev.target.value); },
+            placeholder: 'Kapitel, \u00DCbungen, Begriffe durchsuchen\u2026',
+            style: { width: '100%', padding: '10px 14px 10px 36px', borderRadius: 8, border: '1px solid var(--border)', background: 'var(--card)', color: 'var(--text)', fontSize: '.88rem', outline: 'none', boxSizing: 'border-box' }
+          }),
+          e('span', { style: { position: 'absolute', left: 12, top: '50%', transform: 'translateY(-50%)', opacity: .4, fontSize: '.9rem', pointerEvents: 'none' } }, '\uD83D\uDD0D'),
+          searchQuery.length > 0 ? e('span', {
+            onClick: function() { setSearchQuery(''); },
+            style: { position: 'absolute', right: 12, top: '50%', transform: 'translateY(-50%)', cursor: 'pointer', opacity: .4, fontSize: '.85rem' }
+          }, '\u2715') : null
+        ),
+        // Search results
+        searchResults && searchQuery.length >= 2 ? e('div', { style: { marginBottom: 20 } },
+          searchResults.length === 0 && !searchResults.glossary ? e('div', { style: { padding: '16px', color: 'var(--text2)', fontSize: '.85rem', textAlign: 'center' } }, 'Keine Ergebnisse f\u00FCr \u00AB' + searchQuery + '\u00BB') :
+          e('div', null,
+            e('div', { style: { fontSize: '.75rem', fontWeight: 600, color: 'var(--text2)', marginBottom: 8, letterSpacing: '.03em' } },
+              searchResults.length + ' Kapitel' + (searchResults.glossary ? ', ' + searchResults.glossary.length + ' Glossar-Treffer' : '')
+            ),
+            searchResults.map(function(r, i) {
+              return e('div', { key: i, style: { padding: '10px 14px', marginBottom: 6, borderRadius: 8, background: 'var(--card)', border: '1px solid var(--border)' } },
+                e('div', { style: { fontWeight: 600, fontSize: '.88rem', color: 'var(--accent)' } }, r.chapter.num + ' \u2013 ' + r.chapter.title),
+                r.exercises.length > 0 ? e('div', { style: { marginTop: 6, fontSize: '.8rem', color: 'var(--text2)' } },
+                  r.exercises.length + ' \u00DCbung' + (r.exercises.length > 1 ? 'en' : '') + ': ',
+                  r.exercises.map(function(ex, j) {
+                    return (j > 0 ? ', ' : '') + (ex.q || 'Aufgabe ' + ex.id);
+                  })
+                ) : null,
+                r.sections.length > 0 ? e('div', { style: { marginTop: 4, fontSize: '.8rem', color: 'var(--text2)' } },
+                  'Lerninhalt: ' + r.sections.map(function(s) { return s.title || s.type; }).join(', ')
+                ) : null
+              );
+            }),
+            searchResults.glossary ? e('div', { style: { padding: '10px 14px', marginTop: 6, borderRadius: 8, background: 'var(--card)', border: '1px solid var(--border)' } },
+              e('div', { style: { fontWeight: 600, fontSize: '.88rem', color: 'var(--accent)', marginBottom: 6 } }, 'Glossar'),
+              searchResults.glossary.map(function(g, i) {
+                return e('div', { key: i, style: { fontSize: '.8rem', marginBottom: 4 } },
+                  e('strong', null, g.term + ': '), g.def
+                );
+              })
+            ) : null
+          )
+        ) : null,
         // Berechnungs-Trainer Button (only if book has calc exercises)
         (function() {
           var hasCalc = bookData.chapters.some(function(ch) {
