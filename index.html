@@ -130,23 +130,28 @@ function getBookProgress(bookId){
 /* ══════════════════════════════════════════════════════════
    Globale Suche – lädt Buchdaten on-demand
    ══════════════════════════════════════════════════════════ */
-var _searchCache = {};
-var _searchLoading = false;
+var _searchCache = null;
+var _searchCallbacks = [];
 
 function loadAllBooks(callback){
-  if(Object.keys(_searchCache).length===BOOKS.length){callback(_searchCache);return}
-  if(_searchLoading)return;
-  _searchLoading=true;
+  if(_searchCache){callback(_searchCache);return}
+  _searchCallbacks.push(callback);
+  if(_searchCallbacks.length>1)return;
+  var allData={};
   var idx=0;
   function loadNext(){
-    if(idx>=BOOKS.length){_searchLoading=false;callback(_searchCache);return}
+    if(idx>=BOOKS.length){
+      _searchCache=allData;
+      _searchCallbacks.forEach(function(cb){cb(allData)});
+      _searchCallbacks=[];
+      return;
+    }
     var book=BOOKS[idx];
     idx++;
-    if(_searchCache[book.id]){loadNext();return}
     var s=document.createElement('script');
     s.src='data/'+book.id+'.js?t='+Date.now();
     s.onload=function(){
-      if(window.BOOK_DATA){_searchCache[book.id]={meta:book,data:window.BOOK_DATA};window.BOOK_DATA=null}
+      if(window.BOOK_DATA){allData[book.id]={meta:book,data:window.BOOK_DATA};window.BOOK_DATA=null}
       loadNext();
     };
     s.onerror=function(){loadNext()};
@@ -206,18 +211,24 @@ function App(){
   const [dark, setDark] = useState(()=>localStorage.getItem('lp-dark')==='1');
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState(null);
-  const [searchReady, setSearchReady] = useState(false);
+  const [searchLoading, setSearchLoading] = useState(false);
   const [expandedBook, setExpandedBook] = useState(null);
 
   useEffect(()=>{document.documentElement.className=dark?'dark':''},[dark]);
 
-  useEffect(()=>{
-    if(searchQuery.length<2){setSearchResults(null);return}
-    loadAllBooks(function(allData){
-      setSearchReady(true);
-      setSearchResults(searchAllBooks(allData,searchQuery));
-    });
-  },[searchQuery]);
+  function doSearch(q){
+    setSearchQuery(q);
+    if(q.trim().length<2){setSearchResults(null);return}
+    if(_searchCache){
+      setSearchResults(searchAllBooks(_searchCache,q));
+    } else {
+      setSearchLoading(true);
+      loadAllBooks(function(allData){
+        setSearchLoading(false);
+        setSearchResults(searchAllBooks(allData,q));
+      });
+    }
+  }
 
   function toggleDark(){
     setDark(d=>{localStorage.setItem('lp-dark',d?'0':'1');return !d})
@@ -234,7 +245,7 @@ function App(){
     e('div',{className:'hero'},
       e('div',{style:{position:'relative'}},
         e('h1',{className:'hero-title',style:{letterSpacing:'.12em',fontSize:'1.4rem'}},'BUILT BY LEANDRO'),
-        e('div',{style:{display:'inline-block',marginTop:10,padding:'2px 10px',borderRadius:4,fontSize:'.6rem',fontWeight:600,letterSpacing:'.05em',background:'rgba(255,255,255,.08)',color:'var(--hero-sub)',border:'1px solid rgba(255,255,255,.1)'}},'v0.7.12-beta'),
+        e('div',{style:{display:'inline-block',marginTop:10,padding:'2px 10px',borderRadius:4,fontSize:'.6rem',fontWeight:600,letterSpacing:'.05em',background:'rgba(255,255,255,.08)',color:'var(--hero-sub)',border:'1px solid rgba(255,255,255,.1)'}},'v0.7.13-beta'),
         e('div',{className:'hero-stats'},
           e('div',{className:'hero-stat'},
             e('div',{className:'hero-stat-val'},booksReady+'/'+booksTotal),
@@ -263,16 +274,17 @@ function App(){
       e('div',{style:{position:'relative',marginBottom:16}},
         e('input',{
           type:'text',value:searchQuery,
-          onChange:function(ev){setSearchQuery(ev.target.value)},
+          onChange:function(ev){doSearch(ev.target.value)},
           placeholder:'\uD83D\uDD0D Alle Bücher durchsuchen – Kapitel, Übungen, Begriffe\u2026',
           style:{width:'100%',padding:'12px 40px 12px 16px',borderRadius:10,border:'1px solid var(--border)',background:'var(--card)',color:'var(--text)',fontSize:'.9rem',outline:'none',boxSizing:'border-box'}
         }),
         searchQuery.length>0?e('span',{
-          onClick:function(){setSearchQuery('')},
+          onClick:function(){doSearch('')},
           style:{position:'absolute',right:14,top:'50%',transform:'translateY(-50%)',cursor:'pointer',opacity:.4,fontSize:'.9rem'}
         },'\u2715'):null
       ),
-      searchResults&&searchQuery.length>=2?e('div',{style:{marginBottom:24}},
+      searchLoading?e('div',{style:{padding:'20px',color:'var(--text2)',fontSize:'.88rem',textAlign:'center',marginBottom:24}},'Lade B\u00FCcher\u2026'):null,
+      !searchLoading&&searchResults&&searchQuery.length>=2?e('div',{style:{marginBottom:24}},
         searchResults.length===0?e('div',{style:{padding:'20px',color:'var(--text2)',fontSize:'.88rem',textAlign:'center',background:'var(--card)',borderRadius:10,border:'1px solid var(--border)'}},
           'Keine Ergebnisse f\u00FCr \u00AB'+searchQuery+'\u00BB'
         ):
