@@ -1887,13 +1887,43 @@ function CalcTrainer(props) {
 
 function PageViewer(props) {
   var bookId = props.bookId, totalPages = props.totalPages, onClose = props.onClose, startPage = props.startPage || 1;
+  var bookData = props.bookData;
   var minPage = props.minPage || 1, maxPage = props.maxPage || totalPages;
   var st = useState(startPage), page = st[0], setPage = st[1];
   var st2 = useState(false), loading = st2[0], setLoading = st2[1];
   var st3 = useState(''), pageInput = st3[0], setPageInput = st3[1];
+  var st4 = useState(''), viewerSearch = st4[0], setViewerSearch = st4[1];
+  var st5 = useState(null), viewerResults = st5[0], setViewerResults = st5[1];
+
+  function searchInBook(q) {
+    setViewerSearch(q);
+    if (!q || q.length < 2 || !bookData) { setViewerResults(null); return; }
+    var ql = q.trim().toLowerCase();
+    var hits = [];
+    (bookData.chapters || []).forEach(function(ch) {
+      if (!ch.pageStart) return;
+      var found = false;
+      if ((ch.title || '').toLowerCase().indexOf(ql) >= 0) found = true;
+      (ch.exercises || []).forEach(function(ex) {
+        if ((ex.q || '').toLowerCase().indexOf(ql) >= 0 || (ex.instruction || '').toLowerCase().indexOf(ql) >= 0) found = true;
+      });
+      if (ch.learningData && ch.learningData.sections) {
+        ch.learningData.sections.forEach(function(sec) {
+          var content = Array.isArray(sec.content) ? sec.content.join(' ') : sec.content || '';
+          if ((sec.title || '').toLowerCase().indexOf(ql) >= 0 || content.toLowerCase().indexOf(ql) >= 0
+            || (sec.highlight || '').toLowerCase().indexOf(ql) >= 0
+            || (sec.items || []).some(function(it) { return (typeof it === 'string' ? it : JSON.stringify(it)).toLowerCase().indexOf(ql) >= 0; })
+            || (sec.terms || []).some(function(t) { return (t.term || '').toLowerCase().indexOf(ql) >= 0 || (t.def || '').toLowerCase().indexOf(ql) >= 0; })
+          ) found = true;
+        });
+      }
+      if (found) hits.push({ ch: ch, page: ch.pageStart });
+    });
+    setViewerResults(hits);
+  }
 
   function padPage(n) { return String(n).padStart(3, '0'); }
-  var imgSrc = 'screenshots/' + bookId + '/seite_' + padPage(page) + '.png';
+  var imgSrc = 'screenshots/' + bookId + '/seite_' + padPage(page) + '.jpg';
   var isRestricted = minPage > 1 || maxPage < totalPages;
 
   function goTo(n) {
@@ -1942,8 +1972,34 @@ function PageViewer(props) {
           style: { background: 'rgba(255,255,255,.1)', border: 'none', color: '#fff', padding: '6px 14px', borderRadius: 6, cursor: page < maxPage ? 'pointer' : 'default', opacity: page < maxPage ? 1 : .3, fontSize: '.85rem' }
         }, 'Weiter \u2192')
       ),
-      e('div', { style: { display: 'flex', gap: 8 } },
-        e('span', { style: { color: 'rgba(255,255,255,.4)', fontSize: '.7rem', alignSelf: 'center' } }, '\u2190\u2192 Pfeiltasten'),
+      e('div', { style: { display: 'flex', gap: 8, alignItems: 'center' } },
+        bookData ? e('div', { style: { position: 'relative' } },
+          e('input', {
+            type: 'text', value: viewerSearch, placeholder: '\uD83D\uDD0D Im Buch suchen\u2026',
+            onChange: function(ev) { searchInBook(ev.target.value); },
+            onKeyDown: function(ev) { ev.stopPropagation(); },
+            style: { width: 180, padding: '5px 10px', borderRadius: 6, border: '1px solid rgba(255,255,255,.15)', background: 'rgba(255,255,255,.1)', color: '#fff', fontSize: '.8rem', outline: 'none' }
+          }),
+          viewerResults && viewerResults.length > 0 ? e('div', {
+            style: { position: 'absolute', top: '100%', right: 0, marginTop: 4, background: '#2a2a2a', border: '1px solid rgba(255,255,255,.15)', borderRadius: 8, padding: 6, maxHeight: 300, overflowY: 'auto', zIndex: 10, minWidth: 280 }
+          },
+            viewerResults.map(function(r, i) {
+              return e('div', {
+                key: i,
+                onClick: function() { goTo(r.page); setViewerResults(null); setViewerSearch(''); },
+                onMouseEnter: function(ev) { ev.currentTarget.style.background = 'rgba(255,255,255,.1)'; },
+                onMouseLeave: function(ev) { ev.currentTarget.style.background = 'transparent'; },
+                style: { padding: '6px 10px', cursor: 'pointer', borderRadius: 4, fontSize: '.78rem', color: '#fff' }
+              },
+                e('div', { style: { fontWeight: 600 } }, r.ch.title),
+                e('div', { style: { opacity: .5, fontSize: '.7rem' } }, 'S. ' + r.ch.pageStart + '\u2013' + r.ch.pageEnd)
+              );
+            })
+          ) : viewerResults && viewerResults.length === 0 && viewerSearch.length >= 2 ? e('div', {
+            style: { position: 'absolute', top: '100%', right: 0, marginTop: 4, background: '#2a2a2a', border: '1px solid rgba(255,255,255,.15)', borderRadius: 8, padding: '8px 12px', fontSize: '.78rem', color: 'rgba(255,255,255,.5)' }
+          }, 'Keine Treffer') : null
+        ) : null,
+        e('span', { style: { color: 'rgba(255,255,255,.4)', fontSize: '.7rem' } }, '\u2190\u2192'),
         e('button', {
           onClick: onClose,
           style: { background: 'rgba(255,255,255,.1)', border: 'none', color: '#fff', padding: '6px 14px', borderRadius: 6, cursor: 'pointer', fontSize: '.85rem' }
@@ -2381,7 +2437,7 @@ function initApp(bookData) {
       showNotes ? e(Notes, { onClose: function() { setShowNotes(false); }, notes: notes, setNotes: setNotes }) : null,
       showGlossar ? e(Glossary, { onClose: function() { setShowGlossar(false); }, glossary: bookData.glossary }) : null,
       showKR && bookData.kontenrahmen ? e(Kontenrahmen, { onClose: function() { setShowKR(false); }, kontenrahmen: bookData.kontenrahmen }) : null,
-      showPageViewer && bookData.totalPages ? e(PageViewer, { bookId: bookData.id, totalPages: bookData.totalPages, startPage: showPageViewer.page || 1, minPage: showPageViewer.min || 1, maxPage: showPageViewer.max || bookData.totalPages, onClose: function() { setShowPageViewer(null); } }) : null
+      showPageViewer && bookData.totalPages ? e(PageViewer, { bookId: bookData.id, totalPages: bookData.totalPages, bookData: bookData, startPage: showPageViewer.page || 1, minPage: showPageViewer.min || 1, maxPage: showPageViewer.max || bookData.totalPages, onClose: function() { setShowPageViewer(null); } }) : null
     );
   }
 
