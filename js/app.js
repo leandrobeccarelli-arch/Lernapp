@@ -1887,7 +1887,8 @@ function CalcTrainer(props) {
 
 function ChapterCard(props) {
   var chapter = props.chapter, bookData = props.bookData, progress = props.progress, markDone = props.markDone;
-  var st = useState(false), isOpen = st[0], setIsOpen = st[1];
+  var chParam = new URLSearchParams(window.location.search).get('ch');
+  var st = useState(chParam === chapter.id), isOpen = st[0], setIsOpen = st[1];
   var st2 = useState(null), openEx = st2[0], setOpenEx = st2[1];
   var st3 = useState('ueben'), mode = st3[0], setMode = st3[1];
   var st4 = useState(0), examRetry = st4[0], setExamRetry = st4[1];
