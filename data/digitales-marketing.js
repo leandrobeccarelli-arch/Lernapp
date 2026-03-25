@@ -12,7 +12,7 @@ window.BOOK_DATA = {
     // KAPITEL 1: Digitales Marketing verstehen (S.8-24)
     // ============================================================
     {
-      id: 'ch1', num: 'Kapitel 1', title: 'Digitales Marketing verstehen',
+      id: 'ch1', pageStart: 8, pageEnd: 22, num: 'Kapitel 1', title: 'Digitales Marketing verstehen',
       exercises: [
         {
           id: 1, type: 'text',
@@ -329,7 +329,7 @@ window.BOOK_DATA = {
     // KAPITEL 2: Marketingkonzept für das digitale Marketing (S.25-32)
     // ============================================================
     {
-      id: 'ch2', num: 'Kapitel 2', title: 'Marketingkonzept für das digitale Marketing',
+      id: 'ch2', pageStart: 23, pageEnd: 38, num: 'Kapitel 2', title: 'Marketingkonzept für das digitale Marketing',
       exercises: [
         {
           id: 11, type: 'mc',
@@ -617,7 +617,7 @@ window.BOOK_DATA = {
     // KAPITEL 3: Analyse (Ist-Zustand) (S.33-62)
     // ============================================================
     {
-      id: 'ch3', num: 'Kapitel 3', title: 'Analyse (Ist-Zustand)',
+      id: 'ch3', pageStart: 39, pageEnd: 56, num: 'Kapitel 3', title: 'Analyse (Ist-Zustand)',
       exercises: [
         {
           id: 19, type: 'text',
@@ -932,7 +932,7 @@ window.BOOK_DATA = {
     // KAPITEL 4: Zielsetzung und Strategien (S.63-77)
     // ============================================================
     {
-      id: 'ch4', num: 'Kapitel 4', title: 'Zielsetzung und Strategien (Soll-Zustand)',
+      id: 'ch4', pageStart: 57, pageEnd: 74, num: 'Kapitel 4', title: 'Zielsetzung und Strategien (Soll-Zustand)',
       exercises: [
         {
           id: 28, type: 'text',
@@ -1222,7 +1222,7 @@ window.BOOK_DATA = {
     // KAPITEL 5: Instrumente - Teil 1 (S.78-95)
     // ============================================================
     {
-      id: 'ch5', num: 'Kapitel 5', title: 'Instrumente - Teil 1',
+      id: 'ch5', pageStart: 75, pageEnd: 92, num: 'Kapitel 5', title: 'Instrumente - Teil 1',
       exercises: [
         {
           id: 37, type: 'text',
@@ -1526,7 +1526,7 @@ window.BOOK_DATA = {
     // KAPITEL 6: Instrumente - Teil 2 (S.96-113)
     // ============================================================
     {
-      id: 'ch6', num: 'Kapitel 6', title: 'Instrumente - Teil 2',
+      id: 'ch6', pageStart: 93, pageEnd: 112, num: 'Kapitel 6', title: 'Instrumente - Teil 2',
       exercises: [
         {
           id: 47, type: 'match',
@@ -1832,7 +1832,7 @@ window.BOOK_DATA = {
     // KAPITEL 7: Budget und Realisation (S.114-130)
     // ============================================================
     {
-      id: 'ch7', num: 'Kapitel 7', title: 'Budget und Realisation',
+      id: 'ch7', pageStart: 113, pageEnd: 132, num: 'Kapitel 7', title: 'Budget und Realisation',
       exercises: [
         {
           id: 57, type: 'match',
@@ -2101,7 +2101,7 @@ window.BOOK_DATA = {
     // KAPITEL 8: Kontrolle (S.131-142)
     // ============================================================
     {
-      id: 'ch8', num: 'Kapitel 8', title: 'Kontrolle',
+      id: 'ch8', pageStart: 133, pageEnd: 154, num: 'Kapitel 8', title: 'Kontrolle',
       exercises: [
         {
           id: 66, type: 'text',

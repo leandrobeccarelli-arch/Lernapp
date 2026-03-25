@@ -9,7 +9,7 @@ window.BOOK_DATA = {
   color: '#d97706',
   chapters: [
     {
-      id: 'ch1', num: 'Teil A – Kapitel 1', title: 'Grundbegriffe des Projektmanagements',
+      id: 'ch1', pageStart: 8, pageEnd: 14, num: 'Teil A – Kapitel 1', title: 'Grundbegriffe des Projektmanagements',
       exercises: [
         {
           id: 1, type: 'match', title: 'Erfolgsfaktoren des Projektmanagements',
@@ -188,7 +188,7 @@ window.BOOK_DATA = {
       }
     },
     {
-      id: 'ch2', num: 'Teil A – Kapitel 2', title: 'Vorgehensmethodik',
+      id: 'ch2', pageStart: 15, pageEnd: 20, num: 'Teil A – Kapitel 2', title: 'Vorgehensmethodik',
       exercises: [
         {
           id: 4, type: 'check', title: 'Aufgaben den Planungsphasen zuordnen',
@@ -346,7 +346,7 @@ window.BOOK_DATA = {
       }
     },
     {
-      id: 'ch3', num: 'Teil B – Kapitel 3', title: 'Projektinitialisierung',
+      id: 'ch3', pageStart: 21, pageEnd: 26, num: 'Teil B – Kapitel 3', title: 'Projektinitialisierung',
       exercises: [
         {
           id: 7, type: 'check', title: 'Aussagen zum Projektinitialisierungsprozess',
@@ -515,7 +515,7 @@ window.BOOK_DATA = {
       }
     },
     {
-      id: 'ch4', num: 'Teil B – Kapitel 4', title: 'Projektziele definieren',
+      id: 'ch4', pageStart: 27, pageEnd: 32, num: 'Teil B – Kapitel 4', title: 'Projektziele definieren',
       exercises: [
         {
           id: 10, type: 'tf', title: 'Aussagen über den Zieldefinitionsprozess',
@@ -586,7 +586,7 @@ window.BOOK_DATA = {
       }
     },
     {
-      id: 'ch5', num: 'Teil B – Kapitel 5', title: 'Stakeholdermanagement',
+      id: 'ch5', pageStart: 33, pageEnd: 38, num: 'Teil B – Kapitel 5', title: 'Stakeholdermanagement',
       exercises: [
         {
           id: 13, type: 'text', title: 'Einfluss-Interessen-Matrix',
@@ -645,7 +645,7 @@ window.BOOK_DATA = {
       }
     },
     {
-      id: 'ch6', num: 'Teil B – Kapitel 6', title: 'Information und Dokumentation',
+      id: 'ch6', pageStart: 39, pageEnd: 44, num: 'Teil B – Kapitel 6', title: 'Information und Dokumentation',
       exercises: [
         {
           id: 16, type: 'text', title: 'Kriterien des Dokumentationsmanagements',
@@ -692,7 +692,7 @@ window.BOOK_DATA = {
       }
     },
     {
-      id: 'ch7', num: 'Teil B – Kapitel 7', title: 'Projektorganisation planen',
+      id: 'ch7', pageStart: 45, pageEnd: 52, num: 'Teil B – Kapitel 7', title: 'Projektorganisation planen',
       exercises: [
         {
           id: 18, type: 'check', title: 'Aussagen zur Projektorganisation',
@@ -770,7 +770,7 @@ window.BOOK_DATA = {
       }
     },
     {
-      id: 'ch8', num: 'Teil C – Kapitel 8', title: 'Projektstrukturplan',
+      id: 'ch8', pageStart: 53, pageEnd: 60, num: 'Teil C – Kapitel 8', title: 'Projektstrukturplan',
       exercises: [
         {
           id: 22, type: 'text', title: 'Gliederungsprinzip erkennen',
@@ -832,7 +832,7 @@ window.BOOK_DATA = {
       }
     },
     {
-      id: 'ch9', num: 'Teil C – Kapitel 9', title: 'Ablauf- und Terminplanung',
+      id: 'ch9', pageStart: 61, pageEnd: 68, num: 'Teil C – Kapitel 9', title: 'Ablauf- und Terminplanung',
       exercises: [
         {
           id: 25, type: 'text', title: 'Schätzung der Vorgangsdauer',
@@ -891,7 +891,7 @@ window.BOOK_DATA = {
       }
     },
     {
-      id: 'ch10', num: 'Teil C – Kapitel 10', title: 'Ressourcenplanung',
+      id: 'ch10', pageStart: 69, pageEnd: 76, num: 'Teil C – Kapitel 10', title: 'Ressourcenplanung',
       exercises: [
         {
           id: 28, type: 'text', title: 'Argumente für sorgfältige Sachmittelplanung',
@@ -932,7 +932,7 @@ window.BOOK_DATA = {
       }
     },
     {
-      id: 'ch11', num: 'Teil C – Kapitel 11', title: 'Kostenplanung',
+      id: 'ch11', pageStart: 77, pageEnd: 84, num: 'Teil C – Kapitel 11', title: 'Kostenplanung',
       exercises: [
         {
           id: 30, type: 'text', title: 'Direkte vs. indirekte Personalkosten',
@@ -981,7 +981,7 @@ window.BOOK_DATA = {
       }
     },
     {
-      id: 'ch12', num: 'Teil D – Kapitel 12', title: 'Projektcontrolling',
+      id: 'ch12', pageStart: 85, pageEnd: 92, num: 'Teil D – Kapitel 12', title: 'Projektcontrolling',
       exercises: [
         {
           id: 32, type: 'tf', title: 'Aussagen zur Projektsteuerung',
@@ -1049,7 +1049,7 @@ window.BOOK_DATA = {
       }
     },
     {
-      id: 'ch13', num: 'Teil D – Kapitel 13', title: 'Änderungen bearbeiten',
+      id: 'ch13', pageStart: 93, pageEnd: 100, num: 'Teil D – Kapitel 13', title: 'Änderungen bearbeiten',
       exercises: [
         {
           id: 36, type: 'match', title: 'Änderungen im Änderungsmanagement',
@@ -1111,7 +1111,7 @@ window.BOOK_DATA = {
       }
     },
     {
-      id: 'ch14', num: 'Teil D – Kapitel 14', title: 'Risiken bearbeiten',
+      id: 'ch14', pageStart: 101, pageEnd: 110, num: 'Teil D – Kapitel 14', title: 'Risiken bearbeiten',
       exercises: [
         {
           id: 38, type: 'text', title: 'Projektrisiken identifizieren',
@@ -1181,7 +1181,7 @@ window.BOOK_DATA = {
       }
     },
     {
-      id: 'ch15', num: 'Teil D – Kapitel 15', title: 'Projektabschluss',
+      id: 'ch15', pageStart: 111, pageEnd: 124, num: 'Teil D – Kapitel 15', title: 'Projektabschluss',
       exercises: [
         {
           id: 41, type: 'text', title: 'Abschlussveranstaltung',

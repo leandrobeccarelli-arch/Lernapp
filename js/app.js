@@ -2023,6 +2023,22 @@ function ChapterCard(props) {
         hasLearningData: !!(chapter.learningData)
       }),
 
+      // Originalseiten Button
+      chapter.pageStart && bookData.totalPages ? e('div', { style: { margin: '8px 0 12px', textAlign: 'right' } },
+        e('button', {
+          onClick: function() {
+            var viewer = document.querySelector('[data-page-viewer]');
+            // Set page viewer via URL update trick
+            var url = new URL(window.location);
+            url.searchParams.set('viewer', chapter.pageStart);
+            window.history.replaceState({}, '', url);
+            // Find setShowPageViewer in parent - use event
+            window.dispatchEvent(new CustomEvent('openPageViewer', { detail: chapter.pageStart }));
+          },
+          style: { padding: '5px 12px', fontSize: '.75rem', fontWeight: 600, border: '1px solid var(--border)', borderRadius: 6, background: 'var(--card)', color: 'var(--accent)', cursor: 'pointer' }
+        }, '\uD83D\uDCD6 Originalseiten (S. ' + chapter.pageStart + '\u2013' + chapter.pageEnd + ')')
+      ) : null,
+
       // Lernen
       mode === 'lernen' ? e(LearningRenderer, {
         data: chapter.learningData,
@@ -2120,6 +2136,11 @@ function initApp(bookData) {
     var timerRef = useRef(null);
 
     useEffect(function() { document.documentElement.className = dark ? 'dark' : ''; }, [dark]);
+    useEffect(function() {
+      function onOpenViewer(ev) { setShowPageViewer(ev.detail || 1); }
+      window.addEventListener('openPageViewer', onOpenViewer);
+      return function() { window.removeEventListener('openPageViewer', onOpenViewer); };
+    }, []);
     useEffect(function() { saveProgress(bookData.id, progress); }, [progress]);
     useEffect(function() { localStorage.setItem('lp-notes-' + bookData.id, notes); }, [notes]);
     useEffect(function() {

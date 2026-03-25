@@ -12,7 +12,7 @@ window.BOOK_DATA = {
     // KAPITEL 1: Mediawerbung - Definition und Merkmale (Ex 1-9)
     // ============================================================
     {
-      id: 'ch1', num: 'Teil A – Kapitel 1', title: 'Mediawerbung - Definition und Merkmale',
+      id: 'ch1', pageStart: 8, pageEnd: 24, num: 'Teil A – Kapitel 1', title: 'Mediawerbung - Definition und Merkmale',
       exercises: [
         {
           id: 1, type: 'text', q: 'Werbung und Emotionen',
@@ -203,7 +203,7 @@ window.BOOK_DATA = {
     // KAPITEL 2: Werbekonzept (Ex 10-19)
     // ============================================================
     {
-      id: 'ch2', num: 'Teil A – Kapitel 2', title: 'Werbekonzept',
+      id: 'ch2', pageStart: 25, pageEnd: 42, num: 'Teil A – Kapitel 2', title: 'Werbekonzept',
       exercises: [
         {
           id: 10, type: 'match', q: 'Segmentierungskriterien der Werbung',
@@ -427,7 +427,7 @@ window.BOOK_DATA = {
     // KAPITEL 3: Verkaufsförderung (Ex 20-28)
     // ============================================================
     {
-      id: 'ch3', num: 'Teil A – Kapitel 3', title: 'Verkaufsförderung',
+      id: 'ch3', pageStart: 43, pageEnd: 60, num: 'Teil A – Kapitel 3', title: 'Verkaufsförderung',
       exercises: [
         {
           id: 20, type: 'text', q: 'Funktionen der Verkaufsförderung',
@@ -631,7 +631,7 @@ window.BOOK_DATA = {
     // KAPITEL 4: Event-Marketing (Ex 29-37)
     // ============================================================
     {
-      id: 'ch4', num: 'Teil A – Kapitel 4', title: 'Event-Marketing',
+      id: 'ch4', pageStart: 61, pageEnd: 78, num: 'Teil A – Kapitel 4', title: 'Event-Marketing',
       exercises: [
         {
           id: 29, type: 'text', q: 'Event-Marketing vs. Werbung: Zielgruppenmenge',
@@ -829,7 +829,7 @@ window.BOOK_DATA = {
     // KAPITEL 5: Messen und Ausstellungen (Ex 38-45)
     // ============================================================
     {
-      id: 'ch5', num: 'Teil A – Kapitel 5', title: 'Messen und Ausstellungen',
+      id: 'ch5', pageStart: 79, pageEnd: 98, num: 'Teil A – Kapitel 5', title: 'Messen und Ausstellungen',
       exercises: [
         {
           id: 38, type: 'text', q: 'Messe vs. Ausstellung',
@@ -999,7 +999,7 @@ window.BOOK_DATA = {
     // KAPITEL 6: Sponsoring (Ex 46-53)
     // ============================================================
     {
-      id: 'ch6', num: 'Teil A – Kapitel 6', title: 'Sponsoring',
+      id: 'ch6', pageStart: 99, pageEnd: 118, num: 'Teil A – Kapitel 6', title: 'Sponsoring',
       exercises: [
         {
           id: 46, type: 'text', q: 'Gründe für Bedeutungszunahme des Sponsoring',
@@ -1175,7 +1175,7 @@ window.BOOK_DATA = {
     // KAPITEL 7: Dialogmarketing (Ex 54-62)
     // ============================================================
     {
-      id: 'ch7', num: 'Teil A – Kapitel 7', title: 'Dialogmarketing',
+      id: 'ch7', pageStart: 119, pageEnd: 140, num: 'Teil A – Kapitel 7', title: 'Dialogmarketing',
       exercises: [
         {
           id: 54, type: 'text', q: 'Vorteile des Dialogmarketings',
@@ -1363,7 +1363,7 @@ window.BOOK_DATA = {
     // KAPITEL 8: Social Media (Ex 63-71)
     // ============================================================
     {
-      id: 'ch8', num: 'Teil A – Kapitel 8', title: 'Social Media',
+      id: 'ch8', pageStart: 141, pageEnd: 160, num: 'Teil A – Kapitel 8', title: 'Social Media',
       exercises: [
         {
           id: 63, type: 'match', q: 'Vor- und Nachteile von Online-Medien',
@@ -1564,7 +1564,7 @@ window.BOOK_DATA = {
     // KAPITEL 9: Kommunikationsforschung (Ex 72-80)
     // ============================================================
     {
-      id: 'ch9', num: 'Teil B – Kapitel 9', title: 'Kommunikationsforschung',
+      id: 'ch9', pageStart: 161, pageEnd: 184, num: 'Teil B – Kapitel 9', title: 'Kommunikationsforschung',
       exercises: [
         {
           id: 72, type: 'text', q: 'Kommunikationswirkungsmessung',

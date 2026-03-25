@@ -12,6 +12,7 @@ window.BOOK_DATA = {
       id: 'ch1',
       num: 'Kapitel 1',
       title: 'Verkaufsplanungskonzept und Verkaufsziele',
+      pageStart: 10, pageEnd: 28,
       exercises: [
         {
           id: 1,
@@ -379,6 +380,7 @@ window.BOOK_DATA = {
       id: 'ch2',
       num: 'Kapitel 2',
       title: 'Verkaufsstrategien',
+      pageStart: 29, pageEnd: 48,
       exercises: [
         {
           id: 15,
@@ -659,6 +661,7 @@ window.BOOK_DATA = {
       id: 'ch3',
       num: 'Kapitel 3',
       title: 'Verkaufsstrategien – Kontaktstrategie',
+      pageStart: 49, pageEnd: 68,
       exercises: [
         {
           id: 25,
@@ -906,6 +909,7 @@ window.BOOK_DATA = {
       id: 'ch4',
       num: 'Kapitel 4',
       title: 'Primäre Verkaufsplanung',
+      pageStart: 69, pageEnd: 88,
       exercises: [
         {
           id: 35,
@@ -1111,6 +1115,7 @@ window.BOOK_DATA = {
       id: 'ch5',
       num: 'Kapitel 5',
       title: 'Sekundäre Verkaufsplanung – Verkaufsorganisation',
+      pageStart: 89, pageEnd: 110,
       exercises: [
         {
           id: 44,
@@ -1313,6 +1318,7 @@ window.BOOK_DATA = {
       id: 'ch6',
       num: 'Kapitel 6',
       title: 'Sekundäre Verkaufsplanung – Personal und Verkaufshilfsmittel',
+      pageStart: 111, pageEnd: 132,
       exercises: [
         {
           id: 53,
@@ -1533,6 +1539,7 @@ window.BOOK_DATA = {
       id: 'ch7',
       num: 'Kapitel 7',
       title: 'Verkaufskosten- und Budgetplanung',
+      pageStart: 133, pageEnd: 152,
       exercises: [
         {
           id: 64,
@@ -1703,6 +1710,7 @@ window.BOOK_DATA = {
       id: 'ch8',
       num: 'Kapitel 8',
       title: 'Kontrollplanung im Verkauf',
+      pageStart: 153, pageEnd: 172,
       exercises: [
         {
           id: 72,
@@ -1906,6 +1914,7 @@ window.BOOK_DATA = {
       id: 'ch9',
       num: 'Kapitel 9',
       title: 'Verkaufsgespräch',
+      pageStart: 173, pageEnd: 194,
       exercises: [
         {
           id: 82,
@@ -2117,6 +2126,7 @@ window.BOOK_DATA = {
       id: 'ch10',
       num: 'Kapitel 10',
       title: 'Verkaufstechnik',
+      pageStart: 195, pageEnd: 218,
       exercises: [
         {
           id: 92,

@@ -12,7 +12,7 @@ window.BOOK_DATA = {
     // KAPITEL 1: Grundlagen der Kommunikationspolitik (S. 10-26)
     // ============================================================
     {
-      id: 'ch1', num: 'Kapitel 1 (Teil A)', title: 'Grundlagen der Kommunikationspolitik',
+      id: 'ch1', pageStart: 8, pageEnd: 18, num: 'Kapitel 1 (Teil A)', title: 'Grundlagen der Kommunikationspolitik',
       exercises: [
         {
           id: 1, type: 'text',
@@ -286,7 +286,7 @@ window.BOOK_DATA = {
     // KAPITEL 2: Unternehmenskommunikation (S. 27-38)
     // ============================================================
     {
-      id: 'ch2', num: 'Kapitel 2 (Teil A)', title: 'Unternehmenskommunikation',
+      id: 'ch2', pageStart: 19, pageEnd: 28, num: 'Kapitel 2 (Teil A)', title: 'Unternehmenskommunikation',
       exercises: [
         {
           id: 9, type: 'text',
@@ -536,7 +536,7 @@ window.BOOK_DATA = {
     // KAPITEL 3: Corporate Identity und Corporate Image (S. 39-44)
     // ============================================================
     {
-      id: 'ch3', num: 'Kapitel 3 (Teil A)', title: 'Corporate Identity und Corporate Image',
+      id: 'ch3', pageStart: 29, pageEnd: 38, num: 'Kapitel 3 (Teil A)', title: 'Corporate Identity und Corporate Image',
       exercises: [
         {
           id: 17, type: 'text',
@@ -776,7 +776,7 @@ window.BOOK_DATA = {
     // KAPITEL 4: Public Relations - Grundlagen (S. 45-55)
     // ============================================================
     {
-      id: 'ch4', num: 'Kapitel 4 (Teil A)', title: 'Public Relations \u2013 Grundlagen',
+      id: 'ch4', pageStart: 39, pageEnd: 52, num: 'Kapitel 4 (Teil A)', title: 'Public Relations \u2013 Grundlagen',
       exercises: [
         {
           id: 24, type: 'tf',
@@ -1058,7 +1058,7 @@ window.BOOK_DATA = {
     // KAPITEL 5: Public-Relations-Disziplinen (S. 56-69)
     // ============================================================
     {
-      id: 'ch5', num: 'Kapitel 5 (Teil A)', title: 'Public-Relations-Disziplinen',
+      id: 'ch5', pageStart: 53, pageEnd: 66, num: 'Kapitel 5 (Teil A)', title: 'Public-Relations-Disziplinen',
       exercises: [
         {
           id: 32, type: 'fill',
@@ -1295,7 +1295,7 @@ window.BOOK_DATA = {
     // KAPITEL 6: Markenpflege und -führung (S. 70-89)
     // ============================================================
     {
-      id: 'ch6', num: 'Kapitel 6 (Teil A)', title: 'Markenpflege und -führung',
+      id: 'ch6', pageStart: 67, pageEnd: 78, num: 'Kapitel 6 (Teil A)', title: 'Markenpflege und -führung',
       exercises: [
         {
           id: 39, type: 'mc',
@@ -1557,7 +1557,7 @@ window.BOOK_DATA = {
     // KAPITEL 7: Relationship Marketing (S. 91-103)
     // ============================================================
     {
-      id: 'ch7', num: 'Kapitel 7 (Teil A)', title: 'Kundenbeziehungsmanagement I: Relationship Marketing',
+      id: 'ch7', pageStart: 79, pageEnd: 92, num: 'Kapitel 7 (Teil A)', title: 'Kundenbeziehungsmanagement I: Relationship Marketing',
       exercises: [
         {
           id: 47, type: 'match',
@@ -1814,7 +1814,7 @@ window.BOOK_DATA = {
     // KAPITEL 8: Persönliche Kommunikation (S. 105-115)
     // ============================================================
     {
-      id: 'ch8', num: 'Kapitel 8 (Teil A)', title: 'Kundenbeziehungsmanagement II: persönliche Kommunikation',
+      id: 'ch8', pageStart: 93, pageEnd: 104, num: 'Kapitel 8 (Teil A)', title: 'Kundenbeziehungsmanagement II: persönliche Kommunikation',
       exercises: [
         {
           id: 55, type: 'text',
@@ -2067,7 +2067,7 @@ window.BOOK_DATA = {
     // KAPITEL 9: Mitarbeitendenkommunikation (S. 116-120)
     // ============================================================
     {
-      id: 'ch9', num: 'Kapitel 9 (Teil A)', title: 'Mitarbeitendenkommunikation',
+      id: 'ch9', pageStart: 105, pageEnd: 118, num: 'Kapitel 9 (Teil A)', title: 'Mitarbeitendenkommunikation',
       exercises: [
         {
           id: 63, type: 'text',
@@ -2291,7 +2291,7 @@ window.BOOK_DATA = {
     // KAPITEL 10: Corporate Media (S. 122-133)
     // ============================================================
     {
-      id: 'ch10', num: 'Kapitel 10 (Teil B)', title: 'Corporate Media',
+      id: 'ch10', pageStart: 119, pageEnd: 134, num: 'Kapitel 10 (Teil B)', title: 'Corporate Media',
       exercises: [
         {
           id: 69, type: 'match',
@@ -2539,7 +2539,7 @@ window.BOOK_DATA = {
     // KAPITEL 11: Zusammenarbeit mit Agenturen (S. 134-149)
     // ============================================================
     {
-      id: 'ch11', num: 'Kapitel 11 (Teil B)', title: 'Zusammenarbeit mit Agenturen',
+      id: 'ch11', pageStart: 135, pageEnd: 154, num: 'Kapitel 11 (Teil B)', title: 'Zusammenarbeit mit Agenturen',
       exercises: [
         {
           id: 76, type: 'fill',

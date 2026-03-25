@@ -9,7 +9,7 @@ window.BOOK_DATA = {
   color: '#8b5cf6',
   chapters: [
     {
-      id: 'ch1',
+      id: 'ch1', pageStart: 8, pageEnd: 18,
       num: 'Kapitel 1',
       teil: 'A',
       title: 'Information und Netzwerkarbeit',
@@ -189,7 +189,7 @@ window.BOOK_DATA = {
       }
     },
     {
-      id: 'ch2',
+      id: 'ch2', pageStart: 19, pageEnd: 28,
       num: 'Kapitel 2',
       teil: 'A',
       title: 'Basiskompetenzen in der Kommunikation',
@@ -369,7 +369,7 @@ window.BOOK_DATA = {
       }
     },
     {
-      id: 'ch3',
+      id: 'ch3', pageStart: 29, pageEnd: 38,
       num: 'Kapitel 3',
       teil: 'A',
       title: 'Kommunikationstechniken einsetzen',
@@ -534,7 +534,7 @@ window.BOOK_DATA = {
       }
     },
     {
-      id: 'ch4',
+      id: 'ch4', pageStart: 39, pageEnd: 48,
       num: 'Kapitel 4',
       teil: 'A',
       title: 'Schriftliche Kommunikation',
@@ -715,7 +715,7 @@ window.BOOK_DATA = {
       }
     },
     {
-      id: 'ch5',
+      id: 'ch5', pageStart: 49, pageEnd: 60,
       num: 'Kapitel 5',
       teil: 'A',
       title: 'Mündliche Kommunikation',
@@ -906,7 +906,7 @@ window.BOOK_DATA = {
       }
     },
     {
-      id: 'ch6',
+      id: 'ch6', pageStart: 61, pageEnd: 70,
       num: 'Kapitel 6',
       teil: 'A',
       title: 'Interkulturelle Zusammenarbeit',
@@ -1012,7 +1012,7 @@ window.BOOK_DATA = {
       }
     },
     {
-      id: 'ch7',
+      id: 'ch7', pageStart: 71, pageEnd: 80,
       num: 'Kapitel 7',
       teil: 'A',
       title: 'Präsentation',
@@ -1116,7 +1116,7 @@ window.BOOK_DATA = {
       }
     },
     {
-      id: 'ch8',
+      id: 'ch8', pageStart: 81, pageEnd: 92,
       num: 'Kapitel 8',
       teil: 'A',
       title: 'Gruppendynamik und Gruppenrollen',
@@ -1250,7 +1250,7 @@ window.BOOK_DATA = {
       }
     },
     {
-      id: 'ch9',
+      id: 'ch9', pageStart: 93, pageEnd: 104,
       num: 'Kapitel 9',
       teil: 'A',
       title: 'Moderation von Workshops und Sitzungen',
@@ -1391,7 +1391,7 @@ window.BOOK_DATA = {
       }
     },
     {
-      id: 'ch10',
+      id: 'ch10', pageStart: 105, pageEnd: 116,
       num: 'Kapitel 10',
       teil: 'B',
       title: 'Methoden und Instrumente',
@@ -1500,7 +1500,7 @@ window.BOOK_DATA = {
       }
     },
     {
-      id: 'ch11',
+      id: 'ch11', pageStart: 117, pageEnd: 130,
       num: 'Kapitel 11',
       teil: 'B',
       title: 'Zeitplanung',
@@ -1666,7 +1666,7 @@ window.BOOK_DATA = {
       }
     },
     {
-      id: 'ch12',
+      id: 'ch12', pageStart: 131, pageEnd: 144,
       num: 'Kapitel 12',
       teil: 'B',
       title: 'Prioritäten setzen',
@@ -1840,7 +1840,7 @@ window.BOOK_DATA = {
       }
     },
     {
-      id: 'ch13',
+      id: 'ch13', pageStart: 145, pageEnd: 160,
       num: 'Kapitel 13',
       teil: 'B',
       title: 'Zeitplanung realisieren',
@@ -2008,7 +2008,7 @@ window.BOOK_DATA = {
       }
     },
     {
-      id: 'ch14',
+      id: 'ch14', pageStart: 161, pageEnd: 178,
       num: 'Kapitel 14',
       teil: 'B',
       title: 'Eigene Kompetenzentwicklung',
@@ -2148,7 +2148,7 @@ window.BOOK_DATA = {
       }
     },
     {
-      id: 'ch15',
+      id: 'ch15', pageStart: 179, pageEnd: 200,
       num: 'Kapitel 15',
       teil: 'B',
       title: 'Strukturierte Problemlösung',

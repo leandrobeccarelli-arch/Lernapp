@@ -12,7 +12,7 @@ window.BOOK_DATA = {
     // Kapitel 1: Übersicht über das Fachgebiet (Fragen 1-3)
     // ============================================================
     {
-      id: 'ch1', num: 'Teil A \u2022 Kapitel 1', title: '\u00dcbersicht \u00fcber das Fachgebiet',
+      id: 'ch1', pageStart: 12, pageEnd: 20, num: 'Teil A \u2022 Kapitel 1', title: '\u00dcbersicht \u00fcber das Fachgebiet',
       exercises: [
         {
           id: 1, type: 'text',
@@ -82,7 +82,7 @@ window.BOOK_DATA = {
     // Kapitel 2: Bilanz (Fragen 4-11)
     // ============================================================
     {
-      id: 'ch2', num: 'Teil A \u2022 Kapitel 2', title: 'Bilanz: Ausweis von Verm\u00f6gen und Schulden',
+      id: 'ch2', pageStart: 21, pageEnd: 38, num: 'Teil A \u2022 Kapitel 2', title: 'Bilanz: Ausweis von Verm\u00f6gen und Schulden',
       exercises: [
         {
           id: 4, type: 'tf',
@@ -205,7 +205,7 @@ window.BOOK_DATA = {
     // Kapitel 3: Erfolgsrechnung (Fragen 12-18)
     // ============================================================
     {
-      id: 'ch3', num: 'Teil A \u2022 Kapitel 3', title: 'Erfolgsrechnung: Ausweis von Ertrag, Aufwand und Erfolg',
+      id: 'ch3', pageStart: 39, pageEnd: 52, num: 'Teil A \u2022 Kapitel 3', title: 'Erfolgsrechnung: Ausweis von Ertrag, Aufwand und Erfolg',
       exercises: [
         {
           id: 12, type: 'tf',
@@ -315,7 +315,7 @@ window.BOOK_DATA = {
     // Kapitel 4: Bilanz und ER im Zusammenhang (Fragen 19-32)
     // ============================================================
     {
-      id: 'ch4', num: 'Teil A \u2022 Kapitel 4', title: 'Bilanz und Erfolgsrechnung im Zusammenhang',
+      id: 'ch4', pageStart: 53, pageEnd: 64, num: 'Teil A \u2022 Kapitel 4', title: 'Bilanz und Erfolgsrechnung im Zusammenhang',
       exercises: [
         {
           id: 19, type: 'match',
@@ -512,7 +512,7 @@ window.BOOK_DATA = {
     // Kapitel 5: Buchführung (Fragen 33-43)
     // ============================================================
     {
-      id: 'ch5', num: 'Teil A \u2022 Kapitel 5', title: 'Buchf\u00fchrung',
+      id: 'ch5', pageStart: 65, pageEnd: 80, num: 'Teil A \u2022 Kapitel 5', title: 'Buchf\u00fchrung',
       exercises: [
         {
           id: 33, type: 'mc',
@@ -647,7 +647,7 @@ window.BOOK_DATA = {
     // Kapitel 6: Rechnungslegung (Fragen 44-51)
     // ============================================================
     {
-      id: 'ch6', num: 'Teil A \u2022 Kapitel 6', title: 'Rechnungslegung \u2013 Allgemeines und Vorschriften',
+      id: 'ch6', pageStart: 81, pageEnd: 94, num: 'Teil A \u2022 Kapitel 6', title: 'Rechnungslegung \u2013 Allgemeines und Vorschriften',
       exercises: [
         {
           id: 44, type: 'tf',
@@ -762,7 +762,7 @@ window.BOOK_DATA = {
     // Kapitel 7: Wertanpassungen 1 (Fragen 52-60)
     // ============================================================
     {
-      id: 'ch7', num: 'Teil A \u2022 Kapitel 7', title: 'Rechnungslegung \u2013 Wertanpassungen 1',
+      id: 'ch7', pageStart: 95, pageEnd: 110, num: 'Teil A \u2022 Kapitel 7', title: 'Rechnungslegung \u2013 Wertanpassungen 1',
       exercises: [
         {
           id: 52, type: 'match',
@@ -892,7 +892,7 @@ window.BOOK_DATA = {
     // Kapitel 8: Wertanpassungen 2 (Fragen 62-83)
     // ============================================================
     {
-      id: 'ch8', num: 'Teil A \u2022 Kapitel 8', title: 'Rechnungslegung \u2013 Wertanpassungen 2',
+      id: 'ch8', pageStart: 111, pageEnd: 126, num: 'Teil A \u2022 Kapitel 8', title: 'Rechnungslegung \u2013 Wertanpassungen 2',
       exercises: [
         {
           id: 62, type: 'tf',
@@ -1131,7 +1131,7 @@ window.BOOK_DATA = {
     // Kapitel 9: Einführung in die Kostenrechnung (Fragen 84-88)
     // ============================================================
     {
-      id: 'ch9', num: 'Teil B \u2022 Kapitel 9', title: 'Einf\u00fchrung in die Kostenrechnung',
+      id: 'ch9', pageStart: 127, pageEnd: 142, num: 'Teil B \u2022 Kapitel 9', title: 'Einf\u00fchrung in die Kostenrechnung',
       exercises: [
         {
           id: 84, type: 'text',
@@ -1278,7 +1278,7 @@ window.BOOK_DATA = {
     // Kapitel 10: Ausgewählte Fragen der Kostenrechnung (Fragen 110-123)
     // ============================================================
     {
-      id: 'ch10', num: 'Teil B \u2022 Kapitel 10', title: 'Ausgew\u00e4hlte Fragen der Kostenrechnung',
+      id: 'ch10', pageStart: 143, pageEnd: 160, num: 'Teil B \u2022 Kapitel 10', title: 'Ausgew\u00e4hlte Fragen der Kostenrechnung',
       exercises: [
         {
           id: 110, type: 'match',
@@ -1461,7 +1461,7 @@ window.BOOK_DATA = {
     // Kapitel 11: Kalkulationen (Fragen 126-140)
     // ============================================================
     {
-      id: 'ch11', num: 'Teil B \u2022 Kapitel 11', title: 'Kalkulationen: Berechnungen rund um Betriebsleistungen',
+      id: 'ch11', pageStart: 161, pageEnd: 180, num: 'Teil B \u2022 Kapitel 11', title: 'Kalkulationen: Berechnungen rund um Betriebsleistungen',
       exercises: [
         {
           id: 126, type: 'tf',
@@ -1675,7 +1675,7 @@ window.BOOK_DATA = {
     // Kapitel 12: Break-even-Analyse (Fragen 145-159)
     // ============================================================
     {
-      id: 'ch12', num: 'Teil B \u2022 Kapitel 12', title: 'Entscheidungen auf Teilkostenbasis und Break-even-Analyse',
+      id: 'ch12', pageStart: 181, pageEnd: 198, num: 'Teil B \u2022 Kapitel 12', title: 'Entscheidungen auf Teilkostenbasis und Break-even-Analyse',
       exercises: [
         {
           id: 145, type: 'match',
@@ -1881,7 +1881,7 @@ window.BOOK_DATA = {
     // Kapitel 13: Finanzielle Kennzahlen (Fragen 168-188)
     // ============================================================
     {
-      id: 'ch13', num: 'Teil C \u2022 Kapitel 13', title: 'Finanzielle Kennzahlen',
+      id: 'ch13', pageStart: 199, pageEnd: 214, num: 'Teil C \u2022 Kapitel 13', title: 'Finanzielle Kennzahlen',
       exercises: [
         {
           id: 168, type: 'match',
@@ -2054,7 +2054,7 @@ window.BOOK_DATA = {
     // Kapitel 14: Investitionen (Fragen 191-206)
     // ============================================================
     {
-      id: 'ch14', num: 'Teil C \u2022 Kapitel 14', title: 'Investitionen: Entscheidungen \u00fcber Mittelbindungen',
+      id: 'ch14', pageStart: 215, pageEnd: 230, num: 'Teil C \u2022 Kapitel 14', title: 'Investitionen: Entscheidungen \u00fcber Mittelbindungen',
       exercises: [
         {
           id: 191, type: 'match',
@@ -2185,7 +2185,7 @@ window.BOOK_DATA = {
     // Kapitel 15: Planung, Budgetierung, Controlling (Fragen 211-234)
     // ============================================================
     {
-      id: 'ch15', num: 'Teil C \u2022 Kapitel 15', title: 'Planung, Budgetierung, Controlling, Finanzen',
+      id: 'ch15', pageStart: 231, pageEnd: 254, num: 'Teil C \u2022 Kapitel 15', title: 'Planung, Budgetierung, Controlling, Finanzen',
       exercises: [
         {
           id: 211, type: 'match',

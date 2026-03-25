@@ -12,7 +12,7 @@ window.BOOK_DATA = {
     // Chapter 1: Aufbau eines Marketingkonzepts (S.20)
     // ================================================================
     {
-      id: 'ch1', num: 'Teil A \u2013 Kapitel 1', title: 'Aufbau eines Marketingkonzepts',
+      id: 'ch1', pageStart: 10, pageEnd: 22, num: 'Teil A \u2013 Kapitel 1', title: 'Aufbau eines Marketingkonzepts',
       exercises: [
         {
           id: 1, type: 'mc', title: 'Marketingkonzept und Erfolg',
@@ -174,7 +174,7 @@ window.BOOK_DATA = {
     // Chapter 2: Marktdefinition und Abh\u00e4ngigkeiten (S.33-34)
     // ================================================================
     {
-      id: 'ch2', num: 'Teil A \u2013 Kapitel 2', title: 'Marktdefinition und Abh\u00e4ngigkeiten',
+      id: 'ch2', pageStart: 23, pageEnd: 34, num: 'Teil A \u2013 Kapitel 2', title: 'Marktdefinition und Abh\u00e4ngigkeiten',
       exercises: [
         {
           id: 6, type: 'match', title: 'Teilm\u00e4rkte oder Segmente?',
@@ -369,7 +369,7 @@ window.BOOK_DATA = {
     // Chapter 3: Analyse I: Marktanalyse (S.58-59)
     // ================================================================
     {
-      id: 'ch3', num: 'Teil A \u2013 Kapitel 3', title: 'Analyse I: Marktanalyse',
+      id: 'ch3', pageStart: 35, pageEnd: 46, num: 'Teil A \u2013 Kapitel 3', title: 'Analyse I: Marktanalyse',
       exercises: [
         {
           id: 12, type: 'text', title: 'Kundenanalyse und CLV',
@@ -630,7 +630,7 @@ window.BOOK_DATA = {
     // Chapter 4: Analyse II: Unternehmens- und Umfeldanalyse (S.75-76)
     // ================================================================
     {
-      id: 'ch4', num: 'Teil A \u2013 Kapitel 4', title: 'Analyse II: Unternehmens- und Umfeldanalyse',
+      id: 'ch4', pageStart: 47, pageEnd: 58, num: 'Teil A \u2013 Kapitel 4', title: 'Analyse II: Unternehmens- und Umfeldanalyse',
       exercises: [
         {
           id: 21, type: 'text', title: 'BCG-Portfolio: Nur Cash Cows?',
@@ -865,7 +865,7 @@ window.BOOK_DATA = {
     // Chapter 5: Marketingziele (S.85-86)
     // ================================================================
     {
-      id: 'ch5', num: 'Teil A \u2013 Kapitel 5', title: 'Marketingziele',
+      id: 'ch5', pageStart: 59, pageEnd: 72, num: 'Teil A \u2013 Kapitel 5', title: 'Marketingziele',
       exercises: [
         {
           id: 27, type: 'fill', title: 'Zielhierarchie',
@@ -1081,7 +1081,7 @@ window.BOOK_DATA = {
     // Chapter 6: Marketingstrategien (S.112-113)
     // ================================================================
     {
-      id: 'ch6', num: 'Teil A \u2013 Kapitel 6', title: 'Marketingstrategien',
+      id: 'ch6', pageStart: 73, pageEnd: 86, num: 'Teil A \u2013 Kapitel 6', title: 'Marketingstrategien',
       exercises: [
         {
           id: 35, type: 'match', title: 'Ansoff-Matrix zuordnen',
@@ -1263,7 +1263,7 @@ window.BOOK_DATA = {
     // Chapter 7: Marketingmix (S.138)
     // ================================================================
     {
-      id: 'ch7', num: 'Teil A \u2013 Kapitel 7', title: 'Marketingmix',
+      id: 'ch7', pageStart: 87, pageEnd: 100, num: 'Teil A \u2013 Kapitel 7', title: 'Marketingmix',
       exercises: [
         {
           id: 42, type: 'text', title: 'Begriffe Marketingmix',
@@ -1448,7 +1448,7 @@ window.BOOK_DATA = {
     // Chapter 8: Produktmix I: das Produkt (Product) (S.150)
     // ================================================================
     {
-      id: 'ch8', num: 'Teil A \u2013 Kapitel 8', title: 'Produktmix I: das Produkt (Product)',
+      id: 'ch8', pageStart: 101, pageEnd: 114, num: 'Teil A \u2013 Kapitel 8', title: 'Produktmix I: das Produkt (Product)',
       exercises: [
         {
           id: 49, type: 'match', title: 'Kernprodukt, formales oder erweitertes Produkt?',
@@ -1588,7 +1588,7 @@ window.BOOK_DATA = {
     // Chapter 9: Produktmix II: die Produktentwicklung (S.167-168)
     // ================================================================
     {
-      id: 'ch9', num: 'Teil A \u2013 Kapitel 9', title: 'Produktmix II: die Produktentwicklung',
+      id: 'ch9', pageStart: 115, pageEnd: 128, num: 'Teil A \u2013 Kapitel 9', title: 'Produktmix II: die Produktentwicklung',
       exercises: [
         {
           id: 54, type: 'calc', title: 'Break-even Produktinnovation',
@@ -1740,7 +1740,7 @@ window.BOOK_DATA = {
     // Chapter 10: Produktmix III: Verpackung (S.178-179)
     // ================================================================
     {
-      id: 'ch10', num: 'Teil A \u2013 Kapitel 10', title: 'Produktmix III: Verpackung',
+      id: 'ch10', pageStart: 129, pageEnd: 142, num: 'Teil A \u2013 Kapitel 10', title: 'Produktmix III: Verpackung',
       exercises: [
         {
           id: 59, type: 'check', title: 'Funktionen der Verpackung',
@@ -1887,7 +1887,7 @@ window.BOOK_DATA = {
     // Chapter 11: Preismix (Price) (S.195-196)
     // ================================================================
     {
-      id: 'ch11', num: 'Teil A \u2013 Kapitel 11', title: 'Preismix (Price)',
+      id: 'ch11', pageStart: 143, pageEnd: 156, num: 'Teil A \u2013 Kapitel 11', title: 'Preismix (Price)',
       exercises: [
         {
           id: 64, type: 'calc', title: 'Deckungsbeitrag bei Rabattvarianten',
@@ -2076,7 +2076,7 @@ window.BOOK_DATA = {
     // Chapter 12: Distributionsmix (Place) (S.203)
     // ================================================================
     {
-      id: 'ch12', num: 'Teil A \u2013 Kapitel 12', title: 'Distributionsmix (Place)',
+      id: 'ch12', pageStart: 157, pageEnd: 172, num: 'Teil A \u2013 Kapitel 12', title: 'Distributionsmix (Place)',
       exercises: [
         {
           id: 71, type: 'tf', title: 'Zielkonflikt Reichhaltigkeit/Reichweite',
@@ -2208,7 +2208,7 @@ window.BOOK_DATA = {
     // Chapter 13: Kommunikationsmix (Promotion) (S.210-211)
     // ================================================================
     {
-      id: 'ch13', num: 'Teil A \u2013 Kapitel 13', title: 'Kommunikationsmix (Promotion)',
+      id: 'ch13', pageStart: 173, pageEnd: 188, num: 'Teil A \u2013 Kapitel 13', title: 'Kommunikationsmix (Promotion)',
       exercises: [
         {
           id: 76, type: 'text', title: 'Kommunikationsinstrumente nach Reichweite',
@@ -2345,7 +2345,7 @@ window.BOOK_DATA = {
     // Chapter 14: Marketingbudget und -kontrolle (S.227)
     // ================================================================
     {
-      id: 'ch14', num: 'Teil A \u2013 Kapitel 14', title: 'Marketingbudget und -kontrolle',
+      id: 'ch14', pageStart: 189, pageEnd: 206, num: 'Teil A \u2013 Kapitel 14', title: 'Marketingbudget und -kontrolle',
       exercises: [
         {
           id: 81, type: 'text', title: 'Top-down vs. Bottom-up',
@@ -2502,7 +2502,7 @@ window.BOOK_DATA = {
     // Chapter 15: Qualit\u00e4tsmanagement I: Grundlagen und \u00d6kologie (S.244-245)
     // ================================================================
     {
-      id: 'ch15', num: 'Teil B \u2013 Kapitel 15', title: 'Qualit\u00e4tsmanagement I: Grundlagen und \u00d6kologie',
+      id: 'ch15', pageStart: 207, pageEnd: 226, num: 'Teil B \u2013 Kapitel 15', title: 'Qualit\u00e4tsmanagement I: Grundlagen und \u00d6kologie',
       exercises: [
         {
           id: 87, type: 'match', title: 'Muss-, Soll-, Plus-Faktoren',
@@ -2680,7 +2680,7 @@ window.BOOK_DATA = {
     // Chapter 16: Qualit\u00e4tsmanagement II: Reklamationswesen (S.251)
     // ================================================================
     {
-      id: 'ch16', num: 'Teil B \u2013 Kapitel 16', title: 'Qualit\u00e4tsmanagement II: Reklamationswesen',
+      id: 'ch16', pageStart: 227, pageEnd: 260, num: 'Teil B \u2013 Kapitel 16', title: 'Qualit\u00e4tsmanagement II: Reklamationswesen',
       exercises: [
         {
           id: 93, type: 'mc', title: 'Reklamationsmanagement und CRM',
