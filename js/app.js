@@ -1887,15 +1887,17 @@ function CalcTrainer(props) {
 
 function PageViewer(props) {
   var bookId = props.bookId, totalPages = props.totalPages, onClose = props.onClose, startPage = props.startPage || 1;
+  var minPage = props.minPage || 1, maxPage = props.maxPage || totalPages;
   var st = useState(startPage), page = st[0], setPage = st[1];
   var st2 = useState(false), loading = st2[0], setLoading = st2[1];
   var st3 = useState(''), pageInput = st3[0], setPageInput = st3[1];
 
   function padPage(n) { return String(n).padStart(3, '0'); }
   var imgSrc = 'screenshots/' + bookId + '/seite_' + padPage(page) + '.png';
+  var isRestricted = minPage > 1 || maxPage < totalPages;
 
   function goTo(n) {
-    var p = Math.max(1, Math.min(totalPages, n));
+    var p = Math.max(minPage, Math.min(maxPage, n));
     setPage(p);
     setLoading(true);
   }
@@ -1919,12 +1921,12 @@ function PageViewer(props) {
       e('div', { style: { display: 'flex', alignItems: 'center', gap: 8 } },
         e('button', {
           onClick: function() { goTo(page - 1); },
-          disabled: page <= 1,
-          style: { background: 'rgba(255,255,255,.1)', border: 'none', color: '#fff', padding: '6px 14px', borderRadius: 6, cursor: page > 1 ? 'pointer' : 'default', opacity: page > 1 ? 1 : .3, fontSize: '.85rem' }
+          disabled: page <= minPage,
+          style: { background: 'rgba(255,255,255,.1)', border: 'none', color: '#fff', padding: '6px 14px', borderRadius: 6, cursor: page > minPage ? 'pointer' : 'default', opacity: page > minPage ? 1 : .3, fontSize: '.85rem' }
         }, '\u2190 Zur\u00FCck'),
         e('div', { style: { display: 'flex', alignItems: 'center', gap: 4 } },
           e('input', {
-            type: 'number', min: 1, max: totalPages,
+            type: 'number', min: minPage, max: maxPage,
             value: pageInput || page,
             onFocus: function() { setPageInput(String(page)); },
             onBlur: function() { if (pageInput) { goTo(parseInt(pageInput, 10) || page); } setPageInput(''); },
@@ -1932,12 +1934,12 @@ function PageViewer(props) {
             onKeyDown: function(ev) { if (ev.key === 'Enter') { goTo(parseInt(pageInput, 10) || page); setPageInput(''); ev.target.blur(); } ev.stopPropagation(); },
             style: { width: 50, textAlign: 'center', background: 'rgba(255,255,255,.1)', border: '1px solid rgba(255,255,255,.15)', color: '#fff', borderRadius: 4, padding: '4px', fontSize: '.85rem' }
           }),
-          e('span', { style: { color: 'rgba(255,255,255,.5)', fontSize: '.85rem' } }, ' / ' + totalPages)
+          e('span', { style: { color: 'rgba(255,255,255,.5)', fontSize: '.85rem' } }, isRestricted ? ' / ' + maxPage + ' (S. ' + minPage + '\u2013' + maxPage + ')' : ' / ' + totalPages)
         ),
         e('button', {
           onClick: function() { goTo(page + 1); },
-          disabled: page >= totalPages,
-          style: { background: 'rgba(255,255,255,.1)', border: 'none', color: '#fff', padding: '6px 14px', borderRadius: 6, cursor: page < totalPages ? 'pointer' : 'default', opacity: page < totalPages ? 1 : .3, fontSize: '.85rem' }
+          disabled: page >= maxPage,
+          style: { background: 'rgba(255,255,255,.1)', border: 'none', color: '#fff', padding: '6px 14px', borderRadius: 6, cursor: page < maxPage ? 'pointer' : 'default', opacity: page < maxPage ? 1 : .3, fontSize: '.85rem' }
         }, 'Weiter \u2192')
       ),
       e('div', { style: { display: 'flex', gap: 8 } },
@@ -2033,7 +2035,7 @@ function ChapterCard(props) {
             url.searchParams.set('viewer', chapter.pageStart);
             window.history.replaceState({}, '', url);
             // Find setShowPageViewer in parent - use event
-            window.dispatchEvent(new CustomEvent('openPageViewer', { detail: chapter.pageStart }));
+            window.dispatchEvent(new CustomEvent('openPageViewer', { detail: { page: chapter.pageStart, min: chapter.pageStart, max: chapter.pageEnd } }));
           },
           style: { padding: '5px 12px', fontSize: '.75rem', fontWeight: 600, border: '1px solid var(--border)', borderRadius: 6, background: 'var(--card)', color: 'var(--accent)', cursor: 'pointer' }
         }, '\uD83D\uDCD6 Originalseiten (S. ' + chapter.pageStart + '\u2013' + chapter.pageEnd + ')')
@@ -2128,7 +2130,7 @@ function initApp(bookData) {
     var stCT = useState(false), showCalcTrainer = stCT[0], setShowCalcTrainer = stCT[1];
     var stBT = useState(false), showBSTrainer = stBT[0], setShowBSTrainer = stBT[1];
     var viewerParam = new URLSearchParams(window.location.search).get('viewer');
-    var stPV = useState(viewerParam === '1' && bookData.totalPages ? 1 : 0), showPageViewer = stPV[0], setShowPageViewer = stPV[1];
+    var stPV = useState(viewerParam === '1' && bookData.totalPages ? { page: 1 } : null), showPageViewer = stPV[0], setShowPageViewer = stPV[1];
     var st6 = useState(function() { return localStorage.getItem('lp-notes-' + bookData.id) || ''; });
     var notes = st6[0], setNotes = st6[1];
     var st7 = useState(false), timerOn = st7[0], setTimerOn = st7[1];
@@ -2137,7 +2139,7 @@ function initApp(bookData) {
 
     useEffect(function() { document.documentElement.className = dark ? 'dark' : ''; }, [dark]);
     useEffect(function() {
-      function onOpenViewer(ev) { setShowPageViewer(ev.detail || 1); }
+      function onOpenViewer(ev) { setShowPageViewer(ev.detail || { page: 1 }); }
       window.addEventListener('openPageViewer', onOpenViewer);
       return function() { window.removeEventListener('openPageViewer', onOpenViewer); };
     }, []);
@@ -2242,7 +2244,7 @@ function initApp(bookData) {
             e('button', { className: 'tool-btn' + (showNotes ? ' active' : ''), onClick: function() { setShowNotes(!showNotes); } }, showNotes ? '\u2715 Notizen' : 'Notizen'),
             e('button', { className: 'tool-btn' + (showGlossar ? ' active' : ''), onClick: function() { setShowGlossar(!showGlossar); } }, showGlossar ? '\u2715 Glossar' : 'Glossar'),
             bookData.kontenrahmen ? e('button', { className: 'tool-btn' + (showKR ? ' active' : ''), onClick: function() { setShowKR(!showKR); } }, showKR ? '\u2715 Kontenrahmen' : 'Kontenrahmen') : null,
-            bookData.totalPages ? e('button', { className: 'tool-btn', onClick: function() { setShowPageViewer(1); } }, '\uD83D\uDCD6 Buch') : null
+            bookData.totalPages ? e('button', { className: 'tool-btn', onClick: function() { setShowPageViewer({ page: 1 }); } }, '\uD83D\uDCD6 Buch') : null
           ),
           e('span', { className: 'nav-btn', style: { fontSize: '.75rem' } }, totalDone + '/' + totalExercises),
           e('button', { className: 'nav-btn', onClick: toggleDark }, dark ? 'Licht' : 'Dunkel'),
@@ -2379,7 +2381,7 @@ function initApp(bookData) {
       showNotes ? e(Notes, { onClose: function() { setShowNotes(false); }, notes: notes, setNotes: setNotes }) : null,
       showGlossar ? e(Glossary, { onClose: function() { setShowGlossar(false); }, glossary: bookData.glossary }) : null,
       showKR && bookData.kontenrahmen ? e(Kontenrahmen, { onClose: function() { setShowKR(false); }, kontenrahmen: bookData.kontenrahmen }) : null,
-      showPageViewer > 0 && bookData.totalPages ? e(PageViewer, { bookId: bookData.id, totalPages: bookData.totalPages, startPage: showPageViewer, onClose: function() { setShowPageViewer(0); } }) : null
+      showPageViewer && bookData.totalPages ? e(PageViewer, { bookId: bookData.id, totalPages: bookData.totalPages, startPage: showPageViewer.page || 1, minPage: showPageViewer.min || 1, maxPage: showPageViewer.max || bookData.totalPages, onClose: function() { setShowPageViewer(null); } }) : null
     );
   }
 
