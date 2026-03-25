@@ -4,6 +4,7 @@ window.BOOK_DATA = {
   shortTitle: 'Marketingkonzept',
   author: 'Friebe, Michel, Portmann, Reber, Schneider',
   year: 2022,
+  totalPages: 280,
   pages: 280,
   color: '#dc2626',
   chapters: [

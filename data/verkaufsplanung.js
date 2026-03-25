@@ -4,6 +4,7 @@ window.BOOK_DATA = {
   shortTitle: 'Verkaufsplanung',
   author: 'Portmann, Meyer',
   year: 2023,
+  totalPages: 231,
   pages: 231,
   color: '#4f46e5',
   chapters: [

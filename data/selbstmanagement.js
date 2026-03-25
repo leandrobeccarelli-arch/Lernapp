@@ -4,6 +4,7 @@ window.BOOK_DATA = {
   shortTitle: 'Selbstmanagement',
   author: 'Geiger, Jäggi, Messi, Züger, Pifko',
   year: 2017,
+  totalPages: 228,
   pages: 228,
   color: '#8b5cf6',
   chapters: [

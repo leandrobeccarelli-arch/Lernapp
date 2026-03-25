@@ -4,6 +4,7 @@ window.BOOK_DATA = {
   shortTitle: 'Rechnungswesen f\u00fcr M+V',
   author: 'Robert Baumann',
   year: 2017,
+  totalPages: 323,
   pages: 323,
   color: '#059669',
   chapters: [

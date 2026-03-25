@@ -8,6 +8,7 @@ window.BOOK_DATA = {
   shortTitle: 'Rechnungswesen Übungen',
   author: 'Compendio-Autorenteam',
   year: 2017,
+  totalPages: 280,
   pages: 280,
   color: '#3b82f6',
   chapters: [

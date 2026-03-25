@@ -4,6 +4,7 @@ window.BOOK_DATA = {
   shortTitle: 'Distribution',
   author: 'Bislin, Röösli',
   year: 2023,
+  totalPages: 175,
   pages: 175,
   color: '#ea580c',
   chapters: [

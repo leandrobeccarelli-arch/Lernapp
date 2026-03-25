@@ -4,6 +4,7 @@ window.BOOK_DATA = {
   shortTitle: 'Projektmanagement',
   author: 'Führer, Züger',
   year: 2017,
+  totalPages: 142,
   pages: 142,
   color: '#d97706',
   chapters: [
@@ -20,7 +21,8 @@ window.BOOK_DATA = {
             { l: '\u00abIn vielen Projekten kümmert man sich zu wenig darum, wie man die Betroffenen durch gezielte Massnahmen zu echten Beteiligten macht!\u00bb', r: 'Kommunikation (Stakeholdermanagement)' }
           ],
           options: ['Methodik', 'Projektteam', 'Projektumfeld, insbesondere das Topmanagement als wichtiger Promotor', 'Kommunikation (Stakeholdermanagement)'],
-          tips: [], reveal: []
+          tips: ['Denken Sie an die vier Erfolgsfaktoren: Methodik, Projektteam, Projektumfeld, Kommunikation.','Überlegen Sie, welche Aussage auf systematisches Vorgehen, Teamgeist, Unterstützung oder Einbindung von Betroffenen abzielt.','Methodik = systematisches Vorgehen, Projektteam = Wir-Gefühl, Projektumfeld = Promotoren, Kommunikation = Betroffene zu Beteiligten machen.'],
+          reveal: ['«Systematisch angehen» bezieht sich auf die Methodik.','«Wir-Gefühl» bezieht sich auf das Projektteam.','«Promotoren» bezieht sich auf das Projektumfeld/Topmanagement.','«Betroffene zu Beteiligten machen» bezieht sich auf Kommunikation/Stakeholdermanagement.']
         },
         {
           id: 2, type: 'tf', title: 'Handelt es sich um ein Projekt?',
@@ -32,14 +34,110 @@ window.BOOK_DATA = {
             { s: 'Jahresplanung der Marketingabteilung', c: false },
             { s: 'Reorganisation des Verkaufs-Innendienstes', c: true }
           ],
-          tips: [], reveal: []
+          tips: ['Ein Projekt hat sechs Merkmale: zeitlich befristet, komplex, einmalig, begrenzte Ressourcen, innovativ, risikobehaftet.','Routinetätigkeiten und wiederkehrende Aufgaben sind keine Projekte.','Nicht alle sechs Merkmale müssen gleichzeitig zutreffen, aber die meisten sollten erfüllt sein.'],
+          reveal: ['Kongress: Ja – einmalig (100 Jahre), zeitlich befristet, komplex.','Umbau: Ja – einmalig, zeitlich befristet, komplex, innovativ.','MIS-Ausbau: Ja – einmalig, komplex, innovativ, risikobehaftet.','Jahresplanung: Nein – wiederkehrende Routineaufgabe, nicht einmalig.','Reorganisation: Ja – einmalig, komplex, innovativ, risikobehaftet.']
         },
         {
           id: 3, type: 'text', title: 'Begrenzte Ressourcen',
           q: 'Welche besondere Rolle spielen begrenzte Ressourcen bei der Projektarbeit?',
           keywords: ['begrenzt', 'Ressourcen', 'kritisch', 'Projekterfolg', 'finanziell', 'Mittel', 'Budget', 'personell', 'Zeit', 'qualifiziert'],
           solution: 'Begrenzte Ressourcen in der Projektpraxis sind meist ein kritisches Thema. Sie gefährden den Projekterfolg. Seien dies zu geringe finanzielle Mittel (Projektbudgets), unzulängliche IT-Systeme oder vor allem auch: zu wenig personelle Ressourcen (zu wenig Zeit für die betreffende Projektarbeit oder zu wenig gut qualifiziert).',
-          tips: [], reveal: []
+          tips: ['Denken Sie an verschiedene Arten von Ressourcen: finanziell, personell, technisch.','Ressourcenknappheit ist einer der häufigsten Gründe für Projektprobleme.','Auch die Qualifikation der verfügbaren Personen spielt eine Rolle.'],
+          reveal: ['Begrenzte Ressourcen gefährden den Projekterfolg.','Finanzielle Mittel (Budget) sind oft zu knapp bemessen.','Personelle Ressourcen: zu wenig Zeit oder zu wenig qualifizierte Mitarbeitende.','Auch unzulängliche IT-Systeme oder Sachmittel können ein Problem darstellen.']
+        },
+        {
+          id: 44, type: 'mc',
+          q: 'Anzahl Projektmerkmale',
+          instruction: 'Wie viele typische Merkmale kennzeichnen ein Projekt gemäss Lehrbuch?',
+          options: ['Vier', 'Fünf', 'Sechs', 'Sieben'],
+          answer: 2,
+          tips: ['Die Merkmale beginnen mit «zeitlich befristet».','Denken Sie auch an Einmaligkeit, Komplexität und Innovation.','Das sechste Merkmal bezieht sich auf Gefahren.'],
+          reveal: ['Sechs Merkmale: Zeitlich befristet, Komplexität, Einmaligkeit, Begrenzte Ressourcen, Innovativ, Risikobehaftet.','Nicht alle Merkmale müssen gleichzeitig zutreffen.']
+        },
+        {
+          id: 45, type: 'fill',
+          q: 'Projektmerkmale ergänzen',
+          instruction: 'Ergänzen Sie die sechs typischen Merkmale eines Projekts.',
+          template: 'Ein Projekt ist gekennzeichnet durch: {0}, Komplexität, {1}, begrenzte Ressourcen, {2} und {3}.',
+          blanks: [['zeitlich befristet','Zeitliche Befristung'],['Einmaligkeit','einmalig'],['innovativ','Innovation','Innovativ'],['risikobehaftet','Risikobehaftet','Risiko']],
+          tips: ['Das erste Merkmal betrifft Anfang und Ende des Projekts.','Das dritte Merkmal bedeutet, dass ein Projekt etwas Neues schafft.','Das letzte Merkmal bezieht sich auf Unsicherheiten und Gefahren.'],
+          reveal: ['Zeitlich befristet: klarer Anfang und klares Ende.','Einmaligkeit: kein Routinevorgang.','Innovativ: Neuigkeitswert vorhanden.','Risikobehaftet: Unsicherheiten und Gefahren.']
+        },
+        {
+          id: 46, type: 'sort',
+          q: 'Erfolgsfaktoren nach Ebene',
+          instruction: 'Ordnen Sie die Erfolgsfaktoren von der Einzelperson (Projektleiter) bis zum Gesamtumfeld.',
+          items: ['Projektleiter','Projektteam','Methodik','Kommunikation','Topmanagement','Projektidee/Projektumfeld'],
+          correctOrder: [0,1,2,3,4,5],
+          tips: ['Beginnen Sie mit der Einzelperson, die das Projekt direkt führt.','Das Projektteam arbeitet direkt unter dem Projektleiter.','Das Projektumfeld ist der weiteste Kreis.'],
+          reveal: ['Projektleiter: Schlüsselperson für den Projekterfolg.','Projektteam: Wir-Gefühl und Zusammenarbeit.','Methodik: Systematisches Vorgehen.','Kommunikation: Stakeholder einbinden.','Topmanagement: Promotor des Projekts.','Projektidee/Projektumfeld: Rahmenbedingungen.']
+        },
+        {
+          id: 47, type: 'mc',
+          q: 'Kompetenz des Projektleiters',
+          instruction: 'Welche Kompetenz ist für den Projekterfolg beim Projektleiter am ausschlaggebendsten?',
+          options: ['Fachkompetenz','Soziale und persönliche Kompetenz','Methodenkompetenz','IT-Kompetenz'],
+          answer: 1,
+          tips: ['Die Auswahl erfolgt oft aufgrund der Fachkompetenz.','Doch eine andere Kompetenzart ist laut Lehrbuch ausschlaggebend.','Der Projektleiter muss als Generalist wirken.'],
+          reveal: ['Die soziale und persönliche Kompetenz sind ausschlaggebend.','Der Projektleiter gestaltet die Rahmenbedingungen für die Zusammenarbeit.','Fachkompetenz allein reicht nicht aus – der PL muss als Generalist wirken.']
+        },
+        {
+          id: 48, type: 'match',
+          q: 'Projektarten zuordnen',
+          instruction: 'Ordnen Sie die Beispiele der richtigen Projektart zu.',
+          pairs: [
+            { l: 'Neues Hochregallagersystem errichten', r: 'Bau- und Investitionsprojekt' },
+            { l: 'Neue Software für die Buchhaltung einführen', r: 'IT-Projekt' },
+            { l: 'Abteilung Verkauf reorganisieren', r: 'Organisationsprojekt' },
+            { l: 'Neuen Vertriebskanal aufbauen', r: 'Marketingprojekt' }
+          ],
+          options: ['Bau- und Investitionsprojekt','F&E-Projekt','Organisationsprojekt','IT-Projekt','Marketingprojekt'],
+          tips: ['Bau- und Investitionsprojekte betreffen Sachanlagen.','IT-Projekte betreffen Software und IT-Infrastruktur.','Organisationsprojekte verändern Aufbau- oder Ablauforganisation.'],
+          reveal: ['Hochregallagersystem = Bau- und Investitionsprojekt (Sachanlagen).','Software = IT-Projekt.','Reorganisation = Organisationsprojekt.','Vertriebskanal = Marketingprojekt (Kundenakquisition).']
+        },
+        {
+          id: 49, type: 'tf',
+          q: 'Aussagen zum Projektmanagement',
+          statements: [
+            { s: 'Projektmanagement kann nur aus Sicht des Einzelprojekts betrachtet werden.', c: false, feedback: 'Es gibt zwei Perspektiven: Sicht des Unternehmens und Sicht des Einzelprojekts.' },
+            { s: 'Das Topmanagement muss seine Rolle als Promotor aktiv wahrnehmen.', c: true, feedback: 'Eine passive Haltung kann den Projekterfolg hemmen oder verunmöglichen.' },
+            { s: 'Im Projektdreieck stehen Leistung, Kosten und Zeit in einem Zielkonflikt.', c: true, feedback: 'Das magische Dreieck zeigt die Balance zwischen diesen drei Grössen.' },
+            { s: 'Ein Projekt muss immer alle sechs Merkmale gleichzeitig aufweisen.', c: false, feedback: 'Nicht alle Merkmale müssen gleichzeitig zutreffen.' }
+          ],
+          tips: ['Projektmanagement hat zwei Perspektiven.','Denken Sie an das magische Dreieck.','Die sechs Merkmale müssen nicht alle gleichzeitig zutreffen.'],
+          reveal: ['PM hat zwei Perspektiven: Unternehmenssicht und Einzelprojektsicht.','Das Topmanagement ist ein wichtiger Promotor.','Das Projektdreieck zeigt den Zielkonflikt zwischen Leistung, Kosten und Zeit.','Die sechs Merkmale sind Leitlinien, nicht alle müssen gleichzeitig zutreffen.']
+        },
+        {
+          id: 50, type: 'check',
+          q: 'Gründe für Projektarbeit',
+          instruction: 'Welche der folgenden Gründe sprechen für Projektarbeit?',
+          statements: [
+            { s: 'Technischer Fortschritt und Zeitdruck', c: true },
+            { s: 'Steigende Komplexität realer Situationen', c: true },
+            { s: 'Routinetätigkeiten effizienter gestalten', c: false },
+            { s: 'Das notwendige Wissen nimmt zu', c: true },
+            { s: 'Linienorganisation soll ersetzt werden', c: false }
+          ],
+          tips: ['Drei Veränderungen sprechen für Projektarbeit.','Es geht um Fortschritt, Komplexität und Wissen.','Routinetätigkeiten und Linienorganisation gehören nicht dazu.'],
+          reveal: ['Technischer Fortschritt: Innovationszyklen werden kürzer.','Steigende Komplexität: Reale Situationen werden immer vielschichtiger.','Zunehmendes Wissen: Vermehrt Spezialisten und Teamarbeit nötig.','Routinetätigkeiten und Linienersatz sind keine Gründe für Projektarbeit.']
+        },
+        {
+          id: 51, type: 'sort',
+          q: 'Schlüsselfragen im Einzelprojektmanagement',
+          instruction: 'Bringen Sie die PM-Komponenten in die logische Reihenfolge eines Projekts.',
+          items: ['Projektinitialisierung','Projektplanung','Projektsteuerung (Controlling)','Projektführung und Stakeholdermanagement','Projektabschluss'],
+          correctOrder: [0,1,2,3,4],
+          tips: ['Ein Projekt beginnt mit der Initialisierung.','Nach der Planung folgt die Steuerung.','Der Abschluss steht am Ende.'],
+          reveal: ['1. Projektinitialisierung: Bearbeiten wir die richtigen Projekte?','2. Projektplanung: Wie bearbeiten wir das Projekt fachgemäss?','3. Projektsteuerung: Wie bleiben wir auf dem geplanten Kurs?','4. Projektführung: Wie gehen wir mit betroffenen Menschen um?','5. Projektabschluss: Wie beenden wir das Projekt zweckmässig?']
+        },
+        {
+          id: 52, type: 'fill',
+          q: 'Das Projektdreieck',
+          instruction: 'Ergänzen Sie die drei Eckpunkte des magischen Projektdreiecks.',
+          template: 'Die drei Eckpunkte des Projektdreiecks sind: {0}, {1} und {2}. Zwischen ihnen besteht ein Zielkonflikt.',
+          blanks: [['Leistung','Qualität','Leistung/Qualität'],['Kosten'],['Zeit']],
+          tips: ['Die drei Grössen bilden das «magische Dreieck».','Eine Veränderung bei einer Grösse beeinflusst die anderen.','Denken Sie an Qualität, Geld und Dauer.'],
+          reveal: ['Leistung/Qualität: Was soll das Projekt liefern?','Kosten: Wie viel darf das Projekt kosten?','Zeit: Wie lange dauert das Projekt?','Zwischen den drei Grössen besteht ein Zielkonflikt.']
         }
       ],
       learningData: {
@@ -79,6 +177,7 @@ window.BOOK_DATA = {
           { type: 'concept', title: 'Projektleiter', content: 'Der Projektleiter gestaltet die Rahmenbedingungen für eine erfolgreiche Zusammenarbeit im Projektteam. Die Auswahl erfolgt oft aufgrund der Fachkompetenz, doch die soziale und persönliche Kompetenz sind ausschlaggebend. Der Projektleiter muss eher als Generalist wirken.', highlight: 'Für den Projekterfolg sind die soziale und die persönliche Kompetenz des Projektleiters ausschlaggebend.' },
           { type: 'concept', title: 'Topmanagement', content: 'Das Topmanagement hat die oberste Entscheidungskompetenz über das Projekt und über dessen Rahmenbedingungen. Es muss seine Rolle als «Promotor» des Projekts wahrnehmen und den Projekterfolg aktiv fördern.', highlight: 'Eine passive Haltung des Topmanagements kann den Projekterfolg hemmen oder verunmöglichen.' },
           { type: 'concept', title: 'Projektteam', content: 'Ein optimales Projektteam wird so zusammengestellt, dass möglichst alle Interessen am Projektergebnis optimal vertreten sind. Es muss allmählich so zusammenwachsen, dass ein Wir-Gefühl entsteht und sich daraus ein produktives Zusammenarbeiten entwickelt.' },
+          { type: 'merke', title: 'Merke dir!', items: ['Ein Projekt hat sechs Merkmale: zeitlich befristet, komplex, einmalig, begrenzte Ressourcen, innovativ, risikobehaftet – aber nicht alle müssen gleichzeitig zutreffen.','Das Projektdreieck (Leistung, Kosten, Zeit) zeigt den zentralen Zielkonflikt jedes Projekts.','Für den Projekterfolg ist die soziale und persönliche Kompetenz des Projektleiters ausschlaggebender als die Fachkompetenz.','Die sieben Erfolgsfaktoren sind eng miteinander verbunden und können sich gegenseitig verstärken.'] },
           { type: 'summary', title: 'Zusammenfassung', items: [
             'Typische Merkmale von Projekten: Zeitlich befristet, Komplexität, Einmaligkeit, Begrenzte Ressourcen, Innovativ, Risikobehaftet.',
             'Einteilungskriterien für Projektarten: Projektinhalt, Grösse und Umfang, Komplexität, Laufzeit, Bedeutung für das Unternehmen, Reichweite, Stellung des Kunden bzw. Auftraggebers.',
@@ -102,14 +201,16 @@ window.BOOK_DATA = {
             { s: 'Machbarkeit von Lösungsvarianten prüfen', c: true },
             { s: 'Einführung planen', c: false }
           ],
-          tips: [], reveal: []
+          tips: ['Die Vorstudie ist die erste Phase und dient der groben Orientierung.','In der Vorstudie werden Bedürfnisse abgeklärt und die Machbarkeit geprüft.','Detaillierte Beschreibungen und Ausschreibungen gehören zu späteren Phasen.'],
+          reveal: ['Bedürfnisabklärung: Vorstudie (Stakeholder-Bedürfnisse ermitteln).','Projektabgrenzung: Vorstudie (Was gehört zum Projekt, was nicht?).','Qualitätsanforderungen detailliert: Detailkonzept (nicht Vorstudie).','Ausschreibungsunterlagen: Detailkonzept.','Machbarkeitsprüfung: Vorstudie.','Einführung planen: Phase Einführung.']
         },
         {
           id: 5, type: 'text', title: 'Phasenkonzept vs. Planungszyklus',
           q: 'Erklären Sie einem Aussenstehenden in wenigen Sätzen den Unterschied zwischen dem Phasenkonzept und dem Planungszyklus.',
           keywords: ['Phasenkonzept', 'Projektverlauf', 'Planungszyklus', 'methodisch', 'Phase', 'Schritte', 'Vorgehen', 'innerhalb'],
           solution: 'Mit dem Phasenkonzept legt man das methodische Vorgehen für den gesamten Projektverlauf fest; eine Phase bildet einen abgeschlossenen Aufgabenblock innerhalb des Projekts. Wie der Name schon sagt, definiert der Planungszyklus das methodische Vorgehen innerhalb einer Planungsphase; für die Erreichung des Phasenziels müssen sämtliche sechs Schritte des Planungszyklus durchlaufen werden.',
-          tips: [], reveal: []
+          tips: ['Das Phasenkonzept betrifft den gesamten Projektverlauf.','Der Planungszyklus betrifft das Vorgehen innerhalb einer Phase.','Der Planungszyklus hat sechs Schritte.'],
+          reveal: ['Phasenkonzept: Methodisches Vorgehen für den gesamten Projektverlauf.','Planungszyklus: Methodisches Vorgehen innerhalb einer Planungsphase.','Die sechs Schritte des Planungszyklus: Auftrag, Erhebung, Würdigung, Lösungssuche, Bewertung, Auswahl.']
         },
         {
           id: 6, type: 'match', title: 'Zweck der Vorgehensmethodik',
@@ -120,7 +221,85 @@ window.BOOK_DATA = {
             { l: 'Charlotte: \u00abMein letztes Projekt kam mir wie ein Hochseilakt vor, unter anderem, weil ich die Vorgehensmethodik nicht konsequent angewandt habe.\u00bb', r: 'Überblick bewahren trotz Detailarbeit' }
           ],
           options: ['Einheitliches Vorgehen', 'Klare Meilensteine für Entscheidungen', 'Transparenz für Entscheidende und Projektteam', 'Überblick bewahren trotz Detailarbeit', 'Unterstützung der Projektleitung'],
-          tips: [], reveal: []
+          tips: ['Audrey spricht über die Anzahl Phasen – das betrifft ein einheitliches Modell.','Bettina betont die Einigkeit über Entscheidungszeitpunkte.','Charlotte spricht über den Überblick bei der Detailarbeit.'],
+          reveal: ['Audrey: Einheitliches Vorgehen (ein projektbezogenes Modell statt Grundsatzdiskussionen).','Bettina: Klare Meilensteine für Entscheidungen (wann was entschieden wird).','Charlotte: Überblick bewahren trotz Detailarbeit (Vorgehensmethodik als Leitplanke).']
+        },
+        {
+          id: 53, type: 'sort',
+          q: 'Basis-Phasenkonzept',
+          instruction: 'Bringen Sie die sechs Phasen des Basis-Phasenkonzepts in die richtige Reihenfolge.',
+          items: ['Vorstudie','Grobkonzept','Detailkonzept','Realisierung','Einführung','Erhaltung'],
+          correctOrder: [0,1,2,3,4,5],
+          tips: ['Die ersten drei Phasen gehören zur Planung.','Nach dem Detailkonzept beginnt die Umsetzung.','Die letzte Phase sichert den langfristigen Betrieb.'],
+          reveal: ['1. Vorstudie: Grobe Orientierung und Machbarkeit.','2. Grobkonzept: Lösungsvarianten erarbeiten.','3. Detailkonzept: Ausführungsreifes Konzept.','4. Realisierung: Umsetzung des Konzepts.','5. Einführung: Übergabe an Benutzer.','6. Erhaltung: Langfristiger Betrieb sichern.']
+        },
+        {
+          id: 54, type: 'fill',
+          q: 'Planungszyklus ergänzen',
+          instruction: 'Ergänzen Sie die sechs Schritte des Planungszyklus.',
+          template: 'Der Planungszyklus besteht aus: {0}, Erhebung/Analyse, {1}, {2}, Bewertung und {3}.',
+          blanks: [['Auftrag/Vertrag','Auftrag','Vertrag'],['Würdigung/Zielrevision','Würdigung','Zielrevision'],['Lösungssuche'],['Auswahl']],
+          tips: ['Der erste Schritt betrifft die verbindliche Vereinbarung.','Der dritte Schritt bewertet Stärken, Schwächen, Chancen und Risiken.','Der letzte Schritt ist die definitive Entscheidung.'],
+          reveal: ['Auftrag/Vertrag: Verbindliche Vereinbarungen treffen.','Würdigung/Zielrevision: Stärken/Schwächen und Chancen/Risiken beurteilen.','Lösungssuche: Konzeptentwurf und Konzeptanalyse.','Auswahl: Definitiver Entscheid durch Auftraggeber.']
+        },
+        {
+          id: 55, type: 'mc',
+          q: 'Planungsphasen im Phasenkonzept',
+          instruction: 'Welche drei Phasen gehören zur Planung?',
+          options: ['Vorstudie, Grobkonzept, Realisierung','Vorstudie, Grobkonzept, Detailkonzept','Grobkonzept, Detailkonzept, Einführung','Vorstudie, Realisierung, Erhaltung'],
+          answer: 1,
+          tips: ['Die Planung umfasst die ersten drei Phasen.','Mit dem Abschluss der Planung muss ein ausführungsreifes Konzept vorliegen.','Die Realisierung gehört bereits zur Umsetzung.'],
+          reveal: ['Vorstudie, Grobkonzept und Detailkonzept gehören zur Planung.','Nach Abschluss dieser drei Phasen liegt ein ausführungsreifes Konzept vor.','Die Realisierung ist der Beginn der Umsetzungsphase.']
+        },
+        {
+          id: 56, type: 'tf',
+          q: 'Aussagen zum Phasenkonzept',
+          statements: [
+            { s: 'Je nach Projektgrösse können einzelne Phasen zusammengelegt oder weggelassen werden.', c: true, feedback: 'Das Phasenkonzept ist flexibel und wird an das Projekt angepasst.' },
+            { s: 'Der Planungszyklus wird nur in der ersten Phase angewandt.', c: false, feedback: 'Der Planungszyklus kommt in jeder Planungsphase zur Anwendung.' },
+            { s: 'Kollaborationstools dienen der laufenden Zusammenarbeit im Projektteam.', c: true, feedback: 'IT-gestützte Plattformen ermöglichen den Datenaustausch.' },
+            { s: 'Ein Kanbansystem dient ausschliesslich der Kostenplanung.', c: false, feedback: 'Kanbansysteme dienen der Aufgabenorganisation und Fortschrittsverfolgung.' }
+          ],
+          tips: ['Das Phasenkonzept ist an die Projektgrösse anpassbar.','Der Planungszyklus wird in jeder Phase durchlaufen.','Kanban ist ein Werkzeug für Aufgabenmanagement.'],
+          reveal: ['Phasen können flexibel zusammengelegt werden.','Der Planungszyklus wird in allen Planungsphasen angewandt.','Kollaborationstools: IT-Plattformen für Zusammenarbeit.','Kanbansysteme: Selbstorganisation der Projektaufgaben, nicht Kostenplanung.']
+        },
+        {
+          id: 57, type: 'match',
+          q: 'PM-Tools den Aufgaben zuordnen',
+          instruction: 'Ordnen Sie die Einsatzmöglichkeiten der richtigen Aufgabe zu.',
+          pairs: [
+            { l: 'Netzplan und Balkendiagramme erstellen', r: 'Projektplanung' },
+            { l: 'Soll-Ist-Analysen durchführen', r: 'Projektcontrolling' },
+            { l: 'Kommunikationsunterlagen verwalten', r: 'Projektdokumentation' },
+            { l: 'Ressourcenplanung durchführen', r: 'Projektplanung' }
+          ],
+          options: ['Projektplanung','Projektcontrolling','Projektdokumentation'],
+          tips: ['Netzpläne und Balkendiagramme sind Planungswerkzeuge.','Soll-Ist-Analysen gehören zum Controlling.','Kommunikationsunterlagen sind Teil der Dokumentation.'],
+          reveal: ['Netzplan/Balkendiagramme: Projektplanung (Terminplanung).','Soll-Ist-Analysen: Projektcontrolling (Abweichungen ermitteln).','Kommunikationsunterlagen: Projektdokumentation.','Ressourcenplanung: Projektplanung.']
+        },
+        {
+          id: 58, type: 'check',
+          q: 'Ziele der Vorgehensmethodik',
+          instruction: 'Welche der folgenden Punkte sind Ziele der Vorgehensmethodik?',
+          statements: [
+            { s: 'Einheitliches Vorgehen', c: true },
+            { s: 'Transparenz für Entscheidende und Projektteam', c: true },
+            { s: 'Maximierung des Projektbudgets', c: false },
+            { s: 'Klare Meilensteine für Entscheidungen', c: true },
+            { s: 'Überblick bewahren trotz Detailarbeit', c: true },
+            { s: 'Elimination aller Projektrisiken', c: false }
+          ],
+          tips: ['Es gibt fünf Ziele der Vorgehensmethodik.','Budgetmaximierung ist kein Ziel.','Risiken können nie vollständig eliminiert werden.'],
+          reveal: ['Fünf Ziele: Einheitlichkeit, Transparenz, klare Meilensteine, Unterstützung der PL, Überblick.','Budgetmaximierung ist kein methodisches Ziel.','Risikoelimination ist unrealistisch – es geht um Risikomanagement.']
+        },
+        {
+          id: 59, type: 'sort',
+          q: 'Schritte des Planungszyklus',
+          instruction: 'Bringen Sie die sechs Schritte des Planungszyklus in die richtige Reihenfolge.',
+          items: ['Auftrag/Vertrag','Erhebung/Analyse','Würdigung/Zielrevision','Lösungssuche','Bewertung','Auswahl'],
+          correctOrder: [0,1,2,3,4,5],
+          tips: ['Der Zyklus beginnt mit der Auftragserteilung.','Nach der Erhebung werden Stärken und Schwächen gewürdigt.','Am Ende steht der Entscheid.'],
+          reveal: ['1. Auftrag/Vertrag: Verbindliche Vereinbarungen.','2. Erhebung/Analyse: Informationen sammeln und ordnen.','3. Würdigung/Zielrevision: SWOT beurteilen, Ziele prüfen.','4. Lösungssuche: Varianten sammeln und würdigen.','5. Bewertung: Varianten vergleichen und beurteilen.','6. Auswahl: Entscheid durch Auftraggeber.']
         }
       ],
       learningData: {
@@ -153,6 +332,7 @@ window.BOOK_DATA = {
             ['Projektcontrolling', 'Projektfortschrittskontrolle, Soll-Ist-Analysen, Risikomanagement, Änderungsmanagement, Issue Management'],
             ['Projektdokumentation', 'Arbeitsunterlagen des Projektteams, Projektdokumentation, Kommunikationsunterlagen']
           ]},
+          { type: 'merke', title: 'Merke dir!', items: ['Das Basis-Phasenkonzept hat 6 Phasen: Vorstudie, Grobkonzept, Detailkonzept, Realisierung, Einführung, Erhaltung.','Die ersten drei Phasen bilden die Planung – danach muss ein ausführungsreifes Konzept vorliegen.','Der Planungszyklus (6 Schritte) wird innerhalb jeder Planungsphase durchlaufen.','Phasen können je nach Projektgrösse zusammengelegt oder weggelassen werden.'] },
           { type: 'summary', title: 'Zusammenfassung', items: [
             'Das methodische Vorgehen in der Projektplanung bezweckt: Einheitlichkeit, Transparenz, Klare Entscheidungsgrundlagen, Planungs- und Steuerungshilfe, Übersicht.',
             'Das Basis-Phasenkonzept besteht aus sechs Phasen: Vorstudie, Grobkonzept, Detailkonzept, Realisierung, Einführung, Erhaltung.',
@@ -178,7 +358,8 @@ window.BOOK_DATA = {
             { s: 'Im Antrag müssen visionäre Projektideen nicht so konkret ausgearbeitet sein wie reaktive Projektideen.', c: false },
             { s: 'Ein Projektantrag muss eine grobe Lösungsskizze enthalten.', c: false }
           ],
-          tips: [], reveal: []
+          tips: ['Projekte, die der Strategie zuwiderlaufen, werden grundsätzlich abgelehnt.','Der Projektauftrag ist eine Vereinbarung zwischen Projektleiter und Auftraggeber, nicht zwischen PL und Team.','Im Antrag müssen auch visionäre Ideen genauso konkret ausgearbeitet sein.'],
+          reveal: ['Aussage 1: Richtig – strategiewidrige Projekte sind abzulehnen.','Aussage 2: Richtig – Antrag und Auftrag müssen vereinbar sein.','Aussage 3: Falsch – Der Auftrag ist die Vereinbarung PL-Auftraggeber.','Aussage 4: Falsch – Visionäre Ideen müssen genauso konkret sein.','Aussage 5: Falsch – Der Antrag enthält erste Lösungsideen, keine Pflicht für Skizze.']
         },
         {
           id: 8, type: 'match', title: 'Projektentscheid: Empfehlung',
@@ -191,7 +372,8 @@ window.BOOK_DATA = {
             { l: 'Projekt 5: Wirtschaftlich Mittel, Strategisch Hoch', r: 'Projekt realisieren' }
           ],
           options: ['Projekt realisieren', 'Projekt evtl. realisieren', 'Projekt ablehnen'],
-          tips: [], reveal: []
+          tips: ['Projekte mit hoher wirtschaftlicher ODER strategischer Bedeutung sollten realisiert werden.','Projekte mit niedriger Bewertung in beiden Dimensionen sollten abgelehnt werden.','Bei gemischten Bewertungen: «evtl. realisieren» prüfen.'],
+          reveal: ['Projekt 1 (Niedrig/Mittel): Evtl. realisieren – geringe Wirtschaftlichkeit, aber strategisch relevant.','Projekt 2 (Hoch/Mittel): Realisieren – hohe Wirtschaftlichkeit.','Projekt 3 (Hoch/Hoch): Realisieren – hohe Bewertung in beiden Dimensionen.','Projekt 4 (Niedrig/Niedrig): Ablehnen – geringe Bewertung in beiden Dimensionen.','Projekt 5 (Mittel/Hoch): Realisieren – hohe strategische Bedeutung.']
         },
         {
           id: 9, type: 'match', title: 'Reaktive oder visionäre Idee?',
@@ -202,7 +384,85 @@ window.BOOK_DATA = {
             { l: 'Eine auf \u00abBio-Fast-Food\u00bb spezialisierte Restaurantkette möchte in die Zentralschweiz expandieren, da sie dort noch keine vergleichbaren Angebote sieht.', r: 'Visionäre Idee' }
           ],
           options: ['Reaktive Idee', 'Visionäre Idee'],
-          tips: [], reveal: []
+          tips: ['Reaktive Ideen reagieren auf einen unbefriedigenden Zustand.','Visionäre Ideen entstehen aus neuen Chancen.','Fragen Sie sich: Wird ein Problem behoben oder eine neue Chance genutzt?'],
+          reveal: ['Kursräumlichkeiten: Reaktiv – Reaktion auf einen Missstand.','Zeiterfassungssoftware: Reaktiv – Reaktion auf schlechte Benutzerführung.','Bio-Fast-Food-Expansion: Visionär – neue Chance in neuem Markt.']
+        },
+        {
+          id: 60, type: 'sort',
+          q: 'Projektinitialisierungsprozess',
+          instruction: 'Bringen Sie die sechs Schritte der Projektinitialisierung in die richtige Reihenfolge.',
+          items: ['Projektidee','Projektantrag','Antragsprüfung','Entscheid','Projektauftrag','Projektfreigabe'],
+          correctOrder: [0,1,2,3,4,5],
+          tips: ['Alles beginnt mit einer Idee.','Der Antrag wird geprüft, bevor ein Entscheid fällt.','Die Projektfreigabe erfolgt am Schluss durch Unterzeichnung.'],
+          reveal: ['1. Projektidee: Reaktiv oder visionär.','2. Projektantrag: Formelles Dokument mit Ausgangslage und Zielen.','3. Antragsprüfung: Acht Schlüsselfragen.','4. Entscheid: Genehmigung oder Ablehnung.','5. Projektauftrag: Zielvereinbarung PL-Auftraggeber.','6. Projektfreigabe: Unterzeichnung und Kick-off.']
+        },
+        {
+          id: 61, type: 'fill',
+          q: 'Inhalt des Projektantrags',
+          instruction: 'Ergänzen Sie die Inhalte eines vollständigen Projektantrags.',
+          template: 'Ein Projektantrag enthält: {0}, Probleme, grobe {1}, erwarteter Nutzen und Projektziele, {2} und Grobschätzung des {3}.',
+          blanks: [['Ausgangslage'],['Lösungsidee','Lösungsideen'],['Wirtschaftlichkeitsüberlegungen','Wirtschaftlichkeit'],['Realisierungszeitraums','Realisierungszeitraum']],
+          tips: ['Der Antrag beginnt mit der aktuellen Situation.','Es werden erste Ideen zur Problemlösung beschrieben.','Am Ende steht eine grobe zeitliche Einschätzung.'],
+          reveal: ['Ausgangslage: Aktuelle Situation und Handlungsbedarf.','Lösungsideen: Erste Ansätze zur Problemlösung.','Wirtschaftlichkeitsüberlegungen: Nutzen und Kosten abwägen.','Realisierungszeitraum: Grobschätzung der Projektdauer.']
+        },
+        {
+          id: 62, type: 'mc',
+          q: 'Projektauftrag',
+          instruction: 'Was beschreibt der Projektauftrag am besten?',
+          options: ['Eine Aufgabenliste für das Projektteam','Eine Zielvereinbarung zwischen Projektleiter und Auftraggeber','Ein Vertrag mit externen Lieferanten','Eine Budgetfreigabe durch die Finanzabteilung'],
+          answer: 1,
+          tips: ['Der Projektauftrag hat vertraglichen Charakter.','Er ist die wichtigste Leitplanke für das Gesamtprojekt.','Er wird zwischen zwei bestimmten Personen vereinbart.'],
+          reveal: ['Der Projektauftrag ist eine Zielvereinbarung zwischen Projektleiter und Auftraggeber.','Er hat vertraglichen Charakter und ist die wichtigste Leitplanke.','Die Projektfreigabe erfolgt durch gegenseitige Unterzeichnung.']
+        },
+        {
+          id: 63, type: 'tf',
+          q: 'Aussagen zur Projektinitialisierung',
+          statements: [
+            { s: 'Versäumnisse in der Projektvorbereitung rächen sich vielfach im weiteren Projektverlauf.', c: true, feedback: 'Eine sorgfältige Initialisierung ist entscheidend.' },
+            { s: 'Unternehmen, die visionäre Projektideen fördern, sind erfolgreicher.', c: true, feedback: 'Untersuchungen bestätigen den Vorteil visionärer Ideen.' },
+            { s: 'Die Antragsprüfung umfasst fünf Schlüsselfragen.', c: false, feedback: 'Es sind acht Schlüsselfragen.' },
+            { s: 'Mangelnde Verfügbarkeit von Ressourcen ist ein Hauptgrund für das Scheitern von Projekten.', c: true, feedback: 'Ressourcenmangel ist in der Praxis einer der häufigsten Gründe.' }
+          ],
+          tips: ['Sorgfältige Vorbereitung verhindert spätere Probleme.','Die Antragsprüfung hat eine bestimmte Anzahl Fragen.','Ressourcenmangel ist ein häufiges Problem.'],
+          reveal: ['Versäumnisse in der Vorbereitung haben schwere Folgen.','Visionäre Projektideen machen Unternehmen erfolgreicher.','Es sind acht Schlüsselfragen, nicht fünf.','Ressourcenmangel ist ein Hauptgrund für Projektscheitern.']
+        },
+        {
+          id: 64, type: 'check',
+          q: 'Acht Schlüsselfragen der Antragsprüfung',
+          instruction: 'Welche der folgenden Fragen gehören zu den acht Schlüsselfragen der Antragsprüfung?',
+          statements: [
+            { s: 'Ist das beantragte Vorhaben ein Projekt?', c: true },
+            { s: 'Ist das Projekt mit der Unternehmensstrategie vereinbar?', c: true },
+            { s: 'Wie hoch ist das Projektbudget?', c: false },
+            { s: 'Stehen ausreichend Ressourcen zur Verfügung?', c: true },
+            { s: 'Ist der Wille zur Veränderung vorhanden?', c: true },
+            { s: 'Welche Konsequenzen hat eine Nichtdurchführung?', c: true }
+          ],
+          tips: ['Die Schlüsselfragen prüfen Projekttauglichkeit und Machbarkeit.','Das genaue Budget ist kein Teil der Antragsprüfung.','Eine Frage betrifft die Konsequenzen, wenn das Projekt nicht durchgeführt wird.'],
+          reveal: ['Projekttauglichkeit: Ist es überhaupt ein Projekt?','Strategievereinbarkeit: Passt es zur Unternehmensstrategie?','Budgethöhe: Keine Schlüsselfrage (Wirtschaftlichkeit schon).','Ressourcenverfügbarkeit: Sind genug Ressourcen da?','Veränderungswille: Wird die Veränderung gewollt?','Nichtdurchführung: Was passiert, wenn man es nicht macht?']
+        },
+        {
+          id: 65, type: 'fill',
+          q: 'Projektauftrag-Inhalte',
+          instruction: 'Ergänzen Sie die Inhalte des Projektauftrags.',
+          template: 'Der Projektauftrag enthält: Ausgangslage, {0}, Restriktionen, {1}, Projektorganisation, {2}, Projektbudget, Chancen und Risiken und {3}.',
+          blanks: [['Zielsetzung','Zielsetzungen'],['Projektabgrenzung'],['Projekttermine'],['Information und Berichterstattung','Berichterstattung']],
+          tips: ['Nach der Ausgangslage kommen die Ziele.','Die Abgrenzung definiert, was zum Projekt gehört und was nicht.','Am Ende stehen Informationsregelungen.'],
+          reveal: ['Zielsetzungen: Was soll erreicht werden?','Projektabgrenzung: Was gehört dazu, was nicht?','Projekttermine: Dauer, Meilensteine, Wunsch-Endtermin.','Information und Berichterstattung: Vorgaben zur Dokumentation.']
+        },
+        {
+          id: 66, type: 'match',
+          q: 'Projektportfolio: Bewertungsdimensionen',
+          instruction: 'Ordnen Sie die Beschreibungen der richtigen Bewertungsdimension zu.',
+          pairs: [
+            { l: 'Wie hoch ist der erwartete Return on Investment?', r: 'Wirtschaftliche Bedeutung' },
+            { l: 'Wie gut passt das Projekt zur Unternehmensstrategie?', r: 'Strategische Bedeutung' },
+            { l: 'Stärkt das Projekt die Marktposition langfristig?', r: 'Strategische Bedeutung' },
+            { l: 'Amortisiert sich die Investition innerhalb von zwei Jahren?', r: 'Wirtschaftliche Bedeutung' }
+          ],
+          options: ['Wirtschaftliche Bedeutung','Strategische Bedeutung'],
+          tips: ['Wirtschaftlich = finanzielle Aspekte wie ROI und Amortisation.','Strategisch = langfristige Ausrichtung und Marktposition.','Im Projektportfolio werden beide Dimensionen beurteilt.'],
+          reveal: ['ROI und Amortisation sind wirtschaftliche Kriterien.','Strategiepassung und Marktposition sind strategische Kriterien.','Das Projektportfolio kombiniert beide Dimensionen für die Entscheidung.']
         }
       ],
       learningData: {
@@ -242,6 +502,7 @@ window.BOOK_DATA = {
             ['Chancen und Risiken', 'Hauptchancen und -risiken, die mit dem Projekt verbunden sind'],
             ['Information und Berichterstattung', 'Vorgaben zur Information und zur Dokumentation des Projekts']
           ]},
+          { type: 'merke', title: 'Merke dir!', items: ['Der Projektinitialisierungsprozess hat 6 Schritte: Idee, Antrag, Prüfung, Entscheid, Auftrag, Freigabe.','Der Projektauftrag ist die Zielvereinbarung zwischen Projektleiter und Auftraggeber – die wichtigste Leitplanke.','Visionäre Projektideen machen Unternehmen erfolgreicher als rein reaktive.','Versäumnisse in der Projektvorbereitung rächen sich im gesamten Projektverlauf.'] },
           { type: 'summary', title: 'Zusammenfassung', items: [
             'Der Projektinitialisierungsprozess besteht aus sechs Vorgehensschritten: Projektidee, Projektantrag, Antragsprüfung, Entscheid, Projektauftrag, Projektfreigabe.',
             'Projektideen: Reaktive Ideen (Veränderung des jetzigen Zustands) und Visionäre Ideen (Chance für die Zukunft).',
@@ -264,14 +525,16 @@ window.BOOK_DATA = {
             { s: 'Ein unechtes Projektziel ist z.B.: \u00abWir wollen die Controllingprozesse in sämtlichen Unternehmensbereichen automatisieren.\u00bb', c: true },
             { s: 'Alle Muss- und Kann-Ziele sind zu gewichten, damit man später die Lösungsvarianten objektiv beurteilen kann.', c: false }
           ],
-          tips: [], reveal: []
+          tips: ['Zielkonflikte sind in Projekten normal und müssen bearbeitet werden.','Ein «unechtes» Ziel beschreibt einen Lösungsweg statt einen Soll-Zustand.','Muss-Ziele werden nicht gewichtet – sie sind K.-o.-Kriterien.'],
+          reveal: ['Aussage 1: Falsch – Zielkonflikte sind normal und müssen transparent gemacht werden.','Aussage 2: Richtig – «Automatisieren» beschreibt einen Lösungsweg, kein lösungsneutrales Ziel.','Aussage 3: Falsch – Nur Kann-Ziele werden gewichtet, Muss-Ziele sind K.-o.-Kriterien.']
         },
         {
           id: 11, type: 'text', title: 'Operationalisierte Ziele',
           q: 'Warum sind operationalisierte Ziele für ein Projekt wichtig?',
           keywords: ['messen', 'Massstab', 'operationalisiert', 'quantitativ', 'qualitativ', 'Zielerreichung', 'Beurteilung'],
           solution: 'Um die Zielerreichung messen zu können, brauchen Ziele einen Massstab. Sie müssen operationalisiert werden. Als Massstab sind sowohl qualitative als auch quantitative Kriterien möglich.',
-          tips: [], reveal: []
+          tips: ['Operationalisieren bedeutet «messbar machen».','Es gibt quantitative und qualitative Massstäbe.','Ohne Massstab kann die Zielerreichung nicht beurteilt werden.'],
+          reveal: ['Operationalisierte Ziele haben einen klaren Beurteilungsmassstab.','Quantitative Kriterien: z.B. «Kosten max. CHF 50 000».','Qualitative Kriterien: z.B. «Benutzerfreundlichkeit gut bis sehr gut».','Ziele mit Grenzwert eignen sich besonders gut für die Erfolgskontrolle.']
         },
         {
           id: 12, type: 'text', title: 'Präferenzmatrix analysieren',

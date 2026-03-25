@@ -4,6 +4,7 @@ window.BOOK_DATA = {
   shortTitle: 'Kommunikation Instrumente',
   author: 'Markus Aerni',
   year: 2023,
+  totalPages: 198,
   pages: 198,
   color: '#9333ea',
   chapters: [

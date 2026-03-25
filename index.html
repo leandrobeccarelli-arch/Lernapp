@@ -246,7 +246,7 @@ function App(){
     e('div',{className:'hero'},
       e('div',{style:{position:'relative'}},
         e('h1',{className:'hero-title',style:{letterSpacing:'.12em',fontSize:'1.4rem'}},'BUILT BY LEANDRO'),
-        e('div',{style:{display:'inline-block',marginTop:10,padding:'2px 10px',borderRadius:4,fontSize:'.6rem',fontWeight:600,letterSpacing:'.05em',background:'rgba(255,255,255,.08)',color:'var(--hero-sub)',border:'1px solid rgba(255,255,255,.1)'}},'v0.7.15-beta'),
+        e('div',{style:{display:'inline-block',marginTop:10,padding:'2px 10px',borderRadius:4,fontSize:'.6rem',fontWeight:600,letterSpacing:'.05em',background:'rgba(255,255,255,.08)',color:'var(--hero-sub)',border:'1px solid rgba(255,255,255,.1)'}},'v0.8.0-beta'),
         e('div',{className:'hero-stats'},
           e('div',{className:'hero-stat'},
             e('div',{className:'hero-stat-val'},booksReady+'/'+booksTotal),
@@ -373,7 +373,17 @@ function App(){
             ),
             ready?e('div',{className:'book-card-progress'},
               e('div',{className:'book-card-progress-fill',style:{width:pct+'%',background:pct===100?'var(--green)':'var(--text2)'}})
-            ):null
+            ):null,
+            e('div',{style:{marginTop:8,display:'flex',gap:8}},
+              ready?e('span',{
+                onClick:function(ev){ev.stopPropagation();window.location.href='buch.html?book='+book.id},
+                style:{fontSize:'.7rem',color:'var(--accent)',cursor:'pointer',fontWeight:600}
+              },'\u00DCben \u203A'):null,
+              e('span',{
+                onClick:function(ev){ev.stopPropagation();window.location.href='buch.html?book='+book.id+'&viewer=1'},
+                style:{fontSize:'.7rem',color:'var(--text2)',cursor:'pointer',fontWeight:500}
+              },'\uD83D\uDCD6 Buch lesen ('+book.pages+' S.)')
+            )
           )
         )
       })
