@@ -185,7 +185,8 @@ function searchAllBooks(allData,query){
       // Learning data
       if(ch.learningData&&ch.learningData.sections){
         ch.learningData.sections.forEach(function(sec){
-          if((sec.title||'').toLowerCase().indexOf(q)>=0||(sec.content||'').toLowerCase().indexOf(q)>=0
+          var secContent=Array.isArray(sec.content)?sec.content.join(' '):sec.content||'';
+          if((sec.title||'').toLowerCase().indexOf(q)>=0||secContent.toLowerCase().indexOf(q)>=0
             ||(sec.text||'').toLowerCase().indexOf(q)>=0||(sec.highlight||'').toLowerCase().indexOf(q)>=0
             ||(sec.items||[]).some(function(it){return(typeof it==='string'?it:JSON.stringify(it)).toLowerCase().indexOf(q)>=0})
             ||(sec.terms||[]).some(function(t){return(t.term||'').toLowerCase().indexOf(q)>=0||(t.def||'').toLowerCase().indexOf(q)>=0})
@@ -245,7 +246,7 @@ function App(){
     e('div',{className:'hero'},
       e('div',{style:{position:'relative'}},
         e('h1',{className:'hero-title',style:{letterSpacing:'.12em',fontSize:'1.4rem'}},'BUILT BY LEANDRO'),
-        e('div',{style:{display:'inline-block',marginTop:10,padding:'2px 10px',borderRadius:4,fontSize:'.6rem',fontWeight:600,letterSpacing:'.05em',background:'rgba(255,255,255,.08)',color:'var(--hero-sub)',border:'1px solid rgba(255,255,255,.1)'}},'v0.7.13-beta'),
+        e('div',{style:{display:'inline-block',marginTop:10,padding:'2px 10px',borderRadius:4,fontSize:'.6rem',fontWeight:600,letterSpacing:'.05em',background:'rgba(255,255,255,.08)',color:'var(--hero-sub)',border:'1px solid rgba(255,255,255,.1)'}},'v0.7.14-beta'),
         e('div',{className:'hero-stats'},
           e('div',{className:'hero-stat'},
             e('div',{className:'hero-stat-val'},booksReady+'/'+booksTotal),

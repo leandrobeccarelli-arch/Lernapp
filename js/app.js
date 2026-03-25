@@ -2091,7 +2091,7 @@ function initApp(bookData) {
         if (ch.learningData && ch.learningData.sections) {
           ch.learningData.sections.forEach(function(sec) {
             if ((sec.title || '').toLowerCase().indexOf(q) >= 0
-              || (sec.content || '').toLowerCase().indexOf(q) >= 0
+              || (Array.isArray(sec.content) ? sec.content.join(' ') : sec.content || '').toLowerCase().indexOf(q) >= 0
               || (sec.text || '').toLowerCase().indexOf(q) >= 0
               || (sec.highlight || '').toLowerCase().indexOf(q) >= 0
               || (sec.items || []).some(function(it) { return (typeof it === 'string' ? it : JSON.stringify(it)).toLowerCase().indexOf(q) >= 0; })
