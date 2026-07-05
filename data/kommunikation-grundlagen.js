@@ -12,7 +12,7 @@ window.BOOK_DATA = {
     // KAPITEL 1: Grundlagen der Kommunikationspolitik (S. 10-26)
     // ============================================================
     {
-      id: 'ch1', pageStart: 8, pageEnd: 18, num: 'Kapitel 1 (Teil A)', title: 'Grundlagen der Kommunikationspolitik',
+      id: 'ch1', pageStart: 10, pageEnd: 26, num: 'Kapitel 1 (Teil A)', title: 'Grundlagen der Kommunikationspolitik',
       exercises: [
         {
           id: 1, type: 'text',
@@ -114,7 +114,6 @@ window.BOOK_DATA = {
           q: 'Phasen des Diffusionsprozesses',
           instruction: 'Bringen Sie die Phasen des Diffusionsprozesses in die richtige Reihenfolge (von den Ersten bis zu den Letzten).',
           items: ['Innovatoren','Early Adopters','Frühe Mehrheit','Späte Mehrheit','Nachzügler'],
-          correctOrder: [0,1,2,3,4],
           tips: ['Die Innovatoren sind die allerersten Käufer einer Neuheit.','Early Adopters übernehmen Innovationen früh und beeinflussen andere.','Die Nachzügler adoptieren eine Innovation als Letzte.'],
           reveal: ['1. Innovatoren (ca. 2.5 %) -- risikofreudig, probieren Neues aus.','2. Early Adopters (ca. 13.5 %) -- Meinungsführer, übernehmen früh.','3. Frühe Mehrheit (ca. 34 %) -- übernehmen nach Bewährung.','4. Späte Mehrheit (ca. 34 %) -- skeptisch, übernehmen spät.','5. Nachzügler (ca. 16 %) -- adoptieren als Letzte.']
         },
@@ -146,7 +145,6 @@ window.BOOK_DATA = {
           q: 'Phasen des Produktlebenszyklus',
           instruction: 'Bringen Sie die Phasen des Produktlebenszyklus in die richtige Reihenfolge.',
           items: ['Einführung','Wachstum','Reife','Sättigung','Rückgang'],
-          correctOrder: [0,1,2,3,4],
           tips: ['Der PLZ beginnt mit der Markteinführung eines neuen Produkts.','In der Wachstumsphase steigen die Umsätze stark an.','Am Ende steht der Rückgang, wenn das Produkt vom Markt verdrängt wird.'],
           reveal: ['1. Einführung -- hoher Kommunikationsaufwand, Bekanntheit aufbauen.','2. Wachstum -- Marktanteil ausbauen, Differenzierung.','3. Reife -- maximaler Umsatz, Wettbewerb intensiv.','4. Sättigung -- Markt gesättigt, Marktanteile halten.','5. Rückgang -- sinkende Umsätze, Produkt wird ersetzt.']
         },
@@ -286,7 +284,7 @@ window.BOOK_DATA = {
     // KAPITEL 2: Unternehmenskommunikation (S. 27-38)
     // ============================================================
     {
-      id: 'ch2', pageStart: 19, pageEnd: 28, num: 'Kapitel 2 (Teil A)', title: 'Unternehmenskommunikation',
+      id: 'ch2', pageStart: 27, pageEnd: 38, num: 'Kapitel 2 (Teil A)', title: 'Unternehmenskommunikation',
       exercises: [
         {
           id: 9, type: 'text',
@@ -390,7 +388,6 @@ window.BOOK_DATA = {
           q: '5 Schritte des Kommunikationskonzepts',
           instruction: 'Bringen Sie die 5 Schritte des Kommunikationskonzepts in die richtige Reihenfolge.',
           items: ['Analyse (Situationsanalyse)','Kommunikationsstrategie (Ziele, Zielgruppen)','Kreative Umsetzung (Massnahmen)','Realisation / Budgetierung','Kontrolle (Controlling)'],
-          correctOrder: [0,1,2,3,4],
           tips: ['Jedes Konzept beginnt mit einer Bestandsaufnahme.','Erst die Strategie, dann die Umsetzung.','Die Kontrolle steht immer am Ende des Prozesses.'],
           reveal: ['1. Analyse -- Wo stehen wir? (SWOT, Problemstellung).','2. Strategie -- Wo wollen wir hin? (Ziele, Zielgruppen, Positionierung).','3. Kreative Umsetzung -- Wie setzen wir es um? (Instrumente, CI/CD).','4. Realisation / Budgetierung -- Was kostet es?','5. Kontrolle -- Haben wir die Ziele erreicht? (Prozess-, Wirkungs-, Effizienzanalyse).']
         },
@@ -435,7 +432,6 @@ window.BOOK_DATA = {
           q: 'Hierarchie der Kommunikationsinstrumente',
           instruction: 'Ordnen Sie die Instrumentenkategorien nach ihrer Bedeutung in der Kommunikationshierarchie (vom Wichtigsten zum Unwichtigsten).',
           items: ['Leitinstrument (Führungsfunktion)','Kristallisationsinstrument (herausragende Bedeutung für Zielgruppe)','Integrationsinstrument (hohes Integrationspotenzial)','Folgeinstrument (einzelne Kommunikationsaufgaben)'],
-          correctOrder: [0,1,2,3],
           tips: ['Das Leitinstrument steht an der Spitze der Hierarchie.','Kristallisationsinstrumente haben eine besondere Bedeutung für bestimmte Zielgruppen.','Folgeinstrumente erfüllen einzelne, untergeordnete Aufgaben.'],
           reveal: ['1. Leitinstrument -- beste Eignung zum Transport der Leitidee, grösstes Budget.','2. Kristallisationsinstrument -- herausragende Bedeutung für bestimmte Zielgruppen.','3. Integrationsinstrument -- hohes Integrationspotenzial für verschiedene Instrumente.','4. Folgeinstrument -- erfüllt einzelne, nachgeordnete Kommunikationsaufgaben.']
         }
@@ -536,7 +532,7 @@ window.BOOK_DATA = {
     // KAPITEL 3: Corporate Identity und Corporate Image (S. 39-44)
     // ============================================================
     {
-      id: 'ch3', pageStart: 29, pageEnd: 38, num: 'Kapitel 3 (Teil A)', title: 'Corporate Identity und Corporate Image',
+      id: 'ch3', pageStart: 39, pageEnd: 44, num: 'Kapitel 3 (Teil A)', title: 'Corporate Identity und Corporate Image',
       exercises: [
         {
           id: 17, type: 'text',
@@ -624,7 +620,6 @@ window.BOOK_DATA = {
           q: 'Elemente der Corporate Identity',
           instruction: 'Ordnen Sie die CI-Elemente in der logischen Reihenfolge: vom inneren Kern (Werte) bis zur äusseren Darstellung.',
           items: ['Corporate Culture (Werte und Normen)','Corporate Behaviour (gelebtes Verhalten)','Corporate Communication (Kommunikationsprozesse)','Corporate Design (visuelles Erscheinungsbild)','Corporate Performance (Marktleistung)'],
-          correctOrder: [0,1,2,3,4],
           tips: ['Die Unternehmenskultur bildet den innersten Kern der CI.','Das Verhalten folgt aus der Kultur.','Das Design ist die äussere, sichtbare Hülle der CI.'],
           reveal: ['1. Corporate Culture -- Werte, Normen und Handlungsweisen bilden den Kern.','2. Corporate Behaviour -- das gelebte Verhalten basiert auf der Kultur.','3. Corporate Communication -- formale Kommunikation nach innen und aussen.','4. Corporate Design -- das sichtbare Erscheinungsbild (Logo, Farben, Layout).','5. Corporate Performance -- die tatsächliche Marktleistung des Unternehmens.']
         },
@@ -776,7 +771,7 @@ window.BOOK_DATA = {
     // KAPITEL 4: Public Relations - Grundlagen (S. 45-55)
     // ============================================================
     {
-      id: 'ch4', pageStart: 39, pageEnd: 52, num: 'Kapitel 4 (Teil A)', title: 'Public Relations \u2013 Grundlagen',
+      id: 'ch4', pageStart: 45, pageEnd: 55, num: 'Kapitel 4 (Teil A)', title: 'Public Relations \u2013 Grundlagen',
       exercises: [
         {
           id: 24, type: 'tf',
@@ -880,7 +875,6 @@ window.BOOK_DATA = {
           q: 'PR-Ziele nach Wirkungsebenen',
           instruction: 'Ordnen Sie die PR-Zielkategorien in der richtigen Reihenfolge der Wirkung (von Wissen über Einstellung bis Verhalten).',
           items: ['Kognitiv-orientierte Ziele (Wissen, Bekanntheit)','Affektiv-orientierte Ziele (Image, Vertrauen, Glaubwürdigkeit)','Konativ-orientierte Ziele (Verhalten, Handlung)'],
-          correctOrder: [0,1,2],
           tips: ['Zuerst muss die Zielgruppe etwas WISSEN (kognitiv).','Dann entwickelt sie eine EINSTELLUNG (affektiv).','Schliesslich folgt das VERHALTEN (konativ).'],
           reveal: ['1. Kognitiv -- Wissen und Bekanntheit aufbauen (z.B. Informationsvermittlung).','2. Affektiv -- Einstellungen und Emotionen beeinflussen (z.B. Imageaufbau, Vertrauen).','3. Konativ -- Verhalten und Handlungen auslösen (z.B. Kaufentscheidung, Empfehlung).']
         },
@@ -1058,7 +1052,7 @@ window.BOOK_DATA = {
     // KAPITEL 5: Public-Relations-Disziplinen (S. 56-69)
     // ============================================================
     {
-      id: 'ch5', pageStart: 53, pageEnd: 66, num: 'Kapitel 5 (Teil A)', title: 'Public-Relations-Disziplinen',
+      id: 'ch5', pageStart: 56, pageEnd: 69, num: 'Kapitel 5 (Teil A)', title: 'Public-Relations-Disziplinen',
       exercises: [
         {
           id: 32, type: 'fill',
@@ -1146,7 +1140,6 @@ window.BOOK_DATA = {
           q: 'PR-Disziplinen: von intern nach extern',
           instruction: 'Ordnen Sie die PR-Disziplinen von der am stärksten intern ausgerichteten zur am stärksten extern ausgerichteten.',
           items: ['Interne PR / Human Relations','Community Relations / Standort-PR','Public Affairs / Lobbying','Medienarbeit / Media Relations','Investor Relations'],
-          correctOrder: [0,1,2,3,4],
           tips: ['Interne PR richtet sich an die eigenen Mitarbeitenden.','Community Relations richtet sich an die lokale Bevölkerung (nahe am Unternehmen).','Investor Relations richtet sich an den Finanzmarkt (breiteste externe Öffentlichkeit).'],
           reveal: ['1. Interne PR / Human Relations -- richtet sich an die eigenen Mitarbeitenden.','2. Community Relations -- richtet sich an die lokale Standortbevölkerung.','3. Public Affairs -- richtet sich an Politik und Behörden.','4. Media Relations -- richtet sich an Medienschaffende und die breite Öffentlichkeit.','5. Investor Relations -- richtet sich an den nationalen/internationalen Finanzmarkt.']
         },
@@ -1295,7 +1288,7 @@ window.BOOK_DATA = {
     // KAPITEL 6: Markenpflege und -führung (S. 70-89)
     // ============================================================
     {
-      id: 'ch6', pageStart: 67, pageEnd: 78, num: 'Kapitel 6 (Teil A)', title: 'Markenpflege und -führung',
+      id: 'ch6', pageStart: 70, pageEnd: 89, num: 'Kapitel 6 (Teil A)', title: 'Markenpflege und -führung',
       exercises: [
         {
           id: 39, type: 'mc',
@@ -1391,7 +1384,6 @@ window.BOOK_DATA = {
           q: 'Schritte der strategischen Positionierung',
           instruction: 'Bringen Sie die 4 Schritte der strategischen Positionierung in die richtige Reihenfolge.',
           items: ['Analyse des Wahrnehmungsraums aus Kundensicht','Einbeziehung der Konkurrenzunternehmen','Festlegung der strategischen Soll-Positionierung','Gegenüberstellung von Ist- und Soll-Position'],
-          correctOrder: [0,1,2,3],
           tips: ['Zuerst muss man verstehen, wie Kunden den Markt wahrnehmen.','Dann analysiert man die Wettbewerbsposition.','Am Ende vergleicht man Ist und Soll.'],
           reveal: ['1. Analyse des Wahrnehmungsraums -- wie nehmen Kunden die Produkteigenschaften wahr?','2. Einbeziehung der Konkurrenz -- wo stehen die Mitbewerber?','3. Festlegung der Soll-Positionierung -- wo will man hin?','4. Gegenüberstellung Ist/Soll -- wie gross ist die Lücke?']
         },
@@ -1557,7 +1549,7 @@ window.BOOK_DATA = {
     // KAPITEL 7: Relationship Marketing (S. 91-103)
     // ============================================================
     {
-      id: 'ch7', pageStart: 79, pageEnd: 92, num: 'Kapitel 7 (Teil A)', title: 'Kundenbeziehungsmanagement I: Relationship Marketing',
+      id: 'ch7', pageStart: 91, pageEnd: 104, num: 'Kapitel 7 (Teil A)', title: 'Kundenbeziehungsmanagement I: Relationship Marketing',
       exercises: [
         {
           id: 47, type: 'match',
@@ -1656,8 +1648,7 @@ window.BOOK_DATA = {
           id: 113, type: 'sort',
           q: 'Phasen des Kundenlebenszyklus',
           instruction: 'Bringen Sie die Phasen des Kundenlebenszyklus in die richtige Reihenfolge.',
-          items: ['Kundenbindung (Retention)','Kundenrückgewinnung (Recovery)','Kundenakquisition (Recruitment)'],
-          correctOrder: [2,0,1],
+          items: ['Kundenakquisition (Recruitment)','Kundenbindung (Retention)','Kundenrückgewinnung (Recovery)'],
           tips: ['Zuerst muss ein Kunde gewonnen werden.','Danach wird er an das Unternehmen gebunden.','Erst wenn er abwandert, kommt die Rückgewinnung.'],
           reveal: ['1. Kundenakquisition (Recruitment): Neukunden gewinnen.','2. Kundenbindung (Retention): Bestehende Kunden pflegen und binden.','3. Kundenrückgewinnung (Recovery): Verlorene Kunden zurückgewinnen.']
         },
@@ -1701,8 +1692,7 @@ window.BOOK_DATA = {
           id: 117, type: 'sort',
           q: 'Zufriedenheitsniveaus der Kunden',
           instruction: 'Sortieren Sie die Zufriedenheitsniveaus von niedrig nach hoch.',
-          items: ['Begeisterte Kunden (Erwartungen übertroffen)','Zufriedene Kunden (Erwartungen in etwa erfüllt)','Enttäuschte Kunden (Erwartungen nicht erfüllt)'],
-          correctOrder: [2,1,0],
+          items: ['Enttäuschte Kunden (Erwartungen nicht erfüllt)','Zufriedene Kunden (Erwartungen in etwa erfüllt)','Begeisterte Kunden (Erwartungen übertroffen)'],
           tips: ['Das niedrigste Niveau: Erwartungen werden nicht erfüllt.','Mittleres Niveau: Erwartungen werden in etwa erfüllt.','Höchstes Niveau: Erwartungen werden übertroffen.'],
           reveal: ['1. Enttäuschte Kunden: Erwartungen nicht erfüllt (niedrigstes Niveau).','2. Zufriedene Kunden: Erwartungen in etwa erfüllt (mittleres Niveau).','3. Begeisterte Kunden: Erwartungen übertroffen (höchstes Niveau).']
         }
@@ -1814,7 +1804,7 @@ window.BOOK_DATA = {
     // KAPITEL 8: Persönliche Kommunikation (S. 105-115)
     // ============================================================
     {
-      id: 'ch8', pageStart: 93, pageEnd: 104, num: 'Kapitel 8 (Teil A)', title: 'Kundenbeziehungsmanagement II: persönliche Kommunikation',
+      id: 'ch8', pageStart: 105, pageEnd: 115, num: 'Kapitel 8 (Teil A)', title: 'Kundenbeziehungsmanagement II: persönliche Kommunikation',
       exercises: [
         {
           id: 55, type: 'text',
@@ -1908,8 +1898,7 @@ window.BOOK_DATA = {
           id: 118, type: 'sort',
           q: 'Schritte der Kundenrückgewinnung',
           instruction: 'Bringen Sie die Schritte der Kundenrückgewinnung in die richtige Reihenfolge.',
-          items: ['Individuelle Rückgewinnungsmassnahmen definieren','Abgewanderte Kunden identifizieren (Kündiger, Schläfer, Reduzierer)','Kundenwert analysieren und berechnen','Rückgewinnungsangebot persönlich kommunizieren'],
-          correctOrder: [1,2,0,3],
+          items: ['Abgewanderte Kunden identifizieren (Kündiger, Schläfer, Reduzierer)','Kundenwert analysieren und berechnen','Individuelle Rückgewinnungsmassnahmen definieren','Rückgewinnungsangebot persönlich kommunizieren'],
           tips: ['Zuerst muss man wissen, wer abgewandert ist.','Dann wird geprüft, ob sich die Rückgewinnung lohnt (Kundenwert).','Erst danach werden Massnahmen definiert und kommuniziert.'],
           reveal: ['1. Abgewanderte Kunden identifizieren (Kündiger, Schläfer, Reduzierer).','2. Kundenwert analysieren und berechnen (lohnt sich die Rückgewinnung?).','3. Individuelle Rückgewinnungsmassnahmen definieren.','4. Rückgewinnungsangebot persönlich kommunizieren.']
         },
@@ -1917,9 +1906,9 @@ window.BOOK_DATA = {
           id: 119, type: 'calc',
           q: 'Brutto-Kundenwert berechnen',
           instruction: 'Ein Kunde kauft durchschnittlich für CHF 250 pro Einkauf, er kauft 4-mal pro Jahr, und die Beziehungsdauer beträgt 6 Jahre. Berechnen Sie den Brutto-Kundenwert.',
-          targetValue: 6000,
-          unit: 'CHF',
-          steps: ['Durchschnittsumsatz pro Kunde: CHF 250','Kaufhäufigkeit pro Jahr: 4','Beziehungsdauer: 6 Jahre','Brutto-Kundenwert = 250 x 4 x 6 = CHF 6000'],
+          fields: [
+            { label: 'Brutto-Kundenwert (CHF)', answer: 6000 }
+          ],
           tips: ['Formel: Durchschnittsumsatz x Kaufhäufigkeit x Beziehungsdauer.','250 x 4 = 1000 pro Jahr.','1000 x 6 Jahre = Brutto-Kundenwert.'],
           reveal: ['Brutto-Kundenwert = Durchschnittsumsatz x Kaufhäufigkeit x Beziehungsdauer.','250 x 4 x 6 = CHF 6000.','Für den Netto-Kundenwert müssten noch die Bearbeitungskosten abgezogen werden.']
         },
@@ -2067,7 +2056,7 @@ window.BOOK_DATA = {
     // KAPITEL 9: Mitarbeitendenkommunikation (S. 116-120)
     // ============================================================
     {
-      id: 'ch9', pageStart: 105, pageEnd: 118, num: 'Kapitel 9 (Teil A)', title: 'Mitarbeitendenkommunikation',
+      id: 'ch9', pageStart: 116, pageEnd: 120, num: 'Kapitel 9 (Teil A)', title: 'Mitarbeitendenkommunikation',
       exercises: [
         {
           id: 63, type: 'text',
@@ -2143,8 +2132,7 @@ window.BOOK_DATA = {
           id: 123, type: 'sort',
           q: 'Kommunikationsrichtungen in der Hierarchie',
           instruction: 'Sortieren Sie die Kommunikationsrichtungen von oben nach unten in der Hierarchie.',
-          items: ['Bottom-up-Kommunikation (Mitarbeitende an Führung)','Top-down-Kommunikation (Führung an Mitarbeitende)','Horizontale Kommunikation (gleiche Hierarchieebene)'],
-          correctOrder: [1,2,0],
+          items: ['Top-down-Kommunikation (Führung an Mitarbeitende)','Horizontale Kommunikation (gleiche Hierarchieebene)','Bottom-up-Kommunikation (Mitarbeitende an Führung)'],
           tips: ['Top-down kommt von der Führungsebene.','Horizontal verläuft auf gleicher Ebene.','Bottom-up geht von Mitarbeitenden nach oben.'],
           reveal: ['1. Top-down-Kommunikation: von der Führungsebene zu den Mitarbeitenden (einseitig).','2. Horizontale Kommunikation: auf gleicher Hierarchieebene (wechselseitig).','3. Bottom-up-Kommunikation: von Mitarbeitenden zur Führungsebene (einseitig, z.B. Berichte, Reportings).']
         },
@@ -2291,7 +2279,7 @@ window.BOOK_DATA = {
     // KAPITEL 10: Corporate Media (S. 122-133)
     // ============================================================
     {
-      id: 'ch10', pageStart: 119, pageEnd: 134, num: 'Kapitel 10 (Teil B)', title: 'Corporate Media',
+      id: 'ch10', pageStart: 122, pageEnd: 133, num: 'Kapitel 10 (Teil B)', title: 'Corporate Media',
       exercises: [
         {
           id: 69, type: 'match',
@@ -2374,8 +2362,7 @@ window.BOOK_DATA = {
           id: 128, type: 'sort',
           q: 'Storytelling-Regeln: Aufbau einer guten Geschichte',
           instruction: 'Bringen Sie die Storytelling-Regeln in eine logische Reihenfolge.',
-          items: ['Einen roten Faden durchziehen (Stringenz)','Einen guten Grund finden (Relevanz)','Einen Helden bestimmen (Fokus)','Den richtigen Zeitpunkt wählen (Aufhänger)'],
-          correctOrder: [1,3,2,0],
+          items: ['Einen guten Grund finden (Relevanz)','Den richtigen Zeitpunkt wählen (Aufhänger)','Einen Helden bestimmen (Fokus)','Einen roten Faden durchziehen (Stringenz)'],
           tips: ['Zuerst braucht man einen guten Grund für die Geschichte.','Dann den richtigen Zeitpunkt und einen Helden.','Der rote Faden hält alles zusammen.'],
           reveal: ['1. Relevanz: Jede Geschichte braucht einen guten Grund.','2. Aufhänger: Die Geschichte muss zum richtigen Zeitpunkt erzählt werden.','3. Fokus: Jede Geschichte braucht einen Helden.','4. Stringenz: Ein roter Faden muss die Geschichte zusammenhalten.']
         },
@@ -2539,7 +2526,7 @@ window.BOOK_DATA = {
     // KAPITEL 11: Zusammenarbeit mit Agenturen (S. 134-149)
     // ============================================================
     {
-      id: 'ch11', pageStart: 135, pageEnd: 154, num: 'Kapitel 11 (Teil B)', title: 'Zusammenarbeit mit Agenturen',
+      id: 'ch11', pageStart: 134, pageEnd: 150, num: 'Kapitel 11 (Teil B)', title: 'Zusammenarbeit mit Agenturen',
       exercises: [
         {
           id: 76, type: 'fill',
@@ -2626,8 +2613,7 @@ window.BOOK_DATA = {
           id: 133, type: 'sort',
           q: 'Evaluationswege: Aufwand steigend',
           instruction: 'Sortieren Sie die drei Evaluationswege fuer Agenturen nach steigendem Aufwand.',
-          items: ['Wettbewerbspraesentation (Pitch)','Direktwahl ohne Evaluationsverfahren','Agenturpraesentation (Shortlist)'],
-          correctOrder: [1,2,0],
+          items: ['Direktwahl ohne Evaluationsverfahren','Agenturpraesentation (Shortlist)','Wettbewerbspraesentation (Pitch)'],
           tips: ['Der einfachste Weg ist die direkte Beauftragung.','Die Agenturpraesentation erfordert eine Shortlist.','Der Pitch ist am aufwendigsten.'],
           reveal: ['1. Direktwahl: Geringster Aufwand, intuitive Wahl aufgrund frueherer Kontakte oder Empfehlungen.','2. Agenturpraesentation: Mittlerer Aufwand, Shortlist von 3-4 Kandidaten.','3. Wettbewerbspraesentation (Pitch): Hoechster Aufwand, Agenturen erarbeiten Strategien und Ideen.']
         },
@@ -2673,8 +2659,7 @@ window.BOOK_DATA = {
           id: 137, type: 'sort',
           q: 'Briefing-Aufbau: Vom Ist zum Soll',
           instruction: 'Bringen Sie die Elemente eines Kommunikationsbriefings in die richtige Reihenfolge.',
-          items: ['Ausrichtung / Soll-Positionen (Wohin wollen wir?)','Situationsanalyse (Wo stehen wir im Markt?)','Aufgabe / Rahmenbedingungen (Was wollen wir?)','Auftraggeberadresse (Wer sind wir?)'],
-          correctOrder: [3,2,1,0],
+          items: ['Auftraggeberadresse (Wer sind wir?)','Aufgabe / Rahmenbedingungen (Was wollen wir?)','Situationsanalyse (Wo stehen wir im Markt?)','Ausrichtung / Soll-Positionen (Wohin wollen wir?)'],
           tips: ['Zuerst stellt sich der Auftraggeber vor.','Dann wird die Aufgabe beschrieben.','Die Situationsanalyse zeigt den Ist-Zustand, die Soll-Positionen das Ziel.'],
           reveal: ['1. Auftraggeberadresse: Wer sind wir? (Unternehmensvorstellung).','2. Aufgabe / Rahmenbedingungen: Was wollen wir von der Agentur?','3. Situationsanalyse: Wo stehen wir im Markt? (Ist-Zustand).','4. Ausrichtung / Soll-Positionen: Wohin wollen wir? (Ziele und Strategie).']
         }

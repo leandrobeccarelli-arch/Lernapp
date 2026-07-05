@@ -12,7 +12,7 @@ window.BOOK_DATA = {
     // Chapter 1: Aufbau eines Marketingkonzepts (S.20)
     // ================================================================
     {
-      id: 'ch1', pageStart: 10, pageEnd: 22, num: 'Teil A \u2013 Kapitel 1', title: 'Aufbau eines Marketingkonzepts',
+      id: 'ch1', pageStart: 14, pageEnd: 20, num: 'Teil A \u2013 Kapitel 1', title: 'Aufbau eines Marketingkonzepts',
       exercises: [
         {
           id: 1, type: 'mc', title: 'Marketingkonzept und Erfolg',
@@ -174,7 +174,7 @@ window.BOOK_DATA = {
     // Chapter 2: Marktdefinition und Abh\u00e4ngigkeiten (S.33-34)
     // ================================================================
     {
-      id: 'ch2', pageStart: 23, pageEnd: 34, num: 'Teil A \u2013 Kapitel 2', title: 'Marktdefinition und Abh\u00e4ngigkeiten',
+      id: 'ch2', pageStart: 21, pageEnd: 35, num: 'Teil A \u2013 Kapitel 2', title: 'Marktdefinition und Abh\u00e4ngigkeiten',
       exercises: [
         {
           id: 6, type: 'match', title: 'Teilm\u00e4rkte oder Segmente?',
@@ -369,7 +369,7 @@ window.BOOK_DATA = {
     // Chapter 3: Analyse I: Marktanalyse (S.58-59)
     // ================================================================
     {
-      id: 'ch3', pageStart: 35, pageEnd: 46, num: 'Teil A \u2013 Kapitel 3', title: 'Analyse I: Marktanalyse',
+      id: 'ch3', pageStart: 36, pageEnd: 59, num: 'Teil A \u2013 Kapitel 3', title: 'Analyse I: Marktanalyse',
       exercises: [
         {
           id: 12, type: 'text', title: 'Kundenanalyse und CLV',
@@ -630,7 +630,7 @@ window.BOOK_DATA = {
     // Chapter 4: Analyse II: Unternehmens- und Umfeldanalyse (S.75-76)
     // ================================================================
     {
-      id: 'ch4', pageStart: 47, pageEnd: 58, num: 'Teil A \u2013 Kapitel 4', title: 'Analyse II: Unternehmens- und Umfeldanalyse',
+      id: 'ch4', pageStart: 60, pageEnd: 77, num: 'Teil A \u2013 Kapitel 4', title: 'Analyse II: Unternehmens- und Umfeldanalyse',
       exercises: [
         {
           id: 21, type: 'text', title: 'BCG-Portfolio: Nur Cash Cows?',
@@ -687,8 +687,8 @@ window.BOOK_DATA = {
           id: 25, type: 'match', title: 'McKinsey: M oder W?',
           q: 'Ordnen Sie die Bewertungskriterien den Dimensionen Marktattraktivit\u00e4t (M) oder Wettbewerbsvorteil (W) zu.',
           pairs: [
-            { l: 'Mengenentwicklung', r: 'M' },
-            { l: 'Ressourcenpotenzial', r: 'W' },
+            { l: 'Margenentwicklung', r: 'M' },
+            { l: 'Ressourcenpotenzial', r: 'M' },
             { l: 'Marktanteilsentwicklung', r: 'W' },
             { l: 'Marktwachstumspotenzial', r: 'M' },
             { l: 'Effizienz der Abwicklungsprozesse', r: 'W' },
@@ -696,7 +696,7 @@ window.BOOK_DATA = {
           ],
           options: ['M', 'W'],
           tips: ['M betrifft den Markt als Ganzes, W betrifft das eigene Unternehmen.'],
-          reveal: ['Mengenentwicklung → M', 'Ressourcenpotenzial → W', 'Marktanteilsentwicklung → W', 'Marktwachstumspotenzial → M', 'Effizienz der Abwicklungsprozesse → W', 'Kundenverhalten → M']
+          reveal: ['Margenentwicklung → M (Attraktivität des Markts: Welche Margen sind im Markt erzielbar?)', 'Ressourcenpotenzial → M (Verfügbarkeit von Ressourcen im Markt)', 'Marktanteilsentwicklung → W (eigene Position im Vergleich zur Konkurrenz)', 'Marktwachstumspotenzial → M', 'Effizienz der Abwicklungsprozesse → W (eigene Stärke)', 'Kundenverhalten → M']
         },
         {
           id: 26, type: 'text', title: 'McKinsey-Portfolio interpretieren',
@@ -865,7 +865,7 @@ window.BOOK_DATA = {
     // Chapter 5: Marketingziele (S.85-86)
     // ================================================================
     {
-      id: 'ch5', pageStart: 59, pageEnd: 72, num: 'Teil A \u2013 Kapitel 5', title: 'Marketingziele',
+      id: 'ch5', pageStart: 78, pageEnd: 86, num: 'Teil A \u2013 Kapitel 5', title: 'Marketingziele',
       exercises: [
         {
           id: 27, type: 'fill', title: 'Zielhierarchie',
@@ -932,18 +932,18 @@ window.BOOK_DATA = {
         },
         {
           id: 32, type: 'match', title: 'Zielhierarchie ordnen',
-          q: 'Bringen Sie die folgenden Ziele in eine Zielhierarchie (1=oberste Ebene, 3=unterste).',
+          q: 'Bringen Sie die folgenden Ziele in eine Zielhierarchie: Ist das Ziel übergeordnet oder untergeordnet?',
           pairs: [
-            { l: 'Umsatz von Produkt A im Jahr 20xx in der Schweiz: CHF 3.2 Mio.', r: '1' },
-            { l: 'Kosten von Produkt A im Jahr 20xx in der Schweiz: CHF 2.5 Mio.', r: '2' },
-            { l: 'Rendite von Produkt A im Jahr 20xx in der Schweiz: 15%', r: '3' }
+            { l: 'Umsatz von Produkt A im Jahr 20xx in der Schweiz: CHF 3.2 Mio.', r: 'Untergeordnet' },
+            { l: 'Kosten von Produkt A im Jahr 20xx in der Schweiz: CHF 2.5 Mio.', r: 'Untergeordnet' },
+            { l: 'Rendite von Produkt A im Jahr 20xx in der Schweiz: 15%', r: 'Übergeordnet' }
           ],
-          options: ['1', '2', '3'],
-          tips: ['Rendite = Gewinn/Umsatz. Was leitet sich woraus ab?'],
+          options: ['Übergeordnet', 'Untergeordnet'],
+          tips: ['Rendite = Gewinn/Umsatz. Was leitet sich woraus ab?', 'Die Rendite ergibt sich aus Umsatz und Kosten – sie steht deshalb als Oberziel über beiden.'],
           reveal: [
-            '1. Umsatz (Oberziel)',
-            '2. Kosten (muss zum Umsatz passen)',
-            '3. Rendite (ergibt sich aus Umsatz und Kosten)'
+            'Das Renditeziel ist übergeordnet.',
+            'Umsatz- und Kostenziel sind untergeordnet: Sie sind die Stellgrössen, mit denen das Renditeziel erreicht wird.',
+            'Prüfungstipp: Das abgeleitete Ziel (Rendite) steht oben, die Treiber (Umsatz, Kosten) darunter.'
           ]
         },
         {
@@ -959,17 +959,16 @@ window.BOOK_DATA = {
           reveal: ['Umsatz und Gewinn → Zielkongruenz', 'Kundenzufriedenheit und Preis → Zielkonflikt', 'Umsatz und Marge → Zielindifferenz']
         },
         {
-          id: 34, type: 'match', title: 'SMART-Formel',
-          q: 'Welches Element fehlt in der jeweiligen Zielformulierung (S=spezifisch, M=messbar, A=attraktiv, R=realistisch, T=terminiert)?',
-          pairs: [
-            { l: 'Ich will in 2 Wochen 4 Kilo abnehmen.', r: 'T' },
-            { l: 'Mein Konzept f\u00fcr die Umnutzung des Dachgeschosses liegt per 31.05., 9 Uhr zur Verabschiedung vor.', r: 'T' },
-            { l: 'Bis Anfang n\u00e4chster Woche erarbeite ich eine Grossofferte f\u00fcr die Firma Alpa AG.', r: 'R' },
-            { l: 'Bis 15. Dezember 20xx versenden wir die Weihnachtsgeschenke an Firmenkunden.', r: 'T' }
+          id: 34, type: 'mc', title: 'SMART-Formel',
+          q: 'Ziele sollten gem\u00e4ss der SMART-Formel erstellt werden. Welche Elemente enthalten die folgenden Zielformulierungen (S=spezifisch, M=messbar, A=attraktiv, R=realistisch, T=terminiert)?',
+          questions: [
+            { q: 'Ich will in 2 Wochen 4 Kilo abnehmen.', options: ['Nur T', 'S, M, A', 'S, M, R, T', 'Alle f\u00fcnf Elemente (S, M, A, R, T)'], answer: 2 },
+            { q: 'Mein Konzept f\u00fcr die Umnutzung des Dachgeschosses liegt per 31.05., 9 Uhr zur Verabschiedung durch die Gesch\u00e4ftsleitung im Sitzungszimmer vor.', options: ['Nur T', 'S, M, A', 'S, M, R, T', 'Alle f\u00fcnf Elemente (S, M, A, R, T)'], answer: 3 },
+            { q: 'Bis Anfang n\u00e4chster Woche erarbeite ich eine Grobofferte f\u00fcr die Firma Alpa AG.', options: ['Nur T', 'S, M, A', 'S, M, R, T', 'Alle f\u00fcnf Elemente (S, M, A, R, T)'], answer: 1 },
+            { q: 'Bis 15. Dezember 20xx versenden wir die Weihnachtsgeschenke an Firmenkunden.', options: ['Nur T', 'S, M, A', 'S, M, R, T', 'Alle f\u00fcnf Elemente (S, M, A, R, T)'], answer: 0 }
           ],
-          options: ['S', 'M', 'A', 'R', 'T'],
-          tips: ['S=spezifisch, M=messbar, A=attraktiv/akzeptiert, R=realistisch, T=terminiert'],
-          reveal: ['Ich will in 2 Wochen 4 Kilo abnehmen. → T', 'Mein Konzept für die Umnutzung des Dachgeschosses liegt per 31.05., 9 Uhr zur Verabschiedung vor. → T', 'Bis Anfang nächster Woche erarbeite ich eine Grossofferte für die Firma Alpa AG. → R', 'Bis 15. Dezember 20xx versenden wir die Weihnachtsgeschenke an Firmenkunden. → T']
+          tips: ['S=spezifisch, M=messbar, A=attraktiv/akzeptiert, R=realistisch, T=terminiert', 'Pr\u00fcfen Sie jedes Element einzeln: Ist das Ziel konkret? Messbar? Erstrebenswert? Erreichbar? Mit klarem Termin?'],
+          reveal: ['Ziel 1 (4 Kilo in 2 Wochen): S, M, R und T sind enthalten – A (attraktiv) fehlt.', 'Ziel 2 (Konzept per 31.05., 9 Uhr): Enthält alle fünf Elemente – vorbildlich formuliert mit klarem Inhalt, Termin und Ort.', 'Ziel 3 (Grobofferte bis Anfang nächster Woche): S, M und A sind enthalten – R und T fehlen: «Anfang nächster Woche» ist kein präziser Termin.', 'Ziel 4 (Weihnachtsgeschenke bis 15. Dezember): Nur T ist enthalten – es fehlen Angaben, um was es konkret geht, wie viel und für wen.']
         }
       ],
       learningData: {
@@ -1081,7 +1080,7 @@ window.BOOK_DATA = {
     // Chapter 6: Marketingstrategien (S.112-113)
     // ================================================================
     {
-      id: 'ch6', pageStart: 73, pageEnd: 86, num: 'Teil A \u2013 Kapitel 6', title: 'Marketingstrategien',
+      id: 'ch6', pageStart: 87, pageEnd: 113, num: 'Teil A \u2013 Kapitel 6', title: 'Marketingstrategien',
       exercises: [
         {
           id: 35, type: 'match', title: 'Ansoff-Matrix zuordnen',
@@ -1263,7 +1262,7 @@ window.BOOK_DATA = {
     // Chapter 7: Marketingmix (S.138)
     // ================================================================
     {
-      id: 'ch7', pageStart: 87, pageEnd: 100, num: 'Teil A \u2013 Kapitel 7', title: 'Marketingmix',
+      id: 'ch7', pageStart: 114, pageEnd: 139, num: 'Teil A \u2013 Kapitel 7', title: 'Marketingmix',
       exercises: [
         {
           id: 42, type: 'text', title: 'Begriffe Marketingmix',
@@ -1448,7 +1447,7 @@ window.BOOK_DATA = {
     // Chapter 8: Produktmix I: das Produkt (Product) (S.150)
     // ================================================================
     {
-      id: 'ch8', pageStart: 101, pageEnd: 114, num: 'Teil A \u2013 Kapitel 8', title: 'Produktmix I: das Produkt (Product)',
+      id: 'ch8', pageStart: 140, pageEnd: 151, num: 'Teil A \u2013 Kapitel 8', title: 'Produktmix I: das Produkt (Product)',
       exercises: [
         {
           id: 49, type: 'match', title: 'Kernprodukt, formales oder erweitertes Produkt?',
@@ -1588,7 +1587,7 @@ window.BOOK_DATA = {
     // Chapter 9: Produktmix II: die Produktentwicklung (S.167-168)
     // ================================================================
     {
-      id: 'ch9', pageStart: 115, pageEnd: 128, num: 'Teil A \u2013 Kapitel 9', title: 'Produktmix II: die Produktentwicklung',
+      id: 'ch9', pageStart: 152, pageEnd: 168, num: 'Teil A \u2013 Kapitel 9', title: 'Produktmix II: die Produktentwicklung',
       exercises: [
         {
           id: 54, type: 'calc', title: 'Break-even Produktinnovation',
@@ -1740,7 +1739,7 @@ window.BOOK_DATA = {
     // Chapter 10: Produktmix III: Verpackung (S.178-179)
     // ================================================================
     {
-      id: 'ch10', pageStart: 129, pageEnd: 142, num: 'Teil A \u2013 Kapitel 10', title: 'Produktmix III: Verpackung',
+      id: 'ch10', pageStart: 169, pageEnd: 179, num: 'Teil A \u2013 Kapitel 10', title: 'Produktmix III: Verpackung',
       exercises: [
         {
           id: 59, type: 'check', title: 'Funktionen der Verpackung',
@@ -1887,7 +1886,7 @@ window.BOOK_DATA = {
     // Chapter 11: Preismix (Price) (S.195-196)
     // ================================================================
     {
-      id: 'ch11', pageStart: 143, pageEnd: 156, num: 'Teil A \u2013 Kapitel 11', title: 'Preismix (Price)',
+      id: 'ch11', pageStart: 180, pageEnd: 196, num: 'Teil A \u2013 Kapitel 11', title: 'Preismix (Price)',
       exercises: [
         {
           id: 64, type: 'calc', title: 'Deckungsbeitrag bei Rabattvarianten',
@@ -2076,7 +2075,7 @@ window.BOOK_DATA = {
     // Chapter 12: Distributionsmix (Place) (S.203)
     // ================================================================
     {
-      id: 'ch12', pageStart: 157, pageEnd: 172, num: 'Teil A \u2013 Kapitel 12', title: 'Distributionsmix (Place)',
+      id: 'ch12', pageStart: 197, pageEnd: 203, num: 'Teil A \u2013 Kapitel 12', title: 'Distributionsmix (Place)',
       exercises: [
         {
           id: 71, type: 'tf', title: 'Zielkonflikt Reichhaltigkeit/Reichweite',
@@ -2208,7 +2207,7 @@ window.BOOK_DATA = {
     // Chapter 13: Kommunikationsmix (Promotion) (S.210-211)
     // ================================================================
     {
-      id: 'ch13', pageStart: 173, pageEnd: 188, num: 'Teil A \u2013 Kapitel 13', title: 'Kommunikationsmix (Promotion)',
+      id: 'ch13', pageStart: 204, pageEnd: 211, num: 'Teil A \u2013 Kapitel 13', title: 'Kommunikationsmix (Promotion)',
       exercises: [
         {
           id: 76, type: 'text', title: 'Kommunikationsinstrumente nach Reichweite',
@@ -2345,7 +2344,7 @@ window.BOOK_DATA = {
     // Chapter 14: Marketingbudget und -kontrolle (S.227)
     // ================================================================
     {
-      id: 'ch14', pageStart: 189, pageEnd: 206, num: 'Teil A \u2013 Kapitel 14', title: 'Marketingbudget und -kontrolle',
+      id: 'ch14', pageStart: 212, pageEnd: 228, num: 'Teil A \u2013 Kapitel 14', title: 'Marketingbudget und -kontrolle',
       exercises: [
         {
           id: 81, type: 'text', title: 'Top-down vs. Bottom-up',
@@ -2502,7 +2501,7 @@ window.BOOK_DATA = {
     // Chapter 15: Qualit\u00e4tsmanagement I: Grundlagen und \u00d6kologie (S.244-245)
     // ================================================================
     {
-      id: 'ch15', pageStart: 207, pageEnd: 226, num: 'Teil B \u2013 Kapitel 15', title: 'Qualit\u00e4tsmanagement I: Grundlagen und \u00d6kologie',
+      id: 'ch15', pageStart: 230, pageEnd: 245, num: 'Teil B \u2013 Kapitel 15', title: 'Qualit\u00e4tsmanagement I: Grundlagen und \u00d6kologie',
       exercises: [
         {
           id: 87, type: 'match', title: 'Muss-, Soll-, Plus-Faktoren',
@@ -2680,7 +2679,7 @@ window.BOOK_DATA = {
     // Chapter 16: Qualit\u00e4tsmanagement II: Reklamationswesen (S.251)
     // ================================================================
     {
-      id: 'ch16', pageStart: 227, pageEnd: 260, num: 'Teil B \u2013 Kapitel 16', title: 'Qualit\u00e4tsmanagement II: Reklamationswesen',
+      id: 'ch16', pageStart: 246, pageEnd: 252, num: 'Teil B \u2013 Kapitel 16', title: 'Qualit\u00e4tsmanagement II: Reklamationswesen',
       exercises: [
         {
           id: 93, type: 'mc', title: 'Reklamationsmanagement und CRM',

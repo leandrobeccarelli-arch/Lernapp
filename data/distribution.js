@@ -12,7 +12,7 @@ window.BOOK_DATA = {
     // KAPITEL 1: Grundlagen der Distribution
     // ============================================================
     {
-      id: 'ch1', pageStart: 8, pageEnd: 20, num: 'Kapitel 1', title: 'Grundlagen der Distribution',
+      id: 'ch1', pageStart: 10, pageEnd: 25, num: 'Kapitel 1', title: 'Grundlagen der Distribution',
       exercises: [
         // Ex 1 — Grundbegriffe der Distribution (Rep 1, S.25)
         {
@@ -212,7 +212,7 @@ window.BOOK_DATA = {
     // KAPITEL 2: Strategische Distribution
     // ============================================================
     {
-      id: 'ch2', pageStart: 21, pageEnd: 34, num: 'Kapitel 2', title: 'Strategische Distribution',
+      id: 'ch2', pageStart: 26, pageEnd: 34, num: 'Kapitel 2', title: 'Strategische Distribution',
       exercises: [
         // Ex 10 — Wichtigster strategischer Entscheid (Rep 6, S.33)
         {
@@ -405,7 +405,7 @@ window.BOOK_DATA = {
     // KAPITEL 3: Das Distributionskonzept
     // ============================================================
     {
-      id: 'ch3', pageStart: 35, pageEnd: 48, num: 'Kapitel 3', title: 'Das Distributionskonzept',
+      id: 'ch3', pageStart: 35, pageEnd: 61, num: 'Kapitel 3', title: 'Das Distributionskonzept',
       exercises: [
         // Ex 18 — Sechs Schritte des Distributionskonzepts (Rep 10, S.61)
         {
@@ -612,7 +612,7 @@ window.BOOK_DATA = {
     // KAPITEL 4: Direkte und indirekte Distribution
     // ============================================================
     {
-      id: 'ch4', pageStart: 49, pageEnd: 62, num: 'Kapitel 4', title: 'Direkte und indirekte Distribution',
+      id: 'ch4', pageStart: 62, pageEnd: 88, num: 'Kapitel 4', title: 'Direkte und indirekte Distribution',
       exercises: [
         // Ex 27
         {
@@ -818,7 +818,7 @@ window.BOOK_DATA = {
     // KAPITEL 5: Physische Distribution
     // ============================================================
     {
-      id: 'ch5', pageStart: 63, pageEnd: 76, num: 'Kapitel 5', title: 'Physische Distribution',
+      id: 'ch5', pageStart: 90, pageEnd: 114, num: 'Kapitel 5', title: 'Physische Distribution',
       exercises: [
         // Ex 36
         {
@@ -1024,7 +1024,7 @@ window.BOOK_DATA = {
     // KAPITEL 6: Distribution und Digitalisierung
     // ============================================================
     {
-      id: 'ch6', pageStart: 77, pageEnd: 92, num: 'Kapitel 6', title: 'Distribution und Digitalisierung',
+      id: 'ch6', pageStart: 115, pageEnd: 127, num: 'Kapitel 6', title: 'Distribution und Digitalisierung',
       exercises: [
         // Ex 46
         {
@@ -1207,7 +1207,7 @@ window.BOOK_DATA = {
     // KAPITEL 7: Standort / Standortwahl
     // ============================================================
     {
-      id: 'ch7', pageStart: 93, pageEnd: 108, num: 'Kapitel 7', title: 'Standort / Standortwahl',
+      id: 'ch7', pageStart: 128, pageEnd: 134, num: 'Kapitel 7', title: 'Standort / Standortwahl',
       exercises: [
         // Ex 54
         {
@@ -1390,7 +1390,7 @@ window.BOOK_DATA = {
     // KAPITEL 8: Export
     // ============================================================
     {
-      id: 'ch8', pageStart: 109, pageEnd: 122, num: 'Kapitel 8', title: 'Export',
+      id: 'ch8', pageStart: 136, pageEnd: 140, num: 'Kapitel 8', title: 'Export',
       exercises: [
         // Ex 61
         {
@@ -1566,7 +1566,7 @@ window.BOOK_DATA = {
     // KAPITEL 9: Distribution nach Gütern
     // ============================================================
     {
-      id: 'ch9', pageStart: 123, pageEnd: 140, num: 'Kapitel 9', title: 'Distribution nach Gütern',
+      id: 'ch9', pageStart: 141, pageEnd: 147, num: 'Kapitel 9', title: 'Distribution nach Gütern',
       exercises: [
         // Ex 68
         {
@@ -1807,7 +1807,7 @@ window.BOOK_DATA = {
     // KAPITEL 10: Spezialgebiete und Ausblick in der Distribution
     // ============================================================
     {
-      id: 'ch10', pageStart: 141, pageEnd: 162, num: 'Kapitel 10', title: 'Spezialgebiete und Ausblick in der Distribution',
+      id: 'ch10', pageStart: 148, pageEnd: 160, num: 'Kapitel 10', title: 'Spezialgebiete und Ausblick in der Distribution',
       exercises: [
         // Ex 75
         {

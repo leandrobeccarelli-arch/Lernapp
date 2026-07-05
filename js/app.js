@@ -15,10 +15,12 @@ var useMemo = React.useMemo;
 
 // ─── Data Loading ───────────────────────────────────────────────────────────
 
+var VALID_BOOKS = ['kommunikation-grundlagen','verkaufsplanung','distribution','digitales-marketing','kommunikation-instrumente','marketingkonzept'];
+
 var bookParam = new URLSearchParams(window.location.search).get('book');
 
-if (!bookParam) {
-  document.getElementById('root').innerHTML = '<div style="padding:60px 20px;text-align:center;font-family:Inter,sans-serif"><h2>Kein Buch angegeben</h2><p style="margin-top:12px"><a href="index.html">Zur Buchauswahl</a></p></div>';
+if (!bookParam || VALID_BOOKS.indexOf(bookParam) < 0) {
+  document.getElementById('root').innerHTML = '<div style="padding:60px 20px;text-align:center;font-family:Inter,sans-serif"><h2>Kein gültiges Buch angegeben</h2><p style="margin-top:12px"><a href="index.html">Zur Buchauswahl</a></p></div>';
   return;
 }
 
@@ -34,7 +36,7 @@ script.onload = function() {
   }
 };
 script.onerror = function() {
-  document.getElementById('root').innerHTML = '<div style="padding:60px 20px;text-align:center;font-family:Inter,sans-serif"><h2>Buch nicht gefunden: ' + bookParam + '</h2><p style="margin-top:12px"><a href="index.html">Zur Buchauswahl</a></p></div>';
+  document.getElementById('root').innerHTML = '<div style="padding:60px 20px;text-align:center;font-family:Inter,sans-serif"><h2>Buch konnte nicht geladen werden</h2><p style="margin-top:12px"><a href="index.html">Zur Buchauswahl</a></p></div>';
 };
 document.head.appendChild(script);
 
@@ -178,12 +180,14 @@ function MCExercise(props) {
 
     function selectQ(qi, oi) {
       if (mchecked) return;
-      var newSel = selections.slice();
-      newSel[qi] = oi;
-      setSelections(newSel);
-      if (examMode && newSel.every(function(s) { return s !== null; })) {
-        doMCheck(newSel);
-      }
+      setSelections(function(prev) {
+        var newSel = prev.slice();
+        newSel[qi] = oi;
+        if (examMode && newSel.every(function(s) { return s !== null; })) {
+          setTimeout(function() { doMCheck(newSel); }, 0);
+        }
+        return newSel;
+      });
     }
 
     function mcheck() { doMCheck(selections); }
@@ -374,7 +378,7 @@ function TFExercise(props) {
           }, 'Falsch')
         ),
         checked && !examMode ? e('div', { className: 'feedback ' + (userAns === s.c ? 'ok' : 'nok') },
-          userAns === s.c ? 'Korrekt' : 'Falsch \u2013 richtig ist: ' + (s.c ? 'Richtig' : 'Falsch')
+          (userAns === s.c ? 'Korrekt' : 'Falsch \u2013 richtig ist: ' + (s.c ? 'Richtig' : 'Falsch')) + (s.feedback ? ' \u00b7 ' + s.feedback : '')
         ) : null
       );
     }),
@@ -554,7 +558,7 @@ function CheckExercise(props) {
           }, 'Falsch')
         ),
         checked && !examMode ? e('div', { className: 'feedback ' + (userAns === s.c ? 'ok' : 'nok') },
-          userAns === s.c ? 'Korrekt' : 'Falsch'
+          (userAns === s.c ? 'Korrekt' : 'Falsch') + (s.feedback ? ' · ' + s.feedback : '')
         ) : null
       );
     }),
@@ -872,6 +876,8 @@ function SortExercise(props) {
 
 function ExerciseCard(props) {
   var ex = props.ex, onDone = props.onDone, examMode = props.examMode;
+  // Fallback: manche Übungen haben title statt q
+  if (!ex.q && ex.title) ex = Object.assign({}, ex, { q: ex.title });
   var exerciseProps = { ex: ex, onDone: onDone, examMode: examMode };
 
   var comp;
@@ -1178,7 +1184,13 @@ function LearningRenderer(props) {
         ),
         e('div', { className: 'learn-section-body' },
           e('div', { className: 'learn-terms-grid' },
-            (section.terms || []).map(function(t, i) {
+            (section.terms || section.items || []).map(function(t, i) {
+              // Unterstützt {term, def}-Objekte und einfache Strings
+              if (typeof t === 'string') {
+                return e('div', { key: i, className: 'learn-term-card' },
+                  e('div', { className: 'learn-term-name' }, t)
+                );
+              }
               return e('div', { key: i, className: 'learn-term-card' },
                 e('div', { className: 'learn-term-name' }, t.term),
                 e('div', { className: 'learn-term-def' }, t.def)
@@ -1214,12 +1226,26 @@ function LearningRenderer(props) {
           e('span', { className: 'learn-section-title' }, section.title)
         ),
         e('div', { className: 'learn-section-body' },
+          (section.content || section.text) ? e('div', { className: 'learn-method-text', style: { marginBottom: section.items ? 10 : 0 } }, formatText(section.content || section.text)) : null,
           section.items ? section.items.map(function(item, i) {
+            // Unterstützt {q, a}-Objekte und einfache Strings
+            if (typeof item === 'string') {
+              var qm = item.indexOf('? ');
+              if (qm > 0 && qm < item.length - 2) {
+                return e('div', { key: i, className: 'learn-method-item' },
+                  e('div', { className: 'learn-method-q' }, item.slice(0, qm + 1)),
+                  e('div', { className: 'learn-method-a' }, item.slice(qm + 2))
+                );
+              }
+              return e('div', { key: i, className: 'learn-method-item' },
+                e('div', { className: 'learn-method-a' }, item)
+              );
+            }
             return e('div', { key: i, className: 'learn-method-item' },
               e('div', { className: 'learn-method-q' }, item.q),
               e('div', { className: 'learn-method-a' }, item.a)
             );
-          }) : section.text ? e('div', { className: 'learn-method-text' }, formatText(section.text)) : null
+          }) : null
         )
       );
     }
@@ -1364,7 +1390,7 @@ function ExamMode(props) {
           var ok = r && r.done && r.score >= 60;
           return e('div', { key: ex.id, className: 'score-list-item' },
             e('div', { className: 'score-list-icon ' + (ok ? 'ok' : 'nok') }, ok ? '\u2713' : '\u2717'),
-            e('span', null, ex.q ? ex.q.substring(0, 60) + (ex.q.length > 60 ? '...' : '') : 'Aufgabe ' + ex.id),
+            e('span', null, (ex.q || ex.title) ? (ex.q || ex.title).substring(0, 60) + ((ex.q || ex.title).length > 60 ? '...' : '') : 'Aufgabe ' + ex.id),
             r && r.done
               ? e('span', { style: { marginLeft: 'auto', fontWeight: 600, color: ok ? 'var(--green)' : 'var(--red)' } }, r.score + '%')
               : e('span', { style: { marginLeft: 'auto', color: 'var(--text2)', fontSize: '.8rem' } }, 'Nicht bearbeitet')
@@ -1395,7 +1421,7 @@ function ExamMode(props) {
           e('div', { className: 'ex-header', style: { cursor: 'default' } },
             e('span', { className: 'ex-num' + (isDone ? ' done' : '') }, idx + 1),
             e('div', { className: 'ex-title-wrap' },
-              e('div', { className: 'ex-title' }, ex.q ? ex.q.substring(0, 80) : 'Aufgabe ' + ex.id),
+              e('div', { className: 'ex-title' }, (ex.q || ex.title) ? (ex.q || ex.title).substring(0, 80) : 'Aufgabe ' + ex.id),
               e('div', { className: 'ex-type' }, TYPE_LABELS[ex.type] || ex.type),
               isDone ? e('span', { className: 'score-badge good' }, 'Bearbeitet') : null
             )
@@ -2141,7 +2167,7 @@ function ChapterCard(props) {
               e('div', { className: 'ex-header', onClick: function() { setOpenEx(isExOpen ? null : ex.id); } },
                 e('span', { className: 'ex-num' + (isDone ? ' done' : '') }, ex.id),
                 e('div', { className: 'ex-title-wrap' },
-                  e('div', { className: 'ex-title' }, ex.q ? ex.q.substring(0, 80) : 'Aufgabe ' + ex.id),
+                  e('div', { className: 'ex-title' }, (ex.q || ex.title) ? (ex.q || ex.title).substring(0, 80) : 'Aufgabe ' + ex.id),
                   e('div', { className: 'ex-type' }, (TYPE_ICONS[ex.type] || '') + ' ' + (TYPE_LABELS[ex.type] || ex.type)),
                   isDone ? e('span', { className: 'score-badge good' }, 'Erledigt') : null
                 ),
@@ -2348,7 +2374,7 @@ function initApp(bookData) {
                 r.exercises.length > 0 ? e('div', { style: { marginTop: 6, fontSize: '.8rem', color: 'var(--text2)' } },
                   r.exercises.length + ' \u00DCbung' + (r.exercises.length > 1 ? 'en' : '') + ': ',
                   r.exercises.map(function(ex, j) {
-                    return (j > 0 ? ', ' : '') + (ex.q || 'Aufgabe ' + ex.id);
+                    return (j > 0 ? ', ' : '') + (ex.q || ex.title || 'Aufgabe ' + ex.id);
                   })
                 ) : null,
                 r.sections.length > 0 ? e('div', { style: { marginTop: 4, fontSize: '.8rem', color: 'var(--text2)' } },
