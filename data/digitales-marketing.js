@@ -1990,18 +1990,18 @@ window.BOOK_DATA = {
             { l: 'Lohn und Weiterbildung', r: 'Personalkosten' },
             { l: 'SEO-Projekt, Google Ads', r: 'Kosten Online Advertising' },
             { l: 'Social-Media-Management-Tools', r: 'Kosten Social Media Marketing' },
-            { l: 'Content Marketing und Instagram-Betreuung', r: 'Agenturkosten' }
+            { l: 'Content Marketing und Instagram-Betreuung durch eine externe Agentur', r: 'Agenturkosten' }
           ],
           options: ['Personalkosten', 'Kosten Online Advertising', 'Kosten Social Media Marketing', 'Agenturkosten'],
           tips: [
             'Die Budgetstruktur umfasst verschiedene Kostenkategorien.',
-            'Jede Aktivität gehört zu einer bestimmten Kategorie.'
+            'Massgebend ist, wer die Leistung erbringt: intern (Personal, Tools) oder extern (Agentur).'
           ],
           reveal: [
             'Lohn und Weiterbildung = Personalkosten.',
             'SEO-Projekt und Google Ads = Kosten Online Advertising.',
-            'Social-Media-Management-Tools = Kosten Social Media Marketing.',
-            'Content Marketing und Instagram-Betreuung = Agenturkosten.'
+            'Social-Media-Management-Tools = Kosten Social Media Marketing (intern genutztes Tool).',
+            'Content Marketing und Instagram-Betreuung durch eine externe Agentur = Agenturkosten (externe Dienstleistung).'
           ]
         }
       ],
@@ -2134,7 +2134,7 @@ window.BOOK_DATA = {
             'Kennzahlen sollten regelmässig überprüft werden.'
           ],
           reveal: [
-            'Klickrate (CTR): Verhältnis zwischen Einblendungen und Klicks. CTR = Impressions / Klicks x 100.',
+            'Klickrate (CTR): Verhältnis zwischen Klicks und Einblendungen. CTR = Klicks / Impressions x 100.',
             'Cost per Conversion: Kosten, die pro beabsichtigter Transaktion anfallen.',
             'Kosten je Bestellung: Kosten der Kampagne geteilt durch die Anzahl der herbeigeführten Bestellungen.'
           ]
