@@ -2363,9 +2363,9 @@ window.BOOK_DATA = {
           ],
           tips: ['Netto-DB = Zusatz-DB \u2212 Investition'],
           reveal: [
-            'Variante 1: 440\u2019000 \u2212 300\u2019000 = 140\u2019000',
-            'Variante 2: 680\u2019000 \u2212 500\u2019000 = 180\u2019000',
-            'Variante 2 ist vorzuziehen (h\u00f6herer Netto-DB).'
+            'Variante 1: 440\u2019000 \u2212 300\u2019000 = 140\u2019000 (ROI = 140\u2019000 / 300\u2019000 = 46,7 %)',
+            'Variante 2: 680\u2019000 \u2212 500\u2019000 = 180\u2019000 (ROI = 180\u2019000 / 500\u2019000 = 36,0 %)',
+            'Variante 1 erzielt den h\u00f6heren ROI, Variante 2 den h\u00f6heren Netto-DB. Welche Variante vorzuziehen ist, h\u00e4ngt davon ab, welche Kennzahl priorisiert wird.'
           ]
         },
         {

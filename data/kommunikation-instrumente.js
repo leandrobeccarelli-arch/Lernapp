@@ -645,10 +645,10 @@ window.BOOK_DATA = {
         {
           id: 30, type: 'match', q: 'Event-Strategie-Typen',
           instruction: 'Ordnen Sie den Beschreibungen die zutreffenden Strategie-Typen zu. (Rep 17, S.103)',
-          pairs: [{l:'Die Zielgruppen werden alive mit einem Produkt konfrontiert.',r:'Erlebnisstrategie'},{l:'Neue, bisher nicht bearbeitete Zielgruppen werden angesprochen.',r:'Zielgruppenerschöpfungsstrategie'},{l:'Eine Marke soll stärker positioniert werden.',r:'Imageprofilierungsstrategie'},{l:'Ein neues Produkt wird bei bestimmten Zielgruppen eingeführt.',r:'Einführungsstrategie'}],
-          options: ['Erlebnisstrategie','Zielgruppenerschöpfungsstrategie','Imageprofilierungsstrategie','Einführungsstrategie'],
-          tips: ['Erlebnis = alive, direkt erleben.','Zielgruppenerschöpfung = neue Zielgruppen.','Imageprofilierung = Marke stärker positionieren.','Einführung = neues Produkt einführen.'],
-          reveal: ['Erlebnisstrategie: Zielgruppen erleben das Produkt live.','Zielgruppenerschöpfungsstrategie: Neue Zielgruppen werden erschlossen.','Imageprofilierungsstrategie: Marke wird stärker positioniert.','Einführungsstrategie: Neues Produkt wird eingeführt.']
+          pairs: [{l:'Die Zielgruppen werden alive mit einem Produkt konfrontiert.',r:'Erlebnisstrategie'},{l:'Neue, bisher nicht bearbeitete Zielgruppen werden angesprochen.',r:'Zielgruppenerschliessungsstrategie'},{l:'Eine Marke soll stärker positioniert werden.',r:'Imageprofilierungsstrategie'},{l:'Ein neues Produkt wird bei bestimmten Zielgruppen eingeführt.',r:'Einführungsstrategie'}],
+          options: ['Erlebnisstrategie','Zielgruppenerschliessungsstrategie','Imageprofilierungsstrategie','Einführungsstrategie'],
+          tips: ['Erlebnis = alive, direkt erleben.','Zielgruppenerschliessung = neue Zielgruppen.','Imageprofilierung = Marke stärker positionieren.','Einführung = neues Produkt einführen.'],
+          reveal: ['Erlebnisstrategie: Zielgruppen erleben das Produkt live.','Zielgruppenerschliessungsstrategie: Neue Zielgruppen werden erschlossen.','Imageprofilierungsstrategie: Marke wird stärker positioniert.','Einführungsstrategie: Neues Produkt wird eingeführt.']
         },
         {
           id: 31, type: 'match', q: 'Event-Kostenarten',
@@ -1214,10 +1214,10 @@ window.BOOK_DATA = {
         {
           id: 58, type: 'match', q: 'Strategien des Dialogmarketings',
           instruction: 'Ordnen Sie die Beschreibungen den Dialogmarketing-Strategien zu.',
-          pairs: [{l:'Neue Kunden gewinnen',r:'Akquisitionsstrategie'},{l:'Bestehende Kunden binden und Mehrwert bieten',r:'Bindungsstrategie'},{l:'Verlorene Kunden zurückgewinnen',r:'Rückgewinnungsstrategie'}],
-          options: ['Akquisitionsstrategie','Bindungsstrategie','Rückgewinnungsstrategie'],
-          tips: ['Akquisition = neue Kunden.','Bindung = bestehende Kunden.','Rückgewinnung = verlorene Kunden.'],
-          reveal: ['Akquisitionsstrategie: Neue Kunden gewinnen.','Bindungsstrategie: Bestehende Kunden binden.','Rückgewinnungsstrategie: Verlorene Kunden zurückgewinnen.']
+          pairs: [{l:'Neukunden gewinnen, Kontakt herstellen und Interesse wecken',r:'Akquisitionsstrategie'},{l:'Bestehende Kunden über neue Produkte informieren, Preisinfos vermitteln',r:'Informationsstrategie'},{l:'Kontakte pflegen, Kundenbindung erhöhen, Cross-Selling',r:'Betreuungsstrategie'},{l:'Kunden direkt zum Kauf bewegen, z. B. mit Katalogen oder E-Mail mit Bestell-Option',r:'Abverkaufsstrategie'}],
+          options: ['Akquisitionsstrategie','Informationsstrategie','Betreuungsstrategie','Abverkaufsstrategie'],
+          tips: ['Akquisition = Neukunden gewinnen.','Information = über Produkte informieren.','Betreuung = bestehende Kontakte pflegen.','Abverkauf = direkt zum Kauf bewegen.'],
+          reveal: ['Akquisitionsstrategie: Neukunden gewinnen, Kontakt herstellen, Interesse wecken.','Informationsstrategie: Bestehende Kunden über neue Produkte informieren, Preisinfos vermitteln.','Betreuungsstrategie: Kontakte pflegen, Kundenbindung erhöhen, Cross-Selling.','Abverkaufsstrategie: Kunden direkt zum Kauf bewegen, z. B. mit Katalogen oder E-Mail mit Bestell-Option.']
         },
         {
           id: 59, type: 'mc', q: 'Massnahmen des Dialogmarketings',
@@ -1590,7 +1590,7 @@ window.BOOK_DATA = {
             {q: 'Unterschiede erklären.', keywords: ['basic','allgemeine','mediennutzung','bevölkerung','consumer','einkaufsgewohnheiten','leader','führungskräfte','funktion','unternehmen'], minKeywords: 4}
           ],
           tips: ['MACH Basic erforscht die allgemeine Mediennutzung.','MACH Consumer ergänzt um Einkaufsgewohnheiten.','MA Leader fokussiert auf Führungskräfte.'],
-          reveal: ['MACH Basic: Erforscht die allgemeine Mediennutzung der Schweizer Bevölkerung insgesamt. Grundgesamtheit: 6 565 000 Personen.','MACH Consumer: Basierend auf MACH Basic werden die Einkaufsgewohnheiten erhoben und damit in Bezug zur allgemeinen Mediennutzung gebracht. Grundgesamtheit: 6 565 000 Personen.','MA Leader: Befragung der schweizerischen Führungskräfte, ergänzt mit Angaben zu deren Funktion in ihren Unternehmen. Grundgesamtheit: Leader 438 000, Top-Leader 151 000 Personen.']
+          reveal: ['MACH Basic: Erforscht die allgemeine Mediennutzung der Schweizer Bevölkerung insgesamt. Grundgesamtheit: 6 565 000 Personen.','MACH Consumer: Basierend auf MACH Basic werden die Einkaufsgewohnheiten erhoben und damit in Bezug zur allgemeinen Mediennutzung gebracht. Grundgesamtheit: 6 565 000 Personen.','MA Leader: Befragung der schweizerischen Führungskräfte, ergänzt mit Angaben zu deren Funktion in ihren Unternehmen. Grundgesamtheit: Leader 436 000, Top-Leader 151 000 Personen.']
         },
         {
           id: 75, type: 'match', q: 'Pre-Test vs. Post-Test',
