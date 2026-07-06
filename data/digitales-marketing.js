@@ -1762,7 +1762,7 @@ window.BOOK_DATA = {
           },
           {
             type: 'concept',
-            title: '6.2-6.4 Social Media Marketing',
+            title: '6.2 Social Media Marketing',
             content: 'Die sozialen Medien sind zu einem festen Bestandteil der täglichen Kommunikation geworden. Die Plattformen sind einfach und relativ schnell einzurichten. Es sollte jedoch ein klarer Fokus auf die relevantesten Plattformen gesetzt werden. Zentral sind spannende Inhalte und ausreichende Ressourcen.',
             highlight: 'Bei der Umsetzung von Social Media sind zu beantworten: Welche Kanäle werden bewirtschaftet? Zu welcher Tageszeit wird gepostet? Welches Vorgehen ist für die Gestaltung der Inhalte definiert? Wie umgehen mit kritischer Kommunikation? Ein Redaktionsplan ist unverzichtbar.'
           },
@@ -1773,19 +1773,19 @@ window.BOOK_DATA = {
           },
           {
             type: 'concept',
-            title: '6.5 Influencer Marketing',
+            title: '6.3 Influencer Marketing',
             content: 'Beim Influencer Marketing werden Meinungsmacher mit einer reichweitenstarken Community für Marketing- und Kommunikationszwecke eingesetzt. Die Zusammenarbeit mit Influencern hat in den letzten Jahren stark an Bedeutung gewonnen.',
             highlight: 'Influencer Marketing hat Chancen (hohe Reichweite, Glaubwürdigkeit bei Zielgruppe) und Risiken (schwer zu kontrollieren, gute Influencer sind schwer zu finden, Authentizität muss gewährleistet sein).'
           },
           {
             type: 'concept',
-            title: '6.6 Social Commerce und Bewertungsplattformen',
+            title: '6.4 Social Commerce und Bewertungsplattformen',
             content: 'Unter Social Commerce versteht man die Möglichkeit, ein Produkt innerhalb der eigenen Social-Media-Seiten zu verkaufen. Bewertungsplattformen sind kostenlos, aber schwierig zu kontrollieren. Vorteile: Vertrauensbildung, Einbindung der Kunden, Interaktion zwischen den Kunden (Mundpropaganda).',
             highlight: 'Social Commerce und Bewertungsplattformen gelten heute als eine der wirksamsten Marketingmassnahmen, weil sie Vertrauen schaffen und Mundpropaganda fördern.'
           },
           {
             type: 'concept',
-            title: '6.7 E-Mail-Marketing und Online PR',
+            title: '6.5/6.6 E-Mail-Marketing und Online PR',
             content: 'E-Mail-Marketing umfasst den strategischen Einsatz von E-Mail mit dem Ziel, den Empfänger auf eine bestimmte Online-Präsenz zu lenken. Bei der Online PR werden Kunden und Interessenten nicht direkt adressiert. Stattdessen versucht das Unternehmen durch die Zusammenarbeit mit Medien Aufmerksamkeit zu erlangen und die Bekanntheit zu steigern.',
             highlight: 'E-Mail-Marketing: Einfach umzusetzen, keine Streuverluste (Permission Marketing), höhere Rücklaufquoten. Online PR: Kostenlos, imagebildend, hohe Reichweiten, Glaubwürdigkeit (redaktionelles Umfeld).'
           },

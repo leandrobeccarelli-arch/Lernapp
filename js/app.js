@@ -15,7 +15,7 @@ var useMemo = React.useMemo;
 
 // ─── Data Loading ───────────────────────────────────────────────────────────
 
-var VALID_BOOKS = ['kommunikation-grundlagen','verkaufsplanung','distribution','digitales-marketing','kommunikation-instrumente','marketingkonzept'];
+var VALID_BOOKS = ['kommunikation-grundlagen','verkaufsplanung','distribution','digitales-marketing','kommunikation-instrumente','marketingkonzept','selbstmanagement','projektmanagement'];
 
 var bookParam = new URLSearchParams(window.location.search).get('book');
 
@@ -910,14 +910,38 @@ var LABEL_KEYWORDS = ['Vorteile', 'Nachteile', 'Nachteil', 'Vorteil', 'Pro', 'Ko
 // Labels that trigger sub-bullet rendering for comma-separated content
 var SUBBULLET_LABELS = ['Vorteile', 'Nachteile', 'Nachteil', 'Vorteil', 'Chancen', 'Risiken', 'Stärken', 'Schwächen', 'Herausforderungen', 'Merkmale', 'Funktionen', 'Arten', 'Formen', 'Instrumente', 'Massnahmen', 'Kategorien', 'Bereiche', 'Aufgaben', 'Anforderungen'];
 
+// Parse inline emphasis markup (<strong>/<b> and <em>/<i>) in trusted static content
+// into real React elements. Returns the plain string unchanged when no markup is present,
+// so tag-free text behaves exactly as before. Content comes from our own data files, not
+// user input, so rendering these specific tags is safe (no arbitrary HTML is interpreted).
+function inlineRich(text, keyPrefix) {
+  if (typeof text !== 'string' || text.indexOf('<') === -1) return text;
+  var tokenRegex = /<(strong|b|em|i)>([\s\S]*?)<\/\1>/gi;
+  var out = [];
+  var lastIndex = 0;
+  var idx = 0;
+  var m;
+  while ((m = tokenRegex.exec(text)) !== null) {
+    if (m.index > lastIndex) out.push(text.substring(lastIndex, m.index));
+    var tag = m[1].toLowerCase();
+    var isBold = (tag === 'strong' || tag === 'b');
+    out.push(e(isBold ? 'strong' : 'em', { key: (keyPrefix || 'ir') + '-' + idx }, m[2]));
+    lastIndex = tokenRegex.lastIndex;
+    idx++;
+  }
+  if (idx === 0) return text;
+  if (lastIndex < text.length) out.push(text.substring(lastIndex));
+  return out;
+}
+
 // Format a single block of text with bold labels and optional sub-bullets
 function formatRichBlock(text, keyPrefix) {
   if (!text || !text.trim()) return null;
   // Check if text contains any known labels
   var labelPattern = new RegExp('(?:\\. |^)(' + LABEL_KEYWORDS.join('|') + '):\\s');
   if (!labelPattern.test(text)) {
-    // No labels — return as plain text
-    return e('span', { key: keyPrefix }, text);
+    // No labels — return as plain text (with inline emphasis markup applied)
+    return e('span', { key: keyPrefix }, inlineRich(text, keyPrefix));
   }
   // Split text at label boundaries using manual approach for browser compat
   var segments = [];
@@ -934,7 +958,7 @@ function formatRichBlock(text, keyPrefix) {
   if (lastIdx < text.length) segments.push(text.substring(lastIdx));
   segments = segments.filter(function(s) { return s && s.trim(); });
   if (segments.length <= 1 && !labelPattern.test(segments[0] || '')) {
-    return e('span', { key: keyPrefix }, text);
+    return e('span', { key: keyPrefix }, inlineRich(text, keyPrefix));
   }
   var result = [];
   segments.forEach(function(seg, si) {
@@ -951,7 +975,7 @@ function formatRichBlock(text, keyPrefix) {
           e('ul', { style: { paddingLeft: 18, margin: '4px 0 0 0' } },
             commaItems.map(function(ci, j) {
               var t = ci.trim().replace(/\.\s*$/, '');
-              return t ? e('li', { key: j, style: { marginBottom: 2, lineHeight: 1.5, fontSize: '.84rem', color: '#475569' } }, t) : null;
+              return t ? e('li', { key: j, style: { marginBottom: 2, lineHeight: 1.5, fontSize: '.84rem', color: '#475569' } }, inlineRich(t, keyPrefix + '-' + si + '-li-' + j)) : null;
             }).filter(Boolean)
           )
         ));
@@ -959,12 +983,12 @@ function formatRichBlock(text, keyPrefix) {
         // Label with content but not a comma list — bold label, inline content
         result.push(e('div', { key: keyPrefix + '-' + si, style: { marginTop: 4 } },
           e('strong', { style: { color: '#334155', fontSize: '.85rem' } }, label + ': '),
-          e('span', { style: { fontSize: '.85rem' } }, content)
+          e('span', { style: { fontSize: '.85rem' } }, inlineRich(content, keyPrefix + '-c-' + si))
         ));
       }
     } else {
       // Non-label segment (intro text)
-      result.push(e('span', { key: keyPrefix + '-' + si, style: { fontSize: '.85rem' } }, seg.trim()));
+      result.push(e('span', { key: keyPrefix + '-' + si, style: { fontSize: '.85rem' } }, inlineRich(seg.trim(), keyPrefix + '-s-' + si)));
     }
   });
   return e('div', { key: keyPrefix }, result);
@@ -982,13 +1006,13 @@ function formatTitledItem(text, keyPrefix) {
     var labelPattern = new RegExp('(?:\\. |^)(' + LABEL_KEYWORDS.join('|') + '):\\s');
     if (labelPattern.test(rest)) {
       return e('div', { key: keyPrefix },
-        e('strong', { style: { display: 'block', marginBottom: 4, color: '#1e293b', fontSize: '.88rem' } }, title),
+        e('strong', { style: { display: 'block', marginBottom: 4, color: '#1e293b', fontSize: '.88rem' } }, inlineRich(title, keyPrefix + '-t')),
         formatRichBlock(rest, keyPrefix + '-body')
       );
     }
     return e('div', { key: keyPrefix },
-      e('strong', { style: { color: '#1e293b', fontSize: '.88rem' } }, title + ': '),
-      e('span', { style: { fontSize: '.85rem' } }, rest)
+      e('strong', { style: { color: '#1e293b', fontSize: '.88rem' } }, inlineRich(title, keyPrefix + '-t'), ': '),
+      e('span', { style: { fontSize: '.85rem' } }, inlineRich(rest, keyPrefix + '-r'))
     );
   }
   // No title pattern — check for labels in plain text
@@ -1010,13 +1034,13 @@ function formatText(text) {
     if (nlItems.length > 0) {
       var nlElements = [];
       if (nlIntro && nlIntro.trim()) {
-        nlElements.push(e('p', { key: 'intro', style: { marginBottom: 12, lineHeight: 1.7 } }, nlIntro.trim()));
+        nlElements.push(e('p', { key: 'intro', style: { marginBottom: 12, lineHeight: 1.7 } }, inlineRich(nlIntro.trim(), 'nl-intro')));
       }
       nlElements.push(e('ol', { key: 'list', style: { paddingLeft: 20, margin: '8px 0' } },
         nlItems.map(function(item, i) {
           var itemText = item.replace(/^\d+\.\s*/, '').trim();
           var rich = formatTitledItem(itemText, 'li-' + i);
-          return e('li', { key: i, style: { marginBottom: 12, lineHeight: 1.6 } }, rich || itemText);
+          return e('li', { key: i, style: { marginBottom: 12, lineHeight: 1.6 } }, rich || inlineRich(itemText, 'nl-li-' + i));
         })
       ));
       return e('div', null, nlElements);
@@ -1034,12 +1058,12 @@ function formatText(text) {
     if (items.length > 0) {
       var elements = [];
       if (intro.trim()) {
-        elements.push(e('p', { key: 'intro', style: { marginBottom: 12, lineHeight: 1.7 } }, intro.trim()));
+        elements.push(e('p', { key: 'intro', style: { marginBottom: 12, lineHeight: 1.7 } }, inlineRich(intro.trim(), 'dash-intro')));
       }
       elements.push(e('ul', { key: 'list', style: { paddingLeft: 20, margin: '8px 0' } },
         items.map(function(item, i) {
           var rich = formatTitledItem(item.trim(), 'li-' + i);
-          return e('li', { key: i, style: { marginBottom: 6, lineHeight: 1.6, fontSize: '.88rem' } }, rich || item.trim());
+          return e('li', { key: i, style: { marginBottom: 6, lineHeight: 1.6, fontSize: '.88rem' } }, rich || inlineRich(item.trim(), 'dash-li-' + i));
         })
       ));
       return e('div', null, elements);
@@ -1055,7 +1079,7 @@ function formatText(text) {
   if (text.indexOf('\n\n') !== -1) {
     var paragraphs = text.split('\n\n').filter(function(s) { return s.trim(); });
     return e('div', null, paragraphs.map(function(p, i) {
-      return e('p', { key: i, style: { marginBottom: 10, lineHeight: 1.7 } }, p.trim());
+      return e('p', { key: i, style: { marginBottom: 10, lineHeight: 1.7 } }, inlineRich(p.trim(), 'para-' + i));
     }));
   }
   // Check for single line breaks with content
@@ -1063,12 +1087,12 @@ function formatText(text) {
     var lines = text.split('\n').filter(function(s) { return s.trim(); });
     if (lines.length > 1) {
       return e('div', null, lines.map(function(line, i) {
-        return e('p', { key: i, style: { marginBottom: 6, lineHeight: 1.6 } }, line.trim());
+        return e('p', { key: i, style: { marginBottom: 6, lineHeight: 1.6 } }, inlineRich(line.trim(), 'line-' + i));
       }));
     }
   }
   // Plain text
-  return e('p', { style: { lineHeight: 1.7 } }, text);
+  return e('p', { style: { lineHeight: 1.7 } }, inlineRich(text, 'plain'));
 }
 
 // ─── Learning Renderer ──────────────────────────────────────────────────────
@@ -1261,9 +1285,9 @@ function LearningRenderer(props) {
         e('div', { className: 'learn-section-body' },
           e('div', { className: 'learn-summary-text' },
             Array.isArray(section.items)
-              ? section.items.map(function(p, i) { return e('p', { key: i, style: { marginBottom: 10, lineHeight: 1.7 } }, formatText(typeof p === 'string' ? p : (p.label ? p.label + ': ' + (p.text || p.val || '') : (p.text || p.val || JSON.stringify(p))))); })
+              ? section.items.map(function(p, i) { return e('div', { key: i, style: { marginBottom: 10, lineHeight: 1.7 } }, formatText(typeof p === 'string' ? p : (p.label ? p.label + ': ' + (p.text || p.val || '') : (p.text || p.val || JSON.stringify(p))))); })
               : Array.isArray(section.content)
-                ? section.content.map(function(p, i) { return e('p', { key: i, style: { marginBottom: 10, lineHeight: 1.7 } }, formatText(p)); })
+                ? section.content.map(function(p, i) { return e('div', { key: i, style: { marginBottom: 10, lineHeight: 1.7 } }, formatText(p)); })
                 : formatText(section.content || section.text || '')
           )
         )

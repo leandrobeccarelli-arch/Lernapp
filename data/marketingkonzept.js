@@ -1028,7 +1028,7 @@ window.BOOK_DATA = {
             type: 'concept',
             title: 'Operationalisierung von Zielen (5 W und SMART)',
             content: 'Die 5 W helfen bei der Zieloperationalisierung: 1. Was? (Zielinhalt), 2. Wie viel? (Zielquantifizierung), 3. Wem? (Zielsegment), 4. Wann? (Zielperiode), 5. Wo? (Zielmarkt). Damit die Ziele SMART sind, m\u00fcssen sie: (S) spezifisch/konkret, (M) messbar, (A) realistischerweise erreichbar, (R) ergebnisorientiert und (T) termingebunden sein.',
-            highlight: '5 W: Was, Wie viel, Wem, Wann, Wo. SMART: Spezifisch, Messbar, Attraktiv, Realistisch, Terminiert.'
+            highlight: '5 W: Was, Wie viel, Wem, Wann, Wo. SMART: Spezifisch, Messbar, Erreichbar (achievable), Ergebnisorientiert (result-oriented), Terminiert.'
           },
           {
             type: 'concept',
@@ -1044,7 +1044,7 @@ window.BOOK_DATA = {
               'Strategisch = langfristig (3\u20135 J.), operativ = mittelfristig, taktisch = kurzfristig.',
               'Qualitative Ziele = vor\u00f6konomisch (Image, Zufriedenheit). Quantitative = \u00f6konomisch (Umsatz, Gewinn).',
               '5 W zur Zielformulierung: Was, Wie viel, Wem, Wann, Wo.',
-              'SMART: Spezifisch, Messbar, Attraktiv, Realistisch, Terminiert.',
+              'SMART: Spezifisch, Messbar, Erreichbar (achievable), Ergebnisorientiert (result-oriented), Terminiert.',
               'Zielkongruenz = f\u00f6rdern sich. Zielkonflikt = behindern sich. Zielindifferenz = unabh\u00e4ngig.'
             ]
           },
@@ -1064,7 +1064,7 @@ window.BOOK_DATA = {
             terms: [
               { term: 'Marketingziele', def: 'Erstrebenswerte Zust\u00e4nde, die durch Marketingaktivit\u00e4ten erreicht werden sollen.' },
               { term: 'Zielhierarchie', def: 'Hierarchische Ordnung von Zielen auf verschiedenen Ebenen.' },
-              { term: 'SMART-Formel', def: 'Kriterien f\u00fcr gute Ziele: Spezifisch, Messbar, Attraktiv, Realistisch, Terminiert.' },
+              { term: 'SMART-Formel', def: 'Kriterien f\u00fcr gute Ziele: Spezifisch, Messbar, Erreichbar (achievable), Ergebnisorientiert (result-oriented), Terminiert.' },
               { term: '5 W', def: 'Die f\u00fcnf Fragen zur Operationalisierung: Was, Wie viel, Wem, Wann, Wo.' },
               { term: 'Zielkonflikt', def: 'Situation, in der die Erreichung eines Ziels die Erreichung eines anderen behindert.' },
               { term: 'Zielkongruenz', def: 'Situation, in der sich Ziele gegenseitig f\u00f6rdern und verst\u00e4rken.' },
@@ -1212,8 +1212,8 @@ window.BOOK_DATA = {
           {
             type: 'concept',
             title: 'Strategien hinsichtlich der Marke',
-            content: 'Eine Marke signalisiert die Herkunft eines Produkts und dient der Identifizierung und Differenzierung. Markenstrategien: Herstellermarkenstrategie (Hersteller positioniert als Markenartikel), Handelsmarkenstrategie (z.B. Eigenmarken wie M-Budget), No-Name-Strategie und Me-too-Strategie. Markenentwicklungsstrategien: Sortimentserweiterung (Line Extension), Markenerweiterung (Brand Extension), Multimarken und Neue Marke.',
-            highlight: 'Markenstrategien: Herstellermarke, Handelsmarke, No-Name, Me-too. Entwicklung: Line/Brand Extension, Multimarken.'
+            content: 'Eine Marke signalisiert die Herkunft eines Produkts und dient der Identifizierung und Differenzierung. Markenstrategien: Herstellermarkenstrategie (Hersteller positioniert als Markenartikel), Handelsmarkenstrategie (z.B. Eigenmarken wie M-Budget) und No-Name-Strategie. Markenentwicklungsstrategien: Sortimentserweiterung (Line Extension), Markenerweiterung (Brand Extension), Multimarken und Neue Marke.',
+            highlight: 'Markenstrategien: Herstellermarke, Handelsmarke, No-Name. Entwicklung: Line/Brand Extension, Multimarken.'
           },
           {
             type: 'merke',
@@ -1224,7 +1224,7 @@ window.BOOK_DATA = {
               'Internationalisierung: Export \u2192 Lizenz \u2192 Franchising \u2192 Joint Venture \u2192 Tochtergesellschaft.',
               'Segmentierung: geografisch, demografisch, psychografisch, kaufverhaltensbezogen.',
               'Positionierung = wie Kunden das Angebot im Vergleich zur Konkurrenz wahrnehmen.',
-              'Markenstrategien: Herstellermarke, Handelsmarke, No-Name, Me-too.',
+              'Markenstrategien: Herstellermarke, Handelsmarke, No-Name.',
               'CRM erm\u00f6glicht Individualmarketing und Kundenbindung.'
             ]
           },
@@ -1251,7 +1251,7 @@ window.BOOK_DATA = {
               { term: 'Segmentierung', def: 'Zusammenfassung von Kunden mit \u00e4hnlichen Bed\u00fcrfnissen in Segmente.' },
               { term: 'Positionierung', def: 'Wahrnehmung eines Angebots gegen\u00fcber der Konkurrenz aus Kundensicht.' },
               { term: 'CRM', def: 'Customer Relationship Management \u2013 Instrumente f\u00fcr Individualmarketing und Kundenbindung.' },
-              { term: 'Markenstrategie', def: 'Strategische Entscheidung zur Markenf\u00fchrung (Hersteller-, Handelsmarke, No-Name, Me-too).' }
+              { term: 'Markenstrategie', def: 'Strategische Entscheidung zur Markenf\u00fchrung (Hersteller-, Handelsmarke, No-Name).' }
             ]
           }
         ]
@@ -1268,11 +1268,11 @@ window.BOOK_DATA = {
           id: 42, type: 'text', title: 'Begriffe Marketingmix',
           q: 'Erkl\u00e4ren Sie die Begriffe \u00abMarketingmix\u00bb, \u00abSubmix\u00bb und \u00abTeilmix\u00bb.',
           keywords: ['instrument', 'kombination', '4p', 'product', 'price', 'place', 'promotion'],
-          tips: ['Marketingmix = Gesamtheit, Submix = eines der 4P, Teilmix = Unterkategorie eines Submix.'],
+          tips: ['Marketingmix = Gesamtheit, Submix = eines der 4P, Teilmix = zielgruppenbezogene Unterteilung (Kunden, Handel, externe Beeinflusser).'],
           reveal: [
             'Marketingmix: Kombination aller Marketinginstrumente (4P).',
             'Submix: Eines der 4P (z.B. Produktmix).',
-            'Teilmix: Unterkategorie eines Submix (z.B. Sortimentspolitik als Teil des Produktmix).'
+            'Teilmix: Zielgruppenbezogene Unterteilung des Marketingmix in Teilmix Kunden, Teilmix Handel und Teilmix externe Beeinflusser (Abb. 7-2, S. 116).'
           ]
         },
         {
@@ -1410,7 +1410,7 @@ window.BOOK_DATA = {
             title: 'Merke dir!',
             items: [
               'Marketingmix = Kombination aller Instrumente (4P: Product, Price, Place, Promotion).',
-              'Submix = ein P (z.B. Produktmix). Teilmix = Unterkategorie (z.B. Sortimentspolitik).',
+              'Submix = ein P (z.B. Produktmix). Teilmix = Zielgruppen-Unterteilung des Marketingmix: Kunden, Handel und externe Beeinflusser (Abb. 7-2).',
               'Standard-Dominanz-Modell: dominante Instrumente haben hohe Absatzbedeutung UND grossen Freiheitsgrad.',
               'PLZ-Phasen: Entwicklung \u2192 Einf\u00fchrung \u2192 Wachstum \u2192 Reife \u2192 S\u00e4ttigung \u2192 R\u00fcckgang.',
               'International: Standardisierung vs. Differenzierung (Produkt und Kommunikation).',
@@ -1783,12 +1783,12 @@ window.BOOK_DATA = {
           q: 'Ordnen Sie die Verpackungsarten richtig zu.',
           pairs: [
             { l: 'Steht in direktem Kontakt mit dem Produkt', r: 'Prim\u00e4rverpackung' },
-            { l: 'Dient als Informationstr\u00e4ger und Werbemittel', r: 'Sekund\u00e4rverpackung' },
+            { l: 'Umverpackung ohne direkten Produktkontakt (z.B. Folie, Faltschachtel)', r: 'Sekund\u00e4rverpackung' },
             { l: 'Dient als Lager- und Transporthilfsmittel', r: 'Terti\u00e4rverpackung' }
           ],
           options: ['Prim\u00e4rverpackung', 'Sekund\u00e4rverpackung', 'Terti\u00e4rverpackung'],
-          tips: ['Primär bedeutet «erste» – was berührt das Produkt direkt?', 'Sekundär ist die zweite Schicht – hier steht die Kommunikation im Vordergrund.', 'Tertiär ist die äusserste Schicht – denken Sie an Transport und Lagerung.'],
-          reveal: ['Steht in direktem Kontakt mit dem Produkt → Primärverpackung', 'Dient als Informationsträger und Werbemittel → Sekundärverpackung', 'Dient als Lager- und Transporthilfsmittel → Tertiärverpackung']
+          tips: ['Primär bedeutet «erste» – was berührt das Produkt direkt?', 'Sekundär ist die Umverpackung – sie steht nicht in direktem Kontakt zum Produkt.', 'Tertiär ist die äusserste Schicht – denken Sie an Transport und Lagerung.'],
+          reveal: ['Steht in direktem Kontakt mit dem Produkt → Primärverpackung', 'Umverpackung ohne direkten Produktkontakt (z.B. Folie, Faltschachtel) → Sekundärverpackung', 'Dient als Lager- und Transporthilfsmittel → Tertiärverpackung']
         },
         {
           id: 63, type: 'mc', title: 'GS1-Strichcode',
@@ -1828,7 +1828,7 @@ window.BOOK_DATA = {
           {
             type: 'concept',
             title: 'Verpackungsarten',
-            content: 'Es gibt Einweg- und Mehrwegverpackungen. Je nach Einsatz unterscheidet man Verkaufs-, Sammel- und Transportverpackungen. Prim\u00e4rverpackungen stehen in direktem Kontakt mit dem verpackten Gegenstand und erf\u00fcllen hohe hygienische Anforderungen. Sekund\u00e4rverpackungen dienen als M\u00f6glichkeit f\u00fcr Zusatzinformationen. Terti\u00e4rverpackungen dienen als Lager- und Transporthilfsmittel.',
+            content: 'Es gibt Einweg- und Mehrwegverpackungen. Je nach Einsatz unterscheidet man Verkaufs-, Sammel- und Transportverpackungen. Prim\u00e4rverpackungen stehen in direktem Kontakt mit dem verpackten Gegenstand und erf\u00fcllen hohe hygienische Anforderungen. Sekund\u00e4rverpackungen stehen nicht in direktem Kontakt zum Produkt (z.B. Folien oder Faltschachteln aus Papier, Karton oder Aluminium). Terti\u00e4rverpackungen dienen als Lager- und Transporthilfsmittel.',
             highlight: 'Prim\u00e4r = direkter Kontakt. Sekund\u00e4r = Informationstr\u00e4ger. Terti\u00e4r = Lager/Transport.'
           },
           { type: 'svg', title: 'Die 3 Verpackungsstufen', svg: '<svg viewBox="0 0 700 250" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif"><text x="350" y="28" text-anchor="middle" fill="#581c87" font-size="16" font-weight="bold">Die 3 Verpackungsstufen</text><rect x="230" y="140" width="240" height="70" rx="10" fill="#f5f3ff" stroke="#c084fc" stroke-width="2"/><text x="350" y="168" text-anchor="middle" fill="#581c87" font-size="13" font-weight="bold">Terti\u00e4rverpackung</text><text x="350" y="185" text-anchor="middle" fill="#7e22ce" font-size="10">Lager- und Transporthilfsmittel</text><text x="350" y="200" text-anchor="middle" fill="#9333ea" font-size="9">z.B. Palette, Container</text><rect x="260" y="90" width="180" height="55" rx="10" fill="#ede9fe" stroke="#a855f7" stroke-width="2"/><text x="350" y="113" text-anchor="middle" fill="#581c87" font-size="13" font-weight="bold">Sekund\u00e4rverpackung</text><text x="350" y="130" text-anchor="middle" fill="#7e22ce" font-size="10">Information und Werbung</text><rect x="290" y="48" width="120" height="48" rx="10" fill="#9333ea"/><text x="350" y="68" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold">Prim\u00e4r</text><text x="350" y="84" text-anchor="middle" fill="#e9d5ff" font-size="10">Direkter Kontakt</text><text x="50" y="75" fill="#581c87" font-size="11" font-weight="bold">Prim\u00e4r:</text><text x="50" y="92" fill="#7e22ce" font-size="10">Direkter Produktkontakt</text><text x="50" y="107" fill="#9333ea" font-size="9">z.B. Flasche, Tube</text><line x1="140" y1="85" x2="288" y2="72" stroke="#c084fc" stroke-width="1" stroke-dasharray="3,2"/><text x="540" y="110" fill="#581c87" font-size="11" font-weight="bold">Sekund\u00e4r:</text><text x="540" y="127" fill="#7e22ce" font-size="10">Umverpackung</text><text x="540" y="142" fill="#9333ea" font-size="9">z.B. Kartonschachtel</text><line x1="538" y1="120" x2="442" y2="117" stroke="#c084fc" stroke-width="1" stroke-dasharray="3,2"/><text x="540" y="180" fill="#581c87" font-size="11" font-weight="bold">Terti\u00e4r:</text><text x="540" y="197" fill="#7e22ce" font-size="10">Transportverpackung</text><text x="540" y="212" fill="#9333ea" font-size="9">z.B. Palette, Karton</text><line x1="538" y1="190" x2="472" y2="180" stroke="#c084fc" stroke-width="1" stroke-dasharray="3,2"/><rect x="130" y="225" width="440" height="22" rx="6" fill="#ede9fe"/><text x="350" y="240" text-anchor="middle" fill="#581c87" font-size="10">Einweg- vs. Mehrwegverpackungen je nach \u00f6kologischen und logistischen Anforderungen</text></svg>' },
@@ -1871,7 +1871,7 @@ window.BOOK_DATA = {
             title: 'Schl\u00fcsselbegriffe',
             terms: [
               { term: 'Prim\u00e4rverpackung', def: 'Verpackung in direktem Kontakt mit dem Produkt (z.B. Flasche).' },
-              { term: 'Sekund\u00e4rverpackung', def: 'Umverpackung f\u00fcr Zusatzinformationen und Werbung.' },
+              { term: 'Sekund\u00e4rverpackung', def: 'Umverpackung, die nicht in direktem Kontakt zum Produkt steht (z.B. Folie, Faltschachtel).' },
               { term: 'Terti\u00e4rverpackung', def: 'Lager- und Transportverpackung (z.B. Palette).' },
               { term: 'GS1-Strichcode', def: 'Standardisierter Code zur Identifikation von Produkten.' },
               { term: 'EUL', def: 'Effiziente Ladeeinheiten \u2013 Zusammenfassung zu gr\u00f6sseren Einheiten f\u00fcr die Logistik.' },
@@ -2781,7 +2781,7 @@ window.BOOK_DATA = {
           {
             type: 'concept',
             title: 'Umgang mit Beschwerden \u2013 10 Punkte',
-            content: 'Bei der erfolgreichen Bearbeitung von Reklamationen sind 10 Punkte hilfreich: 1. Nehmen Sie sich Zeit, 2. H\u00f6ren Sie aufmerksam zu, 3. Zeigen Sie Verst\u00e4ndnis, 4. Suchen Sie die Schuld nicht beim Kunden, 5. Entschuldigen Sie sich, 6. Danken Sie f\u00fcr den Hinweis, 7. Bieten Sie eine L\u00f6sung an, 8. Halten Sie Ihre Versprechen ein, 9. Pr\u00fcfen Sie die Zufriedenheit nach, 10. Dokumentieren Sie die Reklamation.',
+            content: 'Bei der erfolgreichen Bearbeitung von Reklamationen sind 10 Punkte hilfreich: 1. Nehmen Sie sich Zeit, 2. H\u00f6ren Sie aufmerksam zu, 3. Zeigen Sie Verst\u00e4ndnis, 4. Suchen Sie die Schuld nicht beim Kunden, 5. Fragen Sie den Kunden, was er von Ihnen erwartet, 6. Treffen Sie eine konkrete Vereinbarung mit dem Kunden, 7. Handeln Sie schnell, 8. Versichern Sie sich, dass die Probleml\u00f6sung den Kundenerwartungen entspricht, 9. Versprechen Sie Besserung, 10. Kleine Aufmerksamkeit schenken.',
             highlight: 'Grundregel: Zuh\u00f6ren, Verst\u00e4ndnis zeigen, Schuld nicht beim Kunden suchen, L\u00f6sung anbieten, Follow-up.'
           },
           {
@@ -2798,7 +2798,7 @@ window.BOOK_DATA = {
               'Reklamationsmanagement ist Teil des CRM \u2013 Ziel: langfristige Kundenbeziehung.',
               'Ziele: Kundenzufriedenheit wiederherstellen, Servicequalit\u00e4t steigern, Kosten senken, Infos nutzen.',
               'Erfolgreich gel\u00f6ste Beschwerden st\u00e4rken die Kundenbindung \u2013 Reklamation = Chance.',
-              '10 Punkte: Zuh\u00f6ren, Verst\u00e4ndnis, nicht Kunde beschuldigen, Entschuldigung, L\u00f6sung, Follow-up.',
+              '10 Punkte: Zeit nehmen, zuh\u00f6ren, Verst\u00e4ndnis zeigen, Schuld nicht beim Kunden suchen, Erwartungen erfragen, konkrete Vereinbarung, schnell handeln, L\u00f6sung absichern, Besserung versprechen, kleine Aufmerksamkeit.',
               'Antwortschreiben: 4 Bausteine \u2013 Bezug, Verst\u00e4ndnis, Sachverhalt/L\u00f6sung, Schluss.'
             ]
           },

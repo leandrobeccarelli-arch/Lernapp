@@ -150,7 +150,7 @@ window.BOOK_DATA = {
             type: 'concept',
             title: '1.5 Träger der Distribution',
             content: 'Die Marketingfunktionen (Verkauf, Marketinglogistik, Finanzen) und vorgelagert die Marktforschung sind Träger der Distribution. Sie gewährleisten, dass die gewünschten Marktleistungen für die Konsumentinnen und Konsumenten entsprechend verfügbar sind.',
-            highlight: 'Träger der Distribution: 1. Strategische Distribution, 2. Physische Distribution, 3. Supply Chain Management, 4. Modell der Stufen, 5. Träger der Distribution (Abteilungen, die Distributionsaufgaben wahrnehmen).'
+            highlight: 'Träger der Distribution sind vier Abteilungen/Marketingfunktionen: 1. Verkauf, 2. Marketinglogistik, 3. Finanzen (Buchhaltung), 4. Marktforschung (vorgelagert).'
           },
           {
             type: 'concept',
@@ -345,7 +345,7 @@ window.BOOK_DATA = {
           {
             type: 'svg',
             title: 'Distributionsorgane: intern vs. extern',
-            svg: '<svg viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif"><text x="350" y="25" text-anchor="middle" fill="#9a3412" font-size="14" font-weight="bold">Distributionsorgane: intern vs. extern</text><rect x="20" y="50" width="310" height="130" rx="10" fill="#fff7ed" stroke="#ea580c" stroke-width="2"/><text x="175" y="75" text-anchor="middle" fill="#ea580c" font-size="12" font-weight="bold">Interne Organe</text><text x="175" y="92" text-anchor="middle" fill="#78716c" font-size="9">(eigene Mitarbeitende)</text><rect x="40" y="105" width="130" height="30" rx="6" fill="#ea580c"/><text x="105" y="124" text-anchor="middle" fill="#fff" font-size="9" font-weight="bold">ADM (Aussendienst)</text><rect x="180" y="105" width="130" height="30" rx="6" fill="#ea580c"/><text x="245" y="124" text-anchor="middle" fill="#fff" font-size="9" font-weight="bold">VKM (Verkauf)</text><rect x="105" y="145" width="140" height="30" rx="6" fill="#f97316"/><text x="175" y="164" text-anchor="middle" fill="#fff" font-size="9" font-weight="bold">IDM (Innendienst)</text><rect x="370" y="50" width="310" height="130" rx="10" fill="#fff7ed" stroke="#ea580c" stroke-width="2"/><text x="525" y="75" text-anchor="middle" fill="#ea580c" font-size="12" font-weight="bold">Externe Organe</text><text x="525" y="92" text-anchor="middle" fill="#78716c" font-size="9">(juristisch selbstständig, nie im Eigentum der Ware)</text><rect x="390" y="105" width="120" height="30" rx="6" fill="#fb923c"/><text x="450" y="124" text-anchor="middle" fill="#fff" font-size="9" font-weight="bold">Agenten</text><rect x="520" y="105" width="120" height="30" rx="6" fill="#fb923c"/><text x="580" y="124" text-anchor="middle" fill="#fff" font-size="9" font-weight="bold">Makler</text><rect x="450" y="145" width="140" height="30" rx="6" fill="#fdba74"/><text x="520" y="164" text-anchor="middle" fill="#7c2d12" font-size="9" font-weight="bold">Kommissionäre</text></svg>'
+            svg: '<svg viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif"><text x="350" y="25" text-anchor="middle" fill="#9a3412" font-size="14" font-weight="bold">Distributionsorgane: intern vs. extern</text><rect x="20" y="50" width="310" height="130" rx="10" fill="#fff7ed" stroke="#ea580c" stroke-width="2"/><text x="175" y="75" text-anchor="middle" fill="#ea580c" font-size="12" font-weight="bold">Interne Organe</text><text x="175" y="92" text-anchor="middle" fill="#78716c" font-size="9">(eigene Mitarbeitende)</text><rect x="40" y="105" width="130" height="30" rx="6" fill="#ea580c"/><text x="105" y="124" text-anchor="middle" fill="#fff" font-size="9" font-weight="bold">ADM (Aussendienst)</text><rect x="180" y="105" width="130" height="30" rx="6" fill="#ea580c"/><text x="245" y="124" text-anchor="middle" fill="#fff" font-size="9" font-weight="bold">VMA (Verkauf)</text><rect x="105" y="145" width="140" height="30" rx="6" fill="#f97316"/><text x="175" y="164" text-anchor="middle" fill="#fff" font-size="9" font-weight="bold">IDM (Innendienst)</text><rect x="370" y="50" width="310" height="130" rx="10" fill="#fff7ed" stroke="#ea580c" stroke-width="2"/><text x="525" y="75" text-anchor="middle" fill="#ea580c" font-size="12" font-weight="bold">Externe Organe</text><text x="525" y="92" text-anchor="middle" fill="#78716c" font-size="9">(juristisch selbstständig, nie im Eigentum der Ware)</text><rect x="390" y="105" width="120" height="30" rx="6" fill="#fb923c"/><text x="450" y="124" text-anchor="middle" fill="#fff" font-size="9" font-weight="bold">Agenten</text><rect x="520" y="105" width="120" height="30" rx="6" fill="#fb923c"/><text x="580" y="124" text-anchor="middle" fill="#fff" font-size="9" font-weight="bold">Makler</text><rect x="450" y="145" width="140" height="30" rx="6" fill="#fdba74"/><text x="520" y="164" text-anchor="middle" fill="#7c2d12" font-size="9" font-weight="bold">Kommissionäre</text></svg>'
           },
           {
             type: 'concept',
@@ -422,10 +422,10 @@ window.BOOK_DATA = {
           id: 19, type: 'match',
           q: 'Distributionsorgane und -techniken',
           instruction: 'Ordnen Sie die Beispiele den Kategorien Distributionsorgan oder Distributionstechnik zu.',
-          pairs: [{l:'Aussendienstmitarbeitende (ADM)',r:'Distributionsorgan'},{l:'Besuche bei der Kundschaft',r:'Distributionstechnik'},{l:'Verkaufsmitarbeitende im eigenen Shop (VKM)',r:'Distributionsorgan'},{l:'Ladenverkauf',r:'Distributionstechnik'},{l:'Administrative Mitarbeitende IT (IDM)',r:'Distributionsorgan'},{l:'Onlineshop',r:'Distributionstechnik'}],
+          pairs: [{l:'Aussendienstmitarbeitende (ADM)',r:'Distributionsorgan'},{l:'Besuche bei der Kundschaft',r:'Distributionstechnik'},{l:'Verkaufsmitarbeitende im eigenen Shop (VMA)',r:'Distributionsorgan'},{l:'Ladenverkauf',r:'Distributionstechnik'},{l:'Administrative Mitarbeitende IT (IDM)',r:'Distributionsorgan'},{l:'Onlineshop',r:'Distributionstechnik'}],
           options: ['Distributionsorgan','Distributionstechnik'],
-          tips: ['Organe sind Personen oder Abteilungen.','Techniken sind die Art und Weise des Verkaufs.','ADM, VKM und IDM sind Organe.'],
-          reveal: ['Distributionsorgane: ADM, VKM, IDM (= Personen/Abteilungen).','Distributionstechniken: Besuche bei Kundschaft, Ladenverkauf, Onlineshop (= Verkaufsarten).']
+          tips: ['Organe sind Personen oder Abteilungen.','Techniken sind die Art und Weise des Verkaufs.','ADM, VMA und IDM sind Organe.'],
+          reveal: ['Distributionsorgane: ADM, VMA, IDM (= Personen/Abteilungen).','Distributionstechniken: Besuche bei Kundschaft, Ladenverkauf, Onlineshop (= Verkaufsarten).']
         },
         // Ex 20 — Distributionsgrad berechnen (Rep 12, S.61)
         {
@@ -479,7 +479,7 @@ window.BOOK_DATA = {
           pairs: [{l:'Distributionsorgane bestimmen',r:'Wer verkauft?'},{l:'Numerische Distribution festlegen',r:'Wie breit verteilen?'},{l:'Distributionsbindung verhandeln',r:'Vertragliche Bindung'},{l:'Kanalwahl treffen',r:'Welcher Kanal?'},{l:'Distributionsfeld definieren',r:'Wo verkaufen?'}],
           options: ['Wer verkauft?','Wie breit verteilen?','Vertragliche Bindung','Welcher Kanal?','Wo verkaufen?'],
           tips: ['Organe = Personen, die verkaufen.','Distributionsgrad = Breite der Verteilung.','Bindung = vertragliche Vereinbarungen.'],
-          reveal: ['Distributionsorgane = Wer verkauft? (ADM, VKM, IDM).','Numerische Distribution = Wie breit verteilen?','Distributionsbindung = Vertragliche Bindung.','Kanalwahl = Welcher Kanal?','Distributionsfeld = Wo verkaufen?']
+          reveal: ['Distributionsorgane = Wer verkauft? (ADM, VMA, IDM).','Numerische Distribution = Wie breit verteilen?','Distributionsbindung = Vertragliche Bindung.','Kanalwahl = Welcher Kanal?','Distributionsfeld = Wo verkaufen?']
         },
         // Ex 25 — Lückentext: Distributionsgrad
         {
@@ -549,12 +549,12 @@ window.BOOK_DATA = {
           {
             type: 'concept',
             title: '3.4 Distributionsorgane',
-            content: 'Als Organe werden Ausführende bezeichnet. Ein Unternehmen legt fest, ob die Marktleistung über interne oder externe Organe vertrieben werden soll. In der Praxis werden auch Kombinationen eingesetzt. Interne Organe: Aussendienstmitarbeitende (ADM), Verkaufsmitarbeitende (VKM), Innendienst (IDM). Externe Organe: Agenten (Handelsreisende), Makler, Kommissionäre. Diese Vermittler sind juristisch selbstständig, aber nie im Eigentum der Ware.',
-            highlight: 'Distributionsorgane: Intern (ADM, VKM, IDM) oder extern (Agent, Makler, Kommissionär).'
+            content: 'Als Organe werden Ausführende bezeichnet. Ein Unternehmen legt fest, ob die Marktleistung über interne oder externe Organe vertrieben werden soll. In der Praxis werden auch Kombinationen eingesetzt. Interne Organe: Aussendienstmitarbeitende (ADM), Verkaufsmitarbeitende (VMA), Innendienst (IDM). Externe Organe: Agenten (Handelsreisende), Makler, Kommissionäre. Diese Vermittler sind juristisch selbstständig, aber nie im Eigentum der Ware.',
+            highlight: 'Distributionsorgane: Intern (ADM, VMA, IDM) oder extern (Agent, Makler, Kommissionär).'
           },
           {
             type: 'concept',
-            title: '3.9 Distributionsgrad (ND/GD)',
+            title: '3.10 Distributionsgrad (ND/GD)',
             content: 'Die numerische Distribution (ND) misst die Präsenz eines Produkts: ND = Anzahl VS mit Produkt / Anzahl VS insgesamt x 100. Die gewichtete Distribution (GD) misst die Umsatzbedeutung: GD = Umsatz der VS, die das Produkt führen / Gesamtumsatz aller VS in der Produktgruppe x 100. Ist die GD höher als die ND, ist das Produkt in umsatzstarken VS gelistet.',
             highlight: 'ND = Präsenz (Anteil Verkaufsstellen). GD = Umsatzbedeutung (Umsatzanteil). GD > ND = Produkt in umsatzstarken VS.'
           },
@@ -575,7 +575,7 @@ window.BOOK_DATA = {
             items: [
               'Das Distributionskonzept folgt dem 6-Schritte-Konzeptraster: Analyse, Ziele, Strategien, Massnahmen, Budget, Kontrolle.',
               'Der Strategieansatz mit 12 Schritten ist das Herzstück des Distributionskonzepts.',
-              'Distributionsorgane: intern (ADM, VKM, IDM) oder extern (Agent, Makler, Kommissionär).',
+              'Distributionsorgane: intern (ADM, VMA, IDM) oder extern (Agent, Makler, Kommissionär).',
               'Numerische Distribution (ND) = Präsenz, Gewichtete Distribution (GD) = Umsatzbedeutung.',
               'POS-Massnahmen: Displays, Zweitplatzierungen, Degustationen am Verkaufspunkt.'
             ]
@@ -585,7 +585,7 @@ window.BOOK_DATA = {
             title: 'Schlüsselbegriffe',
             terms: [
               {term: 'Distributionskonzept', def: 'Konkreter Vorgehensplan mit allen Entscheiden und Massnahmen zur Umsetzung der Distributionsstrategie (6 Schritte).'},
-              {term: 'Distributionsorgane', def: 'Ausführende der Distribution: intern (ADM, VKM, IDM) oder extern (Agent, Makler, Kommissionär).'},
+              {term: 'Distributionsorgane', def: 'Ausführende der Distribution: intern (ADM, VMA, IDM) oder extern (Agent, Makler, Kommissionär).'},
               {term: 'Distributionstechniken', def: 'Vorgehensweisen für die Marktbearbeitung (Kundenbesuch, Ladenverkauf, Onlineshop etc.).'},
               {term: 'Distributionsfeld', def: 'Das zu bearbeitende Marktgebiet (geografisch), nicht immer der Gesamtmarkt.'},
               {term: 'Numerische Distribution (ND)', def: 'Anteil der Verkaufsstellen mit Produkt an der Gesamtzahl der Verkaufsstellen (Präsenz).'},
@@ -737,7 +737,7 @@ window.BOOK_DATA = {
           {
             type: 'concept',
             title: '4.2 Handel (funktionelle und institutionelle Sicht)',
-            content: 'Der Handel kann aus zwei Perspektiven betrachtet werden: Funktionell beschreibt er die Tätigkeiten des Handels (Überbrückung räumlicher, zeitlicher und quantitativer Spannungen). Institutionell beschreibt er die Organisationsformen des Handels. Die Hauptfunktionen des Handels umfassen: Warenbündelung (Sortimentsbildung), Raumüberbrückung (Transport), Zeitüberbrückung (Lagerhaltung), Mengenüberbrückung. Zusatzfunktionen: Beratung, Finanzierung, Werbung.',
+            content: 'Der Handel kann aus zwei Perspektiven betrachtet werden: Funktionell beschreibt er die Tätigkeiten des Handels (Überbrückung räumlicher, zeitlicher und quantitativer Spannungen). Institutionell beschreibt er die Organisationsformen des Handels. Die drei Hauptfunktionen des Handels sind die räumliche Funktion (Raumüberbrückung), die zeitliche Funktion (Zeitüberbrückung durch Lagerhaltung) und die Mengenfunktion (Quantitätsausgleich zwischen Produktions- und Verbrauchsmengen). Zusatzfunktionen sind u.a. Qualitäts-, Kredit-, Kommunikations-, Inkasso- und Informationsfunktion.',
             highlight: 'Handel funktionell = Tätigkeiten (Raum-, Zeit-, Mengenüberbrückung). Institutionell = Organisationsformen (Gross-/Detailhandel).'
           },
           {
@@ -761,7 +761,7 @@ window.BOOK_DATA = {
           },
           {
             type: 'concept',
-            title: '4.6 Eintritt in den Handel',
+            title: '4.7 Eintritt in den Handel',
             content: 'Der Eintritt in den Handel verlangt eine spezielle Vorgehensweise zur Bestimmung der gewünschten Kanäle als Distributionspartner (Kanalwahl). Es müssen Listungsgebühren, Konditionen (Rabatte, Boni, Zahlungsbedingungen), Lieferfähigkeit und Mindestbestellmengen verhandelt werden. Die zunehmende Konzentration im Handel und das Klumpenrisiko müssen mitberücksichtigt werden.',
             highlight: 'Eintritt in den Handel: Listung, Konditionen, Lieferfähigkeit, Klumpenrisiko beachten.'
           },
@@ -780,7 +780,7 @@ window.BOOK_DATA = {
             title: 'Merke dir!',
             items: [
               'Direktvertrieb eignet sich besonders für Investitionsgüter und beratungsintensive Dienstleistungen.',
-              'Handel hat Haupt- (Sortimentsbildung, Transport, Lagerhaltung) und Zusatzfunktionen (Beratung, Finanzierung).',
+              'Handel hat drei Hauptfunktionen (räumliche, zeitliche, Mengenfunktion) und mehrere Zusatzfunktionen (z.B. Beratung, Kredit, Kommunikation).',
               'Grosshandel verkauft an Detailhandel, Detailhandel verkauft an Endkonsumenten.',
               'Arten von Detailhandelsgeschäften: Laden, Fachgeschäft, Boutique, Discounter, Grossverteiler, Warenhaus.',
               'Beim Eintritt in den Handel sind Listungsgebühren, Konditionen und Klumpenrisiko zu beachten.'
@@ -1378,7 +1378,7 @@ window.BOOK_DATA = {
             content: [
               'Die <strong>Wahl und Entscheidung</strong> für einen Logistikstandort hat unmittelbare Auswirkung auf das ganze Unternehmen.',
               'Insbesondere die Wahl aus Sicht des Marketings (z.B. zentrale Lage) beeinflusst die <strong>Standortqualität</strong> aus Kundensicht.',
-              'Dazu spielen auch andere Gründe eine Rolle (z.B. Steuerfluss). Die Kriterien sind jeweils sorgfältig unter Berücksichtigung der Situation zu bestimmen.',
+              'Dazu spielen auch andere Gründe eine Rolle (z.B. Steuerfuss). Die Kriterien sind jeweils sorgfältig unter Berücksichtigung der Situation zu bestimmen.',
               'Die Vorgehensweise bei der <strong>Standortbewertung</strong> kann sowohl aus <strong>subjektiver (qualitativer)</strong> wie auch aus <strong>finanzieller (quantitativer) Sicht</strong> erfolgen.'
             ]
           }

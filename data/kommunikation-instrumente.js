@@ -188,7 +188,7 @@ window.BOOK_DATA = {
               {term: 'Mediawerbung', def: 'Gezielte und bewusste Beeinflussung des Menschen zu kommerziellen Zwecken über Massenmedien.'},
               {term: 'Werbewirkung', def: 'Die Wirkung von Werbemassnahmen auf Bekanntheit, Einstellung und Verhalten der Zielgruppe.'},
               {term: 'Cross-Marketing', def: 'Unternehmen mit verschiedenen Leistungsbereichen und gleichen oder ähnlichen Zielgruppen machen gemeinsame Werbung.'},
-              {term: 'Product Placement', def: 'Städte, Länder oder Regionen (bzw. Produkte) werden gezielt in einem Film, einer Serie etc. platziert.'},
+              {term: 'Product Placement', def: 'Spezialform der Werbung, die zwar wahrgenommen, aber nicht als Werbung erkannt wird. Produkte oder Marken werden gezielt in Filme oder TV-Programme eingebaut (z.B. eine Cola-Dose in der Hand des Schauspielers).'},
               {term: 'Virales Marketing', def: 'Marketingform, die soziale Netzwerke und Medien ausnutzt, sodass sich Nachrichten epidemisch verbreiten.'},
               {term: 'Direktwerbung', def: 'Individuelle werbliche Kommunikation zwischen Anbietern und Nachfragern, meist in schriftlicher Form.'},
               {term: 'Konsumgüterwerbung', def: 'Emotionale Ansprache, Lifestyle-Themen, Massenmedien.'},
@@ -938,7 +938,7 @@ window.BOOK_DATA = {
           },
           {
             type: 'concept',
-            title: '5.7 Durchführung: Dreiminutenerklärung und Gesprächsprotokoll',
+            title: 'Durchführung: Dreiminutenerklärung und Gesprächsprotokoll',
             content: 'Die Dreiminutenerklärung ist ein kurzer, allgemeiner Überblick über Unternehmen und Marktleistungen, um Messebesucher in kurzer Zeit einordnen zu können. Jedes Gespräch mit einem Besucher wird auf einem Formblatt (Gesprächsprotokoll) protokolliert mit Angaben wie: Titel, Name, Funktion, Unternehmen, Branche, konkreter Bedarf, spezielle Anforderungen und Wünsche.',
             highlight: 'Das Informationsbriefing sollte jeden Morgen ein anderer Standmitarbeiter vorbereiten, damit jeder die Gelegenheit erhält, seine Eindrücke und Beobachtungen darzustellen.'
           },
@@ -1193,7 +1193,7 @@ window.BOOK_DATA = {
             {q: 'Zwei Nachteile des Dialogmarketings.', keywords: ['rechtlich','datenschutz','stopp','kleber','response','schwach','einschränkung'], minKeywords: 2}
           ],
           tips: ['Datenschutz ist ein grosses Thema.','Stopp-Kleber nehmen zu.','Die Response-Rate ist oft schwach.'],
-          reveal: ['Rechtliche Einschränkungen (Datenschutzgesetz).','Die Stopp-Kleber sind weiter zunehmend (ca. 45% gesamtschweizerisch).','Allgemein schwache Response-Rate.']
+          reveal: ['Rechtliche Einschränkungen (Datenschutzgesetz).','Die Stopp-Kleber sind weiter zunehmend (bald 50% gesamtschweizerisch).','Allgemein schwache Response-Rate.']
         },
         {
           id: 56, type: 'match', q: 'Dialogmarketing-Datenbank',
@@ -1237,7 +1237,7 @@ window.BOOK_DATA = {
           statements: [
             {s: 'Beim Dialogmarketing steht die individuelle, persönliche Ansprache im Vordergrund.', c: true, feedback: 'Dies ist das Kernmerkmal des Dialogmarketings.'},
             {s: 'Eine Dialogmarketing-Datenbank enthält nur Adressdaten.', c: false, feedback: 'Sie enthält Grunddaten, Aktionsdaten, Reaktionsdaten und Potenzialdaten.'},
-            {s: 'Die Stopp-Kleber liegen gesamtschweizerisch bei ca. 45%.', c: true, feedback: 'Ca. 45% der Briefkästen haben Stopp-Kleber.'},
+            {s: 'Die Stopp-Kleber liegen gesamtschweizerisch bei bald 50%.', c: true, feedback: 'Bald 50% der Briefkästen haben einen Stopp-Kleber (gesamtschweizerisch).'},
             {s: 'Dialogmarketing hat keine rechtlichen Einschränkungen.', c: false, feedback: 'Das Datenschutzgesetz stellt eine wichtige Einschränkung dar.'}
           ],
           tips: ['Individuelle Ansprache = Kernmerkmal.','Datenbank = vier Datenarten.','Datenschutz = wichtige Einschränkung.'],
@@ -1338,7 +1338,7 @@ window.BOOK_DATA = {
               'Das Herzstück ist die <strong>Dialogmarketing-Datenbank</strong> mit vier Datenarten: Grunddaten, Aktionsdaten, Reaktionsdaten und Potenzialdaten.',
               'Die drei Hauptfunktionen sind <strong>Recruitment</strong> (Kundengewinnung), <strong>Retention</strong> (Kundenbindung) und <strong>Recovery</strong> (Kundenrückgewinnung). Es ist ca. 7× leichter, einen Stammkunden zum Kauf zu bewegen als einen Neukunden zu gewinnen.',
               'Vier <strong>Strategien</strong> stehen zur Verfügung: Akquisition, Information, Betreuung und Abverkauf.',
-              '<strong>Nachteile</strong> sind rechtliche Einschränkungen (Datenschutzgesetz), zunehmende Stopp-Kleber (ca. 45%) und eine allgemein schwache Response-Rate.'
+              '<strong>Nachteile</strong> sind rechtliche Einschränkungen (Datenschutzgesetz), relativ hohe Kosten pro Kontakt, eine relativ kurze Laufzeit gegenüber klassischen Werbemedien sowie zunehmende Stopp-Kleber (bald 50%, gesamtschweizerisch).'
             ]
           },
           {
