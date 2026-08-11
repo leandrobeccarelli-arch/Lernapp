@@ -155,7 +155,7 @@ window.BOOK_DATA = {
               'Netzwerkpflege ist ein Erfolgsfaktor: systematischer Aufbau und Pflege von Kontakten.',
               'Quellen für Innovationen: Qualitätsmanagement, Kundenbefragungen, Trendscouting, Fachmedien.',
               'Zu wenig Information ist genauso schlecht wie eine Informationsüberschwemmung.',
-              'Wähle das richtige Medium: mündlich bei Persönlichem/Heklem, schriftlich bei Verbindlichkeit.'
+              'Wähle das richtige Medium: mündlich bei Persönlichem/Heiklem, schriftlich bei Verbindlichkeit.'
             ]
           },
           {
