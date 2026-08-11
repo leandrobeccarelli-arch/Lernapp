@@ -998,6 +998,13 @@ window.BOOK_DATA = {
               { term: 'Stereotypisierung', def: 'Vorurteile, die auf negativen Eigenschaften oder Defiziten einer Minderheit basieren und generell zugeschrieben werden.' }
             ]
           },
+          { type: 'merke', title: 'Merke dir!', items: [
+            'Offenheit und Toleranz sind die Basis der interkulturellen Kommunikation. Vorurteile können sie von vornherein verhindern.',
+            'Kulturelle Unterschiede zeigen sich bei Augenkontakt, Körperkontakt, direkter vs. indirekter Kommunikation, Umgang mit Kritik, Emotionen und Statusfragen.',
+            'Diversity bezeichnet Vielfalt und Heterogenität auf der sozialen Ebene (z.B. Alter, Sprache, Religion, Herkunft).',
+            'Diversity-Management hat zwei Ziele: Vielfalt als Qualität wahrnehmen und Talente gewinnen sowie Diskriminierung abbauen und Chancengleichheit fördern.',
+            'Sechs wesentliche Themen: sprachliche Verständigung, Rollenklärung, kulturelle Unterschiede, religiöse Aspekte, ausländische Qualifikationen, Rahmenbedingungen beim Arbeitgeber.'
+          ] },
           {
             type: 'summary',
             title: 'Zusammenfassung',
@@ -1101,6 +1108,14 @@ window.BOOK_DATA = {
             content: 'Pr\u00e4sentationsmedien sind Hilfsmittel, die eine Pr\u00e4sentation unterst\u00fctzen: Kopie/Handouts (f\u00fcr alle Teilnehmer gut lesbar), Beamer (schrittweise Pr\u00e4sentation, Gefahr der Reiz\u00fcberflutung), Flipchart (starke Teilnehmerorientierung, spontane Gestaltung), Wandplakat/Poster (bei Messen, f\u00f6rdert Wiedererkennung). Rhetorische Mittel: verbale (Sprechtempo, Lautst\u00e4rke, Sprechpausen, Betonung, Beispiele, Vergleiche, Zitate, Anekdoten, Humor) und nonverbale (K\u00f6rpersprache, Blickkontakt, Mimik, Gestik, Raum, Kleidung).',
             highlight: 'Drei Aspekte nonverbaler Kommunikation: K\u00f6rpersprache (Blickkontakt, Mimik, Gestik), Raum (nicht auf einem Fleck stehen bleiben), Kleidung (angemessen).'
           },
+          { type: 'merke', title: 'Merke dir!', items: [
+            'Eine Präsentation gelingt, wenn Inhalt, Art der Präsentation und Persönlichkeit zusammenpassen.',
+            'Mindestens 80% des Zeitaufwands gehören in die inhaltliche und organisatorische Vorbereitung.',
+            'Gliederung des Inhalts: Einleitung 10%, Hauptteil 85%, Schluss 5%.',
+            'Verständlich präsentieren heisst: einfach und klar (KISS-Prinzip), gut gegliedert, prägnant, anregend.',
+            'Präsentationsmedien gezielt wählen: Handout, Beamer, Flipchart und Wandplakat haben je eigene Stärken und Risiken.',
+            'Rhetorik umfasst verbale Mittel (Tempo, Pausen, Betonung, Beispiele) und nonverbale Mittel (Körpersprache, Blickkontakt, Mimik, Gestik).'
+          ] },
           {
             type: 'summary',
             title: 'Zusammenfassung',
@@ -1235,6 +1250,14 @@ window.BOOK_DATA = {
               ['Spezialist', 'Sachlich, pr\u00e4zise, engagiert', 'Steuert notwendiges Fachwissen bei']
             ]
           },
+          { type: 'merke', title: 'Merke dir!', items: [
+            'Tuckman-Phasen: Forming (orientieren), Storming (auseinandersetzen), Norming (finden), Performing (leisten).',
+            'Adjourning ergänzt das Modell als fünfte Phase bei der Teamauflösung, Reforming folgt bei veränderter Zusammensetzung.',
+            'Eine Gruppenrolle ist eine Funktion, die zur Aufgabenerfüllung in der Gruppe notwendig ist.',
+            'Rangstruktur nach Schindler: Alpha (Gruppenführer), Beta (Fachmann), Gamma (Gefolgsleute), Omega (Aussenseiter).',
+            'Riemann-Thomann-Kreuz: vier Grundstrebungen Nähe vs. Distanz und Dauer vs. Wechsel.',
+            'Belbin unterscheidet neun Teamrollen in drei Kategorien: kommunikations-, handlungs- und wissensorientiert.'
+          ] },
           {
             type: 'summary',
             title: 'Zusammenfassung',
@@ -1375,6 +1398,13 @@ window.BOOK_DATA = {
             content: 'Die Reflexion dient dazu, sich das Geschehene bewusst nochmals vor Augen zu f\u00fchren, Erkenntnisse daraus zu gewinnen und m\u00f6gliche Konsequenzen f\u00fcr eine n\u00e4chste vergleichbare Situation zu ziehen. Zur Nachbearbeitung geh\u00f6rt: die Umsetzung der Sitzungsbeschl\u00fcsse kontrollieren und das Sitzungsprotokoll so bald wie m\u00f6glich zur Verf\u00fcgung stellen. Reflexionsfragen betreffen: Vorbereitung, Durchf\u00fchrung, Ziele, Teilnehmende/Gruppenklima und Fazit/Erkenntnisse.',
             highlight: 'Sitzungsprotokoll sp\u00e4testens nach zwei Tagen zur Verf\u00fcgung stellen. Sitzungsbeschl\u00fcsse konsequent umsetzen und kontrollieren.'
           },
+          { type: 'merke', title: 'Merke dir!', items: [
+            'Eine Sitzung gliedert sich in drei Phasen: Vorbereitung, Durchführung, Nachbearbeitung.',
+            'Moderationsprozess: Einsteigen, Arbeiten (Sammeln, Auswählen, Bearbeiten, Planen), Aussteigen.',
+            'Moderieren ist doppelte Prozessbegleitung: Gruppenprozess (Beziehungsebene) und inhaltliches Vorgehen (Sachebene).',
+            'Visualisierung und schriftlich festgehaltene, verbindliche Ergebnisse sind zentrale Moderationsaufgaben.',
+            'Nachbearbeitung: Sitzung reflektieren, Umsetzung der Beschlüsse kontrollieren, Protokoll rasch verteilen.'
+          ] },
           {
             type: 'summary',
             title: 'Zusammenfassung',
@@ -1486,6 +1516,12 @@ window.BOOK_DATA = {
             content: 'Finden Sie Ihren pers\u00f6nlichen Tagesrhythmus heraus, indem Sie die Leistungshochs und -tiefs \u00fcber einen Zeitraum von mindestens einer Arbeitswoche beobachten. Leistungsstarke Phasen: Sie arbeiten am liebsten, kommen besonders rasch voran, sind geistig besonders fit, lernen am besten. Leistungsschwache Phasen: Sie kommen nur schleppend voran, stellen Erm\u00fcdungsanzeichen fest, k\u00f6nnen sich nicht gut konzentrieren.',
             highlight: 'Kennen Sie Ihre pers\u00f6nliche Tagesleistungskurve! Planen Sie wichtige Aufgaben in leistungsstarke Phasen.'
           },
+          { type: 'merke', title: 'Merke dir!', items: [
+            'Zeitmanagement heisst nicht, mehr Aktivitäten unterzubringen, sondern effektiver mit der verfügbaren Zeit umzugehen.',
+            'Die Tätigkeitsanalyse erfasst alle Tätigkeiten einer typischen Arbeitswoche und überprüft die Zeitverwendung.',
+            'Arbeitsplatzorganisation: «Volltischler» stapeln alles auf dem Schreibtisch, «Leertischler» arbeiten mit minimaler Ausstattung.',
+            'Die Tagesleistungskurve zeigt persönliche Leistungshochs und -tiefs. Mindestens eine Arbeitswoche lang beobachten.'
+          ] },
           {
             type: 'summary',
             title: 'Zusammenfassung',
@@ -1649,6 +1685,13 @@ window.BOOK_DATA = {
               ['Laufend', 'Tagesziele', 'Tagesplan']
             ]
           },
+          { type: 'merke', title: 'Merke dir!', items: [
+            'Vier Hauptaufgaben im Regelkreis des Zeitmanagements: Planen, Entscheiden, Realisieren, Kontrollieren.',
+            'Zielebenen aufeinander abstimmen: Jahresziel, Monatsziele, Wochenziele, Tagesziele.',
+            'SMART-Formel: Spezifisch, Messbar, Attraktiv, Resultatorientiert, Terminbezogen.',
+            'ALPEN-Methode für die Tagesplanung: Aufgaben notieren, Länge abschätzen, Pufferzeiten reservieren, Entscheidungen treffen, Nachkontrolle. Braucht kaum mehr als 10 Minuten.',
+            'Zeitmangel ist oft «hausgemacht»: zehn typische Zeitfallen kennen und vermeiden (z.B. Multitasking, Aufschieben, nicht «Nein» sagen).'
+          ] },
           {
             type: 'summary',
             title: 'Zusammenfassung',
@@ -1823,6 +1866,13 @@ window.BOOK_DATA = {
               ['Unwichtig', 'Ignorieren, nicht erledigen. In den Papierkorb verschieben.', 'Wenn m\u00f6glich delegieren.']
             ]
           },
+          { type: 'merke', title: 'Merke dir!', items: [
+            'Pareto-Prinzip (80/20): In 20% der Zeit entstehen 80% der Ergebnisse. Angemessen statt perfekt erledigen.',
+            'ABC-Analyse: A-Aufgaben (15% der Aufgaben, sehr wichtig, 65% der Zeit), B-Aufgaben (20%, 20%), C-Aufgaben (65%, 15%).',
+            'Eisenhower-Prinzip: wichtig und dringlich sofort selbst erledigen, wichtig terminieren, dringlich delegieren, weder noch in den Papierkorb.',
+            'Delegieren heisst, Aufgabe, Kompetenzen und Verantwortung gemeinsam zu übertragen (AKV-Prinzip).',
+            'Delegation entlastet das eigene Zeitbudget, motiviert Mitarbeitende und nutzt deren Können und Erfahrung.'
+          ] },
           {
             type: 'summary',
             title: 'Zusammenfassung',
@@ -1993,6 +2043,13 @@ window.BOOK_DATA = {
             content: 'Drei Massnahmen helfen, Zeitfallen auszuschalten: St\u00f6rungsfreie Zeit vereinbaren (Zeitfenster ohne Unterbrechungen, \u00abstille Stunde\u00bb im Team), Unterbrechungen vermeiden (nicht \u00abnur kurz\u00bb auf E-Mails antworten, Aufwärmphase nach Unterbrechung beachten), Operative Hektik vermeiden (Zeitreserven und fr\u00fchzeitiges Planen). Zudem: Effizienter kommunizieren (sach- und adressatengerecht), Ablagesystem organisieren (identische Ordnungskriterien f\u00fcr physische und digitale Ablage, \u00abKeep it simple\u00bb), Arbeitsplatzgestaltung.',
             highlight: 'St\u00f6rungsfreie Zeit: Vereinbaren Sie eine \u00abstille Stunde\u00bb im Team. Ablagesystem: \u00abKeep it simple\u00bb \u2013 einfach und praktisch.'
           },
+          { type: 'merke', title: 'Merke dir!', items: [
+            'Stress ist ein körperlicher und emotionaler Reaktionsprozess: Eustress wirkt positiv, Distress belastet.',
+            'Ablauf: Stressor (z.B. Zeitdruck), Stressverstärker (subjektive Bewertung), Stressreaktion (z.B. Nervosität, Ärger).',
+            'Drei Wege des Stressmanagements: Bewältigung (Coping), Prävention, externe Hilfe (z.B. bei Burn-out).',
+            'Zeitfallen ausschalten: störungsfreie Zeit vereinbaren, Unterbrechungen vermeiden, operative Hektik vermeiden.',
+            'Ablagesystem: identische Ordnungskriterien für physische und digitale Ablage, «Keep it simple».'
+          ] },
           {
             type: 'summary',
             title: 'Zusammenfassung',
@@ -2133,6 +2190,13 @@ window.BOOK_DATA = {
             content: 'Die Einsch\u00e4tzung der Kompetenzen kann durch eine Bewertungsskala oder Taxonomie unterst\u00fctzt werden. Die Taxonomie nach Benjamin Bloom umfasst sechs Stufen: 1. Wissen (Sachkenntnisse abrufen), 2. Verstehen (Zusammenh\u00e4nge erkl\u00e4ren), 3. Anwenden (Gelerntes \u00fcbertragen), 4. Analyse (Probleme zerlegen), 5. Synthese (Beziehungen herstellen), 6. Beurteilen (Entscheidungen treffen). Der Europ\u00e4ische Qualifikationsrahmen (EQR) f\u00fcr lebenslanges Lernen unterscheidet acht Stufen und dient der Vergleichbarkeit zwischen L\u00e4ndern.',
             highlight: 'Taxonomie nach Bloom: Wissen \u2192 Verstehen \u2192 Anwenden \u2192 Analyse \u2192 Synthese \u2192 Beurteilen. Kompetenzprofil und Kompetenzbilanz.'
           },
+          { type: 'merke', title: 'Merke dir!', items: [
+            'Kompetenz umfasst Kenntnisse, Fähigkeiten und Fertigkeiten sowie die Bereitschaft, diese einzusetzen.',
+            'In Organisationen meint Kompetenz zudem Rechte und Pflichten (Durchführungs- und Leitungskompetenz).',
+            'Kompetenzen je nach Entwicklungsrichtung bewerten: Einstieg, Aufstieg, Wiedereinstieg, Umorientierung.',
+            'Taxonomie nach Bloom mit sechs Stufen: Wissen, Verstehen, Anwenden, Analyse, Synthese, Beurteilen.',
+            'Der Europäische Qualifikationsrahmen (EQR) unterscheidet acht Stufen und macht Qualifikationen zwischen Ländern vergleichbar.'
+          ] },
           {
             type: 'summary',
             title: 'Zusammenfassung',
@@ -2312,6 +2376,13 @@ window.BOOK_DATA = {
               ['Kontrolle', '\u00dcberpr\u00fcfung der Zielerreichung. Gegebenenfalls Prozess nochmals von vorne beginnen']
             ]
           },
+          { type: 'merke', title: 'Merke dir!', items: [
+            'Ein Problem ist die Differenz zwischen Soll-Zustand und Ist-Zustand.',
+            'Die Schwierigkeit hängt ab von: Lösbarkeit, Erfassbarkeit, Zerlegbarkeit, Ähnlichkeit, Nützlichkeit, subjektiver Bewertung.',
+            'Problemlösungsprozess AZPERK: Analyse, Zieldefinition, Planung, Entscheidung, Realisierung, Kontrolle.',
+            'Komplexe Probleme brauchen vernetztes Denken. Isolierte Einzellösungen bekämpfen nur Symptome.',
+            'Problemnetzwerk in drei Schritten: Problem konkretisieren, Vernetzung der Beziehungen ermitteln (+/–), Szenarien bilden (Trend, Worst Case, Best Case).'
+          ] },
           {
             type: 'summary',
             title: 'Zusammenfassung',

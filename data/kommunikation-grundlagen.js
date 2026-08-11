@@ -2736,6 +2736,14 @@ window.BOOK_DATA = {
               { term: 'Account Planning', def: 'Agenturbereich, der Briefings an die Kreativabteilung erstellt und für die Kontrolle der Kommunikationsstrategie zuständig ist.' }
             ]
           },
+          { type: 'merke', title: 'Merke dir!', items: [
+            'Agenturen kommen zum Zug bei fehlendem Spezialwissen, knappen Ressourcen, fehlenden Medienkontakten oder Betriebsblindheit.',
+            'Sechs Agenturtypen: Werbe-, PR-, Media-, Online-Kommunikations-, Event- und Sponsoring-Agenturen.',
+            'Drei Evaluationswege: Direktwahl, Agenturpräsentation, Wettbewerbspräsentation (Pitch).',
+            'Drei Honorarsysteme: Zeitaufwand, Honorar-Pauschale, Kombination. Das Prozenthonorar ist heute kaum noch üblich.',
+            'Das Kommunikationsbriefing ist das zentrale Instrument der Zusammenarbeit zwischen Auftraggeber und Agentur.',
+            'Wichtigste Grundlage des Erfolgs ist eine partnerschaftliche Beziehung zwischen Auftraggeber und Agentur.'
+          ] },
           {
             type: 'summary',
             title: 'Zusammenfassung',

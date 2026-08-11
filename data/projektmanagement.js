@@ -574,6 +574,14 @@ window.BOOK_DATA = {
             ['Zielentscheid herbeiführen', 'Systematische schriftliche Zieldokumentation als Bestandteil des Projektauftrags. Zielentscheid bei Entscheidungsgremium herbeiführen.'],
             ['Ziele kommunizieren', 'Ziele allen am Projekt Beteiligten präsentieren.']
           ]},
+          { type: 'merke', title: 'Merke dir!', items: [
+            'Eindeutige Ziele braucht es für Koordination, Steuerung, Motivation, Lösungssuche, Entscheidungsfindung und Erfolgskontrolle.',
+            'Echte Ziele liegen in der Zukunft, sind realistisch, lösungsneutral formuliert und nur durch aktives Handeln erreichbar.',
+            'Muss-Ziele sind K.-o.-Kriterien: sie werden weder untergliedert noch gewichtet.',
+            'Kann-Ziele klassifizieren: Systemziele (wirtschaftliche, Leistungs-, personelle Ziele) und Vorgehensziele (Etappenziele).',
+            'Operationalisieren heisst messbar machen: klarer Beurteilungsmassstab, quantitativ und/oder qualitativ.',
+            'Gewichten, bevor Lösungsvarianten vorliegen. Der Auftraggeber entscheidet über die Gewichtung.'
+          ] },
           { type: 'summary', title: 'Zusammenfassung', items: [
             'Für die Projektführung und -steuerung sind eindeutige und zweckmässige Ziele unerlässlich.',
             'Eine systematische Zieldefinition umfasst sieben Schritte: Ziele ermitteln, analysieren, klassifizieren, operationalisieren, gewichten, Zielentscheid herbeiführen, Ziele kommunizieren.',
@@ -635,6 +643,12 @@ window.BOOK_DATA = {
             ['Umsetzung der Massnahmen', 'Massnahmen im Projektplan berücksichtigen, Massnahmen gemäss Konzept durchführen'],
             ['Durchführung und Wirksamkeitskontrolle', 'Wirksamkeitskontrolle der Massnahmen als Basis für allfällige Anpassungen nutzen']
           ]},
+          { type: 'merke', title: 'Merke dir!', items: [
+            'Der Projekterfolg hängt massgeblich von der Akzeptanz der Betroffenen und Beteiligten ab. Akzeptanz fördern ist eine Kommunikationsaufgabe.',
+            'Vorgehen: Projektumfeldanalyse, Stakeholdermanagementkonzept entwerfen, Massnahmen umsetzen, Wirksamkeitskontrolle.',
+            'Einfluss-Interessen-Matrix: hoch/hoch kooperieren und Beziehung pflegen, hoch/gering zufriedenstellen, gering/hoch aktiv informieren, gering/gering nur ergebnisorientiert informieren.',
+            'Die Stakeholdermap zeigt die Beziehungen der Stakeholder untereinander.'
+          ] },
           { type: 'summary', title: 'Zusammenfassung', items: [
             'Das Stakeholdermanagement bezweckt, die Akzeptanz des Projekts bei den Stakeholdern zu fördern und sie dafür zu gewinnen, die Projektziele aktiv zu unterstützen.',
             'Das Vorgehen umfasst: Projektumfeldanalyse, Stakeholdermanagementkonzept entwerfen, Massnahmen umsetzen, Wirksamkeitskontrolle.',
@@ -682,6 +696,13 @@ window.BOOK_DATA = {
             ['Gezielt informieren', 'Den Informationsbedarf ermitteln und entsprechend informieren. Den richtigen Zeitpunkt für eine Information wählen: keinesfalls zu spät, aber auch nicht zu früh.'],
             ['Transparent informieren', 'Offen und unmissverständlich kommunizieren. Verständlich informieren, Fachbegriffe einheitlich verwenden und adressatengerechte Informationskanäle einsetzen.']
           ]},
+          { type: 'merke', title: 'Merke dir!', items: [
+            'Drei Grundsätze der Projektinformation: systematisch, gezielt und transparent informieren.',
+            'Informationskonzept: Wer informiert wen, was, wann, wie und wo?',
+            'Dokumentationsmanagement regelt: was wann wie dokumentiert wird, Tools, Speicherort, Aufbewahrung, Zugriffsrechte.',
+            'So viel und so detailliert wie nötig dokumentieren, nicht so viel wie möglich.',
+            'Der Aufbau der laufenden Projektdokumentation sollte den Projektphasen entsprechen.'
+          ] },
           { type: 'summary', title: 'Zusammenfassung', items: [
             'Das Projektinformationskonzept besteht aus den folgenden Bausteinen: Absender (Wer informiert?), Empfänger (An wen wird informiert?), Inhalt/Botschaft (Was wird informiert?), Zeitpunkt (Wann wird informiert?), Instrument/Medium (Wie wird informiert?), Ort (Wo wird informiert?).',
             'Im Dokumentationsmanagement muss für jedes Projekt geregelt sein: was wann wie dokumentiert wird, welche Tools verwendet werden, wo die Dokumentation gespeichert wird, wie lange sie aufbewahrt wird und wer welche Zugriffsberechtigungen hat.',
@@ -760,6 +781,12 @@ window.BOOK_DATA = {
             ['Ausführung', 'Projektmitarbeitende: konzeptionelle und ausführende Aufgaben gemäss Stellenbeschreibung.'],
             ['Fachbeteiligung', 'Teilprojektleiter oder Mitarbeitende aus Fachbereichen: fachliche Unterstützung oder aktive Mitarbeit.']
           ]},
+          { type: 'merke', title: 'Merke dir!', items: [
+            'Projektorganisation: zweckmässige Stellen bilden (Aufgaben, Kompetenzen, Verantwortungen), Instanzen zuordnen, Organisationsform wählen.',
+            'Wichtigste Rollen: Auftraggeber (Gesamtverantwortung), Projektausschuss (Steuerung), Projektleiter (Planung und Führung), Project Office (Administration), Projektmitarbeitende (Ausführung).',
+            'Drei Organisationsformen: reine Projektorganisation (sehr grosse Projekte), Matrix-Projektorganisation (mittelgrosse), Stabs-Projektorganisation (kleinere).',
+            'Hilfsmittel für eine klare Organisation: Stellenbeschreibung und Funktionsdiagramm.'
+          ] },
           { type: 'summary', title: 'Zusammenfassung', items: [
             'Die Projektorganisation besteht aus der Bildung zweckmässiger Stellen (Aufgaben, Kompetenzen, Verantwortungen), deren Zuordnung zu den Instanzen und der Wahl der geeigneten Organisationsform.',
             'Als Hilfsmittel für eine klare Organisation bieten sich die Stellenbeschreibung und das Funktionsdiagramm an.',
@@ -819,6 +846,12 @@ window.BOOK_DATA = {
             ['Voraussetzungen / Restriktionen', 'Finanzielle Ressourcen, Personelle Ressourcen, Zu beachtende Dokumente, Verfügbare Sachmittel'],
             ['Anhang', 'Dokumente, Pläne']
           ]},
+          { type: 'merke', title: 'Merke dir!', items: [
+            'Der Projektstrukturplan zerlegt das Projekt stufenweise in Teilaufgaben bis zur untersten Stufe, dem Arbeitspaket.',
+            'Vier Gliederungsprinzipien: nach Objekten, nach Funktionen, nach Projektphasen, gemischte Gliederung.',
+            'Die Strukturierungstiefe ist angemessen, wenn allen Beteiligten klare Arbeitspaketaufträge vergeben werden können.',
+            'Arbeitspaketbeschreibung: Allgemeines, Ziele, Ergebnis, Schnittstellen, Aktivitäten/Termine/Aufwand, Voraussetzungen/Restriktionen.'
+          ] },
           { type: 'summary', title: 'Zusammenfassung', items: [
             'Der Projektstrukturplan (PSP) entsteht durch die Zerlegung des Projekts in Teilaufgaben. Er dient dazu, die projektbezogenen Aufgaben zu überblicken.',
             'Es gibt vier Gliederungsprinzipien: Gliederung nach Objekten, nach Funktionen (Verrichtungen), nach Projektphasen und gemischte Gliederung.',
@@ -922,6 +955,11 @@ window.BOOK_DATA = {
           ]},
           { type: 'concept', title: 'Drei Teilschritte der Ressourcenplanung', content: 'Die Ressourcenplanung setzt sich aus drei Teilschritten zusammen: 1. Bedarf ermitteln (Arbeitspaketanalyse: Ressourcen ermitteln, Bedarfsübersicht erstellen), 2. Ressourcen evaluieren (Geeignete Mitarbeitende rekrutieren, Geeignete Sachmittel auswählen), 3. Ressourcenplan erstellen (Einsatz von Personal und Sachmitteln den Arbeitspaketen zuordnen, Kapazitätsengpässe ermitteln und frühzeitig für Kapazitätsausgleich sorgen).', highlight: 'Die Einhaltung des Terminplans hängt massgeblich von der Ressourcenplanung der im Projekt benötigten personellen Ressourcen und Sachmittel ab.' },
           { type: 'concept', title: 'Kapazitätsausgleich', content: 'Absehbare Kapazitätsengpässe können ausgeglichen werden, indem man die in den Arbeitspaketen vorhandenen Zeitpuffer jener Arbeitspakete nutzt, die sich nicht auf dem kritischen Pfad befinden. Die betreffenden Arbeitspakete werden auf der Zeitachse verschoben, ohne den Endtermin des gesamten Projekts zu gefährden.', highlight: 'Kapazitätsengpässe lassen sich durch Verschieben von Arbeitspaketen mit Zeitpuffer (nicht auf dem kritischen Pfad) ausgleichen.' },
+          { type: 'merke', title: 'Merke dir!', items: [
+            'Drei Teilschritte der Ressourcenplanung: Bedarf ermitteln, Ressourcen evaluieren, Ressourcenplan erstellen.',
+            'Die Einhaltung des Terminplans hängt massgeblich von der Planung der personellen Ressourcen und Sachmittel ab.',
+            'Kapazitätsausgleich: Zeitpuffer von Arbeitspaketen ausserhalb des kritischen Pfads nutzen, ohne den Endtermin zu gefährden.'
+          ] },
           { type: 'summary', title: 'Zusammenfassung', items: [
             'Die Einhaltung des Terminplans hängt massgeblich von der Ressourcenplanung der im Projekt benötigten personellen Ressourcen und Sachmittel ab.',
             'Bedarf ermitteln: Arbeitspaketanalyse durchführen, Bedarfsübersicht erstellen.',
@@ -1038,6 +1076,13 @@ window.BOOK_DATA = {
             ['Ist-Situation erheben', 'Arbeitsfortschritt: Arbeitspaketbericht, Arbeitsrapport, Projektmanagement-Tool, Projektstatus-Meeting, Einzelgespräche. Fertigstellungsgrad: verschiedene Methoden.'],
             ['Soll-Ist-Vergleich durchführen', 'Terminvergleich: Balkendiagramm, Arbeitsfortschritts-Vergleichsdiagramm, Meilenstein-Trendanalyse. Kostenvergleich: Kostenvergleichstabelle, Kostenvergleichsdiagramm. Termin- und Kostenvergleich: Earned Value (EV), SPI, CPI, SPI-CPI-Diagramm.']
           ]},
+          { type: 'merke', title: 'Merke dir!', items: [
+            'Vier Controllingaufgaben: Ist-Situation erheben, Soll-Ist-Vergleich durchführen, Abweichungsursachen ermitteln, Steuerungsmassnahmen umsetzen.',
+            'Fertigstellungsgrad ermitteln: subjektive Einschätzung, geleistete/noch zu leistende Stunden, Methode 0%–100%, Methode 0%–50%–100% oder Zwischenresultate.',
+            'Steuerungsmassnahmen wirken auf den Ist-Verlauf (Ist-Korrektur) oder auf die Planung (Soll-Korrektur).',
+            'Earned Value beantwortet: Wie viel hätte die bisher erbrachte Leistung kosten dürfen?',
+            'SPI über 1 bedeutet Vorsprung, unter 1 Verzögerung. CPI über 1 bedeutet unter Budget, unter 1 über Budget.'
+          ] },
           { type: 'summary', title: 'Zusammenfassung', items: [
             'Zum Projektcontrollingprozess gehören: 1. Ist-Situation erheben (Arbeitsfortschritte und Fertigstellungsgrad), 2. Soll-Ist-Vergleich durchführen, 3. Abweichungsursachen ermitteln, 4. Steuerungsmassnahmen entwerfen und umsetzen.',
             'Die Steuerungsmassnahmen können entweder auf den Ist-Verlauf einwirken (Ist-Korrektur) oder zu einer Planänderung führen (Soll-Korrektur).',
@@ -1172,6 +1217,13 @@ window.BOOK_DATA = {
           { type: 'concept', title: 'Risiken bewerten', content: 'Die Ursachenanalyse liefert wichtige Informationen für die Bewertung der Eintrittswahrscheinlichkeit. Die Risiken werden anschliessend nach zwei Kriterien beurteilt: Tragweite für das Projekt (am besten monetär bewerten, d.h. das Schadensausmass in Franken ausweisen; wenn keine gesicherten Daten vorliegen, eine symbolische Skala verwenden) und Eintrittswahrscheinlichkeit (meist eine symbolische Skala von 1 = unwahrscheinlich bis 5 = sehr wahrscheinlich). Das Risikoportfolio gibt einen Überblick über die erkannten Risiken und ihre Bewertung.', highlight: 'Das Risikoportfolio zeigt, welche Risiken mit Massnahmen bearbeitet werden müssen (hohe Eintrittswahrscheinlichkeit und hohe Tragweite) und mit welchen man leben kann.' },
           { type: 'concept', title: 'Risiken bewältigen', content: 'Im dritten Schritt werden konkrete Massnahmen für jene Risiken definiert, die nach ihrer Einstufung im Risikomanagement-Portfolio zu bearbeiten sind. Drei Arten von Massnahmen: Vorbeugende Massnahmen setzen bei den Eintretensursachen an und minimieren die Eintrittswahrscheinlichkeit. Eventualmassnahmen dienen dazu, die Tragweite des Schadens zu reduzieren, wenn das Risiko eingetreten ist. Ein Frühwarnsystem dient dazu, frühzeitig auf potenzielle Risiken aufmerksam zu werden – bestimmte Indikatoren geben Aufschluss darüber, ob ein potenzielles Risiko einzutreten droht.', highlight: 'Bei der Planung aller Massnahmen sind Wirtschaftlichkeitsüberlegungen angebracht: Die Kosten sollten den Nutzen der Schadensminderung nicht übersteigen.' },
           { type: 'concept', title: 'Risiken überwachen', content: 'Die Risiken und die getroffenen Massnahmen sind laufend zu überwachen und im Projektstatusbericht nachzuführen. Dabei stehen folgende Fragen im Vordergrund: Hat sich an der Eintrittswahrscheinlichkeit und/oder an der Tragweite der Risiken durch die Ausführung der geplanten Massnahmen etwas geändert? Wurden die Massnahmen überhaupt ausgeführt? Sind neue Risiken im Projektverlauf hinzugekommen?' },
+          { type: 'merke', title: 'Merke dir!', items: [
+            'Ziele des Risikomanagements: erkennbare Risiken vermeiden, gegen unvermeidbare absichern, Gesamtrisiko vor Projektstart abschätzen.',
+            'Risikomanagementprozess in vier zyklischen Schritten: erkennen, bewerten, bewältigen, überwachen.',
+            'Bewertung nach Tragweite (möglichst monetär) und Eintrittswahrscheinlichkeit (Skala 1 bis 5), Überblick im Risikoportfolio.',
+            'Drei Massnahmenarten: vorbeugende Massnahmen, Eventualmassnahmen, Frühwarnsystem.',
+            'Risiken und Massnahmen laufend überwachen und im Projektstatusbericht nachführen.'
+          ] },
           { type: 'summary', title: 'Zusammenfassung', items: [
             'Das Risikomanagement in Projekten befasst sich mit der Identifikation der potenziellen Probleme, ihrer Ursachenanalyse und der Planung von Massnahmen und ihrer Überwachung.',
             'Die Ziele des Risikomanagements sind: Vermeidung erkennbarer Risiken, Absicherung gegen unvermeidbare Risiken, Abschätzen der Risikohaftigkeit eines Projekts vor dem Projektstart.',
