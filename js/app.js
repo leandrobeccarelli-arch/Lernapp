@@ -1620,13 +1620,6 @@ function ModeTabs(props) {
   var hasLearningData = props.hasLearningData;
 
   return e('div', { className: 'mode-tabs' },
-    e('button', {
-      className: 'mode-tab' + (mode === 'ueben' ? ' active-ueben' : ''),
-      onClick: function() { setMode('ueben'); }
-    },
-      '\u00DCben',
-      chProgress ? e('span', { className: 'mode-badge' }, chProgress.done + '/' + chProgress.total) : null
-    ),
     hasLearningData ? e('button', {
       className: 'mode-tab' + (mode === 'lernen' ? ' active-lernen' : ''),
       onClick: function() { setMode('lernen'); }
@@ -1634,6 +1627,13 @@ function ModeTabs(props) {
       'Lernen',
       learnRead ? e('span', { className: 'mode-badge' }, '\u2713') : null
     ) : null,
+    e('button', {
+      className: 'mode-tab' + (mode === 'ueben' ? ' active-ueben' : ''),
+      onClick: function() { setMode('ueben'); }
+    },
+      '\u00DCben',
+      chProgress ? e('span', { className: 'mode-badge' }, chProgress.done + '/' + chProgress.total) : null
+    ),
     e('button', {
       className: 'mode-tab' + (mode === 'pruefung' ? ' active-pruefung' : ''),
       onClick: function() { setMode('pruefung'); }
@@ -2075,7 +2075,7 @@ function ChapterCard(props) {
   var chParam = new URLSearchParams(window.location.search).get('ch');
   var st = useState(chParam === chapter.id), isOpen = st[0], setIsOpen = st[1];
   var st2 = useState(null), openEx = st2[0], setOpenEx = st2[1];
-  var st3 = useState('ueben'), mode = st3[0], setMode = st3[1];
+  var st3 = useState(chapter.learningData ? 'lernen' : 'ueben'), mode = st3[0], setMode = st3[1];
   var st4 = useState(0), examRetry = st4[0], setExamRetry = st4[1];
   var st6 = useState(false), showFilter = st6[0], setShowFilter = st6[1];
   var st7 = useState(function() {

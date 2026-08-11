@@ -119,6 +119,18 @@ function getBookProgress(bookId){
     return Object.values(data).filter(p=>p&&p.done).length;
   }catch(e){return 0}
 }
+/* Anzahl der als gelernt markierten Kapitel eines Buchs (lp-learn-<bookId>-<chId> === '1') */
+function getBookLearned(bookId){
+  try{
+    var prefix = 'lp-learn-'+bookId+'-';
+    var n = 0;
+    for(var i=0;i<localStorage.length;i++){
+      var k = localStorage.key(i);
+      if(k && k.indexOf(prefix)===0 && localStorage.getItem(k)==='1') n++;
+    }
+    return n;
+  }catch(e){return 0}
+}
 
 /* ══════════════════════════════════════════════════════════
    App
@@ -231,9 +243,9 @@ function App(){
     setDark(d=>{localStorage.setItem('lp-dark',d?'0':'1');return !d})
   }
 
-  const totalExercises = BOOKS.reduce((s,b)=>s+b.exercises,0);
-  const totalDone = BOOKS.reduce((s,b)=>s+getBookProgress(b.id),0);
-  const totalPct = totalExercises>0?Math.round(totalDone/totalExercises*100):0;
+  const totalChapters = BOOKS.reduce((s,b)=>s+b.chapters,0);
+  const totalLearned = BOOKS.reduce((s,b)=>s+getBookLearned(b.id),0);
+  const totalPct = totalChapters>0?Math.round(totalLearned/totalChapters*100):0;
   const booksReady = BOOKS.filter(b=>b.exercises>0).length;
   const booksTotal = BOOKS.length;
 
@@ -242,15 +254,15 @@ function App(){
     e('div',{className:'hero'},
       e('div',{style:{position:'relative'}},
         e('h1',{className:'hero-title',style:{letterSpacing:'.12em',fontSize:'1.4rem'}},'BUILT BY LEANDRO'),
-        e('div',{style:{display:'inline-block',marginTop:10,padding:'2px 10px',borderRadius:4,fontSize:'.6rem',fontWeight:600,letterSpacing:'.05em',background:'rgba(255,255,255,.08)',color:'var(--hero-sub)',border:'1px solid rgba(255,255,255,.1)'}},'v0.13.0-beta'),
+        e('div',{style:{display:'inline-block',marginTop:10,padding:'2px 10px',borderRadius:4,fontSize:'.6rem',fontWeight:600,letterSpacing:'.05em',background:'rgba(255,255,255,.08)',color:'var(--hero-sub)',border:'1px solid rgba(255,255,255,.1)'}},'v0.14.0-beta'),
         e('div',{className:'hero-stats'},
           e('div',{className:'hero-stat'},
             e('div',{className:'hero-stat-val'},booksReady+'/'+booksTotal),
             e('div',{className:'hero-stat-label'},'Bücher')
           ),
           e('div',{className:'hero-stat'},
-            e('div',{className:'hero-stat-val'},totalDone+'/'+totalExercises),
-            e('div',{className:'hero-stat-label'},'Erledigt')
+            e('div',{className:'hero-stat-val'},totalLearned+'/'+totalChapters),
+            e('div',{className:'hero-stat-label'},'Gelernt')
           ),
           e('div',{className:'hero-stat'},
             e('div',{className:'hero-stat-val'},totalPct+'%'),
@@ -374,7 +386,7 @@ function App(){
               ready?e('span',{
                 onClick:function(ev){ev.stopPropagation();window.location.href='buch.html?book='+book.id},
                 style:{fontSize:'.7rem',color:'var(--accent)',cursor:'pointer',fontWeight:600}
-              },'\u00DCben \u203A'):null,
+              },'Lernen \u203A'):null,
               e('span',{
                 onClick:function(ev){ev.stopPropagation();window.location.href='buch.html?book='+book.id+'&viewer=1'},
                 style:{fontSize:'.7rem',color:'var(--text2)',cursor:'pointer',fontWeight:500}
