@@ -1532,6 +1532,131 @@ function Notes(props) {
 
 // ─── Glossary Panel ─────────────────────────────────────────────────────────
 
+// ─── Karteikarten-Trainer ───────────────────────────────────────────────────
+
+function collectFlashcards(bookData) {
+  var cards = [];
+  (bookData.chapters || []).forEach(function(ch) {
+    (((ch.learningData || {}).sections) || []).forEach(function(s) {
+      if (s.type === 'keyterms' && s.terms) {
+        s.terms.forEach(function(t) {
+          if (t && typeof t === 'object' && t.term && t.def) {
+            cards.push({ term: t.term, def: t.def, ch: ch.num || ch.id });
+          }
+        });
+      }
+    });
+  });
+  return cards;
+}
+
+function loadKnownCards(bookId) {
+  try { return JSON.parse(localStorage.getItem('lp-cards-' + bookId)) || {}; } catch (x) { return {}; }
+}
+
+function Flashcards(props) {
+  var bookData = props.bookData, onClose = props.onClose;
+  var allCards = useMemo(function() { return collectFlashcards(bookData); }, [bookData]);
+  var stKnown = useState(function() { return loadKnownCards(bookData.id); });
+  var known = stKnown[0], setKnown = stKnown[1];
+  var stMode = useState(null), mode = stMode[0], setMode = stMode[1]; // null | 'alle' | 'offene'
+  var stDeck = useState([]), deck = stDeck[0], setDeck = stDeck[1];
+  var stIdx = useState(0), idx = stIdx[0], setIdx = stIdx[1];
+  var stFlip = useState(false), flipped = stFlip[0], setFlipped = stFlip[1];
+  var stStats = useState({ ok: 0, again: 0 }), stats = stStats[0], setStats = stStats[1];
+
+  var knownCount = allCards.filter(function(c) { return known[c.term]; }).length;
+
+  function start(m) {
+    var pool = m === 'offene' ? allCards.filter(function(c) { return !known[c.term]; }) : allCards.slice();
+    setDeck(shuffleArray(pool));
+    setIdx(0); setFlipped(false); setStats({ ok: 0, again: 0 }); setMode(m);
+  }
+
+  function saveKnown(next) {
+    setKnown(next);
+    localStorage.setItem('lp-cards-' + bookData.id, JSON.stringify(next));
+  }
+
+  function answer(gotIt) {
+    var card = deck[idx];
+    var next = Object.assign({}, known);
+    if (gotIt) { next[card.term] = 1; } else { delete next[card.term]; }
+    saveKnown(next);
+    setStats({ ok: stats.ok + (gotIt ? 1 : 0), again: stats.again + (gotIt ? 0 : 1) });
+    if (gotIt) {
+      setFlipped(false); setIdx(idx + 1);
+    } else {
+      // Karte weiter hinten erneut einreihen
+      var d = deck.slice();
+      d.splice(idx, 1);
+      d.splice(Math.min(idx + 3, d.length), 0, card);
+      setDeck(d); setFlipped(false);
+    }
+  }
+
+  var body;
+  if (allCards.length === 0) {
+    body = e('div', { className: 'fc-empty' }, 'Für dieses Buch sind keine Karteikarten verfügbar.');
+  } else if (mode === null) {
+    body = e('div', { className: 'fc-start' },
+      e('div', { className: 'fc-start-stat' },
+        e('span', { className: 'fc-start-num' }, allCards.length),
+        ' Begriffe aus ', e('span', { className: 'fc-start-num' }, bookData.chapters.length), ' Kapiteln',
+        knownCount > 0 ? e('div', { className: 'fc-start-known' }, knownCount + ' davon als gewusst markiert') : null
+      ),
+      e('button', { className: 'fc-btn fc-btn-primary', onClick: function() { start('alle'); } }, 'Alle Begriffe üben'),
+      knownCount > 0 && knownCount < allCards.length ? e('button', { className: 'fc-btn fc-btn-secondary', onClick: function() { start('offene'); } }, 'Nur offene üben (' + (allCards.length - knownCount) + ')') : null,
+      e('div', { className: 'fc-hint' }, 'Karte antippen zum Umdrehen. Danach ehrlich bewerten – nicht Gewusstes kommt gleich nochmals.')
+    );
+  } else if (idx >= deck.length) {
+    body = e('div', { className: 'fc-start' },
+      e('div', { className: 'fc-done-icon' }, '✓'),
+      e('div', { className: 'fc-start-stat' }, 'Runde beendet: ',
+        e('span', { className: 'fc-start-num' }, stats.ok), ' gewusst, ',
+        e('span', { className: 'fc-start-num' }, stats.again), ' wiederholt'
+      ),
+      e('button', { className: 'fc-btn fc-btn-primary', onClick: function() { setMode(null); } }, 'Zurück zur Übersicht')
+    );
+  } else {
+    var card = deck[idx];
+    body = e('div', { className: 'fc-play' },
+      e('div', { className: 'fc-progress' },
+        e('span', null, (idx + 1) + ' / ' + deck.length),
+        e('span', { className: 'fc-progress-ch' }, String(card.ch).indexOf('Kapitel') >= 0 ? card.ch : 'Kapitel ' + card.ch)
+      ),
+      e('div', { className: 'fc-card' + (flipped ? ' flipped' : ''), onClick: function() { setFlipped(!flipped); } },
+        e('div', { className: 'fc-card-inner' },
+          e('div', { className: 'fc-face fc-front' },
+            e('div', { className: 'fc-face-label' }, 'Begriff'),
+            e('div', { className: 'fc-term' }, card.term),
+            e('div', { className: 'fc-tap' }, 'Antippen zum Umdrehen')
+          ),
+          e('div', { className: 'fc-face fc-back' },
+            e('div', { className: 'fc-face-label' }, 'Definition'),
+            e('div', { className: 'fc-def' }, card.def)
+          )
+        )
+      ),
+      flipped ? e('div', { className: 'fc-actions' },
+        e('button', { className: 'fc-btn fc-btn-again', onClick: function() { answer(false); } }, 'Nochmals'),
+        e('button', { className: 'fc-btn fc-btn-ok', onClick: function() { answer(true); } }, 'Gewusst')
+      ) : e('div', { className: 'fc-actions fc-actions-placeholder' })
+    );
+  }
+
+  return e('div', { className: 'fc-backdrop', onClick: function(ev) { if (ev.target === ev.currentTarget) onClose(); } },
+    e('div', { className: 'fc-modal' },
+      e('div', { className: 'panel-header' },
+        e('b', null, 'Karteikarten'),
+        mode !== null && idx < deck.length ? e('button', { className: 'fc-header-link', onClick: function() { setMode(null); } }, 'Übersicht') : null,
+        e('button', { className: 'panel-close', onClick: onClose }, '✕')
+      ),
+      body
+    )
+  );
+}
+
 function Glossary(props) {
   var st = useState(''), search = st[0], setSearch = st[1];
   var glossary = props.glossary || [];
@@ -2233,6 +2358,7 @@ function initApp(bookData) {
     var st4 = useState(false), showNotes = st4[0], setShowNotes = st4[1];
     var st5 = useState(false), showGlossar = st5[0], setShowGlossar = st5[1];
     var st5b = useState(false), showKR = st5b[0], setShowKR = st5b[1];
+    var stFC = useState(false), showFlashcards = stFC[0], setShowFlashcards = stFC[1];
     var stCT = useState(false), showCalcTrainer = stCT[0], setShowCalcTrainer = stCT[1];
     var stBT = useState(false), showBSTrainer = stBT[0], setShowBSTrainer = stBT[1];
     var viewerParam = new URLSearchParams(window.location.search).get('viewer');
@@ -2349,6 +2475,7 @@ function initApp(bookData) {
             e('button', { className: 'tool-btn' + (showCalc ? ' active' : ''), onClick: function() { setShowCalc(!showCalc); } }, showCalc ? '\u2715 Rechner' : 'Rechner'),
             e('button', { className: 'tool-btn' + (showNotes ? ' active' : ''), onClick: function() { setShowNotes(!showNotes); } }, showNotes ? '\u2715 Notizen' : 'Notizen'),
             e('button', { className: 'tool-btn' + (showGlossar ? ' active' : ''), onClick: function() { setShowGlossar(!showGlossar); } }, showGlossar ? '\u2715 Glossar' : 'Glossar'),
+            e('button', { className: 'tool-btn' + (showFlashcards ? ' active' : ''), onClick: function() { setShowFlashcards(!showFlashcards); } }, showFlashcards ? '\u2715 Karten' : 'Karten'),
             bookData.kontenrahmen ? e('button', { className: 'tool-btn' + (showKR ? ' active' : ''), onClick: function() { setShowKR(!showKR); } }, showKR ? '\u2715 Kontenrahmen' : 'Kontenrahmen') : null,
             bookData.totalPages ? e('button', { className: 'tool-btn', onClick: function() { setShowPageViewer({ page: 1 }); } }, '\uD83D\uDCD6 Buch') : null
           ),
@@ -2486,6 +2613,7 @@ function initApp(bookData) {
       showCalc ? e(Calculator, { onClose: function() { setShowCalc(false); } }) : null,
       showNotes ? e(Notes, { onClose: function() { setShowNotes(false); }, notes: notes, setNotes: setNotes }) : null,
       showGlossar ? e(Glossary, { onClose: function() { setShowGlossar(false); }, glossary: bookData.glossary }) : null,
+      showFlashcards ? e(Flashcards, { onClose: function() { setShowFlashcards(false); }, bookData: bookData }) : null,
       showKR && bookData.kontenrahmen ? e(Kontenrahmen, { onClose: function() { setShowKR(false); }, kontenrahmen: bookData.kontenrahmen }) : null,
       showPageViewer && bookData.totalPages ? e(PageViewer, { bookId: bookData.id, totalPages: bookData.totalPages, bookData: bookData, startPage: showPageViewer.page || 1, minPage: showPageViewer.min || 1, maxPage: showPageViewer.max || bookData.totalPages, onClose: function() { setShowPageViewer(null); } }) : null
     );
