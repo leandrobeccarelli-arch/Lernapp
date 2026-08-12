@@ -1657,6 +1657,53 @@ function Flashcards(props) {
   );
 }
 
+// ─── Prüfungs-Spickzettel ───────────────────────────────────────────────────
+
+function collectCheatsheet(bookData) {
+  var out = [];
+  (bookData.chapters || []).forEach(function(ch) {
+    var points = [];
+    (((ch.learningData || {}).sections) || []).forEach(function(s) {
+      if (s.type === 'merke') {
+        if (s.items) { s.items.forEach(function(it) { if (typeof it === 'string') points.push(it); }); }
+        else if (typeof (s.content || s.text) === 'string') { points.push(s.content || s.text); }
+      }
+    });
+    if (points.length) out.push({ num: ch.num || ch.id, title: ch.title, points: points });
+  });
+  return out;
+}
+
+function Cheatsheet(props) {
+  var bookData = props.bookData, onClose = props.onClose;
+  var data = useMemo(function() { return collectCheatsheet(bookData); }, [bookData]);
+  var total = data.reduce(function(s, c) { return s + c.points.length; }, 0);
+
+  return e('div', { className: 'fc-backdrop', onClick: function(ev) { if (ev.target === ev.currentTarget) onClose(); } },
+    e('div', { className: 'fc-modal cs-modal' },
+      e('div', { className: 'panel-header' },
+        e('b', null, 'Prüfungs-Spickzettel'),
+        e('span', { className: 'cs-count' }, total + ' Merksätze'),
+        e('button', { className: 'panel-close', onClick: onClose }, '✕')
+      ),
+      e('div', { className: 'cs-body' },
+        data.length === 0 ? e('div', { className: 'fc-empty' }, 'Für dieses Buch sind keine Merksätze verfügbar.') :
+        data.map(function(ch, i) {
+          return e('div', { key: i, className: 'cs-chapter' },
+            e('div', { className: 'cs-ch-title' },
+              e('span', { className: 'cs-ch-num' }, String(ch.num).indexOf('Kapitel') >= 0 ? ch.num : 'Kapitel ' + ch.num),
+              ' ' + ch.title
+            ),
+            e('ul', { className: 'cs-list' },
+              ch.points.map(function(p, j) { return e('li', { key: j }, p); })
+            )
+          );
+        })
+      )
+    )
+  );
+}
+
 function Glossary(props) {
   var st = useState(''), search = st[0], setSearch = st[1];
   var glossary = props.glossary || [];
@@ -2359,6 +2406,7 @@ function initApp(bookData) {
     var st5 = useState(false), showGlossar = st5[0], setShowGlossar = st5[1];
     var st5b = useState(false), showKR = st5b[0], setShowKR = st5b[1];
     var stFC = useState(false), showFlashcards = stFC[0], setShowFlashcards = stFC[1];
+    var stCS = useState(false), showCheatsheet = stCS[0], setShowCheatsheet = stCS[1];
     var stCT = useState(false), showCalcTrainer = stCT[0], setShowCalcTrainer = stCT[1];
     var stBT = useState(false), showBSTrainer = stBT[0], setShowBSTrainer = stBT[1];
     var viewerParam = new URLSearchParams(window.location.search).get('viewer');
@@ -2543,6 +2591,22 @@ function initApp(bookData) {
             ) : null
           )
         ) : null,
+        // Prüfungs-Spickzettel Banner
+        (function() {
+          var csData = collectCheatsheet(bookData);
+          if (csData.length === 0) return null;
+          var csTotal = csData.reduce(function(s, c) { return s + c.points.length; }, 0);
+          return e('div', {
+            onClick: function() { setShowCheatsheet(true); },
+            className: 'cs-banner'
+          },
+            e('div', { style: { flex: 1 } },
+              e('div', { style: { fontWeight: 700, fontSize: '.95rem' } }, 'Prüfungs-Spickzettel'),
+              e('div', { style: { fontSize: '.78rem', opacity: .85, marginTop: 2 } }, csTotal + ' Merksätze aus ' + csData.length + ' Kapiteln – kompakt zur Schlusswiederholung')
+            ),
+            e('span', { style: { fontSize: '.8rem', opacity: .5, fontWeight: 600 } }, '›')
+          );
+        })(),
         // Berechnungs-Trainer Button (only if book has calc exercises)
         (function() {
           var hasCalc = bookData.chapters.some(function(ch) {
@@ -2614,6 +2678,7 @@ function initApp(bookData) {
       showNotes ? e(Notes, { onClose: function() { setShowNotes(false); }, notes: notes, setNotes: setNotes }) : null,
       showGlossar ? e(Glossary, { onClose: function() { setShowGlossar(false); }, glossary: bookData.glossary }) : null,
       showFlashcards ? e(Flashcards, { onClose: function() { setShowFlashcards(false); }, bookData: bookData }) : null,
+      showCheatsheet ? e(Cheatsheet, { onClose: function() { setShowCheatsheet(false); }, bookData: bookData }) : null,
       showKR && bookData.kontenrahmen ? e(Kontenrahmen, { onClose: function() { setShowKR(false); }, kontenrahmen: bookData.kontenrahmen }) : null,
       showPageViewer && bookData.totalPages ? e(PageViewer, { bookId: bookData.id, totalPages: bookData.totalPages, bookData: bookData, startPage: showPageViewer.page || 1, minPage: showPageViewer.min || 1, maxPage: showPageViewer.max || bookData.totalPages, onClose: function() { setShowPageViewer(null); } }) : null
     );
