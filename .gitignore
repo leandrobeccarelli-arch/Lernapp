@@ -2,3 +2,6 @@
 .claude/
 .agents/
 skills-lock.json
+
+# Fremdmaterial, nicht ins Repo
+*.pdf

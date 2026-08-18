@@ -542,6 +542,168 @@ input,select,button,textarea{font-family:'Inter',sans-serif}
 .lernen-read-check{display:flex;align-items:center;gap:8px;padding:12px 24px;font-size:.85rem;color:var(--text2);cursor:pointer;user-select:none}
 .lernen-read-check input{width:18px;height:18px;accent-color:var(--green);cursor:pointer}
 
+/* ─── Rechnungswesen-Trainer ────────────────────────────── */
+.rw-wrap{max-width:1120px;margin:0 auto;padding:22px 20px 70px}
+.rw-nav-count{color:#d4c8b8;font-size:.72rem;font-weight:600;font-variant-numeric:tabular-nums}
+
+.rw-levels{display:flex;gap:8px;margin-bottom:22px;flex-wrap:wrap}
+.rw-level{padding:7px 13px;border-radius:8px;border:1px solid var(--border);background:var(--card);color:var(--text2);font-size:.75rem;font-weight:600;cursor:pointer;transition:color .18s var(--ease-out),box-shadow .18s var(--ease-out)}
+.rw-level:hover{color:var(--text)}
+.rw-level:active{transform:scale(.98)}
+.rw-level.active{color:var(--text);box-shadow:0 0 0 1px var(--accent),0 4px 14px -8px rgba(30,64,175,.5)}
+
+/* Angaben */
+.rw-angaben{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;margin-bottom:22px}
+.rw-angaben-title{font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text2);margin-bottom:10px}
+.rw-angaben-table{width:100%;border-collapse:collapse;font-size:.82rem}
+.rw-angaben-table td{padding:5px 0;color:var(--text);border-bottom:1px solid var(--border)}
+.rw-angaben-table tr:last-child td{border-bottom:none}
+.rw-num{text-align:right;font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap;padding-left:14px}
+.rw-angaben-hint{font-size:.74rem;color:var(--text2);margin-top:10px;line-height:1.5}
+
+/* Eingabeformular Bilanz und Erfolgsrechnung */
+.rw-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:20px}
+.rw-form-side{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px 18px}
+.rw-form-side-title{font-size:.68rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--text2);margin-bottom:14px}
+.rw-fgroup{margin-bottom:18px}
+.rw-fgroup-title{font-size:.78rem;font-weight:700;color:var(--text);margin-bottom:8px}
+.rw-frow{display:flex;gap:8px;align-items:center;margin-bottom:6px;padding:3px;border-radius:8px}
+.rw-frow-err{box-shadow:-4px 0 14px -8px rgba(220,38,38,.85),0 0 0 1px rgba(220,38,38,.4)}
+.rw-frow-label{flex:1;font-size:.78rem;font-weight:600;color:var(--text2)}
+.rw-frow-sum{margin-top:8px;padding-top:8px;border-top:1px solid var(--border)}
+.rw-frow-total{margin-top:10px;padding-top:10px;border-top:2px solid var(--border)}
+.rw-frow-total .rw-frow-label{color:var(--text);font-weight:700}
+.rw-select{flex:1;min-width:0;padding:7px 9px;border-radius:7px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:.78rem;font-family:inherit;cursor:pointer}
+.rw-select:focus{outline:none;box-shadow:0 0 0 2px rgba(30,64,175,.35)}
+.rw-input{padding:7px 9px;border-radius:7px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:.8rem;font-family:inherit}
+.rw-input:focus{outline:none;box-shadow:0 0 0 2px rgba(30,64,175,.35)}
+.rw-input-num{width:110px;flex-shrink:0;text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+
+/* Loesung */
+.rw-loesung{margin-top:10px;padding:10px 12px;border-radius:8px;background:var(--bg);font-size:.76rem;color:var(--text2);line-height:1.6}
+.rw-loesung-sum{font-weight:700;color:var(--text);margin-top:4px;padding-top:4px;border-top:1px solid var(--border)}
+
+/* Abschluss als Angabe im Kennzahlen-Modus */
+.rw-abschluss{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:22px}
+.rw-abschluss-block{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px}
+.rw-abschluss-title{font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text2);margin-bottom:10px}
+.rw-gruppe td{font-weight:700;color:var(--text);padding-top:12px!important;font-size:.78rem}
+.rw-zwischensumme td{font-weight:700;color:var(--text)}
+.rw-endsumme td{font-weight:800;color:var(--text);border-top:2px solid var(--border)!important;border-bottom:none!important}
+
+/* Bilanz in Kontoform: Aktiven links, Passiven rechts */
+.rw-konto{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.rw-konto-seite{padding:0 16px}
+.rw-konto-seite:first-child{border-right:2px solid var(--border);padding-left:0}
+.rw-konto-seite:last-child{padding-right:0}
+.rw-konto-seite-title{font-size:.7rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+
+/* Frage im Kennzahlen-Modus */
+.rw-frage{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 20px;margin-bottom:18px;box-shadow:0 6px 20px -14px rgba(30,64,175,.7)}
+.rw-frage-gruppe{font-size:.63rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+.rw-frage-name{font-size:1.02rem;font-weight:700;color:var(--text)}
+.rw-frage-hinweis{font-size:.78rem;color:var(--text2);margin-top:4px;line-height:1.5}
+.rw-frage-eingabe{display:flex;align-items:center;gap:10px;margin-top:14px}
+.rw-input-antwort{width:170px;font-size:1rem;font-weight:700;text-align:right;font-variant-numeric:tabular-nums;padding:10px 12px}
+.rw-einheit{font-size:.9rem;font-weight:700;color:var(--text2)}
+.rw-frage-genauigkeit{font-size:.72rem;color:var(--text2);margin-top:8px}
+
+/* Formelsammlung */
+.rw-formeln{margin-top:18px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px}
+.rw-formel-gruppe{margin-bottom:16px}
+.rw-formel-gruppe:last-child{margin-bottom:0}
+.rw-formel-gruppe-title{font-size:.66rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:7px}
+.rw-formel-zeile{display:flex;gap:14px;padding:5px 0;border-bottom:1px solid var(--border);font-size:.78rem}
+.rw-formel-zeile:last-child{border-bottom:none}
+.rw-formel-name{flex:0 0 40%;font-weight:600;color:var(--text)}
+.rw-formel-text{flex:1;color:var(--text2)}
+
+/* Rueckmeldung */
+.rw-feedback{border-radius:10px;padding:14px 16px;margin-bottom:18px}
+.rw-feedback.ok{background:rgba(22,163,74,.09);box-shadow:-4px 0 16px -9px rgba(22,163,74,.9),0 0 0 1px rgba(22,163,74,.28)}
+.rw-feedback.err{background:rgba(220,38,38,.08);box-shadow:-4px 0 16px -9px rgba(220,38,38,.9),0 0 0 1px rgba(220,38,38,.26)}
+.rw-fb-title{font-size:.88rem;font-weight:700;color:var(--text)}
+.rw-fb-text{font-size:.8rem;color:var(--text2);margin-top:4px;line-height:1.55}
+.rw-fb-list{margin:8px 0 0;padding-left:20px;font-size:.79rem;color:var(--text2);line-height:1.6}
+
+/* Kennzahlen-Auswahl im Formelpanel */
+.rw-formeln-kopf{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;padding-bottom:12px;margin-bottom:14px;border-bottom:1px solid var(--border)}
+.rw-formeln-info{font-size:.74rem;color:var(--text2);line-height:1.5;max-width:640px}
+.rw-mini-btn{padding:4px 10px;border-radius:6px;border:1px solid var(--border);background:var(--card);color:var(--text2);font-size:.68rem;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap;transition:color .16s var(--ease-out),box-shadow .16s var(--ease-out)}
+.rw-mini-btn:hover:not(:disabled){color:var(--text);box-shadow:0 0 0 1px var(--text2)}
+.rw-mini-btn:active:not(:disabled){transform:scale(.96)}
+.rw-mini-btn:disabled{opacity:.4;cursor:default}
+.rw-ueben-btn{flex-shrink:0}
+.rw-ueben-btn:hover{color:#1e40af;box-shadow:0 0 0 1px rgba(30,64,175,.55)}
+
+.rw-gruppe-btn{display:flex;align-items:center;gap:7px;width:100%;background:none;border:none;padding:0 0 7px;cursor:pointer;font-family:inherit;text-align:left}
+.rw-check{display:inline-flex;align-items:center;justify-content:center;width:15px;height:15px;flex-shrink:0;border-radius:4px;border:1px solid var(--border);background:var(--bg);font-size:.6rem;font-weight:800;color:transparent;line-height:1}
+.rw-check.an{background:#1e40af;border-color:#1e40af;color:#fff}
+.rw-check-btn{background:none;border:none;padding:0;cursor:pointer;display:flex;align-items:center;flex-shrink:0}
+.rw-check-btn:active{transform:scale(.92)}
+.rw-formel-zeile.aus{opacity:.42}
+.rw-formel-zeile{align-items:center;gap:10px}
+
+/* Aktionen */
+.rw-actions{display:flex;gap:10px;flex-wrap:wrap}
+.rw-btn{padding:10px 20px;border-radius:9px;font-size:.82rem;font-weight:700;border:1px solid transparent;cursor:pointer;font-family:inherit;transition:opacity .18s var(--ease-out),box-shadow .18s var(--ease-out)}
+.rw-btn:active{transform:scale(.98)}
+.rw-btn-primary{background:linear-gradient(135deg,#1e40af,#1e3a8a);color:#fff}
+.rw-btn-primary:hover{box-shadow:0 6px 18px -8px rgba(30,64,175,.75)}
+.rw-btn-ghost{background:var(--card);border-color:var(--border);color:var(--text)}
+.rw-btn-ghost:hover{box-shadow:0 0 0 1px var(--text2)}
+.rw-hint{font-size:.72rem;color:var(--text2);margin-top:16px;line-height:1.5}
+
+@media(max-width:1000px){
+  .rw-input-num{width:92px}
+  .rw-select{font-size:.74rem;padding:6px 7px}
+  .rw-angaben-table{font-size:.78rem}
+  .rw-konto-seite{padding:0 10px}
+}
+/* Aktiven links und Passiven rechts bleiben erhalten. Auf schmalen
+   Bildschirmen stehen Konto und Betrag innerhalb der Spalte untereinander. */
+@media(max-width:780px){
+  .rw-form-grid{gap:10px}
+  .rw-form-side{padding:12px 12px 14px}
+  .rw-frow{flex-direction:column;align-items:stretch;gap:4px}
+  .rw-frow-sum,.rw-frow-total{align-items:stretch}
+  .rw-input-num{width:100%}
+  .rw-select{width:100%}
+  .rw-abschluss{grid-template-columns:1fr}
+  /* Häkchen, Name und «üben» bleiben in einer Zeile, die Formel rutscht darunter. */
+  .rw-formel-zeile{flex-wrap:wrap;gap:8px}
+  .rw-formel-name{flex:1 1 auto}
+  .rw-ueben-btn{order:2}
+  .rw-formel-text{flex:1 1 100%;order:3;padding-left:25px}
+  .rw-formeln-kopf{flex-direction:column;gap:10px}
+}
+/* Die Kontoform bleibt auch auf schmalen Bildschirmen zweispaltig:
+   Aktiven links, Passiven rechts. Nur Schrift und Abstaende schrumpfen. */
+@media(max-width:620px){
+  .rw-konto-seite{padding:0 6px}
+  .rw-konto .rw-angaben-table{font-size:.68rem}
+  .rw-konto .rw-num{padding-left:5px}
+  .rw-konto-seite-title{font-size:.6rem}
+  .rw-gruppe td{font-size:.68rem}
+}
+@media(max-width:460px){
+  .rw-konto-seite{padding:0 4px}
+  .rw-konto .rw-angaben-table{font-size:.6rem}
+  .rw-konto .rw-angaben-table td{padding:4px 0;word-break:break-word}
+  .rw-konto .rw-num{padding-left:3px}
+}
+/* Erst wenn zwei Spalten wirklich nicht mehr lesbar sind, wird gestapelt. */
+@media(max-width:380px){
+  .rw-konto{grid-template-columns:1fr}
+  .rw-konto-seite:first-child{border-right:none;border-bottom:2px solid var(--border);padding-bottom:12px;margin-bottom:12px}
+  .rw-konto-seite{padding:0}
+  .rw-konto .rw-angaben-table{font-size:.72rem}
+}
+@media(prefers-reduced-motion:reduce){
+  .rw-level,.rw-btn{transition:none}
+  .rw-level:active,.rw-btn:active{transform:none}
+}
+
 /* ─── Footer ───────────────────────────────────────────── */
 .footer{text-align:center;padding:32px 24px;font-size:.7rem;color:var(--text2);letter-spacing:.02em}
 

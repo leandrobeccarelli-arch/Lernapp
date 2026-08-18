@@ -8,7 +8,7 @@
 <meta http-equiv="Expires" content="0">
 <title>Lernplattform – Berufsprüfung Marketing & Verkauf</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=055">
+<link rel="stylesheet" href="css/style.css?v=062">
 <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 </head>
@@ -107,12 +107,19 @@ const BOOKS = [
   {id:'kommunikation-instrumente',file:'kommunikation-instrumente.html',title:'Instrumente der Kommunikation für Marketing- und Verkaufsverantwortliche',author:'Markus Aerni',year:2023,pages:198,color:'#6b7280',chapters:9,exercises:80,upgraded:true},
   {id:'marketingkonzept',file:'marketingkonzept.html',title:'Marketingkonzept, Marktanalyse und Marktleistung',author:'Friebe, Michel, Portmann, Reber, Schneider',year:2022,pages:280,color:'#4b5563',chapters:16,exercises:97,upgraded:true},
   {id:'selbstmanagement',file:'selbstmanagement.html',title:'Selbstmanagement für Marketing- und Verkaufsverantwortliche',author:'Geiger, Jäggi, Messi, Züger, Pifko',year:2017,pages:228,color:'#6b7280',chapters:15,exercises:86,upgraded:true},
-  {id:'projektmanagement',file:'projektmanagement.html',title:'Projektmanagement für Marketing- und Verkaufsverantwortliche',author:'Führer, Züger',year:2017,pages:142,color:'#4b5563',chapters:15,exercises:66,upgraded:true}
+  {id:'projektmanagement',file:'projektmanagement.html',title:'Projektmanagement für Marketing- und Verkaufsverantwortliche',author:'Führer, Züger',year:2017,pages:142,color:'#4b5563',chapters:15,exercises:66,upgraded:true},
+  {id:'rechnungswesen',file:'rechnungswesen.html',title:'Rechnungswesen: Bilanz, Erfolgsrechnung und Kennzahlen',author:'SIMAKOM Managementschule, Daniel Wolfisberg',year:2026,pages:12,color:'#1e40af',chapters:2,exercises:1,unlimited:true,upgraded:true}
 ];
 
 /* ══════════════════════════════════════════════════════════
    Progress aus localStorage
    ══════════════════════════════════════════════════════════ */
+/* Bücher mit eigener Seite statt der generischen buch.html */
+const CUSTOM_PAGES = {rechnungswesen:'rechnungswesen.html'};
+function bookLink(bookId){
+  return CUSTOM_PAGES[bookId] || ('buch.html?book='+bookId);
+}
+
 function getBookProgress(bookId){
   try{
     const data = JSON.parse(localStorage.getItem('lp-progress-'+bookId)||'{}');
@@ -255,7 +262,7 @@ function App(){
       e('img',{src:'assets/leandro-hero.png',alt:'Leandro: Viel Spass beim Lernen, ich glaube an dich!',className:'hero-photo'}),
       e('div',{style:{position:'relative'}},
         e('h1',{className:'hero-title',style:{letterSpacing:'.12em',fontSize:'1.4rem'}},'BUILT BY LEANDRO'),
-        e('div',{style:{display:'inline-block',marginTop:10,padding:'2px 10px',borderRadius:4,fontSize:'.6rem',fontWeight:600,letterSpacing:'.05em',background:'rgba(255,255,255,.08)',color:'var(--hero-sub)',border:'1px solid rgba(255,255,255,.1)'}},'v0.21.0-beta'),
+        e('div',{style:{display:'inline-block',marginTop:10,padding:'2px 10px',borderRadius:4,fontSize:'.6rem',fontWeight:600,letterSpacing:'.05em',background:'rgba(255,255,255,.08)',color:'var(--hero-sub)',border:'1px solid rgba(255,255,255,.1)'}},'v0.23.0-beta'),
         e('div',{className:'hero-stats'},
           e('div',{className:'hero-stat'},
             e('div',{className:'hero-stat-val'},booksReady+'/'+booksTotal),
@@ -321,7 +328,7 @@ function App(){
               ),
               isExpanded?e('div',{style:{padding:'0 16px 14px',borderTop:'1px solid var(--border)'}},
                 r.chapters.map(function(ch,j){
-                  var chLink='buch.html?book='+r.bookId+'&ch='+ch.chapter.id;
+                  var chLink=CUSTOM_PAGES[r.bookId]||('buch.html?book='+r.bookId+'&ch='+ch.chapter.id);
                   return e('div',{key:j,style:{marginTop:10}},
                     e('div',{
                       style:{fontWeight:600,fontSize:'.82rem',color:'var(--accent)',cursor:'pointer'},
@@ -368,7 +375,7 @@ function App(){
           key:book.id,
           className:'book-card'+(isUpgraded?'':' book-card--basic'),
           style:{opacity:ready?(isUpgraded?1:0.45):0.3,cursor:ready?'pointer':'default'},
-          onClick:()=>{if(ready)window.location.href='buch.html?book='+book.id}
+          onClick:()=>{if(ready)window.location.href=bookLink(book.id)}
         },
           e('div',{className:'book-card-color',style:{background:book.color}}),
           e('div',{className:'book-card-body'},
@@ -377,7 +384,9 @@ function App(){
             e('div',{className:'book-card-author'},book.author+' ('+book.year+')'),
             e('div',{className:'book-card-meta'},
               ready
-                ? book.chapters+' Kapitel · '+book.exercises+' Aufgaben'+(done>0?' · '+done+'/'+book.exercises+' erledigt':'')
+                ? (book.unlimited
+                    ? book.chapters+' Kapitel · Aufgaben unbegrenzt'
+                    : book.chapters+' Kapitel · '+book.exercises+' Aufgaben'+(done>0?' · '+done+'/'+book.exercises+' erledigt':''))
                 : 'Kommt bald...'
             ),
             ready?e('div',{className:'book-card-progress'},
@@ -385,10 +394,10 @@ function App(){
             ):null,
             e('div',{style:{marginTop:8,display:'flex',gap:8}},
               ready?e('span',{
-                onClick:function(ev){ev.stopPropagation();window.location.href='buch.html?book='+book.id},
+                onClick:function(ev){ev.stopPropagation();window.location.href=bookLink(book.id)},
                 style:{fontSize:'.7rem',color:'var(--accent)',cursor:'pointer',fontWeight:600}
               },'Lernen \u203A'):null,
-              e('span',{
+              CUSTOM_PAGES[book.id]?null:e('span',{
                 onClick:function(ev){ev.stopPropagation();window.location.href='buch.html?book='+book.id+'&viewer=1'},
                 style:{fontSize:'.7rem',color:'var(--text2)',cursor:'pointer',fontWeight:500}
               },'\uD83D\uDCD6 Buch lesen ('+book.pages+' S.)')
