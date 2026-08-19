@@ -930,7 +930,7 @@ window.BOOK_DATA = {
           q: 'Diese Strategieans\u00e4tze stammen aus der Fallstudie Kieser Training. Jeder nennt einen internen und einen externen Faktor sowie die Massnahme. Ordnen Sie jeden dem richtigen Feld der SWOT-Matrix zu.',
           pairs: [
             { l: '\u00c4ltere Leute suchen den medizinischen Nutzen des Krafttrainings. Die medizinische Ausrichtung wird in der Kommunikation an diese Gruppe hervorgehoben.', r: 'SO' },
-            { l: 'Krankenkassen schliessen Krafttraining aus der Deckung aus. Kieser setzt die wissenschaftlich belegte Wirkung des pr\u00e4ventiven Trainings dagegen.', r: 'ST' },
+            { l: 'Krankenkassen schliessen Krafttraining aus der Deckung aus. Kieser h\u00e4lt die eigene, wissenschaftlich belegte Wirkung des pr\u00e4ventiven Trainings dagegen.', r: 'ST' },
             { l: 'Die Jungen pflegen ihren K\u00f6rper, brauchen aber mehr als nur Krafttraining. Das enge Angebot muss erweitert werden, um diese Gruppe zu erreichen.', r: 'WO' },
             { l: 'Wer will, kauft dieselben Maschinen f\u00fcr zu Hause. Kieser kann dem wenig entgegensetzen, weil sich das Angebot auf das reine Ger\u00e4tetraining beschr\u00e4nkt. Es ist zu pr\u00fcfen, ob sich der Aufwand um diese Kundengruppe noch lohnt.', r: 'WT' },
             { l: 'Berufst\u00e4tige wollen ohne Zeitverlust trainieren. Die 30-Minuten-Trainings in zentralen Lagen werden gezielt beworben.', r: 'SO' },
@@ -946,6 +946,8 @@ window.BOOK_DATA = {
             'WO erkennen Sie daran, dass eine g\u00fcnstige Entwicklung da ist, Kieser sie wegen einer eigenen L\u00fccke aber nicht nutzen kann. Beispiele: die Jungen w\u00e4ren da, aber das Angebot ist zu eng; die wachsende Zahl der Singles w\u00e4re da, aber es fehlen Gruppenangebote. Hier liegt das gr\u00f6sste Verbesserungspotenzial, weil sich die L\u00fccke schliessen l\u00e4sst.',
             'WT erkennen Sie daran, dass eine eigene L\u00fccke auf eine Bedrohung trifft und keine Vorteile bleiben. Beispiele: Heimtraining mit denselben Maschinen bei rein ger\u00e4tebasiertem Angebot, oder der Ganzheitlichkeitstrend gegen die mechanistische Philosophie. Deshalb steht hier jeweils Pr\u00fcfen oder R\u00fcckzug.',
             'H\u00e4ufiger Fehler: WO und WT verwechseln. Beide beginnen mit einer eigenen L\u00fccke, der Unterschied liegt allein in der \u00e4usseren Entwicklung. W\u00e4chst dort etwas, das Kieser gewinnen k\u00f6nnte, ist es WO und lohnt den Aufbau. Zieht die Entwicklung Kundschaft ab, ist es WT und der R\u00fcckzug ist zu pr\u00fcfen.',
+            'Zum Beispiel Krankenkassen: Dass die Kassen Krafttraining nicht mehr verg\u00fcten, ist ein Entscheid Dritter und damit rein extern, also eine Gefahr. Es ist keine Schw\u00e4che von Kieser, denn Kieser kann diesen Entscheid nicht steuern. Intern ist in diesem Satz nur die wissenschaftlich belegte Wirkung, und die ist vorhanden, also eine St\u00e4rke. St\u00e4rke gegen Gefahr ergibt ST.',
+            'Abgrenzung zur Aufgabe MUSKELFIT: Dort wird derselbe Kassenentscheid mit W und T bewertet, weil dort zus\u00e4tzlich die eigene Abh\u00e4ngigkeit von diesen Beitr\u00e4gen zur Diskussion steht. Der \u00e4ussere Entscheid bleibt auch dort eine Gefahr. Eine Schw\u00e4che entsteht erst, wenn im Text auch etwas \u00fcber das eigene Unternehmen ausgesagt wird.',
             'Zweiter h\u00e4ufiger Fehler: WO und ST verwechseln. Achten Sie darauf, welche Seite negativ ist. Bei WO ist die externe Seite positiv und die interne negativ, bei ST genau umgekehrt.',
             'Pr\u00fcfungstipp: Schreiben Sie in der Pr\u00fcfung immer beide Faktoren in die Strategie hinein. Eine Strategie, die nur die Massnahme nennt, l\u00e4sst sich keinem Feld zuordnen und bringt keine Punkte.'
           ]
@@ -1427,13 +1429,16 @@ window.BOOK_DATA = {
           reveal: ['Starbucks betreibt nicht nur Restaurants, sondern verkauft Kaffee in Supermärkten. → Produkt-/Sortimentsentwicklung (neue Produktform/Vertriebsform für den gleichen Kaffee, gleicher Kundenkreis)', 'Lindt-Schokoladen treten mit grossem Aufwand in den amerikanischen Markt ein. → Marktentwicklung (gleiches Produkt, neuer geografischer Markt)', 'Das Plattenlabel Virgin betreibt eine Fluglinie und stellt Cola her. → Diversifikation (völlig neue, unverwandte Produkte und Märkte)', 'Google übernimmt YouTube für USD 1.6 Mrd. → Produkt-/Sortimentsentwicklung (verwandtes digitales Content-/Werbegeschäft, keine unverwandte Diversifikation)']
         },
         {
-          id: 36, type: 'text', title: 'Konkurrenzstrategie vs. Marktentwicklung',
-          q: 'Beschreiben Sie, wie ein Unternehmen nach der Konkurrenzstrategie und nach der Marktentwicklungsstrategie nach K\u00fchn wachsen kann. Wie ver\u00e4ndern sich Marktvolumen und Marktanteil?',
-          keywords: ['marktvolumen', 'marktanteil', 'konkurrenz', 'verdrangt', 'neu'],
-          tips: ['Konkurrenzstrategie: im bestehenden Markt wachsen. Marktentwicklung: neue M\u00e4rkte erschliessen.'],
+          id: 36, type: 'text', title: 'Woher kommt das Wachstum: Verdr\u00e4ngung oder gr\u00f6sserer Markt?',
+          q: 'Ein Unternehmen will im bestehenden Markt wachsen (Marktpenetration). Das gelingt auf zwei Arten: indem es Kunden der Konkurrenz gewinnt oder indem es neue K\u00e4ufer in den Markt holt. Beschreiben Sie beide Wege und erkl\u00e4ren Sie, wie sich Marktvolumen und Marktanteil dabei jeweils ver\u00e4ndern.',
+          keywords: ['marktvolumen', 'marktanteil', 'konkurrenz', 'verdr\u00e4ng', 'k\u00e4ufer', 'gleich'],
+          solution: 'Weg 1, Wachstum auf Kosten der Konkurrenz: Das Unternehmen verdr\u00e4ngt Mitbewerber und gewinnt deren Kunden. Das Marktvolumen bleibt gleich gross, der eigene Marktanteil steigt. Der Markt wird unter denselben Anbietern nur neu verteilt, entsprechend hart ist die Reaktion der Konkurrenz. Weg 2, Wachstum durch Vergr\u00f6sserung des Markts: Das Unternehmen gewinnt K\u00e4ufer, die bisher gar nicht gekauft haben, oder erh\u00f6ht Kaufh\u00e4ufigkeit und Kaufmenge der bestehenden Kunden. Das Marktvolumen w\u00e4chst, der eigene Marktanteil kann dabei steigen oder sogar gleich bleiben, weil auch die Konkurrenz vom gr\u00f6sseren Markt profitiert.',
+          tips: ['Marktvolumen ist der tats\u00e4chlich realisierte Umsatz aller Anbieter im Markt, Marktanteil der eigene Anteil daran.', 'Fragen Sie sich: Kommt der zus\u00e4tzliche Umsatz von einem anderen Anbieter oder von jemandem, der bisher gar nicht gekauft hat?', 'Die Umsatzformel hilft: Umsatz = Anzahl K\u00e4ufer \u00d7 Kaufh\u00e4ufigkeit \u00d7 Kaufmenge \u00d7 Kaufpreis.'],
           reveal: [
-            'Konkurrenzstrategie: Marktanteil steigt, Marktvolumen bleibt gleich \u2013 man w\u00e4chst auf Kosten der Konkurrenz.',
-            'Marktentwicklungsstrategie: Marktvolumen steigt, weil neue K\u00e4ufer gewonnen werden \u2013 Marktanteil kann steigen oder gleich bleiben.'
+            'Wachstum auf Kosten der Konkurrenz: Marktanteil steigt, Marktvolumen bleibt gleich. Man nimmt Mitbewerbern Kunden ab, der Kuchen bleibt gleich gross und wird nur anders aufgeteilt. Deshalb ist mit Gegenmassnahmen der Konkurrenz zu rechnen, etwa mit Preisaktionen.',
+            'Wachstum durch einen gr\u00f6sseren Markt: Marktvolumen steigt, weil neue K\u00e4ufer dazukommen oder bestehende Kunden h\u00e4ufiger und mehr kaufen. Der eigene Marktanteil kann dabei gleich bleiben, obwohl der eigene Umsatz w\u00e4chst, denn auch die Konkurrenz verkauft mehr.',
+            'Achtung, klassische Pr\u00fcfungsfalle: Umsatzwachstum und Marktanteilsgewinn sind nicht dasselbe. W\u00e4chst der Gesamtmarkt schneller als das eigene Unternehmen, sinkt der Marktanteil trotz steigendem Umsatz.',
+            'Bezug zur Ansoff-Matrix: Beide Wege geh\u00f6ren zur Marktpenetration, also bestehende Produkte in bestehenden M\u00e4rkten. Erst wenn neue M\u00e4rkte oder Segmente erschlossen werden, spricht Ansoff von Marktentwicklung.'
           ]
         },
         {
@@ -1504,6 +1509,23 @@ window.BOOK_DATA = {
             title: 'Strategiemix',
             content: 'Die Idee des Marketingmix ist die optimale Kombination (= Mix) verschiedener Marketinginstrumente. Analog dazu gibt es einen Strategiemix. In der Praxis stellt sich n\u00e4mlich nicht die Frage, ob man eine Wachstumsstrategie, eine Positionierungsstrategie oder eine Markenstrategie w\u00e4hlt. Die Aufgabe besteht darin, eine optimale Kombination der Strategien zu finden. Kriterien: kritische Erfolgsfaktoren, strategische Erfolgspositionen, Strategiekombination f\u00fcr Synergien.',
             highlight: 'Der Strategiemix kombiniert verschiedene strategische Ans\u00e4tze optimal miteinander.'
+          },
+          {
+            type: 'concept',
+            title: 'Woher Wachstum \u00fcberhaupt kommt (Abschnitt 6.2.1)',
+            content: 'Wer wachsen will, muss mindestens einen Faktor steigern, der zum Mehrumsatz f\u00fchrt. Innerhalb eines bekannten Markts gilt: (1) Umsatz = Anzahl K\u00e4ufer \u00d7 Kaufh\u00e4ufigkeit \u00d7 Kaufmenge \u00d7 Kaufpreis. Daraus ergeben sich die vier Hebel der Marktpenetration: mehr K\u00e4ufer innerhalb des bearbeiteten Markts, h\u00e4ufigere K\u00e4ufe, gr\u00f6ssere Kaufmengen und h\u00f6here Preise. Der Umsatz l\u00e4sst sich aber auch \u00fcber die Erweiterung der bearbeiteten M\u00e4rkte steigern (Marktentwicklung): (2) Gesamtumsatz = Umsatz Markt 1 + Umsatz Markt 2 + \u2026 + Umsatz Markt n. Betrachtet man die Produkte, kommt die Erweiterung der Produktpalette dazu (Produkt- und Sortimentsentwicklung): (3) Gesamtumsatz = Umsatz Produktgruppe 1 + Umsatz Produktgruppe 2 + \u2026 Und schliesslich entsteht Umsatz in v\u00f6llig neuen Gesch\u00e4ftsfeldern (Diversifikation): (4) Gesamtumsatz = Umsatz in bestehenden M\u00e4rkten + Umsatz in neuen M\u00e4rkten und/oder mit neuen Produkten.',
+            highlight: 'Umsatz = Anzahl K\u00e4ufer \u00d7 Kaufh\u00e4ufigkeit \u00d7 Kaufmenge \u00d7 Kaufpreis. Jeder dieser vier Faktoren ist ein Wachstumshebel.'
+          },
+          {
+            type: 'concept',
+            title: 'Die Wachstumsl\u00fccke (Gap-Analyse, Abb. 6-2)',
+            content: 'Wachstumsstrategien sind nicht nur f\u00fcr Unternehmen interessant, die wachsen wollen. Sie sind auch n\u00f6tig, um Verluste in bestehenden M\u00e4rkten und Gesch\u00e4ftsfeldern auszugleichen. Die Gap-Analyse stellt zwei Linien gegen\u00fcber: die gew\u00fcnschte Umsatzentwicklung und die erwartete Entwicklung, falls kein neues Wachstum erzielt wird. Der Abstand dazwischen ist die Wachstumsl\u00fccke. Genau diese L\u00fccke soll mit den Wachstumsstrategien nach Ansoff geschlossen werden. Deshalb steht die Gap-Analyse vor der Ansoff-Matrix: Sie zeigt, wie viel Wachstum \u00fcberhaupt gebraucht wird.',
+            highlight: 'Die Gap-Analyse beziffert den Handlungsbedarf, die Ansoff-Matrix liefert die Wege, ihn zu decken.'
+          },
+          {
+            type: 'svg',
+            title: 'Wachstumsl\u00fccke (Gap-Analyse, Abb. 6-2)',
+            svg: '<svg viewBox="0 0 640 300" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif"><text x="320" y="18" text-anchor="middle" fill="#581c87" font-size="13" font-weight="bold">Wachstumsl\u00fccke (Gap-Analyse)</text><line x1="70" y1="40" x2="70" y2="245" stroke="#581c87" stroke-width="1.5"/><line x1="70" y1="245" x2="600" y2="245" stroke="#581c87" stroke-width="1.5"/><text x="52" y="46" text-anchor="end" fill="#6b21a8" font-size="10">Umsatz</text><text x="600" y="264" text-anchor="end" fill="#6b21a8" font-size="10">Zeit</text><path d="M70 205 L540 70" stroke="#7e22ce" stroke-width="2.5" fill="none"/><path d="M70 205 Q300 130 400 140 Q490 152 540 200" stroke="#a855f7" stroke-width="2.5" fill="none" stroke-dasharray="6 4"/><text x="330" y="105" fill="#581c87" font-size="10" font-weight="bold">Gew\u00fcnschte Entwicklung</text><text x="250" y="170" fill="#7e22ce" font-size="10">Erwartete Entwicklung</text><line x1="545" y1="72" x2="545" y2="198" stroke="#dc2626" stroke-width="1.5" marker-start="url(#a)" marker-end="url(#a)"/><defs><marker id="a" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto"><path d="M0 3.5 L7 0 L7 7 Z" fill="#dc2626"/></marker></defs><text x="556" y="140" fill="#dc2626" font-size="11" font-weight="bold">Wachstums-</text><text x="556" y="153" fill="#dc2626" font-size="11" font-weight="bold">l\u00fccke</text></svg>'
           },
           {
             type: 'concept',
