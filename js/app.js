@@ -2251,12 +2251,28 @@ function CalcTrainer(props) {
 
 // ─── Page Viewer (Original-Buchseiten) ──────────────────────────────────────
 
+// Seiten, deren Screenshot beim Erfassen misslungen ist (Datei fehlt, leer oder
+// mitten im Ladevorgang aufgenommen). Sie werden mit einem Hinweis statt eines
+// leeren Bildes angezeigt.
+var BROKEN_PAGES = {
+  'digitales-marketing': { 161: 'fehlt' },
+  'distribution': { 50: 'leer', 100: 'leer', 150: 'leer' },
+  'marketingkonzept': { 14: 'ladefehler', 15: 'leer', 26: 'ladefehler' }
+};
+
+var BROKEN_TEXT = {
+  'fehlt': 'Von dieser Seite wurde beim Erfassen des Buchs kein Bild gespeichert.',
+  'leer': 'Diese Seite wurde beim Erfassen des Buchs leer aufgenommen.',
+  'ladefehler': 'Diese Seite wurde aufgenommen, bevor sie fertig geladen war.'
+};
+
 function PageViewer(props) {
   var bookId = props.bookId, totalPages = props.totalPages, onClose = props.onClose, startPage = props.startPage || 1;
   var bookData = props.bookData;
   var minPage = props.minPage || 1, maxPage = props.maxPage || totalPages;
   var st = useState(startPage), page = st[0], setPage = st[1];
-  var st2 = useState(false), loading = st2[0], setLoading = st2[1];
+  var st2 = useState(true), loading = st2[0], setLoading = st2[1];
+  var st6 = useState(false), imgError = st6[0], setImgError = st6[1];
   var st3 = useState(''), pageInput = st3[0], setPageInput = st3[1];
   var st4 = useState(''), viewerSearch = st4[0], setViewerSearch = st4[1];
   var st5 = useState(null), viewerResults = st5[0], setViewerResults = st5[1];
@@ -2292,10 +2308,22 @@ function PageViewer(props) {
   var imgSrc = 'screenshots/' + bookId + '/seite_' + padPage(page) + '.jpg';
   var isRestricted = minPage > 1 || maxPage < totalPages;
 
+  var brokenKind = (BROKEN_PAGES[bookId] || {})[page] || null;
+
   function goTo(n) {
     var p = Math.max(minPage, Math.min(maxPage, n));
+    if (p === page) return;
     setPage(p);
     setLoading(true);
+    setImgError(false);
+  }
+
+  // Nächste Seite anspringen, die nicht als defekt bekannt ist
+  function skipBroken(dir) {
+    var broken = BROKEN_PAGES[bookId] || {};
+    var p = page + dir;
+    while (p >= minPage && p <= maxPage && broken[p]) p += dir;
+    goTo(p);
   }
 
   function handleKeyDown(ev) {
@@ -2373,13 +2401,37 @@ function PageViewer(props) {
       )
     ),
     // Image
-    e('div', { style: { flex: 1, overflow: 'auto', display: 'flex', justifyContent: 'center', alignItems: 'flex-start', padding: '16px' } },
-      e('img', {
-        src: imgSrc,
-        onLoad: function() { setLoading(false); },
-        onError: function() { setLoading(false); },
-        style: { maxWidth: '100%', maxHeight: 'calc(100vh - 80px)', objectFit: 'contain', borderRadius: 4, opacity: loading ? .3 : 1, transition: 'opacity .2s' }
-      })
+    e('div', { style: { flex: 1, overflow: 'auto', display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '16px', position: 'relative' } },
+      (brokenKind || imgError) ? e('div', {
+        style: { maxWidth: 420, textAlign: 'center', color: '#fff', background: 'rgba(255,255,255,.07)', border: '1px solid rgba(255,255,255,.14)', borderRadius: 10, padding: '28px 24px' }
+      },
+        e('div', { style: { fontSize: '1.6rem', marginBottom: 10 } }, '📄'),
+        e('div', { style: { fontWeight: 600, marginBottom: 8, fontSize: '.95rem' } }, 'Seite ' + page + ' ist nicht verfügbar'),
+        e('div', { style: { fontSize: '.82rem', opacity: .7, lineHeight: 1.5, marginBottom: 18 } },
+          BROKEN_TEXT[brokenKind] || 'Das Bild dieser Seite konnte nicht geladen werden.'),
+        e('div', { style: { display: 'flex', gap: 8, justifyContent: 'center' } },
+          page > minPage ? e('button', {
+            onClick: function() { skipBroken(-1); },
+            style: { background: 'rgba(255,255,255,.12)', border: 'none', color: '#fff', padding: '7px 14px', borderRadius: 6, cursor: 'pointer', fontSize: '.8rem' }
+          }, '← Vorherige Seite') : null,
+          page < maxPage ? e('button', {
+            onClick: function() { skipBroken(1); },
+            style: { background: 'rgba(255,255,255,.12)', border: 'none', color: '#fff', padding: '7px 14px', borderRadius: 6, cursor: 'pointer', fontSize: '.8rem' }
+          }, 'Nächste Seite →') : null
+        )
+      ) : e('div', { style: { position: 'relative', display: 'flex', justifyContent: 'center', width: '100%' } },
+        loading ? e('div', {
+          style: { position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', color: 'rgba(255,255,255,.6)', fontSize: '.85rem' }
+        }, 'Seite wird geladen …') : null,
+        e('img', {
+          key: bookId + '-' + page,
+          src: imgSrc,
+          alt: 'Seite ' + page,
+          onLoad: function() { setLoading(false); },
+          onError: function() { setLoading(false); setImgError(true); },
+          style: { maxWidth: '100%', maxHeight: 'calc(100vh - 80px)', objectFit: 'contain', borderRadius: 4, opacity: loading ? .15 : 1, transition: 'opacity .2s' }
+        })
+      )
     )
   );
 }

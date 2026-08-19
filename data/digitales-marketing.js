@@ -4,7 +4,7 @@ window.BOOK_DATA = {
   shortTitle: 'Digitales Marketing',
   author: 'Michael Klaas',
   year: 2020,
-  totalPages: 166,
+  totalPages: 162,
   pages: 166,
   color: '#0891b2',
   chapters: [

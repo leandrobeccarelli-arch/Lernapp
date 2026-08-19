@@ -4,7 +4,7 @@ window.BOOK_DATA = {
   shortTitle: 'Kommunikation Grundlagen',
   author: 'Markus Aerni',
   year: 2023,
-  totalPages: 167,
+  totalPages: 165,
   pages: 167,
   color: '#6b7280',
   chapters: [
