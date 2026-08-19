@@ -574,9 +574,19 @@ function CheckExercise(props) {
 
 // ─── Calc Exercise ──────────────────────────────────────────────────────────
 
+function calcFieldOk(f, raw) {
+  var userVal = parseFloat(String(raw).replace(/[',\s]/g, ''));
+  if (isNaN(userVal)) return false;
+  // tolerance ist ABSOLUT (z.B. 200 = ±200 CHF, 0 = exakt); ohne Angabe: ±1% der Lösung
+  var tol = (typeof f.tolerance === 'number') ? f.tolerance : Math.abs(f.answer) * 0.01;
+  return Math.abs(userVal - f.answer) <= tol + 0.001;
+}
+
 function CalcExercise(props) {
   var ex = props.ex, onDone = props.onDone, examMode = props.examMode;
-  var data = ex.fields || ex.calcs || [];
+  var genSt = useState(function() { return ex.generator ? ex.generator() : null; });
+  var gen = genSt[0], setGen = genSt[1];
+  var data = gen ? gen.fields : (ex.fields || ex.calcs || []);
   var st = useState(data.map(function() { return ''; }));
   var vals = st[0], setVals = st[1];
   var st2 = useState(false), checked = st2[0], setChecked = st2[1];
@@ -588,23 +598,27 @@ function CalcExercise(props) {
   function check() {
     setChecked(true);
     var correct = 0;
-    data.forEach(function(f, i) {
-      var userVal = parseFloat(vals[i].replace(/[',\s]/g, ''));
-      var tol = f.tolerance || 0.01;
-      if (!isNaN(userVal) && Math.abs(userVal - f.answer) <= Math.abs(f.answer * tol) + 0.001) correct++;
-    });
+    data.forEach(function(f, i) { if (calcFieldOk(f, vals[i])) correct++; });
     if (onDone) onDone(data.length > 0 ? Math.round(correct / data.length * 100) : 100);
   }
 
   function reset() { setVals(data.map(function() { return ''; })); setChecked(false); }
 
+  function regenerate() {
+    var g = ex.generator();
+    setGen(g);
+    setVals(g.fields.map(function() { return ''; }));
+    setChecked(false);
+  }
+
+  var instruction = (gen && gen.instruction) || ex.instruction;
+  var reveal = (gen && gen.reveal) || ex.reveal;
+
   return e('div', null,
     ex.q ? e('div', { className: 'ex-instruction' }, ex.q) : null,
-    ex.instruction ? e('div', { className: 'ex-instruction', style: { marginTop: 4, fontWeight: 'normal' } }, ex.instruction) : null,
+    instruction ? e('div', { className: 'ex-instruction', style: { marginTop: 4, fontWeight: 'normal', whiteSpace: 'pre-line' } }, instruction) : null,
     data.map(function(f, i) {
-      var userVal = parseFloat(vals[i].replace(/[',\s]/g, ''));
-      var tol = f.tolerance || 0.01;
-      var isCorrect = checked && !isNaN(userVal) && Math.abs(userVal - f.answer) <= Math.abs(f.answer * tol) + 0.001;
+      var isCorrect = checked && calcFieldOk(f, vals[i]);
       var isWrong = checked && !isCorrect;
       return e('div', { key: i, className: 'calc-row' },
         e('span', { className: 'calc-label' }, f.label),
@@ -620,11 +634,12 @@ function CalcExercise(props) {
     }),
     e('div', { className: 'btn-row' },
       !checked ? e('button', { className: 'btn btn-primary', onClick: check }, 'Pr\u00FCfen') : null,
-      !examMode && checked ? e('button', { className: 'btn btn-secondary', onClick: reset }, 'Nochmal') : null
+      !examMode && checked ? e('button', { className: 'btn btn-secondary', onClick: reset }, 'Nochmal') : null,
+      ex.generator ? e('button', { className: 'btn btn-secondary', onClick: regenerate }, '\u21BB Neue Zahlen') : null
     ),
     examMode && checked ? e('div', { style: { fontSize: '.8rem', color: 'var(--green)', marginTop: 8 } }, '\u2713 Beantwortet') : null,
     !examMode && ex.tips ? e(Tips, { tips: ex.tips }) : null,
-    !examMode && checked && ex.reveal ? e(Reveal, { items: ex.reveal }) : null
+    !examMode && checked && reveal ? e(Reveal, { items: reveal }) : null
   );
 }
 

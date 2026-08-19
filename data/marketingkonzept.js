@@ -194,8 +194,8 @@ window.BOOK_DATA = {
           q: 'S\u00e4ttigungsgrad berechnen',
           instruction: 'Berechnen Sie den S\u00e4ttigungsgrad f\u00fcr eine spezielle Software im Markt Europa.\n\n\u2022 Marktvolumen 20_1: EUR 18 Mio.\n\u2022 Marktpotenzial 20_1: EUR 68 Mio.\n\u2022 Marktvolumen 20_2: EUR 31 Mio.\n\u2022 Marktpotenzial 20_2: EUR 75 Mio.',
           fields: [
-            { label: 'S\u00e4ttigungsgrad 20_1 (in %)', answer: 26.5, tolerance: 0.02 },
-            { label: 'S\u00e4ttigungsgrad 20_2 (in %)', answer: 41.3, tolerance: 0.02 }
+            { label: 'S\u00e4ttigungsgrad 20_1 (in %)', answer: 26.47, tolerance: 0.5 },
+            { label: 'S\u00e4ttigungsgrad 20_2 (in %)', answer: 41.33, tolerance: 0.5 }
           ],
           tips: ['S\u00e4ttigungsgrad = Marktvolumen / Marktpotenzial \u00d7 100'],
           reveal: [
@@ -250,6 +250,86 @@ window.BOOK_DATA = {
             'Externe Beeinflusser: Architekturb\u00fcros, Hauseigent\u00fcmerverband, Medien.',
             'Umfeldfaktoren: Wirtschaft (Konjunktur, Zinspolitik), Technologie (Bautechnologien), Gesellschaft, Recht.'
           ]
+        },
+        {
+          id: 98, type: 'calc', title: 'Marktkennzahlen-Training (mit neuen Zahlen \u00fcbbar)',
+          q: 'Berechnen Sie alle Marktkennzahlen. Mit \u00ab\u21bb Neue Zahlen\u00bb erhalten Sie eine neue Aufgabe mit anderen Werten.',
+          generator: function() {
+            function ri(min, max) { return min + Math.floor(Math.random() * (max - min + 1)); }
+            var faelle = [
+              { produkt: 'Fleisch', firma: 'FleischMax AG', min: 6, max: 10 },
+              { produkt: 'K\u00e4se', firma: 'Fromago AG', min: 3, max: 6 },
+              { produkt: 'Schokolade', firma: 'ChocoSwiss AG', min: 1, max: 3 },
+              { produkt: 'Mineralwasser', firma: 'AquaAlp AG', min: 1, max: 3 },
+              { produkt: 'Brot', firma: 'BackArt AG', min: 2, max: 5 }
+            ];
+            var f = faelle[ri(0, faelle.length - 1)];
+            var einw = ri(8, 10);                      // Mio. Einwohner
+            var antKap = ri(12, 18) * 5;               // 60-90% essen/konsumieren das Produkt
+            var kap = Math.round(einw * antKap / 100 * 10) / 10;   // Mio. Personen
+            var chf = ri(f.min, f.max) * 100;          // realistische CHF-Ausgaben pro Person und Jahr
+            var pot = Math.round(kap * chf);           // Mio. CHF
+            var antVol = antKap - ri(1, 8) * 5;        // effektive Käufer immer unter der Kapazität (Sättigung < 100%)
+            var volPers = Math.round(einw * antVol / 100 * 10) / 10;
+            var vol = Math.round(volPers * chf);       // Mio. CHF
+            var umsatz = Math.round(vol * ri(2, 15) / 100);  // Marktanteil zwischen 2% und 15%
+            var saett = Math.round(vol / pot * 1000) / 10;
+            var anteil = Math.round(umsatz / vol * 1000) / 10;
+            return {
+              instruction: 'Die ' + f.firma + ' hat diese Informationen zum ' + f.produkt + 'markt Schweiz:\n' +
+                '\u2022 Die Schweiz hat ' + einw + ' Mio. Einwohner, wovon ' + antKap + '% ' + f.produkt + ' konsumieren.\n' +
+                '\u2022 Diese Personen geben im Jahresdurchschnitt je CHF ' + chf + ' aus.\n' +
+                '\u2022 ' + volPers + ' Mio. Personen kaufen effektiv mindestens einmal pro Jahr ' + f.produkt + '.\n' +
+                '\u2022 Die ' + f.firma + ' erzielt einen Umsatz von CHF ' + umsatz + ' Mio.',
+              fields: [
+                { label: 'Marktkapazit\u00e4t (Mio. Personen)', answer: kap, tolerance: 0.1 },
+                { label: 'Marktpotenzial (Mio. CHF)', answer: pot, tolerance: 5 },
+                { label: 'Marktvolumen (Mio. CHF)', answer: vol, tolerance: 5 },
+                { label: 'Markts\u00e4ttigungsgrad (%)', answer: saett, tolerance: 0.5 },
+                { label: 'Marktanteil ' + f.firma + ' (%)', answer: anteil, tolerance: 0.2 }
+              ],
+              reveal: [
+                'Marktkapazit\u00e4t = Einwohner \u00d7 Konsumentenanteil = ' + einw + ' Mio. \u00d7 ' + antKap + '% = ' + kap + ' Mio. Personen. Warum? Die Kapazit\u00e4t umfasst alle, die das Produkt \u00fcberhaupt konsumieren w\u00fcrden (Preis spielt keine Rolle).',
+                'Marktpotenzial = Marktkapazit\u00e4t \u00d7 Ausgaben pro Person = ' + kap + ' Mio. \u00d7 CHF ' + chf + ' = CHF ' + pot + ' Mio. Warum? Das Potenzial ist der maximal erzielbare Umsatz bei optimalem Marketingeinsatz.',
+                'Marktvolumen = effektive K\u00e4ufer \u00d7 Ausgaben pro Person = ' + volPers + ' Mio. \u00d7 CHF ' + chf + ' = CHF ' + vol + ' Mio. Warum? Das Volumen ist der tats\u00e4chlich realisierte Umsatz aller Anbieter.',
+                'Markts\u00e4ttigungsgrad = Marktvolumen \u00f7 Marktpotenzial \u00d7 100 = ' + vol + ' \u00f7 ' + pot + ' \u00d7 100 = ' + saett + '%. ' + (saett >= 80 ? 'Der Markt ist ges\u00e4ttigt (\u2265 80%): Marktanteile k\u00f6nnen nur noch auf Kosten der Konkurrenz gewonnen werden.' : 'Der Markt ist nicht ges\u00e4ttigt (< 80%): Ein Neueintritt oder Wachstum ist m\u00f6glich, ohne die Konkurrenz zu verdr\u00e4ngen.'),
+                'Marktanteil = eigener Umsatz \u00f7 Marktvolumen \u00d7 100 = ' + umsatz + ' \u00f7 ' + vol + ' \u00d7 100 = ' + anteil + '%. H\u00e4ufiger Fehler: Den Umsatz durch das Marktpotenzial statt durch das Marktvolumen teilen.',
+                'Pr\u00fcfungstipp: Hierarchie merken: Marktkapazit\u00e4t > Marktpotenzial > Marktvolumen > Marktanteil. Der S\u00e4ttigungsgrad verkn\u00fcpft Volumen und Potenzial.'
+              ]
+            };
+          },
+          tips: ['Marktkapazit\u00e4t = alle m\u00f6glichen Konsumenten (Preis = 0).', 'Marktpotenzial = Kapazit\u00e4t \u00d7 Ausgaben. Marktvolumen = effektive K\u00e4ufer \u00d7 Ausgaben.', 'S\u00e4ttigungsgrad = Volumen \u00f7 Potenzial \u00d7 100. Marktanteil = eigener Umsatz \u00f7 Volumen \u00d7 100.']
+        },
+        {
+          id: 99, type: 'match', title: 'Marktsystem nach K\u00fchn zuordnen',
+          q: 'Ordnen Sie die Elemente des Marktsystems nach K\u00fchn den nummerierten Positionen in der Grafik zu.',
+          svg: '<svg viewBox="0 0 700 330" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif"><rect x="10" y="10" width="680" height="250" rx="10" fill="#faf5ff" stroke="#c084fc" stroke-width="1.5"/><text x="350" y="32" text-anchor="middle" fill="#581c87" font-size="13" font-weight="bold">Marktsystem</text><rect x="120" y="45" width="150" height="42" rx="8" fill="#7e22ce"/><text x="195" y="71" text-anchor="middle" fill="#fff" font-size="16" font-weight="bold">1</text><rect x="430" y="45" width="150" height="42" rx="8" fill="#7e22ce"/><text x="505" y="71" text-anchor="middle" fill="#fff" font-size="16" font-weight="bold">2</text><line x1="195" y1="87" x2="195" y2="125" stroke="#581c87" stroke-width="1.5"/><line x1="505" y1="87" x2="505" y2="125" stroke="#581c87" stroke-width="1.5"/><text x="240" y="110" fill="#6b21a8" font-size="9">Marketingmix</text><text x="510" y="110" fill="#6b21a8" font-size="9">Marketingmix</text><rect x="250" y="125" width="200" height="42" rx="8" fill="#9333ea"/><text x="350" y="151" text-anchor="middle" fill="#fff" font-size="16" font-weight="bold">3</text><rect x="60" y="150" width="140" height="42" rx="8" fill="#9333ea"/><text x="130" y="176" text-anchor="middle" fill="#fff" font-size="16" font-weight="bold">4</text><line x1="200" y1="171" x2="250" y2="150" stroke="#581c87" stroke-width="1.5"/><text x="185" y="200" fill="#6b21a8" font-size="9">Einfluss</text><line x1="350" y1="167" x2="350" y2="205" stroke="#581c87" stroke-width="1.5"/><text x="358" y="190" fill="#6b21a8" font-size="9">Marketingmix des Handels</text><rect x="230" y="205" width="240" height="42" rx="8" fill="#7e22ce"/><text x="350" y="231" text-anchor="middle" fill="#fff" font-size="16" font-weight="bold">5</text><text x="530" y="231" fill="#6b21a8" font-size="9">Nachfrage / Information</text><rect x="10" y="270" width="680" height="50" rx="10" fill="#ede9fe" stroke="#c084fc" stroke-width="1.5"/><text x="45" y="300" text-anchor="middle" fill="#581c87" font-size="16" font-weight="bold">6</text><text x="120" y="300" fill="#581c87" font-size="10">Politik</text><text x="220" y="300" fill="#581c87" font-size="10">Wirtschaft</text><text x="320" y="300" fill="#581c87" font-size="10">Gesellschaft</text><text x="430" y="300" fill="#581c87" font-size="10">Technologie</text><text x="530" y="300" fill="#581c87" font-size="10">\u00d6kologie</text><text x="620" y="300" fill="#581c87" font-size="10">Recht</text></svg>',
+          pairs: [
+            { l: 'Unser Unternehmen', r: '1' },
+            { l: 'Konkurrenz', r: '2' },
+            { l: 'Zwischenhandel', r: '3' },
+            { l: 'Externe Beeinflusser', r: '4' },
+            { l: 'Endkunden, K\u00e4ufer und interne Beeinflusser', r: '5' },
+            { l: 'Umfeld', r: '6' }
+          ],
+          options: ['1', '2', '3', '4', '5', '6'],
+          tips: ['Unser Unternehmen und die Konkurrenz setzen beide einen Marketingmix ein (obere Ebene).', 'Der Zwischenhandel steht zwischen Herstellern und Endkunden und hat einen eigenen Marketingmix.', 'Das Umfeld (Politik, Wirtschaft, Gesellschaft, Technologie, \u00d6kologie, Recht) umgibt das ganze Marktsystem.'],
+          reveal: ['1 = Unser Unternehmen: Setzt den Marketingmix ein, um Zwischenhandel und Endkunden zu bearbeiten.', '2 = Konkurrenz: Bearbeitet den gleichen Markt ebenfalls mit einem Marketingmix.', '3 = Zwischenhandel: Steht zwischen Herstellern und Endkunden und setzt einen eigenen Marketingmix des Handels ein.', '4 = Externe Beeinflusser: Wirken von aussen auf die Kaufentscheidung ein (z.B. Medien, Verb\u00e4nde, Meinungsf\u00fchrer).', '5 = Endkunden, K\u00e4ufer und interne Beeinflusser: Fragen die Leistung nach und liefern Informationen zur\u00fcck.', '6 = Umfeld: Politik, Wirtschaft, Gesellschaft, Technologie, \u00d6kologie und Recht beeinflussen das ganze Marktsystem.', 'Pr\u00fcfungstipp: Diese Grafik (Abb. 2-8) kommt gerne als Beschriftungsaufgabe. Merkhilfe: oben die Anbieter, in der Mitte der Handel, unten die Nachfrager, aussen das Umfeld.']
+        },
+        {
+          id: 100, type: 'match', title: 'Welches Marktsystem?',
+          q: 'Zu welchem Marktsystem geh\u00f6rt die Aussage: Konsumg\u00fcter (nach K\u00fchn), Investitionsg\u00fcter oder personalintensive Dienstleistungen?',
+          pairs: [
+            { l: 'Der Zwischenhandel spielt eine zentrale Rolle und setzt einen eigenen Marketingmix ein.', r: 'Konsumg\u00fcter' },
+            { l: 'Beim Kunden entscheidet ein Buying Center mit Entscheidern, Verwendern, Gatekeepern und Eink\u00e4ufern.', r: 'Investitionsg\u00fcter' },
+            { l: 'Es gibt internes, externes und interaktives Marketing: Die eigenen Mitarbeitenden sind Teil des Marktsystems.', r: 'Dienstleistungen' },
+            { l: 'Die Mitarbeitenden des Konkurrenten erscheinen als eigenes Element im Marktsystem.', r: 'Dienstleistungen' },
+            { l: 'Der Gatekeeper filtert, welche Informationen zum Entscheider gelangen.', r: 'Investitionsg\u00fcter' },
+            { l: 'Endkunden werden im Massengesch\u00e4ft \u00fcber den Handel erreicht.', r: 'Konsumg\u00fcter' }
+          ],
+          options: ['Konsumg\u00fcter', 'Investitionsg\u00fcter', 'Dienstleistungen'],
+          tips: ['Konsumg\u00fcter: Zwischenhandel dazwischen (Abb. 2-8).', 'Investitionsg\u00fcter: Buying Center beim Kunden (Abb. 2-9).', 'Dienstleistungen: Mitarbeitende sind Teil des Systems, internes/interaktives Marketing (Abb. 2-10).'],
+          reveal: ['Konsumg\u00fcter (Abb. 2-8): Massengesch\u00e4ft, der Zwischenhandel steht zwischen Hersteller und Endkunden und hat einen eigenen Marketingmix.', 'Investitionsg\u00fcter (Abb. 2-9): Kein Zwischenhandel, daf\u00fcr ein Buying Center beim Kunden: Interner Beeinflusser, Entscheider, Verwender, Gatekeeper und Eink\u00e4ufer wirken am Kaufentscheid mit.', 'Dienstleistungen (Abb. 2-10): Die eigenen Mitarbeitenden erbringen die Leistung. Internes Marketing (Unternehmen zu Mitarbeitenden), externes Marketing (Unternehmen zu Kunden) und interaktives Marketing (Mitarbeitende zu Kunden). Auch die Mitarbeitenden des Konkurrenten sind Teil des Systems.', 'Pr\u00fcfungstipp: Der Unterschied liegt im mittleren Element: Handel (Konsumg\u00fcter), Buying Center (Investitionsg\u00fcter) oder Mitarbeitende (Dienstleistungen).']
         }
       ],
       learningData: {
@@ -377,6 +457,45 @@ window.BOOK_DATA = {
           keywords: ['4560', '4\'560', '4560'],
           tips: ['CLV = Durchschnittsumsatz pro Monat \u00d7 12 Monate \u00d7 Anzahl Jahre'],
           reveal: ['CLV = CHF 38 \u00d7 12 \u00d7 10 = CHF 4\u2019560']
+        },
+        {
+          id: 101, type: 'calc', title: 'ABC-Analyse: Verkaufsplan berechnen (mit neuen Zahlen \u00fcbbar)',
+          q: 'Die Verkaufsleiterin eines B2B-Unternehmens erstellt den Verkaufsplan (Zielvorgaben f\u00fcr Kundenkontakte) aufgrund der ABC-Analyse. Berechnen Sie die Kontaktziele. Mit \u00ab\u21bb Neue Zahlen\u00bb erhalten Sie eine neue Aufgabe.',
+          generator: function() {
+            function ri(min, max) { return min + Math.floor(Math.random() * (max - min + 1)); }
+            var a = ri(2, 6) * 50;        // 100-300 A-Kunden
+            var b = ri(5, 9) * 50;        // 250-450 B-Kunden
+            var c = ri(4, 8) * 100;       // 400-800 C-Kunden
+            var besA = ri(4, 8) * 2;      // 8-16 Besuche pro A-Kunde/Jahr
+            var besB = ri(2, 6);          // Besuche pro B-Kunde/Jahr
+            var telB = ri(2, 6);          // Telefonate pro B-Kunde/Jahr
+            var telC = ri(2, 6);          // Telefonate pro C-Kunde/Jahr
+            var total = a + b + c;
+            var besuche = a * besA + b * besB;
+            var telefonate = b * telB + c * telC;
+            var anteilA = Math.round(a / total * 1000) / 10;
+            return {
+              instruction: 'Kundenstamm und j\u00e4hrliche Kontaktfrequenzen pro Kunde:\n' +
+                '\u2022 A-Kunden: ' + a + ' Kunden, ' + besA + ' Besuche pro Jahr, keine Telefonate\n' +
+                '\u2022 B-Kunden: ' + b + ' Kunden, ' + besB + ' Besuche und ' + telB + ' Telefonate pro Jahr\n' +
+                '\u2022 C-Kunden: ' + c + ' Kunden, keine Besuche, ' + telC + ' Telefonate pro Jahr',
+              fields: [
+                { label: 'Total Kunden', answer: total, tolerance: 0 },
+                { label: 'Total Besuche pro Jahr', answer: besuche, tolerance: 0 },
+                { label: 'Total Telefonate pro Jahr', answer: telefonate, tolerance: 0 },
+                { label: 'Anteil A-Kunden am Kundenstamm (%)', answer: anteilA, tolerance: 0.5 }
+              ],
+              reveal: [
+                'Total Kunden = ' + a + ' + ' + b + ' + ' + c + ' = ' + total + '.',
+                'Besuche = A-Kunden \u00d7 Besuchsfrequenz + B-Kunden \u00d7 Besuchsfrequenz = ' + a + ' \u00d7 ' + besA + ' + ' + b + ' \u00d7 ' + besB + ' = ' + besuche + '. Warum keine C-Kunden? C-Kunden generieren wenig Umsatz, der teure Aussendienstbesuch lohnt sich nicht, sie werden telefonisch betreut.',
+                'Telefonate = ' + b + ' \u00d7 ' + telB + ' + ' + c + ' \u00d7 ' + telC + ' = ' + telefonate + '.',
+                'Anteil A-Kunden = ' + a + ' \u00f7 ' + total + ' \u00d7 100 = ' + anteilA + '%. Typisches ABC-Muster: A-Kunden machen 10-20% des Kundenstamms aus, schaffen aber ca. 60% des Umsatzes.',
+                'Weiterf\u00fchrung: Diese Kontaktziele werden in Verkaufskapazit\u00e4ten umgerechnet. Ein Verk\u00e4ufer schafft pro Tag zwischen 4 und 20 Besuche und zwischen 20 und 120 Telefonate.',
+                'Pr\u00fcfungstipp: Die Kontaktstrategie folgt der Rentabilit\u00e4t: A-Kunden pers\u00f6nlich und h\u00e4ufig (Key-Account-Management), B-Kunden gemischt, C-Kunden kosteng\u00fcnstig per Telefon.'
+              ]
+            };
+          },
+          tips: ['Besuche und Telefonate je Kategorie: Anzahl Kunden \u00d7 Frequenz pro Jahr.', 'A-Kunden werden besucht, C-Kunden nur telefonisch betreut.', 'A-Kunden machen typischerweise 10-20% des Kundenstamms aus, aber ca. 60% des Umsatzes.']
         },
         {
           id: 13, type: 'tf', title: 'Marktanalyse: Richtig oder falsch?',
@@ -632,6 +751,35 @@ window.BOOK_DATA = {
     {
       id: 'ch4', pageStart: 60, pageEnd: 77, num: 'Teil A \u2013 Kapitel 4', title: 'Analyse II: Unternehmens- und Umfeldanalyse',
       exercises: [
+        {
+          id: 102, type: 'match', title: 'BCG-Matrix zuordnen',
+          q: 'Ordnen Sie die vier SGE-Typen der BCG-Matrix den nummerierten Feldern in der Grafik zu.',
+          svg: '<svg viewBox="0 0 700 360" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif"><text x="390" y="22" text-anchor="middle" fill="#581c87" font-size="13" font-weight="bold">Relativer Marktanteil</text><text x="150" y="40" fill="#6b21a8" font-size="10">Niedrig</text><text x="600" y="40" fill="#6b21a8" font-size="10">Hoch</text><line x1="180" y1="36" x2="580" y2="36" stroke="#581c87" stroke-width="1.5" marker-start="url(#bcg-al)" marker-end="url(#bcg-ar)"/><defs><marker id="bcg-al" markerWidth="8" markerHeight="6" refX="0" refY="3" orient="auto"><path d="M8,0 L0,3 L8,6" fill="#581c87"/></marker><marker id="bcg-ar" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#581c87"/></marker></defs><text x="30" y="200" text-anchor="middle" fill="#581c87" font-size="13" font-weight="bold" transform="rotate(-90 30 200)">Marktwachstum</text><text x="60" y="60" fill="#6b21a8" font-size="10">Hoch</text><text x="55" y="345" fill="#6b21a8" font-size="10">Niedrig</text><rect x="90" y="50" width="290" height="145" fill="#faf5ff" stroke="#581c87" stroke-width="2"/><rect x="380" y="50" width="290" height="145" fill="#f3e8ff" stroke="#581c87" stroke-width="2"/><rect x="90" y="195" width="290" height="145" fill="#f3e8ff" stroke="#581c87" stroke-width="2"/><rect x="380" y="195" width="290" height="145" fill="#faf5ff" stroke="#581c87" stroke-width="2"/><circle cx="235" cy="115" r="22" fill="#7e22ce"/><text x="235" y="123" text-anchor="middle" fill="#fff" font-size="18" font-weight="bold">1</text><text x="235" y="170" text-anchor="middle" fill="#6b21a8" font-size="20">?</text><circle cx="525" cy="115" r="22" fill="#7e22ce"/><text x="525" y="123" text-anchor="middle" fill="#fff" font-size="18" font-weight="bold">2</text><text x="525" y="172" text-anchor="middle" fill="#6b21a8" font-size="20">★</text><circle cx="235" cy="260" r="22" fill="#7e22ce"/><text x="235" y="268" text-anchor="middle" fill="#fff" font-size="18" font-weight="bold">3</text><text x="235" y="315" text-anchor="middle" fill="#6b21a8" font-size="16">🐕</text><circle cx="525" cy="260" r="22" fill="#7e22ce"/><text x="525" y="268" text-anchor="middle" fill="#fff" font-size="18" font-weight="bold">4</text><text x="525" y="315" text-anchor="middle" fill="#6b21a8" font-size="16">🐄</text></svg>',
+          pairs: [
+            { l: 'Question Marks (hohes Marktwachstum, niedriger Marktanteil)', r: '1' },
+            { l: 'Stars (hohes Marktwachstum, hoher Marktanteil)', r: '2' },
+            { l: 'Poor Dogs (niedriges Marktwachstum, niedriger Marktanteil)', r: '3' },
+            { l: 'Cash Cows (niedriges Marktwachstum, hoher Marktanteil)', r: '4' }
+          ],
+          options: ['1', '2', '3', '4'],
+          tips: ['Vertikale Achse = Marktwachstum (oben hoch), horizontale Achse = relativer Marktanteil (rechts hoch).', 'Stars stehen dort, wo beides hoch ist.', 'Cash Cows haben einen hohen Marktanteil in einem langsam wachsenden Markt.'],
+          reveal: ['1 = Question Marks: Wachsender Markt, aber kleiner Marktanteil. Fragezeichen: Investieren, um zum Star zu werden, oder aussteigen?', '2 = Stars: Hoher Marktanteil im Wachstumsmarkt. Brauchen weiterhin Investitionen, um die Position zu halten.', '3 = Poor Dogs: Kleiner Marktanteil im stagnierenden Markt. Kandidaten für die Elimination.', '4 = Cash Cows: Hoher Marktanteil, aber das Marktwachstum verlangsamt sich. Keine hohen Investitionen mehr nötig, die SGE liefern dem Unternehmen Geld.', 'Prüfungstipp: Der ideale Lebenszyklus einer SGE: Question Mark → Star → Cash Cow. Mit dem Geld der Cash Cows werden neue Question Marks finanziert.']
+        },
+        {
+          id: 103, type: 'match', title: 'McKinsey-Matrix: SGE positionieren',
+          q: 'Ordnen Sie die fünf Geschäftseinheiten A bis E den Positionen in der 9-Felder-Matrix von McKinsey zu (Achsen: Marktattraktivität und Wettbewerbsvorteil).',
+          svg: '<svg viewBox="0 0 700 380" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif"><text x="400" y="20" text-anchor="middle" fill="#581c87" font-size="13" font-weight="bold">Wettbewerbsvorteil</text><text x="235" y="40" text-anchor="middle" fill="#6b21a8" font-size="10">Gering</text><text x="400" y="40" text-anchor="middle" fill="#6b21a8" font-size="10">Mittel</text><text x="565" y="40" text-anchor="middle" fill="#6b21a8" font-size="10">Hoch</text><text x="40" y="200" text-anchor="middle" fill="#581c87" font-size="13" font-weight="bold" transform="rotate(-90 40 200)">Marktattraktivität</text><text x="78" y="105" text-anchor="middle" fill="#6b21a8" font-size="10" transform="rotate(-90 78 105)">Hoch</text><text x="78" y="205" text-anchor="middle" fill="#6b21a8" font-size="10" transform="rotate(-90 78 205)">Mittel</text><text x="78" y="305" text-anchor="middle" fill="#6b21a8" font-size="10" transform="rotate(-90 78 305)">Gering</text><rect x="153" y="50" width="495" height="310" fill="#faf5ff" stroke="#581c87" stroke-width="2"/><line x1="318" y1="50" x2="318" y2="360" stroke="#581c87" stroke-width="1.5"/><line x1="483" y1="50" x2="483" y2="360" stroke="#581c87" stroke-width="1.5"/><line x1="153" y1="153" x2="648" y2="153" stroke="#581c87" stroke-width="1.5"/><line x1="153" y1="257" x2="648" y2="257" stroke="#581c87" stroke-width="1.5"/><circle cx="565" cy="100" r="26" fill="#f3e8ff" stroke="#7e22ce" stroke-width="2"/><text x="565" y="106" text-anchor="middle" fill="#581c87" font-size="15" font-weight="bold">A</text><circle cx="235" cy="120" r="36" fill="#f3e8ff" stroke="#7e22ce" stroke-width="2"/><text x="235" y="126" text-anchor="middle" fill="#581c87" font-size="15" font-weight="bold">B</text><circle cx="400" cy="215" r="24" fill="#f3e8ff" stroke="#7e22ce" stroke-width="2"/><text x="400" y="221" text-anchor="middle" fill="#581c87" font-size="15" font-weight="bold">C</text><circle cx="565" cy="305" r="30" fill="#f3e8ff" stroke="#7e22ce" stroke-width="2"/><text x="565" y="311" text-anchor="middle" fill="#581c87" font-size="15" font-weight="bold">D</text><circle cx="215" cy="310" r="18" fill="#f3e8ff" stroke="#7e22ce" stroke-width="2"/><text x="215" y="316" text-anchor="middle" fill="#581c87" font-size="15" font-weight="bold">E</text><text x="160" y="375" fill="#6b21a8" font-size="9">Kreisgrösse = Umsatz der Geschäftseinheit</text></svg>',
+          pairs: [
+            { l: 'Attraktiver Markt, hohe Wettbewerbsvorteile. Umsatz CHF 1.1 Mio., Gewinn CHF 250\'000.', r: 'A' },
+            { l: 'Attraktiver Markt, aber wenige Wettbewerbsvorteile. Umsatz CHF 1.3 Mio.', r: 'B' },
+            { l: 'Eher unattraktiver Markt, ansprechende (nicht überragende) Wettbewerbsvorteile. Umsatz CHF 1 Mio., Gewinn CHF 100\'000.', r: 'C' },
+            { l: 'Markt am Ende des Produktlebenszyklus, starke Wettbewerbsstellung. Umsatz von CHF 4 Mio. auf CHF 300\'000 gefallen, Gewinn CHF 120\'000 ohne Investitionen.', r: 'D' },
+            { l: 'Wenig attraktiver Markt, wenige Wettbewerbsvorteile. Umsatz CHF 200\'000, kein Gewinn.', r: 'E' }
+          ],
+          options: ['A', 'B', 'C', 'D', 'E'],
+          tips: ['Horizontal steht der Wettbewerbsvorteil (rechts hoch), vertikal die Marktattraktivität (oben hoch).', 'Die Kreisgrösse zeigt den Umsatz, der schraffierte Sektor den Gewinn.', 'Das optimale Feld ist oben rechts: hohe Marktattraktivität und hoher Wettbewerbsvorteil.'],
+          reveal: ['A = oben rechts: Attraktiver Markt und hohe Wettbewerbsvorteile. Das ist das Zielfeld jedes Marketingkonzepts. Strategie: investieren und Position ausbauen.', 'B = oben links: Der Markt ist attraktiv, aber die eigene Position schwach. Grosser Umsatz, wenig Vorteile. Strategie: selektiv investieren, um Wettbewerbsvorteile aufzubauen, oder aussteigen.', 'C = Mitte: Mittelfeld in beiden Dimensionen. Strategie: Position halten und Rentabilität sichern.', 'D = unten rechts: Der Markt ist am Ende des Produktlebenszyklus, die eigene Position aber stark. Ohne Investitionen wird noch Gewinn abgeschöpft (Abschöpfungsstrategie), danach Liquidation.', 'E = unten links: Wenig attraktiver Markt, keine Wettbewerbsvorteile, kein Gewinn. Wird nur aus traditionellen Gründen beibehalten. Strategie: desinvestieren.', 'Prüfungstipp: Die McKinsey-Matrix hat 9 Felder (Marktattraktivität × Wettbewerbsvorteil, je gering/mittel/hoch). Merken Sie die drei Normstrategien: oben rechts investieren, Diagonale selektiv, unten links desinvestieren.']
+        },
         {
           id: 21, type: 'text', title: 'BCG-Portfolio: Nur Cash Cows?',
           q: 'Ein Unternehmen erstellt eine Portfolioanalyse und stellt fest, dass alle vier Produkte Cash Cows sind. Beurteilen Sie diese Situation als vorteilhaft oder problematisch.',
