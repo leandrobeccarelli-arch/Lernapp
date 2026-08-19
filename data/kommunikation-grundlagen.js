@@ -2293,12 +2293,12 @@ window.BOOK_DATA = {
           pairs: [
             { l: 'Bezahlte Werbung und gesponserte Inhalte', r: 'Paid Media' },
             { l: 'Durch Dritte verdiente Medienpräsenz', r: 'Earned Media' },
-            { l: 'Von Nutzern geteilte Inhalte in sozialen Medien', r: 'Shared Media' },
+            { l: 'Von der Öffentlichkeit gemeinsam gestaltete Inhalte in sozialen Medien', r: 'Social Media' },
             { l: 'Unternehmenseigene Medien wie Website und Blog', r: 'Owned Media' }
           ],
-          options: ['Paid Media','Earned Media','Shared Media','Owned Media'],
-          tips: ['P = Paid (bezahlt).','E = Earned (verdient durch Qualität).','S = Shared (geteilt in Social Media).','O = Owned (eigene Medien).'],
-          reveal: ['Paid Media: Bezahlte Werbung und gesponserte Inhalte.','Earned Media: Durch Dritte verdiente Medienpräsenz (Presseberichte, Empfehlungen).','Shared Media: Von Nutzern geteilte Inhalte in sozialen Medien.','Owned Media: Unternehmenseigene Medien (Website, Blog, Kundenmagazin).']
+          options: ['Paid Media','Earned Media','Social Media','Owned Media'],
+          tips: ['P = Paid (bezahlt).','E = Earned (verdient durch Qualität).','S = Social (gemeinsam mit der Öffentlichkeit gestaltet).','O = Owned (eigene Medien).'],
+          reveal: ['Paid Media: Bezahlte Werbung und gesponserte Inhalte.','Earned Media: Durch Dritte verdiente Medienpräsenz (Presseberichte, Empfehlungen).','Social Media: Gemeinsam mit der Öffentlichkeit gestaltete Inhalte (Postings, Kommentare, Forenbeiträge).','Owned Media: Unternehmenseigene Medien (Website, Blog, Kundenmagazin).']
         },
         {
           id: 70, type: 'text',
@@ -2356,11 +2356,11 @@ window.BOOK_DATA = {
           id: 75, type: 'tf',
           q: 'Richtig oder Falsch: Corporate Media',
           statements: [
-            { s: 'Das PESO-Modell beschreibt vier Grundarten von Content: Paid, Earned, Shared, Owned.', c: true, feedback: 'P-E-S-O sind die vier Grundarten.' },
+            { s: 'Das PESO-Modell beschreibt vier Grundarten von Content: Paid, Earned, Social, Owned.', c: true, feedback: 'P-E-S-O steht für Paid, Earned, Social und Owned Content.' },
             { s: 'Corporate Publishing hat den Nachteil, dass mittels Owned Media nur wenig zielgerichtet kommuniziert werden kann.', c: false, feedback: 'Owned Media ermöglicht gerade sehr zielgerichtete Kommunikation, da das Unternehmen die volle Kontrolle hat.' },
             { s: 'Ein Kundenmagazin kann die Abhängigkeit von Fachmedien reduzieren.', c: true, feedback: 'Ein eigenes Medium ersetzt teilweise die Abhängigkeit von externen Fachmedien.' }
           ],
-          tips: ['PESO = Paid, Earned, Shared, Owned.','Owned Media = volle Kontrolle, zielgerichtete Kommunikation.','Kundenmagazin = eigenes Medium.'],
+          tips: ['PESO = Paid, Earned, Social, Owned.','Owned Media = volle Kontrolle, zielgerichtete Kommunikation.','Kundenmagazin = eigenes Medium.'],
           reveal: ['Aussage 1: Richtig \u2013 PESO-Modell.','Aussage 2: Falsch \u2013 Owned Media = zielgerichtet.','Aussage 3: Richtig \u2013 Kundenmagazin reduziert Abhängigkeit.']
         },
         {
