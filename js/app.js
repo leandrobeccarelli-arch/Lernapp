@@ -53,10 +53,28 @@ function matchAnswer(input, answers) {
   return answers.some(function(a) { return n === normalize(a); });
 }
 
+// Kurze Stichwörter (z.B. "ja", "pr", "wo") würden als Teilstring in "Jahr", "Preis"
+// oder "wollen" treffen und die Auswertung verfälschen. Sie werden deshalb nur als
+// eigenständiges Wort gezählt. Längere Stichwörter bleiben Teilstring-Treffer, damit
+// "beratung" weiterhin in "Beratungskompetenz" gefunden wird.
+var KEYWORD_WORD_BOUNDARY_MAX = 4;
+
+function keywordFound(haystack, keyword) {
+  var k = String(keyword).toLowerCase();
+  if (!k) return false;
+  if (k.length > KEYWORD_WORD_BOUNDARY_MAX) return haystack.indexOf(k) >= 0;
+  var escaped = k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  var nichtWort = '[^a-z0-9äöüßàáâèéêìíîòóôùúûç]';
+  // Beugungsendungen zulassen, damit "fix" auch in "fixer Lohnbestandteil" zählt.
+  // Das Stichwort muss dabei am Wortanfang stehen, deshalb greift "pr" nicht in "Preis".
+  var endung = '(?:e|en|er|es|em|s|n)?';
+  return new RegExp('(?:^|' + nichtWort + ')' + escaped + endung + '(?:' + nichtWort + '|$)').test(haystack);
+}
+
 function matchKeywords(input, keywords) {
   var n = (input || '').toLowerCase();
   var found = 0;
-  keywords.forEach(function(k) { if (n.indexOf(k.toLowerCase()) >= 0) found++; });
+  keywords.forEach(function(k) { if (keywordFound(n, k)) found++; });
   return found;
 }
 
@@ -695,7 +713,7 @@ function TextExercise(props) {
     ) : null,
     checked && !examMode && allKeywords.length > 0 ? e('div', { style: { marginTop: 8, fontSize: '.8rem', color: 'var(--text2)' } },
       'Schl\u00FCsselw\u00F6rter: ' + allKeywords.map(function(k) {
-        var found = (val || '').toLowerCase().indexOf(k.toLowerCase()) >= 0;
+        var found = keywordFound((val || '').toLowerCase(), k);
         return found ? '\u2713 ' + k : '\u2717 ' + k;
       }).join(', ')
     ) : null,
