@@ -101,11 +101,11 @@ const {useState, useEffect} = React;
    ══════════════════════════════════════════════════════════ */
 const BOOKS = [
   {id:'kommunikation-grundlagen',file:'kommunikation-grundlagen.html',title:'Grundlagen der Kommunikation für Marketing- und Verkaufsverantwortliche',author:'Markus Aerni',year:2023,pages:167,color:'#6b7280',chapters:11,exercises:137,upgraded:true},
-  {id:'verkaufsplanung',file:'verkaufsplanung.html',title:'Verkaufsplanung für Marketing- und Verkaufsverantwortliche',author:'Portmann, Meyer',year:2023,pages:231,color:'#4b5563',chapters:10,exercises:101,upgraded:true},
+  {id:'verkaufsplanung',file:'verkaufsplanung.html',title:'Verkaufsplanung für Marketing- und Verkaufsverantwortliche',author:'Portmann, Meyer',year:2023,pages:231,color:'#4b5563',chapters:10,exercises:103,upgraded:true},
   {id:'distribution',file:'distribution.html',title:'Distribution 3.0 für Marketing- und Verkaufsverantwortliche',author:'Bislin, Röösli',year:2023,pages:175,color:'#6b7280',chapters:10,exercises:80,upgraded:true},
   {id:'digitales-marketing',file:'digitales-marketing.html',title:'Digitales Marketing für Marketing- und Verkaufsverantwortliche',author:'Michael Klaas',year:2020,pages:166,color:'#4b5563',chapters:8,exercises:75,upgraded:true},
   {id:'kommunikation-instrumente',file:'kommunikation-instrumente.html',title:'Instrumente der Kommunikation für Marketing- und Verkaufsverantwortliche',author:'Markus Aerni',year:2023,pages:198,color:'#6b7280',chapters:9,exercises:80,upgraded:true},
-  {id:'marketingkonzept',file:'marketingkonzept.html',title:'Marketingkonzept, Marktanalyse und Marktleistung',author:'Friebe, Michel, Portmann, Reber, Schneider',year:2022,pages:280,color:'#4b5563',chapters:16,exercises:97,upgraded:true},
+  {id:'marketingkonzept',file:'marketingkonzept.html',title:'Marketingkonzept, Marktanalyse und Marktleistung',author:'Friebe, Michel, Portmann, Reber, Schneider',year:2022,pages:280,color:'#4b5563',chapters:16,exercises:109,upgraded:true},
   {id:'selbstmanagement',file:'selbstmanagement.html',title:'Selbstmanagement für Marketing- und Verkaufsverantwortliche',author:'Geiger, Jäggi, Messi, Züger, Pifko',year:2017,pages:228,color:'#6b7280',chapters:15,exercises:86,upgraded:true},
   {id:'projektmanagement',file:'projektmanagement.html',title:'Projektmanagement für Marketing- und Verkaufsverantwortliche',author:'Führer, Züger',year:2017,pages:142,color:'#4b5563',chapters:15,exercises:66,upgraded:true},
   {id:'rechnungswesen',file:'rechnungswesen.html',title:'Rechnungswesen: Bilanz, Erfolgsrechnung und Kennzahlen',author:'SIMAKOM Managementschule, Daniel Wolfisberg',year:2026,pages:12,color:'#1e40af',chapters:2,exercises:1,unlimited:true,upgraded:true}
@@ -262,7 +262,7 @@ function App(){
       e('img',{src:'assets/leandro-hero.png',alt:'Leandro: Viel Spass beim Lernen, ich glaube an dich!',className:'hero-photo'}),
       e('div',{style:{position:'relative'}},
         e('h1',{className:'hero-title',style:{letterSpacing:'.12em',fontSize:'1.4rem'}},'BUILT BY LEANDRO'),
-        e('div',{style:{display:'inline-block',marginTop:10,padding:'2px 10px',borderRadius:4,fontSize:'.6rem',fontWeight:600,letterSpacing:'.05em',background:'rgba(255,255,255,.08)',color:'var(--hero-sub)',border:'1px solid rgba(255,255,255,.1)'}},'v0.25.0-beta'),
+        e('div',{style:{display:'inline-block',marginTop:10,padding:'2px 10px',borderRadius:4,fontSize:'.6rem',fontWeight:600,letterSpacing:'.05em',background:'rgba(255,255,255,.08)',color:'var(--hero-sub)',border:'1px solid rgba(255,255,255,.1)'}},'v0.26.0-beta'),
         e('div',{className:'hero-stats'},
           e('div',{className:'hero-stat'},
             e('div',{className:'hero-stat-val'},booksReady+'/'+booksTotal),

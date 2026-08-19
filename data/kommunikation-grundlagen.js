@@ -1907,7 +1907,7 @@ window.BOOK_DATA = {
           q: 'Brutto-Kundenwert berechnen',
           instruction: 'Ein Kunde kauft durchschnittlich für CHF 250 pro Einkauf, er kauft 4-mal pro Jahr, und die Beziehungsdauer beträgt 6 Jahre. Berechnen Sie den Brutto-Kundenwert.',
           fields: [
-            { label: 'Brutto-Kundenwert (CHF)', answer: 6000 }
+            { label: 'Brutto-Kundenwert (CHF)', answer: 6000, tolerance: 0 }
           ],
           tips: ['Formel: Durchschnittsumsatz x Kaufhäufigkeit x Beziehungsdauer.','250 x 4 = 1000 pro Jahr.','1000 x 6 Jahre = Brutto-Kundenwert.'],
           reveal: ['Brutto-Kundenwert = Durchschnittsumsatz x Kaufhäufigkeit x Beziehungsdauer.','250 x 4 x 6 = CHF 6000.','Für den Netto-Kundenwert müssten noch die Bearbeitungskosten abgezogen werden.']

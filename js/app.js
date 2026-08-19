@@ -53,22 +53,32 @@ function matchAnswer(input, answers) {
   return answers.some(function(a) { return n === normalize(a); });
 }
 
-// Kurze Stichwörter (z.B. "ja", "pr", "wo") würden als Teilstring in "Jahr", "Preis"
-// oder "wollen" treffen und die Auswertung verfälschen. Sie werden deshalb nur als
-// eigenständiges Wort gezählt. Längere Stichwörter bleiben Teilstring-Treffer, damit
-// "beratung" weiterhin in "Beratungskompetenz" gefunden wird.
-var KEYWORD_WORD_BOUNDARY_MAX = 4;
+// Sehr kurze Stichwörter würden als Teilstring mitten in anderen Wörtern treffen
+// ("pr" in "Preis", "ja" in "Jahr") und die Auswertung verfälschen. Gleichzeitig muss
+// ein Stichwort in deutschen Zusammensetzungen zählen ("fix" in "Fixkosten"). Deshalb
+// gilt eine nach Länge gestaffelte Regel:
+//   bis 2 Zeichen  -> nur als eigenständiges Wort, Beugungsendung erlaubt
+//   3 bis 4 Zeichen -> am Wortanfang ODER am Wortende eines Kompositums
+//                     ("fix" in "Fixkosten", "team" in "Verkaufsteam"), aber nie
+//                     mitten im Wort ("top" zählt nicht in "stopp")
+//   ab 5 Zeichen   -> Teilstring wie bisher ("beratung" in "Beratungskompetenz")
+var KEYWORD_EXACT_MAX = 2;
+var KEYWORD_PREFIX_MAX = 4;
+var KEYWORD_WORTZEICHEN = 'a-z0-9äöüßàáâèéêìíîòóôùúûç';
+var KEYWORD_ENDUNG = '(?:e|en|er|es|em|s|n)?';
 
 function keywordFound(haystack, keyword) {
   var k = String(keyword).toLowerCase();
   if (!k) return false;
-  if (k.length > KEYWORD_WORD_BOUNDARY_MAX) return haystack.indexOf(k) >= 0;
+  if (k.length > KEYWORD_PREFIX_MAX) return haystack.indexOf(k) >= 0;
   var escaped = k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  var nichtWort = '[^a-z0-9äöüßàáâèéêìíîòóôùúûç]';
-  // Beugungsendungen zulassen, damit "fix" auch in "fixer Lohnbestandteil" zählt.
-  // Das Stichwort muss dabei am Wortanfang stehen, deshalb greift "pr" nicht in "Preis".
-  var endung = '(?:e|en|er|es|em|s|n)?';
-  return new RegExp('(?:^|' + nichtWort + ')' + escaped + endung + '(?:' + nichtWort + '|$)').test(haystack);
+  var keinWortzeichen = '[^' + KEYWORD_WORTZEICHEN + ']';
+  var amWortanfang = '(?:^|' + keinWortzeichen + ')' + escaped;
+  var amWortende = escaped + KEYWORD_ENDUNG + '(?:' + keinWortzeichen + '|$)';
+  if (k.length <= KEYWORD_EXACT_MAX) {
+    return new RegExp('(?:^|' + keinWortzeichen + ')' + escaped + KEYWORD_ENDUNG + '(?:' + keinWortzeichen + '|$)').test(haystack);
+  }
+  return new RegExp(amWortanfang).test(haystack) || new RegExp(amWortende).test(haystack);
 }
 
 function matchKeywords(input, keywords) {
@@ -592,17 +602,40 @@ function CheckExercise(props) {
 
 // ─── Calc Exercise ──────────────────────────────────────────────────────────
 
+// Schweizer Schreibweisen zulassen: Tausendertrennzeichen als gerader oder
+// typografischer Apostroph, Komma als Dezimaltrennzeichen, Währung und Einheit
+// vor oder nach der Zahl.
+function parseCalcInput(raw) {
+  var s = String(raw == null ? '' : raw).toLowerCase().trim();
+  s = s.replace(/^[^\d\-]+/, '');              // "CHF 6000" -> "6000"
+  s = s.replace(/[^\d]+$/, '');                // "6000 CHF", "26.5 %" -> Zahl
+  s = s.replace(/['’‘´`]/g, '');               // Tausendertrennzeichen entfernen
+  s = s.replace(/\s/g, '');
+  s = s.replace(/,/g, '.');                    // Komma als Dezimaltrennzeichen
+  if (!/^-?\d*\.?\d+$/.test(s)) return NaN;    // mehrdeutige Eingaben nicht raten
+  return parseFloat(s);
+}
+
 function calcFieldOk(f, raw) {
-  var userVal = parseFloat(String(raw).replace(/[',\s]/g, ''));
+  var userVal = parseCalcInput(raw);
   if (isNaN(userVal)) return false;
   // tolerance ist ABSOLUT (z.B. 200 = ±200 CHF, 0 = exakt); ohne Angabe: ±1% der Lösung
   var tol = (typeof f.tolerance === 'number') ? f.tolerance : Math.abs(f.answer) * 0.01;
   return Math.abs(userVal - f.answer) <= tol + 0.001;
 }
 
+// Die gezogene Variante einer Generator-Aufgabe wird pro Aufgabe gemerkt, damit ein
+// Zuklappen und erneutes Aufklappen nicht unbemerkt eine völlig andere Aufgabe erzeugt.
+var CALC_GENERATOR_VARIANTE = {};
+
 function CalcExercise(props) {
   var ex = props.ex, onDone = props.onDone, examMode = props.examMode;
-  var genSt = useState(function() { return ex.generator ? ex.generator() : null; });
+  var genSt = useState(function() {
+    if (!ex.generator) return null;
+    var schluessel = (props.bookId || '') + ':' + ex.id;
+    if (!CALC_GENERATOR_VARIANTE[schluessel]) CALC_GENERATOR_VARIANTE[schluessel] = ex.generator();
+    return CALC_GENERATOR_VARIANTE[schluessel];
+  });
   var gen = genSt[0], setGen = genSt[1];
   var data = gen ? gen.fields : (ex.fields || ex.calcs || []);
   var st = useState(data.map(function() { return ''; }));
@@ -624,6 +657,7 @@ function CalcExercise(props) {
 
   function regenerate() {
     var g = ex.generator();
+    CALC_GENERATOR_VARIANTE[(props.bookId || '') + ':' + ex.id] = g;
     setGen(g);
     setVals(g.fields.map(function() { return ''; }));
     setChecked(false);
@@ -653,7 +687,7 @@ function CalcExercise(props) {
     e('div', { className: 'btn-row' },
       !checked ? e('button', { className: 'btn btn-primary', onClick: check }, 'Pr\u00FCfen') : null,
       !examMode && checked ? e('button', { className: 'btn btn-secondary', onClick: reset }, 'Nochmal') : null,
-      ex.generator ? e('button', { className: 'btn btn-secondary', onClick: regenerate }, '\u21BB Neue Zahlen') : null
+      !examMode && ex.generator ? e('button', { className: 'btn btn-secondary', onClick: regenerate }, '\u21BB Neue Zahlen') : null
     ),
     examMode && checked ? e('div', { style: { fontSize: '.8rem', color: 'var(--green)', marginTop: 8 } }, '\u2713 Beantwortet') : null,
     !examMode && ex.tips ? e(Tips, { tips: ex.tips }) : null,
@@ -2039,7 +2073,9 @@ function BuchungssaetzeTrainer(props) {
 var CALC_DIFFICULTY = {
   11: 1, 46: 1, 47: 1, 48: 1, 178: 1, 230: 1, 89: 1, 124: 1, 160: 1,
   18: 2, 30: 2, 58: 2, 59: 2, 80: 2, 187: 2, 205: 2, 206: 2, 90: 2, 91: 2, 125: 2, 141: 2, 161: 2, 189: 2, 190: 2,
-  60: 3, 81: 3, 82: 3, 140: 3, 204: 3, 142: 3, 162: 3, 250: 3
+  60: 3, 81: 3, 82: 3, 140: 3, 204: 3, 142: 3, 162: 3, 250: 3,
+  // Fallstudien-Rechnungen mit mehreren Feldern und Zufallsvarianten
+  98: 3, 101: 3, 102: 3, 103: 3
 };
 
 var DIFF_LABELS = { 1: 'Einfach', 2: 'Mittel', 3: 'Schwer' };

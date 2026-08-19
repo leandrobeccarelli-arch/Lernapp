@@ -265,16 +265,21 @@ window.BOOK_DATA = {
             ];
             var f = faelle[ri(0, faelle.length - 1)];
             var einw = ri(8, 10);                      // Mio. Einwohner
-            var antKap = ri(12, 18) * 5;               // 60-90% essen/konsumieren das Produkt
-            var kap = Math.round(einw * antKap / 100 * 10) / 10;   // Mio. Personen
+            var antKap = ri(12, 18) * 5;               // 60-90% konsumieren das Produkt
+            // Zwischenwerte exakt halten: einw x antKap ist ganzzahlig, geteilt durch 100
+            // ergibt höchstens zwei Nachkommastellen. Nur so stimmt die hinterlegte Lösung
+            // mit dem überein, was ein korrekt rechnender Lernender erhält.
+            var kap = Math.round(einw * antKap) / 100;             // Mio. Personen, exakt
             var chf = ri(f.min, f.max) * 100;          // realistische CHF-Ausgaben pro Person und Jahr
-            var pot = Math.round(kap * chf);           // Mio. CHF
+            var pot = Math.round(kap * chf);           // Mio. CHF, exakt (chf ist Vielfaches von 100)
             var antVol = antKap - ri(1, 8) * 5;        // effektive Käufer immer unter der Kapazität (Sättigung < 100%)
-            var volPers = Math.round(einw * antVol / 100 * 10) / 10;
-            var vol = Math.round(volPers * chf);       // Mio. CHF
-            var umsatz = Math.round(vol * ri(2, 15) / 100);  // Marktanteil zwischen 2% und 15%
+            var volPers = Math.round(einw * antVol) / 100;
+            var vol = Math.round(volPers * chf);       // Mio. CHF, exakt
+            // Umsatz so wählen, dass der Marktanteil ein glatter Prozentwert ist. Damit ist
+            // die hinterlegte Lösung exakt und die Toleranz kann eng bleiben.
+            var anteil = ri(2, 15);                    // Marktanteil in Prozent, exakt
+            var umsatz = Math.round(vol * anteil) / 100;
             var saett = Math.round(vol / pot * 1000) / 10;
-            var anteil = Math.round(umsatz / vol * 1000) / 10;
             return {
               instruction: 'Die ' + f.firma + ' hat diese Informationen zum ' + f.produkt + 'markt Schweiz:\n' +
                 '\u2022 Die Schweiz hat ' + einw + ' Mio. Einwohner, wovon ' + antKap + '% ' + f.produkt + ' konsumieren.\n' +
@@ -282,11 +287,11 @@ window.BOOK_DATA = {
                 '\u2022 ' + volPers + ' Mio. Personen kaufen effektiv mindestens einmal pro Jahr ' + f.produkt + '.\n' +
                 '\u2022 Die ' + f.firma + ' erzielt einen Umsatz von CHF ' + umsatz + ' Mio.',
               fields: [
-                { label: 'Marktkapazit\u00e4t (Mio. Personen)', answer: kap, tolerance: 0.1 },
-                { label: 'Marktpotenzial (Mio. CHF)', answer: pot, tolerance: 5 },
-                { label: 'Marktvolumen (Mio. CHF)', answer: vol, tolerance: 5 },
-                { label: 'Markts\u00e4ttigungsgrad (%)', answer: saett, tolerance: 0.5 },
-                { label: 'Marktanteil ' + f.firma + ' (%)', answer: anteil, tolerance: 0.2 }
+                { label: 'Marktkapazit\u00e4t (Mio. Personen)', answer: kap, tolerance: 0.01 },
+                { label: 'Marktpotenzial (Mio. CHF)', answer: pot, tolerance: 1 },
+                { label: 'Marktvolumen (Mio. CHF)', answer: vol, tolerance: 1 },
+                { label: 'Markts\u00e4ttigungsgrad (%)', answer: saett, tolerance: 0.2 },
+                { label: 'Marktanteil ' + f.firma + ' (%)', answer: anteil, tolerance: 0.05 }
               ],
               reveal: [
                 'Marktkapazit\u00e4t = Einwohner \u00d7 Konsumentenanteil = ' + einw + ' Mio. \u00d7 ' + antKap + '% = ' + kap + ' Mio. Personen. Warum? Die Kapazit\u00e4t umfasst alle, die das Produkt \u00fcberhaupt konsumieren w\u00fcrden (Preis spielt keine Rolle).',
@@ -501,13 +506,13 @@ window.BOOK_DATA = {
           id: 13, type: 'tf', title: 'Marktanalyse: Richtig oder falsch?',
           statements: [
             { s: 'Beim Benchmarking vergleicht man sich immer mit dem Branchenleader.', c: false, feedback: 'Man kann auch internes Benchmarking betreiben oder Best-in-Class aus anderen Branchen.' },
-            { s: 'Bei einer ABC-Analyse generieren A-Kunden \u00fcberdurchschnittlich viel Umsatz.', c: true, feedback: 'A-Kunden machen ca. 80% des Umsatzes aus.' },
+            { s: 'Bei einer ABC-Analyse generieren A-Kunden \u00fcberdurchschnittlich viel Umsatz.', c: true, feedback: 'A-Kunden stellen nur 10 bis 20% des Kundenstamms, schaffen aber ca. 60% des Umsatzes.' },
             { s: 'Ein iPhone ist ein High-Involvement-Produkt f\u00fcr die meisten Jugendlichen.', c: true, feedback: 'Hoher Preis, emotionale Bindung \u2013 typisch High-Involvement.' },
             { s: 'In einem Markt, der schnell w\u00e4chst, ist die Rivalit\u00e4t eher gering.', c: true, feedback: 'Bei Marktwachstum k\u00f6nnen alle Anbieter wachsen, der Wettbewerb ist weniger intensiv.' },
             { s: 'Je h\u00f6her die Markteintrittsbarrieren, desto h\u00f6her die m\u00f6gliche Rentabilit\u00e4t der etablierten Unternehmen.', c: true, feedback: 'Hohe Barrieren sch\u00fctzen bestehende Anbieter.' }
           ],
           tips: ['Es geht um verschiedene Analyseinstrumente und Marktmechanismen.', 'Benchmarking kann auf verschiedene Arten durchgeführt werden – nicht nur mit dem Branchenleader.', 'Denken Sie bei Involvement an den Preis und die emotionale Bedeutung des Produkts.'],
-          reveal: ['Aussage 1: Falsch. Man kann auch internes Benchmarking betreiben oder Best-in-Class aus anderen Branchen.', 'Aussage 2: Richtig. A-Kunden machen ca. 80% des Umsatzes aus.', 'Aussage 3: Richtig. Hoher Preis, emotionale Bindung – typisch High-Involvement.', 'Aussage 4: Richtig. Bei Marktwachstum können alle Anbieter wachsen, der Wettbewerb ist weniger intensiv.', 'Aussage 5: Richtig. Hohe Barrieren schützen bestehende Anbieter.']
+          reveal: ['Aussage 1: Falsch. Man kann auch internes Benchmarking betreiben oder Best-in-Class aus anderen Branchen.', 'Aussage 2: Richtig. A-Kunden stellen nur 10 bis 20% des Kundenstamms, schaffen aber ca. 60% des Umsatzes. Die verbreitete 80-Prozent-Faustregel stammt aus dem Pareto-Prinzip, das Lehrmittel nennt für die ABC-Analyse 60%.', 'Aussage 3: Richtig. Hoher Preis, emotionale Bindung – typisch High-Involvement.', 'Aussage 4: Richtig. Bei Marktwachstum können alle Anbieter wachsen, der Wettbewerb ist weniger intensiv.', 'Aussage 5: Richtig. Hohe Barrieren schützen bestehende Anbieter.']
         },
         {
           id: 14, type: 'mc', title: 'Externer Beeinflusser',
@@ -842,7 +847,7 @@ window.BOOK_DATA = {
             { l: 'Immer mehr Menschen arbeiten in Bürojobs und bewegen sich zu wenig.', r: 'O' },
             { l: 'Ärztliche Trainingsberatung und Vorabklärung sind im Angebot integriert.', r: 'S' },
             { l: 'Es wird bewusst auf Sauna, Solarium und Fitnessbar verzichtet.', r: 'W' },
-            { l: 'Krankenkassen stehen unter Kostendruck und streichen Beiträge.', r: 'T' },
+            { l: 'Die Krankenkassen stehen unter Kostendruck.', r: 'T' },
             { l: 'Ein Training dauert nur 30 Minuten bei hoher Effizienz.', r: 'S' },
             { l: 'Der Trend zu sanften Betätigungen wie Pilates und Yoga nimmt zu.', r: 'T' },
             { l: 'Das Angebot spricht Singles nicht an, weil die Atmosphäre nüchtern ist.', r: 'W' },
@@ -852,7 +857,8 @@ window.BOOK_DATA = {
           ],
           options: ['S', 'W', 'O', 'T'],
           tips: ['Fragen Sie bei jedem Faktor: Kann Kieser das selbst steuern? Wenn ja, dann S oder W. Wenn nein, dann O oder T.', 'Chancen und Gefahren beziehen sich auf Entwicklungen von aussen, also auf Markt und Umfeld.', 'Der Verzicht auf Sauna und Solarium ist eine bewusste eigene Entscheidung, also intern.'],
-          reveal: ['Externe Entwicklungen sind Chancen (O) oder Gefahren (T): Überalterung, Bewegungsmangel und Zeitdruck spielen Kieser in die Hände, weil das Angebot genau dort ansetzt. Kostendruck der Krankenkassen, der Trend zu Pilates und Yoga sowie das Training zu Hause bedrohen das Geschäft.', 'Interne Merkmale sind Stärken (S) oder Schwächen (W): Spezialisierung, ärztliche Beratung, die 30 Minuten und die zentralen Standorte sind selbst aufgebaute Vorteile.', 'Der Verzicht auf Sauna, Solarium und Fitnessbar ist eine Schwäche, weil damit Kundensegmente verloren gehen. Es ist eine eigene Entscheidung und deshalb intern, nicht extern.', 'Auch die nüchterne Atmosphäre ist eine Schwäche: Andere Fitnesscenter dienen zusätzlich als Kontaktcenter, dieser Nutzen fehlt bei Kieser.', 'Häufiger Fehler: Die Überalterung als Stärke einordnen. Kieser hat die Bevölkerung nicht altern lassen, das ist eine externe Entwicklung. Die passende Stärke wäre die medizinische Ausrichtung, die zu dieser Entwicklung passt.', 'Prüfungstipp: Nummerieren Sie beim Sammeln externe Faktoren mit Zahlen und interne mit Buchstaben. Danach können Sie in der Matrix mit Kürzeln wie (1c) referenzieren, ohne alles neu zu schreiben.']
+          reveal: ['Externe Entwicklungen sind Chancen (O) oder Gefahren (T): Überalterung, Bewegungsmangel und Zeitdruck spielen Kieser in die Hände, weil das Angebot genau dort ansetzt. Kostendruck der Krankenkassen, der Trend zu Pilates und Yoga sowie das Training zu Hause bedrohen das Geschäft.',
+            'Zum Kostendruck der Krankenkassen: Hier ist nur die externe Seite gefragt, deshalb T. In der MUSKELFIT-Aufgabe wird derselbe Sachverhalt anders formuliert, nämlich als gestrichene Beiträge, von denen das eigene Geschäft abhängt. Dort kommt zusätzlich die interne Schwäche dazu. Achten Sie also genau auf die Formulierung: Beschreibt sie eine Entwicklung im Umfeld oder auch die eigene Abhängigkeit davon?', 'Interne Merkmale sind Stärken (S) oder Schwächen (W): Spezialisierung, ärztliche Beratung, die 30 Minuten und die zentralen Standorte sind selbst aufgebaute Vorteile.', 'Der Verzicht auf Sauna, Solarium und Fitnessbar ist eine Schwäche, weil damit Kundensegmente verloren gehen. Es ist eine eigene Entscheidung und deshalb intern, nicht extern.', 'Auch die nüchterne Atmosphäre ist eine Schwäche: Andere Fitnesscenter dienen zusätzlich als Kontaktcenter, dieser Nutzen fehlt bei Kieser.', 'Häufiger Fehler: Die Überalterung als Stärke einordnen. Kieser hat die Bevölkerung nicht altern lassen, das ist eine externe Entwicklung. Die passende Stärke wäre die medizinische Ausrichtung, die zu dieser Entwicklung passt.', 'Prüfungstipp: Nummerieren Sie beim Sammeln externe Faktoren mit Zahlen und interne mit Buchstaben. Danach können Sie in der Matrix mit Kürzeln wie (1c) referenzieren, ohne alles neu zu schreiben.']
         },
         {
           id: 106, type: 'match', title: 'SWOT-Matrix: Felder beschriften',

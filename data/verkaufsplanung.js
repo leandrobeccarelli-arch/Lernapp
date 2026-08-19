@@ -713,10 +713,10 @@ window.BOOK_DATA = {
           q: 'Der AD-Mitarbeiter kann pro Arbeitstag 3 Kunden besuchen und ist 150 Tage im Verkauf tätig. Wie viele AD-MA werden benötigt für 985 Besuche?',
           fields: [
             {label: 'Ergebnis der Berechnung', answer: 2.19, tolerance: 0.05},
-            {label: 'Benötigte AD-MA (aufgerundet)', answer: 2, tolerance: 0}
+            {label: 'Benötigte AD-MA (auf ganze Personen gerundet)', answer: 2, tolerance: 0}
           ],
-          tips: ['Formel: Anzahl Besuche / (verkaufsaktive Tage x Besuche pro Tag).','985 / (150 x 3) = ?','Es muss aufgerundet werden, da kein halber MA möglich ist.'],
-          reveal: ['Formel: 985 Besuche ÷ (150 Tage × 3 Besuche/Tag) = 985 ÷ 450 = 2.19 AD-MA.','Warum aufrunden auf 2? Man kann keinen 0.19 Mitarbeiter anstellen. Die restlichen Besuche übernimmt die Verkaufsleiterin.','Warum diese Berechnung? Sie ist der Kern der Einsatzplanung: Wie viele AD-Mitarbeitende braucht es, um alle geplanten Kundenbesuche abzudecken?','Prüfungstipp: Diese Berechnung kommt oft an der Prüfung. Formel merken: Gesamtbesuche ÷ (verkaufsaktive Tage × Besuche pro Tag) = benötigte AD-MA.']
+          tips: ['Formel: Anzahl Besuche / (verkaufsaktive Tage x Besuche pro Tag).','985 / (150 x 3) = ?','Es braucht ganze Personen, ein Bruchteil einer Stelle lässt sich nicht anstellen.'],
+          reveal: ['Formel: 985 Besuche ÷ (150 Tage × 3 Besuche/Tag) = 985 ÷ 450 = 2.19 AD-MA.','Warum 2 und nicht 3? Man kann keinen 0.19 Mitarbeiter anstellen. Das Unternehmen stellt 2 AD-Mitarbeitende an, die restlichen Besuche übernimmt die Verkaufsleiterin. Wer auf 3 aufrundet, hätte eine deutliche Unterauslastung.','Warum diese Berechnung? Sie ist der Kern der Einsatzplanung: Wie viele AD-Mitarbeitende braucht es, um alle geplanten Kundenbesuche abzudecken?','Prüfungstipp: Diese Berechnung kommt oft an der Prüfung. Formel merken: Gesamtbesuche ÷ (verkaufsaktive Tage × Besuche pro Tag) = benötigte AD-MA.']
         },
         {
           id: 29,
