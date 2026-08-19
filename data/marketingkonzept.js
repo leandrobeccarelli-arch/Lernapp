@@ -330,11 +330,16 @@ window.BOOK_DATA = {
             { l: 'Es gibt internes, externes und interaktives Marketing: Die eigenen Mitarbeitenden sind Teil des Marktsystems.', r: 'Dienstleistungen' },
             { l: 'Die Mitarbeitenden des Konkurrenten erscheinen als eigenes Element im Marktsystem.', r: 'Dienstleistungen' },
             { l: 'Der Gatekeeper filtert, welche Informationen zum Entscheider gelangen.', r: 'Investitionsg\u00fcter' },
-            { l: 'Endkunden werden im Massengesch\u00e4ft \u00fcber den Handel erreicht.', r: 'Konsumg\u00fcter' }
+            { l: 'Endkunden werden im Massengesch\u00e4ft \u00fcber den Handel erreicht.', r: 'Konsumg\u00fcter' },
+            { l: 'Der Verwender ist nicht identisch mit dem Einkaufenden, beide sitzen aber im selben Unternehmen.', r: 'Investitionsg\u00fcter' },
+            { l: 'Die Leistung entsteht erst im Moment des Kundenkontakts, Produktion und Konsum fallen zusammen.', r: 'Dienstleistungen' },
+            { l: 'Der Hersteller betreibt Push-Marketing auf den Handel und Pull-Marketing auf die Endkunden.', r: 'Konsumg\u00fcter' },
+            { l: 'Wenige, daf\u00fcr grosse Kunden, lange Entscheidungsprozesse und mehrstufige Verhandlungen pr\u00e4gen den Absatzmarkt.', r: 'Investitionsg\u00fcter' },
+            { l: 'Die Qualifikation und Motivation der eigenen Mitarbeitenden bestimmen unmittelbar die wahrgenommene Leistungsqualit\u00e4t.', r: 'Dienstleistungen' }
           ],
           options: ['Konsumg\u00fcter', 'Investitionsg\u00fcter', 'Dienstleistungen'],
-          tips: ['Konsumg\u00fcter: Zwischenhandel dazwischen (Abb. 2-8).', 'Investitionsg\u00fcter: Buying Center beim Kunden (Abb. 2-9).', 'Dienstleistungen: Mitarbeitende sind Teil des Systems, internes/interaktives Marketing (Abb. 2-10).'],
-          reveal: ['Konsumg\u00fcter (Abb. 2-8): Massengesch\u00e4ft, der Zwischenhandel steht zwischen Hersteller und Endkunden und hat einen eigenen Marketingmix.', 'Investitionsg\u00fcter (Abb. 2-9): Kein Zwischenhandel, daf\u00fcr ein Buying Center beim Kunden: Interner Beeinflusser, Entscheider, Verwender, Gatekeeper und Eink\u00e4ufer wirken am Kaufentscheid mit.', 'Dienstleistungen (Abb. 2-10): Die eigenen Mitarbeitenden erbringen die Leistung. Internes Marketing (Unternehmen zu Mitarbeitenden), externes Marketing (Unternehmen zu Kunden) und interaktives Marketing (Mitarbeitende zu Kunden). Auch die Mitarbeitenden des Konkurrenten sind Teil des Systems.', 'Pr\u00fcfungstipp: Der Unterschied liegt im mittleren Element: Handel (Konsumg\u00fcter), Buying Center (Investitionsg\u00fcter) oder Mitarbeitende (Dienstleistungen).']
+          tips: ['Achtung, die Zuordnung ist nicht gleichm\u00e4ssig verteilt: Pr\u00fcfen Sie jede Aussage einzeln.', 'Konsumg\u00fcter: Zwischenhandel dazwischen (Abb. 2-8).', 'Investitionsg\u00fcter: Buying Center beim Kunden (Abb. 2-9).', 'Dienstleistungen: Mitarbeitende sind Teil des Systems, internes/interaktives Marketing (Abb. 2-10).'],
+          reveal: ['Konsumg\u00fcter (Abb. 2-8): Massengesch\u00e4ft, der Zwischenhandel steht zwischen Hersteller und Endkunden und hat einen eigenen Marketingmix.', 'Investitionsg\u00fcter (Abb. 2-9): Kein Zwischenhandel, daf\u00fcr ein Buying Center beim Kunden: Interner Beeinflusser, Entscheider, Verwender, Gatekeeper und Eink\u00e4ufer wirken am Kaufentscheid mit.', 'Dienstleistungen (Abb. 2-10): Die eigenen Mitarbeitenden erbringen die Leistung. Internes Marketing (Unternehmen zu Mitarbeitenden), externes Marketing (Unternehmen zu Kunden) und interaktives Marketing (Mitarbeitende zu Kunden). Auch die Mitarbeitenden des Konkurrenten sind Teil des Systems.', 'Push und Pull (Konsumg\u00fcter): Push richtet sich an den Handel, damit dieser listet und platziert. Pull richtet sich an die Endkunden, damit diese das Produkt im Handel nachfragen.', 'Uno-actu-Prinzip (Dienstleistungen): Produktion und Konsum fallen zeitlich zusammen, die Leistung ist nicht lagerf\u00e4hig. Deshalb sind die Mitarbeitenden Teil des Marktsystems.', 'Pr\u00fcfungstipp: Der Unterschied liegt im mittleren Element: Handel (Konsumg\u00fcter), Buying Center (Investitionsg\u00fcter) oder Mitarbeitende (Dienstleistungen).']
         }
       ],
       learningData: {
@@ -468,39 +473,51 @@ window.BOOK_DATA = {
           q: 'Die Verkaufsleiterin eines B2B-Unternehmens erstellt den Verkaufsplan (Zielvorgaben f\u00fcr Kundenkontakte) aufgrund der ABC-Analyse. Berechnen Sie die Kontaktziele. Mit \u00ab\u21bb Neue Zahlen\u00bb erhalten Sie eine neue Aufgabe.',
           generator: function() {
             function ri(min, max) { return min + Math.floor(Math.random() * (max - min + 1)); }
-            var a = ri(2, 6) * 50;        // 100-300 A-Kunden
-            var b = ri(5, 9) * 50;        // 250-450 B-Kunden
-            var c = ri(4, 8) * 100;       // 400-800 C-Kunden
+            var a, b, c;
+            do {                          // Anteil A-Kunden im typischen Bereich 10-20% halten
+              a = ri(2, 6) * 50;          // 100-300 A-Kunden
+              b = ri(5, 9) * 50;          // 250-450 B-Kunden
+              c = ri(4, 8) * 100;         // 400-800 C-Kunden
+            } while (a / (a + b + c) < 0.10 || a / (a + b + c) > 0.20);
             var besA = ri(4, 8) * 2;      // 8-16 Besuche pro A-Kunde/Jahr
             var besB = ri(2, 6);          // Besuche pro B-Kunde/Jahr
             var telB = ri(2, 6);          // Telefonate pro B-Kunde/Jahr
             var telC = ri(2, 6);          // Telefonate pro C-Kunde/Jahr
+            var proTag = ri(4, 7);        // Besuche pro Aussendienst-Tag
+            var tage = ri(20, 22) * 10;   // Arbeitstage pro Jahr im Aussendienst
             var total = a + b + c;
             var besuche = a * besA + b * besB;
             var telefonate = b * telB + c * telC;
             var anteilA = Math.round(a / total * 1000) / 10;
+            var kapaTage = Math.round(besuche / proTag * 100) / 100;
+            var verkaeufer = Math.ceil(kapaTage / tage);
             return {
               instruction: 'Kundenstamm und j\u00e4hrliche Kontaktfrequenzen pro Kunde:\n' +
                 '\u2022 A-Kunden: ' + a + ' Kunden, ' + besA + ' Besuche pro Jahr, keine Telefonate\n' +
                 '\u2022 B-Kunden: ' + b + ' Kunden, ' + besB + ' Besuche und ' + telB + ' Telefonate pro Jahr\n' +
-                '\u2022 C-Kunden: ' + c + ' Kunden, keine Besuche, ' + telC + ' Telefonate pro Jahr',
+                '\u2022 C-Kunden: ' + c + ' Kunden, keine Besuche, ' + telC + ' Telefonate pro Jahr\n' +
+                'Kapazit\u00e4tsvorgaben Aussendienst: ' + proTag + ' Besuche pro Arbeitstag, ' + tage + ' Arbeitstage pro Jahr und Verk\u00e4ufer.',
               fields: [
                 { label: 'Total Kunden', answer: total, tolerance: 0 },
                 { label: 'Total Besuche pro Jahr', answer: besuche, tolerance: 0 },
                 { label: 'Total Telefonate pro Jahr', answer: telefonate, tolerance: 0 },
-                { label: 'Anteil A-Kunden am Kundenstamm (%)', answer: anteilA, tolerance: 0.5 }
+                { label: 'Anteil A-Kunden am Kundenstamm (%)', answer: anteilA, tolerance: 0.5 },
+                { label: 'Ben\u00f6tigte Besuchstage pro Jahr (Total)', answer: kapaTage, tolerance: 1 },
+                { label: 'Ben\u00f6tigte Aussendienstmitarbeitende (aufgerundet)', answer: verkaeufer, tolerance: 0 }
               ],
               reveal: [
                 'Total Kunden = ' + a + ' + ' + b + ' + ' + c + ' = ' + total + '.',
                 'Besuche = A-Kunden \u00d7 Besuchsfrequenz + B-Kunden \u00d7 Besuchsfrequenz = ' + a + ' \u00d7 ' + besA + ' + ' + b + ' \u00d7 ' + besB + ' = ' + besuche + '. Warum keine C-Kunden? C-Kunden generieren wenig Umsatz, der teure Aussendienstbesuch lohnt sich nicht, sie werden telefonisch betreut.',
                 'Telefonate = ' + b + ' \u00d7 ' + telB + ' + ' + c + ' \u00d7 ' + telC + ' = ' + telefonate + '.',
                 'Anteil A-Kunden = ' + a + ' \u00f7 ' + total + ' \u00d7 100 = ' + anteilA + '%. Typisches ABC-Muster: A-Kunden machen 10-20% des Kundenstamms aus, schaffen aber ca. 60% des Umsatzes.',
-                'Weiterf\u00fchrung: Diese Kontaktziele werden in Verkaufskapazit\u00e4ten umgerechnet. Ein Verk\u00e4ufer schafft pro Tag zwischen 4 und 20 Besuche und zwischen 20 und 120 Telefonate.',
+                'Besuchstage = Total Besuche \u00f7 Besuche pro Tag = ' + besuche + ' \u00f7 ' + proTag + ' = ' + kapaTage + ' Tage. So werden Kontaktziele in Kapazit\u00e4t umgerechnet.',
+                'Aussendienstmitarbeitende = Besuchstage \u00f7 Arbeitstage pro Verk\u00e4ufer = ' + kapaTage + ' \u00f7 ' + tage + ' = ' + (Math.round(kapaTage / tage * 100) / 100) + ', aufgerundet ' + verkaeufer + ' Personen. Warum aufrunden? Eine halbe Person kann nicht eingestellt werden, die Kontaktziele w\u00e4ren sonst nicht erf\u00fcllbar.',
+                'Hinweis zur Bandbreite: Je nach Branche schafft ein Verk\u00e4ufer pro Tag zwischen 4 und 20 Besuche und zwischen 20 und 120 Telefonate. In der Pr\u00fcfung sind die Werte jeweils vorgegeben.',
                 'Pr\u00fcfungstipp: Die Kontaktstrategie folgt der Rentabilit\u00e4t: A-Kunden pers\u00f6nlich und h\u00e4ufig (Key-Account-Management), B-Kunden gemischt, C-Kunden kosteng\u00fcnstig per Telefon.'
               ]
             };
           },
-          tips: ['Besuche und Telefonate je Kategorie: Anzahl Kunden \u00d7 Frequenz pro Jahr.', 'A-Kunden werden besucht, C-Kunden nur telefonisch betreut.', 'A-Kunden machen typischerweise 10-20% des Kundenstamms aus, aber ca. 60% des Umsatzes.']
+          tips: ['Besuche und Telefonate je Kategorie: Anzahl Kunden \u00d7 Frequenz pro Jahr.', 'A-Kunden werden besucht, C-Kunden nur telefonisch betreut.', 'Kapazit\u00e4t: Besuchstage = Total Besuche \u00f7 Besuche pro Tag. Mitarbeitende = Besuchstage \u00f7 Arbeitstage, immer aufrunden.', 'A-Kunden machen typischerweise 10-20% des Kundenstamms aus, aber ca. 60% des Umsatzes.']
         },
         {
           id: 13, type: 'tf', title: 'Marktanalyse: Richtig oder falsch?',
@@ -909,13 +926,19 @@ window.BOOK_DATA = {
         {
           id: 108, type: 'text', title: 'SWOT-Strategien selbst formulieren (Prüfungsaufgabe)',
           q: 'Fallstudie Bergsport Meier AG: Das Fachgeschäft für Bergsportausrüstung in einer Schweizer Kleinstadt beschäftigt gut ausgebildete Bergführer als Verkäufer und bietet eine kostenlose Materialberatung sowie einen Reparaturservice an. Der Onlineshop existiert zwar, ist aber veraltet und schlecht auffindbar. Die Lagerkosten sind hoch, weil ein sehr breites Sortiment geführt wird. Im Umfeld zeigt sich: Wandern und Bergsport boomen seit der Pandemie, gleichzeitig drängen internationale Onlinehändler mit tiefen Preisen in den Markt, und die Kundschaft informiert sich zunehmend online, bevor sie kauft.\n\nFormulieren Sie je eine SO-, eine ST-, eine WO- und eine WT-Strategie. Nennen Sie in jeder Strategie die verwendeten Faktoren.',
-          keywords: ['beratung', 'bergführer', 'fachkompetenz', 'boom', 'wandern', 'onlineshop', 'auffindbar', 'preisdruck', 'konkurrenz', 'sortiment', 'lagerkosten', 'reparatur'],
-          solution: 'SO: Die Fachkompetenz der Bergführer trifft auf den Bergsportboom. Die Beratungskompetenz wird als Kernargument beworben, um die neuen Einsteiger zu gewinnen, die Sicherheit und Anleitung suchen. ST: Die persönliche Beratung und der Reparaturservice werden gegen die Preiskonkurrenz der Onlinehändler eingesetzt, weil beide Leistungen online nicht abbildbar sind. WO: Der veraltete Onlineshop verhindert, dass vom Boom und vom Online-Informationsverhalten profitiert wird. Der Shop muss erneuert und auffindbar gemacht werden. WT: Das breite Sortiment mit hohen Lagerkosten trifft auf den Preisdruck der internationalen Onlinehändler. Das Sortiment muss auf beratungsintensive Bereiche fokussiert werden, in Standardartikeln ist ein Rückzug zu prüfen.',
-          questions: [
-            { q: 'SO-Strategie (Stärke trifft Chance):', keywords: ['beratung', 'bergführer', 'fachkompetenz', 'boom', 'wandern', 'einsteiger'], minKeywords: 2 },
-            { q: 'ST-Strategie (Stärke trifft Gefahr):', keywords: ['beratung', 'reparatur', 'service', 'online', 'preis', 'konkurrenz', 'persönlich'], minKeywords: 2 },
-            { q: 'WO-Strategie (Schwäche trifft Chance):', keywords: ['onlineshop', 'veraltet', 'erneuern', 'auffindbar', 'boom', 'online'], minKeywords: 2 },
-            { q: 'WT-Strategie (Schwäche trifft Gefahr):', keywords: ['sortiment', 'lagerkosten', 'fokus', 'preisdruck', 'reduzieren', 'rückzug'], minKeywords: 2 }
+          parts: [
+            { label: 'a)', q: 'SO-Strategie (Stärke trifft Chance): Nennen Sie die verwendete Stärke, die verwendete Chance und die Massnahme.',
+              keywords: ['bergführer', 'beratung', 'fachkompetenz', 'boom', 'wandern', 'bergsport', 'einsteiger', 'kommunikation'], minKeywords: 3,
+              solution: 'Stärke: Bergführer als Verkäufer mit hoher Fachkompetenz. Chance: Boom bei Wandern und Bergsport mit vielen Einsteigern. Massnahme: Die Beratungskompetenz wird zum Kernargument in der Kommunikation, ergänzt durch Einsteigerkurse und Tourenberatung im Laden.' },
+            { label: 'b)', q: 'ST-Strategie (Stärke trifft Gefahr): Nennen Sie die verwendete Stärke, die abzuwehrende Gefahr und die Massnahme.',
+              keywords: ['beratung', 'reparatur', 'service', 'persönlich', 'onlinehändler', 'preis', 'konkurrenz', 'differenzier'], minKeywords: 3,
+              solution: 'Stärke: persönliche Materialberatung und Reparaturservice. Gefahr: internationale Onlinehändler mit tiefen Preisen. Massnahme: Differenzierung über Leistungen, die online nicht abbildbar sind, statt über den Preis. Beratung, Anpassung vor Ort und Reparatur werden als Gesamtpaket kommuniziert.' },
+            { label: 'c)', q: 'WO-Strategie (Schwäche trifft Chance): Nennen Sie die Schwäche, die blockierte Chance und die Massnahme.',
+              keywords: ['onlineshop', 'veraltet', 'erneuern', 'relaunch', 'auffindbar', 'sichtbar', 'online', 'informier'], minKeywords: 3,
+              solution: 'Schwäche: veralteter und schlecht auffindbarer Onlineshop. Chance: Die Kundschaft informiert sich vor dem Kauf online, der Markt wächst. Massnahme: Relaunch des Shops mit Suchmaschinenoptimierung und lokaler Sichtbarkeit, damit Onlinerecherche und stationärer Kauf verbunden werden.' },
+            { label: 'd)', q: 'WT-Strategie (Schwäche trifft Gefahr): Nennen Sie die Schwäche, die Gefahr und die Massnahme.',
+              keywords: ['sortiment', 'lagerkosten', 'fokus', 'reduzier', 'rückzug', 'preisdruck', 'onlinehändler', 'standardartikel'], minKeywords: 3,
+              solution: 'Schwäche: sehr breites Sortiment mit hohen Lagerkosten. Gefahr: Preisdruck der internationalen Onlinehändler. Massnahme: Das Sortiment wird auf beratungsintensive Bereiche fokussiert, bei austauschbaren Standardartikeln ist der Rückzug oder die Umstellung auf Bestellware zu prüfen.' }
           ],
           tips: ['Sammeln Sie zuerst die Faktoren: Was ist intern (S/W), was ist extern (O/T)?', 'Stärken: Bergführer als Verkäufer, kostenlose Materialberatung, Reparaturservice. Schwächen: veralteter Onlineshop, hohe Lagerkosten durch breites Sortiment.', 'Chancen: Bergsportboom, Online-Informationsverhalten. Gefahren: internationale Onlinehändler mit tiefen Preisen.', 'Jede Strategie muss einen internen und einen externen Faktor verknüpfen, nicht nur eine Massnahme nennen.'],
           reveal: ['Schritt 1, Faktoren sammeln. Intern positiv (S): Bergführer als Verkäufer, kostenlose Materialberatung, Reparaturservice. Intern negativ (W): veralteter und schlecht auffindbarer Onlineshop, hohe Lagerkosten durch das breite Sortiment. Extern positiv (O): Boom bei Wandern und Bergsport, Kundschaft informiert sich online. Extern negativ (T): internationale Onlinehändler mit tiefen Preisen.', 'SO-Strategie: Fachkompetenz trifft Boom. Die Bergführer-Beratung wird zum Kernargument in der Kommunikation, um die vielen Einsteiger zu gewinnen, die Sicherheit und Anleitung brauchen. Warum SO? Beide Seiten sind positiv, die vorhandene Stärke wird einfach ausgespielt.', 'ST-Strategie: Beratung und Reparaturservice gegen die Preiskonkurrenz. Beide Leistungen kann ein internationaler Onlinehändler nicht bieten. Warum ST? Eine vorhandene Stärke wird zur Abwehr einer Bedrohung eingesetzt, also eine Art Versicherung.', 'WO-Strategie: Der veraltete Onlineshop verhindert, dass vom Boom und vom Online-Informationsverhalten profitiert wird. Der Shop wird erneuert und auffindbar gemacht. Warum WO? Die Chance ist da, aber eine eigene Lücke blockiert sie. Hier liegt das grösste Verbesserungspotenzial.', 'WT-Strategie: Breites Sortiment mit hohen Lagerkosten trifft auf den Preisdruck. Das Sortiment wird auf beratungsintensive Bereiche fokussiert, bei austauschbaren Standardartikeln ist der Rückzug zu prüfen. Warum WT? Beide Seiten sind negativ, es bleiben keine Vorteile.', 'Bewertung in der Prüfung: Punkte gibt es für die korrekte Zuordnung zum Feld, für die Nennung beider Faktoren und für eine konkrete, umsetzbare Massnahme. Ein Satz wie «Wir müssen besser werden» erfüllt keinen dieser drei Punkte.']

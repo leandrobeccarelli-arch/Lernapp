@@ -697,6 +697,81 @@ function CalcExercise(props) {
 
 // ─── Text Exercise ──────────────────────────────────────────────────────────
 
+// Mehrteilige Textaufgabe: Pro Teilfrage ein eigenes Feld mit eigener Bewertung.
+// Wird nur aktiv, wenn die Aufgabe ein Feld `parts` mitbringt.
+function MultiPartTextExercise(props) {
+  var ex = props.ex, onDone = props.onDone, examMode = props.examMode;
+  var parts = ex.parts;
+
+  var st = useState(function() { return parts.map(function() { return ''; }); });
+  var vals = st[0], setVals = st[1];
+  var st2 = useState(false), checked = st2[0], setChecked = st2[1];
+
+  function setAt(i, v) {
+    var next = vals.slice();
+    next[i] = v;
+    setVals(next);
+  }
+
+  function partScore(p, text) {
+    var kws = p.keywords || [];
+    if (kws.length === 0) return (text || '').trim().length > 10 ? 1 : 0;
+    var need = Math.min(p.minKeywords || 2, kws.length);
+    return Math.min(1, matchKeywords(text, kws) / need);
+  }
+
+  function check() {
+    setChecked(true);
+    var sum = 0;
+    parts.forEach(function(p, i) { sum += partScore(p, vals[i]); });
+    if (onDone) onDone(Math.round(sum / parts.length * 100));
+  }
+
+  function reset() {
+    setVals(parts.map(function() { return ''; }));
+    setChecked(false);
+  }
+
+  return e('div', null,
+    ex.q ? e('div', { className: 'ex-instruction' }, ex.q) : null,
+    parts.map(function(p, i) {
+      var kws = p.keywords || [];
+      var need = Math.min(p.minKeywords || 2, kws.length);
+      var found = checked ? matchKeywords(vals[i], kws) : 0;
+      var ok = checked && partScore(p, vals[i]) >= 1;
+      return e('div', { key: i, style: { marginTop: 12 } },
+        e('div', { style: { fontWeight: 600, fontSize: '.9rem', marginBottom: 4 } },
+          (p.label || String.fromCharCode(97 + i) + ')') + ' ' + (p.q || '')
+        ),
+        e('textarea', {
+          className: 'text-input',
+          rows: 3,
+          value: vals[i],
+          onChange: function(ev) { setAt(i, ev.target.value); },
+          disabled: checked,
+          placeholder: p.placeholder || 'Ihre Antwort...'
+        }),
+        checked && !examMode ? e('div', { style: { marginTop: 6, fontSize: '.8rem', color: ok ? 'var(--green)' : 'var(--text2)' } },
+          (ok ? '✓ ' : '✗ ') + found + ' Stichworte erkannt, mindestens ' + need + ' erwartet.',
+          kws.length ? e('div', { style: { color: 'var(--text2)', marginTop: 2 } },
+            kws.map(function(k) { return (keywordFound((vals[i] || '').toLowerCase(), k) ? '✓ ' : '✗ ') + k; }).join(', ')
+          ) : null,
+          p.solution ? e('div', { className: 'solution-box', style: { marginTop: 6 } },
+            e('strong', null, 'Musterlösung: '), p.solution
+          ) : null
+        ) : null
+      );
+    }),
+    e('div', { className: 'btn-row' },
+      !checked ? e('button', { className: 'btn btn-primary', onClick: check }, 'Prüfen') : null,
+      !examMode && checked ? e('button', { className: 'btn btn-secondary', onClick: reset }, 'Nochmal') : null
+    ),
+    examMode && checked ? e('div', { style: { fontSize: '.8rem', color: 'var(--green)', marginTop: 8 } }, '✓ Beantwortet') : null,
+    !examMode && ex.tips ? e(Tips, { tips: ex.tips }) : null,
+    !examMode && checked && ex.reveal ? e(Reveal, { items: ex.reveal }) : null
+  );
+}
+
 function TextExercise(props) {
   var ex = props.ex, onDone = props.onDone, examMode = props.examMode;
 
@@ -955,7 +1030,7 @@ function ExerciseCard(props) {
     case 'match': comp = e(MatchExercise, exerciseProps); break;
     case 'check': comp = e(CheckExercise, exerciseProps); break;
     case 'calc': comp = e(CalcExercise, exerciseProps); break;
-    case 'text': comp = e(TextExercise, exerciseProps); break;
+    case 'text': comp = (ex.parts && ex.parts.length) ? e(MultiPartTextExercise, exerciseProps) : e(TextExercise, exerciseProps); break;
     case 'table': comp = e(TableExercise, exerciseProps); break;
     case 'sort': comp = e(SortExercise, exerciseProps); break;
     default: comp = e('div', { style: { color: 'var(--text2)', fontStyle: 'italic' } }, 'Unbekannter Aufgabentyp: ' + ex.type);

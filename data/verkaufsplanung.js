@@ -1568,17 +1568,19 @@ window.BOOK_DATA = {
         {
           id: 102,
           type: 'calc',
-          q: 'Fallstudie KLAFS AG (Direktverkauf): Die KLAFS AG verkauft die Sauna S1 direkt an Endkonsumenten. Kalkulationsregel: Der Deckungsbeitrag beträgt 40% des Verkaufspreises (Verkaufspreis = Kosten ÷ 0.6). Beim Direktverkauf trägt KLAFS auch Lieferung und Montage. Berechnen Sie Endkonsumentenpreis und DB. Mit «↻ Neue Zahlen» erhalten Sie eine neue Aufgabe.',
+          q: 'Fallstudie KLAFS AG (Direktverkauf): Die KLAFS AG verkauft die Sauna S1 direkt an Endkonsumenten. Beim Direktverkauf trägt KLAFS auch Lieferung und Montage. Berechnen Sie Endkonsumentenpreis und Deckungsbeitrag nach der unten genannten Kalkulationsregel. Mit «↻ Neue Zahlen» erhalten Sie eine neue Aufgabe (auch der DB-Satz ändert sich).',
           generator: function() {
             function ri(min, max) { return min + Math.floor(Math.random() * (max - min + 1)); }
             function fmt(n) { return n.toLocaleString('de-CH', {minimumFractionDigits: n % 1 ? 2 : 0}); }
+            var dbPct = ri(6, 9) * 5;              // 30-45% DB vom Verkaufspreis
+            var f = (100 - dbPct) / 100;           // Kostenanteil am Preis
             var kS = ri(1600, 1900) * 10, lS = ri(30, 34) * 100;
             var kL = ri(2100, 2400) * 10, lL = ri(33, 37) * 100;
             var costS = kS + lS, costL = kL + lL;
-            var pS = Math.round(costS / 0.6 * 20) / 20, pL = Math.round(costL / 0.6 * 20) / 20;
+            var pS = Math.round(costS / f * 20) / 20, pL = Math.round(costL / f * 20) / 20;
             var dbS = Math.round((pS - costS) * 20) / 20, dbL = Math.round((pL - costL) * 20) / 20;
             return {
-              instruction: 'S1 S: Kosten total CHF ' + fmt(kS) + ', Lieferung/Montage CHF ' + fmt(lS) + '.\nS1 L: Kosten total CHF ' + fmt(kL) + ', Lieferung/Montage CHF ' + fmt(lL) + '.',
+              instruction: 'Kalkulationsregel: Der Deckungsbeitrag beträgt ' + dbPct + '% des Verkaufspreises (Verkaufspreis = Kosten ÷ ' + f.toFixed(2) + ').\nS1 S: Kosten total CHF ' + fmt(kS) + ', Lieferung/Montage CHF ' + fmt(lS) + '.\nS1 L: Kosten total CHF ' + fmt(kL) + ', Lieferung/Montage CHF ' + fmt(lL) + '.',
               fields: [
                 {label: 'S1 S: Endkonsumentenpreis (CHF)', answer: pS, tolerance: 1},
                 {label: 'S1 S: Deckungsbeitrag (CHF)', answer: dbS, tolerance: 1},
@@ -1587,28 +1589,32 @@ window.BOOK_DATA = {
               ],
               reveal: [
                 'Schritt 1: Relevante Kosten. Beim Direktverkauf trägt KLAFS alles selbst: S1 S: ' + fmt(kS) + ' + ' + fmt(lS) + ' = CHF ' + fmt(costS) + '. S1 L: ' + fmt(kL) + ' + ' + fmt(lL) + ' = CHF ' + fmt(costL) + '. Warum? Ohne Handelspartner übernimmt KLAFS auch die Lieferung zum Kunden.',
-                'Schritt 2: Endkonsumentenpreis = Kosten ÷ 0.6. S1 S: ' + fmt(costS) + ' ÷ 0.6 = CHF ' + fmt(pS) + '. S1 L: ' + fmt(costL) + ' ÷ 0.6 = CHF ' + fmt(pL) + '. Warum durch 0.6 teilen? Weil der DB 40% des VERKAUFSPREISES ist, sind die Kosten die restlichen 60%.',
-                'Schritt 3: DB = Preis minus Kosten. S1 S: ' + fmt(pS) + ' − ' + fmt(costS) + ' = CHF ' + fmt(dbS) + '. S1 L: ' + fmt(pL) + ' − ' + fmt(costL) + ' = CHF ' + fmt(dbL) + '. Kontrolle: Der DB muss genau 40% des Preises sein.',
-                'Häufiger Fehler: 40% auf die KOSTEN aufschlagen (Kosten × 1.4). Das ist falsch, weil sich die 40% auf den Verkaufspreis beziehen, nicht auf die Kosten. Richtig: Kosten ÷ 0.6.',
+                'Schritt 2: Endkonsumentenpreis = Kosten ÷ ' + f.toFixed(2) + '. S1 S: ' + fmt(costS) + ' ÷ ' + f.toFixed(2) + ' = CHF ' + fmt(pS) + '. S1 L: ' + fmt(costL) + ' ÷ ' + f.toFixed(2) + ' = CHF ' + fmt(pL) + '. Warum durch ' + f.toFixed(2) + ' teilen? Weil der DB ' + dbPct + '% des VERKAUFSPREISES ist, sind die Kosten die restlichen ' + (100 - dbPct) + '%.',
+                'Schritt 3: DB = Preis minus Kosten. S1 S: ' + fmt(pS) + ' − ' + fmt(costS) + ' = CHF ' + fmt(dbS) + '. S1 L: ' + fmt(pL) + ' − ' + fmt(costL) + ' = CHF ' + fmt(dbL) + '. Kontrolle: Der DB muss genau ' + dbPct + '% des Preises sein.',
+                'Häufiger Fehler: ' + dbPct + '% auf die KOSTEN aufschlagen (Kosten × ' + (1 + dbPct / 100).toFixed(2) + '). Das ist falsch, weil sich die ' + dbPct + '% auf den Verkaufspreis beziehen, nicht auf die Kosten. Richtig: Kosten ÷ ' + f.toFixed(2) + '.',
                 'Prüfungstipp: Lesen Sie genau, worauf sich der Prozentsatz bezieht (vom Preis oder von den Kosten). Das ist der klassische Stolperstein bei Kalkulationsaufgaben in der Fallstudie.'
               ]
             };
           },
-          tips: ['Zuerst die relevanten Kosten bestimmen: Beim Direktverkauf gehören Lieferung und Montage zu den Kosten von KLAFS.','Wenn der DB 40% des Verkaufspreises ist, machen die Kosten 60% aus: Preis = Kosten ÷ 0.6.','DB = Verkaufspreis minus Kosten (oder direkt 40% des Preises).'],
+          tips: ['Zuerst die relevanten Kosten bestimmen: Beim Direktverkauf gehören Lieferung und Montage zu den Kosten von KLAFS.','Wenn der DB z.B. 40% des Verkaufspreises ist, machen die Kosten 60% aus: Preis = Kosten ÷ 0.6. Der Satz wechselt bei neuen Zahlen.','DB = Verkaufspreis minus Kosten (oder direkt der DB-Satz vom Preis).'],
         },
         {
           id: 103,
           type: 'calc',
-          q: 'Fallstudie KLAFS AG (Indirekter Verkauf): Die Sauna S1 wird über Handelspartner verkauft. KLAFS kalkuliert den Herstellerpreis mit 40% DB vom Verkaufspreis, aber OHNE Lieferung und Montage (diese übernimmt der Handelspartner). Der Handelspartner schlägt auf den Herstellerpreis 30% Handelsmarge auf. Berechnen Sie Herstellerpreis, Endkonsumentenpreis und DB von KLAFS. Mit «↻ Neue Zahlen» erhalten Sie eine neue Aufgabe.',
+          q: 'Fallstudie KLAFS AG (Indirekter Verkauf): Die Sauna S1 wird über Handelspartner verkauft. KLAFS kalkuliert den Herstellerpreis OHNE Lieferung und Montage (diese übernimmt der Handelspartner), der Handelspartner schlägt auf den Herstellerpreis seine Marge auf. Berechnen Sie Herstellerpreis, Endkonsumentenpreis und DB von KLAFS nach den unten genannten Vorgaben. Mit «↻ Neue Zahlen» erhalten Sie eine neue Aufgabe (auch DB-Satz und Handelsmarge ändern sich).',
           generator: function() {
             function ri(min, max) { return min + Math.floor(Math.random() * (max - min + 1)); }
             function fmt(n) { return n.toLocaleString('de-CH', {minimumFractionDigits: n % 1 ? 2 : 0}); }
+            var dbPct = ri(6, 9) * 5;              // 30-45% DB vom Verkaufspreis
+            var f = (100 - dbPct) / 100;           // Kostenanteil am Preis
+            var marge = ri(5, 8) * 5;              // 25-40% Handelsmarge
+            var m = 1 + marge / 100;
             var kS = ri(1600, 1900) * 10, kL = ri(2100, 2400) * 10;
-            var hS = Math.round(kS / 0.6 * 20) / 20, hL = Math.round(kL / 0.6 * 20) / 20;
-            var eS = Math.round(hS * 1.3 * 20) / 20, eL = Math.round(hL * 1.3 * 20) / 20;
+            var hS = Math.round(kS / f * 20) / 20, hL = Math.round(kL / f * 20) / 20;
+            var eS = Math.round(hS * m * 20) / 20, eL = Math.round(hL * m * 20) / 20;
             var dbS = Math.round((hS - kS) * 20) / 20, dbL = Math.round((hL - kL) * 20) / 20;
             return {
-              instruction: 'S1 S: Kosten total CHF ' + fmt(kS) + '. S1 L: Kosten total CHF ' + fmt(kL) + '.',
+              instruction: 'Kalkulationsregeln: Der Deckungsbeitrag von KLAFS beträgt ' + dbPct + '% des Herstellerpreises (Herstellerpreis = Kosten ÷ ' + f.toFixed(2) + '). Der Handelspartner schlägt ' + marge + '% Handelsmarge auf den Herstellerpreis auf.\nS1 S: Kosten total CHF ' + fmt(kS) + '. S1 L: Kosten total CHF ' + fmt(kL) + '.',
               fields: [
                 {label: 'S1 S: Herstellerpreis (CHF)', answer: hS, tolerance: 1},
                 {label: 'S1 S: Endkonsumentenpreis (CHF)', answer: eS, tolerance: 1},
@@ -1618,16 +1624,17 @@ window.BOOK_DATA = {
                 {label: 'S1 L: DB KLAFS (CHF)', answer: dbL, tolerance: 1}
               ],
               reveal: [
-                'Schritt 1: Herstellerpreis = Kosten total ÷ 0.6. S1 S: ' + fmt(kS) + ' ÷ 0.6 = CHF ' + fmt(hS) + '. S1 L: ' + fmt(kL) + ' ÷ 0.6 = CHF ' + fmt(hL) + '. Warum ohne Lieferung? Der Handelspartner liefert und montiert selbst, diese Kosten fallen bei KLAFS nicht an.',
-                'Schritt 2: Endkonsumentenpreis = Herstellerpreis × 1.3. S1 S: ' + fmt(hS) + ' × 1.3 = CHF ' + fmt(eS) + '. S1 L: ' + fmt(hL) + ' × 1.3 = CHF ' + fmt(eL) + '. Die 30% Marge sind der Verdienst des Handelspartners für Verkauf, Lieferung und Montage.',
-                'Schritt 3: DB KLAFS = Herstellerpreis − Kosten. S1 S: ' + fmt(hS) + ' − ' + fmt(kS) + ' = CHF ' + fmt(dbS) + '. S1 L: ' + fmt(hL) + ' − ' + fmt(kL) + ' = CHF ' + fmt(dbL) + '. Warum ist der DB tiefer als beim Direktverkauf? KLAFS verdient nur am Herstellerpreis, die Handelsmarge geht an den Partner.',
+                'Schritt 1: Herstellerpreis = Kosten total ÷ ' + f.toFixed(2) + '. S1 S: ' + fmt(kS) + ' ÷ ' + f.toFixed(2) + ' = CHF ' + fmt(hS) + '. S1 L: ' + fmt(kL) + ' ÷ ' + f.toFixed(2) + ' = CHF ' + fmt(hL) + '. Warum ohne Lieferung? Der Handelspartner liefert und montiert selbst, diese Kosten fallen bei KLAFS nicht an. Warum ÷ ' + f.toFixed(2) + '? Bei ' + dbPct + '% DB machen die Kosten die restlichen ' + (100 - dbPct) + '% aus.',
+                'Schritt 2: Endkonsumentenpreis = Herstellerpreis × ' + m.toFixed(2) + '. S1 S: ' + fmt(hS) + ' × ' + m.toFixed(2) + ' = CHF ' + fmt(eS) + '. S1 L: ' + fmt(hL) + ' × ' + m.toFixed(2) + ' = CHF ' + fmt(eL) + '. Die ' + marge + '% Marge sind der Verdienst des Handelspartners für Verkauf, Lieferung und Montage.',
+                'Schritt 3: DB KLAFS = Herstellerpreis − Kosten. S1 S: ' + fmt(hS) + ' − ' + fmt(kS) + ' = CHF ' + fmt(dbS) + '. S1 L: ' + fmt(hL) + ' − ' + fmt(kL) + ' = CHF ' + fmt(dbL) + '. Kontrolle: Der DB muss ' + dbPct + '% des Herstellerpreises sein.',
+                'Achtung Aufschlag vs. Marge: Hier wird auf den Herstellerpreis aufgeschlagen (× ' + m.toFixed(2) + '). Wäre die ' + marge + '% als Marge VOM Endkonsumentenpreis definiert, müssten Sie ÷ ' + ((100 - marge) / 100).toFixed(2) + ' rechnen. Lesen Sie in der Fallstudie genau, worauf sich der Prozentsatz bezieht.',
                 'Häufiger Fehler: Den DB von KLAFS auf den Endkonsumentenpreis beziehen. Falsch: KLAFS erhält nur den Herstellerpreis, alles darüber gehört dem Handelspartner.',
-                'Vergleich der Varianten: Direkt erzielt KLAFS pro Sauna einen höheren DB, trägt dafür aber alle Vertriebskosten und erreicht weniger Kunden. Empfehlung in der Fallstudie: DB pro Stück gegen Absatzmenge/Reichweite abwägen und rechnerisch begründen.',
+                'Vergleich der Varianten: Direkt erzielt KLAFS pro Sauna einen höheren DB, trägt dafür aber alle Vertriebskosten und erreicht weniger Kunden. Empfehlung in der Fallstudie: DB pro Stück gegen Absatzmenge und Reichweite abwägen und rechnerisch begründen.',
                 'Prüfungstipp: Bei Vertriebsvarianten-Aufgaben immer zwei getrennte Kalkulationen aufstellen und am Schluss die DB vergleichen.'
               ]
             };
           },
-          tips: ['Beim indirekten Verkauf kalkuliert KLAFS ohne Lieferung/Montage: nur die Kosten total zählen.','Herstellerpreis = Kosten total ÷ 0.6, danach schlägt der Handelspartner 30% auf.','Der DB von KLAFS bezieht sich auf den Herstellerpreis, nicht auf den Endkonsumentenpreis.'],
+          tips: ['Beim indirekten Verkauf kalkuliert KLAFS ohne Lieferung/Montage: nur die Kosten total zählen.','Herstellerpreis = Kosten total ÷ Kostenanteil, danach schlägt der Handelspartner seine Marge auf.','Der DB von KLAFS bezieht sich auf den Herstellerpreis, nicht auf den Endkonsumentenpreis.'],
         },
         {
           id: 66,
