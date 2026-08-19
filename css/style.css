@@ -7,18 +7,19 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --bg:#ebebef;--nav:#1a1a1a;--card:#ffffff;--text:#18181b;--text2:#64648c;
-  --accent:#5c3d1e;--green:#059669;--red:#dc2626;--amber:#b45309;
+  --accent:#2f6675;--green:#059669;--red:#dc2626;--amber:#b45309;
   --border:#d4d4da;--card-shadow:0 1px 3px rgba(0,0,0,0.06),0 4px 12px rgba(0,0,0,0.04);
   --input-bg:#f6f6f8;--hover:#f0f0f4;
-  --hero-bg:linear-gradient(135deg,#3d2e1e,#1a1310,#352818);--hero-text:#ffffff;--hero-sub:#d4c8b8;
+  /* Palette Tidal Haze: #DAEFF6 #B3D9E6 #418091 #00172D */
+  --hero-bg:linear-gradient(180deg,#418091,#215064 45%,#00172D);--hero-text:#ffffff;--hero-sub:#b3d9e6;
   --ease-out:cubic-bezier(0.23,1,0.32,1)
 }
 .dark{
   --bg:#111113;--nav:#fafafa;--card:#1c1c1e;--text:#e4e4e7;--text2:#a1a1aa;
-  --accent:#c9a06f;--green:#34d399;--red:#f87171;--amber:#fbbf24;
+  --accent:#8cc3d6;--green:#34d399;--red:#f87171;--amber:#fbbf24;
   --border:#27272a;--card-shadow:0 1px 3px rgba(0,0,0,0.3);
   --input-bg:#18181b;--hover:#27272a;
-  --hero-bg:linear-gradient(135deg,#352818,#120e0a,#2a1f14);--hero-text:#ffffff;--hero-sub:#d4c8b8
+  --hero-bg:linear-gradient(180deg,#2f6675,#123a52 45%,#000d1a);--hero-text:#ffffff;--hero-sub:#b3d9e6
 }
 body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;transition:background .3s,color .3s;-webkit-font-smoothing:antialiased}
 input,select,button,textarea{font-family:'Inter',sans-serif}
@@ -30,21 +31,21 @@ input,select,button,textarea{font-family:'Inter',sans-serif}
 @keyframes timerPulse{0%,100%{opacity:1}50%{opacity:.5}}
 
 /* ─── Navigation ───────────────────────────────────────── */
-.nav{background:linear-gradient(135deg,#2a1f14,#1a1310,#231a10);padding:10px 20px;position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.06);flex-wrap:wrap;gap:8px;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.nav{background:linear-gradient(135deg,#215064,#00172D,#123a52);padding:10px 20px;position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.06);flex-wrap:wrap;gap:8px;box-shadow:0 2px 8px rgba(0,0,0,.3)}
 .nav-title{color:#fff;font-size:1.05rem;font-weight:700;letter-spacing:-.01em}
-.nav-sub{color:#d4c8b8;font-size:.72rem;margin-top:1px}
+.nav-sub{color:#b3d9e6;font-size:.72rem;margin-top:1px}
 .nav-right{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.nav-btn{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);color:#d4c8b8;padding:6px 11px;border-radius:6px;cursor:pointer;font-size:.78rem;display:flex;align-items:center;gap:5px;transition:all .15s;font-weight:500}
+.nav-btn{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);color:#b3d9e6;padding:6px 11px;border-radius:6px;cursor:pointer;font-size:.78rem;display:flex;align-items:center;gap:5px;transition:all .15s;font-weight:500}
 .nav-btn:hover{background:rgba(255,255,255,.14)}
 .btn-back{background:var(--hover);border:1px solid var(--border);color:var(--text);padding:6px 11px;border-radius:6px;cursor:pointer;font-size:.78rem;display:flex;align-items:center;gap:5px;transition:all .15s;font-weight:500}
 .btn-back:hover{background:var(--border)}
-.nav .btn-back{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);color:#d4c8b8}
+.nav .btn-back{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);color:#b3d9e6}
 .nav .btn-back:hover{background:rgba(255,255,255,.14)}
 .tool-bar{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto}
-.tool-btn{padding:5px 10px;border-radius:6px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.08);color:#d4c8b8;font-size:.72rem;font-weight:600;cursor:pointer;transition:all .15s;white-space:nowrap}
+.tool-btn{padding:5px 10px;border-radius:6px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.08);color:#b3d9e6;font-size:.72rem;font-weight:600;cursor:pointer;transition:all .15s;white-space:nowrap}
 .tool-btn:hover{background:rgba(255,255,255,.14)}
 .tool-btn.active{background:rgba(255,255,255,.18);color:#fff;border-color:rgba(255,255,255,.25)}
-.timer-display{color:#d4c8b8;font-size:.9rem;font-weight:500;font-variant-numeric:tabular-nums;cursor:pointer;display:flex;align-items:center;gap:8px}
+.timer-display{color:#b3d9e6;font-size:.9rem;font-weight:500;font-variant-numeric:tabular-nums;cursor:pointer;display:flex;align-items:center;gap:8px}
 
 /* ─── Container ────────────────────────────────────────── */
 .container{max-width:900px;margin:0 auto;padding:24px 16px 80px}
@@ -84,16 +85,16 @@ input,select,button,textarea{font-family:'Inter',sans-serif}
 .ch-arrow{font-size:1.2rem;color:var(--text2);transition:transform .3s;margin-left:16px}
 .ch-arrow.open{transform:rotate(180deg)}
 .progress-bar{height:3px;background:var(--border);border-radius:2px;margin-top:10px;overflow:hidden;max-width:300px}
-.progress-fill{height:100%;background:linear-gradient(90deg,var(--accent),#8b6a3e);border-radius:2px;transition:width .5s ease}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--accent),#418091);border-radius:2px;transition:width .5s ease}
 .ch-exam-badge{display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:8px;font-size:.72rem;font-weight:600;margin-left:8px}
 .ch-exam-badge.pass{background:rgba(5,150,105,.1);color:var(--green)}
 .ch-exam-badge.fail{background:rgba(220,38,38,.1);color:var(--red)}
 .exam-best-inline{font-size:.7rem;color:var(--text2);margin-left:8px;font-weight:400}
 
 /* ─── Mode Tabs (3-Modi Pill Style) ────────────────────── */
-.mode-tabs{display:flex;gap:8px;padding:12px 16px;background:linear-gradient(135deg,#231a10,#1a1310);border-bottom:1px solid rgba(255,255,255,.06)}
-.mode-tab{padding:9px 18px;border-radius:8px;border:2px solid rgba(255,255,255,.1);background:rgba(255,255,255,.05);color:#a89880;font-size:.82rem;font-weight:600;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:7px;white-space:nowrap}
-.mode-tab:hover{border-color:rgba(255,255,255,.2);color:#d4c8b8}
+.mode-tabs{display:flex;gap:8px;padding:12px 16px;background:linear-gradient(135deg,#123a52,#00172D);border-bottom:1px solid rgba(255,255,255,.06)}
+.mode-tab{padding:9px 18px;border-radius:8px;border:2px solid rgba(255,255,255,.1);background:rgba(255,255,255,.05);color:#9dc4d2;font-size:.82rem;font-weight:600;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:7px;white-space:nowrap}
+.mode-tab:hover{border-color:rgba(255,255,255,.2);color:#b3d9e6}
 .mode-tab.active-lernen{background:rgba(139,92,246,.15);border-color:#8b5cf6;color:#c4b5fd}
 .dark .mode-tab.active-lernen{background:rgba(139,92,246,.2);color:#c4b5fd}
 .mode-tab.active-ueben{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.25);color:#fff}
@@ -324,7 +325,7 @@ input,select,button,textarea{font-family:'Inter',sans-serif}
 @media (prefers-reduced-motion:reduce){.fc-card-inner{transition:none}.fc-modal,.fc-backdrop{animation:none}}
 
 /* ─── Prüfungs-Spickzettel ──────────────────────────────── */
-.cs-banner{margin:0 0 16px;padding:14px 18px;border-radius:8px;background:linear-gradient(135deg,#3d2e1e,#1a1310,#352818);cursor:pointer;display:flex;align-items:center;gap:12px;color:#fff;border:1px solid rgba(255,255,255,.08);transition:transform 150ms var(--ease-out)}
+.cs-banner{margin:0 0 16px;padding:14px 18px;border-radius:8px;background:linear-gradient(180deg,#418091,#215064 45%,#00172D);cursor:pointer;display:flex;align-items:center;gap:12px;color:#fff;border:1px solid rgba(255,255,255,.08);transition:transform 150ms var(--ease-out)}
 .cs-banner:active{transform:scale(.99)}
 .cs-modal{max-width:760px;max-height:86vh}
 .cs-count{margin-left:auto;margin-right:10px;font-size:.75rem;color:var(--text2);font-weight:600}
@@ -544,7 +545,7 @@ input,select,button,textarea{font-family:'Inter',sans-serif}
 
 /* ─── Rechnungswesen-Trainer ────────────────────────────── */
 .rw-wrap{max-width:1120px;margin:0 auto;padding:22px 20px 70px}
-.rw-nav-count{color:#d4c8b8;font-size:.72rem;font-weight:600;font-variant-numeric:tabular-nums}
+.rw-nav-count{color:#b3d9e6;font-size:.72rem;font-weight:600;font-variant-numeric:tabular-nums}
 
 .rw-levels{display:flex;gap:8px;margin-bottom:22px;flex-wrap:wrap}
 .rw-level{padding:7px 13px;border-radius:8px;border:1px solid var(--border);background:var(--card);color:var(--text2);font-size:.75rem;font-weight:600;cursor:pointer;transition:color .18s var(--ease-out),box-shadow .18s var(--ease-out)}

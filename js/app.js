@@ -2821,7 +2821,7 @@ function initApp(bookData) {
           });
           return e('div', {
             onClick: function() { setShowCalcTrainer(true); },
-            style: { margin: '0 0 16px', padding: '14px 18px', borderRadius: 8, background: 'linear-gradient(135deg, #3d2e1e, #1a1310, #352818)', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 12, transition: 'transform .15s', color: '#fff', border: '1px solid rgba(255,255,255,.08)' }
+            style: { margin: '0 0 16px', padding: '14px 18px', borderRadius: 8, background: 'linear-gradient(135deg, #418091, #00172D, #215064)', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 12, transition: 'transform .15s', color: '#fff', border: '1px solid rgba(255,255,255,.08)' }
           },
             e('div', { style: { flex: 1 } },
               e('div', { style: { fontWeight: 700, fontSize: '.95rem' } }, 'Berechnungs-Trainer'),
@@ -2843,7 +2843,7 @@ function initApp(bookData) {
           try { var bsProg = JSON.parse(localStorage.getItem('lp-bs-' + bookData.id)) || {}; bsDone = Object.keys(bsProg).length; } catch(x) {}
           return e('div', {
             onClick: function() { setShowBSTrainer(true); },
-            style: { margin: '0 0 16px', padding: '14px 18px', borderRadius: 8, background: 'linear-gradient(135deg, #352818, #1a1310, #2a1f14)', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 12, color: '#fff', border: '1px solid rgba(255,255,255,.08)' }
+            style: { margin: '0 0 16px', padding: '14px 18px', borderRadius: 8, background: 'linear-gradient(135deg, #215064, #00172D, #123a52)', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 12, color: '#fff', border: '1px solid rgba(255,255,255,.08)' }
           },
             e('div', { style: { flex: 1 } },
               e('div', { style: { fontWeight: 700, fontSize: '.95rem' } }, 'Buchungss\u00e4tze-Trainer'),
